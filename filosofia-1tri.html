@@ -483,149 +483,260 @@
     <div class="section-num" style="background:var(--primary)">✏</div>
     <div>
       <h2 class="section-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700">Exercícios</h2>
-      <p style="font-size:0.82rem;color:var(--text-light);margin-top:2px">Clique em "Ver resposta" para revelar</p>
+      <p style="font-size:0.82rem;color:var(--text-light);margin-top:2px">Clique em uma alternativa para ver se acertou</p>
     </div>
   </div>
 
   <style>
-    .ex { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-    .ex-q { padding: 16px 22px; font-size: 0.93rem; font-weight: 600; display: flex; gap: 12px; align-items: flex-start; }
-    .ex-num { background: var(--secondary); color: #1e1400; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    details summary { list-style: none; cursor: pointer; padding: 8px 22px 10px; background: #fdf5e6; border-top: 1px solid var(--border); font-size: 0.82rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-    details summary::before { content: '▸'; color: var(--secondary); transition: transform 0.2s; }
-    details[open] summary::before { transform: rotate(90deg); }
-    details summary::-webkit-details-marker { display: none; }
-    .ex-ans { padding: 14px 22px 16px; background: #fdf8ef; font-size: 0.89rem; line-height: 1.7; border-top: 1px solid var(--border); }
-    .ex-ans strong { color: var(--primary); }
+    .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+    .quiz-q { padding: 16px 22px 12px; font-size: 0.93rem; font-weight: 600; display: flex; gap: 12px; align-items: flex-start; }
+    .quiz-num { background: var(--secondary); color: #1e1400; border-radius: 50%; min-width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .quiz-opts { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 7px; }
+    .opt { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--border); cursor: pointer; font-size: 0.88rem; line-height: 1.5; transition: all 0.18s; background: white; }
+    .opt:hover:not(.disabled) { border-color: var(--secondary); background: #fdf8ef; }
+    .opt-letter { font-weight: 700; color: var(--secondary); flex-shrink: 0; min-width: 18px; }
+    .opt.correct { border-color: #166534; background: #f0fdf4; }
+    .opt.correct .opt-letter { color: #166534; }
+    .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
+    .opt.wrong .opt-letter { color: #9c1c1c; }
+    .opt.disabled { cursor: default; pointer-events: none; }
+    .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
+    .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
+    .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+    .score-label { font-size: 0.82rem; color: var(--text-light); }
+    .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+    .btn-reset:hover { background: var(--c2); }
   </style>
 
+  <div class="score-bar">
+    <div>
+      <div class="score-val"><span id="score">0</span>/<span id="total">16</span></div>
+      <div class="score-label">acertos · clique nas alternativas para responder</div>
+    </div>
+    <button class="btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
+
+  <script>
+    const ANSWERS = {q1:'b',q2:'c',q3:'b',q4:'b',q5:'c',q6:'b',q7:'b',q8:'c',q9:'b',q10:'b',q11:'c',q12:'c',q13:'c',q14:'c',q15:'b',q16:'c'};
+    let score = 0, answered = 0;
+    function pick(qid, letter, el) {
+      const opts = el.closest('.quiz-opts').querySelectorAll('.opt');
+      opts.forEach(o => o.classList.add('disabled'));
+      const fb = document.getElementById('fb-'+qid);
+      if (letter === ANSWERS[qid]) {
+        el.classList.add('correct'); score++; answered++;
+        document.getElementById('score').textContent = score;
+        fb.className = 'quiz-feedback show ok';
+        fb.innerHTML = '✅ <strong>Correto!</strong> ' + fb.dataset.ok;
+      } else {
+        el.classList.add('wrong'); answered++;
+        opts.forEach(o => { if(o.dataset.l === ANSWERS[qid]) o.classList.add('reveal-correct'); });
+        fb.className = 'quiz-feedback show err';
+        fb.innerHTML = '❌ <strong>Incorreto.</strong> ' + fb.dataset.err;
+      }
+    }
+    function resetQuiz() {
+      score = 0; answered = 0;
+      document.getElementById('score').textContent = 0;
+      document.querySelectorAll('.opt').forEach(o => o.className = 'opt');
+      document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+    }
+  </script>
+
   <!-- Q1 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">1</span><span>Qual é o objeto de estudo da Ética? O que ela investiga?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">A <strong>Ética</strong> é o estudo filosófico dos <strong>valores que guiam uma sociedade ou um indivíduo</strong>. Ela investiga o que é <strong>certo e errado</strong>, <strong>justo e injusto</strong>, <strong>bem ou mal</strong>.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">1</span><span>O que a Ética estuda?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> As leis naturais e científicas do universo</div>
+      <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> Os valores que guiam uma sociedade ou indivíduo — o que é certo/errado, justo/injusto, bem/mal</div>
+      <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> As normas jurídicas e leis do Estado</div>
+      <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> O comportamento instintivo dos animais</div>
+    </div>
+    <div id="fb-q1" class="quiz-feedback" data-ok="Ética é o estudo filosófico dos valores que guiam uma sociedade ou indivíduo." data-err="A Ética é o estudo filosófico dos valores (certo/errado, justo/injusto, bem/mal) — não das leis naturais ou jurídicas."></div>
   </div>
 
   <!-- Q2 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">2</span><span>Qual é a diferença entre a visão de Platão e a de Nietzsche sobre os valores éticos?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">Para <strong>Platão</strong>, os valores éticos são <strong>imutáveis e universais</strong>: existem verdades morais absolutas válidas para todos os seres humanos em todos os tempos e lugares. Para <strong>Nietzsche</strong>, os valores são <strong>relativos</strong>: não há verdades morais absolutas — o que é certo ou errado varia conforme cultura, tempo e contexto histórico.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">2</span><span>Para Platão, como são os valores éticos?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> Relativos e variam conforme a cultura e o tempo</div>
+      <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> Construídos ao longo da vida pela experiência (empirismo)</div>
+      <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> Imutáveis e universais — existem verdades morais absolutas válidas para todos</div>
+      <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> Determinados pelo Estado e suas leis</div>
+    </div>
+    <div id="fb-q2" class="quiz-feedback" data-ok="Para Platão, os valores éticos são imutáveis e universais — residem no Mundo Inteligível." data-err="Quem defende valores relativos é Nietzsche. Platão acredita em verdades morais absolutas e universais."></div>
   </div>
 
   <!-- Q3 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">3</span><span>Qual é a diferença entre Ética e Moral?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans"><strong>Ética</strong> é a <strong>teoria</strong> — o estudo filosófico dos valores. <strong>Moral</strong> é a <strong>prática</strong> desses valores nas ações concretas do cotidiano. A relação é: <strong>Ética → Moral → Ação</strong>.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">3</span><span>Qual é a diferença entre Ética e Moral?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> São sinônimos — significam a mesma coisa</div>
+      <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> Ética é a teoria (estudo dos valores); Moral é a prática desses valores nas ações do cotidiano</div>
+      <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> Moral é a teoria; Ética é a prática</div>
+      <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> Ética estuda o comportamento; Moral estuda os valores</div>
+    </div>
+    <div id="fb-q3" class="quiz-feedback" data-ok="Ética → teoria (estudo dos valores). Moral → prática (aplicação dos valores nas ações)." data-err="Ética é a teoria e Moral é a prática — não o contrário, e não são sinônimos."></div>
   </div>
 
   <!-- Q4 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">4</span><span>O que é o "agente moral" e o que nos torna agentes morais?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">O <strong>agente moral</strong> é o ser humano — aquele que pratica ações morais. O que nos torna agentes morais é possuirmos <strong>razão e discurso (logos)</strong>: a capacidade de pensar, refletir e se comunicar racionalmente.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">4</span><span>O que torna o ser humano um "agente moral"?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> A capacidade de sentir emoções e dor</div>
+      <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> Possuir razão e discurso (logos) — a capacidade de deliberar e agir conscientemente</div>
+      <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> Fazer parte de uma sociedade organizada</div>
+      <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> Ter mais de 18 anos e plena consciência civil</div>
+    </div>
+    <div id="fb-q4" class="quiz-feedback" data-ok="O logos (razão e discurso) é o que nos diferencia e nos torna agentes morais capazes de deliberar." data-err="O que nos torna agentes morais é o logos — a razão e o discurso — que nos permite deliberar conscientemente."></div>
   </div>
 
   <!-- Q5 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">5</span><span>O que significa "deliberar"? Por que a deliberação está ligada à responsabilização?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans"><strong>Deliberar</strong> é o ato de <strong>refletir e tomar escolhas conscientes e voluntárias</strong> dentre opções. Como a deliberação é voluntária, o agente que delibera e age torna-se <strong>responsável</strong> pela sua escolha — podendo receber mérito (positivo) ou culpa (negativo). Só somos responsabilizados pelo que escolhemos livremente.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">5</span><span>O que significa "deliberar"?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> Obedecer ordens sem questionar</div>
+      <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> Agir por instinto e impulso</div>
+      <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> Refletir racionalmente e tomar escolhas conscientes e voluntárias dentre opções</div>
+      <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> Seguir as regras da sociedade sem reflexão</div>
+    </div>
+    <div id="fb-q5" class="quiz-feedback" data-ok="Deliberar é refletir e escolher conscientemente — por isso gera responsabilização." data-err="Deliberar é exatamente o oposto de agir por instinto ou obedecer cegamente: é refletir e escolher voluntariamente."></div>
   </div>
 
   <!-- Q6 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">6</span><span>Por que crianças muito pequenas e animais são considerados <em>amorais</em> e não <em>imorais</em>?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">Porque não possuem <strong>logos</strong> (razão e discurso) desenvolvido — não são capazes de deliberar conscientemente. Sem consciência moral, as ações deles estão <strong>fora do campo moral</strong>: não há responsabilização. Por isso são amorais, não imorais.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">6</span><span>Por que crianças pequenas e animais são <em>amorais</em> e não <em>imorais</em>?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> Porque praticam ações consideradas erradas pela sociedade</div>
+      <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> Porque não possuem logos desenvolvido e não são capazes de deliberar conscientemente</div>
+      <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> Porque são naturalmente imorais por natureza biológica</div>
+      <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> Porque não conhecem as leis e normas sociais</div>
+    </div>
+    <div id="fb-q6" class="quiz-feedback" data-ok="Sem logos desenvolvido, não há deliberação → não há campo moral → não há responsabilização → são amorais." data-err="Sem logos (razão) desenvolvido, não há deliberação consciente. Quem não pode deliberar age fora do campo moral — é amoral, não imoral."></div>
   </div>
 
   <!-- Q7 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">7</span><span>Defina ação <em>imoral</em> e dê um exemplo concreto.</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">Ação <strong>imoral</strong> é aquela <strong>contrária aos valores éticos estabelecidos</strong>. O agente <em>conhece</em> os valores, mas escolhe transgredi-los conscientemente. <em>Exemplo: roubar sabendo que é errado.</em> Como há consciência e escolha voluntária, há responsabilização negativa (culpa/punição).</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">7</span><span>O que caracteriza uma ação <em>imoral</em>?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> Ação praticada por quem não tem consciência moral</div>
+      <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> Ação contrária aos valores éticos, praticada conscientemente por quem os conhece</div>
+      <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> Ação praticada por impulso ou instinto</div>
+      <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> Ação neutra que está fora do julgamento moral</div>
+    </div>
+    <div id="fb-q7" class="quiz-feedback" data-ok="Imoral = conhece os valores + escolhe conscientemente transgredi-los → gera responsabilização negativa." data-err="Ação imoral exige consciência: o agente conhece os valores e deliberadamente os transgride. Sem consciência, a ação é amoral."></div>
   </div>
 
   <!-- Q8 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">8</span><span>Qual é a principal distinção entre ação <em>imoral</em> e ação <em>amoral</em>?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans"><strong>Imoral ≠ Amoral.</strong> O agente <strong>imoral</strong> tem consciência moral, conhece os valores e os transgride deliberadamente — há responsabilização. O agente <strong>amoral</strong> age fora do campo moral porque não possui (ou não desenvolveu) consciência moral — não há responsabilização.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">8</span><span>Qual é a principal diferença entre ação <em>imoral</em> e <em>amoral</em>?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> São a mesma coisa — ambas violam os valores éticos</div>
+      <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> O agente imoral não tem consciência; o amoral age contra os valores</div>
+      <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> O imoral conhece os valores e os transgride (há responsabilização); o amoral age fora do campo moral (sem responsabilização)</div>
+      <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> Amoral é sempre pior do que imoral</div>
+    </div>
+    <div id="fb-q8" class="quiz-feedback" data-ok="Imoral: tem consciência, transgride voluntariamente → responsabilizado. Amoral: age fora do campo moral → sem responsabilização." data-err="Imoral ≠ Amoral. O imoral tem consciência moral e transgride. O amoral age fora do campo moral por não ter consciência desenvolvida."></div>
   </div>
 
   <!-- Q9 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">9</span><span>Complete a sequência e explique cada etapa: Razão (logos) → ___ → Escolha voluntária → ___</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans"><strong>Razão (logos) → Deliberação → Escolha voluntária → Responsabilização.</strong><br>
-      A razão nos permite <strong>deliberar</strong> (refletir racionalmente). A deliberação leva a uma <strong>escolha voluntária</strong> e consciente. Por ser voluntária, gera <strong>responsabilização</strong> — o agente responde pelo que fez, positiva ou negativamente.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">9</span><span>Para Platão, onde residem os conceitos universais de justiça, bem, beleza e verdade?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> No Mundo Sensível, percebido pelos sentidos</div>
+      <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> Na mente dos filósofos que os inventam</div>
+      <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> No Mundo Inteligível — dimensão imaterial e universal, além da percepção física</div>
+      <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> Na tradição cultural de cada povo</div>
+    </div>
+    <div id="fb-q9" class="quiz-feedback" data-ok="O Mundo Inteligível é a dimensão imaterial onde residem os conceitos universais e absolutos de Platão." data-err="Para Platão, os conceitos universais (bem, justiça, verdade) existem no Mundo Inteligível — imaterial, além dos sentidos."></div>
   </div>
 
   <!-- Q10 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">10</span><span>João, adulto consciente, mente para um amigo para obter vantagem pessoal. Classifique a ação e justifique usando os conceitos estudados.</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">A ação de João é <strong>imoral</strong>. Ele é um adulto com <strong>logos</strong> (razão desenvolvida), portanto é um agente moral pleno. Ele conhece o valor da honestidade mas, ao <strong>deliberar</strong>, escolhe <em>voluntariamente</em> transgredi-lo em benefício próprio. Por ser uma escolha consciente e voluntária, João é <strong>responsabilizado negativamente</strong> — sujeito a culpa e reprovação moral.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">10</span><span>O que é a teoria da Reminiscência de Platão?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> O esquecimento dos valores éticos com o passar do tempo</div>
+      <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> A alma contata os conceitos universais no mundo inteligível após a morte e os "lembra" na vida, pela razão e filosofia</div>
+      <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> A aprendizagem gradual dos valores através da experiência vivida</div>
+      <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> A transmissão dos valores de pais para filhos</div>
+    </div>
+    <div id="fb-q10" class="quiz-feedback" data-ok="Morte → alma contata episteme no mundo inteligível → reencarna com os conceitos instalados → os 'lembra' pela razão." data-err="Reminiscência é o processo pelo qual a alma, após morrer e contatar o mundo inteligível, reencarna com os conceitos éticos e os 'lembra' pela filosofia e razão."></div>
   </div>
 
   <!-- Q11 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">11</span><span>Qual é a diferença entre o Mundo Inteligível e o Mundo Sensível para Platão?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">O <strong>Mundo Inteligível</strong> é a dimensão imaterial da realidade onde residem os conceitos <strong>universais e absolutos</strong> (justiça, bem, beleza, verdade) — acessíveis pela razão. O <strong>Mundo Sensível</strong> é o mundo físico percebido pelos sentidos, uma cópia imperfeita e mutável do mundo inteligível.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">11</span><span>O que é Eudaimonia para Aristóteles?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> O prazer imediato dos sentidos e do corpo</div>
+      <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> A obediência às leis divinas e à autoridade</div>
+      <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> O bem maior de todos (sumo bem) — a plena realização e felicidade, atingida pelo desenvolvimento de virtudes</div>
+      <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> A riqueza material e o sucesso social</div>
+    </div>
+    <div id="fb-q11" class="quiz-feedback" data-ok="Eudaimonia = sumo bem = plena realização. Só é atingida pelo desenvolvimento prático das virtudes." data-err="Eudaimonia não é prazer imediato nem riqueza. É o sumo bem — a plena realização humana, alcançada pela prática das virtudes."></div>
   </div>
 
   <!-- Q12 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">12</span><span>O que é a teoria da Reminiscência de Platão e como ela explica o conhecimento ético?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">A <strong>reminiscência</strong> afirma que após a morte, a alma tem contato com a <strong>episteme</strong> (verdades universais) no mundo inteligível. Quando reencarna, já traz esses conceitos éticos instalados. Na vida, ao usarmos a razão e a filosofia, <strong>lembramos</strong> (reminiscência) esses conceitos — por isso para Platão a ética é inseparável da razão filosófica.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">12</span><span>Como Aristóteles via a origem dos valores éticos (diferente de Platão)?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> São inatos — vêm do mundo inteligível e são lembrados pela alma</div>
+      <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> São revelados pelos deuses através da razão divina</div>
+      <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> São construídos ao longo da vida pela prática e experiência (empirismo)</div>
+      <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> São impostos pela sociedade e pelo Estado</div>
+    </div>
+    <div id="fb-q12" class="quiz-feedback" data-ok="Aristóteles (empirismo): valores são construídos na prática. Platão (inatismo): valores são lembrados pela alma." data-err="Aristóteles se opõe a Platão: os valores éticos não são inatos — são construídos ao longo da vida pela experiência prática (empirismo)."></div>
   </div>
 
   <!-- Q13 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">13</span><span>O que é Eudaimonia e como ela se diferencia da visão de Platão sobre a ética?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans"><strong>Eudaimonia</strong> é o sumo bem de Aristóteles — a plena felicidade e realização humana, atingida pelo desenvolvimento de virtudes. A diferença central: Platão acredita que os valores éticos são <strong>inatos</strong> (reminiscência), enquanto Aristóteles acredita que são <strong>construídos ao longo da vida</strong> pela prática (empirismo).</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">13</span><span>O que a Regra de Ouro (Meio-termo) de Aristóteles afirma?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> A virtude está no extremo máximo de uma qualidade</div>
+      <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> A virtude é a total ausência de vícios na vida do indivíduo</div>
+      <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> A virtude é o equilíbrio (meio-termo) entre dois vícios — um por falta e outro por excesso</div>
+      <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> A virtude é definida pela maioria da sociedade</div>
+    </div>
+    <div id="fb-q13" class="quiz-feedback" data-ok="Vício (falta) ——— Virtude (equilíbrio) ——— Vício (excesso). Ex: Covardia — Coragem — Imprudência." data-err="A virtude não está nos extremos. Pela Regra de Ouro, ela é o meio-termo entre o vício por falta e o vício por excesso."></div>
   </div>
 
   <!-- Q14 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">14</span><span>Explique a Regra de Ouro de Aristóteles usando o exemplo da coragem.</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">A <strong>Regra de Ouro</strong> (meio-termo / justa medida) diz que a virtude é o <strong>equilíbrio entre dois vícios</strong>: um por falta e outro por excesso. No caso da coragem: <strong>Covardia</strong> (falta) ——— <strong>Coragem</strong> (virtude/equilíbrio) ——— <strong>Imprudência</strong> (excesso). A virtude não está nos extremos, mas no ponto de equilíbrio.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">14</span><span>Na sequência Covardia — ___ — Imprudência, o que representa o termo do meio?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> Um vício por excesso</div>
+      <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> Um vício por falta</div>
+      <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> A virtude da Coragem — o meio-termo/equilíbrio entre os dois vícios</div>
+      <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> Uma ação amoral sem julgamento ético</div>
+    </div>
+    <div id="fb-q14" class="quiz-feedback" data-ok="Covardia (falta) ——— Coragem (virtude/equilíbrio) ——— Imprudência (excesso). A virtude está no meio." data-err="O termo do meio é sempre a virtude na Regra de Ouro. Aqui: Coragem = virtude = equilíbrio entre covardia (falta) e imprudência (excesso)."></div>
   </div>
 
   <!-- Q15 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">15</span><span>Qual era a pergunta central do experimento de Milgram? O que ele revelou sobre a obediência humana?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">A pergunta central era: <em>"Até que ponto o homem obedece à autoridade mesmo que seja contra seus próprios valores?"</em> O experimento revelou que a <strong>obediência à autoridade</strong> pode levar pessoas a agirem contra seus valores morais, especialmente quando ocorre a <strong>transferência da culpa</strong> — o indivíduo deixa de se ver como agente moral e passa a se ver apenas como executor de ordens.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">15</span><span>O que o experimento de Milgram buscava entender?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> A capacidade intelectual e de memória dos participantes</div>
+      <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> Até que ponto o ser humano obedece à autoridade mesmo que contrarie seus próprios valores morais</div>
+      <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> O desenvolvimento moral de crianças em diferentes culturas</div>
+      <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> A influência da mídia no comportamento coletivo</div>
+    </div>
+    <div id="fb-q15" class="quiz-feedback" data-ok="Milgram queria entender a obediência do povo alemão ao nazismo — e o experimento mostrou que a maioria obedece à autoridade mesmo contra seus valores." data-err="Milgram queria entender a obediência humana à autoridade — motivado pela submissão do povo alemão ao nazismo na 2ª Guerra Mundial."></div>
   </div>
 
   <!-- Q16 -->
-  <div class="ex">
-    <div class="ex-q"><span class="ex-num">16</span><span>Como o caso de Eichmann conecta o experimento de Milgram ao Holocausto? O que os dois têm em comum?</span></div>
-    <details><summary>Ver resposta</summary>
-      <div class="ex-ans">Em ambos os casos ocorre a <strong>transferência da culpa</strong>: os indivíduos deixam de se ver como <strong>agentes morais conscientes</strong> e passam a se ver como simples executores de ordens. Eichmann argumentou que era "apenas uma peça na engrenagem" e que estava "obedecendo ordens" — exatamente o mesmo mecanismo observado no experimento de Milgram, onde os participantes transferiam a responsabilidade moral para o cientista que dava as ordens.</div>
-    </details>
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">16</span><span>O que é a "Transferência da Culpa" observada por Milgram?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> Punir o responsável por dar a ordem injusta</div>
+      <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> Aceitar totalmente a responsabilidade pelas próprias ações</div>
+      <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> O indivíduo deixa de se ver como agente moral e transfere a responsabilidade para quem deu a ordem — deixando de deliberar</div>
+      <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> Dividir igualmente a responsabilidade entre todos os envolvidos</div>
+    </div>
+    <div id="fb-q16" class="quiz-feedback" data-ok="Tanto no experimento de Milgram quanto no caso Eichmann/Holocausto: o indivíduo se vê apenas como executor, não como agente moral." data-err="Transferência da culpa = deslocamento da responsabilidade para quem deu a ordem. O indivíduo para de se ver como agente moral consciente."></div>
   </div>
 
 </div>
@@ -635,5 +746,70 @@
   2ª série do Ensino Médio | Anotações de <strong>Sofia Alves / 2ME</strong>
 </footer>
 
+
+<!-- ═══ CHATBOT ═══ -->
+<style>
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #3d2b00; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 340px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: #3d2b00; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 280px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.84rem; line-height: 1.5; }
+  .cmsg.bot { background: #fdf8ef; border: 1px solid #e8ddc8; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.user { background: #3d2b00; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.loading { color: #888; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid #e8ddc8; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.88rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: #3d2b00; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: #6b4c11; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Tirar dúvidas com IA">🦉</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🦉 Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+  function toggleChat() {
+    const p = document.getElementById("chat-panel");
+    p.classList.toggle("open");
+    if (p.classList.contains("open")) document.getElementById("chat-input").focus();
+  }
+  function getContext() {
+    const el = document.querySelector(".content") || document.body;
+    return el.innerText.replace(/\s+/g, " ").slice(0, 6000);
+  }
+  async function sendMsg(e) {
+    e.preventDefault();
+    const input = document.getElementById("chat-input");
+    const msgs = document.getElementById("chat-msgs");
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = "";
+    msgs.innerHTML += "<div class=cmsg user>" + text + "</div>";
+    const loader = document.createElement("div");
+    loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
+    msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
+    try {
+      const r = await fetch("/api/chat", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ message: text, context: getContext() }) });
+      const d = await r.json();
+      loader.className = "cmsg bot"; loader.textContent = d.reply || d.error;
+    } catch(err) { loader.className = "cmsg bot"; loader.textContent = "Erro de conexão. Tente novamente."; }
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+</script>
 </body>
 </html>
