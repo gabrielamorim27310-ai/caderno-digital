@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo de Química – Avaliação Especial 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #7b1111;
+    --secondary: #e07b00;
+    --bg: #faf7f2;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8e0d4;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --ch1: #1565c0;
+    --ch2: #2e7d32;
+    --ch3: #6a1b9a;
+    --ch4: #e65100;
+    --ch5: #7b1111;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #3b0a0a 0%, #7b1111 50%, #b33030 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: #3b0a0a; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  nav .nav-inner::-webkit-scrollbar { display: none; }
+  nav a { text-decoration: none; padding: 14px 20px; font-weight: 600; font-size: 0.85rem; white-space: nowrap; color: var(--text-light); border-bottom: 3px solid transparent; transition: all 0.3s; }
+  nav a:hover { color: var(--text); border-bottom-color: var(--secondary); }
+  nav a[data-ch="1"] { color: var(--ch1); border-bottom-color: var(--ch1); }
+  nav a[data-ch="2"] { color: var(--ch2); border-bottom-color: var(--ch2); }
+  nav a[data-ch="3"] { color: var(--ch3); border-bottom-color: var(--ch3); }
+  nav a[data-ch="4"] { color: var(--ch4); border-bottom-color: var(--ch4); }
+  nav a[data-ch="5"] { color: var(--ch5); border-bottom-color: var(--ch5); }
+  /* MAIN */
+  main { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  /* CHAPTER */
+  .chapter { margin-bottom: 50px; scroll-margin-top: 80px; }
+  .chapter-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 3px solid var(--border); }
+  .chapter-num { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: white; flex-shrink: 0; }
+  .ch1 .chapter-num { background: var(--ch1); }
+  .ch2 .chapter-num { background: var(--ch2); }
+  .ch3 .chapter-num { background: var(--ch3); }
+  .ch4 .chapter-num { background: var(--ch4); }
+  .ch5 .chapter-num { background: var(--ch5); }
+  .chapter-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; }
+  .chapter-header .cap-ref { font-size: 0.85rem; color: var(--text-light); font-family: 'Inter', sans-serif; font-weight: 400; }
+  /* ACCORDION */
+  .accordion { margin-bottom: 12px; }
+  .accordion-btn { width: 100%; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px 24px; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 1.05rem; font-weight: 600; color: var(--text); transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); font-family: 'Inter', sans-serif; }
+  .accordion-btn:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+  .accordion-btn .icon { font-size: 1.2rem; transition: transform 0.3s; flex-shrink: 0; }
+  .accordion.open .accordion-btn { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+  .accordion.open .accordion-btn .icon { transform: rotate(180deg); }
+  .accordion-content { background: var(--card-bg); border: 1px solid var(--border); border-top: none; border-radius: 0 0 12px 12px; padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease; }
+  .accordion.open .accordion-content { max-height: 4000px; padding: 20px 24px 28px; }
+  .accordion-content h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin: 20px 0 10px; color: var(--primary); }
+  .accordion-content h4:first-child { margin-top: 0; }
+  .accordion-content p { margin-bottom: 12px; color: var(--text); line-height: 1.8; }
+  /* CARDS */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 16px 0; }
+  .card { background: linear-gradient(135deg, #f8f6f3, #fff); border: 1px solid var(--border); border-radius: 10px; padding: 18px; transition: transform 0.3s, box-shadow 0.3s; }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .card h5 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--primary); }
+  .card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin: 0; }
+  /* BOXES */
+  .highlight { background: linear-gradient(135deg, #fef9e7, #fdf2d0); border-left: 4px solid var(--secondary); padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 16px 0; font-size: 0.95rem; }
+  .highlight strong { color: var(--primary); }
+  .info-box { background: linear-gradient(135deg, #e8f4f0, #d4edda); border-left: 4px solid var(--ch2); padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 16px 0; font-size: 0.95rem; }
+  .danger-box { background: linear-gradient(135deg, #fde8e8, #f5d0d0); border-left: 4px solid var(--ch5); padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 16px 0; font-size: 0.95rem; }
+  /* FORMULA BOX */
+  .formula-box { background: #1a1a2e; color: #e8e0ff; border-radius: 12px; padding: 20px 24px; margin: 16px 0; font-family: 'Inter', monospace; }
+  .formula-box .formula-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #e07b00; margin-bottom: 12px; }
+  .formula-box .formula-line { font-size: 1.05rem; font-weight: 600; margin: 6px 0; line-height: 1.9; }
+  .formula-box .formula-note { font-size: 0.8rem; color: #a0a0c0; margin-top: 8px; }
+  /* NOX TABLE */
+  .nox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 16px 0; }
+  .nox-card { background: var(--card-bg); border: 2px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
+  .nox-card .nox-val { font-size: 2rem; font-weight: 900; font-family: 'Playfair Display', serif; margin-bottom: 6px; }
+  .nox-card .nox-label { font-size: 0.8rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .nox-card .nox-ex { font-size: 0.83rem; color: var(--text); line-height: 1.6; }
+  .nox-val-0 { color: #555; }
+  .nox-val-pos { color: #1565c0; }
+  .nox-val-neg { color: #7b1111; }
+  /* TABLE */
+  .styled-table { width: 100%; border-collapse: collapse; margin: 16px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .styled-table th { background: var(--primary); color: white; padding: 12px 16px; text-align: left; font-size: 0.9rem; }
+  .styled-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem; background: white; }
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table tr:hover td { background: #f8f6f3; }
+  /* REACTION ARROW */
+  .reaction { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
+  .reaction .reactant, .reaction .product { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; font-size: 1rem; font-weight: 600; text-align: center; }
+  .reaction .reactant { border-color: var(--ch1); color: var(--ch1); }
+  .reaction .product { border-color: var(--ch2); color: var(--ch2); }
+  .reaction .arrow { font-size: 1.5rem; color: var(--text-light); }
+  /* OXIREDOX DIAGRAM */
+  .redox-row { display: flex; gap: 12px; margin: 12px 0; align-items: stretch; }
+  .redox-box { flex: 1; padding: 16px; border-radius: 10px; text-align: center; }
+  .redox-oxidacao { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border: 2px solid #e65100; }
+  .redox-reducao { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid #2e7d32; }
+  .redox-box h5 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .redox-oxidacao h5 { color: #e65100; }
+  .redox-reducao h5 { color: #2e7d32; }
+  .redox-box p { font-size: 0.88rem; margin: 0; }
+  /* QUIZ */
+  .quiz-section { background: linear-gradient(135deg, #3b0a0a, #7b1111); color: white; border-radius: 16px; padding: 32px; margin: 40px 0; }
+  .quiz-section h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; text-align: center; }
+  .quiz-q { margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 10px; }
+  .quiz-q p { font-weight: 600; margin-bottom: 10px; }
+  .quiz-q label { display: block; padding: 8px 14px; margin: 4px 0; border-radius: 8px; cursor: pointer; transition: background 0.2s; font-size: 0.92rem; }
+  .quiz-q label:hover { background: rgba(255,255,255,0.15); }
+  .quiz-q input[type="radio"] { margin-right: 8px; }
+  .quiz-q .feedback { display: none; margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; }
+  .quiz-q .feedback.correct { background: rgba(46,125,50,0.4); display: block; }
+  .quiz-q .feedback.wrong { background: rgba(123,17,17,0.5); display: block; }
+  .quiz-q.hidden { display: none; }
+  .filter-btn { padding: 6px 16px; border-radius: 20px; border: 1.5px solid rgba(255,255,255,0.5); background: transparent; color: white; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.25); border-color: white; }
+  .quiz-chapter-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 10px; margin-bottom: 8px; opacity: 0.9; }
+  .tag-ch1 { background: rgba(21,101,192,0.5); }
+  .tag-ch2 { background: rgba(46,125,50,0.5); }
+  .tag-ch3 { background: rgba(106,27,154,0.5); }
+  .tag-ch4 { background: rgba(230,81,0,0.5); }
+  .tag-ch5 { background: rgba(123,17,17,0.6); }
+  #score-box { text-align: center; margin-bottom: 20px; padding: 12px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: none; }
+  /* PROGRESS BAR */
+  .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--secondary), var(--primary)); z-index: 200; transition: width 0.2s; width: 0%; }
+  /* FOOTER */
+  footer { text-align: center; padding: 30px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+  /* STYLED LIST */
+  .styled-list { list-style: none; margin: 12px 0; }
+  .styled-list li { padding: 8px 0 8px 24px; position: relative; font-size: 0.95rem; }
+  .styled-list li::before { content: '\25C6'; position: absolute; left: 0; color: var(--secondary); font-size: 0.7rem; top: 12px; }
+  /* STEPS */
+  .steps { counter-reset: step; margin: 16px 0; }
+  .step { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+  .step-num { width: 32px; height: 32px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+  .step-body { flex: 1; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 0.92rem; }
+  .step-body strong { display: block; margin-bottom: 4px; color: var(--text); }
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .nox-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero { padding: 50px 16px 40px; }
+    main { padding: 24px 16px 60px; }
+    .accordion-btn { padding: 14px 16px; font-size: 0.95rem; }
+    .accordion.open .accordion-content { padding: 16px; }
+    nav a { padding: 12px 14px; font-size: 0.8rem; }
+    .redox-row { flex-direction: column; }
+    .formula-box { padding: 14px 16px; }
+  }
+  @media print {
+    nav, .progress-bar, .quiz-section { display: none; }
+    .accordion-content { max-height: none !important; padding: 16px 24px !important; }
+  }
+  /* === MOLECULE EQUATION VISUAL === */
+  .mol-equation {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; flex-wrap: wrap; padding: 20px 16px;
+    background: #f8f6f3; border: 1px solid var(--border);
+    border-radius: 12px; margin: 16px 0;
+  }
+  .mol-substance {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    gap: 3px 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: white; border: 1px solid var(--border);
+  }
+  .mol-substance.highlight { border: 2px solid var(--secondary); background: #fffbf0; }
+  .mol-substance.dim { opacity: 0.4; }
+  /* Coeficiente — coluna esquerda, ocupa todas as linhas */
+  .mol-substance .mol-coeff {
+    grid-column: 1; grid-row: 1 / 4;
+    align-self: center; justify-self: center;
+    font-size: 1.5rem; font-weight: 900;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary); line-height: 1;
+  }
+  /* SVG da molécula — coluna direita, linha 1 */
+  .mol-substance svg { grid-column: 2; grid-row: 1; align-self: center; justify-self: center; }
+  /* Fórmula molecular — coluna direita, linha 2 */
+  .mol-formula-label { grid-column: 2; grid-row: 2; text-align: center; font-size: 0.95rem; font-weight: 700; color: var(--text); }
+  /* Massa molar — coluna direita, linha 3 */
+  .mol-mass-label { grid-column: 2; grid-row: 3; text-align: center; font-size: 0.7rem; color: var(--text-light); background: #f0ede8; padding: 2px 7px; border-radius: 8px; white-space: nowrap; }
+  .mol-op { font-size: 1.4rem; font-weight: 700; color: var(--text-light); align-self: center; }
+  .mol-arrow-op { font-size: 2rem; color: var(--secondary); align-self: center; }
+  /* === PROPORTION TABLE === */
+  .prop-table {
+    border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .prop-cols { display: flex; }
+  .prop-col { flex: 1; display: flex; flex-direction: column; }
+  .prop-col:first-child { border-right: 2px solid var(--border); }
+  .prop-col-head { padding: 10px 16px; font-weight: 700; font-size: 0.88rem; text-align: center; color: white; }
+  .prop-col:first-child .prop-col-head { background: var(--ch1); }
+  .prop-col:last-child .prop-col-head { background: var(--ch2); }
+  .prop-col-mass { padding: 12px 16px; text-align: center; font-size: 1rem; font-weight: 700; color: var(--primary); background: #f8f6f3; border-bottom: 1px solid var(--border); }
+  .prop-col-val { padding: 12px 16px; text-align: center; font-size: 1rem; font-weight: 700; color: var(--ch2); background: white; }
+  .prop-cross { background: #1a1a2e; color: #e8e0ff; padding: 12px 20px; text-align: center; font-size: 0.93rem; border-top: 2px solid var(--secondary); }
+  .prop-answer { font-weight: 700; color: #e07b00; }
+  /* === SOLVED EXERCISES === */
+  .solved-ex { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .solved-ex-header { background: linear-gradient(135deg, #1a1a2e 0%, #2a3560 100%); color: white; padding: 16px 20px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .solved-ex-tag { background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .solved-ex-title { font-family: 'Playfair Display', serif; font-size: 1rem; }
+  .solved-ex-body { padding: 20px; }
+  .solved-problem { background: #f8f6f3; border-left: 4px solid var(--secondary); padding: 14px 16px; border-radius: 0 8px 8px 0; margin-bottom: 14px; font-size: 0.92rem; line-height: 1.75; }
+  .dado-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .dado-chip { background: #e3f2fd; border: 1px solid #90caf9; border-radius: 8px; padding: 4px 12px; font-size: 0.82rem; font-weight: 600; color: #1565c0; }
+  .solved-answer-box { background: linear-gradient(135deg, #1a1a2e, #2a3560); color: white; padding: 14px 20px; border-radius: 10px; text-align: center; margin-top: 14px; font-size: 1rem; font-weight: 700; }
+  @media (max-width: 600px) {
+    .mol-equation { gap: 4px; padding: 12px 8px; }
+    .mol-substance { padding: 8px 8px; gap: 2px 6px; }
+    .prop-cols { flex-direction: column; }
+    .prop-col:first-child { border-right: none; border-bottom: 2px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- BACK LINK -->
+<div style="background:#3b0a0a; padding:10px 24px;">
+  <a href="index.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.85rem; font-weight:600; display:inline-flex; align-items:center; gap:6px; transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+    &#8592; Caderno Digital
+  </a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>🧪 Química</h1>
+  <p class="subtitle">Estequiometria &amp; Oxirredução — Avaliação Especial · 2ª série EM</p>
+  <span class="badge">1º Trimestre 2026 | Feito por Gabriel Amorim</span>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#cap1" data-ch="1">Cap. 1 — Estequiometria Geral</a>
+    <a href="#cap2" data-ch="2">Cap. 2 — Gases</a>
+    <a href="#cap3" data-ch="3">Cap. 3 — Pureza e Rendimento</a>
+    <a href="#cap4" data-ch="4">Cap. 4 — Excesso e Limitante</a>
+    <a href="#cap5" data-ch="5">Cap. 6 — Oxirredução</a>
+    <a href="#quiz">Teste seus Conhecimentos</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ CAP 1 — ESTEQUIOMETRIA GERAL ============ -->
+<section class="chapter ch1" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-num">1</div>
+    <div>
+      <h2>Estequiometria: Caso Geral</h2>
+      <span class="cap-ref">Capítulo 1 — p. 10–11</span>
+    </div>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>O que é mol? — Número de Avogadro e Massa Molar</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O <strong>mol</strong> é a unidade de quantidade de matéria. Um mol de qualquer substância contém sempre o mesmo número de partículas: <strong>6,02 × 10²³</strong> (Número de Avogadro, N<sub>A</sub>).</p>
+      <div class="card-grid">
+        <div class="card">
+          <h5>1 mol =</h5>
+          <p><strong>6,02 × 10²³ partículas</strong><br>(átomos, moléculas ou íons)</p>
+        </div>
+        <div class="card">
+          <h5>Massa Molar (M)</h5>
+          <p>Massa de 1 mol da substância.<br>Unidade: <strong>g/mol</strong><br>Tirada da tabela periódica.</p>
+        </div>
+        <div class="card">
+          <h5>Fórmula-chave</h5>
+          <p><strong>n = m / M</strong><br>n = mol, m = massa (g), M = massa molar (g/mol)</p>
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>Exemplos de massa molar:</strong><br>
+        H<sub>2</sub>O: 2×1 + 16 = <strong>18 g/mol</strong> &nbsp;|&nbsp;
+        CO<sub>2</sub>: 12 + 2×16 = <strong>44 g/mol</strong> &nbsp;|&nbsp;
+        NaCl: 23 + 35,5 = <strong>58,5 g/mol</strong>
+      </div>
+      <div class="formula-box">
+        <div class="formula-title">Fórmula fundamental</div>
+        <div class="formula-line">n = m / M</div>
+        <div class="formula-line">m = n × M</div>
+        <div class="formula-line">M = m / n</div>
+        <div class="formula-note">n = quantidade em mol | m = massa em gramas | M = massa molar em g/mol</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Equação Química Balanceada e Coeficientes</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A <strong>equação química balanceada</strong> obedece à Lei de Conservação de Massa — o número de átomos de cada elemento deve ser igual nos dois lados.</p>
+      <p>Os <strong>coeficientes estequiométricos</strong> indicam a proporção em mol de cada substância na reação.</p>
+      <!-- VISUAL EQUATION: N₂ + 3H₂ → 2NH₃ -->
+      <div class="mol-equation">
+        <!-- N₂ -->
+        <div class="mol-substance">
+          <div class="mol-coeff">1</div>
+          <svg viewBox="0 0 72 42" width="72" height="42">
+            <line x1="26" y1="17" x2="46" y2="17" stroke="#1565c0" stroke-width="2.5"/>
+            <line x1="26" y1="21" x2="46" y2="21" stroke="#1565c0" stroke-width="2.5"/>
+            <line x1="26" y1="25" x2="46" y2="25" stroke="#1565c0" stroke-width="2.5"/>
+            <circle cx="18" cy="21" r="15" fill="#1565c0"/>
+            <text x="18" y="26" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter,sans-serif">N</text>
+            <circle cx="54" cy="21" r="15" fill="#1565c0"/>
+            <text x="54" y="26" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter,sans-serif">N</text>
+          </svg>
+          <div class="mol-formula-label">N<sub>2</sub></div>
+          <div class="mol-mass-label">28 g/mol</div>
+        </div>
+        <div class="mol-op">+</div>
+        <!-- 3H₂ -->
+        <div class="mol-substance">
+          <div class="mol-coeff">3</div>
+          <svg viewBox="0 0 72 42" width="72" height="42">
+            <line x1="26" y1="21" x2="46" y2="21" stroke="#9e9e9e" stroke-width="3"/>
+            <circle cx="18" cy="21" r="15" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="18" y="26" text-anchor="middle" fill="#424242" font-size="13" font-weight="800" font-family="Inter,sans-serif">H</text>
+            <circle cx="54" cy="21" r="15" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="54" y="26" text-anchor="middle" fill="#424242" font-size="13" font-weight="800" font-family="Inter,sans-serif">H</text>
+          </svg>
+          <div class="mol-formula-label">H<sub>2</sub></div>
+          <div class="mol-mass-label">2 g/mol</div>
+        </div>
+        <div class="mol-arrow-op">→</div>
+        <!-- 2NH₃ -->
+        <div class="mol-substance highlight">
+          <div class="mol-coeff">2</div>
+          <svg viewBox="0 0 72 64" width="72" height="64">
+            <line x1="27" y1="23" x2="19" y2="16" stroke="#9e9e9e" stroke-width="2.5"/>
+            <line x1="45" y1="23" x2="53" y2="16" stroke="#9e9e9e" stroke-width="2.5"/>
+            <line x1="36" y1="44" x2="36" y2="55" stroke="#9e9e9e" stroke-width="2.5"/>
+            <circle cx="36" cy="31" r="14" fill="#1565c0"/>
+            <text x="36" y="36" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter,sans-serif">N</text>
+            <circle cx="12" cy="9" r="9" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="12" y="14" text-anchor="middle" fill="#424242" font-size="10" font-weight="800" font-family="Inter,sans-serif">H</text>
+            <circle cx="60" cy="9" r="9" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="60" y="14" text-anchor="middle" fill="#424242" font-size="10" font-weight="800" font-family="Inter,sans-serif">H</text>
+            <circle cx="36" cy="55" r="9" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="36" y="60" text-anchor="middle" fill="#424242" font-size="10" font-weight="800" font-family="Inter,sans-serif">H</text>
+          </svg>
+          <div class="mol-formula-label">NH<sub>3</sub></div>
+          <div class="mol-mass-label">17 g/mol</div>
+        </div>
+      </div>
+      <div class="info-box" style="margin-top:0;">
+        <strong>Leitura:</strong> 1 mol de N<sub>2</sub> reage com 3 mol de H<sub>2</sub> e produz 2 mol de NH<sub>3</sub><br>
+        Os coeficientes (1, 3, 2) indicam proporção em mol — não em gramas.
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Coeficientes × mol</h5>
+          <p>Os coeficientes indicam proporção molar, não massa. 1 mol de N₂ <em>não</em> é igual em gramas a 1 mol de NH₃.</p>
+        </div>
+        <div class="card">
+          <h5>Como balancear?</h5>
+          <p>Ajuste os coeficientes para que o número de átomos de cada elemento seja igual nos dois lados da equação.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Cálculo Estequiométrico — 3 Passos</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Todo cálculo estequiométrico segue a mesma sequência:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Escrever e balancear a equação</strong>
+            Garantir que os coeficientes estão corretos — a proporção depende deles.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Transformar o dado em mol</strong>
+            Se der massa → n = m / M. Se der volume de gás (CNTP) → n = V / 22,4.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Fazer proporção pelos coeficientes</strong>
+            Use regra de três: a relação entre os mols é igual à relação entre os coeficientes.
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:8px;"><strong>Exemplo visual:</strong> 2 H<sub>2</sub> + O<sub>2</sub> → 2 H<sub>2</sub>O — Quantos gramas de H<sub>2</sub>O se formam a partir de 4 g de H<sub>2</sub>?</p>
+      <!-- VISUAL EQUATION -->
+      <div class="mol-equation">
+        <div class="mol-substance highlight">
+          <div class="mol-coeff">2</div>
+          <svg viewBox="0 0 72 42" width="72" height="42">
+            <line x1="26" y1="21" x2="46" y2="21" stroke="#9e9e9e" stroke-width="3"/>
+            <circle cx="18" cy="21" r="15" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="18" y="26" text-anchor="middle" fill="#424242" font-size="13" font-weight="800" font-family="Inter,sans-serif">H</text>
+            <circle cx="54" cy="21" r="15" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="54" y="26" text-anchor="middle" fill="#424242" font-size="13" font-weight="800" font-family="Inter,sans-serif">H</text>
+          </svg>
+          <div class="mol-formula-label">H<sub>2</sub></div>
+          <div class="mol-mass-label">2 g/mol</div>
+        </div>
+        <div class="mol-op">+</div>
+        <div class="mol-substance dim">
+          <div class="mol-coeff">1</div>
+          <svg viewBox="0 0 72 42" width="72" height="42">
+            <line x1="25" y1="18" x2="47" y2="18" stroke="#c62828" stroke-width="2.5"/>
+            <line x1="25" y1="24" x2="47" y2="24" stroke="#c62828" stroke-width="2.5"/>
+            <circle cx="18" cy="21" r="15" fill="#c62828"/>
+            <text x="18" y="26" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter,sans-serif">O</text>
+            <circle cx="54" cy="21" r="15" fill="#c62828"/>
+            <text x="54" y="26" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter,sans-serif">O</text>
+          </svg>
+          <div class="mol-formula-label">O<sub>2</sub></div>
+          <div class="mol-mass-label">32 g/mol</div>
+        </div>
+        <div class="mol-arrow-op">→</div>
+        <div class="mol-substance highlight">
+          <div class="mol-coeff">2</div>
+          <svg viewBox="0 0 72 60" width="72" height="60">
+            <line x1="25" y1="30" x2="14" y2="16" stroke="#9e9e9e" stroke-width="2.5"/>
+            <line x1="47" y1="30" x2="58" y2="16" stroke="#9e9e9e" stroke-width="2.5"/>
+            <circle cx="36" cy="38" r="16" fill="#c62828"/>
+            <text x="36" y="43" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter,sans-serif">O</text>
+            <circle cx="10" cy="12" r="11" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="10" y="17" text-anchor="middle" fill="#424242" font-size="11" font-weight="800" font-family="Inter,sans-serif">H</text>
+            <circle cx="62" cy="12" r="11" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="1.5"/>
+            <text x="62" y="17" text-anchor="middle" fill="#424242" font-size="11" font-weight="800" font-family="Inter,sans-serif">H</text>
+          </svg>
+          <div class="mol-formula-label">H<sub>2</sub>O</div>
+          <div class="mol-mass-label">18 g/mol</div>
+        </div>
+      </div>
+      <!-- PROPORTION TABLE (método do caderno) -->
+      <div class="prop-table">
+        <div class="prop-cols">
+          <div class="prop-col">
+            <div class="prop-col-head">H₂ — dado (4 g)</div>
+            <div class="prop-col-mass">2 × 2 = <strong>4 g</strong></div>
+            <div class="prop-col-val">4 g</div>
+          </div>
+          <div class="prop-col">
+            <div class="prop-col-head">H₂O — pedir (x g)</div>
+            <div class="prop-col-mass">2 × 18 = <strong>36 g</strong></div>
+            <div class="prop-col-val">x</div>
+          </div>
+        </div>
+        <div class="prop-cross">
+          4 · x = 4 · 36 &nbsp;→&nbsp; x = 36/4 × 4 &nbsp;→&nbsp; <span class="prop-answer">x = 36 g de H₂O</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ CAP 2 — GASES ============ -->
+<section class="chapter ch2" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-num">2</div>
+    <div>
+      <h2>Estequiometria com Gases</h2>
+      <span class="cap-ref">Capítulo 2 — p. 16–20</span>
+    </div>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Volume Molar e CNTP</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Nas <strong>Condições Normais de Temperatura e Pressão (CNTP)</strong> — 0 °C e 1 atm —, 1 mol de qualquer gás ocupa sempre o mesmo volume: <strong>22,4 litros</strong>.</p>
+      <div class="formula-box">
+        <div class="formula-title">Volume molar nas CNTP</div>
+        <div class="formula-line">V = n × 22,4 L/mol</div>
+        <div class="formula-line">n = V / 22,4</div>
+        <div class="formula-note">Válido apenas para gases em CNTP (0°C, 1 atm)</div>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h5>1 mol de gás (CNTP)</h5>
+          <p><strong>22,4 L</strong><br>Independe do gás: H₂, O₂, CO₂, N₂ — todos ocupam 22,4 L por mol.</p>
+        </div>
+        <div class="card">
+          <h5>2 mol de gás (CNTP)</h5>
+          <p><strong>44,8 L</strong><br>Proporção direta: dobra o mol, dobra o volume.</p>
+        </div>
+        <div class="card">
+          <h5>0,5 mol de gás (CNTP)</h5>
+          <p><strong>11,2 L</strong><br>Metade do mol = metade do volume.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Dica para prova:</strong> Se a questão der volume de gás nas CNTP, converta para mol dividindo por 22,4. Se der mol e pedir volume, multiplique por 22,4.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Cálculo Estequiométrico com Gases — Exemplos</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p style="margin-bottom:10px;"><strong>Exemplo 1:</strong> N<sub>2</sub> + 3H<sub>2</sub> → 2NH<sub>3</sub> — Qual o volume de H<sub>2</sub> (CNTP) para reagir com 22,4 L de N<sub>2</sub>?</p>
+      <div class="prop-table">
+        <div class="prop-cols">
+          <div class="prop-col">
+            <div class="prop-col-head">N₂ — dado (22,4 L)</div>
+            <div class="prop-col-mass">coef. <strong>1</strong> → 1 × 22,4 L</div>
+            <div class="prop-col-val">22,4 L</div>
+          </div>
+          <div class="prop-col">
+            <div class="prop-col-head">H₂ — pedir (x L)</div>
+            <div class="prop-col-mass">coef. <strong>3</strong> → 3 × 22,4 L</div>
+            <div class="prop-col-val">x L</div>
+          </div>
+        </div>
+        <div class="prop-cross">
+          22,4 · x = 22,4 · 67,2 &nbsp;→&nbsp; proporção direta &nbsp;→&nbsp; <span class="prop-answer">x = 67,2 L de H₂</span>
+        </div>
+      </div>
+      <p style="margin:16px 0 10px;"><strong>Exemplo 2:</strong> 2H<sub>2</sub>O → 2H<sub>2</sub> + O<sub>2</sub> — A partir de 36 g de H<sub>2</sub>O (M=18), qual o volume de O<sub>2</sub> (CNTP)?</p>
+      <div class="prop-table">
+        <div class="prop-cols">
+          <div class="prop-col">
+            <div class="prop-col-head">H₂O — dado (36 g)</div>
+            <div class="prop-col-mass">2 × 18 = <strong>36 g</strong></div>
+            <div class="prop-col-val">36 g</div>
+          </div>
+          <div class="prop-col">
+            <div class="prop-col-head">O₂ — pedir (x L)</div>
+            <div class="prop-col-mass">1 × 22,4 = <strong>22,4 L</strong></div>
+            <div class="prop-col-val">x L</div>
+          </div>
+        </div>
+        <div class="prop-cross">
+          36 · x = 36 · 22,4 &nbsp;→&nbsp; proporção direta &nbsp;→&nbsp; <span class="prop-answer">x = 22,4 L de O₂</span>
+        </div>
+      </div>
+      <div class="highlight">Para gases (CNTP) use coef × 22,4 L no lugar de coef × M. Para sólidos e líquidos continue com n = m / M.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAP 3 — PUREZA E RENDIMENTO ============ -->
+<section class="chapter ch3" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-num">3</div>
+    <div>
+      <h2>Pureza e Rendimento</h2>
+      <span class="cap-ref">Capítulo 3 — p. 23–25</span>
+    </div>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Pureza de Reagentes</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Na prática, os reagentes não são 100% puros — vêm misturados com impurezas. O <strong>teor de pureza</strong> indica a fração da substância ativa na amostra.</p>
+      <div class="formula-box">
+        <div class="formula-title">Fórmula da pureza</div>
+        <div class="formula-line">m<sub>pura</sub> = m<sub>total</sub> × (% pureza / 100)</div>
+        <div class="formula-note">m<sub>pura</sub> = massa do reagente puro que vai de fato reagir | m<sub>total</sub> = massa da amostra bruta</div>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Exemplo</h5>
+          <p>200 g de calcário com 90% de pureza:<br>m<sub>pura</sub> = 200 × 0,90 = <strong>180 g de CaCO₃</strong></p>
+        </div>
+        <div class="card">
+          <h5>Atenção!</h5>
+          <p>Use sempre a <strong>massa pura</strong> nos cálculos estequiométricos — as impurezas não reagem.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Cuidado:</strong> 80% de pureza não significa que 20% "some" — significa que 20% são impurezas que não participam da reação.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Rendimento de Reação</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O <strong>rendimento</strong> mede quanto do produto teórico foi de fato obtido. Na prática, nem toda reação ocorre completamente — parte do reagente pode não reagir, haver reações paralelas, etc.</p>
+      <div class="formula-box">
+        <div class="formula-title">Fórmula do rendimento</div>
+        <div class="formula-line">m<sub>real</sub> = m<sub>teórica</sub> × (% rendimento / 100)</div>
+        <div class="formula-note">m<sub>teórica</sub> = massa calculada pela estequiometria (100% de rendimento) | m<sub>real</sub> = massa realmente obtida</div>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Exemplo</h5>
+          <p>A reação produziria 80 g teoricamente, com rendimento de 75%:<br>m<sub>real</sub> = 80 × 0,75 = <strong>60 g</strong></p>
+        </div>
+        <div class="card">
+          <h5>Fluxo do cálculo</h5>
+          <p>1. Calcule a massa teórica (estequiometria normal)<br>2. Multiplique pelo rendimento fracionário</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Pureza + Rendimento Combinados</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Muitas questões combinam os dois efeitos. O fluxo completo é:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Aplicar a pureza ao reagente</strong>
+            m<sub>pura</sub> = m<sub>total</sub> × (% pureza / 100)
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Calcular a massa teórica de produto</strong>
+            Usar m<sub>pura</sub> na estequiometria normal.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Aplicar o rendimento ao produto</strong>
+            m<sub>real</sub> = m<sub>teórica</sub> × (% rendimento / 100)
+          </div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Exemplo combinado:</strong> 100 g de amostra (80% pureza), reação teórica 1:1 (massas molares iguais), rendimento 50%.<br>
+        m<sub>pura</sub> = 100 × 0,80 = 80 g → m<sub>teórica</sub> = 80 g → m<sub>real</sub> = 80 × 0,50 = <strong>40 g</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>📝 Exercícios Resolvidos — ENEM &amp; UFRJ</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+
+      <!-- EXERCÍCIO 1: ENEM - ZnS / Galvanização -->
+      <div class="solved-ex">
+        <div class="solved-ex-header">
+          <span class="solved-ex-tag">ENEM Adaptada</span>
+          <span class="solved-ex-title">Galvanização do Zinco — Pureza do Minério</span>
+        </div>
+        <div class="solved-ex-body">
+          <div class="solved-problem">
+            Para proteger estruturas de aço da corrosão, a indústria utiliza uma técnica chamada galvanização. Um metal bastante utilizado é o zinco (Zn), que pode ser obtido a partir de um minério impuro chamado <strong>esfalerita (ZnS)</strong>.
+            <br><br>
+            Calcule a pureza do minério, sabendo-se que foi produzido <strong>32,5 kg de Zn</strong> a partir de <strong>100 kg de minério</strong>.
+            <br><br>
+            <strong>Equação:</strong> 2 ZnS + 3 O<sub>2</sub> → 2 Zn + 2 SO<sub>2</sub> + 2 CO<sub>2</sub>
+          </div>
+          <div class="dado-row">
+            <span class="dado-chip">ZnS = 97 g/mol</span>
+            <span class="dado-chip">Zn = 65 g/mol</span>
+            <span class="dado-chip">O₂ = 32 g/mol</span>
+            <span class="dado-chip">SO₂ = 64 g/mol</span>
+            <span class="dado-chip">CO₂ = 44 g/mol</span>
+          </div>
+
+          <!-- VISUAL EQUATION: only ZnS and Zn highlighted -->
+          <div class="mol-equation">
+            <div class="mol-substance highlight">
+              <div class="mol-coeff">2</div>
+              <svg viewBox="0 0 72 42" width="72" height="42">
+                <line x1="26" y1="21" x2="46" y2="21" stroke="#546e7a" stroke-width="3"/>
+                <circle cx="18" cy="21" r="15" fill="#546e7a"/>
+                <text x="18" y="26" text-anchor="middle" fill="white" font-size="11" font-weight="800" font-family="Inter,sans-serif">Zn</text>
+                <circle cx="54" cy="21" r="15" fill="#f9a825"/>
+                <text x="54" y="26" text-anchor="middle" fill="#333" font-size="13" font-weight="800" font-family="Inter,sans-serif">S</text>
+              </svg>
+              <div class="mol-formula-label">ZnS</div>
+              <div class="mol-mass-label">97 g/mol</div>
+            </div>
+            <div class="mol-op">+</div>
+            <div class="mol-substance dim">
+              <div class="mol-coeff">3</div>
+              <svg viewBox="0 0 72 42" width="72" height="42">
+                <line x1="25" y1="18" x2="47" y2="18" stroke="#c62828" stroke-width="2.5"/>
+                <line x1="25" y1="24" x2="47" y2="24" stroke="#c62828" stroke-width="2.5"/>
+                <circle cx="18" cy="21" r="15" fill="#c62828"/>
+                <text x="18" y="26" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter,sans-serif">O</text>
+                <circle cx="54" cy="21" r="15" fill="#c62828"/>
+                <text x="54" y="26" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter,sans-serif">O</text>
+              </svg>
+              <div class="mol-formula-label">O<sub>2</sub></div>
+              <div class="mol-mass-label">32 g/mol</div>
+            </div>
+            <div class="mol-arrow-op">→</div>
+            <div class="mol-substance highlight">
+              <div class="mol-coeff">2</div>
+              <svg viewBox="0 0 42 42" width="42" height="42">
+                <circle cx="21" cy="21" r="18" fill="#546e7a"/>
+                <text x="21" y="26" text-anchor="middle" fill="white" font-size="12" font-weight="800" font-family="Inter,sans-serif">Zn</text>
+              </svg>
+              <div class="mol-formula-label">Zn</div>
+              <div class="mol-mass-label">65 g/mol</div>
+            </div>
+            <div class="mol-op" style="font-size:1rem;">+ 2 SO₂ + 2 CO₂</div>
+          </div>
+
+          <!-- PROPORTION TABLE: ZnS vs Zn -->
+          <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Proporção molar (estequiometria)</strong></div></div>
+          <div class="prop-table">
+            <div class="prop-cols">
+              <div class="prop-col">
+                <div class="prop-col-head">ZnS — pedir (x kg)</div>
+                <div class="prop-col-mass">2 × 97 = <strong>194</strong></div>
+                <div class="prop-col-val">x kg</div>
+              </div>
+              <div class="prop-col">
+                <div class="prop-col-head">Zn — dado (32,5 kg)</div>
+                <div class="prop-col-mass">2 × 65 = <strong>130</strong></div>
+                <div class="prop-col-val">32,5 kg</div>
+              </div>
+            </div>
+            <div class="prop-cross">
+              130 · x = 194 · 32,5 &nbsp;→&nbsp; 130x = 6.305 &nbsp;→&nbsp; <span class="prop-answer">x = 48,5 kg de ZnS puro</span>
+            </div>
+          </div>
+
+          <!-- STEP 2: PUREZA -->
+          <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Calcular a pureza do minério</strong></div></div>
+          <div class="prop-table">
+            <div class="prop-cols">
+              <div class="prop-col">
+                <div class="prop-col-head">Massa total de minério</div>
+                <div class="prop-col-mass">100 kg</div>
+                <div class="prop-col-val">100%</div>
+              </div>
+              <div class="prop-col">
+                <div class="prop-col-head">Massa pura de ZnS</div>
+                <div class="prop-col-mass">48,5 kg</div>
+                <div class="prop-col-val">x %</div>
+              </div>
+            </div>
+            <div class="prop-cross">
+              100 · x = 48,5 · 100 &nbsp;→&nbsp; <span class="prop-answer">Pureza = 48,5%</span>
+            </div>
+          </div>
+          <div class="solved-answer-box">Resposta: A pureza do minério é <strong>48,5%</strong></div>
+        </div>
+      </div>
+
+      <!-- EXERCÍCIO 2: UFRJ - BaSO₄ / Barita -->
+      <div class="solved-ex">
+        <div class="solved-ex-header">
+          <span class="solved-ex-tag">UFRJ</span>
+          <span class="solved-ex-title">Carbonato de Bário — Pureza + Rendimento</span>
+        </div>
+        <div class="solved-ex-body">
+          <div class="solved-problem">
+            O carbonato de bário é um insumo importante na fabricação de cinescópios de televisores. Pode ser obtido a partir da <strong>barita (BaSO₄)</strong> segundo a equação global:
+            <br><br>
+            BaSO<sub>4</sub> + 4C + Na<sub>2</sub>CO<sub>3</sub> → 4CO + BaCO<sub>3</sub> + Na<sub>2</sub>S
+            <br><br>
+            Sabendo que o rendimento é de <strong>60%</strong>, calcule a quantidade de BaCO<sub>3</sub> obtida a partir do processamento de <strong>4,66 kg de BaSO₄</strong> puro.
+          </div>
+          <div class="dado-row">
+            <span class="dado-chip">C = 12</span>
+            <span class="dado-chip">O = 16</span>
+            <span class="dado-chip">S = 32</span>
+            <span class="dado-chip">Ba = 137</span>
+            <span class="dado-chip">Na = 23</span>
+          </div>
+
+          <!-- STEP 0: calc molar masses -->
+          <div class="step"><div class="step-num">0</div><div class="step-body"><strong>Calcular as massas molares</strong><br>
+            M(BaSO₄) = 137 + 32 + 4×16 = 137 + 32 + 64 = <strong>233 g/mol</strong><br>
+            M(BaCO₃) = 137 + 12 + 3×16 = 137 + 12 + 48 = <strong>197 g/mol</strong>
+          </div></div>
+
+          <!-- VISUAL EQUATION: only BaSO₄ and BaCO₃ highlighted -->
+          <div class="mol-equation">
+            <div class="mol-substance highlight">
+              <div class="mol-coeff">1</div>
+              <svg viewBox="0 0 42 42" width="42" height="42">
+                <circle cx="21" cy="21" r="18" fill="#6a1b9a"/>
+                <text x="21" y="19" text-anchor="middle" fill="white" font-size="9" font-weight="800" font-family="Inter,sans-serif">Ba</text>
+                <text x="21" y="30" text-anchor="middle" fill="white" font-size="9" font-weight="800" font-family="Inter,sans-serif">SO₄</text>
+              </svg>
+              <div class="mol-formula-label">BaSO<sub>4</sub></div>
+              <div class="mol-mass-label">233 g/mol</div>
+            </div>
+            <div class="mol-op" style="font-size:0.9rem;">+ 4C + Na₂CO₃</div>
+            <div class="mol-arrow-op">→</div>
+            <div class="mol-op" style="font-size:0.9rem;">4CO +</div>
+            <div class="mol-substance highlight">
+              <div class="mol-coeff">1</div>
+              <svg viewBox="0 0 42 42" width="42" height="42">
+                <circle cx="21" cy="21" r="18" fill="#6a1b9a"/>
+                <text x="21" y="19" text-anchor="middle" fill="white" font-size="9" font-weight="800" font-family="Inter,sans-serif">Ba</text>
+                <text x="21" y="30" text-anchor="middle" fill="white" font-size="9" font-weight="800" font-family="Inter,sans-serif">CO₃</text>
+              </svg>
+              <div class="mol-formula-label">BaCO<sub>3</sub></div>
+              <div class="mol-mass-label">197 g/mol</div>
+            </div>
+            <div class="mol-op" style="font-size:0.9rem;">+ Na₂S</div>
+          </div>
+
+          <!-- STEP 1: PROPORTION (teórico) -->
+          <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Proporção estequiométrica (100% rendimento)</strong></div></div>
+          <div class="prop-table">
+            <div class="prop-cols">
+              <div class="prop-col">
+                <div class="prop-col-head">BaSO₄ — dado (4,66 kg)</div>
+                <div class="prop-col-mass">1 × 233 = <strong>233</strong></div>
+                <div class="prop-col-val">4,66 kg</div>
+              </div>
+              <div class="prop-col">
+                <div class="prop-col-head">BaCO₃ — teórico (x kg)</div>
+                <div class="prop-col-mass">1 × 197 = <strong>197</strong></div>
+                <div class="prop-col-val">x kg</div>
+              </div>
+            </div>
+            <div class="prop-cross">
+              233 · x = 197 · 4,66 &nbsp;→&nbsp; 233x = 917,02 &nbsp;→&nbsp; <span class="prop-answer">x = 3,94 kg (teórico)</span>
+            </div>
+          </div>
+
+          <!-- STEP 2: RENDIMENTO -->
+          <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Aplicar o rendimento de 60%</strong></div></div>
+          <div class="prop-table">
+            <div class="prop-cols">
+              <div class="prop-col">
+                <div class="prop-col-head">Massa teórica</div>
+                <div class="prop-col-mass">3,94 kg</div>
+                <div class="prop-col-val">100%</div>
+              </div>
+              <div class="prop-col">
+                <div class="prop-col-head">Massa real</div>
+                <div class="prop-col-mass">x kg</div>
+                <div class="prop-col-val">60%</div>
+              </div>
+            </div>
+            <div class="prop-cross">
+              m<sub>real</sub> = 3,94 × 0,60 &nbsp;→&nbsp; <span class="prop-answer">m<sub>real</sub> ≈ 2,36 kg de BaCO₃</span>
+            </div>
+          </div>
+          <div class="solved-answer-box">Resposta: são obtidos aproximadamente <strong>2,36 kg de BaCO₃</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAP 4 — EXCESSO E LIMITANTE ============ -->
+<section class="chapter ch4" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-num">4</div>
+    <div>
+      <h2>Reagente em Excesso e Limitante</h2>
+      <span class="cap-ref">Capítulo 4 — p. 29–31</span>
+    </div>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>O que é reagente limitante?</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Quando dois ou mais reagentes são misturados em quantidades <em>não estequiométricas</em>, um deles se esgota primeiro. Esse é o <strong>reagente limitante</strong> — ele determina quanto produto pode ser formado. O outro é o <strong>reagente em excesso</strong>.</p>
+      <div class="redox-row">
+        <div class="redox-box" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);border:2px solid #e65100;">
+          <h5 style="color:#e65100;">Reagente Limitante</h5>
+          <p>Esgota-se primeiro. <strong>Determina a quantidade de produto formado.</strong> O cálculo é feito com base nele.</p>
+        </div>
+        <div class="redox-box" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #2e7d32;">
+          <h5 style="color:#2e7d32;">Reagente em Excesso</h5>
+          <p>Sobra após a reação terminar. Parte dele <strong>não reage</strong>. Calcule quanto sobrou subtraindo o que reagiu.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Como identificar o reagente limitante — Método</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Dado: A + 2B → C. Temos 3 mol de A e 4 mol de B.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Pergunta: quanto de B é necessário para consumir todo A?</strong>
+            Pela proporção: 1 mol A → 2 mol B. Logo, 3 mol A → 6 mol B necessários.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Compare com o disponível</strong>
+            Temos apenas 4 mol de B, mas precisamos de 6. Logo, <strong>B é o limitante</strong>.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Calcule o produto a partir do limitante</strong>
+            Proporção: 2 mol B → 1 mol C. Logo, 4 mol B → 2 mol C.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Calcule o excesso de A</strong>
+            A usou: 2 mol B requerem 1 mol A → 4 mol B usam 2 mol A. Sobra: 3 − 2 = <strong>1 mol de A em excesso</strong>.
+          </div>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Regra prática:</strong> Divida a quantidade disponível de cada reagente pelo seu coeficiente. O menor resultado aponta o reagente limitante.
+        <br>A: 3÷1 = 3 &nbsp;|&nbsp; B: 4÷2 = 2 → <strong>B é o limitante</strong> (menor quociente).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAP 6 — OXIRREDUÇÃO ============ -->
+<section class="chapter ch5" id="cap5">
+  <div class="chapter-header">
+    <div class="chapter-num">6</div>
+    <div>
+      <h2>Reações de Deslocamento e Oxirredução</h2>
+      <span class="cap-ref">Capítulo 6 — p. 42–45</span>
+    </div>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Número de Oxidação (NOx) — Conceito e Regras</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O <strong>Número de Oxidação (NOx)</strong> é a carga elétrica que um átomo teria se a substância fosse inteiramente iônica. É uma ferramenta para monitorar a transferência de elétrons.</p>
+      <h4>As 4 Regras Fundamentais</h4>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Substância simples: NOx = 0</strong>
+            H₂, O₂, Cl₂, Fe, Na, Cu — todo elemento em sua forma pura tem NOx = 0.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Íon simples: NOx = própria carga</strong>
+            Na⁺ → +1 &nbsp;|&nbsp; Fe²⁺ → +2 &nbsp;|&nbsp; Cl⁻ → −1 &nbsp;|&nbsp; S²⁻ → −2
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Substância composta: Σ NOx = 0</strong>
+            A soma de todos os NOx multiplicados pelos índices = zero.<br>
+            Ex: H₂SO₄ → 2×(+1) + x + 4×(−2) = 0 → 2 + x − 8 = 0 → <strong>x = +6</strong>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Íon composto: Σ NOx = carga do íon</strong>
+            NH₄⁺ → x + 4×(+1) = +1 → <strong>x(N) = −3</strong><br>
+            Cr₂O₇²⁻ → 2x + 7×(−2) = −2 → 2x = +12 → <strong>x(Cr) = +6</strong>
+          </div>
+        </div>
+      </div>
+
+      <h4>NOx Fixos — Decorar!</h4>
+      <div class="nox-grid">
+        <div class="nox-card">
+          <div class="nox-val nox-val-pos">+1</div>
+          <div class="nox-label">Grupo 1 + Ag⁺</div>
+          <div class="nox-ex">Li, Na, K, Rb, Cs, Fr<br>e Ag⁺ (prata)</div>
+        </div>
+        <div class="nox-card">
+          <div class="nox-val nox-val-pos">+2</div>
+          <div class="nox-label">Grupo 2 + Zn²⁺</div>
+          <div class="nox-ex">Be, Mg, Ca, Sr, Ba, Ra<br>e Zn²⁺ (zinco)</div>
+        </div>
+        <div class="nox-card">
+          <div class="nox-val nox-val-pos">+3</div>
+          <div class="nox-label">Alumínio</div>
+          <div class="nox-ex">Al³⁺<br>(sempre +3)</div>
+        </div>
+        <div class="nox-card">
+          <div class="nox-val nox-val-neg">−1</div>
+          <div class="nox-label">Grupo 17 (à direita)</div>
+          <div class="nox-ex">F, Cl, Br, I, At<br>(quando não ligados a O)</div>
+        </div>
+        <div class="nox-card">
+          <div class="nox-val nox-val-neg">−2</div>
+          <div class="nox-label">Oxigênio (geral)</div>
+          <div class="nox-ex">Exceto: H₂O₂ (−1)<br>e O₂ (0, substância simples)</div>
+        </div>
+        <div class="nox-card">
+          <div class="nox-val nox-val-pos">+1</div>
+          <div class="nox-label">Hidrogênio (geral)</div>
+          <div class="nox-ex">Exceto: hidretos<br>metálicos (ex: NaH → H = −1)</div>
+        </div>
+      </div>
+      <div class="danger-box">
+        <strong>Atenção — Casos especiais do Oxigênio:</strong><br>
+        • H<sub>2</sub>O → O = <strong>−2</strong> (caso geral)<br>
+        • H<sub>2</sub>O<sub>2</sub> (água oxigenada) → O = <strong>−1</strong> (peróxido)<br>
+        • O<sub>2</sub> → O = <strong>0</strong> (substância simples, regra 1)
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Oxidação e Redução — Transferência de Elétrons</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Uma reação de <strong>oxirredução</strong> é aquela em que ocorre transferência de elétrons entre os reagentes. Sempre que há oxidação, há redução simultânea.</p>
+      <div class="redox-row">
+        <div class="redox-box redox-oxidacao">
+          <h5>Oxidação</h5>
+          <p><strong>Perde elétrons (e⁻)</strong><br>NOx <strong>aumenta</strong><br>O átomo fica com carga mais positiva</p>
+        </div>
+        <div class="redox-box redox-reducao">
+          <h5>Redução</h5>
+          <p><strong>Recebe elétrons (e⁻)</strong><br>NOx <strong>diminui</strong><br>O átomo fica com carga mais negativa</p>
+        </div>
+      </div>
+      <div class="card-grid" style="margin-top:16px;">
+        <div class="card">
+          <h5>Agente Redutor</h5>
+          <p>A substância que <strong>cede</strong> elétrons. Ela própria é <strong>oxidada</strong> (seu NOx aumenta).</p>
+        </div>
+        <div class="card">
+          <h5>Agente Oxidante</h5>
+          <p>A substância que <strong>recebe</strong> elétrons. Ela própria é <strong>reduzida</strong> (seu NOx diminui).</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Mnemônico:</strong> "OIL RIG" em inglês (Oxidation Is Loss, Reduction Is Gain) ou em português: <br>
+        <strong>Oxida → dá e⁻ → NOx sobe</strong> | <strong>Reduz → recebe e⁻ → NOx cai</strong>
+      </div>
+      <div class="info-box">
+        <strong>Exemplo — Fe + CuSO<sub>4</sub> → FeSO<sub>4</sub> + Cu</strong><br><br>
+        Fe: NOx 0 → +2 (subiu) → Fe foi <strong>oxidado</strong> → Fe é o <strong>agente redutor</strong><br>
+        Cu²⁺: NOx +2 → 0 (caiu) → Cu²⁺ foi <strong>reduzido</strong> → Cu²⁺ é o <strong>agente oxidante</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Reações de Deslocamento (Simples Troca)</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Nas <strong>reações de deslocamento</strong>, um metal mais ativo "empurra" um metal menos ativo para fora de sua solução salina. São sempre reações de oxirredução.</p>
+      <div class="highlight">
+        <strong>Regra:</strong> Um metal reage com o sal de outro metal <strong>somente</strong> se for mais ativo que ele (mais à esquerda na fila de reatividade).
+      </div>
+      <h4>Fila de Reatividade (mais ativo → menos ativo)</h4>
+      <div style="background:#1a1a2e; color:#e8e0ff; border-radius:10px; padding:16px 20px; margin:12px 0; font-family:monospace; font-size:0.95rem; overflow-x:auto; white-space:nowrap;">
+        K &gt; Na &gt; Ca &gt; Mg &gt; Al &gt; <span style="color:#e07b00;">Zn &gt; Fe &gt; Ni &gt; Sn &gt; Pb &gt; H &gt; Cu &gt; Ag &gt; Hg &gt; Au &gt; Pt</span>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Reação ocorre ✓</h5>
+          <p>Fe + CuSO₄ → FeSO₄ + Cu<br>(Fe é mais ativo que Cu)</p>
+        </div>
+        <div class="card">
+          <h5>Reação não ocorre ✗</h5>
+          <p>Cu + FeSO₄ → não reage<br>(Cu é menos ativo que Fe)</p>
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>Por que é oxirredução?</strong><br>
+        No exemplo Fe + Cu²⁺ → Fe²⁺ + Cu:<br>
+        Fe perde 2 e⁻ (oxidado, agente redutor) e Cu²⁺ ganha 2 e⁻ (reduzido, agente oxidante).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-section" id="quiz">
+  <h3>🧪 Teste seus Conhecimentos</h3>
+  <div id="score-box"></div>
+  <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; justify-content:center;">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todos</button>
+    <button class="filter-btn" onclick="filterQuiz('ch1',this)">Cap. 1</button>
+    <button class="filter-btn" onclick="filterQuiz('ch2',this)">Cap. 2</button>
+    <button class="filter-btn" onclick="filterQuiz('ch3',this)">Cap. 3</button>
+    <button class="filter-btn" onclick="filterQuiz('ch4',this)">Cap. 4</button>
+    <button class="filter-btn" onclick="filterQuiz('ch5',this)">Cap. 6</button>
+  </div>
+
+  <!-- CAP 1 QUESTIONS -->
+  <div class="quiz-q" id="q1" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 1 — Estequiometria Geral</span>
+    <p>1. O Número de Avogadro (6,02 × 10²³) representa quantas partículas há em:</p>
+    <label><input type="radio" name="q1" value="a" onclick="checkQuiz('q1','b')"> a) 1 grama de qualquer substância</label>
+    <label><input type="radio" name="q1" value="b" onclick="checkQuiz('q1','b')"> b) 1 mol de qualquer substância</label>
+    <label><input type="radio" name="q1" value="c" onclick="checkQuiz('q1','b')"> c) 1 litro de qualquer gás</label>
+    <label><input type="radio" name="q1" value="d" onclick="checkQuiz('q1','b')"> d) 1 átomo de carbono-12</label>
+    <div class="feedback" id="q1-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q2" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 1 — Estequiometria Geral</span>
+    <p>2. A massa molar do CO₂ (C=12, O=16) é:</p>
+    <label><input type="radio" name="q2" value="a" onclick="checkQuiz('q2','c')"> a) 28 g/mol</label>
+    <label><input type="radio" name="q2" value="b" onclick="checkQuiz('q2','c')"> b) 40 g/mol</label>
+    <label><input type="radio" name="q2" value="c" onclick="checkQuiz('q2','c')"> c) 44 g/mol</label>
+    <label><input type="radio" name="q2" value="d" onclick="checkQuiz('q2','c')"> d) 56 g/mol</label>
+    <div class="feedback" id="q2-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q3" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 1 — Estequiometria Geral</span>
+    <p>3. Quantos mol há em 9 g de H₂O (M = 18 g/mol)?</p>
+    <label><input type="radio" name="q3" value="a" onclick="checkQuiz('q3','a')"> a) 0,5 mol</label>
+    <label><input type="radio" name="q3" value="b" onclick="checkQuiz('q3','a')"> b) 1 mol</label>
+    <label><input type="radio" name="q3" value="c" onclick="checkQuiz('q3','a')"> c) 2 mol</label>
+    <label><input type="radio" name="q3" value="d" onclick="checkQuiz('q3','a')"> d) 18 mol</label>
+    <div class="feedback" id="q3-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q4" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 1 — Estequiometria Geral</span>
+    <p>4. Na equação N₂ + 3H₂ → 2NH₃, se reagirem 2 mol de N₂, quantos mol de NH₃ serão formados?</p>
+    <label><input type="radio" name="q4" value="a" onclick="checkQuiz('q4','d')"> a) 1 mol</label>
+    <label><input type="radio" name="q4" value="b" onclick="checkQuiz('q4','d')"> b) 2 mol</label>
+    <label><input type="radio" name="q4" value="c" onclick="checkQuiz('q4','d')"> c) 3 mol</label>
+    <label><input type="radio" name="q4" value="d" onclick="checkQuiz('q4','d')"> d) 4 mol</label>
+    <div class="feedback" id="q4-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q5" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 1 — Estequiometria Geral</span>
+    <p>5. O que indicam os coeficientes estequiométricos de uma equação balanceada?</p>
+    <label><input type="radio" name="q5" value="a" onclick="checkQuiz('q5','c')"> a) A massa em gramas de cada substância</label>
+    <label><input type="radio" name="q5" value="b" onclick="checkQuiz('q5','c')"> b) O volume em litros de cada gás</label>
+    <label><input type="radio" name="q5" value="c" onclick="checkQuiz('q5','c')"> c) A proporção em mol de cada substância na reação</label>
+    <label><input type="radio" name="q5" value="d" onclick="checkQuiz('q5','c')"> d) O número de átomos em cada molécula</label>
+    <div class="feedback" id="q5-fb"></div>
+  </div>
+
+  <!-- CAP 2 QUESTIONS -->
+  <div class="quiz-q" id="q6" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 2 — Estequiometria com Gases</span>
+    <p>6. O volume molar de qualquer gás nas CNTP (0 °C, 1 atm) é:</p>
+    <label><input type="radio" name="q6" value="a" onclick="checkQuiz('q6','b')"> a) 22,4 mL/mol</label>
+    <label><input type="radio" name="q6" value="b" onclick="checkQuiz('q6','b')"> b) 22,4 L/mol</label>
+    <label><input type="radio" name="q6" value="c" onclick="checkQuiz('q6','b')"> c) 24,5 L/mol</label>
+    <label><input type="radio" name="q6" value="d" onclick="checkQuiz('q6','b')"> d) 1 L/mol</label>
+    <div class="feedback" id="q6-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q7" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 2 — Estequiometria com Gases</span>
+    <p>7. Na reação N₂ + 3H₂ → 2NH₃ (CNTP), qual é o volume de H₂ necessário para reagir com 22,4 L de N₂?</p>
+    <label><input type="radio" name="q7" value="a" onclick="checkQuiz('q7','c')"> a) 22,4 L</label>
+    <label><input type="radio" name="q7" value="b" onclick="checkQuiz('q7','c')"> b) 44,8 L</label>
+    <label><input type="radio" name="q7" value="c" onclick="checkQuiz('q7','c')"> c) 67,2 L</label>
+    <label><input type="radio" name="q7" value="d" onclick="checkQuiz('q7','c')"> d) 11,2 L</label>
+    <div class="feedback" id="q7-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q8" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 2 — Estequiometria com Gases</span>
+    <p>8. Na reação 2H₂O → 2H₂ + O₂, a partir de 36 g de H₂O (M=18 g/mol), qual o volume de O₂ produzido em CNTP?</p>
+    <label><input type="radio" name="q8" value="a" onclick="checkQuiz('q8','a')"> a) 22,4 L</label>
+    <label><input type="radio" name="q8" value="b" onclick="checkQuiz('q8','a')"> b) 44,8 L</label>
+    <label><input type="radio" name="q8" value="c" onclick="checkQuiz('q8','a')"> c) 11,2 L</label>
+    <label><input type="radio" name="q8" value="d" onclick="checkQuiz('q8','a')"> d) 67,2 L</label>
+    <div class="feedback" id="q8-fb"></div>
+  </div>
+
+  <!-- CAP 3 QUESTIONS -->
+  <div class="quiz-q" id="q9" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 3 — Pureza e Rendimento</span>
+    <p>9. Uma amostra de 200 g de calcário (CaCO₃) tem 90% de pureza. Qual é a massa pura de CaCO₃?</p>
+    <label><input type="radio" name="q9" value="a" onclick="checkQuiz('q9','b')"> a) 90 g</label>
+    <label><input type="radio" name="q9" value="b" onclick="checkQuiz('q9','b')"> b) 180 g</label>
+    <label><input type="radio" name="q9" value="c" onclick="checkQuiz('q9','b')"> c) 200 g</label>
+    <label><input type="radio" name="q9" value="d" onclick="checkQuiz('q9','b')"> d) 20 g</label>
+    <div class="feedback" id="q9-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q10" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 3 — Pureza e Rendimento</span>
+    <p>10. Uma reação tem rendimento de 75% e, teoricamente, produziria 80 g de produto. Qual é a massa real obtida?</p>
+    <label><input type="radio" name="q10" value="a" onclick="checkQuiz('q10','c')"> a) 80 g</label>
+    <label><input type="radio" name="q10" value="b" onclick="checkQuiz('q10','c')"> b) 75 g</label>
+    <label><input type="radio" name="q10" value="c" onclick="checkQuiz('q10','c')"> c) 60 g</label>
+    <label><input type="radio" name="q10" value="d" onclick="checkQuiz('q10','c')"> d) 40 g</label>
+    <div class="feedback" id="q10-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q11" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 3 — Pureza e Rendimento</span>
+    <p>11. Uma amostra de 100 g tem 80% de pureza. A estequiometria mostra que aquela massa de reagente puro produziria 80 g de produto. O rendimento da reação é 50%. Qual é a massa real de produto obtida?</p>
+    <label><input type="radio" name="q11" value="a" onclick="checkQuiz('q11','c')"> a) 80 g</label>
+    <label><input type="radio" name="q11" value="b" onclick="checkQuiz('q11','c')"> b) 50 g</label>
+    <label><input type="radio" name="q11" value="c" onclick="checkQuiz('q11','c')"> c) 40 g</label>
+    <label><input type="radio" name="q11" value="d" onclick="checkQuiz('q11','c')"> d) 64 g</label>
+    <div class="feedback" id="q11-fb"></div>
+  </div>
+
+  <!-- CAP 4 QUESTIONS -->
+  <div class="quiz-q" id="q12" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 4 — Excesso e Limitante</span>
+    <p>12. Na reação A + 2B → C, utilizam-se 3 mol de A e 4 mol de B. Qual é o reagente limitante?</p>
+    <label><input type="radio" name="q12" value="a" onclick="checkQuiz('q12','b')"> a) A</label>
+    <label><input type="radio" name="q12" value="b" onclick="checkQuiz('q12','b')"> b) B</label>
+    <label><input type="radio" name="q12" value="c" onclick="checkQuiz('q12','b')"> c) C (o produto)</label>
+    <label><input type="radio" name="q12" value="d" onclick="checkQuiz('q12','b')"> d) Não há reagente limitante — estão em proporção correta</label>
+    <div class="feedback" id="q12-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q13" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 4 — Excesso e Limitante</span>
+    <p>13. No problema anterior (A + 2B → C, 3 mol A, 4 mol B), quantos mol de C são produzidos?</p>
+    <label><input type="radio" name="q13" value="a" onclick="checkQuiz('q13','b')"> a) 3 mol</label>
+    <label><input type="radio" name="q13" value="b" onclick="checkQuiz('q13','b')"> b) 2 mol</label>
+    <label><input type="radio" name="q13" value="c" onclick="checkQuiz('q13','b')"> c) 4 mol</label>
+    <label><input type="radio" name="q13" value="d" onclick="checkQuiz('q13','b')"> d) 1 mol</label>
+    <div class="feedback" id="q13-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q14" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 4 — Excesso e Limitante</span>
+    <p>14. Após a reação (A + 2B → C, 3 mol A, 4 mol B), quantos mol de A ficam em excesso?</p>
+    <label><input type="radio" name="q14" value="a" onclick="checkQuiz('q14','a')"> a) 1 mol</label>
+    <label><input type="radio" name="q14" value="b" onclick="checkQuiz('q14','a')"> b) 2 mol</label>
+    <label><input type="radio" name="q14" value="c" onclick="checkQuiz('q14','a')"> c) 0 mol (A é o limitante)</label>
+    <label><input type="radio" name="q14" value="d" onclick="checkQuiz('q14','a')"> d) 3 mol</label>
+    <div class="feedback" id="q14-fb"></div>
+  </div>
+
+  <!-- CAP 6 QUESTIONS -->
+  <div class="quiz-q" id="q15" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>15. Qual é o NOx de qualquer elemento em uma substância simples (ex: O₂, Fe, Cl₂)?</p>
+    <label><input type="radio" name="q15" value="a" onclick="checkQuiz('q15','c')"> a) −2</label>
+    <label><input type="radio" name="q15" value="b" onclick="checkQuiz('q15','c')"> b) +1</label>
+    <label><input type="radio" name="q15" value="c" onclick="checkQuiz('q15','c')"> c) 0</label>
+    <label><input type="radio" name="q15" value="d" onclick="checkQuiz('q15','c')"> d) Depende do elemento</label>
+    <div class="feedback" id="q15-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q16" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>16. Qual é o NOx do enxofre (S) no H₂SO₄? (H = +1, O = −2)</p>
+    <label><input type="radio" name="q16" value="a" onclick="checkQuiz('q16','c')"> a) +4</label>
+    <label><input type="radio" name="q16" value="b" onclick="checkQuiz('q16','c')"> b) −2</label>
+    <label><input type="radio" name="q16" value="c" onclick="checkQuiz('q16','c')"> c) +6</label>
+    <label><input type="radio" name="q16" value="d" onclick="checkQuiz('q16','c')"> d) +2</label>
+    <div class="feedback" id="q16-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q17" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>17. Qual é o NOx do Cr no íon Cr₂O₇²⁻? (O = −2)</p>
+    <label><input type="radio" name="q17" value="a" onclick="checkQuiz('q17','d')"> a) +3</label>
+    <label><input type="radio" name="q17" value="b" onclick="checkQuiz('q17','d')"> b) +4</label>
+    <label><input type="radio" name="q17" value="c" onclick="checkQuiz('q17','d')"> c) +5</label>
+    <label><input type="radio" name="q17" value="d" onclick="checkQuiz('q17','d')"> d) +6</label>
+    <div class="feedback" id="q17-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q18" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>18. Qual é o NOx do N em NH₄⁺? (H = +1)</p>
+    <label><input type="radio" name="q18" value="a" onclick="checkQuiz('q18','b')"> a) +3</label>
+    <label><input type="radio" name="q18" value="b" onclick="checkQuiz('q18','b')"> b) −3</label>
+    <label><input type="radio" name="q18" value="c" onclick="checkQuiz('q18','b')"> c) +1</label>
+    <label><input type="radio" name="q18" value="d" onclick="checkQuiz('q18','b')"> d) 0</label>
+    <div class="feedback" id="q18-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q19" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>19. Na reação de oxirredução, oxidação é o processo em que o átomo:</p>
+    <label><input type="radio" name="q19" value="a" onclick="checkQuiz('q19','b')"> a) Recebe elétrons e o NOx diminui</label>
+    <label><input type="radio" name="q19" value="b" onclick="checkQuiz('q19','b')"> b) Perde elétrons e o NOx aumenta</label>
+    <label><input type="radio" name="q19" value="c" onclick="checkQuiz('q19','b')"> c) Permanece com o mesmo NOx</label>
+    <label><input type="radio" name="q19" value="d" onclick="checkQuiz('q19','b')"> d) Forma íons negativos</label>
+    <div class="feedback" id="q19-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q20" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>20. O agente oxidante é a substância que:</p>
+    <label><input type="radio" name="q20" value="a" onclick="checkQuiz('q20','c')"> a) Perde elétrons e é oxidada</label>
+    <label><input type="radio" name="q20" value="b" onclick="checkQuiz('q20','c')"> b) Fornece elétrons à outra substância</label>
+    <label><input type="radio" name="q20" value="c" onclick="checkQuiz('q20','c')"> c) Recebe elétrons e sofre redução</label>
+    <label><input type="radio" name="q20" value="d" onclick="checkQuiz('q20','c')"> d) Tem NOx igual a zero</label>
+    <div class="feedback" id="q20-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q21" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>21. Na reação Fe + CuSO₄ → FeSO₄ + Cu, o NOx do Fe vai de 0 para +2. Isso significa que o Fe:</p>
+    <label><input type="radio" name="q21" value="a" onclick="checkQuiz('q21','b')"> a) Foi reduzido e é o agente oxidante</label>
+    <label><input type="radio" name="q21" value="b" onclick="checkQuiz('q21','b')"> b) Foi oxidado e é o agente redutor</label>
+    <label><input type="radio" name="q21" value="c" onclick="checkQuiz('q21','b')"> c) Não participou da transferência de elétrons</label>
+    <label><input type="radio" name="q21" value="d" onclick="checkQuiz('q21','b')"> d) Recebeu elétrons do cobre</label>
+    <div class="feedback" id="q21-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q22" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>22. Qual é o NOx do oxigênio na água oxigenada (H₂O₂)?</p>
+    <label><input type="radio" name="q22" value="a" onclick="checkQuiz('q22','b')"> a) −2</label>
+    <label><input type="radio" name="q22" value="b" onclick="checkQuiz('q22','b')"> b) −1</label>
+    <label><input type="radio" name="q22" value="c" onclick="checkQuiz('q22','b')"> c) 0</label>
+    <label><input type="radio" name="q22" value="d" onclick="checkQuiz('q22','b')"> d) +1</label>
+    <div class="feedback" id="q22-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q23" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>23. Numa reação de deslocamento, o metal mais ativo:</p>
+    <label><input type="radio" name="q23" value="a" onclick="checkQuiz('q23','c')"> a) É deslocado pelo metal menos ativo</label>
+    <label><input type="radio" name="q23" value="b" onclick="checkQuiz('q23','c')"> b) Permanece na solução como íon</label>
+    <label><input type="radio" name="q23" value="c" onclick="checkQuiz('q23','c')"> c) Desloca o metal menos ativo da solução</label>
+    <label><input type="radio" name="q23" value="d" onclick="checkQuiz('q23','c')"> d) Não reage com nenhum sal</label>
+    <div class="feedback" id="q23-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q24" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>24. Na fila de reatividade, qual dos metais abaixo consegue deslocar o Cu de uma solução de CuSO₄?</p>
+    <label><input type="radio" name="q24" value="a" onclick="checkQuiz('q24','b')"> a) Ag (prata)</label>
+    <label><input type="radio" name="q24" value="b" onclick="checkQuiz('q24','b')"> b) Fe (ferro)</label>
+    <label><input type="radio" name="q24" value="c" onclick="checkQuiz('q24','b')"> c) Hg (mercúrio)</label>
+    <label><input type="radio" name="q24" value="d" onclick="checkQuiz('q24','b')"> d) Au (ouro)</label>
+    <div class="feedback" id="q24-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q25" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Cap. 6 — Oxirredução</span>
+    <p>25. Na mesma reação (Fe + CuSO₄ → FeSO₄ + Cu), o Cu²⁺ passa de +2 para 0. O Cu²⁺ foi:</p>
+    <label><input type="radio" name="q25" value="a" onclick="checkQuiz('q25','b')"> a) Oxidado, agindo como agente redutor</label>
+    <label><input type="radio" name="q25" value="b" onclick="checkQuiz('q25','b')"> b) Reduzido, agindo como agente oxidante</label>
+    <label><input type="radio" name="q25" value="c" onclick="checkQuiz('q25','b')"> c) Inerte, sem alteração de NOx</label>
+    <label><input type="radio" name="q25" value="d" onclick="checkQuiz('q25','b')"> d) Oxidado, agindo como agente oxidante</label>
+    <div class="feedback" id="q25-fb"></div>
+  </div>
+
+  <div style="text-align:center; margin-top:28px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+    <button onclick="resetQuiz()" style="background:var(--secondary);color:#3b0a0a;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
+  </div>
+</section>
+
+</main>
+<footer>
+  Resumo interativo — Avaliação Especial de Química 2026<br>
+  2ª série do Ensino Médio | Feito por Gabriel Amorim
+</footer>
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+});
+const answers = {
+  q1:  { correct: 'b', explain: '1 mol de qualquer substância sempre contém 6,02 × 10²³ partículas — é a definição do Número de Avogadro.' },
+  q2:  { correct: 'c', explain: 'CO₂: C=12 + 2×O=32 → M = 44 g/mol.' },
+  q3:  { correct: 'a', explain: 'n = m / M = 9 / 18 = 0,5 mol.' },
+  q4:  { correct: 'd', explain: 'Proporção: 1 mol N₂ → 2 mol NH₃. Logo 2 mol N₂ → 4 mol NH₃.' },
+  q5:  { correct: 'c', explain: 'Os coeficientes indicam a proporção em mol. Por isso o cálculo estequiométrico usa regra de três com os coeficientes.' },
+  q6:  { correct: 'b', explain: 'Nas CNTP (0°C, 1 atm), 1 mol de qualquer gás ocupa 22,4 L — é o volume molar.' },
+  q7:  { correct: 'c', explain: '1 mol N₂ = 22,4 L. Proporção: 1 mol N₂ reage com 3 mol H₂ → V(H₂) = 3 × 22,4 = 67,2 L.' },
+  q8:  { correct: 'a', explain: 'n(H₂O) = 36/18 = 2 mol. Proporção: 2 mol H₂O → 1 mol O₂. V(O₂) = 1 × 22,4 = 22,4 L.' },
+  q9:  { correct: 'b', explain: 'm_pura = 200 × 0,90 = 180 g de CaCO₃. As impurezas (20 g) não reagem.' },
+  q10: { correct: 'c', explain: 'm_real = m_teórica × (rendimento/100) = 80 × 0,75 = 60 g.' },
+  q11: { correct: 'c', explain: 'Passo 1: m_pura = 100 × 0,80 = 80 g. Passo 2: m_teórica = 80 g (proporção 1:1). Passo 3: m_real = 80 × 0,50 = 40 g.' },
+  q12: { correct: 'b', explain: 'Método: A: 3÷1 = 3; B: 4÷2 = 2. Menor quociente → B é o limitante. (Para consumir 3 mol A precisaria de 6 mol B, mas só há 4.)' },
+  q13: { correct: 'b', explain: 'B é limitante com 4 mol. Proporção: 2 mol B → 1 mol C. Logo: 4 mol B → 2 mol C.' },
+  q14: { correct: 'a', explain: 'A que reagiu: 4 mol B usam 2 mol A (proporção 1:2). Sobra: 3 − 2 = 1 mol A em excesso.' },
+  q15: { correct: 'c', explain: 'Regra 1: Substância simples → NOx = 0. Sempre, independente do elemento.' },
+  q16: { correct: 'c', explain: 'H₂SO₄: 2×(+1) + x + 4×(−2) = 0 → 2 + x − 8 = 0 → x = +6.' },
+  q17: { correct: 'd', explain: 'Cr₂O₇²⁻: 2x + 7×(−2) = −2 → 2x − 14 = −2 → 2x = 12 → x = +6.' },
+  q18: { correct: 'b', explain: 'NH₄⁺ (íon composto): x + 4×(+1) = +1 → x + 4 = +1 → x = −3.' },
+  q19: { correct: 'b', explain: 'Oxidação = perda de e⁻ → NOx aumenta. Redução = ganho de e⁻ → NOx diminui.' },
+  q20: { correct: 'c', explain: 'Agente oxidante recebe elétrons e sofre redução (seu NOx diminui). O agente redutor cede elétrons e sofre oxidação.' },
+  q21: { correct: 'b', explain: 'Fe: NOx 0 → +2 (subiu) = oxidação. Quem é oxidado age como agente redutor (doa e⁻ para o Cu²⁺).' },
+  q22: { correct: 'b', explain: 'H₂O₂: 2×(+1) + 2x = 0 → x = −1. Caso especial do peróxido — O tem NOx −1 (não −2).' },
+  q23: { correct: 'c', explain: 'Na fila de reatividade, o mais ativo desloca o menos ativo de sua solução salina. É uma reação de oxirredução.' },
+  q24: { correct: 'b', explain: 'Fe está à esquerda de Cu na fila de reatividade (Fe > Cu), portanto Fe desloca Cu do CuSO₄. Ag, Hg e Au estão à direita de Cu — não reagem.' },
+  q25: { correct: 'b', explain: 'Cu²⁺: NOx +2 → 0 (caiu) = redução. Quem é reduzido age como agente oxidante (recebeu e⁻ do Fe).' }
+};
+let scoreCorrect = 0, scoreTotal = 0;
+function checkQuiz(qId, correct) {
+  const fb = document.getElementById(qId + '-fb');
+  if (fb.className.includes('correct') || fb.className.includes('wrong')) return;
+  const selected = document.querySelector(`input[name="${qId}"]:checked`);
+  if (!selected) return;
+  scoreTotal++;
+  const isCorrect = selected.value === answers[qId].correct;
+  if (isCorrect) scoreCorrect++;
+  fb.className = 'feedback ' + (isCorrect ? 'correct' : 'wrong');
+  fb.innerHTML = (isCorrect ? '✅ Correto! ' : '❌ Errado. ') + answers[qId].explain;
+  document.querySelectorAll(`input[name="${qId}"]`).forEach(r => r.disabled = true);
+  const box = document.getElementById('score-box');
+  box.style.display = 'block';
+  box.textContent = `Placar: ${scoreCorrect} / ${scoreTotal}`;
+}
+function filterQuiz(ch, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.quiz-q').forEach(q => {
+    q.classList.toggle('hidden', ch !== 'all' && q.dataset.ch !== ch);
+  });
+}
+function resetQuiz() {
+  scoreCorrect = 0; scoreTotal = 0;
+  document.querySelectorAll('.quiz-q').forEach(q => {
+    q.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; r.disabled = false; });
+    const fb = q.querySelector('.feedback');
+    fb.className = 'feedback'; fb.innerHTML = '';
+  });
+  document.getElementById('score-box').style.display = 'none';
+}
+</script>
+</body>
+</html>

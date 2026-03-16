@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo de Sociologia - Avaliação Especial 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #3b1f5e;
+    --secondary: #9b6dbd;
+    --accent: #6c3483;
+    --bg: #f8f5fc;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e4d9f0;
+    --shadow: 0 4px 24px rgba(60,0,80,0.09);
+    --ch1: #1a5276;
+    --ch2: #7b241c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* PROGRESS BAR */
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--secondary); z-index: 999; width: 0%; transition: width 0.1s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #5c2d8e 50%, #2c0f4a 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  nav .nav-inner::-webkit-scrollbar { display: none; }
+  nav a { text-decoration: none; padding: 14px 20px; font-weight: 600; font-size: 0.85rem; white-space: nowrap; color: var(--text-light); border-bottom: 3px solid transparent; transition: all 0.3s; }
+  nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* MAIN */
+  main { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+  /* CHAPTER */
+  .chapter { background: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 32px; overflow: hidden; }
+  .chapter-header { padding: 28px 32px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+  .chapter-header .tag { font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; color: white; letter-spacing: 0.05em; }
+  .tag-ch1 { background: var(--ch1); }
+  .tag-ch2 { background: var(--ch2); }
+  .chapter-header .meta { font-size: 0.9rem; color: var(--text-light); margin-top: 6px; }
+  .chapter-body { padding: 24px 32px 32px; }
+
+  /* ACCORDION */
+  .accordion { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  .accordion-btn { width: 100%; background: none; border: none; padding: 16px 20px; text-align: left; font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); transition: background 0.2s; }
+  .accordion-btn:hover { background: var(--bg); }
+  .accordion-btn::after { content: '+'; font-size: 1.3rem; color: var(--accent); transition: transform 0.3s; }
+  .accordion.open .accordion-btn::after { transform: rotate(45deg); }
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 20px; }
+  .accordion.open .accordion-content { max-height: 2000px; padding: 0 20px 20px; }
+
+  /* CONTENT ELEMENTS */
+  .content-block { margin-bottom: 20px; }
+  .content-block h4 { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid var(--border); }
+  .content-block ul { list-style: none; padding-left: 0; }
+  .content-block ul li { padding: 4px 0 4px 18px; position: relative; font-size: 0.93rem; }
+  .content-block ul li::before { content: '—'; position: absolute; left: 0; color: var(--secondary); font-weight: 700; }
+  .content-block ul ul li::before { content: '•'; }
+  .content-block ul ul { padding-left: 20px; }
+  .highlight-box { background: linear-gradient(135deg, #f3e8ff, #ede0f7); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .highlight-box strong { color: var(--primary); }
+  .tip-box { background: linear-gradient(135deg, #e8f4fd, #d6eaf8); border-left: 4px solid var(--ch1); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .warning-box { background: linear-gradient(135deg, #fdedec, #fadbd8); border-left: 4px solid var(--ch2); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .example-box { background: #f9f9f9; border: 1px dashed #c9b6e0; border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .compare-card { background: var(--bg); border-radius: 8px; padding: 14px; border: 1px solid var(--border); }
+  .compare-card h5 { font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: var(--accent); }
+  .compare-card ul li { font-size: 0.88rem; }
+  @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  /* QUIZ */
+  .quiz-section { background: linear-gradient(135deg, var(--primary), #4a1a7a); border-radius: 16px; padding: 32px; color: white; margin-bottom: 32px; }
+  .quiz-section h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; }
+  .quiz-q { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin-bottom: 16px; backdrop-filter: blur(4px); }
+  .quiz-q p { font-size: 0.95rem; margin-bottom: 14px; line-height: 1.6; }
+  .quiz-q label { display: block; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-bottom: 4px; transition: background 0.2s; }
+  .quiz-q label:hover { background: rgba(255,255,255,0.15); }
+  .quiz-q input[type="radio"] { margin-right: 8px; }
+  .quiz-q .feedback { margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 0.88rem; display: none; }
+  .quiz-q .feedback.correct { background: rgba(39,174,96,0.3); display: block; }
+  .quiz-q .feedback.wrong { background: rgba(231,76,60,0.3); display: block; }
+  .quiz-q.hidden { display: none; }
+  .quiz-chapter-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; letter-spacing: 0.04em; }
+  .quiz-chapter-tag.tag-ch1 { background: rgba(26,82,118,0.5); color: #aed6f1; }
+  .quiz-chapter-tag.tag-ch2 { background: rgba(123,36,28,0.5); color: #f1948a; }
+  .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.2); border-color: white; }
+  #score-box { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 12px 20px; text-align: center; font-weight: 700; font-size: 1rem; margin-bottom: 16px; display: none; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 32px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+  @media print {
+    nav, .progress-bar, .quiz-section { display: none; }
+    .accordion-content { max-height: none !important; padding: 0 20px 20px !important; }
+  }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>Sociologia</h1>
+  <p class="subtitle">Avaliação Especial 2026 · 2ª série do Ensino Médio</p>
+  <div><span class="badge">Adam Smith &amp; Karl Marx</span></div>
+  <div><span class="author">Anotações de Sofia Alves / 2ME</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#cap1">Adam Smith</a>
+    <a href="#cap2">Karl Marx</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════ CAP 1 – ADAM SMITH ══════════ -->
+<section class="chapter" id="cap1">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch1">Cap. 1</span> Adam Smith</h2>
+    <p class="meta">Liberalismo Econômico · Escócia, 1723–1790</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Quem foi Adam Smith?</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <ul>
+            <li>Pai do <strong>liberalismo econômico</strong></li>
+            <li>Nasceu na Escócia (1723–1790)</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>A Riqueza das Nações</strong> — Obra escrita por Adam Smith que buscava entender o crescente enriquecimento da Inglaterra industrial.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">A Fábrica de Alfinetes — Divisão do Trabalho</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <p style="margin-bottom:10px; font-size:0.93rem;">Metáfora usada por Smith para explicar e simplificar o processo industrial.</p>
+          <ul>
+            <li>Smith percebe que a <strong>divisão da produção em etapas é mais produtiva</strong>
+              <ul>
+                <li>Desenvolvimento de trabalhadores especializados em tarefas específicas</li>
+                <li>Menor perda de tempo na transição e transporte entre etapas</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="tip-box">
+            <strong>Ideia central:</strong> Ao invés de um trabalhador fazer o alfinete inteiro, cada etapa (cortar, pontuar, embalar…) é feita por um especialista. O resultado é muito mais eficiente.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">A Mão Invisível do Mercado</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            Teoria que explica como o <strong>mercado se autorregula</strong> naturalmente, sem intervenção do Estado.
+          </div>
+          <h4>Como funciona</h4>
+          <ul>
+            <li>Oferta e demanda</li>
+            <li>Livre-mercado: possibilidade de escolher a venda e o consumo dentre opções</li>
+            <li>Interesses individuais movem a economia como um todo</li>
+          </ul>
+          <h4>Limitações da autorregulação</h4>
+          <ul>
+            <li><strong>Práticas anticoncorrenciais:</strong> monopólios e cartéis distorcem o mercado</li>
+            <li><strong>Produtos essenciais:</strong> nem sempre o mercado garante acesso universal</li>
+            <li><strong>Mão-de-obra:</strong> a necessidade de trabalho pode sujeitar o indivíduo a condições ruins — a "liberdade de escolha" não é real quando se precisa sobreviver</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAP 2 – KARL MARX ══════════ -->
+<section class="chapter" id="cap2">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch2">Cap. 2</span> Karl Marx</h2>
+    <p class="meta">Socialismo científico · Alemanha, 1818–1883</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Quem foi Karl Marx?</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <ul>
+            <li>Nasceu na Alemanha (1818–1883)</li>
+            <li><strong>O Capital</strong> e o <strong>Manifesto Comunista</strong> — obras escritas por Karl Marx e Friedrich Engels</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">A Luta de Classes</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Pré-Revolução Industrial</h5>
+              <ul>
+                <li>Servo trabalha na terra do senhor</li>
+                <li>Paga com parte da produção</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Pós-Revolução Industrial</h5>
+              <ul>
+                <li>Burguês contrata o proletariado</li>
+                <li>Pagamento em salário</li>
+              </ul>
+            </div>
+          </div>
+          <h4>Definições</h4>
+          <ul>
+            <li><strong>Burguês:</strong> qualquer um com algum meio de produção, normalmente fábricas</li>
+            <li><strong>Proletariado:</strong> quem não tem acesso aos meios de produção e por isso vende sua força de trabalho</li>
+          </ul>
+          <h4>Padrão social identificado por Marx</h4>
+          <ul>
+            <li><strong>Classe trabalhadora:</strong> volumosa, fraca e move a economia</li>
+            <li><strong>Classe governante:</strong> pequena, forte, detentora de dinheiro e poder</li>
+          </ul>
+          <div class="warning-box">
+            <strong>Conclusão de Marx:</strong> a história humana é a luta de classes.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Exploração e Mais-Valia</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <h4>A ideia de exploração — herança de John Locke</h4>
+          <ul>
+            <li>Marx herda de John Locke o conceito de <strong>direito natural à propriedade</strong> — o direito em função do trabalho</li>
+            <li>Se alguém usa os bens produzidos ou força de trabalho de outro como pagamento, está violando seus direitos naturais</li>
+          </ul>
+          <h4>Mais-Valia</h4>
+          <div class="highlight-box">
+            <strong>Mais-valia</strong> = diferença entre o valor gerado por um trabalhador e o valor que ele recebe como salário → <em>origem do lucro para o burguês</em>
+          </div>
+          <div style="margin:16px 0;">
+            <svg viewBox="0 0 620 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:620px;display:block;margin:0 auto;" role="img" aria-label="Exemplo de mais-valia: matéria-prima $1 + mão de obra $1 resulta em produto $7, com lucro de $5 para o burguês">
+
+              <!-- fundo geral -->
+              <rect width="620" height="160" rx="14" fill="#f8f5fc"/>
+
+              <!-- Card 1: Matéria-prima -->
+              <rect x="10" y="20" width="120" height="120" rx="12" fill="#ffffff" stroke="#d4b8f0" stroke-width="1.5"/>
+              <!-- ícone novelo de lã -->
+              <ellipse cx="70" cy="62" rx="22" ry="18" fill="#b39ddb" opacity="0.25"/>
+              <ellipse cx="70" cy="62" rx="22" ry="18" fill="none" stroke="#7e57c2" stroke-width="2"/>
+              <path d="M52,58 Q60,50 70,58 Q80,66 88,58" fill="none" stroke="#7e57c2" stroke-width="1.5"/>
+              <path d="M52,64 Q60,56 70,64 Q80,72 88,64" fill="none" stroke="#9c7ae0" stroke-width="1.2" opacity="0.7"/>
+              <path d="M55,70 Q65,63 75,70 Q82,75 86,70" fill="none" stroke="#9c7ae0" stroke-width="1" opacity="0.5"/>
+              <text x="70" y="98" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5c3d72" font-weight="600">Matéria-prima</text>
+              <text x="70" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#7b5ea7">+ despesas</text>
+              <text x="70" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="20" fill="#3b1f5e" font-weight="800">$1</text>
+
+              <!-- seta + -->
+              <text x="148" y="87" text-anchor="middle" font-family="Inter,sans-serif" font-size="26" fill="#9b6dbd" font-weight="700">+</text>
+
+              <!-- Card 2: Mão de obra -->
+              <rect x="170" y="20" width="120" height="120" rx="12" fill="#ffffff" stroke="#d4b8f0" stroke-width="1.5"/>
+              <!-- ícone boneco -->
+              <circle cx="230" cy="46" r="11" fill="#b39ddb" opacity="0.3"/>
+              <circle cx="230" cy="46" r="11" fill="none" stroke="#7e57c2" stroke-width="2"/>
+              <!-- corpo -->
+              <line x1="230" y1="57" x2="230" y2="82" stroke="#7e57c2" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- braços -->
+              <line x1="215" y1="65" x2="245" y2="65" stroke="#7e57c2" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- pernas -->
+              <line x1="230" y1="82" x2="218" y2="96" stroke="#7e57c2" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="230" y1="82" x2="242" y2="96" stroke="#7e57c2" stroke-width="2.5" stroke-linecap="round"/>
+              <text x="230" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5c3d72" font-weight="600">Mão de obra</text>
+              <text x="230" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="20" fill="#3b1f5e" font-weight="800">$1</text>
+
+              <!-- seta → -->
+              <line x1="304" y1="80" x2="328" y2="80" stroke="#9b6dbd" stroke-width="2.5" stroke-linecap="round"/>
+              <polygon points="328,74 340,80 328,86" fill="#9b6dbd"/>
+
+              <!-- Card 3: Produto -->
+              <rect x="350" y="20" width="120" height="120" rx="12" fill="#ffffff" stroke="#d4b8f0" stroke-width="1.5"/>
+              <!-- ícone camiseta -->
+              <path d="M400,42 L388,52 L395,57 L395,82 L425,82 L425,57 L432,52 L420,42 Q410,38 400,42Z" fill="#b39ddb" opacity="0.3"/>
+              <path d="M400,42 L388,52 L395,57 L395,82 L425,82 L425,57 L432,52 L420,42 Q410,38 400,42Z" fill="none" stroke="#7e57c2" stroke-width="2" stroke-linejoin="round"/>
+              <text x="410" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5c3d72" font-weight="600">Produto</text>
+              <text x="410" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="20" fill="#2e7d32" font-weight="800">$7</text>
+
+              <!-- seta → lucro -->
+              <line x1="484" y1="80" x2="504" y2="80" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
+              <polygon points="504,74 516,80 504,86" fill="#c0392b"/>
+
+              <!-- Card 4: Lucro -->
+              <rect x="526" y="20" width="84" height="120" rx="12" fill="#fdf3f2" stroke="#f1948a" stroke-width="1.5"/>
+              <!-- cifrão estilizado -->
+              <text x="568" y="72" text-anchor="middle" font-family="Inter,sans-serif" font-size="28" fill="#c0392b" font-weight="900">$5</text>
+              <text x="568" y="90" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#c0392b" font-weight="600">LUCRO</text>
+              <text x="568" y="104" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#922b21">(mais-valia)</text>
+              <text x="568" y="120" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#922b21">p/ o burguês</text>
+
+            </svg>
+          </div>
+          <ul>
+            <li>O trabalho do proletariado atribui valor, mas esse valor não é justamente devolvido</li>
+            <li>Enquanto o trabalhador não recebe o lucro total, o sistema é injusto</li>
+          </ul>
+          <h4>E os burgueses?</h4>
+          <ul>
+            <li>A burguesia tinha expectativas de lucro muito altas → origem da exploração do trabalhador</li>
+            <li>Marx não via necessidade da existência da burguesia como um todo:
+              <ul>
+                <li>Apesar dos investimentos iniciais nos meios de produção, sua atual funcionalidade não justificava a grande fatia do lucro</li>
+              </ul>
+            </li>
+            <li>Questão: o que fazer com os meios de produção <em>sem</em> a burguesia?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Estatização e Revolução do Proletariado</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <h4>Estatização dos Meios de Produção</h4>
+          <ul>
+            <li>O Estado deve tomar e gerir todas as fábricas, empresas e meios de produção</li>
+            <li>A administração deve ser justa e sem fins lucrativos para uma pessoa específica</li>
+            <li>Sem a burguesia, todo o lucro seria dividido entre os trabalhadores</li>
+          </ul>
+          <h4>Revolução do Proletariado</h4>
+          <ul>
+            <li>Marx acredita que para ocorrer a estatização, é necessária primeiro uma <strong>mudança socioeconômica</strong></li>
+          </ul>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Revolução Socialista</h5>
+              <ul>
+                <li>Primeiro passo da Revolução do Proletariado</li>
+                <li>Etapa intermediária entre capitalismo e comunismo</li>
+                <li>Alteraria o modo de produção capitalista</li>
+                <li>Estatização + ausência de propriedade privada</li>
+                <li>Estado como figura de controle</li>
+                <li>Devolução da riqueza aos trabalhadores via salário ou serviços públicos</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Comunismo</h5>
+              <ul>
+                <li>"Estágio final" e ideal para Marx</li>
+                <li>Ausência total do Estado</li>
+                <li>Economia gerenciada pelo próprio povo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Por que não deu certo? + Conceitos Complementares</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <p style="margin-bottom:12px; font-size:0.93rem;">Ao longo dos anos, foram realizadas tentativas de implementação das ideias marxistas pelo mundo, porém nenhuma funcionou como idealizada.</p>
+          <h4>Hipótese 1 — Diferença de contexto</h4>
+          <ul>
+            <li>Marx idealizou para a <strong>Inglaterra</strong> (economia estável, capitalismo desenvolvido)</li>
+            <li>Foi aplicado na <strong>Rússia</strong> (mais agrária e menos industrial)</li>
+            <li>Má gestão do Estado</li>
+            <li>Conflitos entre sistemas: capitalismo x comunismo</li>
+            <li>Oposição capitalista com sanções e guerras</li>
+          </ul>
+          <h4>Hipótese 2 — Problema antropológico</h4>
+          <ul>
+            <li>Ideia ruim por natureza</li>
+            <li><strong>Egoísmo humano</strong> impede o funcionamento do sistema</li>
+          </ul>
+          <h4>Alienação</h4>
+          <div class="highlight-box">
+            <strong>Alienação</strong> = distanciamento do proletário do produto final por meio da fragmentação das etapas de produção.<br><br>
+            Reforça a injustiça do sistema ao não permitir que o trabalhador compreenda a importância do próprio papel.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ QUIZ ══════════ -->
+<section class="quiz-section" id="quiz">
+  <h3>Banco de Questões</h3>
+  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">25 questões · Adam Smith e Karl Marx · Selecione e veja se acertou!</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (25)</button>
+    <button class="filter-btn" onclick="filterQuiz('ch1',this)">Adam Smith</button>
+    <button class="filter-btn" onclick="filterQuiz('ch2',this)">Karl Marx</button>
+  </div>
+
+  <div id="score-box">Placar: <span id="score-correct">0</span> acertos de <span id="score-total">0</span> respondidas</div>
+
+  <!-- ADAM SMITH -->
+  <div class="quiz-q" id="q1" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Adam Smith</span>
+    <p>1. Um operário de uma fábrica aperta somente um tipo de parafuso o dia inteiro e nunca vê o produto final. Qual conceito smithiano esse arranjo ilustra — e qual é sua principal vantagem econômica?</p>
+    <label><input type="radio" name="q1" value="a" onclick="checkQuiz('q1','b')"> a) Mão Invisível — beneficia a sociedade sem que o operário precise compreender o processo completo</label>
+    <label><input type="radio" name="q1" value="b" onclick="checkQuiz('q1','b')"> b) Divisão do Trabalho — a especialização aumenta a produtividade e elimina o tempo perdido ao trocar de tarefa</label>
+    <label><input type="radio" name="q1" value="c" onclick="checkQuiz('q1','b')"> c) Alienação — demonstra como o capitalismo fragmenta o trabalhador para facilitar sua exploração</label>
+    <label><input type="radio" name="q1" value="d" onclick="checkQuiz('q1','b')"> d) Estatização — mostra como a produção organizada pelo Estado multiplica a eficiência</label>
+    <div class="feedback" id="q1-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q2" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Adam Smith</span>
+    <p>2. Um país elimina regulações e permite livre concorrência total entre empresas. Do ponto de vista de Smith, o que a mão invisível do mercado tenderia a produzir ao longo do tempo?</p>
+    <label><input type="radio" name="q2" value="a" onclick="checkQuiz('q2','c')"> a) Os preços subiriam, pois as empresas formariam acordos de cartel sem fiscalização do Estado</label>
+    <label><input type="radio" name="q2" value="b" onclick="checkQuiz('q2','c')"> b) A qualidade cairia, pois sem regulação mínima não há padrão a ser mantido</label>
+    <label><input type="radio" name="q2" value="c" onclick="checkQuiz('q2','c')"> c) Os preços tenderiam a cair e a qualidade a melhorar, pois as empresas competem continuamente por clientes</label>
+    <label><input type="radio" name="q2" value="d" onclick="checkQuiz('q2','c')"> d) O mercado colapsaria sem uma autoridade central organizando a produção e distribuição</label>
+    <div class="feedback" id="q2-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q3" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Adam Smith</span>
+    <p>3. Dois economistas debatem: um defende que o governo deve tabelar o preço do pão para evitar a fome; o outro argumenta que o mercado ajustará oferta e demanda por conta própria. Qual posição Adam Smith defenderia — e por quê?</p>
+    <label><input type="radio" name="q3" value="a" onclick="checkQuiz('q3','b')"> a) A do primeiro — o Estado deve garantir alimentos básicos a preços acessíveis como obrigação social</label>
+    <label><input type="radio" name="q3" value="b" onclick="checkQuiz('q3','b')"> b) A do segundo — quando o preço sobe, mais produtores são atraídos ao mercado, equilibrando naturalmente a oferta; o tabelamento distorce esse mecanismo</label>
+    <label><input type="radio" name="q3" value="c" onclick="checkQuiz('q3','b')"> c) Nenhuma — Smith propunha uma economia mista com controle parcial do Estado sobre bens essenciais</label>
+    <label><input type="radio" name="q3" value="d" onclick="checkQuiz('q3','b')"> d) A do primeiro apenas em crises — o livre mercado só funciona em períodos de estabilidade econômica</label>
+    <div class="feedback" id="q3-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q4" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Adam Smith</span>
+    <p>4. O governo cria um monopólio estatal para toda a produção nacional de aço. O que Adam Smith diria sobre as consequências dessa decisão para o mercado?</p>
+    <label><input type="radio" name="q4" value="a" onclick="checkQuiz('q4','c')"> a) Aprovaria, pois o Estado garante preços justos e abastecimento contínuo sem especulação privada</label>
+    <label><input type="radio" name="q4" value="b" onclick="checkQuiz('q4','c')"> b) Seria indiferente — monopólios estatais não afetam a dinâmica da mão invisível no restante da economia</label>
+    <label><input type="radio" name="q4" value="c" onclick="checkQuiz('q4','c')"> c) Criticaria: monopólios eliminam a concorrência, distorcem preços e reduzem o incentivo à inovação e qualidade</label>
+    <label><input type="radio" name="q4" value="d" onclick="checkQuiz('q4','c')"> d) Aceitaria parcialmente, desde que o lucro do monopólio fosse redistribuído à população como dividendo</label>
+    <div class="feedback" id="q4-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q5" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Adam Smith</span>
+    <p>5. Uma operária têxtil ganha salário mínimo e não tem outra fonte de renda. Quando o patrão reduz seu salário, ela é obrigada a aceitar. O que esse cenário revela sobre a teoria da mão invisível de Smith?</p>
+    <label><input type="radio" name="q5" value="a" onclick="checkQuiz('q5','b')"> a) Demonstra que a teoria funciona: o mercado equilibrou o preço do trabalho de acordo com a oferta disponível</label>
+    <label><input type="radio" name="q5" value="b" onclick="checkQuiz('q5','b')"> b) Expõe uma limitação: a necessidade de subsistência retira a "livre escolha" real do trabalhador, contradizendo o ideal liberal</label>
+    <label><input type="radio" name="q5" value="c" onclick="checkQuiz('q5','b')"> c) Prova que Smith estava inteiramente errado — o mercado sistematicamente prejudica trabalhadores em qualquer contexto</label>
+    <label><input type="radio" name="q5" value="d" onclick="checkQuiz('q5','b')"> d) Indica que o Estado deveria fixar um salário mínimo elevado, como Smith originalmente propunha em suas obras</label>
+    <div class="feedback" id="q5-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q6" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Adam Smith</span>
+    <p>6. Smith argumentou que cada pessoa perseguindo seu interesse próprio beneficia a sociedade como um todo. Identifique uma situação onde essa lógica FALHA — e qual limitação do mercado ela ilustra.</p>
+    <label><input type="radio" name="q6" value="a" onclick="checkQuiz('q6','b')"> a) Quando empresas concorrem entre si forçando preços baixos, o que prejudica a qualidade dos produtos</label>
+    <label><input type="radio" name="q6" value="b" onclick="checkQuiz('q6','b')"> b) Quando produtores poluem rios para reduzir custos, gerando prejuízos a toda a população — externalidade negativa que o mercado não corrige sozinho</label>
+    <label><input type="radio" name="q6" value="c" onclick="checkQuiz('q6','b')"> c) Quando trabalhadores exigem salários altos, encarecendo o produto final e prejudicando os consumidores</label>
+    <label><input type="radio" name="q6" value="d" onclick="checkQuiz('q6','b')"> d) Quando o Estado tributa excessivamente o mercado, impedindo a livre iniciativa e a acumulação de capital</label>
+    <div class="feedback" id="q6-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q7" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Adam Smith</span>
+    <p>7. Compare o papel do Estado no liberalismo de Smith com o papel que Marx lhe atribui. Qual afirmação descreve melhor a diferença entre as duas visões?</p>
+    <label><input type="radio" name="q7" value="a" onclick="checkQuiz('q7','b')"> a) Smith quer um Estado forte para proteger o livre mercado de abusos; Marx quer eliminar o Estado imediatamente após a revolução</label>
+    <label><input type="radio" name="q7" value="b" onclick="checkQuiz('q7','b')"> b) Smith quer um Estado mínimo (proteção de contratos e propriedade); Marx quer usar o Estado para estatizar a produção e, depois, dissolvê-lo gradualmente</label>
+    <label><input type="radio" name="q7" value="c" onclick="checkQuiz('q7','b')"> c) Ambos concordam que o Estado deve ser eliminado — divergem apenas no ritmo e no método para isso</label>
+    <label><input type="radio" name="q7" value="d" onclick="checkQuiz('q7','b')"> d) Smith defende monopólios estatais estratégicos; Marx defende o livre mercado para o proletariado assumir o controle</label>
+    <div class="feedback" id="q7-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q8" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Adam Smith</span>
+    <p>8. Adam Smith celebrava a especialização do trabalho como motor do progresso. Karl Marx discordaria radicalmente desse elogio. Com base em ambas as teorias, por que Marx seria crítico da linha de montagem fordista?</p>
+    <label><input type="radio" name="q8" value="a" onclick="checkQuiz('q8','c')"> a) Porque a especialização diminui a produtividade — o que contradiz até os interesses da burguesia a longo prazo</label>
+    <label><input type="radio" name="q8" value="b" onclick="checkQuiz('q8','c')"> b) Porque especialização implica controle estatal sobre a organização do trabalho — algo que Marx rejeitava na fase capitalista</label>
+    <label><input type="radio" name="q8" value="c" onclick="checkQuiz('q8','c')"> c) Porque ao executar apenas uma etapa, o trabalhador aliena-se do produto final, perde a consciência do próprio trabalho e torna-se mais vulnerável à exploração</label>
+    <label><input type="radio" name="q8" value="d" onclick="checkQuiz('q8','c')"> d) Porque trabalhadores especializados exigem salários maiores, o que reduz a mais-valia extraída pelo burguês</label>
+    <div class="feedback" id="q8-fb"></div>
+  </div>
+
+  <!-- KARL MARX -->
+  <div class="quiz-q" id="q9" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>9. Um dono de fábrica compra matéria-prima por $200, paga $100 em salários e vende o produto por $600. Segundo o conceito marxista de mais-valia, qual é o valor extraído do trabalhador — e o que isso revela sobre a relação entre burguês e proletário?</p>
+    <label><input type="radio" name="q9" value="a" onclick="checkQuiz('q9','c')"> a) A mais-valia é $400; demonstra que o burguês gerou esse valor por meio de seu investimento e gestão</label>
+    <label><input type="radio" name="q9" value="b" onclick="checkQuiz('q9','c')"> b) A mais-valia é $100; é a diferença entre o salário mínimo e o que o trabalhador efetivamente recebeu</label>
+    <label><input type="radio" name="q9" value="c" onclick="checkQuiz('q9','c')"> c) A mais-valia é $300; o salário pago não corresponde ao valor real gerado pelo trabalho — a diferença é extraída como lucro pelo burguês</label>
+    <label><input type="radio" name="q9" value="d" onclick="checkQuiz('q9','c')"> d) A mais-valia é $200; é o que sobra após deduzir apenas o custo da matéria-prima, sem contar o salário</label>
+    <div class="feedback" id="q9-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q10" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>10. Uma costureira monta apenas a manga esquerda de uma jaqueta durante todo o dia. Ela nunca viu a jaqueta completa e desconhece seu preço final. Qual conceito marxista essa situação ilustra — e qual efeito ele tem sobre a trabalhadora além do econômico?</p>
+    <label><input type="radio" name="q10" value="a" onclick="checkQuiz('q10','c')"> a) Mais-valia — o burguês lucra com a etapa que ela realiza sem pagar pelo valor real gerado</label>
+    <label><input type="radio" name="q10" value="b" onclick="checkQuiz('q10','c')"> b) Luta de Classes — ela representa o proletariado contra a burguesia que detém os meios de produção</label>
+    <label><input type="radio" name="q10" value="c" onclick="checkQuiz('q10','c')"> c) Alienação — ao executar só uma etapa, ela perde a consciência do produto final e do valor do próprio trabalho, o que também a impede de perceber sua exploração</label>
+    <label><input type="radio" name="q10" value="d" onclick="checkQuiz('q10','c')"> d) Estatização — demonstra que o Estado deveria assumir a fábrica e reorganizar a produção coletivamente</label>
+    <div class="feedback" id="q10-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q11" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>11. Segundo Marx, um servo medieval entregava parte da colheita ao senhor feudal, enquanto o operário moderno recebe um salário. Apesar dessa diferença aparente, o que permanece IGUAL nas duas relações?</p>
+    <label><input type="radio" name="q11" value="a" onclick="checkQuiz('q11','b')"> a) A posse dos meios de produção pelo trabalhador — em ambos os casos ele detém as ferramentas do ofício</label>
+    <label><input type="radio" name="q11" value="b" onclick="checkQuiz('q11','b')"> b) A estrutura de exploração: uma classe controla os meios de produção e extrai sistematicamente o valor gerado por outra</label>
+    <label><input type="radio" name="q11" value="c" onclick="checkQuiz('q11','b')"> c) A liberdade do trabalhador — tanto o servo quanto o operário podem trocar de empregador quando quiserem</label>
+    <label><input type="radio" name="q11" value="d" onclick="checkQuiz('q11','b')"> d) O papel do Estado — em ambos os períodos o governo protegeu o trabalhador de exploração excessiva por lei</label>
+    <div class="feedback" id="q11-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q12" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>12. Se a história humana é essencialmente a "luta de classes" segundo Marx, como ele interpretaria uma greve geral de trabalhadores contra os baixos salários?</p>
+    <label><input type="radio" name="q12" value="a" onclick="checkQuiz('q12','c')"> a) Como um fracasso da mão invisível — evidência de que o mercado não equilibrou automaticamente os salários</label>
+    <label><input type="radio" name="q12" value="b" onclick="checkQuiz('q12','c')"> b) Como um ato irracional de trabalhadores que não compreendem os benefícios de longo prazo do capitalismo</label>
+    <label><input type="radio" name="q12" value="c" onclick="checkQuiz('q12','c')"> c) Como uma expressão legítima da consciência de classe do proletariado — etapa necessária no processo histórico rumo à revolução</label>
+    <label><input type="radio" name="q12" value="d" onclick="checkQuiz('q12','c')"> d) Como uma interferência perigosa do Estado nos assuntos privados entre empregadores e trabalhadores</label>
+    <div class="feedback" id="q12-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q13" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>13. Um empresário argumenta: "Investi $500 mil em máquinas para construir esta fábrica. Os trabalhadores não investiram nada — é justo que eu fique com a maior parte do lucro." Como Marx responderia a esse argumento?</p>
+    <label><input type="radio" name="q13" value="a" onclick="checkQuiz('q13','b')"> a) Concordaria parcialmente: o risco do investimento justifica um retorno maior por parte do burguês</label>
+    <label><input type="radio" name="q13" value="b" onclick="checkQuiz('q13','b')"> b) Reconheceria o investimento inicial como historicamente válido, mas argumentaria que, uma vez recuperado o capital, o lucro contínuo é apenas extração de mais-valia sem justificativa</label>
+    <label><input type="radio" name="q13" value="c" onclick="checkQuiz('q13','b')"> c) Proporia que o Estado comprasse imediatamente as máquinas e transferisse a fábrica aos trabalhadores sem compensação</label>
+    <label><input type="radio" name="q13" value="d" onclick="checkQuiz('q13','b')"> d) Ignoraria o argumento econômico e focaria apenas no aspecto moral e filosófico da exploração humana</label>
+    <div class="feedback" id="q13-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q14" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>14. Por que Marx argumenta que a alienação prejudica o proletário além da exploração econômica — o que o trabalhador perde além do dinheiro?</p>
+    <label><input type="radio" name="q14" value="a" onclick="checkQuiz('q14','b')"> a) Perde acesso à educação e cultura, pois longas jornadas não deixam tempo para desenvolvimento intelectual</label>
+    <label><input type="radio" name="q14" value="b" onclick="checkQuiz('q14','b')"> b) Perde identidade, criatividade e consciência de classe — ao não se reconhecer no produto, o trabalhador deixa de compreender sua própria condição de explorado</label>
+    <label><input type="radio" name="q14" value="c" onclick="checkQuiz('q14','b')"> c) Perde a capacidade de consumir os produtos que fabrica, criando uma contradição de demanda no mercado capitalista</label>
+    <label><input type="radio" name="q14" value="d" onclick="checkQuiz('q14','b')"> d) Perde direitos políticos, pois o capitalismo historicamente se aliou a regimes autoritários para suprimir sindicatos</label>
+    <div class="feedback" id="q14-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q15" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>15. Marx e Adam Smith observaram o mesmo capitalismo industrial e chegaram a conclusões radicalmente opostas. Qual é a diferença fundamental entre seus diagnósticos do sistema?</p>
+    <label><input type="radio" name="q15" value="a" onclick="checkQuiz('q15','c')"> a) Smith analisou a Inglaterra e Marx analisou a Alemanha — cada um via um capitalismo com características distintas</label>
+    <label><input type="radio" name="q15" value="b" onclick="checkQuiz('q15','c')"> b) Smith focava na macroeconomia nacional; Marx focava na microeconomia e nas relações dentro das fábricas</label>
+    <label><input type="radio" name="q15" value="c" onclick="checkQuiz('q15','c')"> c) Smith via o capitalismo como o melhor sistema possível com falhas corrigíveis; Marx via a exploração como estrutural — não uma falha, mas a própria lógica do sistema</label>
+    <label><input type="radio" name="q15" value="d" onclick="checkQuiz('q15','c')"> d) Smith defendia o trabalho assalariado como progresso; Marx defendia o retorno ao modelo feudal de produção artesanal</label>
+    <div class="feedback" id="q15-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q16" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>16. Marx usou o conceito de Locke — "propriedade vem do trabalho" — para criticar o capitalismo. Explique esse paradoxo: como uma teoria que justifica a propriedade privada se torna uma crítica à burguesia nas mãos de Marx?</p>
+    <label><input type="radio" name="q16" value="a" onclick="checkQuiz('q16','c')"> a) Marx rejeitou Locke completamente e propôs que ninguém pode ter propriedade sobre qualquer coisa</label>
+    <label><input type="radio" name="q16" value="b" onclick="checkQuiz('q16','c')"> b) Marx concordou com Locke, mas argumentou que o Estado, não os indivíduos, é o legítimo proprietário de toda produção</label>
+    <label><input type="radio" name="q16" value="c" onclick="checkQuiz('q16','c')"> c) Usando a própria lógica liberal — quem trabalha tem direito ao produto — Marx conclui que os trabalhadores são os verdadeiros donos; a mais-valia do burguês viola esse princípio</label>
+    <label><input type="radio" name="q16" value="d" onclick="checkQuiz('q16','c')"> d) Marx interpretou Locke como defensor do socialismo e utilizou seus textos como base direta do Manifesto Comunista</label>
+    <div class="feedback" id="q16-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q17" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>17. Socialismo e Comunismo são frequentemente confundidos — mas na teoria marxista são estágios distintos. Qual é a diferença real entre os dois?</p>
+    <label><input type="radio" name="q17" value="a" onclick="checkQuiz('q17','c')"> a) Socialismo é o modelo soviético; Comunismo é o modelo cubano — diferenças práticas, não previstas por Marx</label>
+    <label><input type="radio" name="q17" value="b" onclick="checkQuiz('q17','c')"> b) No Socialismo há propriedade privada parcial; no Comunismo há propriedade privada garantida igualmente a todos</label>
+    <label><input type="radio" name="q17" value="c" onclick="checkQuiz('q17','c')"> c) O Socialismo mantém o Estado para gerir a transição e estatiza os meios de produção; o Comunismo é o estágio final sem Estado, sem classes e sem propriedade privada dos meios de produção</label>
+    <label><input type="radio" name="q17" value="d" onclick="checkQuiz('q17','c')"> d) Socialismo e Comunismo são sinônimos na teoria de Marx — a distinção foi inventada por adversários políticos para fragmentar o movimento</label>
+    <div class="feedback" id="q17-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q18" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>18. Segundo a Hipótese 1 sobre o fracasso do marxismo, por que aplicar a teoria na Rússia de 1917 seria problemático? O que havia na Inglaterra que estava ausente na Rússia?</p>
+    <label><input type="radio" name="q18" value="a" onclick="checkQuiz('q18','c')"> a) A Inglaterra tinha um partido comunista consolidado; a Rússia não tinha organização política suficiente para conduzir a transição</label>
+    <label><input type="radio" name="q18" value="b" onclick="checkQuiz('q18','c')"> b) A Inglaterra era uma democracia plena; a Rússia era uma monarquia absolutista, o que tornou a revolução ilegítima</label>
+    <label><input type="radio" name="q18" value="c" onclick="checkQuiz('q18','c')"> c) Marx teorizou para uma economia industrial madura com proletariado urbano consolidado; a Rússia era predominantemente agrária, com camponeses — não o proletariado industrial que ele descreveu</label>
+    <label><input type="radio" name="q18" value="d" onclick="checkQuiz('q18','c')"> d) A Rússia não tinha acesso às obras completas de Marx; os líderes interpretaram incorretamente o Manifesto Comunista</label>
+    <div class="feedback" id="q18-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q19" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>19. Segundo a Hipótese 2, qual falha fundamental na natureza humana tornaria o comunismo impossível — mesmo que todos os envolvidos quisessem sinceramente implementá-lo?</p>
+    <label><input type="radio" name="q19" value="a" onclick="checkQuiz('q19','c')"> a) A tendência humana à preguiça — sem o incentivo do lucro pessoal, ninguém trabalharia com empenho suficiente</label>
+    <label><input type="radio" name="q19" value="b" onclick="checkQuiz('q19','c')"> b) A necessidade humana de liderança — sempre emergeria uma nova elite para concentrar o poder em nome do coletivo</label>
+    <label><input type="radio" name="q19" value="c" onclick="checkQuiz('q19','c')"> c) O egoísmo inerente ao ser humano: indivíduos buscariam vantagens pessoais mesmo num sistema projetado para o bem comum, corroendo a cooperação coletiva necessária</label>
+    <label><input type="radio" name="q19" value="d" onclick="checkQuiz('q19','c')"> d) A memória coletiva do capitalismo — gerações educadas no individualismo nunca conseguiriam abrir mão da propriedade privada</label>
+    <div class="feedback" id="q19-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q20" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>20. Um político propõe "tirar o controle de bancos e indústrias dos grandes capitalistas e transferi-lo ao Estado." Em termos marxistas, qual fase do projeto de superação do capitalismo isso representa — e qual seria o próximo passo lógico?</p>
+    <label><input type="radio" name="q20" value="a" onclick="checkQuiz('q20','b')"> a) Representa o Comunismo; o próximo passo seria dissolver o partido político e entregar o poder diretamente ao povo</label>
+    <label><input type="radio" name="q20" value="b" onclick="checkQuiz('q20','b')"> b) Representa a estatização socialista; o próximo passo seria usar o Estado para gerir a transição até que o Comunismo — sem Estado e sem classes — pudesse emergir</label>
+    <label><input type="radio" name="q20" value="c" onclick="checkQuiz('q20','b')"> c) Representa uma reforma liberal; o próximo passo seria abrir o capital dessas empresas à população por meio de ações</label>
+    <label><input type="radio" name="q20" value="d" onclick="checkQuiz('q20','b')"> d) Representa a Luta de Classes; o próximo passo seria organizar o proletariado para eleger representantes no parlamento capitalista</label>
+    <div class="feedback" id="q20-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q21" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>21. Imagine uma sociedade sem Estado, sem propriedade privada dos meios de produção e onde a economia é gerida diretamente pelos trabalhadores. Segundo Marx, como se chama esse estágio — e por que nunca foi efetivamente alcançado?</p>
+    <label><input type="radio" name="q21" value="a" onclick="checkQuiz('q21','c')"> a) Socialismo — nunca alcançado porque a burguesia sempre resistiu militarmente a qualquer tentativa de revolução</label>
+    <label><input type="radio" name="q21" value="b" onclick="checkQuiz('q21','c')"> b) Anarquismo — Marx não deixou instruções claras de como chegar lá, o que gerou impasse nas revoluções</label>
+    <label><input type="radio" name="q21" value="c" onclick="checkQuiz('q21','c')"> c) Comunismo — nunca alcançado porque os países que tentaram a transição ficaram presos no estágio socialista, com Estados poderosos que nunca se dissolveram</label>
+    <label><input type="radio" name="q21" value="d" onclick="checkQuiz('q21','c')"> d) Feudalismo invertido — a tecnologia industrial não permitia produção descentralizada sem gestão hierárquica</label>
+    <div class="feedback" id="q21-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q22" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>22. Um estudante lê que a URSS se autoproclamava "comunista", mas possuía um Estado centralizado e poderoso. Como o próprio Marx classificaria esse regime — e por que ele não se enquadraria em sua definição de comunismo?</p>
+    <label><input type="radio" name="q22" value="a" onclick="checkQuiz('q22','c')"> a) Marx o chamaria de verdadeiro comunismo — o Estado forte é necessário para proteger a revolução de seus inimigos externos</label>
+    <label><input type="radio" name="q22" value="b" onclick="checkQuiz('q22','c')"> b) Marx o chamaria de capitalismo de Estado — pois o Estado age como burguês coletivo, concentrando poder e extração de valor</label>
+    <label><input type="radio" name="q22" value="c" onclick="checkQuiz('q22','c')"> c) Marx o classificaria como fase socialista de transição mal-sucedida — o Estado que deveria ser temporário tornou-se permanente, sem avançar para a dissolução das classes</label>
+    <label><input type="radio" name="q22" value="d" onclick="checkQuiz('q22','c')"> d) Marx aprovaria o modelo soviético como concretização fiel do que chamou de "ditadura do proletariado" em suas obras</label>
+    <div class="feedback" id="q22-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q23" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>23. Smith acreditava que a liberdade individual leva ao bem coletivo; Marx acreditava que a propriedade coletiva leva à liberdade individual. O que essa tensão revela sobre a concepção de natureza humana de cada pensador?</p>
+    <label><input type="radio" name="q23" value="a" onclick="checkQuiz('q23','c')"> a) Smith via o ser humano como naturalmente gregário; Marx via como naturalmente egoísta e competitivo — daí a necessidade de controle coletivo</label>
+    <label><input type="radio" name="q23" value="b" onclick="checkQuiz('q23','c')"> b) Ambos tinham visão positiva da natureza humana e diferiam apenas no papel atribuído ao Estado na economia</label>
+    <label><input type="radio" name="q23" value="c" onclick="checkQuiz('q23','c')"> c) Smith assume que o interesse próprio, quando livre, produz ordem social; Marx assume que a cooperação estruturada libera o indivíduo da exploração — são filosofias antropológicas opostas</label>
+    <label><input type="radio" name="q23" value="d" onclick="checkQuiz('q23','c')"> d) Smith e Marx tinham a mesma visão sobre natureza humana — divergiam apenas no método econômico preferido</label>
+    <div class="feedback" id="q23-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q24" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>24. Qual é a distinção mais precisa entre as "soluções" de Smith e Marx para a desigualdade econômica?</p>
+    <label><input type="radio" name="q24" value="a" onclick="checkQuiz('q24','c')"> a) Smith propunha eliminar a desigualdade pela educação universal; Marx propunha eliminá-la pela força revolucionária imediata</label>
+    <label><input type="radio" name="q24" value="b" onclick="checkQuiz('q24','c')"> b) Smith considerava a desigualdade temporária e natural; Marx a considerava permanente e inevitável em qualquer sistema econômico</label>
+    <label><input type="radio" name="q24" value="c" onclick="checkQuiz('q24','c')"> c) Smith propunha regular as distorções do mercado para torná-lo mais justo; Marx propunha eliminar a causa estrutural — a propriedade privada dos meios de produção — pela estatização</label>
+    <label><input type="radio" name="q24" value="d" onclick="checkQuiz('q24','c')"> d) Smith e Marx tinham soluções similares — diferiam apenas na velocidade das reformas e no grau de intervenção estatal</label>
+    <div class="feedback" id="q24-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q25" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Karl Marx</span>
+    <p>25. Uma plataforma digital divide o trabalho em microtarefas realizadas por trabalhadores anônimos globais, pagando centavos por tarefa. Como Smith e Marx analisariam esse modelo — e por que suas conclusões seriam opostas?</p>
+    <label><input type="radio" name="q25" value="a" onclick="checkQuiz('q25','c')"> a) Smith aprovaria; Marx aprovaria — ambos reconhecem valor na divisão internacional do trabalho como avanço produtivo</label>
+    <label><input type="radio" name="q25" value="b" onclick="checkQuiz('q25','c')"> b) Smith criticaria por ausência de concorrência suficiente; Marx aprovaria como exemplo de eficiência produtiva coletiva</label>
+    <label><input type="radio" name="q25" value="c" onclick="checkQuiz('q25','c')"> c) Smith poderia ver como divisão do trabalho e mercado global eficiente; Marx denunciaria como alienação e mais-valia digital — trabalhador anônimo, fragmentado, gera valor que vai integralmente para os donos da plataforma</label>
+    <label><input type="radio" name="q25" value="d" onclick="checkQuiz('q25','c')"> d) Ambos criticariam como trabalho informal que prejudica a economia formal e enfraquece a arrecadação do Estado</label>
+    <div class="feedback" id="q25-fb"></div>
+  </div>
+
+  <div style="text-align:center; margin-top:28px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+    <button onclick="resetQuiz()" style="background:var(--secondary);color:white;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Resumo interativo — Avaliação Especial de Sociologia 2026<br>
+  2ª série do Ensino Médio | Anotações de <strong>Sofia Alves / 2ME</strong>
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+const answers = {
+  q1:  { correct: 'b', explain: 'A Fábrica de Alfinetes — metáfora central de Smith — exemplifica a Divisão do Trabalho: ao fragmentar a produção em etapas, cria especialização e elimina o tempo perdido trocando de tarefa. Smith calculou que um operário sozinho faria 1 alfinete/dia; dividindo etapas, 10 operários fariam 48.000. A mesma lógica que Marx depois chamaria de alienação.' },
+  q2:  { correct: 'c', explain: 'Para Smith, a concorrência é o motor da mão invisível: empresas competem por clientes, o que pressiona preços para baixo e qualidade para cima. Nenhuma empresa individualmente quer baixar preços — mas a lógica do mercado as força a isso. O benefício coletivo emerge de decisões individuais egoístas, sem planejamento central.' },
+  q3:  { correct: 'b', explain: 'Smith era radicalmente contrário ao tabelamento de preços. Para ele, quando o pão fica caro, mais produtores são atraídos — equilibrando naturalmente a oferta. O tabelamento distorce esse sinal: produtores perdem incentivo, a oferta cai e a escassez piora. A intervenção bem-intencionada do Estado produz o efeito oposto ao desejado.' },
+  q4:  { correct: 'c', explain: 'Monopólios são a principal limitação da mão invisível identificada por Smith. Sem concorrência, a empresa monopolista fixa preços altos, reduz qualidade e não inova — pois não tem por que fazê-lo. Para Smith, monopólios estatais ou privados são igualmente prejudiciais: destroem o mecanismo de autorregulação que ele admirava.' },
+  q5:  { correct: 'b', explain: 'Smith reconhecia esta tensão: diferente de um consumidor que pode optar por não comprar, o trabalhador sem alternativas não pode simplesmente "recusar" trabalhar. A necessidade de sobrevivência é uma coerção invisível que viola o pressuposto de livre escolha do liberalismo. Marx radicalizaria essa observação para construir toda a teoria da exploração.' },
+  q6:  { correct: 'b', explain: 'Externalidades negativas são um caso clássico de falha de mercado que Smith não previu adequadamente. Quando uma empresa polui para reduzir custos, o custo real é "externalizado" para a sociedade — não aparece no preço do produto. O mercado, sozinho, não corrige isso. Esse limite do liberalismo smithiano justifica regulação ambiental, de saúde pública e outras áreas.' },
+  q7:  { correct: 'b', explain: 'A diferença é estrutural: para Smith, o Estado deve ser mínimo — garantir contratos, propriedade e segurança, mas nunca interferir na economia. Para Marx, o Estado é necessário na fase socialista para estatizar os meios de produção e destruir a burguesia como classe. Porém é uma etapa transitória: no comunismo final, o Estado se dissolve por tornar-se desnecessário.' },
+  q8:  { correct: 'c', explain: 'É a grande tensão entre os dois pensadores: Smith celebrava a especialização como motor da riqueza; Marx a denunciava como raiz da alienação. Para Marx, o operário que só aperta parafusos não se reconhece no produto, desconhece seu valor, perde identidade com o trabalho e torna-se mais fácil de substituir e explorar. A mesma ferramenta tem diagnósticos opostos.' },
+  q9:  { correct: 'c', explain: 'Custo total = $200 (matéria) + $100 (trabalho) = $300. Produto = $600. Mais-valia = $300. A chave marxista: sem o trabalhador, a matéria-prima não vira produto. Portanto os $300 de "lucro" são trabalho não-pago disfarçado de troca justa. O burguês não gerou nada — apenas extraiu o valor criado pelo trabalho alheio.' },
+  q10: { correct: 'c', explain: 'A alienação marxista vai além do econômico: o trabalhador fragmentado não vê o produto final, não sabe quanto vale, não se reconhece no objeto criado. Isso tem uma consequência política crucial: quem não entende que está sendo explorado não consegue se organizar para mudar isso. A alienação é também um mecanismo de dominação ideológica — a exploração se perpetua pela ignorância que ela mesma produz.' },
+  q11: { correct: 'b', explain: 'Para Marx, a forma muda mas a estrutura permanece: senhores feudais → burguesia; servos → proletários. A "liberdade" do operário é formal — ele é livre para trabalhar para qualquer burguês, mas precisa trabalhar para algum burguês ou morrer. A coerção econômica substitui a coerção jurídica do feudalismo, mas a extração de valor de uma classe por outra é idêntica.' },
+  q12: { correct: 'c', explain: 'Para Marx, a greve é uma manifestação da consciência de classe — o momento em que o proletariado percebe sua posição estrutural e age coletivamente. Não é um problema a ser resolvido, mas um sintoma saudável da contradição capitalista. Na visão marxista, esse conflito é inevitável e necessário: é parte do processo histórico que leva ao socialismo. Reprimir greves só adia a revolução.' },
+  q13: { correct: 'b', explain: 'Marx não negava o papel histórico da burguesia: ela construiu a infraestrutura industrial que tornaria o socialismo possível. Mas argumentava que, uma vez recuperado o investimento inicial, o lucro contínuo não tem justificativa — é apenas extração de mais-valia. A burguesia cumpriu sua função histórica; agora se tornou um parasita. Daí a proposta de estatização: não punição, mas superação histórica.' },
+  q14: { correct: 'b', explain: 'A alienação marxista é uma perda humana profunda e multidimensional: o trabalhador perde a relação com o produto, com o processo, com os outros trabalhadores e consigo mesmo. Mas o efeito mais político é perder a consciência de classe — não entender sua própria condição de explorado. Quem não se vê como explorado não luta. A alienação é, portanto, um mecanismo de manutenção do status quo.' },
+  q15: { correct: 'c', explain: 'É a divergência central: Smith via os problemas do capitalismo (monopólios, mão de obra) como anomalias corrigíveis — falhas num sistema essencialmente bom. Marx via a exploração como intrínseca ao capitalismo — não uma falha, mas sua característica estrutural necessária. Por isso Smith propunha reformas pontuais; Marx propunha revolução. A questão não é "como melhorar o capitalismo?" mas "pode ele ser melhorado?"' },
+  q16: { correct: 'c', explain: 'É um judo intelectual elegante: Marx pega a lógica liberal e a volta contra o liberalismo. Locke: quem trabalha tem direito ao produto do trabalho. Marx: então quem fabricou a mercadoria é seu legítimo dono — não quem possui a fábrica. A mais-valia do burguês viola exatamente o princípio lockiano que o liberalismo usa para justificar a propriedade. O capitalismo contradiz seus próprios fundamentos filosóficos.' },
+  q17: { correct: 'c', explain: 'Distinção crucial: o Socialismo é a fase de transição — o Estado existe, é forte, estatiza os meios de produção e elimina a burguesia como classe. O Comunismo é o estágio final idealizado: sem Estado (que se dissolve), sem classes, sem propriedade privada dos meios de produção. Na prática, nenhum país chegou ao comunismo marxista — todos ficaram presos no socialismo de Estado, que é exatamente o oposto do ideal final.' },
+  q18: { correct: 'c', explain: 'Marx construiu a teoria para a realidade industrial inglesa: fábricas, burguesia industrial consolidada, proletariado urbano numeroso com consciência de classe emergente. A Rússia de 1917 era majoritariamente rural, com camponeses (não o proletariado industrial de Marx), economia atrasada e sem capitalismo maduro. Aplicar uma teoria construída para um contexto numa realidade radicalmente diferente foi, segundo essa hipótese, a raiz do fracasso.' },
+  q19: { correct: 'c', explain: 'A Hipótese 2 é antropológica, não histórica: o problema não está no contexto errado, mas no ser humano. Mesmo num sistema bem-projetado, indivíduos buscam vantagens pessoais — trabalhar menos, acumular mais poder, favorecer parentes, desviar recursos. Isso corrói qualquer sistema baseado em cooperação sincera. Para essa hipótese, o comunismo é impossível não por erro de Marx, mas porque contradiz tendências profundas da natureza humana.' },
+  q20: { correct: 'b', explain: 'A estatização dos meios de produção é a etapa socialista na teoria marxista — fase de transição, não o objetivo final. O Estado assume o controle para eliminar a burguesia e redistribuir aos trabalhadores. Mas isso é temporário: o objetivo é usar o Estado para criar as condições que tornarão o próprio Estado desnecessário. O comunismo final, sem classes e sem Estado, só emerge após essa transição bem-sucedida.' },
+  q21: { correct: 'c', explain: 'O comunismo marxista é o estágio final idealizado: sem Estado, sem classes, sem propriedade privada dos meios de produção — o povo gerencia diretamente. Na prática, países como a URSS proclamaram-se socialistas mas o Estado nunca diminuiu — ao contrário, cresceu e centralizou mais poder. A "ditadura do proletariado" temporária tornou-se permanente. Nenhum país chegou ao comunismo como Marx o descreveu.' },
+  q22: { correct: 'c', explain: 'Pela própria teoria marxista, a URSS era uma fase socialista de transição — não comunismo. O Estado forte e centralizado é exatamente o que Marx descreveu como necessário durante a transição, mas temporário. O problema é que esse Estado nunca iniciou sua dissolução. Preso na fase intermediária com um Estado crescentemente autoritário, o sistema soviético nunca avançou para o comunismo que Marx idealizou.' },
+  q23: { correct: 'c', explain: 'São visões antropológicas opostas disfarçadas de teorias econômicas. Smith parte do indivíduo racional e egoísta: deixe cada um perseguir seu interesse e a ordem emerge espontaneamente. Marx parte da necessidade coletiva: a cooperação e a eliminação da exploração são pré-requisitos para a liberdade real. Para Smith, o mercado livre liberta. Para Marx, só a propriedade coletiva liberta. São fundamentos filosóficos irreconciliáveis.' },
+  q24: { correct: 'c', explain: 'Essa é a síntese: Smith diagnosticava problemas específicos (monopólios, mão de obra) e propunha correções para que o mercado funcionasse melhor — reformar o capitalismo. Marx diagnosticava o próprio capitalismo como problema: a desigualdade não é distorção, é o produto necessário do sistema. Por isso sua solução era estrutural — eliminar a propriedade privada dos meios de produção — não apenas regulá-la.' },
+  q25: { correct: 'c', explain: 'É uma aplicação contemporânea perfeita da tensão teórica: Smith veria microtarefas globais como divisão do trabalho e mercado livre em escala planetária — eficiente, produtivo, inovador. Marx denunciaria como alienação máxima (trabalhador anônimo, não vê o produto, não conhece outros trabalhadores, não sabe para quem trabalha) e mais-valia digital (o valor gerado vai integralmente para os donos da plataforma que não produziram nada). Mesma realidade, diagnósticos opostos.' },
+};
+
+let scoreCorrect = 0, scoreTotal = 0;
+
+function checkQuiz(qId, correct) {
+  const fb = document.getElementById(qId + '-fb');
+  if (fb.className.includes('correct') || fb.className.includes('wrong')) return;
+  const selected = document.querySelector(`input[name="${qId}"]:checked`);
+  if (!selected) return;
+  scoreTotal++;
+  if (selected.value === correct) {
+    scoreCorrect++;
+    fb.className = 'feedback correct';
+    fb.textContent = '✓ Correto! ' + answers[qId].explain;
+  } else {
+    fb.className = 'feedback wrong';
+    fb.textContent = '✗ Incorreto. ' + answers[qId].explain;
+  }
+  document.querySelectorAll(`input[name="${qId}"]`).forEach(r => r.disabled = true);
+  updateScore();
+}
+
+function updateScore() {
+  const box = document.getElementById('score-box');
+  box.style.display = 'block';
+  document.getElementById('score-correct').textContent = scoreCorrect;
+  document.getElementById('score-total').textContent = scoreTotal;
+}
+
+function filterQuiz(ch, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.quiz-q').forEach(q => {
+    q.classList.toggle('hidden', ch !== 'all' && q.dataset.ch !== ch);
+  });
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-q input[type="radio"]').forEach(r => { r.checked = false; r.disabled = false; });
+  document.querySelectorAll('.quiz-q .feedback').forEach(f => { f.className = 'feedback'; f.textContent = ''; });
+  scoreCorrect = 0; scoreTotal = 0;
+  document.getElementById('score-box').style.display = 'none';
+  document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

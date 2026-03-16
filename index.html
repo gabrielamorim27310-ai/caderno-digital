@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caderno Digital — 2ª série EM 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --bg: #f4f1ec;
+    --card-bg: #ffffff;
+    --text: #1e1e1e;
+    --text-light: #6b6b6b;
+    --border: #e5ddd4;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --radius: 14px;
+    --historia: #1a2744;
+    --geo:      #2d6a4f;
+    --port:     #7b2d8b;
+    --mat:      #1565c0;
+    --bio:      #276221;
+    --fis:      #b45309;
+    --qui:      #9c1c1c;
+    --ingles:   #0e6b7a;
+    --filo:     #4a3800;
+    --socio:    #5c3d72;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1a2744 60%, #2d3e6e 100%);
+    color: white;
+    padding: 60px 24px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 2.8rem; margin-bottom: 14px; position: relative; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .hero p { font-size: 1rem; opacity: 0.75; font-weight: 300; position: relative; }
+  .hero .badges {
+    display: flex; gap: 8px; justify-content: center;
+    margin-top: 18px; flex-wrap: wrap; position: relative;
+  }
+  .badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white; padding: 5px 14px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 600;
+  }
+
+  /* TABS */
+  .tri-nav {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .tri-nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; padding: 0 24px;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .tri-nav-inner::-webkit-scrollbar { display: none; }
+  .tri-btn {
+    padding: 16px 28px; border: none; background: transparent;
+    font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+    color: var(--text-light); cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap; transition: all 0.25s;
+  }
+  .tri-btn:hover { color: var(--text); }
+  .tri-btn.active { color: #1a2744; border-bottom-color: #c9953c; }
+  .tri-btn .count {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; border-radius: 50%;
+    font-size: 0.65rem; font-weight: 700; margin-left: 6px;
+    background: #c9953c; color: white;
+  }
+
+  /* MAIN */
+  main { max-width: 1100px; margin: 0 auto; padding: 36px 24px 80px; }
+  .tri-panel { display: none; }
+  .tri-panel.active { display: block; }
+
+  .panel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--text-light);
+    margin-bottom: 28px; font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .panel-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* GRID */
+  .subject-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+  }
+
+  /* CARD */
+  .subject-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .subject-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .subject-header {
+    padding: 18px 20px 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .subject-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0; color: white;
+  }
+  .subject-name { font-weight: 700; font-size: 1rem; color: var(--text); }
+  .subject-desc { font-size: 0.8rem; color: var(--text-light); margin-top: 2px; }
+  .subject-items { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 6px; }
+
+  .item-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border-radius: 8px;
+    text-decoration: none; color: var(--text);
+    background: #f8f6f3; border: 1px solid var(--border);
+    transition: all 0.2s; font-size: 0.88rem;
+  }
+  .item-link:hover {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transform: translateX(3px);
+  }
+  .item-link .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .item-link .label { flex: 1; font-weight: 500; }
+  .item-link .arrow { font-size: 0.75rem; color: var(--text-light); transition: transform 0.2s; }
+  .item-link:hover .arrow { transform: translateX(3px); }
+  .item-link .tag-new {
+    background: #dcfce7; color: #166534;
+    font-size: 0.65rem; font-weight: 700;
+    padding: 2px 6px; border-radius: 6px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+
+  .item-soon {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border-radius: 8px;
+    font-size: 0.85rem; color: var(--text-light);
+    background: #fafaf8; border: 1px dashed var(--border);
+  }
+  .item-soon .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; flex-shrink: 0; }
+
+  .item-canceled {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border-radius: 8px;
+    font-size: 0.85rem; color: #aaa;
+    background: #f5f5f5; border: 1px dashed #ddd;
+    text-decoration: line-through;
+  }
+  .item-canceled .dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; flex-shrink: 0; }
+
+  /* EMPTY */
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--text-light); }
+  .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+  .empty-state p { font-size: 0.95rem; }
+
+  footer {
+    text-align: center; padding: 28px 20px;
+    color: var(--text-light); font-size: 0.82rem;
+    border-top: 1px solid var(--border);
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .subject-grid { grid-template-columns: 1fr; }
+    main { padding: 24px 16px 60px; }
+    .hero { padding: 40px 16px 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-icon">📚</div>
+  <h1>Caderno Digital</h1>
+  <p>2ª série do Ensino Médio · 2026</p>
+  <div class="badges">
+    <span class="badge">Feito por Gabriel Amorim</span>
+    <span class="badge">1º, 2º e 3º Trimestre</span>
+  </div>
+</header>
+
+<nav class="tri-nav">
+  <div class="tri-nav-inner">
+    <button class="tri-btn active" onclick="setTri('t1',this)">
+      1º Trimestre <span class="count">4</span>
+    </button>
+    <button class="tri-btn" onclick="setTri('t2',this)">2º Trimestre</button>
+    <button class="tri-btn" onclick="setTri('t3',this)">3º Trimestre</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1º TRIMESTRE -->
+  <div class="tri-panel active" id="t1">
+    <p class="panel-title">1º Trimestre</p>
+    <div class="subject-grid">
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--historia)">🏛️</div>
+          <div>
+            <div class="subject-name">História</div>
+            <div class="subject-desc">Antigo Regime &amp; Brasil Colonial</div>
+          </div>
+        </div>
+        <div class="subject-items">
+          <a class="item-link" href="historia-1tri.html">
+            <span class="dot" style="background:var(--historia)"></span>
+            <span class="label">Caps. 11, 14, 15, 16 — 1ª Av. Intermediária</span>
+            <span class="tag-new">Novo</span>
+            <span class="arrow">›</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--geo)">🌍</div>
+          <div>
+            <div class="subject-name">Geografia</div>
+            <div class="subject-desc">Globalização &amp; Mundo Globalizado</div>
+          </div>
+        </div>
+        <div class="subject-items">
+          <a class="item-link" href="geografia-1tri.html">
+            <span class="dot" style="background:var(--geo)"></span>
+            <span class="label">Integração Mundial — 1ª Avaliação Especial</span>
+            <span class="tag-new">Novo</span>
+            <span class="arrow">›</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--port)">📖</div>
+          <div><div class="subject-name">Português &amp; Literatura</div><div class="subject-desc">Sem resumo</div></div>
+        </div>
+        <div class="subject-items">
+          <div class="item-canceled"><span class="dot"></span> Resumo 1º tri — cancelado</div>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--mat)">➗</div>
+          <div><div class="subject-name">Matemática</div><div class="subject-desc">Em construção</div></div>
+        </div>
+        <div class="subject-items">
+          <div class="item-soon"><span class="dot"></span> Resumo 1º tri — em breve</div>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--bio)">🧬</div>
+          <div><div class="subject-name">Biologia</div><div class="subject-desc">Em construção</div></div>
+        </div>
+        <div class="subject-items">
+          <div class="item-soon"><span class="dot"></span> Resumo 1º tri — em breve</div>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--fis)">⚡</div>
+          <div><div class="subject-name">Física</div><div class="subject-desc">Em construção</div></div>
+        </div>
+        <div class="subject-items">
+          <div class="item-soon"><span class="dot"></span> Resumo 1º tri — em breve</div>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--qui)">🧪</div>
+          <div>
+            <div class="subject-name">Química</div>
+            <div class="subject-desc">Estequiometria &amp; Oxirredução</div>
+          </div>
+        </div>
+        <div class="subject-items">
+          <a class="item-link" href="quimica-1tri.html">
+            <span class="dot" style="background:var(--qui)"></span>
+            <span class="label">Caps. 1, 2, 3, 4 e 6 — 1ª Avaliação Especial</span>
+            <span class="tag-new">Novo</span>
+            <span class="arrow">›</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--ingles)">🌐</div>
+          <div><div class="subject-name">Inglês</div><div class="subject-desc">Sem resumo</div></div>
+        </div>
+        <div class="subject-items">
+          <div class="item-canceled"><span class="dot"></span> Resumo 1º tri — cancelado</div>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--filo)">🦉</div>
+          <div>
+            <div class="subject-name">Filosofia</div>
+            <div class="subject-desc">Ética e Moral</div>
+          </div>
+        </div>
+        <div class="subject-items">
+          <a class="item-link" href="filosofia-1tri.html">
+            <span class="dot" style="background:var(--filo)"></span>
+            <span class="label">Ética e Moral — 1ª Avaliação Especial</span>
+            <span class="tag-new">Novo</span>
+            <span class="arrow">›</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--socio)">🏙️</div>
+          <div>
+            <div class="subject-name">Sociologia</div>
+            <div class="subject-desc">Adam Smith &amp; Karl Marx</div>
+          </div>
+        </div>
+        <div class="subject-items">
+          <a class="item-link" href="sociologia-1tri.html">
+            <span class="dot" style="background:var(--socio)"></span>
+            <span class="label">Caps. 1, 2 — 1ª Avaliação Especial</span>
+            <span class="tag-new">Novo</span>
+            <span class="arrow">›</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2º TRIMESTRE -->
+  <div class="tri-panel" id="t2">
+    <p class="panel-title">2º Trimestre</p>
+    <div class="empty-state">
+      <div class="icon">📝</div>
+      <p>Nenhum resumo disponível ainda.<br>Volte quando o 2º trimestre começar!</p>
+    </div>
+  </div>
+
+  <!-- 3º TRIMESTRE -->
+  <div class="tri-panel" id="t3">
+    <p class="panel-title">3º Trimestre</p>
+    <div class="empty-state">
+      <div class="icon">📝</div>
+      <p>Nenhum resumo disponível ainda.<br>Volte quando o 3º trimestre começar!</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Caderno Digital — 2ª série do Ensino Médio 2026 · Feito por Gabriel Amorim
+</footer>
+
+<script>
+function setTri(id, btn) {
+  document.querySelectorAll('.tri-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tri-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

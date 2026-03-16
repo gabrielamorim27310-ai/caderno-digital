@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo de Filosofia — 1ª Avaliação Intermediária 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #3d2b00;
+    --secondary: #c9953c;
+    --bg: #faf7f0;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8ddc8;
+    --c1: #3d2b00;
+    --c2: #6b4c11;
+    --c3: #8b6914;
+    --c4: #1a2744;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1e1400 0%, #3d2b00 55%, #6b4c11 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: #1e1400; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #fdf8ef; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* NESTED LIST */
+  .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
+  .list-nested li strong { color: var(--text); }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #fef3dc, #fde8b8); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-purple { background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-left: 4px solid #7c3aed; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-2 > .card,
+  .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+
+  /* QUOTE */
+  .quote { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--primary); border-left: 4px solid var(--secondary); padding: 12px 20px; margin-top: 14px; background: #fdf8ef; border-radius: 0 10px 10px 0; }
+  .quote span { display: block; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-style: normal; color: var(--text-light); margin-top: 6px; font-weight: 600; }
+
+  /* FLOW */
+  .flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .flow-step { background: var(--primary); color: white; padding: 10px 16px; border-radius: 10px; font-size: 0.86rem; font-weight: 600; text-align: center; flex: 1; min-width: 100px; }
+  .flow-arrow { color: var(--secondary); font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf8ef; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #fef9c3; color: #854d0e; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-icon">🦉</div>
+  <h1>Filosofia</h1>
+  <p class="subtitle">Ética e Moral · 2ª Série — Colégio Bandeirantes</p>
+  <div class="badge">1º Trimestre · 2026</div>
+  <div><span class="author">Anotações de Sofia Alves / 2ME</span></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#sec1">1. Ética</a>
+    <a class="nav-link" href="#sec2">2. Moral</a>
+    <a class="nav-link" href="#sec3">3. Agente Moral</a>
+    <a class="nav-link" href="#sec4">4. Tipos de Ação</a>
+    <a class="nav-link" href="#sec5">5. Platão</a>
+    <a class="nav-link" href="#sec6">6. Aristóteles</a>
+    <a class="nav-link" href="#sec7">7. Milgram</a>
+    <a class="nav-link" href="#exercicios">Exercícios</a>
+  </div>
+</nav>
+
+<div class="content">
+
+  <!-- ═══════════════════════════════════════════════
+       1. ÉTICA
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">1</div>
+      <div>
+        <h2 class="section-title">Ética</h2>
+        <p class="section-sub">O estudo dos valores que guiam a vida humana</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> O que é Ética?</div>
+      <p>A <strong>ética</strong> é o estudo filosófico sobre os <strong>valores que guiam uma sociedade ou um indivíduo</strong>. Ela investiga o que é:</p>
+      <ul class="list">
+        <li>Certo e errado</li>
+        <li>Justo e injusto</li>
+        <li>Bem ou mal</li>
+      </ul>
+      <div class="highlight">
+        <strong>Importante:</strong> Apesar dos valores éticos serem feitos para serem seguidos, a <strong>ação humana pode ser imprevisível</strong> — nem sempre as pessoas agem de acordo com os valores que reconhecem como corretos.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> O Grande Debate da Ética <span class="tag tag-imp">Imp.</span></div>
+      <p>Dentro da ética existe um debate fundamental: os valores morais e éticos são <strong>imutáveis e universais</strong> ou <strong>relativos</strong>?</p>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Platão — Valores Universais</h4>
+          <p>Os valores éticos são <strong>imutáveis e universais</strong>: existem verdades morais absolutas, válidas para todos os seres humanos em todos os tempos e lugares. O bem e o mal são objetivos.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Nietzsche — Valores Relativos</h4>
+          <p>Os valores éticos são <strong>relativos</strong>: não existem verdades morais absolutas. O que é considerado certo ou errado varia conforme a cultura, o tempo e o contexto histórico.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. MORAL
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">2</div>
+      <div>
+        <h2 class="section-title">Moral</h2>
+        <p class="section-sub">A prática dos valores éticos no dia a dia</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Ética × Moral</div>
+      <p>A <strong>moral</strong> é a <strong>prática</strong> dos valores da ética. Se a ética é a teoria (o estudo dos valores), a moral é a aplicação desses valores nas ações concretas do cotidiano.</p>
+      <div class="flow">
+        <div class="flow-step">ÉTICA<br><small style="font-weight:400;font-size:0.75rem">Estudo dos valores</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">MORAL<br><small style="font-weight:400;font-size:0.75rem">Prática dos valores</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">AÇÃO<br><small style="font-weight:400;font-size:0.75rem">Comportamento concreto</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. O AGENTE MORAL
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">3</div>
+      <div>
+        <h2 class="section-title">O Agente Moral e suas Ações</h2>
+        <p class="section-sub">Razão, deliberação e responsabilidade</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O que é o Agente Moral?</div>
+      <p>O <strong>ser humano</strong> é o chamado <strong>"agente moral"</strong> — aquele que pratica ações morais. O que nos diferencia e nos torna agentes morais é o fato de possuirmos <strong>razão e discurso (logos)</strong>.</p>
+      <div class="highlight-purple" style="margin-top:14px">
+        <strong>Logos</strong> (do grego): razão, discurso, linguagem. É a capacidade humana de pensar, refletir e se comunicar racionalmente — a base da vida moral.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Deliberação <span class="tag tag-imp">Imp.</span></div>
+      <p>Por possuir razão (logos), o ser humano é capaz de <strong>deliberar</strong>.</p>
+      <p><strong>Deliberar</strong> é o ato de <strong>refletir e tomar escolhas conscientes e voluntárias dentre opções</strong>. É um processo racional de ponderação antes de agir.</p>
+      <div class="flow" style="margin-top:14px">
+        <div class="flow-step">Razão<br>(logos)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Deliberação<br>(reflexão)</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Escolha<br>voluntária</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Responsabilização</div>
+      </div>
+      <div class="highlight" style="margin-top:14px">
+        As <strong>escolhas voluntárias</strong> levam à <strong>responsabilização</strong> do indivíduo — que pode ser positiva (mérito) ou negativa (culpa). Só somos responsabilizados por aquilo que escolhemos livremente.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. TIPOS DE AÇÃO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">4</div>
+      <div>
+        <h2 class="section-title">Tipos de Ação Humana</h2>
+        <p class="section-sub">Moral · Imoral · Amoral</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> As ações podem ser classificadas em três tipos</div>
+      <div class="grid-3" style="margin-top:12px">
+        <div class="mini-card" style="border-top-color:#166534">
+          <h4>✅ Moral</h4>
+          <p>Ação <strong>de acordo com os valores éticos estabelecidos</strong> pela sociedade. O agente age conforme o que é considerado certo.</p>
+          <p style="margin-top:8px; font-size:0.8rem; color:#166534"><em>Ex: ajudar alguém em necessidade por princípio.</em></p>
+        </div>
+        <div class="mini-card" style="border-top-color:#9c1c1c">
+          <h4>❌ Imoral</h4>
+          <p>Ação <strong>contrária aos valores éticos estabelecidos</strong>. O agente age sabendo que vai contra os valores reconhecidos, mas escolhe fazê-lo assim mesmo.</p>
+          <p style="margin-top:8px; font-size:0.8rem; color:#9c1c1c"><em>Ex: roubar consciente do erro.</em></p>
+        </div>
+        <div class="mini-card" style="border-top-color:#6b4c11">
+          <h4>⚪ Amoral</h4>
+          <p>Ação que <strong>não se encaixa em nenhuma das duas categorias anteriores</strong>. Praticada por quem não tem consciência moral (ex: crianças pequenas, animais) ou em situações neutras.</p>
+          <p style="margin-top:8px; font-size:0.8rem; color:#6b4c11"><em>Ex: ação instintiva sem reflexão.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Resumo comparativo</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Relação com os valores</th><th>Há consciência moral?</th><th>Há responsabilização?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Moral</strong></td><td>De acordo com os valores</td><td>Sim</td><td>Sim (positiva)</td></tr>
+            <tr><td><strong>Imoral</strong></td><td>Contra os valores</td><td>Sim</td><td>Sim (negativa)</td></tr>
+            <tr><td><strong>Amoral</strong></td><td>Fora do campo moral</td><td>Não</td><td>Não</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight" style="margin-top:14px">
+        <strong>Atenção:</strong> Imoral ≠ Amoral. O agente <strong>imoral</strong> conhece os valores e os transgride conscientemente. O agente <strong>amoral</strong> age fora do campo moral porque não possui (ou não desenvolveu) consciência moral.
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════
+       5. ÉTICA DE PLATÃO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">5</div>
+      <div>
+        <h2 class="section-title">Ética de Platão</h2>
+        <p class="section-sub">Teoria das Ideias e Dualismo Platônico</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Teoria das Ideias / Dualismo Platônico</div>
+      <p>Para Platão, a realidade é dividida em dois mundos distintos:</p>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>⭐ Mundo Inteligível</h4>
+          <p>Dimensão <strong>imaterial</strong> da realidade que vai além da percepção física. É lá onde residem os conceitos <strong>universais e absolutos</strong> de justiça, bem, beleza e verdade.</p>
+          <p style="margin-top:8px;font-size:0.82rem;color:var(--text-light)">Só é possível atingir maior proximidade com esses conceitos no mundo sensível por meio da <strong>razão</strong> (epistemologia).</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--secondary)">
+          <h4>🌍 Mundo Sensível</h4>
+          <p>O mundo físico e material que percebemos pelos sentidos. É apenas uma <strong>cópia imperfeita</strong> do mundo inteligível — as coisas aqui são mutáveis e passageiras.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> ⭐ Reminiscência <span class="tag tag-imp">Imp.</span></div>
+      <p>A teoria da <strong>reminiscência</strong> explica como os seres humanos têm acesso aos conceitos éticos universais:</p>
+      <ul class="list" style="margin-top:12px">
+        <li>Após a morte, a alma entra em contato com a <strong>episteme</strong> (conceitos universais e verdadeiros) no mundo inteligível, incluindo os conceitos éticos</li>
+        <li>Quando a alma <strong>reencarna</strong>, os conceitos éticos já estão instalados nela</li>
+        <li>Na vida, o conhecimento ético é a <strong>reminiscência</strong> (lembrança) desses conceitos universais</li>
+      </ul>
+      <div class="highlight" style="margin-top:14px">
+        <strong>Conclusão:</strong> Para Platão, a ética é a reminiscência de conceitos universais por meio da <strong>filosofia e da razão</strong>. O filósofo que usa a razão se aproxima mais da verdade ética absoluta.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       6. ARISTÓTELES
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">6</div>
+      <div>
+        <h2 class="section-title">Aristóteles</h2>
+        <p class="section-sub">Eudaimonia · Regra de Ouro · Tipos de Saberes</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Eudaimonia — O Sumo Bem</div>
+      <p>Aristóteles desenvolve um critério/guia na busca das virtudes centrado no conceito de <strong>Eudaimonia</strong>.</p>
+      <div class="highlight-purple" style="margin-top:12px">
+        <strong>Eudaimonia</strong> é o bem maior de todos — o <strong>sumo bem</strong>. É o estado de plena realização e felicidade que todo ser humano busca.
+      </div>
+      <ul class="list" style="margin-top:12px">
+        <li>Na vida prática, é necessário o <strong>desenvolvimento de virtudes</strong> para obter a Eudaimonia</li>
+        <li>Ao contrário de Platão, Aristóteles acreditava que os valores éticos eram <strong>construídos ao longo da vida</strong> de um indivíduo (empirismo)</li>
+      </ul>
+      <p style="margin-top:12px;font-size:0.91rem">Um homem considerado virtuoso deve buscar a excelência em todos os aspectos da vida:</p>
+      <ul class="list-nested" style="margin-top:8px">
+        <li>Agir de acordo com o bem em busca da perfeição</li>
+        <li>Ter amizades e boas relações</li>
+        <li>Usar o <strong>logos</strong> e a razão</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Regra de Ouro — Meio-termo / Justa Medida <span class="tag tag-imp">Imp.</span></div>
+      <p>Guia aristotélico para a suma excelência moral. Para atingir a verdadeira moral, é necessário <strong>criar virtudes</strong> pelo equilíbrio:</p>
+      <div class="flow" style="margin-top:14px">
+        <div class="flow-step" style="background:#9c1c1c">Vício<br><small style="font-weight:400;font-size:0.75rem">(Falta)</small></div>
+        <div class="flow-arrow">——</div>
+        <div class="flow-step" style="background:#166534">Virtude<br><small style="font-weight:400;font-size:0.75rem">(Equilíbrio)</small></div>
+        <div class="flow-arrow">——</div>
+        <div class="flow-step" style="background:#9c1c1c">Vício<br><small style="font-weight:400;font-size:0.75rem">(Excesso)</small></div>
+      </div>
+      <ul class="list" style="margin-top:14px">
+        <li><strong>Virtude</strong> é o equilíbrio entre 2 vícios</li>
+        <li><strong>Vícios</strong> são o desequilíbrio das virtudes, seja pela falta ou pelo excesso</li>
+        <li>A regra de ouro pode ser aplicada a <strong>todos os homens e valores éticos</strong>, mesmo apesar da variabilidade de contextos e indivíduos</li>
+        <li>Aristóteles acreditava também na virtude da <strong>temperança</strong>: equilíbrio dos prazeres do corpo</li>
+      </ul>
+      <div class="highlight" style="margin-top:14px">
+        <strong>Exemplo:</strong> &nbsp; Covardia (falta) &nbsp;——&nbsp; <strong>Coragem</strong> (virtude) &nbsp;——&nbsp; Imprudência (excesso)
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Tipos de Saberes</div>
+      <p>Aristóteles acreditava que todos os saberes estavam separados em <strong>duas categorias</strong> não diretamente dependentes entre si:</p>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>📚 Saber Teórico</h4>
+          <p>Teorias da ciência, <strong>saberes intelectuais</strong> e compreensão das leis científicas.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>⚖️ Saber Prático</h4>
+          <p><strong>Ética, prudência</strong> e tomada de decisões morais.</p>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:14px">
+        <strong>Atenção:</strong> Os saberes <strong>não são diretamente relacionados ou dependentes entre si</strong>. Alguém com saber prático ≠ saber teórico e vice-versa.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       7. MILGRAM — AUTORIDADE X OBEDIÊNCIA
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">7</div>
+      <div>
+        <h2 class="section-title">Milgram — Autoridade × Obediência</h2>
+        <p class="section-sub">O experimento e seus limites éticos</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> O Experimento</div>
+      <p>Stanley Milgram foi um <strong>psicólogo americano</strong> que realizou um experimento buscando entender a obediência e submissão do povo alemão sob o nazismo na <strong>2ª Guerra Mundial</strong>.</p>
+      <ul class="list" style="margin-top:12px">
+        <li>Experimento com envolvimento de <strong>"tortura"</strong> simulada (choques elétricos)</li>
+        <li>Pergunta central: <em>Até que ponto o homem obedece à autoridade mesmo que seja contra seus próprios valores?</em></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> A Obediência</div>
+      <p>A <strong>obediência é um elemento vital</strong> para o funcionamento da ordem social atual. Fatores que influenciam nos limites da obediência:</p>
+      <ul class="list" style="margin-top:12px">
+        <li><strong>Gravidade da ação ordenada</strong></li>
+        <li><strong>Consequências da contradição de ordens</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> ⭐ O Holocausto</div>
+      <p>No caso do Holocausto, a obediência à autoridade <strong>desconsiderando valores morais</strong> é levada ao extremo.</p>
+      <p style="margin-top:10px;font-size:0.91rem"><strong>Eichmann</strong> — nazista importante no desenvolvimento da "solução final" do Holocausto — ao ser julgado por seus crimes, argumentou:</p>
+      <ul class="list" style="margin-top:10px">
+        <li>Representava apenas <strong>uma peça na engrenagem</strong> (iria acontecer com ele ou não)</li>
+        <li>Não sabia do processo inteiro nem de sua <strong>magnitude</strong></li>
+        <li>Estava apenas <strong>obedecendo ordens</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> ⭐ Transferência da Culpa <span class="tag tag-imp">Imp.</span></div>
+      <p>Tanto no experimento de Milgram quanto no Holocausto ocorre uma <strong>transferência de responsabilidade</strong> para o outro:</p>
+      <ul class="list" style="margin-top:12px">
+        <li><strong>Deslocamento da culpa</strong> para quem deu a ordem</li>
+        <li>Influencia diretamente no <strong>limite da obediência</strong></li>
+      </ul>
+      <div class="highlight" style="margin-top:14px">
+        <strong>Conclusão:</strong> Indivíduos não se veem como <strong>agentes morais com consciência</strong>, mas sim apenas como executores de ordens — o que anula o senso de responsabilidade moral pessoal.
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     EXERCÍCIOS
+═══════════════════════════════════════════════ -->
+<div class="content" id="exercicios" style="padding-top:0">
+  <div class="section-header" style="margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:14px">
+    <div class="section-num" style="background:var(--primary)">✏</div>
+    <div>
+      <h2 class="section-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700">Exercícios</h2>
+      <p style="font-size:0.82rem;color:var(--text-light);margin-top:2px">Clique em "Ver resposta" para revelar</p>
+    </div>
+  </div>
+
+  <style>
+    .ex { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+    .ex-q { padding: 16px 22px; font-size: 0.93rem; font-weight: 600; display: flex; gap: 12px; align-items: flex-start; }
+    .ex-num { background: var(--secondary); color: #1e1400; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    details summary { list-style: none; cursor: pointer; padding: 8px 22px 10px; background: #fdf5e6; border-top: 1px solid var(--border); font-size: 0.82rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+    details summary::before { content: '▸'; color: var(--secondary); transition: transform 0.2s; }
+    details[open] summary::before { transform: rotate(90deg); }
+    details summary::-webkit-details-marker { display: none; }
+    .ex-ans { padding: 14px 22px 16px; background: #fdf8ef; font-size: 0.89rem; line-height: 1.7; border-top: 1px solid var(--border); }
+    .ex-ans strong { color: var(--primary); }
+  </style>
+
+  <!-- Q1 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">1</span><span>Qual é o objeto de estudo da Ética? O que ela investiga?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">A <strong>Ética</strong> é o estudo filosófico dos <strong>valores que guiam uma sociedade ou um indivíduo</strong>. Ela investiga o que é <strong>certo e errado</strong>, <strong>justo e injusto</strong>, <strong>bem ou mal</strong>.</div>
+    </details>
+  </div>
+
+  <!-- Q2 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">2</span><span>Qual é a diferença entre a visão de Platão e a de Nietzsche sobre os valores éticos?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">Para <strong>Platão</strong>, os valores éticos são <strong>imutáveis e universais</strong>: existem verdades morais absolutas válidas para todos os seres humanos em todos os tempos e lugares. Para <strong>Nietzsche</strong>, os valores são <strong>relativos</strong>: não há verdades morais absolutas — o que é certo ou errado varia conforme cultura, tempo e contexto histórico.</div>
+    </details>
+  </div>
+
+  <!-- Q3 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">3</span><span>Qual é a diferença entre Ética e Moral?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans"><strong>Ética</strong> é a <strong>teoria</strong> — o estudo filosófico dos valores. <strong>Moral</strong> é a <strong>prática</strong> desses valores nas ações concretas do cotidiano. A relação é: <strong>Ética → Moral → Ação</strong>.</div>
+    </details>
+  </div>
+
+  <!-- Q4 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">4</span><span>O que é o "agente moral" e o que nos torna agentes morais?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">O <strong>agente moral</strong> é o ser humano — aquele que pratica ações morais. O que nos torna agentes morais é possuirmos <strong>razão e discurso (logos)</strong>: a capacidade de pensar, refletir e se comunicar racionalmente.</div>
+    </details>
+  </div>
+
+  <!-- Q5 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">5</span><span>O que significa "deliberar"? Por que a deliberação está ligada à responsabilização?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans"><strong>Deliberar</strong> é o ato de <strong>refletir e tomar escolhas conscientes e voluntárias</strong> dentre opções. Como a deliberação é voluntária, o agente que delibera e age torna-se <strong>responsável</strong> pela sua escolha — podendo receber mérito (positivo) ou culpa (negativo). Só somos responsabilizados pelo que escolhemos livremente.</div>
+    </details>
+  </div>
+
+  <!-- Q6 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">6</span><span>Por que crianças muito pequenas e animais são considerados <em>amorais</em> e não <em>imorais</em>?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">Porque não possuem <strong>logos</strong> (razão e discurso) desenvolvido — não são capazes de deliberar conscientemente. Sem consciência moral, as ações deles estão <strong>fora do campo moral</strong>: não há responsabilização. Por isso são amorais, não imorais.</div>
+    </details>
+  </div>
+
+  <!-- Q7 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">7</span><span>Defina ação <em>imoral</em> e dê um exemplo concreto.</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">Ação <strong>imoral</strong> é aquela <strong>contrária aos valores éticos estabelecidos</strong>. O agente <em>conhece</em> os valores, mas escolhe transgredi-los conscientemente. <em>Exemplo: roubar sabendo que é errado.</em> Como há consciência e escolha voluntária, há responsabilização negativa (culpa/punição).</div>
+    </details>
+  </div>
+
+  <!-- Q8 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">8</span><span>Qual é a principal distinção entre ação <em>imoral</em> e ação <em>amoral</em>?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans"><strong>Imoral ≠ Amoral.</strong> O agente <strong>imoral</strong> tem consciência moral, conhece os valores e os transgride deliberadamente — há responsabilização. O agente <strong>amoral</strong> age fora do campo moral porque não possui (ou não desenvolveu) consciência moral — não há responsabilização.</div>
+    </details>
+  </div>
+
+  <!-- Q9 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">9</span><span>Complete a sequência e explique cada etapa: Razão (logos) → ___ → Escolha voluntária → ___</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans"><strong>Razão (logos) → Deliberação → Escolha voluntária → Responsabilização.</strong><br>
+      A razão nos permite <strong>deliberar</strong> (refletir racionalmente). A deliberação leva a uma <strong>escolha voluntária</strong> e consciente. Por ser voluntária, gera <strong>responsabilização</strong> — o agente responde pelo que fez, positiva ou negativamente.</div>
+    </details>
+  </div>
+
+  <!-- Q10 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">10</span><span>João, adulto consciente, mente para um amigo para obter vantagem pessoal. Classifique a ação e justifique usando os conceitos estudados.</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">A ação de João é <strong>imoral</strong>. Ele é um adulto com <strong>logos</strong> (razão desenvolvida), portanto é um agente moral pleno. Ele conhece o valor da honestidade mas, ao <strong>deliberar</strong>, escolhe <em>voluntariamente</em> transgredi-lo em benefício próprio. Por ser uma escolha consciente e voluntária, João é <strong>responsabilizado negativamente</strong> — sujeito a culpa e reprovação moral.</div>
+    </details>
+  </div>
+
+  <!-- Q11 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">11</span><span>Qual é a diferença entre o Mundo Inteligível e o Mundo Sensível para Platão?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">O <strong>Mundo Inteligível</strong> é a dimensão imaterial da realidade onde residem os conceitos <strong>universais e absolutos</strong> (justiça, bem, beleza, verdade) — acessíveis pela razão. O <strong>Mundo Sensível</strong> é o mundo físico percebido pelos sentidos, uma cópia imperfeita e mutável do mundo inteligível.</div>
+    </details>
+  </div>
+
+  <!-- Q12 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">12</span><span>O que é a teoria da Reminiscência de Platão e como ela explica o conhecimento ético?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">A <strong>reminiscência</strong> afirma que após a morte, a alma tem contato com a <strong>episteme</strong> (verdades universais) no mundo inteligível. Quando reencarna, já traz esses conceitos éticos instalados. Na vida, ao usarmos a razão e a filosofia, <strong>lembramos</strong> (reminiscência) esses conceitos — por isso para Platão a ética é inseparável da razão filosófica.</div>
+    </details>
+  </div>
+
+  <!-- Q13 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">13</span><span>O que é Eudaimonia e como ela se diferencia da visão de Platão sobre a ética?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans"><strong>Eudaimonia</strong> é o sumo bem de Aristóteles — a plena felicidade e realização humana, atingida pelo desenvolvimento de virtudes. A diferença central: Platão acredita que os valores éticos são <strong>inatos</strong> (reminiscência), enquanto Aristóteles acredita que são <strong>construídos ao longo da vida</strong> pela prática (empirismo).</div>
+    </details>
+  </div>
+
+  <!-- Q14 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">14</span><span>Explique a Regra de Ouro de Aristóteles usando o exemplo da coragem.</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">A <strong>Regra de Ouro</strong> (meio-termo / justa medida) diz que a virtude é o <strong>equilíbrio entre dois vícios</strong>: um por falta e outro por excesso. No caso da coragem: <strong>Covardia</strong> (falta) ——— <strong>Coragem</strong> (virtude/equilíbrio) ——— <strong>Imprudência</strong> (excesso). A virtude não está nos extremos, mas no ponto de equilíbrio.</div>
+    </details>
+  </div>
+
+  <!-- Q15 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">15</span><span>Qual era a pergunta central do experimento de Milgram? O que ele revelou sobre a obediência humana?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">A pergunta central era: <em>"Até que ponto o homem obedece à autoridade mesmo que seja contra seus próprios valores?"</em> O experimento revelou que a <strong>obediência à autoridade</strong> pode levar pessoas a agirem contra seus valores morais, especialmente quando ocorre a <strong>transferência da culpa</strong> — o indivíduo deixa de se ver como agente moral e passa a se ver apenas como executor de ordens.</div>
+    </details>
+  </div>
+
+  <!-- Q16 -->
+  <div class="ex">
+    <div class="ex-q"><span class="ex-num">16</span><span>Como o caso de Eichmann conecta o experimento de Milgram ao Holocausto? O que os dois têm em comum?</span></div>
+    <details><summary>Ver resposta</summary>
+      <div class="ex-ans">Em ambos os casos ocorre a <strong>transferência da culpa</strong>: os indivíduos deixam de se ver como <strong>agentes morais conscientes</strong> e passam a se ver como simples executores de ordens. Eichmann argumentou que era "apenas uma peça na engrenagem" e que estava "obedecendo ordens" — exatamente o mesmo mecanismo observado no experimento de Milgram, onde os participantes transferiam a responsabilidade moral para o cientista que dava as ordens.</div>
+    </details>
+  </div>
+
+</div>
+
+<footer>
+  Resumo interativo — Avaliação Especial de Filosofia 2026<br>
+  2ª série do Ensino Médio | Anotações de <strong>Sofia Alves / 2ME</strong>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo de História - 1ª Avaliação Intermediária 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #1a2744;
+    --secondary: #c9953c;
+    --accent: #8b2e2e;
+    --bg: #faf7f2;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8e0d4;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --ch1: #1a2744;
+    --ch2: #2d6a4f;
+    --ch3: #8b2e2e;
+    --ch4: #7b4b1e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    scroll-behavior: smooth;
+  }
+  /* === HERO === */
+  .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #2a3f6e 50%, var(--accent) 100%);
+    color: white;
+    padding: 80px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .hero .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    font-weight: 300;
+    position: relative;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--secondary);
+    color: var(--primary);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-top: 16px;
+    position: relative;
+  }
+  /* === NAV === */
+  nav {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  nav .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav .nav-inner::-webkit-scrollbar { display: none; }
+  nav a {
+    text-decoration: none;
+    padding: 14px 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    color: var(--text-light);
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+  }
+  nav a:hover, nav a.active {
+    color: var(--primary);
+    border-bottom-color: var(--secondary);
+  }
+  nav a[data-ch="1"] { border-bottom-color: var(--ch1); color: var(--ch1); }
+  nav a[data-ch="2"] { border-bottom-color: var(--ch2); color: var(--ch2); }
+  nav a[data-ch="3"] { border-bottom-color: var(--ch3); color: var(--ch3); }
+  nav a[data-ch="4"] { border-bottom-color: var(--ch4); color: var(--ch4); }
+  /* === MAIN === */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  /* === CHAPTER HEADER === */
+  .chapter {
+    margin-bottom: 50px;
+    scroll-margin-top: 80px;
+  }
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--border);
+  }
+  .chapter-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: white;
+    flex-shrink: 0;
+  }
+  .ch1 .chapter-num { background: var(--ch1); }
+  .ch2 .chapter-num { background: var(--ch2); }
+  .ch3 .chapter-num { background: var(--ch3); }
+  .ch4 .chapter-num { background: var(--ch4); }
+  .chapter-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  .chapter-header .cap-ref {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+  /* === ACCORDION === */
+  .accordion {
+    margin-bottom: 12px;
+  }
+  .accordion-btn {
+    width: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 24px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    font-family: 'Inter', sans-serif;
+  }
+  .accordion-btn:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+  }
+  .accordion-btn .icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .accordion.open .accordion-btn {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-color: transparent;
+  }
+  .accordion.open .accordion-btn .icon {
+    transform: rotate(180deg);
+  }
+  .accordion-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+  }
+  .accordion.open .accordion-content {
+    max-height: 3000px;
+    padding: 20px 24px 28px;
+  }
+  .accordion-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin: 20px 0 10px;
+    color: var(--primary);
+  }
+  .accordion-content h4:first-child { margin-top: 0; }
+  .accordion-content p {
+    margin-bottom: 12px;
+    color: var(--text);
+    line-height: 1.8;
+  }
+  /* === CARDS === */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .card {
+    background: linear-gradient(135deg, #f8f6f3, #fff);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+  .card h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--primary);
+  }
+  .card p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+  }
+  /* === HIGHLIGHT BOX === */
+  .highlight {
+    background: linear-gradient(135deg, #fef9e7, #fdf2d0);
+    border-left: 4px solid var(--secondary);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+  .highlight strong { color: var(--accent); }
+  .info-box {
+    background: linear-gradient(135deg, #e8f4f0, #d4edda);
+    border-left: 4px solid var(--ch2);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+  .danger-box {
+    background: linear-gradient(135deg, #fde8e8, #f5d0d0);
+    border-left: 4px solid var(--ch3);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 16px 0;
+    font-size: 0.95rem;
+  }
+  /* === TIMELINE === */
+  .timeline {
+    position: relative;
+    padding-left: 36px;
+    margin: 20px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--secondary), var(--accent));
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--secondary);
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--secondary);
+  }
+  .timeline-item .date {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .timeline-item .desc {
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+  /* === TABLE === */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .styled-table th {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  .styled-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    background: white;
+  }
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table tr:hover td { background: #f8f6f3; }
+  /* === MAP SVG === */
+  .map-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .map-container h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 12px;
+    color: var(--primary);
+  }
+  .map-container svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+    font-size: 0.82rem;
+  }
+  .map-legend span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .map-legend .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  /* === QUIZ === */
+  .quiz-section {
+    background: linear-gradient(135deg, var(--primary), #2a3f6e);
+    color: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 40px 0;
+  }
+  .quiz-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .quiz-q {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+  }
+  .quiz-q p {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .quiz-q label {
+    display: block;
+    padding: 8px 14px;
+    margin: 4px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.92rem;
+  }
+  .quiz-q label:hover { background: rgba(255,255,255,0.15); }
+  .quiz-q input[type="radio"] { margin-right: 8px; }
+  .quiz-q .feedback {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  .quiz-q .feedback.correct {
+    background: rgba(45, 106, 79, 0.4);
+    display: block;
+  }
+  .quiz-q .feedback.wrong {
+    background: rgba(139, 46, 46, 0.4);
+    display: block;
+  }
+  .quiz-q.hidden { display: none; }
+  .filter-btn {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    background: transparent;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: white;
+  }
+  .quiz-chapter-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    opacity: 0.85;
+  }
+  .tag-ch1 { background: rgba(106,48,147,0.5); }
+  .tag-ch2 { background: rgba(30,83,180,0.5); }
+  .tag-ch3 { background: rgba(180,80,30,0.5); }
+  .tag-ch4 { background: rgba(30,120,80,0.5); }
+  #score-box {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.12);
+    font-size: 1rem;
+    font-weight: 700;
+    display: none;
+  }
+  /* === PROGRESS BAR === */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    z-index: 200;
+    transition: width 0.2s;
+    width: 0%;
+  }
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  /* === TAGS === */
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin: 2px;
+  }
+  .tag-pol { background: #dbeafe; color: #1e40af; }
+  .tag-eco { background: #dcfce7; color: #166534; }
+  .tag-soc { background: #fef3c7; color: #92400e; }
+  .tag-rel { background: #f3e8ff; color: #6b21a8; }
+  .tag-art { background: #ffe4e6; color: #9f1239; }
+  .tag-mil { background: #e0e7ff; color: #3730a3; }
+  /* === LIST STYLED === */
+  .styled-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+  .styled-list li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    font-size: 0.95rem;
+  }
+  .styled-list li::before {
+    content: '\25C6';
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-size: 0.7rem;
+    top: 12px;
+  }
+  /* === RESPONSIVE === */
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .hero { padding: 50px 16px 40px; }
+    main { padding: 24px 16px 60px; }
+    .accordion-btn { padding: 14px 16px; font-size: 0.95rem; }
+    .accordion.open .accordion-content { padding: 16px; }
+    nav a { padding: 12px 14px; font-size: 0.8rem; }
+  }
+  /* === PRINT === */
+  @media print {
+    nav, .progress-bar, .quiz-section { display: none; }
+    .accordion-content { max-height: none !important; padding: 16px 24px !important; }
+    .hero { padding: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<!-- BACK LINK -->
+<div style="background:#1a2744; padding:10px 24px;">
+  <a href="index.html" style="color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.85rem; font-weight:600; display:inline-flex; align-items:center; gap:6px; transition:color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">
+    &#8592; Caderno Digital
+  </a>
+</div>
+<!-- HERO -->
+<header class="hero">
+  <h1>História do Brasil Colonial &amp;<br>Antigo Regime</h1>
+  <p class="subtitle">Resumo interativo para a 1ª Avaliação Intermediária - 2ª série EM</p>
+  <span class="badge">1º Trimestre 2026 | Feito por Gabriel Amorim</span>
+</header>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#cap1" data-ch="1">Cap. 11 - Antigo Regime</a>
+    <a href="#cap2" data-ch="2">Cap. 14 - Primeiros Tempos</a>
+    <a href="#cap3" data-ch="3">Cap. 15 - Açúcar e Escravidão</a>
+    <a href="#cap4" data-ch="4">Cap. 16 - Invasões</a>
+    <a href="#quiz">Teste seus Conhecimentos</a>
+  </div>
+</nav>
+<main>
+<!-- ============================================ -->
+<!-- CAPITULO 1 -->
+<!-- ============================================ -->
+<section class="chapter ch1" id="cap1">
+  <div class="chapter-header">
+    <div class="chapter-num">1</div>
+    <div>
+      <h2>Monarquias e Antigo Regime</h2>
+      <span class="cap-ref">Parte I, Capítulo 11 - p. 181+</span>
+    </div>
+  </div>
+  <!-- Antigo Regime -->
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>O que é o Antigo Regime?</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O <strong>Antigo Regime</strong> é o nome dado ao conjunto de características políticas, sociais e econômicas que marcaram a Europa entre os séculos XV e XVIII. Ele se sustenta sobre três pilares:</p>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Absolutismo</h5>
+          <p><span class="tag tag-pol">Política</span><br>Concentração de todos os poderes nas mãos do rei</p>
+        </div>
+        <div class="card">
+          <h5>Mercantilismo</h5>
+          <p><span class="tag tag-eco">Economia</span><br>Acúmulo de riquezas, protecionismo, colonialismo</p>
+        </div>
+        <div class="card">
+          <h5>Sociedade Estamental</h5>
+          <p><span class="tag tag-soc">Social</span><br>Divisão rígida em ordens: Clero, Nobreza, Terceiro Estado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Absolutismo -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Absolutismo e seus Teóricos</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O <strong>Absolutismo</strong> é o sistema político no qual o rei concentra em suas mãos todos os poderes do Estado: legislar, julgar e governar. O monarca não presta contas a nenhum outro órgão. Diferente da tirania, o absolutismo buscava legitimação teórica e religiosa.</p>
+      <h4>Teóricos do Absolutismo</h4>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Jean Bodin</h5>
+          <p>Formulou a ideia de <strong>soberania absoluta</strong>: o poder do rei deveria ser ilimitado e indivisível, sendo a essência do Estado.</p>
+        </div>
+        <div class="card">
+          <h5>Jacques Bossuet</h5>
+          <p>Defendia o <strong>direito divino dos reis</strong>: o poder do monarca vem de Deus. Questionar o rei = questionar Deus.</p>
+        </div>
+        <div class="card">
+          <h5>Thomas Hobbes</h5>
+          <p>No <em>Leviatã</em>, argumentou que os homens fizeram um <strong>contrato social</strong>, transferindo direitos ao soberano em troca de ordem.</p>
+        </div>
+        <div class="card">
+          <h5>Nicolau Maquiavel</h5>
+          <p>Em <em>O Príncipe</em>, separou política da moral religiosa. O governante deve priorizar a <strong>eficácia política</strong>.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Dica para prova:</strong> Associe cada teórico à sua ideia principal: Bodin = soberania, Bossuet = direito divino, Hobbes = contrato social/Leviatã, Maquiavel = eficácia política/O Príncipe.
+      </div>
+    </div>
+  </div>
+  <!-- Mercantilismo -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Mercantilismo</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O Mercantilismo foi a política econômica do Antigo Regime (séculos XV-XVIII). Suas principais características:</p>
+      <table class="styled-table">
+        <tr><th>Princípio</th><th>Descrição</th></tr>
+        <tr><td><strong>Metalismo</strong></td><td>Riqueza medida pela quantidade de ouro e prata</td></tr>
+        <tr><td><strong>Balanca comercial favoravel</strong></td><td>Exportar mais do que importar</td></tr>
+        <tr><td><strong>Protecionismo</strong></td><td>Taxar importados para favorecer produção interna</td></tr>
+        <tr><td><strong>Colonialismo</strong></td><td>Colônias como fonte de matérias-primas e mercado consumidor</td></tr>
+        <tr><td><strong>Pacto Colonial</strong></td><td>Colônia só pode comerciar com a metrópole</td></tr>
+        <tr><td><strong>Intervenção estatal</strong></td><td>O rei regulava comércio, manufaturas e tarifas</td></tr>
+      </table>
+    </div>
+  </div>
+  <!-- Sociedade Estamental -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Sociedade Estamental</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A sociedade do Antigo Regime era dividida em <strong>estamentos</strong> (ordens), camadas sociais rígidas com pouquíssima mobilidade. A posição era determinada pelo <em>nascimento</em>, não pelo mérito.</p>
+      <!-- Pirâmide SVG -->
+      <div class="map-container">
+        <h4>Pirâmide Social do Antigo Regime</h4>
+        <svg viewBox="0 0 500 320" width="460">
+          <!-- Pirâmide -->
+          <polygon points="250,20 420,280 80,280" fill="#f0ece4" stroke="#ccc" stroke-width="1.5"/>
+          <!-- Divisoes -->
+          <line x1="170" y1="120" x2="330" y2="120" stroke="#aaa" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="135" y1="190" x2="365" y2="190" stroke="#aaa" stroke-width="1" stroke-dasharray="4"/>
+          <!-- Textos -->
+          <text x="250" y="85" text-anchor="middle" font-size="14" font-weight="700" fill="#6b21a8">CLERO</text>
+          <text x="250" y="102" text-anchor="middle" font-size="10" fill="#6b6b6b">1º Estado - Não paga impostos</text>
+          <text x="250" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">NOBREZA</text>
+          <text x="250" y="175" text-anchor="middle" font-size="10" fill="#6b6b6b">2º Estado - Terras e cargos</text>
+          <text x="250" y="235" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">TERCEIRO ESTADO</text>
+          <text x="250" y="252" text-anchor="middle" font-size="10" fill="#6b6b6b">Burgueses, camponeses, artesãos</text>
+          <text x="250" y="268" text-anchor="middle" font-size="10" fill="#6b6b6b">Maioria da população. Paga todos os impostos.</text>
+          <!-- Seta -->
+          <text x="445" y="150" font-size="10" fill="#999" text-anchor="start" transform="rotate(90,445,150)">Privilégios &uarr;</text>
+          <text x="465" y="150" font-size="10" fill="#999" text-anchor="start" transform="rotate(90,465,150)">População &darr;</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <!-- Portugal -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Formação precoce do Estado Moderno em Portugal</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Portugal foi um dos primeiros países europeus a consolidar um Estado centralizado. Fatores-chave:</p>
+      <ul class="styled-list">
+        <li><strong>Revolução de Avis (1383-1385)</strong> - Levou ao poder a dinastia de Avis com apoio da burguesia mercantil</li>
+        <li><strong>Posição geográfica</strong> - Localização privilegiada no Atlântico, porta de saída para o mar</li>
+        <li><strong>Aliança Coroa + Burguesia</strong> - A burguesia comercial financiou as Grandes Navegações</li>
+        <li><strong>Centralização precoce</strong> - Permitiu a Portugal ser pioneiro na expansão marítima</li>
+      </ul>
+      <div class="highlight">
+        <strong>Por que isso importa?</strong> A centralização precoce de Portugal explica por que foi o primeiro país a se lançar nas Grandes Navegações e a chegar ao Brasil.
+      </div>
+    </div>
+  </div>
+  <!-- Espanha -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>A Espanha e os Reis Católicos</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A Espanha também centralizou seu poder por meio da <strong>Reconquista</strong> — luta dos reinos cristãos contra os muçulmanos (mouros) na Península Ibérica. Vários reinos (Galícia, Leão, Castela, Navarra, Aragão) foram se unificando por casamentos dinásticos.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Isabel + Fernando (1469)</h5>
+          <p>Casamento une Castela e Aragão, formando a Espanha. Em <strong>1492</strong>: tomam Granada (fim da Reconquista), Decreto de Alhambra (expulsão dos judeus) e Colombo chega à América pela Coroa espanhola.</p>
+        </div>
+        <div class="card">
+          <h5>Carlos V (1519)</h5>
+          <p>Neto dos Reis Católicos. Herdou os Habsburgo e tornou-se <strong>"Sacro Imperador Romano"</strong>. Em 1554 renunciou em favor de seu filho, Filipe II.</p>
+        </div>
+        <div class="card">
+          <h5>Filipe II (1554–1598)</h5>
+          <p>Em 1580 passa a governar Portugal também → início da <strong>União Ibérica</strong>. Tentou combater Elizabeth I (Inglaterra) e foi derrotado em 1588.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>1492 — Ano decisivo:</strong> Expulsão definitiva dos mouros de Granada (fim da Reconquista), Decreto de Alhambra (expulsão dos judeus) e chegada de Colombo à América em outubro. A <em>Primeira Gramática da Língua Castelhana</em>, de Antonio de Nebrija, também foi publicada nesse ano.
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================ -->
+<!-- CAPITULO 2 -->
+<!-- ============================================ -->
+<section class="chapter ch2" id="cap2">
+  <div class="chapter-header">
+    <div class="chapter-num">2</div>
+    <div>
+      <h2>América Portuguesa: Os Primeiros Tempos</h2>
+      <span class="cap-ref">Parte I, Capítulo 14 - p. 223+</span>
+    </div>
+  </div>
+  <!-- Vídeo introdutório -->
+  <div class="video-container" style="margin: 1.5rem 0; border-radius: 12px; overflow: hidden; aspect-ratio: 16/9;">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/PZoYZFDpR88" title="América Portuguesa: Os Primeiros Tempos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;"></iframe>
+  </div>
+  <!-- Carta de Caminha -->
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>A Carta de Caminha e o encontro com os nativos</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A chegada dos portugueses ao Brasil em <strong>abril de 1500</strong> foi registrada por <strong>Pero Vaz de Caminha</strong> em carta ao rei D. Manuel I. A carta descreve o primeiro contato com os povos indígenas, registrando espanto com a nudez, os costumes e a aparente "inocência" dos nativos.</p>
+      <p>Os portugueses os enxergavam sob uma perspectiva europeia e cristã, muitas vezes como "bons selvagens" a serem catequizados ou como inferiores culturalmente.</p>
+      <h4>Visão dos portugueses sobre os povos originários</h4>
+      <p>Os europeus frequentemente classificavam os indígenas como <strong>"sem fé, sem lei e sem rei"</strong> - sem religião cristã, sem leis escritas e sem governo centralizado. Essa visão <strong>etnocentrica</strong> justificou a exploração e a escravização.</p>
+      <div class="danger-box">
+        <strong>Conceito-chave: Etnocentrismo</strong> - Julgar outras culturas a partir dos próprios valores e considerando-as inferiores. Os europeus não compreendiam (ou não queriam compreender) a complexidade das sociedades indígenas.
+      </div>
+    </div>
+  </div>
+  <!-- Organização Indígena -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Organização social dos povos originários</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Os povos indígenas tinham formas diversas e complexas de organização:</p>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Moradia</h5>
+          <p>Viviam em aldeias com malocas (grandes habitações coletivas)</p>
+        </div>
+        <div class="card">
+          <h5>Economia</h5>
+          <p>Agricultura de subsistência (mandioca, milho, batata-doce), caça, pesca e coleta</p>
+        </div>
+        <div class="card">
+          <h5>Organizacao</h5>
+          <p>Comunitária, sem propriedade privada da terra. Líderes: caciques/morubixabas</p>
+        </div>
+        <div class="card">
+          <h5>Cultura Tupi</h5>
+          <p>Grupo mais numeroso no litoral. Praticavam guerra e rituais antropofágicos com significado simbólico</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pre-Colonial -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Período Pré-Colonial (1500-1530) e o Pau-Brasil</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Nos primeiros 30 anos, Portugal não colonizou efetivamente o Brasil. O interesse era o comércio do <strong>pau-brasil</strong>, madeira avermelhada usada como corante na Europa.</p>
+      <table class="styled-table">
+        <tr><th>Aspecto</th><th>Detalhe</th></tr>
+        <tr><td>Extração</td><td>Pelo sistema de <strong>feitorias</strong> (postos comerciais no litoral)</td></tr>
+        <tr><td>Mão de obra</td><td>Indígena, por meio do <strong>escambo</strong> (troca de trabalho por ferramentas, espelhos e tecidos — <em>sem uso de dinheiro</em>)</td></tr>
+        <tr><td>Monópolio</td><td>Da Coroa, concedido a comerciantes via contratos de arrendamento</td></tr>
+        <tr><td>Ocupação</td><td>Presença dispersa, sem ocupação territorial organizada</td></tr>
+      </table>
+    </div>
+  </div>
+  <!-- Martim Afonso -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Expedição de Martim Afonso de Souza (1530-1532)</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Diante de ameaças francesas e da necessidade de ocupar o território, <strong>D. João III</strong> enviou Martim Afonso de Souza ao Brasil:</p>
+      <ul class="styled-list">
+        <li>Patrulhar a costa e combater o contrabando francês de pau-brasil</li>
+        <li>Explorar o território e buscar metais preciosos</li>
+        <li>Fundou a <strong>Vila de São Vicente (1532)</strong> - primeiro núcleo oficial de colonização</li>
+        <li>Distribuir sesmarias e iniciar o plantio de cana-de-açúcar</li>
+      </ul>
+    </div>
+  </div>
+  <!-- Capitanias -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>As Capitanias Hereditárias (1534)</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>D. João III dividiu o Brasil em <strong>15 lotes de terra</strong> entregues a donatários. Recebiam a terra pela <strong>Carta de Doação</strong> (titularidade) e seus direitos e deveres eram regulados pelo <strong>Foral</strong>. Os donatários eram obrigados a <strong>colonizar e defender o território com recursos próprios</strong> — a Coroa não arcava com os custos.</p>
+      <!-- Mapa Capitanias -->
+      <div class="map-container">
+        <h4>Capitanias Hereditárias (1534) — Mapa</h4>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Capitanias.jpg"
+             alt="Mapa das Capitanias Hereditárias (1534)"
+             style="max-width:100%; max-height:520px; border-radius:8px; border:1px solid var(--border); display:block; margin:0 auto;">
+        <p style="font-size:0.75rem; color:var(--text-light); margin-top:6px; text-align:center;">Fonte: Wikimedia Commons (domínio público)</p>
+      </div>
+      
+      <h4>Resultados</h4>
+      <div class="danger-box">
+        <strong>Fracasso geral:</strong> A maioria das capitanias fracassou por falta de recursos, ataques indígenas e isolamento. Apenas <strong>São Vicente</strong> e <strong>Pernambuco</strong> prosperaram com a produção de açúcar. Esse fracasso levou à criação do <strong>Governo-Geral em 1548</strong>.
+      </div>
+    </div>
+  </div>
+  <!-- Escambo Revisão -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>O Escambo: visão tradicional vs. revisão historiográfica</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Há duas interpretações sobre a relação de troca (escambo) entre portugueses e indígenas no período pré-colonial:</p>
+      <div class="card-grid">
+        <div class="card" style="border-top: 3px solid var(--accent);">
+          <h5>Visão Tradicional</h5>
+          <p>Os portugueses eram astutos e os indígenas, ingênuos e facilmente enganáveis. Os nativos aceitavam qualquer coisa (espelhos, colares, miçangas) em troca de trabalho pesado.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--ch2);">
+          <h5>Revisão Historiográfica</h5>
+          <p>O escambo era um sistema de <strong>alianças complexas</strong>, atravessado por antigas rivalidades. Indígenas aliados aprisionavam rivais para trocar com os portugueses — só aceitavam produtos que lhes fossem úteis.</p>
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>A evolução do nome "Brasil":</strong> A terra recebeu várias denominações ao longo do tempo: <em>Ilha de Vera Cruz</em> (Caminha, 1500) → <em>Terra de Santa Cruz</em> (1501) → <em>Terra dos Papagaios</em> → a partir de <strong>1512</strong>, finalmente <strong>Brasil</strong>, nome derivado da madeira pau-brasil (cor de brasa).
+      </div>
+      <div class="highlight">
+        <strong>Alteridade:</strong> O encontro entre culturas muito diferentes — portugueses e indígenas — é chamado de <em>alteridade</em>. Os relatos europeus eram <strong>etnocêntricos</strong> (narrados do ponto de vista europeu), o que os torna fontes parciais sobre os povos originários.
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================ -->
+<!-- CAPITULO 3 -->
+<!-- ============================================ -->
+<section class="chapter ch3" id="cap3">
+  <div class="chapter-header">
+    <div class="chapter-num">3</div>
+    <div>
+      <h2>América Portuguesa: Açúcar e Escravizados</h2>
+      <span class="cap-ref">Parte I, Capítulo 15 - p. 230+</span>
+    </div>
+  </div>
+  <!-- Governo Geral -->
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>O Governo-Geral (1548)</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Para centralizar a administração, Portugal criou o Governo-Geral em 1548. O primeiro governador-geral foi <strong>Tomé de Souza</strong>, que chegou em 1549 e fundou <strong>Salvador</strong>, a primeira capital.</p>
+      <h4>Estrutura de poder na colônia</h4>
+      <!-- Diagrama SVG -->
+      <div class="map-container">
+        <h4>Instâncias de Poder na Colônia</h4>
+        <svg viewBox="0 0 500 260" width="480">
+          <!-- Rei -->
+          <rect x="175" y="10" width="150" height="45" rx="8" fill="#1a2744"/>
+          <text x="250" y="37" text-anchor="middle" font-size="13" fill="white" font-weight="700">REI (Portugal)</text>
+          <!-- Seta -->
+          <line x1="250" y1="55" x2="250" y2="80" stroke="#aaa" stroke-width="2" marker-end="url(#arrow)"/>
+          <!-- Gov Geral -->
+          <rect x="150" y="80" width="200" height="45" rx="8" fill="#c9953c"/>
+          <text x="250" y="100" text-anchor="middle" font-size="12" fill="white" font-weight="700">GOVERNADOR-GERAL</text>
+          <text x="250" y="115" text-anchor="middle" font-size="9" fill="white">Representante do rei na colônia</text>
+          <!-- Setas -->
+          <line x1="190" y1="125" x2="120" y2="165" stroke="#aaa" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <line x1="310" y1="125" x2="380" y2="165" stroke="#aaa" stroke-width="1.5" marker-end="url(#arrow)"/>
+          <!-- Capitanias -->
+          <rect x="30" y="165" width="180" height="45" rx="8" fill="#8b2e2e" opacity="0.85"/>
+          <text x="120" y="185" text-anchor="middle" font-size="11" fill="white" font-weight="600">CAPITANIAS</text>
+          <text x="120" y="200" text-anchor="middle" font-size="9" fill="white">Donatários com poderes locais</text>
+          <!-- Camaras -->
+          <rect x="290" y="165" width="180" height="45" rx="8" fill="#2d6a4f" opacity="0.85"/>
+          <text x="380" y="185" text-anchor="middle" font-size="11" fill="white" font-weight="600">CAMARAS MUNICIPAIS</text>
+          <text x="380" y="200" text-anchor="middle" font-size="9" fill="white">"Homens bons" - poder local</text>
+          <!-- Nota -->
+          <text x="250" y="245" text-anchor="middle" font-size="10" fill="#6b6b6b" font-style="italic">As três instâncias coexistiam, às vezes com conflitos de jurisdição</text>
+          <!-- Arrow marker -->
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#aaa"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+      <h4>Câmaras Municipais e os "Homens Bons"</h4>
+      <p>As <strong>câmaras municipais</strong> eram o órgão de poder local na colônia, composto pelos chamados <strong>"homens bons"</strong> — proprietários livres (brancos, com posses). <strong>Africanos escravizados não podiam participar</strong> das câmaras nem exercer qualquer cargo público. Essa exclusão era estrutural e legal.</p>
+    </div>
+  </div>
+  <!-- Jesuítas -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Jesuítas, Catequese e a Igreja no Estado Absolutista</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Com Tomé de Souza vieram os primeiros <strong>jesuítas</strong>, liderados pelo padre <strong>Manuel da Nóbrega</strong>. Outro jesuíta de destaque foi o padre <strong>José de Anchieta</strong>, importante na fundação de São Paulo.</p>
+      <h4>Objetivos e ações dos jesuítas</h4>
+      <ul class="styled-list">
+        <li><strong>Catequese</strong> - Converter indígenas ao catolicismo</li>
+        <li>Fundaram <strong>missões/reduções</strong> - aldeamentos para catequizar e organizar os indígenas sob moldes europeus</li>
+        <li>Se opunham à escravização dos indígenas &rarr; conflitos com colonos</li>
+        <li>A catequese também era uma forma de <strong>controle cultural</strong>, impondo valores europeus</li>
+      </ul>
+      <h4>Igreja e Estado: o Padroado Régio</h4>
+      <div class="info-box">
+        <strong>Padroado Régio:</strong> Acordo entre Portugal e o Vaticano pelo qual o rei tinha o direito de administrar a Igreja em seus domínios - nomeava bispos, recolhia dízimos, financiava a atividade religiosa. Em troca, a Igreja legitimava o poder do rei e auxiliava na colonização. <strong>Igreja e Estado eram aliados na expansão colonial.</strong>
+      </div>
+    </div>
+  </div>
+  <!-- Dificuldades da Catequese -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Dificuldades da Catequese e Conflito com os Colonos</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A catequese jesuíta não foi simples nem rápida. Os primeiros padres enfrentaram obstáculos constantes:</p>
+      <ul class="styled-list">
+        <li><strong>Poucos padres</strong> para um território imenso e população indígena numerosa e dispersa</li>
+        <li><strong>Barreira linguística</strong> — os indígenas falavam dezenas de idiomas diferentes</li>
+        <li><strong>Simulação da conversão</strong> — muitos nativos fingiam aceitar o catolicismo</li>
+        <li><strong>Feiticeiros indígenas</strong> concorriam com os padres pela influência sobre as aldeias</li>
+        <li><strong>Ataques de bandeirantes</strong> às missões jesuítas, capturando indígenas para escravizar</li>
+      </ul>
+      <h4>Jesuítas × Colonos: o conflito central</h4>
+      <div class="danger-box">
+        <strong>O debate de fundo:</strong> Os indígenas seriam <em>escravizados pelos colonos</em> ou <em>catequizados (e tutelados) pelos jesuítas</em>? Ambas eram formas de dominação. Os jesuítas se opunham à escravidão indígena, gerando conflitos permanentes com os colonos que precisavam de mão de obra. Os jesuítas foram finalmente expulsos do Brasil pelo <strong>Marquês de Pombal em 1759</strong>.
+      </div>
+      <div class="highlight">
+        <strong>José de Anchieta</strong> chegou ao Brasil com apenas 19 anos e fundou o <strong>Colégio São Paulo</strong> (25/jan/1554) no planalto de Piratininga — que se tornaria a futura Vila de São Paulo. Ensino da Bíblia, princípios católicos e latim eram os principais estudos jesuíticos.
+      </div>
+    </div>
+  </div>
+  <!-- Sociedade Açucareira -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>A Sociedade Açucareira Colonial</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A economia colonial no Nordeste girava em torno da <strong>produção de açúcar</strong> nos engenhos. O Brasil se tornou o maior produtor mundial no século XVI.</p>
+      <!-- Engenho SVG -->
+      <div class="map-container">
+        <h4>Estrutura do Engenho Colonial</h4>
+        <svg viewBox="0 0 520 200" width="500">
+          <!-- Casa Grande -->
+          <rect x="20" y="60" width="90" height="60" rx="4" fill="#d4a574"/>
+          <polygon points="20,60 65,30 110,60" fill="#8b4513"/>
+          <text x="65" y="95" text-anchor="middle" font-size="9" fill="white" font-weight="700">Casa-Grande</text>
+          <text x="65" y="108" text-anchor="middle" font-size="7" fill="white">Senhor de engenho</text>
+          <!-- Capela -->
+          <rect x="130" y="70" width="55" height="50" rx="3" fill="#d4c5a9"/>
+          <polygon points="130,70 157,48 185,70" fill="#999"/>
+          <line x1="157" y1="48" x2="157" y2="40" stroke="#666" stroke-width="2"/>
+          <text x="157" y="100" text-anchor="middle" font-size="9" fill="#333" font-weight="600">Capela</text>
+          <!-- Moenda -->
+          <rect x="210" y="55" width="90" height="65" rx="4" fill="#a0522d"/>
+          <circle cx="235" cy="80" r="12" fill="#8b4513" stroke="#d4a574" stroke-width="2"/>
+          <circle cx="275" cy="80" r="12" fill="#8b4513" stroke="#d4a574" stroke-width="2"/>
+          <text x="255" y="108" text-anchor="middle" font-size="9" fill="white" font-weight="700">Moenda</text>
+          <!-- Senzala -->
+          <rect x="320" y="65" width="90" height="55" rx="4" fill="#654321"/>
+          <text x="365" y="95" text-anchor="middle" font-size="9" fill="white" font-weight="700">Senzala</text>
+          <text x="365" y="108" text-anchor="middle" font-size="7" fill="#ddd">Escravizados</text>
+          <!-- Canavial -->
+          <rect x="430" y="40" width="75" height="80" rx="4" fill="#228B22" opacity="0.7"/>
+          <text x="467" y="82" text-anchor="middle" font-size="9" fill="white" font-weight="700">Canavial</text>
+          <text x="467" y="95" text-anchor="middle" font-size="7" fill="white">Cana-de-açúcar</text>
+          <!-- Labels -->
+          <text x="260" y="155" text-anchor="middle" font-size="10" fill="#6b6b6b">Economia: Monocultora + Latifundiária + Escravista + Exportadora</text>
+          <text x="260" y="175" text-anchor="middle" font-size="10" fill="#8b2e2e" font-weight="600">Tudo dentro do Pacto Colonial (comércio exclusivo com Portugal)</text>
+        </svg>
+      </div>
+      <h4>As 4 Características da Economia Açucareira</h4>
+      <div class="highlight">
+        <strong>Memorize os 4 pilares:</strong> A economia colonial açucareira era
+        <strong>Monocultora</strong> (só cana-de-açúcar) +
+        <strong>Latifundiária</strong> (grandes propriedades, os engenhos) +
+        <strong>Escravista</strong> (mão de obra africana escravizada) +
+        <strong>Exportadora</strong> (produção voltada ao mercado europeu, dentro do Pacto Colonial).
+      </div>
+      <h4>Patriarcalismo</h4>
+      <p>A sociedade era centrada no <strong>senhor de engenho</strong> (o patriarca), que dominava a vida familiar, econômica e política local, exercendo poder quase absoluto sobre família, escravizados e agregados.</p>
+    </div>
+  </div>
+  <!-- Escravidao -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Escravização de Africanos e Resistências</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A escravização de negros africanos foi a base da economia colonial. Milhões foram trazidos à força ao Brasil ao longo de mais de três séculos.</p>
+      <h4>O tráfico negreiro</h4>
+      <ul class="styled-list">
+        <li>Envolvia comerciantes portugueses, africanos e coloniais - extremamente lucrativo</li>
+        <li>Africanos capturados em guerras entre reinos africanos ou por traficantes</li>
+        <li>Transportados em navios negreiros (<strong>tumbeiros</strong>) em condições terríveis - a <strong>Passagem do Meio</strong></li>
+        <li>Vendidos em mercados de escravizados no Brasil</li>
+        <li>Justificativas: argumentos religiosos (catequização) e raciais pseudocientíficos</li>
+      </ul>
+      <h4>Formas de Resistência</h4>
+      <div class="card-grid">
+        <div class="card" style="border-left: 3px solid var(--ch3);">
+          <h5>Quilombos</h5>
+          <p>Comunidades de fugitivos. Destaque: <strong>Quilombo dos Palmares</strong> (Alagoas), liderado por <strong>Zumbi</strong>. Resistiu quase um século.</p>
+        </div>
+        <div class="card" style="border-left: 3px solid var(--ch3);">
+          <h5>Fugas e Revoltas</h5>
+          <p>Fugas individuais e coletivas, revoltas e insurreições dentro dos engenhos.</p>
+        </div>
+        <div class="card" style="border-left: 3px solid var(--ch3);">
+          <h5>Resistencia Cultural</h5>
+          <p>Manutenção de religiões (candomblé), línguas, danças (capoeira) e tradições africanas.</p>
+        </div>
+        <div class="card" style="border-left: 3px solid var(--ch3);">
+          <h5>Sabotagens</h5>
+          <p>Destruição de ferramentas, envenenamento de senhores, incêndios nas lavouras, negociações.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Tipos de Escravizados -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Tipos de Escravizados e Mecanismos de Controle</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <h4>Classificação dos escravizados</h4>
+      <table class="styled-table">
+        <tr><th>Tipo</th><th>Descrição</th></tr>
+        <tr><td><strong>Boçal</strong></td><td>Recém chegado da África, não falava português</td></tr>
+        <tr><td><strong>Ladino</strong></td><td>Nascido na África, mas já há tempo no Brasil — falava português</td></tr>
+        <tr><td><strong>Crioulo</strong></td><td>Nascido e criado na América</td></tr>
+        <tr><td><strong>Rural</strong></td><td>Trabalhava nas plantações e engenhos</td></tr>
+        <tr><td><strong>Doméstico</strong></td><td>Realizava tarefas dentro das casas dos senhores</td></tr>
+        <tr><td><strong>Escravo de ganho</strong></td><td>Prestava serviços a terceiros no meio urbano; o ganho ia quase sempre ao senhor</td></tr>
+      </table>
+      <h4>Mecanismos de Controle</h4>
+      <div class="card-grid">
+        <div class="card" style="border-left: 3px solid var(--accent);">
+          <h5>Violência</h5>
+          <p>O <strong>pelourinho</strong> (tronco de castigo público) existia em praticamente todas as cidades coloniais. O <strong>feitor</strong> (capataz) supervisionava e punia nas fazendas. A Coroa regulava punições para que não incapacitassem os trabalhadores.</p>
+        </div>
+        <div class="card" style="border-left: 3px solid var(--ch2);">
+          <h5>Premiações</h5>
+          <p><strong>Brecha camponesa</strong>: pequenas roças para sustento próprio (e venda do excedente). <strong>Alforria</strong>: carta de liberdade comprada ou concedida. Folgas semanais, escolha do cônjuge, senzala individual.</p>
+        </div>
+        <div class="card" style="border-left: 3px solid var(--ch4);">
+          <h5>Vigilância Social</h5>
+          <p>Escravizados marcados com iniciais do senhor ou letra "F" (fugido). Cor da pele e ausência de sapatos os identificavam publicamente. Fofocas, rumores e bisbilhotices eram instrumentos coletivos de controle.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Por que escravizados africanos?</strong> Três motivos principais: <strong>(1) Lógica mercantilista</strong> — o tráfico era extremamente lucrativo; <strong>(2) Justificativa religiosa</strong> — a Igreja usava passagens bíblicas (filhos de Cam/Noé) para legitimar; <strong>(3) Rotas já existentes</strong> — o comércio de cativos na África já funcionava há séculos via islâmicos e reinos locais.
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================ -->
+<!-- CAPITULO 4 -->
+<!-- ============================================ -->
+<section class="chapter ch4" id="cap4">
+  <div class="chapter-header">
+    <div class="chapter-num">4</div>
+    <div>
+      <h2>América Portuguesa: Invasões e Expansão Territorial</h2>
+      <span class="cap-ref">Parte I, Capítulo 16 - p. 244+</span>
+    </div>
+  </div>
+  <!-- Invasoes Francesas -->
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Invasões Francesas</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A França não reconhecia o <strong>Tratado de Tordesilhas (1494)</strong> e reivindicava o direito de explorar a América.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h5>França Antártica (1555-1567)</h5>
+          <p><span class="tag tag-mil">Militar</span><br>Franceses na Baía de Guanabara (RJ). Expulsos por <strong>Estácio de Sá</strong> e <strong>Mem de Sá</strong> com apoio indígena. Após a expulsão, fundaram a <strong>cidade do Rio de Janeiro em 1565</strong>.</p>
+        </div>
+        <div class="card">
+          <h5>França Equinocial (1612-1615)</h5>
+          <p><span class="tag tag-mil">Militar</span><br>Tentativa no Maranhão, fundaram São Luís. Expulsos por forças luso-brasileiras.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- União Ibérica -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>União das Coroas Ibéricas (1580-1640)</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Em 1580, o rei português D. Henrique morreu sem herdeiros. <strong>Filipe II da Espanha</strong> assumiu o trono, unificando as duas Coroas.</p>
+      <h4>Consequências para o Brasil</h4>
+      <ul class="styled-list">
+        <li>Brasil virou alvo dos <strong>inimigos da Espanha</strong>, especialmente a <strong>Holanda</strong></li>
+        <li>Anulação prática do Tratado de Tordesilhas &rarr; favoreceu a <strong>expansão territorial</strong></li>
+        <li>Em <strong>1640</strong>, Portugal recuperou independência (<strong>Restauração Portuguesa</strong>) com <strong>D. João IV</strong> (dinastia de Bragança)</li>
+      </ul>
+      <div class="highlight">
+        <strong>Conexão importante:</strong> A União Ibérica (1580-1640) é a chave para entender POR QUE os holandeses invadiram o Brasil. Antes, eram parceiros no comércio de açúcar. Depois, tornaram-se inimigos.
+      </div>
+    </div>
+  </div>
+  <!-- Holandeses -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Invasões Holandesas e a Administração de Nassau</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A Holanda invadiu o Brasil porque a União Ibérica cortou seu acesso ao lucrativo comércio de açúcar. Agiam por meio da <strong>Companhia das Índias Ocidentais (WIC)</strong>.</p>
+      <h4>Tentativas de invasão</h4>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">1624-1625 - Bahia</div>
+          <div class="desc">Holandeses tomam Salvador, mas são expulsos rapidamente pela <strong>Jornada dos Vassalos</strong> (frota luso-espanhola).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">1630 - Pernambuco</div>
+          <div class="desc">Holandeses conquistam Pernambuco e outras capitanias do Nordeste. Permanecerão por <strong>24 anos</strong>.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">1637-1644 - Administração de Nassau</div>
+          <div class="desc">Período mais marcante do domínio holandês. <strong>João Maurício de Nassau</strong> governa o Brasil holandês.</div>
+        </div>
+      </div>
+      <h4>Nassau: resultados por área</h4>
+      <table class="styled-table">
+        <tr><th>Área</th><th>Medidas e resultados</th></tr>
+        <tr><td><span class="tag tag-pol">Político</span></td><td>Postura conciliadora com senhores de engenho, oferecendo empréstimos e tolerância</td></tr>
+        <tr><td><span class="tag tag-eco">Econômico</span></td><td>Recuperação da produção açucareira, crédito aos produtores, diversificação</td></tr>
+        <tr><td><span class="tag tag-art">Artístico</span></td><td>Trouxe <strong>Frans Post</strong> e <strong>Albert Eckhout</strong> - retrataram paisagem e habitantes do Brasil</td></tr>
+        <tr><td><span class="tag tag-rel">Religioso</span></td><td><strong>Tolerância religiosa:</strong> convivência entre católicos, protestantes e judeus</td></tr>
+      </table>
+      <div class="info-box">
+        <strong>Após Nassau (1644):</strong> Administração holandesa endureceu - mais impostos, cobrança de dívidas &rarr; descontentamento &rarr; Insurreição Pernambucana.
+      </div>
+    </div>
+  </div>
+  <!-- Insurreição -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Insurreição Pernambucana (1645-1654)</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <h4>Razões</h4>
+      <ul class="styled-list">
+        <li>Aumento da cobrança de dívidas e impostos pelos holandeses</li>
+        <li>Insatisfação dos senhores de engenho e colonos</li>
+        <li>Saída de Nassau e administração mais opressora</li>
+      </ul>
+      <h4>Líderes da Insurreição</h4>
+      <div class="card-grid">
+        <div class="card"><h5>André Vidal de Negreiros</h5><p>Líder luso-brasileiro</p></div>
+        <div class="card"><h5>João Fernandes Vieira</h5><p>Senhor de engenho</p></div>
+        <div class="card"><h5>Felipe Camarão</h5><p>Líder indígena</p></div>
+        <div class="card"><h5>Henrique Dias</h5><p>Líder negro</p></div>
+      </div>
+      <div class="highlight">
+        <strong>Detalhe importante:</strong> A aliança entre luso-brasileiros, indígenas e negros é destacada como símbolo de "união" - embora com muitas nuances. Batalhas decisivas: <strong>Guararapes (1648 e 1649)</strong>. Rendição holandesa em <strong>1654</strong>.
+      </div>
+      <h4>Resultados da expulsão</h4>
+      <div class="danger-box">
+        <strong>Consequência crucial:</strong> Os holandeses levaram o conhecimento técnico do açúcar para as <strong>Antilhas</strong>, criando forte concorrência. Isso provocou a <strong>crise do açúcar brasileiro</strong> na 2ª metade do século XVII, levando Portugal a buscar novas riquezas &rarr; <strong>descoberta do ouro em Minas Gerais</strong>.
+      </div>
+    </div>
+  </div>
+  <!-- Interiorizacao -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Interiorização da Colonização e Novas Fronteiras</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Até meados do século XVII, a colonização concentrava-se no litoral. A expansão para o interior se deu por três frentes:</p>
+      <!-- Mapa Expansão SVG -->
+      <div class="map-container">
+        <h4>Frentes de Expansão Territorial</h4>
+        <svg viewBox="0 0 420 400" width="400">
+          <!-- Costa -->
+          <path d="M300,30 Q320,60 325,100 Q330,140 325,180 Q320,220 330,260 Q335,290 320,330 Q300,370 270,390 Q250,400 220,410" fill="none" stroke="#1a2744" stroke-width="2.5"/>
+          <!-- Tordesilhas -->
+          <line x1="210" y1="20" x2="210" y2="415" stroke="#aaa" stroke-width="1.5" stroke-dasharray="5,3"/>
+          <text x="207" y="16" text-anchor="end" font-size="8" fill="#aaa">Tordesilhas</text>
+          <!-- Setas pecuaria NE -->
+          <path d="M310,200 Q260,180 200,160 Q160,145 120,160" fill="none" stroke="#c9953c" stroke-width="3" marker-end="url(#arrow2)"/>
+          <text x="190" y="145" font-size="10" fill="#c9953c" font-weight="700">Pecuária NE</text>
+          <text x="190" y="156" font-size="8" fill="#c9953c">(Rio São Francisco)</text>
+          <!-- Setas pecuaria Sul -->
+          <path d="M280,350 Q240,360 180,370 Q140,375 100,360" fill="none" stroke="#c9953c" stroke-width="3" marker-end="url(#arrow2)"/>
+          <text x="155" y="385" font-size="10" fill="#c9953c" font-weight="700">Pecuária Sul</text>
+          <!-- Bandeiras -->
+          <path d="M270,340 Q220,300 160,250 Q120,220 80,190" fill="none" stroke="#8b2e2e" stroke-width="3" marker-end="url(#arrow2)"/>
+          <text x="100" y="230" font-size="10" fill="#8b2e2e" font-weight="700">Bandeiras</text>
+          <text x="100" y="241" font-size="8" fill="#8b2e2e">(a partir de SP)</text>
+          <!-- Amazonia -->
+          <path d="M310,70 Q260,60 200,50 Q150,45 90,55" fill="none" stroke="#2d6a4f" stroke-width="3" marker-end="url(#arrow2)"/>
+          <text x="170" y="42" font-size="10" fill="#2d6a4f" font-weight="700">Expedições Norte</text>
+          <text x="170" y="53" font-size="8" fill="#2d6a4f">(Vale do Amazonas)</text>
+          <!-- Pontos -->
+          <circle cx="270" cy="340" r="5" fill="#8b2e2e"/>
+          <text x="278" y="335" font-size="8" fill="#333">São Paulo</text>
+          <circle cx="325" cy="250" r="5" fill="#1a2744"/>
+          <text x="335" y="248" font-size="8" fill="#333">Salvador</text>
+          <circle cx="335" cy="200" r="5" fill="#1a2744"/>
+          <text x="345" y="198" font-size="8" fill="#333">Recife</text>
+          <!-- Fronteira real -->
+          <path d="M80,55 Q60,100 50,160 Q45,220 55,280 Q70,340 100,370" fill="none" stroke="#7b4b1e" stroke-width="2" stroke-dasharray="8,4"/>
+          <text x="30" y="215" font-size="8" fill="#7b4b1e" font-weight="600" transform="rotate(-90,30,215)">Fronteira real expandida</text>
+          <defs>
+            <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+            </marker>
+          </defs>
+        </svg>
+        <div class="map-legend">
+          <span><span class="dot" style="background:#c9953c"></span> Pecuária</span>
+          <span><span class="dot" style="background:#8b2e2e"></span> Bandeiras (SP)</span>
+          <span><span class="dot" style="background:#2d6a4f"></span> Expedições oficiais (Norte)</span>
+          <span><span class="dot" style="background:#7b4b1e"></span> Fronteira real expandida</span>
+        </div>
+      </div>
+      <h4>As três frentes</h4>
+      <div class="card-grid">
+        <div class="card" style="border-top: 3px solid #c9953c;">
+          <h5>Pecuaria</h5>
+          <p>Gado deslocado para o sertão do NE (Rio S. Francisco) e para o Sul. Sociedade menos hierárquica, com vaqueiros e trabalho livre.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid #8b2e2e;">
+          <h5>Bandeiras</h5>
+          <p>Expedições de bandeirantes (mamelucos de SP). Objetivos: captura de indígenas, busca por ouro, combate a quilombos. Expandiram o território muito além de Tordesilhas.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid #2d6a4f;">
+          <h5>Expedições Norte</h5>
+          <p>Coroa promoveu ocupação militar e religiosa do litoral Norte e Vale do Amazonas. Missões jesuítas aldearam indígenas.</p>
+        </div>
+      </div>
+      <h4>Nova delimitação de fronteiras</h4>
+      <div class="info-box">
+        <strong>Tratado de Madri (1750):</strong> Formalizou a expansão territorial com base no princípio do <strong>uti possidetis</strong> - a terra pertence a quem a ocupa efetivamente. Isso deu ao Brasil suas dimensões continentais.
+      </div>
+    </div>
+  </div>
+  <!-- Pecuária Colonial -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Pecuária Colonial, Tabaco e Outros Produtos</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Além do açúcar, outras atividades econômicas marcaram a colonização. A pecuária foi fundamental para a <strong>interiorização do território</strong> e usava principalmente <strong>mão de obra livre</strong> (diferente dos engenhos).</p>
+      <div class="card-grid">
+        <div class="card" style="border-top: 3px solid var(--ch2);">
+          <h5>Pecuária no Nordeste</h5>
+          <p>Ligada aos engenhos: o gado movia as moendas, transportava a cana e fornecia carne e couro. Expandiu-se pelo sertão do <strong>Rio São Francisco</strong>. A região ficou conhecida como <em>"civilização do couro"</em> — presente em selas, roupas, caneleiras e utensílios domésticos.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--ch4);">
+          <h5>Pecuária no Sul</h5>
+          <p>Impulsionada pelos <strong>pampas</strong> (pastagens naturais). Locais: <strong>estâncias</strong>. Criadores: <strong>estancieiros</strong>. Principais produtos: <strong>charque</strong> (carne-seca) e <strong>couro</strong>. Gerou o <em>tropeirismo</em> — comércio de tropas itinerante.</p>
+        </div>
+      </div>
+      <h4>Outros produtos coloniais</h4>
+      <table class="styled-table">
+        <tr><th>Produto</th><th>Região</th><th>Importância</th></tr>
+        <tr><td><strong>Tabaco</strong></td><td>Maranhão, Alagoas e sul da Bahia</td><td>Segundo na pauta de exportações; usado como <em>moeda de troca</em> no tráfico negreiro com a África</td></tr>
+        <tr><td><strong>Algodão</strong></td><td>Maranhão</td><td>Voltado ao consumo interno; vestia os escravizados</td></tr>
+        <tr><td><strong>Mandioca</strong></td><td>Todo o Brasil</td><td>Base da alimentação indígena, incorporada pelos colonizadores (farinha, tapioca, beiju)</td></tr>
+        <tr><td><strong>Cachaça</strong></td><td>Regiões açucareiras</td><td>Subproduto da cana; utilizada como moeda no tráfico negreiro</td></tr>
+      </table>
+    </div>
+  </div>
+  <!-- Fronteiras e Tratados -->
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Tratados de Fronteiras e a Guerra Guaranítica</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A definição das fronteiras do Brasil colonial envolveu décadas de disputas, guerras e negociações entre Portugal e Espanha:</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="date">1494 — Tratado de Tordesilhas</div>
+          <div class="desc">Divide o mundo entre Portugal (Leste) e Espanha (Oeste). Ao longo do tempo, tanto portugueses (bandeiras) quanto espanhóis (missões jesuíticas) avançaram além das fronteiras estabelecidas.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">1750 — Tratado de Madri</div>
+          <div class="desc">Substitui Tordesilhas. Princípio do <strong>uti possidetis</strong> (quem ocupa, possui). Portugal ganhou as áreas de ouro e diamante, parte da bacia amazônica. As missões jesuíticas espanholas passaram para Portugal; os indígenas guaranis deveriam abandonar suas terras.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">1753–1756 — Guerra Guaranítica</div>
+          <div class="desc">Os guaranis das <strong>Sete Povos das Missões</strong> (RS) se recusaram a sair de suas terras. Tropas espanholas e portuguesas se uniram e derrotaram os guaranis, liderados por <strong>Sepé Tiaraju</strong>, que foi morto em combate. Vários indígenas morreram.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">1777 — Tratado de Santo Ildefonso</div>
+          <div class="desc">Retomou os princípios do Tratado de Madri. Portugal renunciou oficialmente a Sacramento; perdeu parte do atual Rio Grande do Sul que estava sendo ocupada por colonos espanhóis.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="date">1801 — Tratado de Badajoz</div>
+          <div class="desc">Devolveu a Portugal grande parte da área perdida no RS, mas a Espanha continuou dominando a região do Rio da Prata.</div>
+        </div>
+      </div>
+      <div class="danger-box">
+        <strong>Sebastianismo:</strong> Após as invasões holandesas e a crise do açúcar, surgiu um forte sentimento saudosista em Portugal. A esperança era que o rei D. Sebastião (jovem rei católico que morreu na batalha de Alcácer Quibir em 1578) voltaria para resgatar Portugal. Esse sentimento de retorno a um "passado glorioso" foi chamado de <strong>sebastianismo</strong>.
+      </div>
+    </div>
+  </div>
+  <!-- LINHA DO TEMPO GERAL -->
+  <div style="margin-top: 32px;">
+    <h3 style="font-family:'Playfair Display',serif; margin-bottom:16px; text-align:center; color: var(--ch4);">Linha do Tempo Geral</h3>
+    <div class="timeline">
+      <div class="timeline-item"><div class="date">1494</div><div class="desc">Tratado de Tordesilhas divide o mundo entre Portugal e Espanha</div></div>
+      <div class="timeline-item"><div class="date">1500</div><div class="desc">Chegada dos portugueses ao Brasil - Carta de Caminha</div></div>
+      <div class="timeline-item"><div class="date">1500-1530</div><div class="desc">Período Pré-Colonial: extração de pau-brasil, feitorias, escambo</div></div>
+      <div class="timeline-item"><div class="date">1532</div><div class="desc">Fundação de São Vicente por Martim Afonso de Souza</div></div>
+      <div class="timeline-item"><div class="date">1534</div><div class="desc">Criação das Capitanias Hereditárias</div></div>
+      <div class="timeline-item"><div class="date">1548-1549</div><div class="desc">Governo-Geral criado. Tomé de Souza funda Salvador. Chegada dos jesuítas</div></div>
+      <div class="timeline-item"><div class="date">1555-1567</div><div class="desc">França Antártica no Rio de Janeiro - expulsão dos franceses</div></div>
+      <div class="timeline-item"><div class="date">1580-1640</div><div class="desc">União das Coroas Ibéricas (domínio espanhol sobre Portugal)</div></div>
+      <div class="timeline-item"><div class="date">1612-1615</div><div class="desc">França Equinocial no Maranhão</div></div>
+      <div class="timeline-item"><div class="date">1624-1625</div><div class="desc">Invasão holandesa na Bahia (expulsos rapidamente)</div></div>
+      <div class="timeline-item"><div class="date">1630-1654</div><div class="desc">Domínio holandês em Pernambuco</div></div>
+      <div class="timeline-item"><div class="date">1637-1644</div><div class="desc">Administração de Nassau - período de ouro holandês no Brasil</div></div>
+      <div class="timeline-item"><div class="date">1640</div><div class="desc">Restauração Portuguesa - D. João IV no trono</div></div>
+      <div class="timeline-item"><div class="date">1645-1654</div><div class="desc">Insurreição Pernambucana - expulsão dos holandeses</div></div>
+      <div class="timeline-item"><div class="date">2ª metade séc. XVII</div><div class="desc">Crise do açúcar, interiorização: pecuária, bandeiras, expedições ao Norte</div></div>
+      <div class="timeline-item"><div class="date">1750</div><div class="desc">Tratado de Madri - novas fronteiras pelo uti possidetis</div></div>
+    </div>
+  </div>
+</section>
+<!-- ============================================ -->
+<!-- QUIZ -->
+<!-- ============================================ -->
+<section class="quiz-section" id="quiz">
+  <h3>Banco de Questões</h3>
+  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">48 questões cobrindo todos os capítulos · Selecione e veja se acertou!</p>
+
+  <!-- Filtro por capítulo -->
+  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (48)</button>
+    <button class="filter-btn" onclick="filterQuiz('ch1',this)">Cap. 11 – Antigo Regime</button>
+    <button class="filter-btn" onclick="filterQuiz('ch2',this)">Cap. 14 – Primeiros Tempos</button>
+    <button class="filter-btn" onclick="filterQuiz('ch3',this)">Cap. 15 – Açúcar</button>
+    <button class="filter-btn" onclick="filterQuiz('ch4',this)">Cap. 16 – Invasões</button>
+  </div>
+
+  <!-- Placar -->
+  <div id="score-box">🏆 Placar: <span id="score-correct">0</span> acertos de <span id="score-total">0</span> respondidas</div>
+
+  <!-- ══════════ CAP 11 - ANTIGO REGIME ══════════ -->
+  <div class="quiz-q" id="q1" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>1. Qual teórico defendia que o poder do rei vinha diretamente de Deus (direito divino)?</p>
+    <label><input type="radio" name="q1" value="a" onclick="checkQuiz('q1','b')"> a) Thomas Hobbes</label>
+    <label><input type="radio" name="q1" value="b" onclick="checkQuiz('q1','b')"> b) Jacques Bossuet</label>
+    <label><input type="radio" name="q1" value="c" onclick="checkQuiz('q1','b')"> c) Jean Bodin</label>
+    <label><input type="radio" name="q1" value="d" onclick="checkQuiz('q1','b')"> d) Nicolau Maquiavel</label>
+    <div class="feedback" id="q1-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q9" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>2. Qual teórico do absolutismo formulou o conceito de soberania absoluta e indivisível como essência do Estado?</p>
+    <label><input type="radio" name="q9" value="a" onclick="checkQuiz('q9','a')"> a) Jean Bodin</label>
+    <label><input type="radio" name="q9" value="b" onclick="checkQuiz('q9','a')"> b) Jacques Bossuet</label>
+    <label><input type="radio" name="q9" value="c" onclick="checkQuiz('q9','a')"> c) Thomas Hobbes</label>
+    <label><input type="radio" name="q9" value="d" onclick="checkQuiz('q9','a')"> d) John Locke</label>
+    <div class="feedback" id="q9-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q10" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>3. Na sociedade estamental do Antigo Regime, qual grupo arcava com a maior parte dos impostos?</p>
+    <label><input type="radio" name="q10" value="a" onclick="checkQuiz('q10','c')"> a) Clero (1º Estado)</label>
+    <label><input type="radio" name="q10" value="b" onclick="checkQuiz('q10','c')"> b) Nobreza (2º Estado)</label>
+    <label><input type="radio" name="q10" value="c" onclick="checkQuiz('q10','c')"> c) Terceiro Estado (burgueses, camponeses e artesãos)</label>
+    <label><input type="radio" name="q10" value="d" onclick="checkQuiz('q10','c')"> d) O rei, com sua renda pessoal</label>
+    <div class="feedback" id="q10-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q11" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>4. O princípio do Mercantilismo que preconizava exportar mais do que importar para acumular riqueza é chamado de:</p>
+    <label><input type="radio" name="q11" value="a" onclick="checkQuiz('q11','b')"> a) Metalismo</label>
+    <label><input type="radio" name="q11" value="b" onclick="checkQuiz('q11','b')"> b) Balança comercial favorável</label>
+    <label><input type="radio" name="q11" value="c" onclick="checkQuiz('q11','b')"> c) Protecionismo</label>
+    <label><input type="radio" name="q11" value="d" onclick="checkQuiz('q11','b')"> d) Pacto Colonial</label>
+    <div class="feedback" id="q11-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q12" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>5. A centralização precoce do Estado português foi impulsionada principalmente por qual evento do final do século XIV?</p>
+    <label><input type="radio" name="q12" value="a" onclick="checkQuiz('q12','a')"> a) Revolução de Avis (1383-1385), com apoio da burguesia mercantil</label>
+    <label><input type="radio" name="q12" value="b" onclick="checkQuiz('q12','a')"> b) A descoberta do caminho marítimo para as Índias</label>
+    <label><input type="radio" name="q12" value="c" onclick="checkQuiz('q12','a')"> c) O Tratado de Tordesilhas com a Espanha</label>
+    <label><input type="radio" name="q12" value="d" onclick="checkQuiz('q12','a')"> d) A Reconquista Cristã da Península Ibérica</label>
+    <div class="feedback" id="q12-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q13" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>6. No Leviatã, Thomas Hobbes justificou o poder absoluto do soberano com base em:</p>
+    <label><input type="radio" name="q13" value="a" onclick="checkQuiz('q13','b')"> a) O direito divino que vem de Deus</label>
+    <label><input type="radio" name="q13" value="b" onclick="checkQuiz('q13','b')"> b) Um contrato social em que os homens abrem mão de direitos em troca de ordem e segurança</label>
+    <label><input type="radio" name="q13" value="c" onclick="checkQuiz('q13','b')"> c) A soberania indivisível do Estado</label>
+    <label><input type="radio" name="q13" value="d" onclick="checkQuiz('q13','b')"> d) A eficácia política acima da moral</label>
+    <div class="feedback" id="q13-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q14" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>7. A obra "O Príncipe" de Maquiavel foi inovadora porque:</p>
+    <label><input type="radio" name="q14" value="a" onclick="checkQuiz('q14','d')"> a) Defendeu a democracia como melhor forma de governo</label>
+    <label><input type="radio" name="q14" value="b" onclick="checkQuiz('q14','d')"> b) Propôs o contrato social entre rei e povo</label>
+    <label><input type="radio" name="q14" value="c" onclick="checkQuiz('q14','d')"> c) Afirmou que o poder do rei vem de Deus</label>
+    <label><input type="radio" name="q14" value="d" onclick="checkQuiz('q14','d')"> d) Separou a política da moral religiosa, priorizando a eficácia política</label>
+    <div class="feedback" id="q14-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q31" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>8. O casamento de Isabel de Castela e Fernando de Aragão, em 1469, resultou na unificação da Espanha. Em que ano os "Reis Católicos" expulsaram definitivamente os mouros da Península Ibérica?</p>
+    <label><input type="radio" name="q31" value="a" onclick="checkQuiz('q31','b')"> a) 1469</label>
+    <label><input type="radio" name="q31" value="b" onclick="checkQuiz('q31','b')"> b) 1492</label>
+    <label><input type="radio" name="q31" value="c" onclick="checkQuiz('q31','b')"> c) 1512</label>
+    <label><input type="radio" name="q31" value="d" onclick="checkQuiz('q31','b')"> d) 1580</label>
+    <div class="feedback" id="q31-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q32" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Cap. 11 – Antigo Regime</span>
+    <p>9. Durante a União Ibérica (1580–1640), Portugal ficou sob o domínio espanhol. Qual foi o principal motivo que levou os holandeses a invadir o Brasil durante esse período?</p>
+    <label><input type="radio" name="q32" value="a" onclick="checkQuiz('q32','c')"> a) Desejo de catequizar os indígenas ao protestantismo calvinista</label>
+    <label><input type="radio" name="q32" value="b" onclick="checkQuiz('q32','c')"> b) Interesse em encontrar ouro e metais preciosos no interior do território</label>
+    <label><input type="radio" name="q32" value="c" onclick="checkQuiz('q32','c')"> c) Embargo comercial espanhol que cortou o acesso holandês ao lucrativo comércio de açúcar</label>
+    <label><input type="radio" name="q32" value="d" onclick="checkQuiz('q32','c')"> d) Represália pelo Tratado de Tordesilhas que excluía a Holanda das américas</label>
+    <div class="feedback" id="q32-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q2" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>10. O sistema de obtenção de mão de obra indígena no período pré-colonial era baseado em:</p>
+    <label><input type="radio" name="q2" value="a" onclick="checkQuiz('q2','c')"> a) Salário</label>
+    <label><input type="radio" name="q2" value="b" onclick="checkQuiz('q2','c')"> b) Mita</label>
+    <label><input type="radio" name="q2" value="c" onclick="checkQuiz('q2','c')"> c) Escambo</label>
+    <label><input type="radio" name="q2" value="d" onclick="checkQuiz('q2','c')"> d) Encomienda</label>
+    <div class="feedback" id="q2-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q3" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>11. Das quinze capitanias hereditárias criadas, quais duas prosperaram?</p>
+    <label><input type="radio" name="q3" value="a" onclick="checkQuiz('q3','b')"> a) Bahia e Maranhão</label>
+    <label><input type="radio" name="q3" value="b" onclick="checkQuiz('q3','b')"> b) São Vicente e Pernambuco</label>
+    <label><input type="radio" name="q3" value="c" onclick="checkQuiz('q3','b')"> c) Rio de Janeiro e Espírito Santo</label>
+    <label><input type="radio" name="q3" value="d" onclick="checkQuiz('q3','b')"> d) Itamaracá e Pará</label>
+    <div class="feedback" id="q3-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q15" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>12. Pero Vaz de Caminha descreveu a chegada dos portugueses ao Brasil em carta endereçada a:</p>
+    <label><input type="radio" name="q15" value="a" onclick="checkQuiz('q15','b')"> a) D. João II</label>
+    <label><input type="radio" name="q15" value="b" onclick="checkQuiz('q15','b')"> b) D. Manuel I</label>
+    <label><input type="radio" name="q15" value="c" onclick="checkQuiz('q15','b')"> c) Pedro Álvares Cabral</label>
+    <label><input type="radio" name="q15" value="d" onclick="checkQuiz('q15','b')"> d) D. Henrique, o Navegador</label>
+    <div class="feedback" id="q15-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q16" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>13. O período pré-colonial (1500-1530) se caracterizou principalmente por:</p>
+    <label><input type="radio" name="q16" value="a" onclick="checkQuiz('q16','a')"> a) Extração de pau-brasil através do escambo com indígenas e instalação de feitorias</label>
+    <label><input type="radio" name="q16" value="b" onclick="checkQuiz('q16','a')"> b) Cultivo intensivo de cana-de-açúcar no litoral nordestino</label>
+    <label><input type="radio" name="q16" value="c" onclick="checkQuiz('q16','a')"> c) Criação de capitanias hereditárias e governo centralizado</label>
+    <label><input type="radio" name="q16" value="d" onclick="checkQuiz('q16','a')"> d) Escravização massiva de africanos e formação de quilombos</label>
+    <div class="feedback" id="q16-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q17" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>14. O primeiro núcleo de colonização efetiva do Brasil, fundado em 1532, foi:</p>
+    <label><input type="radio" name="q17" value="a" onclick="checkQuiz('q17','c')"> a) Salvador, fundada por Tomé de Souza</label>
+    <label><input type="radio" name="q17" value="b" onclick="checkQuiz('q17','c')"> b) Pernambuco, fundada por Duarte Coelho</label>
+    <label><input type="radio" name="q17" value="c" onclick="checkQuiz('q17','c')"> c) São Vicente, fundada por Martim Afonso de Souza</label>
+    <label><input type="radio" name="q17" value="d" onclick="checkQuiz('q17','c')"> d) Rio de Janeiro, fundada por Estácio de Sá</label>
+    <div class="feedback" id="q17-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q18" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>15. Os donatários das capitanias hereditárias eram obrigados a:</p>
+    <label><input type="radio" name="q18" value="a" onclick="checkQuiz('q18','b')"> a) Pagar um imposto anual à Coroa portuguesa em ouro</label>
+    <label><input type="radio" name="q18" value="b" onclick="checkQuiz('q18','b')"> b) Colonizar e defender o território com recursos próprios</label>
+    <label><input type="radio" name="q18" value="c" onclick="checkQuiz('q18','b')"> c) Instalar missões jesuítas e catequizar os indígenas</label>
+    <label><input type="radio" name="q18" value="d" onclick="checkQuiz('q18','b')"> d) Cultivar exclusivamente cana-de-açúcar</label>
+    <div class="feedback" id="q18-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q19" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>16. A visão dos portugueses sobre os indígenas, descrita como "sem fé, sem lei e sem rei", reflete uma perspectiva:</p>
+    <label><input type="radio" name="q19" value="a" onclick="checkQuiz('q19','c')"> a) Científica, baseada em estudos antropológicos da época</label>
+    <label><input type="radio" name="q19" value="b" onclick="checkQuiz('q19','c')"> b) Econômica, para justificar o escambo de pau-brasil</label>
+    <label><input type="radio" name="q19" value="c" onclick="checkQuiz('q19','c')"> c) Etnocêntrica, que serviu para justificar a exploração e escravização indígena</label>
+    <label><input type="radio" name="q19" value="d" onclick="checkQuiz('q19','c')"> d) Religiosa exclusiva dos jesuítas, não compartilhada pela Coroa</label>
+    <div class="feedback" id="q19-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q33" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>17. Os tupis-guaranis, grupo indígena mais numeroso no litoral brasileiro em 1500, compartilhavam língua e cultura similares, mas eram formados por vários subgrupos. Qual dos seguintes era encontrado no litoral da Bahia e do Rio de Janeiro?</p>
+    <label><input type="radio" name="q33" value="a" onclick="checkQuiz('q33','b')"> a) Xavantes</label>
+    <label><input type="radio" name="q33" value="b" onclick="checkQuiz('q33','b')"> b) Tupinambás</label>
+    <label><input type="radio" name="q33" value="c" onclick="checkQuiz('q33','b')"> c) Guaranis</label>
+    <label><input type="radio" name="q33" value="d" onclick="checkQuiz('q33','b')"> d) Botocudos</label>
+    <div class="feedback" id="q33-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q34" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Cap. 14 – Primeiros Tempos</span>
+    <p>18. O nome "Brasil" tornou-se oficial para designar a América portuguesa a partir de:</p>
+    <label><input type="radio" name="q34" value="a" onclick="checkQuiz('q34','c')"> a) 1500, quando Caminha escreveu a carta ao rei D. Manuel I</label>
+    <label><input type="radio" name="q34" value="b" onclick="checkQuiz('q34','c')"> b) 1501, quando a terra foi chamada de "Terra de Santa Cruz"</label>
+    <label><input type="radio" name="q34" value="c" onclick="checkQuiz('q34','c')"> c) 1512, derivado do pau-brasil (madeira com cor de brasa)</label>
+    <label><input type="radio" name="q34" value="d" onclick="checkQuiz('q34','c')"> d) 1534, quando foram criadas as Capitanias Hereditárias</label>
+    <div class="feedback" id="q34-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q4" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>19. O Padroado Régio consistia em:</p>
+    <label><input type="radio" name="q4" value="a" onclick="checkQuiz('q4','a')"> a) O direito do rei de administrar a Igreja em seus domínios</label>
+    <label><input type="radio" name="q4" value="b" onclick="checkQuiz('q4','a')"> b) A separação total entre Igreja e Estado</label>
+    <label><input type="radio" name="q4" value="c" onclick="checkQuiz('q4','a')"> c) O poder do Papa sobre o rei português</label>
+    <label><input type="radio" name="q4" value="d" onclick="checkQuiz('q4','a')"> d) A proibição da catequese na colônia</label>
+    <div class="feedback" id="q4-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q20" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>20. O Governo-Geral foi criado em 1548 e o primeiro governador-geral foi:</p>
+    <label><input type="radio" name="q20" value="a" onclick="checkQuiz('q20','c')"> a) Duarte Coelho, que fundou Olinda</label>
+    <label><input type="radio" name="q20" value="b" onclick="checkQuiz('q20','c')"> b) Martim Afonso de Souza, que fundou São Vicente</label>
+    <label><input type="radio" name="q20" value="c" onclick="checkQuiz('q20','c')"> c) Tomé de Souza, que fundou Salvador como primeira capital</label>
+    <label><input type="radio" name="q20" value="d" onclick="checkQuiz('q20','c')"> d) Manuel da Nóbrega, líder dos jesuítas</label>
+    <div class="feedback" id="q20-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q21" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>21. Os jesuítas se opunham à escravização dos indígenas, o que gerava conflitos com os colonos. Qual era o principal instrumento dos jesuítas para controlar os indígenas?</p>
+    <label><input type="radio" name="q21" value="a" onclick="checkQuiz('q21','b')"> a) Os engenhos de açúcar</label>
+    <label><input type="radio" name="q21" value="b" onclick="checkQuiz('q21','b')"> b) As missões/reduções, aldeamentos que impunham valores europeus e católicos</label>
+    <label><input type="radio" name="q21" value="c" onclick="checkQuiz('q21','b')"> c) As câmaras municipais</label>
+    <label><input type="radio" name="q21" value="d" onclick="checkQuiz('q21','b')"> d) O sistema de capitanias hereditárias</label>
+    <div class="feedback" id="q21-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q22" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>22. Os navios que transportavam africanos escravizados em condições desumanas eram chamados de:</p>
+    <label><input type="radio" name="q22" value="a" onclick="checkQuiz('q22','c')"> a) Caravelas</label>
+    <label><input type="radio" name="q22" value="b" onclick="checkQuiz('q22','c')"> b) Galeões</label>
+    <label><input type="radio" name="q22" value="c" onclick="checkQuiz('q22','c')"> c) Tumbeiros, e o trecho era chamado de Passagem do Meio</label>
+    <label><input type="radio" name="q22" value="d" onclick="checkQuiz('q22','c')"> d) Naus da Índia</label>
+    <div class="feedback" id="q22-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q23" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>23. O maior símbolo de resistência quilombola no Brasil colonial, que resistiu por quase um século, foi:</p>
+    <label><input type="radio" name="q23" value="a" onclick="checkQuiz('q23','d')"> a) Quilombo do Recife, liderado por Henrique Dias</label>
+    <label><input type="radio" name="q23" value="b" onclick="checkQuiz('q23','d')"> b) Quilombo de São Paulo, liderado por Felipe Camarão</label>
+    <label><input type="radio" name="q23" value="c" onclick="checkQuiz('q23','d')"> c) Quilombo da Bahia, liderado por André Vidal</label>
+    <label><input type="radio" name="q23" value="d" onclick="checkQuiz('q23','d')"> d) Quilombo dos Palmares (Alagoas), liderado por Zumbi</label>
+    <div class="feedback" id="q23-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q24" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>24. A economia açucareira colonial é corretamente descrita como:</p>
+    <label><input type="radio" name="q24" value="a" onclick="checkQuiz('q24','b')"> a) Policultura, minifúndio, trabalho livre e mercado interno</label>
+    <label><input type="radio" name="q24" value="b" onclick="checkQuiz('q24','b')"> b) Monocultura, latifúndio, trabalho escravo e voltada à exportação</label>
+    <label><input type="radio" name="q24" value="c" onclick="checkQuiz('q24','b')"> c) Policultura, latifúndio, trabalho assalariado e exportação</label>
+    <label><input type="radio" name="q24" value="d" onclick="checkQuiz('q24','b')"> d) Monocultura, minifúndio, trabalho livre e mercado interno</label>
+    <div class="feedback" id="q24-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q25" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>25. Qual das alternativas NÃO é uma forma de resistência dos africanos escravizados no Brasil colonial?</p>
+    <label><input type="radio" name="q25" value="a" onclick="checkQuiz('q25','d')"> a) Formação de quilombos</label>
+    <label><input type="radio" name="q25" value="b" onclick="checkQuiz('q25','d')"> b) Manutenção de religiões como o candomblé e práticas como a capoeira</label>
+    <label><input type="radio" name="q25" value="c" onclick="checkQuiz('q25','d')"> c) Sabotagens (destruição de ferramentas, incêndios)</label>
+    <label><input type="radio" name="q25" value="d" onclick="checkQuiz('q25','d')"> d) Participação nas câmaras municipais como "homens bons"</label>
+    <div class="feedback" id="q25-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q41" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>26. A rentabilidade da produção açucareira brasileira entrou em declínio ao longo do século XVII, não por retração do consumo europeu, mas por uma mudança estrutural no mercado produtor. Qual foi o mecanismo central dessa crise?</p>
+    <label><input type="radio" name="q41" value="a" onclick="checkQuiz('q41','e')"> a) Expansão do mercado interno colonial, que absorveu a produção e reduziu o volume exportado à Europa.</label>
+    <label><input type="radio" name="q41" value="b" onclick="checkQuiz('q41','e')"> b) Desinteresse crescente dos consumidores europeus, que passaram a preferir outros produtos tropicais ao açúcar.</label>
+    <label><input type="radio" name="q41" value="c" onclick="checkQuiz('q41','e')"> c) Crise no tráfico de escravizados, que reduziu drasticamente a mão de obra disponível nos engenhos nordestinos.</label>
+    <label><input type="radio" name="q41" value="d" onclick="checkQuiz('q41','e')"> d) Industrialização precoce nas regiões coloniais, que substituiu parte da força de trabalho nos canaviais.</label>
+    <label><input type="radio" name="q41" value="e" onclick="checkQuiz('q41','e')"> e) Transmissão dos saberes técnicos de produção às potências rivais, que passaram a concorrer no mercado europeu.</label>
+    <div class="feedback" id="q41-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q42" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>27. Para entender por que Portugal elegeu o açúcar como principal produto de exportação do Brasil Colonial, é preciso distinguir os fatores que de fato influenciaram essa decisão. Avalie:<br><br>
+    <strong>I)</strong> O litoral brasileiro reunia condições naturais excepcionais para a cana-de-açúcar: solos de massapê, clima tropical quente e umidade abundante.<br>
+    <strong>II)</strong> O alto preço do açúcar na Europa tornava sua produção altamente lucrativa, e a colônia apresentava grande potencial para atender essa demanda.<br>
+    <strong>III)</strong> Portugal não possuía qualquer experiência prévia com o cultivo da cana, sendo o Brasil um campo de experimentação desde o início da colonização.<br>
+    <strong>IV)</strong> A rivalidade imediata com a Holanda, que dominava o refino e o comércio do açúcar na Europa desde o início, foi o principal motivador da escolha do produto.<br><br>
+    São verdadeiras apenas:</p>
+    <label><input type="radio" name="q42" value="a" onclick="checkQuiz('q42','a')"> a) I e II.</label>
+    <label><input type="radio" name="q42" value="b" onclick="checkQuiz('q42','a')"> b) I e III.</label>
+    <label><input type="radio" name="q42" value="c" onclick="checkQuiz('q42','a')"> c) II e IV.</label>
+    <label><input type="radio" name="q42" value="d" onclick="checkQuiz('q42','a')"> d) I, II e III.</label>
+    <div class="feedback" id="q42-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q48" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>28. A organização da economia colonial em torno da grande propriedade exportadora — voltada ao açúcar, ao tabaco e às especiarias — produziu consequências diretas sobre a alimentação da população local. Qual foi o principal impacto desse modelo sobre a subsistência da maioria dos colonos?</p>
+    <label><input type="radio" name="q48" value="a" onclick="checkQuiz('q48','d')"> a) A fome concentrou-se apenas no período inicial da colonização, antes que as capitanias desenvolvessem uma estrutura produtiva autossuficiente.</label>
+    <label><input type="radio" name="q48" value="b" onclick="checkQuiz('q48','d')"> b) O desconhecimento das condições ambientais locais pelos colonizadores levou ao fracasso sistemático das lavouras de subsistência.</label>
+    <label><input type="radio" name="q48" value="c" onclick="checkQuiz('q48','d')"> c) As secas cíclicas inviabilizavam periodicamente a produção de alimentos nas terras reservadas à agricultura familiar.</label>
+    <label><input type="radio" name="q48" value="d" onclick="checkQuiz('q48','d')"> d) A concentração das melhores terras na monocultura exportadora deixou pouco espaço para cultivos alimentares, gerando fome crônica entre as camadas populares da colônia.</label>
+    <div class="feedback" id="q48-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q35" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>29. Os jesuítas foram expulsos do Brasil em 1759 por determinação de:</p>
+    <label><input type="radio" name="q35" value="a" onclick="checkQuiz('q35','d')"> a) D. João III, que achou a catequese ineficaz</label>
+    <label><input type="radio" name="q35" value="b" onclick="checkQuiz('q35','d')"> b) Tomé de Souza, que preferiu o trabalho dos colonos</label>
+    <label><input type="radio" name="q35" value="c" onclick="checkQuiz('q35','d')"> c) D. Pedro I, durante a Independência do Brasil</label>
+    <label><input type="radio" name="q35" value="d" onclick="checkQuiz('q35','d')"> d) Marquês de Pombal, ministro do Rei D. José I</label>
+    <div class="feedback" id="q35-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q36" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>30. Os "escravos de ganho" eram aqueles que:</p>
+    <label><input type="radio" name="q36" value="a" onclick="checkQuiz('q36','b')"> a) Recebiam salário por seu trabalho nos engenhos</label>
+    <label><input type="radio" name="q36" value="b" onclick="checkQuiz('q36','b')"> b) Prestavam serviços a terceiros no meio urbano, entregando o ganho ao senhor</label>
+    <label><input type="radio" name="q36" value="c" onclick="checkQuiz('q36','b')"> c) Tinham conquistado a alforria através de bom comportamento</label>
+    <label><input type="radio" name="q36" value="d" onclick="checkQuiz('q36','b')"> d) Trabalhavam como capatazes (feitores) nas fazendas</label>
+    <div class="feedback" id="q36-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q37" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>31. O instrumento de punição pública dos escravizados, presente em praticamente todas as cidades coloniais, era:</p>
+    <label><input type="radio" name="q37" value="a" onclick="checkQuiz('q37','c')"> a) O foral</label>
+    <label><input type="radio" name="q37" value="b" onclick="checkQuiz('q37','c')"> b) A senzala</label>
+    <label><input type="radio" name="q37" value="c" onclick="checkQuiz('q37','c')"> c) O pelourinho</label>
+    <label><input type="radio" name="q37" value="d" onclick="checkQuiz('q37','c')"> d) A moenda</label>
+    <div class="feedback" id="q37-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q38" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Cap. 15 – Açúcar e Escravizados</span>
+    <p>32. A "brecha camponesa" era uma prática que funcionava como forma de premiação e consistia em:</p>
+    <label><input type="radio" name="q38" value="a" onclick="checkQuiz('q38','b')"> a) Permitir que os escravizados praticassem sua religião africana</label>
+    <label><input type="radio" name="q38" value="b" onclick="checkQuiz('q38','b')"> b) Ceder um pequeno pedaço de terra para o escravizado cultivar para si, podendo vender o excedente</label>
+    <label><input type="radio" name="q38" value="c" onclick="checkQuiz('q38','b')"> c) Liberar os escravizados nos finais de semana para que fossem à cidade</label>
+    <label><input type="radio" name="q38" value="d" onclick="checkQuiz('q38','b')"> d) Conceder a alforria automaticamente após 10 anos de serviço</label>
+    <div class="feedback" id="q38-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q26" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>33. A França Antártica (1555-1567) foi uma tentativa francesa de colonização na Baía de Guanabara, expulsa por:</p>
+    <label><input type="radio" name="q26" value="a" onclick="checkQuiz('q26','b')"> a) Tomé de Souza e Manuel da Nóbrega</label>
+    <label><input type="radio" name="q26" value="b" onclick="checkQuiz('q26','b')"> b) Estácio de Sá e Mem de Sá, com apoio indígena</label>
+    <label><input type="radio" name="q26" value="c" onclick="checkQuiz('q26','b')"> c) Nassau e a Companhia das Índias Ocidentais</label>
+    <label><input type="radio" name="q26" value="d" onclick="checkQuiz('q26','b')"> d) André Vidal de Negreiros e Felipe Camarão</label>
+    <div class="feedback" id="q26-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q7" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>34. A União Ibérica (1580-1640) teve como consequência direta para o Brasil:</p>
+    <label><input type="radio" name="q7" value="a" onclick="checkQuiz('q7','d')"> a) A descoberta de ouro em Minas Gerais</label>
+    <label><input type="radio" name="q7" value="b" onclick="checkQuiz('q7','d')"> b) A fundação de Salvador</label>
+    <label><input type="radio" name="q7" value="c" onclick="checkQuiz('q7','d')"> c) A criação das capitanias hereditárias</label>
+    <label><input type="radio" name="q7" value="d" onclick="checkQuiz('q7','d')"> d) Tornar o Brasil alvo de invasões holandesas, inimigos da Espanha</label>
+    <div class="feedback" id="q7-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q27" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>35. Os holandeses agiram no Brasil por meio de qual instituição?</p>
+    <label><input type="radio" name="q27" value="a" onclick="checkQuiz('q27','c')"> a) Companhia das Índias Orientais (VOC)</label>
+    <label><input type="radio" name="q27" value="b" onclick="checkQuiz('q27','c')"> b) Jornada dos Vassalos</label>
+    <label><input type="radio" name="q27" value="c" onclick="checkQuiz('q27','c')"> c) Companhia das Índias Ocidentais (WIC)</label>
+    <label><input type="radio" name="q27" value="d" onclick="checkQuiz('q27','c')"> d) Câmara Municipal de Recife</label>
+    <div class="feedback" id="q27-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q8" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>36. Na administração de Nassau, qual aspecto se destacou como incomum para a época?</p>
+    <label><input type="radio" name="q8" value="a" onclick="checkQuiz('q8','c')"> a) Abolição da escravatura</label>
+    <label><input type="radio" name="q8" value="b" onclick="checkQuiz('q8','c')"> b) República democrática</label>
+    <label><input type="radio" name="q8" value="c" onclick="checkQuiz('q8','c')"> c) Tolerância religiosa entre católicos, protestantes e judeus</label>
+    <label><input type="radio" name="q8" value="d" onclick="checkQuiz('q8','c')"> d) Reforma agrária e distribuição de terras</label>
+    <div class="feedback" id="q8-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q28" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>37. A Insurreição Pernambucana (1645-1654) foi liderada por uma aliança entre luso-brasileiros, indígenas e negros. Qual líder negro integrou esse movimento?</p>
+    <label><input type="radio" name="q28" value="a" onclick="checkQuiz('q28','d')"> a) Zumbi dos Palmares</label>
+    <label><input type="radio" name="q28" value="b" onclick="checkQuiz('q28','d')"> b) João Fernandes Vieira</label>
+    <label><input type="radio" name="q28" value="c" onclick="checkQuiz('q28','d')"> c) Felipe Camarão</label>
+    <label><input type="radio" name="q28" value="d" onclick="checkQuiz('q28','d')"> d) Henrique Dias</label>
+    <div class="feedback" id="q28-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q29" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>38. As batalhas decisivas para a expulsão definitiva dos holandeses do Brasil foram:</p>
+    <label><input type="radio" name="q29" value="a" onclick="checkQuiz('q29','b')"> a) Batalhas de Salvador (1625) e Recife (1630)</label>
+    <label><input type="radio" name="q29" value="b" onclick="checkQuiz('q29','b')"> b) Batalhas dos Guararapes (1648 e 1649)</label>
+    <label><input type="radio" name="q29" value="c" onclick="checkQuiz('q29','b')"> c) Batalhas do Maranhão (1615) e Guanabara (1567)</label>
+    <label><input type="radio" name="q29" value="d" onclick="checkQuiz('q29','b')"> d) Batalhas de Olinda (1640) e Porto Calvo (1645)</label>
+    <div class="feedback" id="q29-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q5" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>39. Qual foi a principal consequência da expulsão dos holandeses para a economia açucareira brasileira?</p>
+    <label><input type="radio" name="q5" value="a" onclick="checkQuiz('q5','c')"> a) O açúcar brasileiro dominou o mercado mundial sem concorrência</label>
+    <label><input type="radio" name="q5" value="b" onclick="checkQuiz('q5','c')"> b) Os holandeses passaram a comprar mais açúcar brasileiro</label>
+    <label><input type="radio" name="q5" value="c" onclick="checkQuiz('q5','c')"> c) Holandeses levaram a tecnologia do açúcar para as Antilhas, gerando crise e concorrência</label>
+    <label><input type="radio" name="q5" value="d" onclick="checkQuiz('q5','c')"> d) Portugal proibiu a produção de açúcar no Nordeste</label>
+    <div class="feedback" id="q5-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q30" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>40. Os bandeirantes, que expandiram o território brasileiro muito além do Tratado de Tordesilhas, eram principalmente oriundos de:</p>
+    <label><input type="radio" name="q30" value="a" onclick="checkQuiz('q30','b')"> a) Salvador (BA), liderados por senhores de engenho</label>
+    <label><input type="radio" name="q30" value="b" onclick="checkQuiz('q30','b')"> b) São Paulo (SP), em sua maioria mamelucos, com objetivos de capturar indígenas e buscar ouro</label>
+    <label><input type="radio" name="q30" value="c" onclick="checkQuiz('q30','b')"> c) Recife (PE), financiados pela Companhia das Índias Ocidentais</label>
+    <label><input type="radio" name="q30" value="d" onclick="checkQuiz('q30','b')"> d) Lisboa (Portugal), enviados diretamente pela Coroa</label>
+    <div class="feedback" id="q30-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q6" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>41. O Tratado de Madri (1750) formalizou a expansão territorial brasileira com base em qual princípio?</p>
+    <label><input type="radio" name="q6" value="a" onclick="checkQuiz('q6','b')"> a) Direito divino</label>
+    <label><input type="radio" name="q6" value="b" onclick="checkQuiz('q6','b')"> b) Uti possidetis (a terra pertence a quem a ocupa efetivamente)</label>
+    <label><input type="radio" name="q6" value="c" onclick="checkQuiz('q6','b')"> c) Pacto Colonial</label>
+    <label><input type="radio" name="q6" value="d" onclick="checkQuiz('q6','b')"> d) Contrato social</label>
+    <div class="feedback" id="q6-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q39" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>42. A pecuária nordestina colonial expandiu-se principalmente ao longo de qual via natural, interiorizando a colonização?</p>
+    <label><input type="radio" name="q39" value="a" onclick="checkQuiz('q39','c')"> a) Rio Amazonas</label>
+    <label><input type="radio" name="q39" value="b" onclick="checkQuiz('q39','c')"> b) Rio Paraná</label>
+    <label><input type="radio" name="q39" value="c" onclick="checkQuiz('q39','c')"> c) Rio São Francisco</label>
+    <label><input type="radio" name="q39" value="d" onclick="checkQuiz('q39','c')"> d) Rio Paraíba do Norte</label>
+    <div class="feedback" id="q39-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q40" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>43. A Guerra Guaranítica (1753–1756) foi um conflito armado motivado por:</p>
+    <label><input type="radio" name="q40" value="a" onclick="checkQuiz('q40','b')"> a) A invasão holandesa às missões jesuíticas do sul do Brasil</label>
+    <label><input type="radio" name="q40" value="b" onclick="checkQuiz('q40','b')"> b) A obrigação imposta pelo Tratado de Madri de que os guaranis abandonassem suas missões e terras no RS</label>
+    <label><input type="radio" name="q40" value="c" onclick="checkQuiz('q40','b')"> c) A resistência dos bandeirantes à presença jesuítica no sul</label>
+    <label><input type="radio" name="q40" value="d" onclick="checkQuiz('q40','b')"> d) A disputa entre Portugal e Espanha pelo controle do Rio da Prata</label>
+    <div class="feedback" id="q40-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q43" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>44. Durante o domínio holandês no Nordeste brasileiro (1630–1654), a presença da Companhia das Índias Ocidentais não foi motivada por interesse territorial ou cultural, mas por objetivos econômicos precisos. O que melhor explica o interesse holandês naquela região?</p>
+    <label><input type="radio" name="q43" value="a" onclick="checkQuiz('q43','b')"> a) Estimular a imigração neerlandesa e criar pequenas propriedades rurais diversificadas no litoral do Nordeste.</label>
+    <label><input type="radio" name="q43" value="b" onclick="checkQuiz('q43','b')"> b) Controlar a produção açucareira, atividade de altíssimo valor no comércio atlântico do século XVII.</label>
+    <label><input type="radio" name="q43" value="c" onclick="checkQuiz('q43','b')"> c) Implantar os primeiros engenhos na região, introduzindo a tecnologia de produção que Portugal não dominava.</label>
+    <label><input type="radio" name="q43" value="d" onclick="checkQuiz('q43','b')"> d) Organizar a exportação sistemática do açúcar para a Europa sob o comando direto de Maurício de Nassau.</label>
+    <label><input type="radio" name="q43" value="e" onclick="checkQuiz('q43','b')"> e) Garantir tratamento diferenciado aos escravizados africanos, distinguindo sua administração colonial da portuguesa.</label>
+    <div class="feedback" id="q43-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q44" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>45. A experiência holandesa no Brasil (1624–1654) encerrou-se com a expulsão definitiva dos neerlandeses em 1654. Entre os fatores que explicam esse desfecho, qual foi decisivo?</p>
+    <label><input type="radio" name="q44" value="a" onclick="checkQuiz('q44','c')"> a) A resistência liderada por Matias de Albuquerque desde a invasão inicial impediu os holandeses de consolidar qualquer controle efetivo sobre Pernambuco.</label>
+    <label><input type="radio" name="q44" value="b" onclick="checkQuiz('q44','c')"> b) A Jornada dos Vassalos — frota luso-espanhola enviada imediatamente após a invasão — expulsou os holandeses da Bahia e depois avançou sobre o Nordeste.</label>
+    <label><input type="radio" name="q44" value="c" onclick="checkQuiz('q44','c')"> c) O envolvimento da Holanda em guerras europeias impediu o envio de reforços ao Brasil, criando a oportunidade para a vitória luso-brasileira na Insurreição Pernambucana.</label>
+    <label><input type="radio" name="q44" value="d" onclick="checkQuiz('q44','c')"> d) A administração de Nassau alienou os senhores de engenho ao extinguir a Assembleia dos Escabinos, gerando resistência interna que minou o domínio holandês.</label>
+    <label><input type="radio" name="q44" value="e" onclick="checkQuiz('q44','c')"> e) A Coroa portuguesa financiou diretamente a Insurreição Pernambucana após o fim da União Ibérica, interessada em retomar o controle do açúcar nordestino.</label>
+    <div class="feedback" id="q44-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q45" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>46. A formação territorial do Brasil colonial resultou de décadas de expansão — pelo bandeirantismo, missões jesuíticas e conflitos fronteiriços. Para formalizar esse processo, o Tratado de Madri (1750) adotou o princípio do <em>uti possidetis</em> (posse pela ocupação efetiva). Qual foi uma das principais trocas territoriais definidas por esse tratado?</p>
+    <label><input type="radio" name="q45" value="a" onclick="checkQuiz('q45','b')"> a) Anulação do Tratado de Utrecht, consolidando a ocupação portuguesa da margem ocidental do Rio Uruguai.</label>
+    <label><input type="radio" name="q45" value="b" onclick="checkQuiz('q45','b')"> b) Cessão da Colônia do Sacramento à Espanha em troca dos Sete Povos das Missões, que passariam ao controle português.</label>
+    <label><input type="radio" name="q45" value="c" onclick="checkQuiz('q45','b')"> c) Consolidação do Tratado de Badajós, estabelecendo o Rio Paraguai e o Rio Uruguai como fronteiras definitivas entre os impérios ibéricos.</label>
+    <label><input type="radio" name="q45" value="d" onclick="checkQuiz('q45','b')"> d) Anulação do Tratado de Santo Ildefonso, encerrando definitivamente a validade do Tratado de Tordesilhas no extremo sul.</label>
+    <label><input type="radio" name="q45" value="e" onclick="checkQuiz('q45','b')"> e) Entrega da Colônia do Sacramento à Espanha junto com os territórios do Centro-Oeste, mantendo o Norte e o Sul com Portugal.</label>
+    <div class="feedback" id="q45-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q46" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>47. Paralelamente à grande lavoura exportadora, outras atividades econômicas sustentavam o mercado interno da colônia. Sobre a pecuária no período colonial, qual afirmação é correta?</p>
+    <label><input type="radio" name="q46" value="a" onclick="checkQuiz('q46','d')"> a) A criação de gado desenvolveu-se exclusivamente no Centro-Sul, pois o clima do Nordeste era incompatível com a atividade pastoril.</label>
+    <label><input type="radio" name="q46" value="b" onclick="checkQuiz('q46','d')"> b) A Coroa portuguesa incentivava a criação de gado nas regiões litorâneas para facilitar o abastecimento das vilas sem depender de importações da metrópole.</label>
+    <label><input type="radio" name="q46" value="c" onclick="checkQuiz('q46','d')"> c) A indústria do charque expandiu-se lentamente no Sul por falta de tecnologia e demanda, ganhando relevância apenas após meados do século XIX.</label>
+    <label><input type="radio" name="q46" value="d" onclick="checkQuiz('q46','d')"> d) No território do atual Rio Grande do Sul, a pecuária foi a atividade econômica dominante durante todo o período colonial, moldando uma sociedade de feições tipicamente pastoris.</label>
+    <label><input type="radio" name="q46" value="e" onclick="checkQuiz('q46','d')"> e) Até o fim do século XVIII, o gado bovino no Sul destinava-se principalmente à produção leiteira; só no século XIX o couro passou a ser o produto mais valorizado da região.</label>
+    <div class="feedback" id="q46-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q47" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Cap. 16 – Invasões e Expansão</span>
+    <p>48. A disputa europeia pela Bacia Amazônica no século XVI e XVII tinha como alvo um conjunto específico de produtos de alto valor comercial. Ao consolidar sua presença na região, a Coroa Portuguesa passou a explorar sistematicamente as chamadas <strong>"drogas do sertão"</strong>. Que tipo de produto eram essas drogas?</p>
+    <label><input type="radio" name="q47" value="a" onclick="checkQuiz('q47','e')"> a) Manufaturas semi-industrializadas produzidas nas missões jesuíticas para consumo na própria colônia.</label>
+    <label><input type="radio" name="q47" value="b" onclick="checkQuiz('q47','e')"> b) Substâncias psicoativas utilizadas em rituais indígenas que passaram a ser exportadas para a Europa.</label>
+    <label><input type="radio" name="q47" value="c" onclick="checkQuiz('q47','e')"> c) Insumos agrícolas obtidos por trocas com povos indígenas no interior da floresta amazônica.</label>
+    <label><input type="radio" name="q47" value="d" onclick="checkQuiz('q47','e')"> d) Derivados do gado — couro, charque — explorados pelos colonos nas regiões pastoris da Amazônia.</label>
+    <label><input type="radio" name="q47" value="e" onclick="checkQuiz('q47','e')"> e) Produtos naturais e especiarias — como cravo, cacau, canela e baunilha — de alto valor no mercado europeu da época.</label>
+    <div class="feedback" id="q47-fb"></div>
+  </div>
+
+  <div style="text-align:center; margin-top:28px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+    <button onclick="resetQuiz()" style="background:var(--secondary);color:var(--primary);border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
+  </div>
+</section>
+</main>
+<footer>
+  Resumo interativo - 1ª Avaliação Intermediária de História 2026<br>
+  2ª série do Ensino Médio | Feito por Gabriel Amorim
+</footer>
+<script>
+// Accordion toggle
+function toggleAccordion(btn) {
+  const acc = btn.parentElement;
+  acc.classList.toggle('open');
+}
+// Progress bar
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+});
+// Quiz
+const answers = {
+  q1:  { correct: 'b', explain: 'Bossuet defendia o direito divino dos reis: questionar o rei = questionar Deus.' },
+  q2:  { correct: 'c', explain: 'Escambo: troca de trabalho por ferramentas e bugigangas sem uso de dinheiro.' },
+  q3:  { correct: 'b', explain: 'São Vicente (pela pecuária e agricultura) e Pernambuco (pelo açúcar) foram as únicas a prosperar.' },
+  q4:  { correct: 'a', explain: 'Padroado Régio: o rei nomeava bispos e administrava a Igreja em seus domínios, em troca a Igreja legitimava o poder real.' },
+  q5:  { correct: 'c', explain: 'Os holandeses levaram a tecnologia do açúcar para as Antilhas, criando forte concorrência e gerando a crise do açúcar brasileiro.' },
+  q6:  { correct: 'b', explain: 'Uti possidetis: a terra pertence a quem a ocupa efetivamente — princípio que deu ao Brasil suas dimensões continentais.' },
+  q7:  { correct: 'd', explain: 'A União Ibérica fez Portugal e seus domínios herdarem os inimigos da Espanha, incluindo a Holanda.' },
+  q8:  { correct: 'c', explain: 'Nassau permitiu a convivência de católicos, protestantes e judeus, algo raro no século XVII.' },
+  q9:  { correct: 'a', explain: 'Jean Bodin criou o conceito de soberania absoluta e indivisível como base do Estado moderno.' },
+  q10: { correct: 'c', explain: 'O Terceiro Estado (burgueses, camponeses e artesãos) era a maioria da população e pagava todos os impostos, sem privilégios.' },
+  q11: { correct: 'b', explain: 'A balança comercial favorável (exportar mais do que importar) era central no Mercantilismo para acumular ouro e prata.' },
+  q12: { correct: 'a', explain: 'A Revolução de Avis (1383-85) levou ao poder a dinastia de Avis com apoio da burguesia mercantil, permitindo a centralização precoce.' },
+  q13: { correct: 'b', explain: 'Hobbes argumentou no Leviatã que os homens celebraram um contrato social, transferindo direitos ao soberano em troca de paz e ordem.' },
+  q14: { correct: 'd', explain: 'Maquiavel separou a política da moral religiosa em "O Príncipe", afirmando que o governante deve priorizar a eficácia e a estabilidade do poder.' },
+  q15: { correct: 'b', explain: 'Pero Vaz de Caminha escreveu a carta ao rei D. Manuel I em 1500, descrevendo a chegada ao Brasil.' },
+  q16: { correct: 'a', explain: 'No pré-colonial, Portugal explorava apenas o pau-brasil por meio do escambo com indígenas, sem colonização efetiva.' },
+  q17: { correct: 'c', explain: 'São Vicente (SP) foi fundada em 1532 por Martim Afonso de Souza, sendo o primeiro núcleo de colonização permanente.' },
+  q18: { correct: 'b', explain: 'Os donatários recebiam terras da Coroa, mas tinham a obrigação de colonizar e defender o território com recursos próprios.' },
+  q19: { correct: 'c', explain: 'A visão "sem fé, sem lei e sem rei" era etnocêntrica (perspectiva europeia e cristã) e serviu para justificar a exploração e a escravização.' },
+  q20: { correct: 'c', explain: 'Tomé de Souza foi o primeiro governador-geral (1549) e fundou Salvador (BA), a primeira capital do Brasil.' },
+  q21: { correct: 'b', explain: 'As missões/reduções eram aldeamentos jesuítas para catequizar e organizar os indígenas sob moldes europeus, exercendo controle cultural.' },
+  q22: { correct: 'c', explain: 'Os tumbeiros eram os navios negreiros; a "Passagem do Meio" era o trecho do transporte atlântico em condições desumanas.' },
+  q23: { correct: 'd', explain: 'O Quilombo dos Palmares, em Alagoas, liderado por Zumbi, foi o maior símbolo de resistência, durando quase um século.' },
+  q24: { correct: 'b', explain: 'A economia açucareira era monocultora (só cana), latifundiária (grandes propriedades), escravista e exportadora (dentro do Pacto Colonial).' },
+  q25: { correct: 'd', explain: 'As câmaras municipais eram compostas pelos "homens bons" — proprietários livres. Africanos escravizados não tinham esse direito.' },
+  q26: { correct: 'b', explain: 'Estácio de Sá e Mem de Sá, com apoio indígena, expulsaram os franceses da Baía de Guanabara e fundaram a cidade do Rio de Janeiro (1565).' },
+  q27: { correct: 'c', explain: 'A WIC (Companhia das Índias Ocidentais) foi a empresa privada holandesa que organizou e financiou as invasões ao Brasil.' },
+  q28: { correct: 'd', explain: 'Henrique Dias foi o líder negro da Insurreição Pernambucana, ao lado de André Vidal de Negreiros, João Fernandes Vieira e Felipe Camarão (indígena).' },
+  q29: { correct: 'b', explain: 'As Batalhas dos Guararapes (1648 e 1649) foram decisivas. Os holandeses se renderam formalmente em 1654.' },
+  q30: { correct: 'b', explain: 'Os bandeirantes eram em sua maioria mamelucos de São Paulo, que adentravam o sertão para capturar indígenas, buscar ouro e atacar quilombos.' },
+  q31: { correct: 'b', explain: 'Em 1492, os Reis Católicos tomaram Granada (último reduto mouro), completando a Reconquista e expulsando definitivamente os mouros da Península Ibérica.' },
+  q32: { correct: 'c', explain: 'A União Ibérica fez Portugal herdar os inimigos da Espanha. Filipe II impôs embargo comercial à Holanda, que reagiu criando a WIC para restaurar o comércio do açúcar invadindo o Brasil.' },
+  q33: { correct: 'b', explain: 'Os tupinambás habitavam o litoral da Bahia e do Rio de Janeiro. Outros grupos: potiguaras e caelés no Nordeste, guaranis no Sul.' },
+  q34: { correct: 'c', explain: 'A partir de 1512 o nome Brasil começou a surgir, derivado do pau-brasil (madeira com cor de brasa). Antes: Ilha de Vera Cruz (1500), Terra de Santa Cruz (1501) e Terra dos Papagaios.' },
+  q35: { correct: 'd', explain: 'O Marquês de Pombal, ministro do Rei D. José I, expulsou os jesuítas do Brasil em 1759, acusando-os de desviar poder e criar um "Estado dentro do Estado" com as missões.' },
+  q36: { correct: 'b', explain: 'O escravo de ganho prestava serviços a terceiros no meio urbano (como barbeiro, carregador, artesão) e o dinheiro ganho ia quase sempre ao senhor.' },
+  q37: { correct: 'c', explain: 'O pelourinho era o tronco de castigo público presente em todas as cidades coloniais. A punição pública e exemplar tinha o objetivo de disciplinar toda a comunidade escravizada.' },
+  q38: { correct: 'b', explain: 'A brecha camponesa era uma forma de premiação: o senhor cedia um pequeno pedaço de terra para o escravizado cultivar para si. O excedente podia ser vendido nas cidades próximas.' },
+  q39: { correct: 'c', explain: 'A pecuária nordestina expandiu-se pelo sertão ao longo do Rio São Francisco, internalizando a colonização para além do litoral açucareiro. A região ficou conhecida como "civilização do couro".' },
+  q40: { correct: 'b', explain: 'O Tratado de Madri (1750) determinou que os guaranis abandonassem as Sete Povos das Missões. Eles se recusaram e lutaram, liderados por Sepé Tiaraju, mas foram derrotados por tropas luso-espanholas.' },
+  q41: { correct: 'e', explain: 'O texto afirma que a queda de preços ocorreu pelo aumento da oferta, com a entrada de ingleses, franceses e holandeses na produção açucareira — ou seja, os saberes técnicos se difundiram para outras nações, aumentando a concorrência.' },
+  q42: { correct: 'a', explain: 'I — Correta: clima tropical e solos do litoral (massapê) favoreciam a cana. II — Correta: alto valor do açúcar no mercado europeu. III — Errada: Portugal já tinha experiência na produção açucareira nas ilhas do Atlântico (Madeira e Açores). IV — Errada: no início da colonização os holandeses não eram inimigos diretos de Portugal.' },
+  q43: { correct: 'b', explain: 'Franz Post retratou paisagens do Brasil holandês (séc. XVII), especialmente do Nordeste açucareiro. O interesse da Holanda na região estava ligado principalmente à produção e ao comércio do açúcar, atividade já existente desde o período português.' },
+  q44: { correct: 'c', explain: 'O fim da Nova Holanda ocorreu, entre outros fatores, porque a Holanda estava envolvida em conflitos na Europa e não conseguiu enviar reforços suficientes ao Brasil, favorecendo a vitória luso-brasileira em 1654.' },
+  q45: { correct: 'b', explain: 'O Tratado de Madri (1750) adotou o princípio do uti possidetis e determinou trocas territoriais: a Colônia do Sacramento ficaria com a Espanha, enquanto os Sete Povos das Missões (no atual RS) ficariam com Portugal.' },
+  q46: { correct: 'd', explain: 'A pecuária foi afastada do litoral (onde estava a lavoura canavieira) e se expandiu pelo interior, sendo a atividade econômica mais importante no Rio Grande do Sul durante todo o período colonial, gerando uma sociedade pastoril.' },
+  q47: { correct: 'e', explain: 'As "drogas do sertão" eram produtos extrativistas da Amazônia, como cravo, canela, cacau, guaraná, baunilha e outras especiarias muito valorizadas na Europa. Eram exploradas principalmente para exportação.' },
+  q48: { correct: 'd', explain: 'A economia colonial era voltada para a exportação de produtos como o açúcar. As melhores terras eram reservadas para a monocultura exportadora, deixando pouco espaço para cultivos de subsistência, o que gerava fome crônica na população colonial.' }
+};
+
+let scoreCorrect = 0;
+let scoreTotal = 0;
+
+function checkQuiz(qId, correct) {
+  const fb = document.getElementById(qId + '-fb');
+  const selected = document.querySelector(`input[name="${qId}"]:checked`);
+  if (!selected) return;
+  // Bloqueia reanswer
+  const radios = document.querySelectorAll(`input[name="${qId}"]`);
+  if (fb.className.includes('correct') || fb.className.includes('wrong')) return;
+  scoreTotal++;
+  if (selected.value === correct) {
+    scoreCorrect++;
+    fb.className = 'feedback correct';
+    fb.textContent = '✓ Correto! ' + answers[qId].explain;
+  } else {
+    fb.className = 'feedback wrong';
+    fb.textContent = '✗ Incorreto. ' + answers[qId].explain;
+  }
+  radios.forEach(r => r.disabled = true);
+  updateScore();
+}
+
+function updateScore() {
+  const box = document.getElementById('score-box');
+  box.style.display = 'block';
+  document.getElementById('score-correct').textContent = scoreCorrect;
+  document.getElementById('score-total').textContent = scoreTotal;
+}
+
+function filterQuiz(ch, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.quiz-q').forEach(q => {
+    if (ch === 'all' || q.dataset.ch === ch) {
+      q.classList.remove('hidden');
+    } else {
+      q.classList.add('hidden');
+    }
+  });
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-q input[type="radio"]').forEach(r => { r.checked = false; r.disabled = false; });
+  document.querySelectorAll('.quiz-q .feedback').forEach(f => { f.className = 'feedback'; f.textContent = ''; });
+  scoreCorrect = 0;
+  scoreTotal = 0;
+  document.getElementById('score-box').style.display = 'none';
+  document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+}
+// Active nav highlight
+const sections = document.querySelectorAll('.chapter, .quiz-section');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.offsetTop - 120;
+    if (window.scrollY >= top) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.opacity = a.getAttribute('href') === '#' + current ? '1' : '0.6';
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo de Geografia — 1ª Avaliação Intermediária 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #1b4332;
+    --secondary: #52b788;
+    --bg: #f0f7f4;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #d8eddf;
+    --c1: #1b4332;
+    --c2: #2d6a4f;
+    --c3: #40916c;
+    --c4: #1a2744;
+    --c5: #7b4b1e;
+    --c6: #9c1c1c;
+    --c7: #0e6b7a;
+    --c8: #5c3d72;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d2b1d 0%, #1b4332 55%, #2d6a4f 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: #0d2b1d; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 980px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 12px; text-decoration: none; color: var(--text-light); font-size: 0.79rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 980px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #f5fbf7; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* TABLES */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f5fbf7; }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #d8f3dc, #b7e4c7); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-red { background: linear-gradient(135deg, #fee2e2, #fecaca); border-left: 4px solid #dc2626; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight-blue { background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-left: 4px solid #1d4ed8; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+
+  /* GRIDS */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 14px; }
+
+  /* Remove card margin when inside a grid */
+  .grid-2 > .card,
+  .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+  .mini-card ul { list-style: none; margin-top: 6px; }
+  .mini-card ul li { font-size: 0.83rem; color: var(--text-light); padding: 2px 0; }
+  .mini-card ul li::before { content: '· '; color: var(--secondary); }
+
+  /* Mini-cards inside a .card (nested) */
+  .card .grid-3 { margin-top: 12px; }
+  .card .grid-3 .mini-card,
+  .card .grid-2 .mini-card { box-shadow: none; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 20px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--secondary); border: 2px solid white; box-shadow: 0 0 0 2px var(--secondary); }
+  .tl-item h4 { font-weight: 700; font-size: 0.94rem; margin-bottom: 4px; color: var(--primary); }
+  .tl-item p { font-size: 0.88rem; color: var(--text-light); }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #fef9c3; color: #854d0e; }
+  .tag-new { background: #dcfce7; color: #166534; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 980px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-icon">🌍</div>
+  <h1>Geografia</h1>
+  <p class="subtitle">O Mundo Globalizado · 2ª Série — Colégio Bandeirantes</p>
+  <div class="badge">1ª Avaliação Especial · 05/03/2026</div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#sec1">1. Capitalismo</a>
+    <a class="nav-link" href="#sec2">2. Rev. Industriais</a>
+    <a class="nav-link" href="#sec3">3. DIT</a>
+    <a class="nav-link" href="#sec4">4. ONU</a>
+    <a class="nav-link" href="#sec5">5. Pós-1950</a>
+    <a class="nav-link" href="#sec6">6. Guerra Fria</a>
+    <a class="nav-link" href="#sec7">7. Rev. Tecnológica</a>
+    <a class="nav-link" href="#sec8">8. Mundialização</a>
+  </div>
+</nav>
+
+<div class="content">
+
+  <!-- ═══════════════════════════════════════════════
+       1. EVOLUÇÃO DO SISTEMA CAPITALISTA
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">1</div>
+      <div>
+        <h2 class="section-title">Evolução do Sistema Capitalista</h2>
+        <p class="section-sub">Mercantilismo → Capitalismo Mercantil → Industrial → Financeiro</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Mercantilismo (séc. XV–XVIII)</div>
+      <p>Conjunto de práticas econômicas que precederam o capitalismo pleno. A riqueza de uma nação dependia do <strong>acúmulo de metais preciosos</strong> e de uma <strong>balança comercial favorável</strong> (mais exportações que importações).</p>
+      <ul class="list">
+        <li>Estado incentivava exportações e restringia importações</li>
+        <li>Impulsionou a <strong>expansão marítima europeia</strong> e o colonialismo</li>
+        <li>Primeiro passo da integração econômica global</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Pacto Colonial e Colonialismo</div>
+      <p>O <strong>pacto colonial</strong> regulava as relações metrópole–colônia: colônias forneciam matérias-primas e metais preciosos; metrópoles enviavam produtos manufaturados, sem liberdade de comércio com outras nações.</p>
+      <div class="highlight">O colonialismo integrou diferentes espaços ao mercado mundial de forma <strong>desigual</strong>, lançando as bases da Divisão Internacional do Trabalho.</div>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini-card" style="border-top-color:var(--c1)">
+        <h4>Capitalismo Mercantil (séc. XV–XVIII)</h4>
+        <p>Centralidade do comércio, acúmulo de metais, intervenção do Estado. Colônias forneciam matéria-prima e serviam de mercado consumidor. Base: acumulação primitiva de capital.</p>
+      </div>
+      <div class="mini-card" style="border-top-color:var(--c2)">
+        <h4>Capitalismo Industrial (séc. XVIII–XIX)</h4>
+        <p>Produção mecanizada em fábricas, uso de máquinas e novas fontes de energia, trabalho assalariado. Crescimento das cidades, formação do proletariado, expansão do comércio internacional.</p>
+      </div>
+      <div class="mini-card" style="border-top-color:var(--c4)">
+        <h4>Capitalismo Financeiro (séc. XX–hoje)</h4>
+        <p>Centralidade do sistema financeiro: bancos, bolsas, crédito, fluxos de capitais internacionais. O capital financeiro supera a produção industrial. Base da globalização contemporânea.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Correntes do Pensamento Econômico</div>
+      <ul class="list">
+        <li><strong>Liberalismo:</strong> livre mercado, mínima intervenção do Estado — Adam Smith, séc. XVIII</li>
+        <li><strong>Neoliberalismo:</strong> retomada do liberalismo no séc. XX; privatizações, abertura de mercados, desregulamentação financeira — Era Thatcher (Reino Unido, 1979) e Era Reagan (EUA, 1980)</li>
+        <li><strong>Consenso de Washington (1989):</strong> conjunto de medidas neoliberais adotadas como condição para empréstimos a países em desenvolvimento: disciplina fiscal, privatizações, abertura comercial e desregulamentação</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. AS REVOLUÇÕES INDUSTRIAIS
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">2</div>
+      <div>
+        <h2 class="section-title">As Revoluções Industriais</h2>
+        <p class="section-sub">Modelos de produção: Taylorismo, Fordismo e Toyotismo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> As três fases</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <h4>1ª Revolução Industrial — séc. XVIII <span class="tag tag-imp">Inglaterra</span></h4>
+          <p>Mecanização da produção; máquinas a vapor; indústria têxtil substituiu o trabalho artesanal. Estimulou o crescimento das cidades e a formação do proletariado industrial.</p>
+        </div>
+        <div class="tl-item">
+          <h4>2ª Revolução Industrial — a partir de 1850</h4>
+          <p>Novas fontes de energia: <strong>eletricidade e petróleo</strong>. Indústria química, siderúrgica, ferrovias e navios a vapor. Grandes empresas e monopólios. Expansão para França, Alemanha, Rússia, Japão e EUA. Base do imperialismo europeu.</p>
+        </div>
+        <div class="tl-item">
+          <h4>3ª Revolução Industrial / Revolução Tecnológica — a partir de 1975 <span class="tag tag-new">Ver seção 7</span></h4>
+          <p>Informática, microeletrônica, telecomunicações e automação. Também chamada de Revolução Técnico-Científica Informacional. Integração global das cadeias produtivas e empresas transnacionais.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Modelos de Organização do Trabalho</div>
+      <div class="grid-3">
+        <div class="mini-card" style="border-top-color:var(--c1)">
+          <h4>Taylorismo</h4>
+          <p>Frederick Taylor (meados séc. XIX). Organização científica do trabalho: divisão extrema de tarefas, controle do tempo, padronização dos movimentos. Reduziu custos, mas intensificou a exploração do trabalhador.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c2)">
+          <h4>Fordismo</h4>
+          <p>Henry Ford (início séc. XX). Produção em massa via linha de montagem. Produtos padronizados em grande quantidade a preços mais baixos. Consolidou o consumo de massa.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Toyotismo</h4>
+          <p>Japão pós-2ª Guerra. Produção flexível sob demanda (<em>just in time</em>). Redução de estoques, uso intensivo de tecnologia, trabalhador polivalente. Descentralizou a produção globalmente.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Fordismo × Toyotismo</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Aspecto</th><th>Fordismo</th><th>Toyotismo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tipo de produção</td><td>Produção em massa</td><td>Produção flexível</td></tr>
+            <tr><td>Organização do trabalho</td><td>Tarefas repetitivas e fragmentadas</td><td>Trabalho polivalente e qualificado</td></tr>
+            <tr><td>Estoques</td><td>Grandes estoques</td><td>Reduzidos — just in time</td></tr>
+            <tr><td>Mercado consumidor</td><td>Consumo de massa padronizado</td><td>Mercado diversificado</td></tr>
+            <tr><td>Relação com a globalização</td><td>Produção concentrada</td><td>Cadeias produtivas globais</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. VELHA E NOVA DIT
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">3</div>
+      <div>
+        <h2 class="section-title">Velha e Nova Divisão Internacional do Trabalho</h2>
+        <p class="section-sub">Como os países se inserem na economia global</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O que é a DIT?</div>
+      <p>A <strong>Divisão Internacional do Trabalho (DIT)</strong> define como os diferentes países participam da economia global — quais produzem manufaturas de alto valor e quais fornecem matérias-primas baratas. Suas origens remontam ao século XVI, com a expansão marítima europeia.</p>
+      <p>Os países são classificados em três grupos:</p>
+      <div class="grid-3">
+        <div class="mini-card" style="border-top-color:var(--c1)">
+          <h4>Centro (Desenvolvidos)</h4>
+          <p>Comandam as relações econômicas, financeiras e a produção de tecnologias avançadas. EUA, Europa Ocidental, Japão.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Semiperiféricos (Emergentes)</h4>
+          <p>Economias modernizadas com algum destaque econômico e tecnológico. Brasil, China, Índia, México.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c5)">
+          <h4>Periféricos (Subdesenvolvidos)</h4>
+          <p>Economias baseadas em recursos minerais e produtos agrícolas de baixo valor agregado. Baixa produtividade e influência estrangeira.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th></th><th>Velha DIT (1850–1945)</th><th>Nova DIT (após 1945)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Contexto</strong></td>
+              <td>Da 2ª Rev. Industrial até o fim da 2ª Guerra Mundial</td>
+              <td>Independência das colônias, expansão das multinacionais</td>
+            </tr>
+            <tr>
+              <td><strong>Produção industrial</strong></td>
+              <td>Concentrada em poucos centros: EUA, Europa Centro-Ocidental e Japão</td>
+              <td>Descentralizada — multinacionais instalam fábricas nos países emergentes</td>
+            </tr>
+            <tr>
+              <td><strong>Países industrializados</strong></td>
+              <td>Exportavam <strong>manufaturas</strong> (caras, alto valor)</td>
+              <td>Concentram as <strong>tecnologias de ponta</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Países periféricos</strong></td>
+              <td>Exportavam <strong>matérias-primas</strong> (baratas, baixo valor)</td>
+              <td>Passam a exportar produtos industrializados de médio valor</td>
+            </tr>
+            <tr>
+              <td><strong>Resultado</strong></td>
+              <td>Sistema de <strong>trocas desiguais</strong> favorável aos centros industriais</td>
+              <td>Trocas continuam desiguais — hierarquia por <strong>valor agregado</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Hierarquia de produtos no séc. XXI</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Nível</th><th>Exemplos</th><th>Quem produz</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Commodities primárias</td><td>Café, soja, carne, minérios</td><td>Periféricos e emergentes</td></tr>
+            <tr><td>Uso intensivo de mão de obra</td><td>Tecidos, calçados, papel e celulose</td><td>Emergentes (China, Bangladesh)</td></tr>
+            <tr><td>Tecnologia médio-baixa</td><td>Borrachas, plásticos, combustíveis</td><td>Emergentes</td></tr>
+            <tr><td>Tecnologia médio-alta</td><td>Automóveis, químicos, maquinário</td><td>Emergentes avançados</td></tr>
+            <tr><td>Alta tecnologia</td><td>Eletrônicos, aviões, medicamentos sofisticados</td><td>Países do Centro</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. ONU E INSTITUIÇÕES
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">4</div>
+      <div>
+        <h2 class="section-title">Fundação e Papel Internacional da ONU</h2>
+        <p class="section-sub">Bretton Woods (1944) · ONU (1945) · FMI · Banco Mundial</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Conferência de Bretton Woods (1944) <span class="tag tag-imp">Imp.</span></div>
+      <p>Realizada nos EUA, reuniu representantes de 44 países. Objetivo: estabelecer um novo sistema financeiro internacional após a Grande Depressão (1929) e a 2ª Guerra Mundial.</p>
+      <ul class="list">
+        <li><strong>Dólar americano</strong> definido como moeda padrão para transações internacionais</li>
+        <li>Taxa de câmbio indexada ao dólar, com limite de variação de 1% para cima ou para baixo</li>
+        <li>Padrão-ouro: cada dólar equivalia a 35 gramas de ouro</li>
+        <li>Criação do <strong>FMI</strong>, do <strong>Banco Mundial</strong> e do <strong>BIRD</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> ONU — Organização das Nações Unidas (1945) <span class="tag tag-imp">Imp.</span></div>
+      <p>Criada ao fim da 2ª Guerra Mundial para <strong>promover a paz, a cooperação internacional e a segurança entre as nações</strong>. Substituiu a Liga das Nações como principal espaço oficial da geopolítica internacional.</p>
+      <p><strong>Principais funções:</strong> mediação de conflitos, defesa dos direitos humanos, promoção do desenvolvimento econômico e social, cooperação em saúde, educação e meio ambiente.</p>
+      <p>Em 1948, a ONU adotou a <strong>Declaração Universal dos Direitos Humanos</strong> — marco da diplomacia pós-guerras mundiais.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Estrutura Interna da ONU</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Órgão</th><th>Função</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Assembleia Geral</strong></td><td>Plenário dos 193 países-membros; debate e deliberação sobre temas internacionais</td></tr>
+            <tr><td><strong>Conselho de Segurança</strong></td><td>Manutenção da paz e segurança. 5 membros permanentes com poder de veto (EUA, Rússia, China, Reino Unido, França) + 10 rotativos apenas com poder de voto</td></tr>
+            <tr><td><strong>Secretariado-Geral</strong></td><td>Liderança e administração da ONU</td></tr>
+            <tr><td><strong>Corte Internacional de Justiça</strong></td><td>Julga conflitos e questões entre Estados</td></tr>
+            <tr><td><strong>Conselho Econômico e Social</strong></td><td>Supervisiona agências especializadas: OMC, FMI, OIT, UNESCO, UNICEF, ACNUR, Banco Mundial</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Banco Mundial (1944)</div>
+        <p>Criado em Bretton Woods. Promove o desenvolvimento econômico e social em países em desenvolvimento por meio de empréstimos e assistência técnica para infraestrutura, educação, saúde e combate à pobreza.</p>
+        <div class="highlight-blue">Sua atuação é associada à disseminação de modelos econômicos alinhados ao capitalismo global.</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--c4)"></span> FMI — Fundo Monetário Internacional (1944)</div>
+        <p>Criado em Bretton Woods. Garante a estabilidade do sistema financeiro internacional, auxiliando países com crises econômicas ou dificuldades no pagamento de dívidas externas.</p>
+        <div class="highlight-red">Concede empréstimos condicionados a <strong>programas de ajuste estrutural</strong>: cortes de gastos públicos, reformas econômicas e abertura de mercados. Frequentemente criticado por países em desenvolvimento.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5. MUDANÇAS NO CAPITALISMO APÓS 1950
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c5)">5</div>
+      <div>
+        <h2 class="section-title">Mudanças no Capitalismo após 1950</h2>
+        <p class="section-sub">Países emergentes · Multinacionais · G7/G8/G20 · BRICS</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c5)"></span> A Modernização dos Países Emergentes</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Modelo</th><th>Onde</th><th>Início</th><th>Características</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Substituição de Importações</strong></td>
+              <td>América Latina (Brasil)</td>
+              <td>Déc. 1930</td>
+              <td>Intervenção do Estado, empresas estatais, produção voltada para o mercado interno</td>
+            </tr>
+            <tr>
+              <td><strong>Plataformas de Exportação</strong> (Tigres Asiáticos)</td>
+              <td>Leste e Sudeste da Ásia</td>
+              <td>Déc. 1960</td>
+              <td>Mão de obra qualificada, importação de componentes, produção para o mercado internacional</td>
+            </tr>
+            <tr>
+              <td><strong>Socialismo com Mercado</strong></td>
+              <td>China</td>
+              <td>1978</td>
+              <td>Ditadura socialista + economia capitalista, mão de obra barata, produção para mercado interno e global</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c5)"></span> Grupos de Interesse Econômico Internacional</div>
+      <ul class="list">
+        <li><strong>G7:</strong> Déc. 1980 — EUA, Japão, Alemanha Ocidental, França, Reino Unido, Itália e Canadá. Lideravam as decisões econômicas internacionais e os principais órgãos multilaterais (FMI, Banco Mundial)</li>
+        <li><strong>G8:</strong> Com o fim da URSS, a Rússia foi convidada a integrar o grupo. Na déc. 1990 os EUA lideravam a globalização com hegemonia quase absoluta</li>
+        <li><strong>G20 (1999):</strong> Criado pelos países semiperiféricos para ampliar participação nas decisões econômicas globais; foco em cooperação econômica, financeira e estabilidade</li>
+        <li><strong>BRICS (2006):</strong> Brasil, Rússia, Índia, China + África do Sul (2011). Em 2024 ampliado para 11 países: + Egito, Emirados Árabes Unidos, Etiópia, Irã, Indonésia e Arábia Saudita</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c5)"></span> Empresas Multinacionais</div>
+      <p>Após 1945, a expansão das empresas multinacionais foi o principal motor da Nova DIT. Elas descentralizaram a produção para países com mão de obra mais barata e incentivos fiscais, acelerando o desenvolvimento dos países emergentes.</p>
+      <div class="highlight">
+        <strong>Resultado:</strong> A recuperação da Europa Ocidental e do Japão, o surgimento dos Tigres Asiáticos e o crescimento acelerado da China transformaram radicalmente o mapa econômico mundial a partir da década de 1990.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       6. GUERRA FRIA
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec6">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c6)">6</div>
+      <div>
+        <h2 class="section-title">A Guerra Fria (1950–1991)</h2>
+        <p class="section-sub">Mundo Bipolar · Corrida Espacial · Fim da URSS</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c6)"></span> O Mundo Bipolar</div>
+      <p>Pós-2ª Guerra: disputa entre <strong>EUA (capitalismo)</strong> e <strong>URSS (socialismo)</strong> pela liderança mundial. Não houve conflito militar direto entre as duas superpotências, mas disputas em zonas de influência ao redor do mundo.</p>
+      <ul class="list">
+        <li>Divisão da Europa: Cortina de Ferro; divisão da Alemanha (RFA × RDA)</li>
+        <li>Revolução Comunista na China (1949); Coreia do Norte (1950); Cuba (1959)</li>
+        <li>Guerra da Coreia (1950–hoje); Guerra do Vietnã (1955–75)</li>
+        <li>Crise dos Mísseis em Cuba (1962) — o momento mais tenso da Guerra Fria</li>
+        <li>Ditaduras na América Latina financiadas pelos EUA (déc. 60–80)</li>
+        <li>Guerra do Afeganistão soviético (1979–89)</li>
+      </ul>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--c6)"></span> EUA como Potência</div>
+        <p>Consolidação após vitória na 2ª Guerra. Financiou a reconstrução da Europa Ocidental pelo <strong>Plano Marshall</strong>. Fundador da <strong>OTAN</strong> — aliança militar ocidental que permanece ativa até hoje. Arsenal nuclear poderoso.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot" style="background:var(--c6)"></span> URSS como Potência</div>
+        <p>Liderou o bloco socialista. Criou o <strong>COMECON</strong> (reconstrução da Europa Oriental) e o <strong>Pacto de Varsóvia</strong> (aliança militar). Domínio de setores tecnológicos e amplo arsenal nuclear.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="card-title"><span class="dot" style="background:var(--c6)"></span> Corrida Espacial <span class="tag tag-imp">Imp.</span></div>
+      <p>Competição científico-tecnológica que produziu a <strong>base tecnológica da globalização</strong>. Os investimentos em pesquisa aeroespacial e armamentista se tornaram o ponto de partida da 3ª Revolução Industrial.</p>
+      <ul class="list">
+        <li><strong>Sputnik (1957)</strong> — primeiro satélite artificial da história (URSS); a cadela Laika foi o primeiro ser vivo enviado ao espaço</li>
+        <li><strong>Yuri Gagarin (1961)</strong> — primeiro homem no espaço (URSS)</li>
+        <li><strong>NASA (1958)</strong> — agência espacial americana criada como resposta ao Sputnik</li>
+        <li><strong>Neil Armstrong (1969)</strong> — primeiro homem na Lua (EUA)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c6)"></span> Fim da URSS (1989–1991)</div>
+      <p>Na déc. 1980, a URSS enfrentou grave crise: altos custos do socialismo internacional, gastos militares excessivos, falta de liberdades individuais e a desgastante Guerra do Afeganistão.</p>
+      <p>Mikhail Gorbachev tentou reformas: <strong>Glasnost</strong> (abertura política e transparência) e <strong>Perestroika</strong> (reestruturação econômica). As reformas aceleraram o colapso.</p>
+      <ul class="list">
+        <li>Queda do Muro de Berlim → Reunificação da Alemanha (1989)</li>
+        <li>Independências na Europa Oriental: Polônia, Romênia, Tchecoslováquia, países bálticos (1989–91)</li>
+        <li>Dissolução oficial da URSS em <strong>15 repúblicas independentes</strong> (dezembro de 1991)</li>
+        <li>Criação da <strong>CEI</strong> — Comunidade dos Estados Independentes — sob liderança da Rússia</li>
+      </ul>
+      <div class="highlight">Com o fim da URSS, os EUA tornaram-se a única superpotência mundial (1991–2001), liderando a consolidação da globalização e do neoliberalismo.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       7. REVOLUÇÃO TECNOLÓGICA
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec7">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c7)">7</div>
+      <div>
+        <h2 class="section-title">A Revolução Tecnológica — 3ª Revolução Industrial</h2>
+        <p class="section-sub">A partir de 1975 · Revolução Técnico-Científica Informacional</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c7)"></span> O que é?</div>
+      <p>Iniciada na segunda metade do século XX, também chamada de <strong>Revolução Técnico-Científica Informacional</strong>. Modificou profundamente a dinâmica social, econômica e produtiva do mundo. Surgiu a partir dos conhecimentos acumulados nas corridas <strong>armamentista e aeroespacial</strong> da Guerra Fria, com grandes investimentos em pesquisa e desenvolvimento pelas multinacionais.</p>
+      <ul class="list">
+        <li><strong>Informática e microeletrônica:</strong> computadores, chips, automação de processos industriais</li>
+        <li><strong>Telecomunicações:</strong> internet, telefonia móvel, satélites de comunicação</li>
+        <li><strong>Biotecnologia:</strong> engenharia genética, novos medicamentos e alimentos</li>
+        <li><strong>Novos materiais:</strong> polímeros, fibra ótica, materiais compostos</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c7)"></span> Impactos na economia e na produção</div>
+      <ul class="list">
+        <li>Integração global das cadeias produtivas — empresas passam a produzir em múltiplos países simultaneamente</li>
+        <li>Expansão das <strong>empresas transnacionais</strong> em escala mundial</li>
+        <li>Circulação quase instantânea de informações e capitais financeiros</li>
+        <li>Transição do <strong>Fordismo</strong> para a <strong>Produção Flexível (Toyotismo)</strong></li>
+        <li>Surgimento de novos centros industriais nos países emergentes</li>
+      </ul>
+      <div class="highlight">A 3ª Revolução Industrial está diretamente ligada à intensificação da globalização contemporânea — foi ela que tornou possível o mundo globalizado e interconectado que conhecemos hoje.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       8. MUNDIALIZAÇÃO DO CAPITALISMO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec8">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c8)">8</div>
+      <div>
+        <h2 class="section-title">A Mundialização do Capitalismo e das Relações Internacionais</h2>
+        <p class="section-sub">Blocos Econômicos · Neoliberalismo · Globalização Definitiva (1991)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c8)"></span> Globalização Definitiva (1989–1991)</div>
+      <p>Com o fim do socialismo europeu e a dissolução da URSS, o capitalismo se generalizou como sistema econômico mundial. Principais características da globalização consolidada:</p>
+      <ul class="list">
+        <li>Generalização do capitalismo e do pensamento neoliberal</li>
+        <li>Meios de comunicação muito avançados — internet, TV a cabo, telefonia global</li>
+        <li>Integração dos mercados de produção, consumo, trabalho e capital financeiro</li>
+        <li>Atuação e expansão massiva das empresas multinacionais</li>
+        <li>Consolidação dos blocos econômicos regionais como estratégia de competição</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c8)"></span> Tipos de Blocos Econômicos</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Características</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Zona de Livre Comércio</strong></td><td>Livre circulação de mercadorias entre os membros, sem tarifas alfandegárias internas</td></tr>
+            <tr><td><strong>União Aduaneira</strong></td><td>Livre circulação interna + tarifas alfandegárias comuns para países de fora do bloco</td></tr>
+            <tr><td><strong>Mercado Comum</strong></td><td>União Aduaneira + livre circulação de serviços e pessoas entre os membros</td></tr>
+            <tr><td><strong>União Monetária</strong></td><td>Mercado Comum + adoção de uma moeda única</td></tr>
+            <tr><td><strong>União Política</strong></td><td>União Monetária + instituições políticas comuns — o nível mais avançado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini-card" style="border-top-color:#003399">
+        <h4>🇪🇺 União Europeia</h4>
+        <p>Origens no BENELUX (1944). <strong>União Política</strong> — o bloco mais completo do mundo. 27 países membros, moeda única (Euro), passaporte europeu, Tratado de Lisboa. A Bulgária aderiu ao Euro em 2026.</p>
+      </div>
+      <div class="mini-card" style="border-top-color:#b22234">
+        <h4>🇺🇸 NAFTA / USMCA</h4>
+        <p>Criado em 1994 (EUA, Canadá e México). <strong>Zona de Livre Comércio</strong>. Em 2020 foi renomeado para <strong>USMCA</strong> com reformulações nas regras pelo governo norte-americano.</p>
+      </div>
+      <div class="mini-card" style="border-top-color:#009c3b">
+        <h4>🇧🇷 MERCOSUL</h4>
+        <p>Criado em 1991 (Brasil, Argentina, Paraguai e Uruguai). <strong>Zona de Livre Comércio + União Aduaneira</strong>. Em 2026 assinou acordo de livre comércio com a UE — a maior aliança econômica do mundo.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="card-title"><span class="dot" style="background:var(--c8)"></span> Neoliberalismo e o Consenso de Washington (1989)</div>
+      <p>Conjunto de medidas econômicas que orientou a globalização dos anos 1990, imposto como condição para empréstimos a países em desenvolvimento:</p>
+      <ul class="list">
+        <li><strong>Disciplina fiscal:</strong> corte de gastos públicos e redução da dívida do Estado</li>
+        <li><strong>Reforma tributária:</strong> redução de impostos sobre empresas</li>
+        <li><strong>Privatizações:</strong> venda de empresas estatais à iniciativa privada</li>
+        <li><strong>Abertura comercial:</strong> redução do protecionismo e abertura ao investimento estrangeiro</li>
+        <li><strong>Desregulamentação:</strong> redução do controle econômico e das leis trabalhistas</li>
+      </ul>
+      <div class="highlight">O neoliberalismo consolidou o <strong>Capitalismo Financeiro</strong> como base da globalização: multinacionais expandiram-se para países emergentes em busca de mão de obra barata, mercados consumidores e incentivos fiscais.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       EXERCÍCIOS
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="exercicios">
+    <div class="section-header">
+      <div class="section-num" style="background:#374151">📝</div>
+      <div>
+        <h2 class="section-title">Exercícios</h2>
+        <p class="section-sub">Clique em "Ver resposta" para revelar</p>
+      </div>
+    </div>
+
+    <style>
+      .ex { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); overflow: hidden; }
+      .ex:last-child { margin-bottom: 0; }
+      .ex-q { padding: 18px 22px; display: flex; align-items: flex-start; gap: 14px; }
+      .ex-num { background: #374151; color: white; border-radius: 8px; padding: 4px 10px; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+      .ex-text { font-size: 0.93rem; font-weight: 500; flex: 1; }
+      .ex-text .topic { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); display: block; margin-bottom: 4px; }
+      details summary { list-style: none; cursor: pointer; padding: 10px 22px; background: #f5fbf7; border-top: 1px solid var(--border); font-size: 0.82rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 8px; user-select: none; }
+      details summary::-webkit-details-marker { display: none; }
+      details summary::before { content: '▸'; transition: transform 0.2s; }
+      details[open] summary::before { transform: rotate(90deg); }
+      details[open] summary { background: #d8f3dc; }
+      .ex-ans { padding: 16px 22px; background: #f0faf4; border-top: 1px solid var(--border); font-size: 0.91rem; line-height: 1.7; }
+      .ex-ans strong { color: var(--primary); }
+    </style>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">01</span>
+        <div class="ex-text">
+          <span class="topic">Capitalismo</span>
+          Qual é a principal característica do <strong>Capitalismo Financeiro</strong> e qual foi o papel do neoliberalismo na sua consolidação?
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          O <strong>Capitalismo Financeiro</strong> tem como principal característica a centralidade do sistema financeiro na economia: bancos, bolsas de valores, crédito e fluxos de capitais internacionais passam a ser mais importantes do que a produção industrial propriamente dita. O <strong>neoliberalismo</strong> — especialmente pelo Consenso de Washington (1989) — consolidou esse modelo ao defender privatizações, abertura de mercados, desregulamentação financeira e disciplina fiscal, permitindo que capitais circulassem livremente pelo globo.
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">02</span>
+        <div class="ex-text">
+          <span class="topic">Revoluções Industriais</span>
+          Compare o <strong>Fordismo</strong> e o <strong>Toyotismo</strong> quanto ao tipo de produção, organização do trabalho e relação com a globalização.
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          O <strong>Fordismo</strong> caracteriza-se pela produção em massa padronizada via linha de montagem, com tarefas repetitivas e fragmentadas, grandes estoques e consumo de massa. A produção era concentrada. Já o <strong>Toyotismo</strong> propõe produção flexível sob demanda (<em>just in time</em>), trabalho polivalente, estoques reduzidos e mercado diversificado. Em relação à globalização, o Toyotismo viabiliza <strong>cadeias produtivas globais</strong> — as empresas podem fragmentar a produção em vários países, descentralizando a indústria.
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">03</span>
+        <div class="ex-text">
+          <span class="topic">Divisão Internacional do Trabalho</span>
+          Por que a <strong>Velha DIT</strong> é considerada um sistema de "trocas desiguais"? O que mudou com a <strong>Nova DIT</strong>?
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          Na <strong>Velha DIT</strong> (1850–1945), os países industrializados (EUA, Europa Ocidental, Japão) exportavam manufaturas de alto valor agregado, enquanto os países periféricos exportavam matérias-primas baratas. Essa troca desigual gerava riqueza para os países do centro e mantinha os periféricos em situação de dependência. Com a <strong>Nova DIT</strong> (após 1945), a independência das colônias e a expansão das multinacionais descentralizaram a produção industrial, permitindo que países emergentes passassem a exportar produtos industrializados. Porém, as trocas <strong>continuaram desiguais</strong>: os países avançados concentraram o desenvolvimento das tecnologias de ponta, de maior valor agregado.
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">04</span>
+        <div class="ex-text">
+          <span class="topic">ONU e Instituições</span>
+          Qual foi a importância da <strong>Conferência de Bretton Woods (1944)</strong> para a organização econômica do pós-guerra? Cite as instituições criadas.
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          A <strong>Conferência de Bretton Woods</strong> estabeleceu um novo sistema financeiro internacional após os impactos da Grande Depressão (1929) e da 2ª Guerra Mundial. Suas principais decisões foram: definição do <strong>dólar americano</strong> como moeda de referência internacional, criação do padrão-ouro (US$ = 35g de ouro) e limite de variação cambial de 1%. As instituições criadas foram: <strong>FMI</strong> (Fundo Monetário Internacional) — estabilidade financeira; <strong>Banco Mundial</strong> — desenvolvimento econômico e social; e <strong>BIRD</strong> (Banco Internacional para Reconstrução e Desenvolvimento).
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">05</span>
+        <div class="ex-text">
+          <span class="topic">ONU</span>
+          Explique a estrutura do <strong>Conselho de Segurança da ONU</strong> e por que ele é considerado o órgão mais poderoso da organização.
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          O <strong>Conselho de Segurança</strong> é responsável pela manutenção da paz e da segurança internacionais. É composto por <strong>5 membros permanentes</strong> (EUA, Rússia, China, Reino Unido e França) com poder de <strong>voto e veto</strong> — ou seja, qualquer um deles pode bloquear qualquer resolução — e <strong>10 membros rotativos</strong> com poder apenas de voto. É o órgão mais poderoso da ONU porque suas decisões são vinculantes (obrigatórias) para os países-membros, podendo autorizar intervenções militares e sanções internacionais.
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">06</span>
+        <div class="ex-text">
+          <span class="topic">Guerra Fria</span>
+          O que foram a <strong>Glasnost</strong> e a <strong>Perestroika</strong> e qual foi o seu resultado para a URSS?
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          A <strong>Glasnost</strong> (abertura) e a <strong>Perestroika</strong> (reestruturação) foram reformas propostas por Mikhail Gorbachev na década de 1980 para tentar salvar a URSS de sua grave crise econômica, política e social — causada pelos altos gastos militares, custos do socialismo internacional e da Guerra do Afeganistão. A <strong>Glasnost</strong> promovia abertura política e transparência; a <strong>Perestroika</strong> buscava reestruturar a economia. No entanto, ao invés de salvar o sistema, as reformas aceleraram seu colapso: movimentos de independência se fortaleceram na Europa Oriental, levando à queda do Muro de Berlim (1989) e à <strong>dissolução oficial da URSS em 15 repúblicas independentes</strong> em dezembro de 1991.
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">07</span>
+        <div class="ex-text">
+          <span class="topic">Revolução Tecnológica</span>
+          Por que a <strong>3ª Revolução Industrial</strong> é chamada de "Revolução Técnico-Científica Informacional" e qual é sua relação com a globalização?
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          A <strong>3ª Revolução Industrial</strong> recebe esse nome porque se baseia na integração entre ciência, tecnologia e informação — diferente das anteriores, que eram baseadas em energia (vapor, eletricidade, petróleo). Seus pilares são: informática, microeletrônica, telecomunicações, biotecnologia e novos materiais. Ela é diretamente responsável pela globalização contemporânea porque: (1) permitiu a integração global das cadeias produtivas; (2) possibilitou a circulação quase instantânea de informações e capitais; (3) viabilizou a expansão das empresas transnacionais; e (4) possibilitou a transição do Fordismo para o Toyotismo (produção flexível e descentralizada).
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">08</span>
+        <div class="ex-text">
+          <span class="topic">Blocos Econômicos</span>
+          Qual é a diferença entre uma <strong>Zona de Livre Comércio</strong> e uma <strong>União Política</strong>? Dê exemplos de blocos que representam cada tipo.
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          Uma <strong>Zona de Livre Comércio</strong> é o nível mais básico de integração: permite apenas a livre circulação de mercadorias entre os países membros, sem tarifas alfandegárias internas. Exemplo: <strong>NAFTA/USMCA</strong> (EUA, Canadá e México). Uma <strong>União Política</strong> é o nível mais avançado: reúne todas as características anteriores (Zona de Livre Comércio + União Aduaneira + Mercado Comum + União Monetária) e acrescenta <strong>instituições políticas comuns</strong>, moeda única e cidadania compartilhada. Exemplo: <strong>União Europeia</strong>, com 27 países membros, Euro como moeda única e o Tratado de Lisboa como mini-constituição.
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">09</span>
+        <div class="ex-text">
+          <span class="topic">Pós-1950 · Países Emergentes</span>
+          Quais foram os três <strong>modelos de modernização econômica</strong> adotados pelos países emergentes após 1945? Compare suas características.
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          <strong>1. Substituição de Importações</strong> (América Latina, déc. 1930): forte intervenção do Estado, criação de empresas estatais, produção voltada ao mercado interno. Adotado pelo Brasil, México e Argentina.<br><br>
+          <strong>2. Plataformas de Exportação</strong> (Tigres Asiáticos, déc. 1960): mão de obra qualificada, importação de componentes para montar produtos de exportação, produção voltada ao mercado internacional. Modelo dos Tigres Asiáticos (Coreia do Sul, Taiwan, Hong Kong, Singapura).<br><br>
+          <strong>3. Socialismo com Mercado</strong> (China, 1978): sistema político socialista (ditadura do partido) combinado com economia capitalista de mercado, mão de obra barata e produção para o mercado interno e global. Tornou a China a maior potência industrial do mundo.
+        </div>
+      </details>
+    </div>
+
+    <div class="ex">
+      <div class="ex-q">
+        <span class="ex-num">10</span>
+        <div class="ex-text">
+          <span class="topic">Mundialização</span>
+          O que foi o <strong>Consenso de Washington (1989)</strong> e quais foram suas principais medidas? Qual é a sua relação com a globalização?
+        </div>
+      </div>
+      <details>
+        <summary>Ver resposta</summary>
+        <div class="ex-ans">
+          O <strong>Consenso de Washington</strong> foi um conjunto de medidas econômicas neoliberais formuladas em 1989, impostas como condição para concessão de empréstimos a países em desenvolvimento pelo FMI e Banco Mundial. Suas principais premissas foram: (1) <strong>disciplina fiscal</strong> — corte de gastos públicos; (2) <strong>reforma tributária</strong> — redução de impostos sobre empresas; (3) <strong>privatizações</strong> — venda de empresas estatais; (4) <strong>abertura comercial</strong> — redução do protecionismo; (5) <strong>desregulamentação</strong> — redução do controle econômico e das leis trabalhistas. Sua relação com a globalização: ao abrir as economias nacionais ao capital estrangeiro e às multinacionais, o Consenso de Washington acelerou a <strong>mundialização do capitalismo</strong>, especialmente na América Latina e no Leste Europeu pós-URSS.
+        </div>
+      </details>
+    </div>
+
+  </section>
+
+</div><!-- /content -->
+
+<footer>
+  Caderno Digital — 2ª série do Ensino Médio 2026 · Feito por Gabriel Amorim
+</footer>
+
+</body>
+</html>
