@@ -857,26 +857,26 @@
 <style>
   #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #3d2b00; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
   #chat-btn:hover { transform: scale(1.08); }
-  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 340px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
   #chat-panel.open { display: flex; }
   #chat-head { background: #3d2b00; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
   #chat-head span { font-weight: 600; font-size: 0.92rem; }
   #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
-  #chat-msgs { height: 280px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
-  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.84rem; line-height: 1.5; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
   .cmsg.bot { background: #fdf8ef; border: 1px solid #e8ddc8; align-self: flex-start; border-bottom-left-radius: 4px; }
   .cmsg.user { background: #3d2b00; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
   .cmsg.loading { color: #888; font-style: italic; }
   #chat-form { display: flex; border-top: 1px solid #e8ddc8; }
-  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.88rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
   #chat-send { background: #3d2b00; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
   #chat-send:hover { background: #6b4c11; }
 </style>
 
-<button id="chat-btn" onclick="toggleChat()" title="Tirar dúvidas com IA">🦉</button>
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
 <div id="chat-panel">
   <div id="chat-head">
-    <span>🦉 Assistente de Estudos</span>
+    <span>🧠 Nêuron — Assistente de Estudos</span>
     <button id="chat-close" onclick="toggleChat()">✕</button>
   </div>
   <div id="chat-msgs">

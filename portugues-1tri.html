@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo de Português — Estudos Linguísticos 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #4a1060;
+    --secondary: #9333ea;
+    --bg: #faf7ff;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8d8f5;
+    --c1: #4a1060;
+    --c2: #7b2d8b;
+    --c3: #9333ea;
+    --c4: #2d1b69;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a0030 0%, #4a1060 55%, #7b2d8b 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #fdf5ff; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* NESTED LIST */
+  .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
+  .list-nested li strong { color: var(--text); }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #f5e8ff, #ede0ff); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-blue { background: linear-gradient(135deg, #e8f0ff, #dde8ff); border-left: 4px solid #2563eb; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-2 > .card, .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+
+  /* QUOTE / EXEMPLO */
+  .exemplo { font-style: italic; background: #fdf5ff; border-left: 4px solid var(--secondary); padding: 10px 16px; border-radius: 0 8px 8px 0; margin-top: 10px; font-size: 0.9rem; color: var(--primary); }
+  .exemplo span { display: block; font-style: normal; font-size: 0.78rem; color: var(--text-light); margin-top: 4px; font-weight: 600; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf5ff; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #f5e8ff; color: #4a1060; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-icon">📖</div>
+  <h1>Português — Estudos Linguísticos</h1>
+  <p class="subtitle">Vocativo · Sintagmas · Paralelismo · Coesão · 2ª Série — Colégio Bandeirantes</p>
+  <div class="badge">AGI · 1º Trimestre · 2026</div>
+  <br>
+  <span class="author">Resumo para a AGI (23–25/03)</span>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#sec1">1. Vocativo</a>
+    <a class="nav-link" href="#sec2">2. Sintagmas</a>
+    <a class="nav-link" href="#sec3">3. Paralelismo</a>
+    <a class="nav-link" href="#sec4">4. Coesão</a>
+    <a class="nav-link" href="#sec5">5. Conjunções</a>
+    <a class="nav-link" href="#exercicios">Quiz</a>
+  </div>
+</nav>
+
+<div class="content">
+
+  <!-- ═══════════════════════════════════════════════
+       1. VOCATIVO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec1">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">1</div>
+      <div>
+        <h2 class="section-title">Vocativo</h2>
+        <p class="section-sub">O termo que chama ou interpela o interlocutor</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> O que é Vocativo?</div>
+      <p>O <strong>vocativo</strong> é o termo sintático que coloca em evidência o <strong>interlocutor</strong> a que se dirige a palavra. Em geral, é <strong>isolado por vírgulas</strong>.</p>
+      <div class="exemplo">
+        Prezada Superintendente do IBGE,<br>
+        Caros vereadores da cidade de São Paulo,<br>
+        Prezado povo brasileiro,
+        <span>Exemplos de início de carta aberta — os termos em destaque são vocativos.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Vocativo ≠ Sujeito <span class="tag tag-imp">Imp.</span></div>
+      <p>Não confunda vocativo com o sujeito da oração:</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Sujeito</h4>
+          <p>É o <strong>assunto</strong> da oração ou quem <strong>realiza / sofre</strong> a ação verbal. Está relacionado à estruturação da oração.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Vocativo</h4>
+          <p>É o <strong>interlocutor</strong> da mensagem — com quem se conversa. Está relacionado ao discurso, não à estrutura da oração.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Exemplo:</strong> "O amor, <em>meu querido</em>, às vezes nos confunde!" — vocativo: <em>meu querido</em> · sujeito simples: <em>o amor</em><br>
+        "Mariana, vem aqui!" — vocativo: <em>Mariana</em> · sujeito oculto do imperativo: <em>tu</em>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. TIPOS DE SINTAGMAS
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec2">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">2</div>
+      <div>
+        <h2 class="section-title">Tipos de Sintagmas</h2>
+        <p class="section-sub">Os blocos que estruturam as orações</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> O que é um Sintagma?</div>
+      <p>O <strong>sintagma</strong> é um conjunto de palavras que se organizam em torno de um <strong>núcleo</strong>. Esse núcleo pode, eventualmente, constituir sozinho o sintagma.</p>
+      <div class="highlight">
+        <strong>As orações são constituídas de sintagmas.</strong> Cada sintagma recebe o nome do tipo do seu núcleo.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Os 4 Tipos de Sintagmas</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Tipo</th><th>Núcleo</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sintagma Verbal (SV)</strong></td>
+              <td>Verbo</td>
+              <td><em>trabalhei</em> como enfermeira · milhões de crianças <em>morrem</em></td>
+            </tr>
+            <tr>
+              <td><strong>Sintagma Nominal (SN)</strong></td>
+              <td>Substantivo (ou equivalente)</td>
+              <td>trabalhei como <em>enfermeira</em> de Médicos Sem Fronteiras · <em>Mohamed</em> quase não reagia</td>
+            </tr>
+            <tr>
+              <td><strong>Sintagma de Núcleo Adjetivo (SA)</strong></td>
+              <td>Adjetivo</td>
+              <td>de uma doença <em>evitável</em></td>
+            </tr>
+            <tr>
+              <td><strong>Sintagma de Núcleo Advérbio (SAdv)</strong></td>
+              <td>Advérbio</td>
+              <td>no colo <em>imediatamente</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Relação de Subordinação <span class="tag tag-imp">Imp.</span></div>
+      <p><strong>Relação de subordinação</strong> é a relação de <strong>dependência sintática</strong> entre sintagmas (ou orações): um elemento <em>subordinante</em> tem um elemento <em>subordinado</em> que depende dele.</p>
+      <div class="exemplo">
+        "Comprou <u>flores</u>." → <em>flores</em> é subordinado ao verbo <em>comprou</em><br>
+        "A casa <u>de meus tios</u> foi demolida." → <em>de meus tios</em> é subordinado ao substantivo <em>casa</em>
+      </div>
+      <div class="highlight">
+        <strong>Cuidado com ambiguidade:</strong> a posição do sintagma pode mudar o sentido. "A vacina da Pfizer não está chegando às crianças" — <em>da Pfizer</em> está subordinado a <em>vacina</em>, não a <em>crianças</em>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. PARALELISMO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec3">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">3</div>
+      <div>
+        <h2 class="section-title">Paralelismo Sintático</h2>
+        <p class="section-sub">Estrutura gramatical equivalente entre elementos coordenados</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O que é Paralelismo Sintático?</div>
+      <p>Chama-se <strong>paralelismo sintático</strong> a construção da frase de modo que dois ou mais sintagmas relacionados em uma <strong>enumeração</strong> apresentem a <strong>mesma estrutura gramatical</strong>.</p>
+      <div class="highlight">
+        <strong>Regra:</strong> elementos coordenados entre si (ligados por conjunção coordenativa) devem ser da <strong>mesma natureza</strong> — ambos nominais ou ambos verbais.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Exemplo de Erro e Correção</div>
+      <div class="highlight-blue" style="border-left-color:#c0392b; background: linear-gradient(135deg, #fff5f5, #ffe8e8);">
+        ❌ "Eu gosto <u>de livros de ficção</u> e <u>de assistir a filmes europeus</u>."<br>
+        <small>Erro: <em>livros de ficção</em> (SN) ≠ <em>assistir a filmes europeus</em> (SV)</small>
+      </div>
+      <div class="highlight" style="margin-top:10px">
+        ✅ "Eu gosto <u>de livros de ficção</u> e <u>de filmes europeus</u>." (ambos SN)<br>
+        ✅ "Eu gosto <u>de ler livros de ficção</u> e <u>de assistir a filmes europeus</u>." (ambos SV)
+      </div>
+      <p style="margin-top:12px; font-size:0.88rem; color:var(--text-light)">Toda construção paralelística deve também ter <strong>correspondência semântica</strong> — deve fazer sentido.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Conectivos que Exigem Paralelismo</div>
+      <ul class="list">
+        <li><strong>não só… como também</strong> · <strong>não apenas… mas também</strong></li>
+        <li><strong>tanto… quanto</strong></li>
+        <li><strong>desde… até</strong></li>
+        <li><strong>nem… nem</strong></li>
+        <li><strong>ora… ora</strong></li>
+        <li><strong>quer… quer</strong></li>
+        <li><strong>seja… seja</strong></li>
+        <li><strong>por um lado… por outro</strong></li>
+      </ul>
+      <div class="exemplo">
+        "O ilustre professor apreciava <strong>não só</strong> a literatura inglesa <strong>como também</strong> a francesa." ✅<br>
+        "Todos ficaram perplexos com o crime: <strong>desde</strong> as crianças <strong>até</strong> os adultos." ✅
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. COESÃO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec4">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">4</div>
+      <div>
+        <h2 class="section-title">Coesão</h2>
+        <p class="section-sub">Os mecanismos que conectam as ideias de um texto</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> O que é Coesão?</div>
+      <p>A <strong>coesão</strong> é o conjunto de mecanismos linguísticos que garantem a conexão entre as partes de um texto. Um dos principais recursos coesivos são os <strong>conectores</strong> (conjunções, locuções, pronomes relativos), que estabelecem relações semânticas entre as ideias.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Pronomes Relativos</div>
+      <p>Os pronomes relativos substituem um termo já mencionado (o antecedente) e ligam duas orações, evitando repetição.</p>
+      <ul class="list">
+        <li><strong>que / o qual / a qual / os quais / as quais</strong> — uso geral</li>
+        <li><strong>cujo / cuja</strong> — indica posse (equivale a "do qual")</li>
+        <li><strong>onde</strong> — indica lugar</li>
+        <li><strong>quem</strong> — refere-se a pessoas (precedido de preposição)</li>
+      </ul>
+      <div class="exemplo">
+        "O jogo <strong>a que</strong> fomos no final de semana acabou empatado."<br>
+        "A casa <strong>de meus tios</strong> foi demolida." → "A casa <strong>cujos donos</strong> são meus tios foi demolida."
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5. RELAÇÕES SEMÂNTICAS / CONJUNÇÕES
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sec5">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">5</div>
+      <div>
+        <h2 class="section-title">Relações Semânticas das Conjunções</h2>
+        <p class="section-sub">O que cada conector expressa — essencial para a AGI</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Tabela de Conjunções por Relação</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Relação</th><th>Conectores / Exemplos</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Adição</strong></td><td>e, nem, não só…mas também, não apenas…como também, tanto…quanto</td></tr>
+            <tr><td><strong>Oposição / Adversidade</strong></td><td>mas, porém, contudo, todavia, entretanto, no entanto</td></tr>
+            <tr><td><strong>Conclusão</strong></td><td>logo, portanto, então, assim, por isso</td></tr>
+            <tr><td><strong>Explicação / Causa</strong></td><td>porque, pois, já que, uma vez que, visto que</td></tr>
+            <tr><td><strong>Consequência</strong></td><td>tanto que, de modo que, de forma que, assim que</td></tr>
+            <tr><td><strong>Concessão</strong></td><td>embora, ainda que, mesmo que, apesar de, por mais que</td></tr>
+            <tr><td><strong>Comparação</strong></td><td>como, assim como, tal como, mais…do que, tanto…quanto</td></tr>
+            <tr><td><strong>Condição</strong></td><td>se, caso, desde que, contanto que, a menos que</td></tr>
+            <tr><td><strong>Finalidade</strong></td><td>para (que), a fim de (que), com o objetivo de</td></tr>
+            <tr><td><strong>Proporção</strong></td><td>à medida que, à proporção que, quanto mais…mais</td></tr>
+            <tr><td><strong>Tempo</strong></td><td>quando, enquanto, assim que, logo que, depois que, antes que</td></tr>
+            <tr><td><strong>Conformidade</strong></td><td>conforme, segundo, de acordo com, consoante</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Exemplos em Contexto</div>
+      <ul class="list">
+        <li>Finalidade → "unimos nossas vozes <strong>para</strong> escrever esta carta exigindo ações imediatas."</li>
+        <li>Adição → "um plano <strong>não apenas</strong> para erradicar a pobreza, <strong>mas também</strong> para superar desigualdades."</li>
+        <li>Concessão → "<strong>Apesar de</strong> tudo isso, ainda ousamos esperar que vocês ajam de forma decisiva."</li>
+        <li>Oposição → "Apesar de tudo isso, <strong>no entanto</strong>, ainda ousamos esperar…"</li>
+        <li>Condição → "<strong>Caso</strong> os líderes mundiais não ajam, haverá um colapso ambiental."</li>
+        <li>Comparação → "a população deve cuidar do planeta <strong>assim como</strong> cuida do seu próprio lar."</li>
+        <li>Tempo → "<strong>Assim que</strong> todos tomarem consciência do colapso iminente, poderemos unir forças."</li>
+        <li>Proporção → "<strong>À medida que</strong> o tempo passa, as catástrofes tornam-se cada vez piores."</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       QUIZ
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="exercicios">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">✎</div>
+      <div>
+        <h2 class="section-title">Quiz de Fixação</h2>
+        <p class="section-sub">Teste seus conhecimentos — AGI Estudos Linguísticos</p>
+      </div>
+    </div>
+
+    <style>
+      .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+      .quiz-q { display: flex; align-items: flex-start; gap: 12px; padding: 16px 16px 10px; font-weight: 600; font-size: 0.92rem; }
+      .quiz-num { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
+      .quiz-opts { display: flex; flex-direction: column; gap: 6px; padding: 0 16px 14px; }
+      .opt { display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-size: 0.88rem; transition: all 0.15s; }
+      .opt:hover { border-color: var(--secondary); background: #fdf5ff; }
+      .opt-letter { width: 22px; height: 22px; border-radius: 50%; background: #f0e8ff; color: var(--primary); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+      .opt.correct { border-color: #166534; background: #f0fdf4; }
+      .opt.correct .opt-letter { background: #166534; color: white; }
+      .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
+      .opt.wrong .opt-letter { color: #9c1c1c; }
+      .opt.disabled { cursor: default; pointer-events: none; }
+      .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
+      .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
+      .quiz-feedback.show { display: block; }
+      .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+      .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
+      .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+      .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+      .score-label { font-size: 0.82rem; color: var(--text-light); }
+      .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+      .btn-reset:hover { background: var(--c2); }
+    </style>
+
+    <div class="score-bar">
+      <div>
+        <div class="score-val"><span id="score">0</span>/<span id="total">12</span></div>
+        <div class="score-label">acertos · clique nas alternativas para responder</div>
+      </div>
+      <button class="btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+    </div>
+
+    <script>
+      const ANSWERS = {q1:'c',q2:'b',q3:'b',q4:'c',q5:'b',q6:'b',q7:'c',q8:'b',q9:'d',q10:'b',q11:'c',q12:'b'};
+      let score = 0, answered = 0;
+      function pick(qid, letter, el) {
+        const opts = el.closest('.quiz-opts').querySelectorAll('.opt');
+        opts.forEach(o => o.classList.add('disabled'));
+        const fb = document.getElementById('fb-'+qid);
+        if (letter === ANSWERS[qid]) {
+          el.classList.add('correct'); score++; answered++;
+          document.getElementById('score').textContent = score;
+          fb.className = 'quiz-feedback show ok';
+          fb.innerHTML = '✅ <strong>Correto!</strong> ' + fb.dataset.ok;
+        } else {
+          el.classList.add('wrong'); answered++;
+          opts.forEach(o => { if(o.dataset.l === ANSWERS[qid]) o.classList.add('reveal-correct'); });
+          fb.className = 'quiz-feedback show err';
+          fb.innerHTML = '❌ <strong>Incorreto.</strong> ' + fb.dataset.err;
+        }
+      }
+      function resetQuiz() {
+        score = 0; answered = 0;
+        document.getElementById('score').textContent = 0;
+        document.querySelectorAll('.opt').forEach(o => o.className = 'opt');
+        document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+      }
+    </script>
+
+    <!-- Q1 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">1</span><span>O que é o vocativo em uma oração?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> O sujeito da oração — quem realiza a ação verbal</div>
+        <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> O predicado da oração — o que se diz do sujeito</div>
+        <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> O termo que coloca em evidência o interlocutor, isolado por vírgulas</div>
+        <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> O objeto direto — o ser que sofre a ação</div>
+      </div>
+      <div id="fb-q1" class="quiz-feedback" data-ok="O vocativo é o interlocutor da mensagem, isolado por vírgulas — não se confunde com o sujeito da oração." data-err="O vocativo não é o sujeito. É o termo que indica a quem a fala é dirigida, isolado por vírgulas. O sujeito é quem realiza/sofre a ação."></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">2</span><span>Em "O amor, meu querido, às vezes nos confunde!", qual é o vocativo?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> O amor</div>
+        <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> meu querido</div>
+        <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> às vezes</div>
+        <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> nos confunde</div>
+      </div>
+      <div id="fb-q2" class="quiz-feedback" data-ok="'Meu querido' é o interlocutor (vocativo), isolado por vírgulas. 'O amor' é o sujeito simples da oração." data-err="'O amor' é o sujeito (assunto da oração). 'Meu querido' é o vocativo — é a quem a frase é dirigida, isolado por vírgulas."></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">3</span><span>Qual é o núcleo de um sintagma verbal?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> Um substantivo</div>
+        <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> Um verbo</div>
+        <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> Um adjetivo</div>
+        <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> Um advérbio</div>
+      </div>
+      <div id="fb-q3" class="quiz-feedback" data-ok="Sintagma Verbal (SV): núcleo = verbo. Ex.: 'trabalhei como enfermeira', 'milhões de crianças morrem'." data-err="O sintagma recebe o nome do tipo do seu núcleo. Sintagma verbal → núcleo verbo. Nominal → substantivo. Adjetivo → adjetivo. Advérbio → advérbio."></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">4</span><span>Em "de uma doença evitável", o sintagma sublinhado tem núcleo do tipo:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> Verbal</div>
+        <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> Nominal</div>
+        <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> Adjetivo</div>
+        <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> Advérbio</div>
+      </div>
+      <div id="fb-q4" class="quiz-feedback" data-ok="O núcleo é 'evitável' (adjetivo) → Sintagma de Núcleo Adjetivo." data-err="'Evitável' é um adjetivo e é o núcleo desse sintagma → Sintagma de Núcleo Adjetivo (SA). Não confunda com nominal (cujo núcleo seria um substantivo)."></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">5</span><span>O que é paralelismo sintático?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> O uso de sinônimos para evitar repetição de palavras no texto</div>
+        <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> A construção em que sintagmas relacionados em enumeração apresentam a mesma estrutura gramatical</div>
+        <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> A repetição intencional de sons no início de palavras</div>
+        <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> A separação de uma oração em dois períodos distintos</div>
+      </div>
+      <div id="fb-q5" class="quiz-feedback" data-ok="Paralelismo sintático = sintagmas coordenados com mesma estrutura gramatical (ambos nominais ou ambos verbais)." data-err="Paralelismo sintático é sobre estrutura gramatical equivalente em elementos coordenados — não tem relação com sinônimos ou sons."></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">6</span><span>Qual das frases apresenta paralelismo sintático correto?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> "Eu gosto de livros de ficção e de assistir a filmes europeus."</div>
+        <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> "Eu gosto de ler livros de ficção e de assistir a filmes europeus."</div>
+        <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> "Eu gosto de ficção e assistindo filmes europeus."</div>
+        <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> "Eu gosto livros e de assistir filmes."</div>
+      </div>
+      <div id="fb-q6" class="quiz-feedback" data-ok="'de ler livros' e 'de assistir a filmes' são ambos sintagmas verbais → paralelismo correto." data-err="Na alternativa A, 'livros de ficção' é SN e 'assistir a filmes europeus' é SV → não há paralelismo. A correta usa dois sintagmas verbais."></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">7</span><span>Qual conector estabelece relação de CONCESSÃO?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> para</div>
+        <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> caso</div>
+        <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> apesar de</div>
+        <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> assim que</div>
+      </div>
+      <div id="fb-q7" class="quiz-feedback" data-ok="'Apesar de' indica concessão — admite um fato contrário sem anular a ideia principal." data-err="'para' = finalidade · 'caso' = condição · 'assim que' = tempo. Concessão é expressa por: apesar de, embora, ainda que, mesmo que."></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">8</span><span>Em "unimos nossas vozes para escrever esta carta", o conector "para" indica:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> Causa</div>
+        <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> Finalidade</div>
+        <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> Consequência</div>
+        <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> Concessão</div>
+      </div>
+      <div id="fb-q8" class="quiz-feedback" data-ok="'Para' indica finalidade — o objetivo da ação realizada (unimos nossas vozes com o objetivo de escrever)." data-err="'Para' indica finalidade (objetivo), não causa. Causa seria respondida por 'por quê?' — finalidade, por 'para quê?'."></div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">9</span><span>Em "Caso os líderes não ajam, haverá um colapso ambiental", o conector indica:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> Tempo</div>
+        <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> Concessão</div>
+        <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> Causa</div>
+        <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> Condição</div>
+      </div>
+      <div id="fb-q9" class="quiz-feedback" data-ok="'Caso' indica condição — o colapso só ocorrerá se (sob a condição de que) os líderes não ajam." data-err="'Caso' equivale a 'se' e indica condição. Não confunda com concessão (apesar de) nem com tempo (quando, assim que)."></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">10</span><span>Qual conector indica relação de PROPORÇÃO?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> assim que</div>
+        <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> à medida que</div>
+        <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> de acordo com</div>
+        <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> embora</div>
+      </div>
+      <div id="fb-q10" class="quiz-feedback" data-ok="'À medida que' indica proporção — duas situações evoluem simultaneamente e de forma proporcional." data-err="'Assim que' = tempo · 'de acordo com' = conformidade · 'embora' = concessão. Proporção: à medida que, à proporção que, quanto mais…mais."></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">11</span><span>Qual das frases tem erro de paralelismo com o conectivo "não só… mas também"?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> "Ele não só estudou como também trabalhou muito."</div>
+        <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> "O plano serve não só para erradicar a pobreza, mas também para superar desigualdades."</div>
+        <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> "Ela não só é inteligente, mas também de muita dedicação."</div>
+        <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> "O professor não só explicou o conteúdo como também deu exemplos práticos."</div>
+      </div>
+      <div id="fb-q11" class="quiz-feedback" data-ok="Em C: 'é inteligente' (SV) ≠ 'de muita dedicação' (SN) → quebra do paralelismo. Correção: 'não só é inteligente, mas também dedicada'." data-err="A alternativa C tem erro: 'é inteligente' é sintagma verbal, mas 'de muita dedicação' é sintagma nominal — não há paralelismo."></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">12</span><span>O que é a relação de subordinação entre sintagmas?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> Dois sintagmas com o mesmo valor sintático e independentes entre si</div>
+        <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> Relação de dependência sintática em que um sintagma (subordinado) depende de outro (subordinante)</div>
+        <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> Dois sintagmas coordenados com núcleos do mesmo tipo gramatical</div>
+        <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> A relação entre sujeito e predicado em uma oração</div>
+      </div>
+      <div id="fb-q12" class="quiz-feedback" data-ok="Subordinação = dependência: o subordinado completa ou especifica o subordinante. Ex.: 'flores' depende de 'comprou'; 'de meus tios' depende de 'casa'." data-err="Subordinação é dependência entre dois sintagmas — um subordinante e um subordinado. Não confunda com coordenação (independência) nem com paralelismo."></div>
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  Caderno Digital — Português · Estudos Linguísticos · 2ª série do Ensino Médio 2026 · AGI entre 23 e 25/03
+</footer>
+
+<!-- ═══ CHATBOT ═══ -->
+<style>
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #4a1060; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8d8f5; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: #4a1060; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
+  .cmsg.bot { background: #fdf5ff; border: 1px solid #e8d8f5; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.user { background: #4a1060; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.loading { color: #888; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid #e8d8f5; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: #4a1060; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: #7b2d8b; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+  function toggleChat() {
+    const p = document.getElementById("chat-panel");
+    p.classList.toggle("open");
+    if (p.classList.contains("open")) document.getElementById("chat-input").focus();
+  }
+  function getContext() {
+    const el = document.querySelector(".content") || document.body;
+    return el.innerText.replace(/\s+/g, " ").slice(0, 6000);
+  }
+  async function sendMsg(e) {
+    e.preventDefault();
+    const input = document.getElementById("chat-input");
+    const msgs = document.getElementById("chat-msgs");
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = "";
+    msgs.innerHTML += "<div class=cmsg user>" + text + "</div>";
+    const loader = document.createElement("div");
+    loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
+    msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
+    try {
+      const r = await fetch("/api/chat", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ message: text, context: getContext() }) });
+      const d = await r.json();
+      loader.className = "cmsg bot"; loader.textContent = d.reply || d.error;
+    } catch(err) { loader.className = "cmsg bot"; loader.textContent = "Erro de conexão. Tente novamente."; }
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+</script>
+</body>
+</html>

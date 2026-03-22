@@ -20,6 +20,9 @@
     --ch3: #6a1b9a;
     --ch4: #e65100;
     --ch5: #7b1111;
+    --ch6: #00695c;
+    --ch7: #00838f;
+    --ch8: #283593;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
@@ -46,6 +49,13 @@
   nav a[data-ch="3"] { color: var(--ch3); border-bottom-color: var(--ch3); }
   nav a[data-ch="4"] { color: var(--ch4); border-bottom-color: var(--ch4); }
   nav a[data-ch="5"] { color: var(--ch5); border-bottom-color: var(--ch5); }
+  nav a[data-ch="6"] { color: var(--ch6); border-bottom-color: var(--ch6); }
+  nav a[data-ch="7"] { color: var(--ch7); border-bottom-color: var(--ch7); }
+  nav a[data-ch="8"] { color: var(--ch8); border-bottom-color: var(--ch8); }
+  .nav-home { opacity:0.6; border-right:1px solid var(--border); margin-right:4px; padding-right:20px !important; }
+  .nav-sep { width: 1px; background: var(--border); height: 28px; align-self: center; flex-shrink: 0; margin: 0 6px; }
+  .nav-ch { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 6px; white-space: nowrap; align-self: center; flex-shrink: 0; opacity: 0.95; }
+  nav a { padding: 12px 10px !important; font-size: 0.78rem !important; }
   /* MAIN */
   main { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
   /* CHAPTER */
@@ -57,10 +67,13 @@
   .ch3 .chapter-num { background: var(--ch3); }
   .ch4 .chapter-num { background: var(--ch4); }
   .ch5 .chapter-num { background: var(--ch5); }
+  .ch6 .chapter-num { background: var(--ch6); }
+  .ch7 .chapter-num { background: var(--ch7); }
+  .ch8 .chapter-num { background: var(--ch8); }
   .chapter-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; }
   .chapter-header .cap-ref { font-size: 0.85rem; color: var(--text-light); font-family: 'Inter', sans-serif; font-weight: 400; }
   /* ACCORDION */
-  .accordion { margin-bottom: 12px; }
+  .accordion { margin-bottom: 12px; scroll-margin-top: 80px; }
   .accordion-btn { width: 100%; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px 24px; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 1.05rem; font-weight: 600; color: var(--text); transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); font-family: 'Inter', sans-serif; }
   .accordion-btn:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
   .accordion-btn .icon { font-size: 1.2rem; transition: transform 0.3s; flex-shrink: 0; }
@@ -137,6 +150,9 @@
   .tag-ch3 { background: rgba(106,27,154,0.5); }
   .tag-ch4 { background: rgba(230,81,0,0.5); }
   .tag-ch5 { background: rgba(123,17,17,0.6); }
+  .tag-ch6 { background: rgba(0,105,92,0.5); }
+  .tag-ch7 { background: rgba(0,131,143,0.5); }
+  .tag-ch8 { background: rgba(40,53,147,0.5); }
   #score-box { text-align: center; margin-bottom: 20px; padding: 12px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: none; }
   /* PROGRESS BAR */
   .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--secondary), var(--primary)); z-index: 200; transition: width 0.2s; width: 0%; }
@@ -249,20 +265,55 @@
 <!-- HERO -->
 <header class="hero">
   <h1>🧪 Química</h1>
-  <p class="subtitle">Estequiometria &amp; Oxirredução — Avaliação Especial · 2ª série EM</p>
+  <p class="subtitle">Estequiometria, Oxirredução, Petróleo &amp; Termoquímica — 2ª série EM</p>
   <span class="badge">1º Trimestre 2026 | Feito por Gabriel Amorim</span>
 </header>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="index.html" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
-    <a href="#cap1" data-ch="1">Cap. 1 — Estequiometria Geral</a>
-    <a href="#cap2" data-ch="2">Cap. 2 — Gases</a>
-    <a href="#cap3" data-ch="3">Cap. 3 — Pureza e Rendimento</a>
-    <a href="#cap4" data-ch="4">Cap. 4 — Excesso e Limitante</a>
-    <a href="#cap5" data-ch="5">Cap. 6 — Oxirredução</a>
-    <a href="#quiz">Teste seus Conhecimentos</a>
+    <a href="index.html" class="nav-home">← Início</a>
+    <span class="nav-sep"></span>
+    <span class="nav-ch" style="color:var(--ch1)">Cap. 1</span>
+    <a href="#sec-mol" data-ch="1">Mol &amp; Avogadro</a>
+    <a href="#sec-equacao" data-ch="1">Equação Balanceada</a>
+    <a href="#sec-calculo" data-ch="1">Cálculo Estequiométrico</a>
+    <span class="nav-sep"></span>
+    <span class="nav-ch" style="color:var(--ch2)">Cap. 2</span>
+    <a href="#sec-volume" data-ch="2">Volume Molar</a>
+    <a href="#sec-gases-calc" data-ch="2">Cálculo com Gases</a>
+    <span class="nav-sep"></span>
+    <span class="nav-ch" style="color:var(--ch3)">Cap. 3</span>
+    <a href="#sec-pureza" data-ch="3">Pureza</a>
+    <a href="#sec-rendimento" data-ch="3">Rendimento</a>
+    <a href="#sec-pureza-rend" data-ch="3">Pureza + Rendimento</a>
+    <a href="#sec-exercicios" data-ch="3">Exercícios ENEM</a>
+    <span class="nav-sep"></span>
+    <span class="nav-ch" style="color:var(--ch4)">Cap. 4</span>
+    <a href="#sec-limitante" data-ch="4">Limitante</a>
+    <a href="#sec-limitante-metodo" data-ch="4">Método</a>
+    <span class="nav-sep"></span>
+    <span class="nav-ch" style="color:var(--ch5)">Cap. 6</span>
+    <a href="#sec-nox" data-ch="5">NOx</a>
+    <a href="#sec-oxiredox" data-ch="5">Oxidação &amp; Redução</a>
+    <a href="#sec-deslocamento" data-ch="5">Deslocamento</a>
+    <span class="nav-sep"></span>
+    <span class="nav-ch" style="color:var(--ch6)">Cap. 8</span>
+    <a href="#sec-petroleo" data-ch="6">Petróleo</a>
+    <a href="#sec-destilacao" data-ch="6">Destilação</a>
+    <a href="#sec-cracking" data-ch="6">Cracking</a>
+    <a href="#sec-iso" data-ch="6">Isomerização</a>
+    <span class="nav-sep"></span>
+    <span class="nav-ch" style="color:var(--ch7)">Cap. 9</span>
+    <a href="#sec-exo-endo" data-ch="7">Exo × Endo</a>
+    <a href="#sec-calorimetro" data-ch="7">Calorímetro</a>
+    <a href="#sec-entalpia" data-ch="7">Entalpia ΔH</a>
+    <span class="nav-sep"></span>
+    <span class="nav-ch" style="color:var(--ch8)">Cap. 10</span>
+    <a href="#sec-hess" data-ch="8">Lei de Hess</a>
+    <a href="#sec-hess-calc" data-ch="8">Aplicação</a>
+    <span class="nav-sep"></span>
+    <a href="#quiz" style="font-weight:700;">📝 Quiz</a>
   </div>
 </nav>
 
@@ -278,7 +329,7 @@
     </div>
   </div>
 
-  <div class="accordion open">
+  <div id="sec-mol" class="accordion open">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>O que é mol? — Número de Avogadro e Massa Molar</span>
       <span class="icon">&#9660;</span>
@@ -315,7 +366,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-equacao" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Equação Química Balanceada e Coeficientes</span>
       <span class="icon">&#9660;</span>
@@ -392,7 +443,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-calculo" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Cálculo Estequiométrico — 3 Passos</span>
       <span class="icon">&#9660;</span>
@@ -501,7 +552,7 @@
     </div>
   </div>
 
-  <div class="accordion open">
+  <div id="sec-volume" class="accordion open">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Volume Molar e CNTP</span>
       <span class="icon">&#9660;</span>
@@ -534,7 +585,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-gases-calc" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Cálculo Estequiométrico com Gases — Exemplos</span>
       <span class="icon">&#9660;</span>
@@ -591,7 +642,7 @@
     </div>
   </div>
 
-  <div class="accordion open">
+  <div id="sec-pureza" class="accordion open">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Pureza de Reagentes</span>
       <span class="icon">&#9660;</span>
@@ -619,7 +670,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-rendimento" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Rendimento de Reação</span>
       <span class="icon">&#9660;</span>
@@ -644,7 +695,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-pureza-rend" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Pureza + Rendimento Combinados</span>
       <span class="icon">&#9660;</span>
@@ -681,7 +732,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-exercicios" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>📝 Exercícios Resolvidos — ENEM &amp; UFRJ</span>
       <span class="icon">&#9660;</span>
@@ -909,7 +960,7 @@
     </div>
   </div>
 
-  <div class="accordion open">
+  <div id="sec-limitante" class="accordion open">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>O que é reagente limitante?</span>
       <span class="icon">&#9660;</span>
@@ -929,7 +980,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-limitante-metodo" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Como identificar o reagente limitante — Método</span>
       <span class="icon">&#9660;</span>
@@ -984,7 +1035,7 @@
     </div>
   </div>
 
-  <div class="accordion open">
+  <div id="sec-nox" class="accordion open">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Número de Oxidação (NOx) — Conceito e Regras</span>
       <span class="icon">&#9660;</span>
@@ -1067,7 +1118,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-oxiredox" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Oxidação e Redução — Transferência de Elétrons</span>
       <span class="icon">&#9660;</span>
@@ -1106,7 +1157,7 @@
     </div>
   </div>
 
-  <div class="accordion">
+  <div id="sec-deslocamento" class="accordion">
     <button class="accordion-btn" onclick="toggleAccordion(this)">
       <span>Reações de Deslocamento (Simples Troca)</span>
       <span class="icon">&#9660;</span>
@@ -1139,6 +1190,373 @@
   </div>
 </section>
 
+<!-- ============ CAP 8 — PETRÓLEO ============ -->
+<section class="chapter ch6" id="cap8">
+  <div class="chapter-header">
+    <div class="chapter-num">8</div>
+    <div>
+      <h2>Petróleo: Fontes de Hidrocarbonetos e Beneficiamento</h2>
+      <span class="cap-ref">Capítulo 8</span>
+    </div>
+  </div>
+
+  <div id="sec-petroleo" class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>O que é o Petróleo?</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O <strong>petróleo</strong> (do latim <em>petra oleum</em> = "óleo de pedra") é um combustível fóssil, não renovável, formado há milhões de anos a partir de matéria orgânica soterrada.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Composição</h5>
+          <p>Mistura complexa de <strong>hidrocarbonetos</strong> (compostos de C e H) com cadeias de diferentes tamanhos.</p>
+        </div>
+        <div class="card">
+          <h5>Origem</h5>
+          <p>Combustível <strong>fóssil e não renovável</strong> — formado ao longo de milhões de anos sob pressão e calor.</p>
+        </div>
+        <div class="card">
+          <h5>Importância</h5>
+          <p>Principal fonte de energia e matéria-prima para plásticos, borracha sintética, gasolina, querosene, etc.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec-destilacao" class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Beneficiamento: Destilação Fracionada</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O beneficiamento do petróleo começa pela <strong>destilação fracionada</strong> — separação dos hidrocarbonetos com base nos seus <em>diferentes pontos de ebulição</em>.</p>
+      <div class="highlight">
+        <strong>Princípio:</strong> Hidrocarbonetos de cadeias mais curtas têm pontos de ebulição mais baixos e sobem mais na torre de destilação. Cadeias longas ficam na base.
+      </div>
+      <table class="styled-table">
+        <thead>
+          <tr><th>Fração</th><th>N.º de carbonos (aprox.)</th><th>Uso</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Gás liquefeito (GLP)</td><td>C₁ – C₄</td><td>Gás de cozinha</td></tr>
+          <tr><td>Gasolina</td><td>C₅ – C₁₂</td><td>Combustível automotivo (principalmente octano)</td></tr>
+          <tr><td>Querosene</td><td>C₁₂ – C₁₆</td><td>Aviação, iluminação</td></tr>
+          <tr><td>Diesel</td><td>C₁₆ – C₂₄</td><td>Caminhões, ônibus</td></tr>
+          <tr><td>Óleo lubrificante</td><td>C₂₄ – C₄₀</td><td>Lubrificação de motores</td></tr>
+          <tr><td>Asfalto / parafina</td><td>C₄₀+</td><td>Pavimentação, velas</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="sec-cracking" class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Craquelamento (Cracking) — Quebrando Cadeias Longas</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Hidrocarbonetos de cadeia longa têm pouca utilidade prática. Por isso são quebrados em cadeias menores através do <strong>craquelamento catalítico</strong> (ou <em>cracking</em>).</p>
+      <div class="info-box">
+        <strong>Cracking</strong> = quebrar moléculas grandes em menores, usando <strong>calor + catalisador</strong>, para obter frações mais úteis (como gasolina).
+      </div>
+      <div class="formula-box">
+        <div class="formula-title">Exemplo de Cracking</div>
+        <div class="formula-line">C₁₂H₂₆ → C₈H₁₈ + C₄H₈</div>
+        <div class="formula-note">Dodecano → Octano (gasolina) + Buteno | Reação com catalisador (cat)</div>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Por quê fazer cracking?</h5>
+          <p>A demanda por gasolina (C₅–C₁₂) é muito maior do que a oferta direta do petróleo bruto. O cracking converte frações pesadas em leves.</p>
+        </div>
+        <div class="card">
+          <h5>Catalisador</h5>
+          <p>Acelera a quebra das cadeias sem ser consumido. Permite que o processo ocorra a temperaturas menores.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec-iso" class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Isomerização — Melhorando a Qualidade da Gasolina</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Para melhorar a qualidade da gasolina, ela passa por <strong>isomerização</strong>: a transformação de cadeias normais (lineares) em cadeias ramificadas, que queimam mais suavemente.</p>
+      <div class="highlight">
+        <strong>Isômeros</strong> = mesma fórmula molecular, estrutura diferente. A cadeia ramificada tem melhor índice de octanagem.
+      </div>
+      <div class="formula-box">
+        <div class="formula-title">Exemplo: Octano → Isooctano (2,2,4-trimetilpentano)</div>
+        <div class="formula-line">CH₃–CH₂–CH₂–CH₂–CH₂–CH₂–CH₂–CH₃</div>
+        <div class="formula-note">Octano (C₈H₁₈) — cadeia normal → tende a causar detonação prematura</div>
+        <div class="formula-line" style="margin-top:12px;">CH₃–C(CH₃)₂–CH₂–CH(CH₃)–CH₃</div>
+        <div class="formula-note">2,2,4-trimetilpentano (isooctano) — cadeia ramificada → queima mais controlada, índice de octanagem = 100</div>
+      </div>
+      <div class="danger-box">
+        <strong>Índice de octanagem:</strong> Mede a resistência da gasolina à detonação prematura. Quanto maior, melhor a qualidade do combustível. O isooctano tem índice 100 (padrão de referência).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAP 9 — TERMOQUÍMICA ============ -->
+<section class="chapter ch7" id="cap9">
+  <div class="chapter-header">
+    <div class="chapter-num">9</div>
+    <div>
+      <h2>Termoquímica: Diagramas de Entalpia</h2>
+      <span class="cap-ref">Capítulo 9</span>
+    </div>
+  </div>
+
+  <div id="sec-exo-endo" class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>O que é Termoquímica? Exo × Endotérmico</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A <strong>Termoquímica</strong> estuda a <em>variação de energia</em> (calor) nas reações químicas.</p>
+      <div class="redox-row">
+        <div class="redox-box redox-oxidacao">
+          <h5>⬆ Exotérmico</h5>
+          <p><strong>Libera calor (Q)</strong> para o meio.<br>"Exo" = fora<br>Reagentes → Produtos <strong>+ Q</strong></p>
+        </div>
+        <div class="redox-box redox-reducao">
+          <h5>⬇ Endotérmico</h5>
+          <p><strong>Absorve calor (Q)</strong> do meio.<br>"Endo" = dentro<br>Reagentes <strong>+ Q</strong> → Produtos</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h5>Exemplos Exotérmicos</h5>
+          <p>Combustão (queima), respiração celular, explosões, enferrujamento do ferro.</p>
+        </div>
+        <div class="card">
+          <h5>Exemplos Endotérmicos</h5>
+          <p>Fotossíntese, dissolução de sal de amônia, cozimento de alimentos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec-calorimetro" class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Calorímetro e Q = m·c·Δθ</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>O <strong>calorímetro</strong> é um equipamento que mede a quantidade de calor trocada numa reação, por meio de um termômetro imerso em água.</p>
+      <div class="formula-box">
+        <div class="formula-title">Fórmula do Calor Sensível</div>
+        <div class="formula-line">Q = m · c · Δθ</div>
+        <div class="formula-note">Q = calor (kJ ou J) | m = massa do líquido (g) | c = calor específico (J/g·°C) | Δθ = variação de temperatura (°C)</div>
+      </div>
+      <div class="info-box">
+        <strong>A quantidade de energia é proporcional ao balanceamento da reação.</strong><br><br>
+        Ex: C + O₂ → CO₂ + 394 kJ<br>
+        → 1 mol de C (12 g) libera 394 kJ<br>
+        → 2 mol de C (24 g) liberaria 788 kJ
+      </div>
+    </div>
+  </div>
+
+  <div id="sec-entalpia" class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Entalpia (H) e Variação de Entalpia (ΔH)</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p><strong>Entalpia (H)</strong> é o conteúdo de energia de uma substância. Não medimos H diretamente — medimos sua <strong>variação (ΔH)</strong>:</p>
+      <div class="formula-box">
+        <div class="formula-title">Variação de Entalpia</div>
+        <div class="formula-line">ΔH = H<sub>produtos</sub> − H<sub>reagentes</sub></div>
+        <div class="formula-note">ΔH negativo → exotérmico (liberou energia) | ΔH positivo → endotérmico (absorveu energia)</div>
+      </div>
+
+      <!-- DIAGRAMAS DE ENTALPIA (SVG) -->
+      <div style="display:flex; gap:16px; margin:20px 0; flex-wrap:wrap; justify-content:center;">
+
+        <!-- EXOTÉRMICO -->
+        <div style="flex:1; min-width:200px; background:#fff8f0; border:2px solid #e65100; border-radius:12px; padding:16px; text-align:center;">
+          <div style="font-weight:700; color:#e65100; margin-bottom:10px; font-size:0.95rem;">🔥 EXOTÉRMICO — ΔH &lt; 0</div>
+          <svg viewBox="0 0 180 160" width="100%" style="max-width:220px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Y axis -->
+            <line x1="30" y1="10" x2="30" y2="148" stroke="#555" stroke-width="2"/>
+            <text x="26" y="8" font-size="13" fill="#555" font-family="Inter,sans-serif" text-anchor="middle">H</text>
+            <!-- Arrow head on Y axis -->
+            <polygon points="30,8 26,18 34,18" fill="#555"/>
+            <!-- X axis -->
+            <line x1="30" y1="148" x2="170" y2="148" stroke="#555" stroke-width="2"/>
+
+            <!-- HR level (high) -->
+            <line x1="38" y1="45" x2="100" y2="45" stroke="#e65100" stroke-width="3"/>
+            <text x="38" y="40" font-size="11" fill="#e65100" font-family="Inter,sans-serif" font-weight="700">H_R</text>
+            <text x="60" y="58" font-size="10" fill="#555" font-family="Inter,sans-serif">Reag.</text>
+
+            <!-- Hp level (low) -->
+            <line x1="90" y1="110" x2="162" y2="110" stroke="#1565c0" stroke-width="3"/>
+            <text x="92" y="128" font-size="11" fill="#1565c0" font-family="Inter,sans-serif" font-weight="700">H_p</text>
+            <text x="110" y="105" font-size="10" fill="#555" font-family="Inter,sans-serif">Prod.</text>
+
+            <!-- ΔH arrow (down) -->
+            <line x1="130" y1="46" x2="130" y2="108" stroke="#c62828" stroke-width="2.5" stroke-dasharray="4,3"/>
+            <polygon points="130,110 125,98 135,98" fill="#c62828"/>
+            <text x="138" y="82" font-size="12" fill="#c62828" font-family="Inter,sans-serif" font-weight="700">ΔH</text>
+
+            <!-- ΔH < 0 label -->
+            <rect x="42" y="130" width="96" height="18" rx="4" fill="#c62828"/>
+            <text x="90" y="143" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">ΔH &lt; 0  "Exo"</text>
+          </svg>
+          <p style="font-size:0.85rem; color:#555; margin-top:6px;">H<sub>p</sub> &lt; H<sub>R</sub> → sistema <strong>libera calor</strong></p>
+        </div>
+
+        <!-- ENDOTÉRMICO -->
+        <div style="flex:1; min-width:200px; background:#f0f7ff; border:2px solid #1565c0; border-radius:12px; padding:16px; text-align:center;">
+          <div style="font-weight:700; color:#1565c0; margin-bottom:10px; font-size:0.95rem;">❄️ ENDOTÉRMICO — ΔH &gt; 0</div>
+          <svg viewBox="0 0 180 160" width="100%" style="max-width:220px;" xmlns="http://www.w3.org/2000/svg">
+            <!-- Y axis -->
+            <line x1="30" y1="10" x2="30" y2="148" stroke="#555" stroke-width="2"/>
+            <text x="26" y="8" font-size="13" fill="#555" font-family="Inter,sans-serif" text-anchor="middle">H</text>
+            <polygon points="30,8 26,18 34,18" fill="#555"/>
+            <!-- X axis -->
+            <line x1="30" y1="148" x2="170" y2="148" stroke="#555" stroke-width="2"/>
+
+            <!-- HR level (low) -->
+            <line x1="38" y1="110" x2="100" y2="110" stroke="#e65100" stroke-width="3"/>
+            <text x="38" y="126" font-size="11" fill="#e65100" font-family="Inter,sans-serif" font-weight="700">H_R</text>
+            <text x="55" y="105" font-size="10" fill="#555" font-family="Inter,sans-serif">Reag.</text>
+
+            <!-- Hp level (high) -->
+            <line x1="90" y1="45" x2="162" y2="45" stroke="#1565c0" stroke-width="3"/>
+            <text x="92" y="40" font-size="11" fill="#1565c0" font-family="Inter,sans-serif" font-weight="700">H_p</text>
+            <text x="110" y="58" font-size="10" fill="#555" font-family="Inter,sans-serif">Prod.</text>
+
+            <!-- ΔH arrow (up) -->
+            <line x1="130" y1="108" x2="130" y2="48" stroke="#1565c0" stroke-width="2.5" stroke-dasharray="4,3"/>
+            <polygon points="130,45 125,57 135,57" fill="#1565c0"/>
+            <text x="138" y="82" font-size="12" fill="#1565c0" font-family="Inter,sans-serif" font-weight="700">ΔH</text>
+
+            <!-- ΔH > 0 label -->
+            <rect x="42" y="130" width="96" height="18" rx="4" fill="#1565c0"/>
+            <text x="90" y="143" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">ΔH &gt; 0  "Endo"</text>
+          </svg>
+          <p style="font-size:0.85rem; color:#555; margin-top:6px;">H<sub>p</sub> &gt; H<sub>R</sub> → sistema <strong>absorve calor</strong></p>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <strong>Resumo fácil:</strong><br>
+        • Exotérmico: ΔH &lt; 0 (negativo) → Reag. em nível alto, Prod. em nível baixo → libera calor<br>
+        • Endotérmico: ΔH &gt; 0 (positivo) → Prod. em nível alto, Reag. em nível baixo → absorve calor
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAP 10 — LEI DE HESS ============ -->
+<section class="chapter ch8" id="cap10">
+  <div class="chapter-header">
+    <div class="chapter-num">10</div>
+    <div>
+      <h2>Cálculo de ΔH — Lei de Hess</h2>
+      <span class="cap-ref">Capítulo 10</span>
+    </div>
+  </div>
+
+  <div id="sec-hess" class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Lei de Hess — Conceito</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>A <strong>Lei de Hess</strong> afirma que o ΔH de um processo depende somente das <em>etapas inicial e final</em>, não importando as etapas intermediárias.</p>
+      <div class="info-box">
+        <strong>Consequência prática:</strong> Podemos calcular o ΔH de reações que na prática não seriam possíveis de medir diretamente, somando as equações de reações conhecidas.
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h5>3 Métodos de Calcular ΔH</h5>
+          <p>① Aplicando a Lei de Hess<br>② Usando a entalpia de formação (Hf)<br>③ Usando a equação de Hess diretamente</p>
+        </div>
+        <div class="card">
+          <h5>Entalpia de Formação</h5>
+          <p>ΔHf° = variação de entalpia para formar 1 mol de substância a partir dos elementos no estado padrão.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec-hess-calc" class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      <span>Aplicando a Lei de Hess — Passo a Passo</span>
+      <span class="icon">&#9660;</span>
+    </button>
+    <div class="accordion-content">
+      <p>Para usar a Lei de Hess, manipulamos equações conhecidas (invertendo ou multiplicando) até obter a equação desejada.</p>
+      <div class="highlight">
+        <strong>Regras:</strong><br>
+        • <strong>Manter</strong> uma equação = manter o ΔH<br>
+        • <strong>Inverter</strong> uma equação = trocar o sinal do ΔH<br>
+        • <strong>Multiplicar</strong> por n = multiplicar o ΔH por n
+      </div>
+
+      <div class="solved-ex">
+        <div class="solved-ex-header">
+          <span class="solved-ex-tag">EXEMPLO</span>
+          <span class="solved-ex-title">Calcular ΔH da reação C + ½O₂ → CO</span>
+        </div>
+        <div class="solved-ex-body">
+          <div class="solved-problem">
+            Dados:<br>
+            ① C + O₂ → CO₂ &nbsp;&nbsp; ΔH = −394 kJ<br>
+            ② CO + ½O₂ → CO₂ &nbsp;&nbsp; ΔH = −283 kJ<br><br>
+            Calcule: C + ½O₂ → CO &nbsp; ΔH = ?
+          </div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <strong>Manter a equação ①:</strong><br>
+                C + O₂ → CO₂ &nbsp;&nbsp; ΔH = −394 kJ
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <strong>Inverter a equação ②</strong> (para que CO₂ cancele):<br>
+                CO₂ → CO + ½O₂ &nbsp;&nbsp; ΔH = <strong>+283 kJ</strong> (sinal trocado)
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <strong>Somar as equações</strong> (CO₂ aparece nos dois lados → cancela):<br>
+                C + O₂ + CO₂ → CO₂ + CO + ½O₂<br>
+                <strong>Resultado: C + ½O₂ → CO</strong>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <strong>Somar os ΔH:</strong><br>
+                ΔH = −394 + (+283) = <strong>−110 kJ</strong>
+              </div>
+            </div>
+          </div>
+          <div class="solved-answer-box">Resposta: C + ½O₂ → CO &nbsp;&nbsp; ΔH = −110 kJ</div>
+        </div>
+      </div>
+
+      <div class="danger-box">
+        <strong>Atenção:</strong> Substâncias que aparecem em ambos os lados da soma (como CO₂ no exemplo) se cancelam — assim como em operações algébricas.
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- QUIZ -->
 <section class="quiz-section" id="quiz">
   <h3>🧪 Teste seus Conhecimentos</h3>
@@ -1150,6 +1568,9 @@
     <button class="filter-btn" onclick="filterQuiz('ch3',this)">Cap. 3</button>
     <button class="filter-btn" onclick="filterQuiz('ch4',this)">Cap. 4</button>
     <button class="filter-btn" onclick="filterQuiz('ch5',this)">Cap. 6</button>
+    <button class="filter-btn" onclick="filterQuiz('ch6',this)">Cap. 8</button>
+    <button class="filter-btn" onclick="filterQuiz('ch7',this)">Cap. 9</button>
+    <button class="filter-btn" onclick="filterQuiz('ch8',this)">Cap. 10</button>
   </div>
 
   <!-- CAP 1 QUESTIONS -->
@@ -1407,6 +1828,139 @@
     <div class="feedback" id="q25-fb"></div>
   </div>
 
+  <!-- CAP 8 QUESTIONS -->
+  <div class="quiz-q" id="q26" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Cap. 8 — Petróleo</span>
+    <p>26. O processo que separa os diferentes hidrocarbonetos do petróleo com base nos pontos de ebulição é chamado de:</p>
+    <label><input type="radio" name="q26" value="a" onclick="checkQuiz('q26','b')"> a) Craquelamento catalítico</label>
+    <label><input type="radio" name="q26" value="b" onclick="checkQuiz('q26','b')"> b) Destilação fracionada</label>
+    <label><input type="radio" name="q26" value="c" onclick="checkQuiz('q26','b')"> c) Isomerização</label>
+    <label><input type="radio" name="q26" value="d" onclick="checkQuiz('q26','b')"> d) Craqueamento térmico simples</label>
+    <div class="feedback" id="q26-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q27" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Cap. 8 — Petróleo</span>
+    <p>27. O cracking (craquelamento) do petróleo tem como objetivo principal:</p>
+    <label><input type="radio" name="q27" value="a" onclick="checkQuiz('q27','c')"> a) Separar hidrocarbonetos por ponto de ebulição</label>
+    <label><input type="radio" name="q27" value="b" onclick="checkQuiz('q27','c')"> b) Transformar cadeias ramificadas em lineares</label>
+    <label><input type="radio" name="q27" value="c" onclick="checkQuiz('q27','c')"> c) Quebrar cadeias longas em cadeias menores e mais úteis</label>
+    <label><input type="radio" name="q27" value="d" onclick="checkQuiz('q27','c')"> d) Remover enxofre e impurezas do petróleo</label>
+    <div class="feedback" id="q27-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q28" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Cap. 8 — Petróleo</span>
+    <p>28. O isooctano (2,2,4-trimetilpentano) é obtido por isomerização do octano. Qual a diferença entre eles?</p>
+    <label><input type="radio" name="q28" value="a" onclick="checkQuiz('q28','b')"> a) Têm fórmulas moleculares diferentes</label>
+    <label><input type="radio" name="q28" value="b" onclick="checkQuiz('q28','b')"> b) Mesma fórmula molecular, mas estrutura diferente (isômeros)</label>
+    <label><input type="radio" name="q28" value="c" onclick="checkQuiz('q28','b')"> c) São compostos de elementos distintos</label>
+    <label><input type="radio" name="q28" value="d" onclick="checkQuiz('q28','b')"> d) O isooctano tem mais carbonos que o octano</label>
+    <div class="feedback" id="q28-fb"></div>
+  </div>
+
+  <!-- CAP 9 QUESTIONS -->
+  <div class="quiz-q" id="q29" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Cap. 9 — Termoquímica</span>
+    <p>29. Em uma reação exotérmica, o que ocorre com o calor?</p>
+    <label><input type="radio" name="q29" value="a" onclick="checkQuiz('q29','a')"> a) É liberado para o meio</label>
+    <label><input type="radio" name="q29" value="b" onclick="checkQuiz('q29','a')"> b) É absorvido do meio</label>
+    <label><input type="radio" name="q29" value="c" onclick="checkQuiz('q29','a')"> c) Permanece constante no sistema</label>
+    <label><input type="radio" name="q29" value="d" onclick="checkQuiz('q29','a')"> d) É convertido em trabalho mecânico</label>
+    <div class="feedback" id="q29-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q30" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Cap. 9 — Termoquímica</span>
+    <p>30. Para uma reação exotérmica, o valor de ΔH é:</p>
+    <label><input type="radio" name="q30" value="a" onclick="checkQuiz('q30','b')"> a) Positivo (ΔH &gt; 0)</label>
+    <label><input type="radio" name="q30" value="b" onclick="checkQuiz('q30','b')"> b) Negativo (ΔH &lt; 0)</label>
+    <label><input type="radio" name="q30" value="c" onclick="checkQuiz('q30','b')"> c) Zero (ΔH = 0)</label>
+    <label><input type="radio" name="q30" value="d" onclick="checkQuiz('q30','b')"> d) Indefinido</label>
+    <div class="feedback" id="q30-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q31" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Cap. 9 — Termoquímica</span>
+    <p>31. Na fórmula Q = m · c · Δθ, o que representa "Δθ"?</p>
+    <label><input type="radio" name="q31" value="a" onclick="checkQuiz('q31','c')"> a) Calor específico da substância</label>
+    <label><input type="radio" name="q31" value="b" onclick="checkQuiz('q31','c')"> b) Massa do sistema em gramas</label>
+    <label><input type="radio" name="q31" value="c" onclick="checkQuiz('q31','c')"> c) Variação de temperatura</label>
+    <label><input type="radio" name="q31" value="d" onclick="checkQuiz('q31','c')"> d) Quantidade de energia elétrica</label>
+    <div class="feedback" id="q31-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q35" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Cap. 9 — Termoquímica</span>
+    <p>35. No diagrama de entalpia de uma reação exotérmica, os níveis de H ficam assim:</p>
+    <label><input type="radio" name="q35" value="a" onclick="checkQuiz('q35','b')"> a) H<sub>produtos</sub> &gt; H<sub>reagentes</sub> (produtos em nível mais alto)</label>
+    <label><input type="radio" name="q35" value="b" onclick="checkQuiz('q35','b')"> b) H<sub>produtos</sub> &lt; H<sub>reagentes</sub> (reagentes em nível mais alto)</label>
+    <label><input type="radio" name="q35" value="c" onclick="checkQuiz('q35','b')"> c) H<sub>produtos</sub> = H<sub>reagentes</sub> (mesmo nível)</label>
+    <label><input type="radio" name="q35" value="d" onclick="checkQuiz('q35','b')"> d) Não é possível saber pelo diagrama</label>
+    <div class="feedback" id="q35-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q36" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Cap. 9 — Termoquímica</span>
+    <p>36. A fotossíntese absorve energia luminosa para ocorrer. Isso classifica a reação como:</p>
+    <label><input type="radio" name="q36" value="a" onclick="checkQuiz('q36','b')"> a) Exotérmica (ΔH &lt; 0)</label>
+    <label><input type="radio" name="q36" value="b" onclick="checkQuiz('q36','b')"> b) Endotérmica (ΔH &gt; 0)</label>
+    <label><input type="radio" name="q36" value="c" onclick="checkQuiz('q36','b')"> c) Neutra (ΔH = 0)</label>
+    <label><input type="radio" name="q36" value="d" onclick="checkQuiz('q36','b')"> d) Não pode ser classificada em termoquímica</label>
+    <div class="feedback" id="q36-fb"></div>
+  </div>
+
+  <!-- CAP 10 QUESTIONS -->
+  <div class="quiz-q" id="q32" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Cap. 10 — Lei de Hess</span>
+    <p>32. A Lei de Hess afirma que o ΔH de uma reação depende:</p>
+    <label><input type="radio" name="q32" value="a" onclick="checkQuiz('q32','b')"> a) De todas as etapas intermediárias do caminho</label>
+    <label><input type="radio" name="q32" value="b" onclick="checkQuiz('q32','b')"> b) Apenas do estado inicial e do estado final</label>
+    <label><input type="radio" name="q32" value="c" onclick="checkQuiz('q32','b')"> c) Da temperatura ambiente durante a reação</label>
+    <label><input type="radio" name="q32" value="d" onclick="checkQuiz('q32','b')"> d) Da velocidade da reação</label>
+    <div class="feedback" id="q32-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q33" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Cap. 10 — Lei de Hess</span>
+    <p>33. Ao inverter uma equação química na Lei de Hess, o ΔH:</p>
+    <label><input type="radio" name="q33" value="a" onclick="checkQuiz('q33','c')"> a) Permanece igual</label>
+    <label><input type="radio" name="q33" value="b" onclick="checkQuiz('q33','c')"> b) Dobra de valor</label>
+    <label><input type="radio" name="q33" value="c" onclick="checkQuiz('q33','c')"> c) Tem o sinal trocado (multiplica por −1)</label>
+    <label><input type="radio" name="q33" value="d" onclick="checkQuiz('q33','c')"> d) Passa a ser zero</label>
+    <div class="feedback" id="q33-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q34" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Cap. 10 — Lei de Hess</span>
+    <p>34. Usando a Lei de Hess com ① C + O₂ → CO₂ (ΔH = −394 kJ) e ② CO + ½O₂ → CO₂ (ΔH = −283 kJ), qual o ΔH de C + ½O₂ → CO?</p>
+    <label><input type="radio" name="q34" value="a" onclick="checkQuiz('q34','b')"> a) −677 kJ</label>
+    <label><input type="radio" name="q34" value="b" onclick="checkQuiz('q34','b')"> b) −110 kJ</label>
+    <label><input type="radio" name="q34" value="c" onclick="checkQuiz('q34','b')"> c) +110 kJ</label>
+    <label><input type="radio" name="q34" value="d" onclick="checkQuiz('q34','b')"> d) −283 kJ</label>
+    <div class="feedback" id="q34-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q37" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Cap. 10 — Lei de Hess</span>
+    <p>37. Se multiplicarmos uma equação por 2 antes de aplicar a Lei de Hess, o que acontece com o ΔH?</p>
+    <label><input type="radio" name="q37" value="a" onclick="checkQuiz('q37','c')"> a) Permanece o mesmo</label>
+    <label><input type="radio" name="q37" value="b" onclick="checkQuiz('q37','c')"> b) É dividido por 2</label>
+    <label><input type="radio" name="q37" value="c" onclick="checkQuiz('q37','c')"> c) É multiplicado por 2</label>
+    <label><input type="radio" name="q37" value="d" onclick="checkQuiz('q37','c')"> d) Muda de sinal</label>
+    <div class="feedback" id="q37-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q38" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Cap. 10 — Lei de Hess</span>
+    <p>38. Qual a principal utilidade da Lei de Hess?</p>
+    <label><input type="radio" name="q38" value="a" onclick="checkQuiz('q38','d')"> a) Medir a velocidade de uma reação</label>
+    <label><input type="radio" name="q38" value="b" onclick="checkQuiz('q38','d')"> b) Balancear equações químicas automaticamente</label>
+    <label><input type="radio" name="q38" value="c" onclick="checkQuiz('q38','d')"> c) Determinar o estado físico dos produtos</label>
+    <label><input type="radio" name="q38" value="d" onclick="checkQuiz('q38','d')"> d) Calcular ΔH de reações que não podem ser medidas diretamente</label>
+    <div class="feedback" id="q38-fb"></div>
+  </div>
+
   <div style="text-align:center; margin-top:28px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
     <button onclick="resetQuiz()" style="background:var(--secondary);color:#3b0a0a;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
   </div>
@@ -1450,7 +2004,20 @@ const answers = {
   q22: { correct: 'b', explain: 'H₂O₂: 2×(+1) + 2x = 0 → x = −1. Caso especial do peróxido — O tem NOx −1 (não −2).' },
   q23: { correct: 'c', explain: 'Na fila de reatividade, o mais ativo desloca o menos ativo de sua solução salina. É uma reação de oxirredução.' },
   q24: { correct: 'b', explain: 'Fe está à esquerda de Cu na fila de reatividade (Fe > Cu), portanto Fe desloca Cu do CuSO₄. Ag, Hg e Au estão à direita de Cu — não reagem.' },
-  q25: { correct: 'b', explain: 'Cu²⁺: NOx +2 → 0 (caiu) = redução. Quem é reduzido age como agente oxidante (recebeu e⁻ do Fe).' }
+  q25: { correct: 'b', explain: 'Cu²⁺: NOx +2 → 0 (caiu) = redução. Quem é reduzido age como agente oxidante (recebeu e⁻ do Fe).' },
+  q26: { correct: 'b', explain: 'A destilação fracionada separa os hidrocarbonetos do petróleo com base nos diferentes pontos de ebulição: cadeias menores evaporam em temperaturas mais baixas.' },
+  q27: { correct: 'c', explain: 'O cracking quebra hidrocarbonetos de cadeia longa (pouco úteis) em cadeias menores como a gasolina (C₅–C₁₂), que têm maior demanda e utilidade.' },
+  q28: { correct: 'b', explain: 'Octano e isooctano têm a mesma fórmula molecular C₈H₁₈ — são isômeros. A diferença está na estrutura: octano tem cadeia linear, isooctano tem cadeia ramificada (mais resistente à detonação).' },
+  q29: { correct: 'a', explain: 'Reação exotérmica libera calor para o ambiente ("exo" = fora). A equação é: Reagentes → Produtos + Q. A temperatura do meio aumenta.' },
+  q30: { correct: 'b', explain: 'ΔH = Hprodutos − Hreagentes. No exotérmico, os produtos têm menor entalpia que os reagentes, portanto ΔH < 0 (negativo).' },
+  q31: { correct: 'c', explain: 'Na fórmula Q = m·c·Δθ: Q = calor, m = massa, c = calor específico, Δθ = variação de temperatura (temperatura final − temperatura inicial).' },
+  q32: { correct: 'b', explain: 'Lei de Hess: o ΔH de um processo depende APENAS do estado inicial e do estado final, não importando o caminho (etapas intermediárias). Por isso é possível somar reações.' },
+  q33: { correct: 'c', explain: 'Inverter uma equação significa inverter o sentido da reação (trocar reagentes por produtos). Isso inverte o sinal de ΔH: se antes ΔH = −394 kJ, invertida fica ΔH = +394 kJ.' },
+  q34: { correct: 'b', explain: 'Mantém ① (ΔH = −394) e inverte ② (ΔH = +283). Somando: C + O₂ + CO₂ → CO₂ + CO + ½O₂. O CO₂ cancela. Resultado: C + ½O₂ → CO, ΔH = −394 + 283 = −110 kJ.' },
+  q35: { correct: 'b', explain: 'No diagrama exotérmico, os reagentes ficam em nível mais alto (maior H) e os produtos em nível mais baixo. A reação "desce" de energia, liberando calor. ΔH = Hp − HR < 0.' },
+  q36: { correct: 'b', explain: 'A fotossíntese precisa absorver energia (luz solar) para ocorrer. Toda reação que absorve energia é endotérmica (ΔH > 0). Lembre: "Endo" = dentro — o calor entra no sistema.' },
+  q37: { correct: 'c', explain: 'Multiplicar uma equação por n multiplica TODAS as quantidades — inclusive o ΔH. Se 1 mol libera −394 kJ, então 2 mol liberam −788 kJ. O ΔH é proporcional à quantidade de matéria.' },
+  q38: { correct: 'd', explain: 'A Lei de Hess permite calcular o ΔH de reações que na prática não podem ser medidas diretamente (por serem muito lentas, perigosas ou impossíveis de isolar). Somamos reações conhecidas para obter o resultado.' }
 };
 let scoreCorrect = 0, scoreTotal = 0;
 function checkQuiz(qId, correct) {
@@ -1490,26 +2057,26 @@ function resetQuiz() {
 <style>
   #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #3d2b00; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
   #chat-btn:hover { transform: scale(1.08); }
-  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 340px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
   #chat-panel.open { display: flex; }
   #chat-head { background: #3d2b00; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
   #chat-head span { font-weight: 600; font-size: 0.92rem; }
   #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
-  #chat-msgs { height: 280px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
-  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.84rem; line-height: 1.5; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
   .cmsg.bot { background: #fdf8ef; border: 1px solid #e8ddc8; align-self: flex-start; border-bottom-left-radius: 4px; }
   .cmsg.user { background: #3d2b00; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
   .cmsg.loading { color: #888; font-style: italic; }
   #chat-form { display: flex; border-top: 1px solid #e8ddc8; }
-  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.88rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
   #chat-send { background: #3d2b00; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
   #chat-send:hover { background: #6b4c11; }
 </style>
 
-<button id="chat-btn" onclick="toggleChat()" title="Tirar dúvidas com IA">🦉</button>
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
 <div id="chat-panel">
   <div id="chat-head">
-    <span>🦉 Assistente de Estudos</span>
+    <span>🧠 Nêuron — Assistente de Estudos</span>
     <button id="chat-close" onclick="toggleChat()">✕</button>
   </div>
   <div id="chat-msgs">

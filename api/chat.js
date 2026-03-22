@@ -8,34 +8,41 @@ export default async function handler(req, res) {
   const { message, context } = req.body;
   if (!message) return res.status(400).json({ error: 'Missing message' });
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
 
-  const systemPrompt = `Você é um assistente de estudos do Colégio Bandeirantes para alunos do 2º ano do Ensino Médio. Responda APENAS com base no conteúdo do resumo abaixo. Seja direto, didático e use no máximo 3 parágrafos curtos. Se a pergunta não for sobre o conteúdo do resumo, diga educadamente que só pode ajudar com o conteúdo da página atual.
+  const systemPrompt = `Você é o Nêuron, assistente de estudos do Colégio Bandeirantes para alunos do 2º ano do Ensino Médio. Você tem acesso ao resumo abaixo e deve usá-lo como base principal. Interprete o conteúdo com inteligência — mesmo que a pergunta não esteja palavra por palavra no resumo, tente relacionar, inferir e explicar a partir do que está ali. Só diga que algo não está no resumo se realmente não houver nenhuma relação com o conteúdo. Seja didático, claro e use no máximo 3 parágrafos curtos.
 
 CONTEÚDO DO RESUMO:
 ${context}`;
 
   try {
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+      'https://api.groq.com/openai/v1/chat/completions',
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
         body: JSON.stringify({
-          contents: [
-            { role: 'user', parts: [{ text: systemPrompt + '\n\nPergunta do aluno: ' + message }] }
+          model: 'llama-3.3-70b-versatile',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: message }
           ],
-          generationConfig: { maxOutputTokens: 512, temperature: 0.3 }
+          max_tokens: 512,
+          temperature: 0.3
         })
       }
     );
 
     const data = await response.json();
     if (data.error) return res.status(500).json({ error: data.error.message });
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Não consegui gerar uma resposta.';
+    const reply = data.choices?.[0]?.message?.content || 'Não consegui gerar uma resposta.';
     res.status(200).json({ reply });
   } catch (err) {
     res.status(500).json({ error: 'Erro ao conectar com a IA: ' + err.message });
   }
 }
+
