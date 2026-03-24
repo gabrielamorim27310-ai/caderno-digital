@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo de Biologia — Bio Celular 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #1a4731;
+    --secondary: #3a9e6f;
+    --accent: #27ae60;
+    --bg: #f4faf7;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #d5eee0;
+    --shadow: 0 4px 24px rgba(0,80,40,0.09);
+    --ch1: #1a5276;
+    --ch2: #1a4731;
+    --ch3: #7b3f00;
+    --ch4: #6c3483;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--secondary); z-index: 999; width: 0%; transition: width 0.1s; }
+
+  .hero {
+    background: linear-gradient(135deg, #1a4731 0%, #2e7d52 50%, #0d2b1e 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  nav { background: white; border-bottom: 2px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  nav .nav-inner::-webkit-scrollbar { display: none; }
+  nav a { text-decoration: none; padding: 14px 20px; font-weight: 600; font-size: 0.85rem; white-space: nowrap; color: var(--text-light); border-bottom: 3px solid transparent; transition: all 0.3s; }
+  nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+  .chapter { background: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 32px; overflow: hidden; }
+  .chapter-header { padding: 28px 32px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+  .chapter-header .tag { font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; color: white; letter-spacing: 0.05em; }
+  .tag-ch1 { background: var(--ch1); }
+  .tag-ch2 { background: var(--ch2); }
+  .tag-ch3 { background: var(--ch3); }
+  .tag-ch4 { background: var(--ch4); }
+  .chapter-header .meta { font-size: 0.9rem; color: var(--text-light); margin-top: 6px; }
+  .chapter-body { padding: 24px 32px 32px; }
+
+  .accordion { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  .accordion-btn { width: 100%; background: none; border: none; padding: 16px 20px; text-align: left; font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); transition: background 0.2s; }
+  .accordion-btn:hover { background: var(--bg); }
+  .accordion-btn::after { content: '+'; font-size: 1.3rem; color: var(--accent); transition: transform 0.3s; }
+  .accordion.open .accordion-btn::after { transform: rotate(45deg); }
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 20px; }
+  .accordion.open .accordion-content { max-height: 3000px; padding: 0 20px 20px; }
+
+  .content-block { margin-bottom: 20px; }
+  .content-block h4 { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid var(--border); }
+  .content-block ul { list-style: none; padding-left: 0; }
+  .content-block ul li { padding: 4px 0 4px 18px; position: relative; font-size: 0.93rem; }
+  .content-block ul li::before { content: '—'; position: absolute; left: 0; color: var(--secondary); font-weight: 700; }
+  .content-block ul ul li::before { content: '•'; }
+  .content-block ul ul { padding-left: 20px; }
+  .highlight-box { background: linear-gradient(135deg, #e8f8f0, #d5f0e2); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .highlight-box strong { color: var(--primary); }
+  .tip-box { background: linear-gradient(135deg, #e8f4fd, #d6eaf8); border-left: 4px solid var(--ch1); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .warning-box { background: linear-gradient(135deg, #fef9e7, #fdebd0); border-left: 4px solid var(--ch3); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .compare-card { background: var(--bg); border-radius: 8px; padding: 14px; border: 1px solid var(--border); }
+  .compare-card h5 { font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: var(--accent); }
+  .compare-card ul li { font-size: 0.88rem; }
+  @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  .flow-box { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin: 12px 0; font-size: 0.92rem; text-align: center; }
+  .flow-box .flow-step { display: inline-block; background: var(--primary); color: white; padding: 5px 14px; border-radius: 20px; font-weight: 700; font-size: 0.82rem; margin: 4px; }
+  .flow-box .flow-arrow { color: var(--secondary); font-weight: 700; margin: 0 4px; }
+
+  .quiz-section { background: linear-gradient(135deg, var(--primary), #0d2b1e); border-radius: 16px; padding: 32px; color: white; margin-bottom: 32px; }
+  .quiz-section h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; }
+  .quiz-q { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin-bottom: 16px; backdrop-filter: blur(4px); }
+  .quiz-q p { font-size: 0.95rem; margin-bottom: 14px; line-height: 1.6; }
+  .quiz-q label { display: block; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-bottom: 4px; transition: background 0.2s; }
+  .quiz-q label:hover { background: rgba(255,255,255,0.15); }
+  .quiz-q input[type="radio"] { margin-right: 8px; }
+  .quiz-q .feedback { margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 0.88rem; display: none; }
+  .quiz-q .feedback.correct { background: rgba(39,174,96,0.3); display: block; }
+  .quiz-q .feedback.wrong { background: rgba(231,76,60,0.3); display: block; }
+  .quiz-q.hidden { display: none; }
+  .quiz-chapter-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; letter-spacing: 0.04em; }
+  .quiz-chapter-tag.tag-ch1 { background: rgba(26,82,118,0.5); color: #aed6f1; }
+  .quiz-chapter-tag.tag-ch2 { background: rgba(26,71,49,0.6); color: #a9dfbf; }
+  .quiz-chapter-tag.tag-ch3 { background: rgba(123,63,0,0.5); color: #f5cba7; }
+  .quiz-chapter-tag.tag-ch4 { background: rgba(108,52,131,0.5); color: #d7bde2; }
+  .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.2); border-color: white; }
+  #score-box { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 12px 20px; text-align: center; font-weight: 700; font-size: 1rem; margin-bottom: 16px; display: none; }
+
+  footer { text-align: center; padding: 32px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+  /* CHAT */
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: var(--primary); color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: var(--primary); color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 88%; padding: 10px 14px; border-radius: 14px; font-size: 0.93rem; line-height: 1.5; }
+  .cmsg.user { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.bot { background: #f0f0f0; color: #222; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.loading { opacity: 0.6; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid var(--border); }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: var(--primary); color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: var(--accent); }
+
+  @media print {
+    nav, .progress-bar, .quiz-section, #chat-btn, #chat-panel { display: none; }
+    .accordion-content { max-height: none !important; padding: 0 20px 20px !important; }
+  }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>Biologia Celular</h1>
+  <p class="subtitle">Avaliação · 2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Membrana · Citoesqueleto · Rota Secretora</span></div>
+  <div><span class="author">Caderno Digital Band</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#membrana">Membrana</a>
+    <a href="#citoesqueleto">Citoesqueleto</a>
+    <a href="#especializacoes">Especializações</a>
+    <a href="#rota">Rota Secretora</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════ AULA 6 — MEMBRANA PLASMÁTICA ══════════ -->
+<section class="chapter" id="membrana">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch1">Aula 6</span> Membrana Plasmática</h2>
+    <p class="meta">Presente em todas as células · Permeabilidade seletiva · Modelo do Mosaico Fluido</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">O que é a membrana plasmática?</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Membrana plasmática</strong> (ou celular) = camada fina de <strong>fosfolipídios + proteínas</strong> presente em <strong>todas as células</strong>.<br><br>
+            Função principal: <strong>permeabilidade seletiva</strong> — controla o que entra e sai da célula.<br><br>
+            Também forma as membranas das organelas intracelulares (exceto ribossomos).
+          </div>
+          <ul>
+            <li>Modelo: <strong>Mosaico Fluido</strong> (lipoproteico) — a membrana é fluida e os componentes se movem</li>
+            <li>Bicamada fosfolipídica: duas camadas de fosfolipídios com as caudas voltadas para dentro</li>
+            <li>Colesterol (só em células animais): reduz a fluidez da membrana, dando estabilidade</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Estrutura dos Fosfolipídios</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <p style="font-size:0.93rem; margin-bottom:10px;">O fosfolipídio é o componente principal da membrana. Sua estrutura determina o comportamento da bicamada:</p>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Cabeça — POLAR (hidrofílica)</h5>
+              <ul>
+                <li>Glicídio + grupo fosfato</li>
+                <li>Voltada para fora (meio aquoso)</li>
+                <li>Interage com a água</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Cauda — APOLAR (hidrofóbica)</h5>
+              <ul>
+                <li>Ácidos graxos</li>
+                <li>Voltada para dentro da membrana</li>
+                <li>Repele a água — forma o interior impermeável</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Proteínas da Membrana</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <h4>Proteína Receptora</h4>
+          <ul>
+            <li>Reconhece e se liga a hormônios, neurotransmissores e outras moléculas sinalizadoras</li>
+            <li>Alta especificidade — funciona como chave-fechadura</li>
+            <li>Ao se ligar, altera o metabolismo da célula (ex: insulina → captação de glicose)</li>
+          </ul>
+          <h4>Proteína de Reconhecimento</h4>
+          <ul>
+            <li>Permite que outras células reconheçam a célula (identidade celular)</li>
+            <li>Conjunto dessas proteínas forma o <strong>glicocálix</strong> (só em célula animal)</li>
+          </ul>
+          <h4>Proteína Canal</h4>
+          <ul>
+            <li>Forma poros na membrana para passagem de íons e moléculas específicas</li>
+          </ul>
+          <h4>Proteína de Adesão</h4>
+          <ul>
+            <li>Une células entre si, formando tecidos</li>
+          </ul>
+          <h4>Proteína de Ancoragem</h4>
+          <ul>
+            <li>Ancora o citoesqueleto à membrana, permitindo forma e movimento celular</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Parede Celular</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="warning-box">
+            <strong>Atenção:</strong> a parede celular <strong>não</strong> é a membrana plasmática — é uma estrutura externa a ela, presente apenas em alguns organismos.
+          </div>
+          <ul>
+            <li><strong>Células vegetais e algas:</strong> celulose</li>
+            <li><strong>Fungos:</strong> quitina</li>
+            <li><strong>Bactérias:</strong> peptideoglicanos</li>
+          </ul>
+          <p style="font-size:0.93rem; margin-top:8px;">Confere estrutura, sustentação, proteção e forma. Não é organizada (é fibrosa) — por isso não é semipermeável como a membrana.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ AULA 7 — CITOESQUELETO ══════════ -->
+<section class="chapter" id="citoesqueleto">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch2">Aula 7</span> Citoesqueleto e Transporte</h2>
+    <p class="meta">Só em eucariotos · 3 tipos de filamentos · Endocitose e Exocitose</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">O que é o Citoesqueleto?</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Citoesqueleto</strong> = conjunto de proteínas ligadas às proteínas de ancoragem da membrana, que agem dando <strong>movimento, deslocamento, estrutura e forma</strong> às células eucariotas (e suas organelas).
+          </div>
+          <p style="font-size:0.93rem; margin-bottom:10px;">Formado por 3 tipos de complexos proteicos:</p>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Microfilamentos</h5>
+              <ul>
+                <li>Proteína: actina + outras</li>
+                <li>Forma, organização e estrutura da célula</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Filamentos Intermediários</h5>
+              <ul>
+                <li>Proteínas de adesão</li>
+                <li>Ligam a célula a outras células e estruturas</li>
+              </ul>
+            </div>
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card" style="grid-column: span 2;">
+              <h5>Microtúbulos</h5>
+              <ul>
+                <li>Proteína: <strong>tubulina</strong></li>
+                <li>Participam da formação dos <strong>centríolos</strong> (só em célula animal → infertilidade)</li>
+                <li>Originam: <strong>flagelos</strong> (movimento do espermatozoide), <strong>cílios</strong> (epitélio da traqueia), <strong>fusos de fuso</strong> (dividem o DNA na divisão celular)</li>
+                <li>Participam do transporte de moléculas em vesículas (proteínas motoras deslizam sobre os microtúbulos)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Transporte por Vesículas de Membrana</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <p style="font-size:0.93rem; margin-bottom:10px;">A célula realiza trocas com o ambiente externo por meio de <strong>vesículas</strong> (bolsas formadas pela membrana). Esse transporte é <strong>sempre ativo</strong> (gasta ATP).</p>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Endocitose — internalização</h5>
+              <ul>
+                <li><strong>Fagocitose</strong> (fagossomo): sólidos grandes, com pseudópodes (só com citoesqueleto). Ex: macrófago e neutrófilo</li>
+                <li><strong>Pinocitose</strong> (pinosoma): líquidos pequenos, por invaginação da membrana</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Exocitose — externalização</h5>
+              <ul>
+                <li><strong>Clasmocitose</strong>: elimina resíduos de digestão celular (RESÍDUOS)</li>
+                <li><strong>Secreção</strong>: libera substâncias úteis para o organismo (HORMÔNIO, ENZIMA, ANTICORPO)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tip-box">
+            <strong>Transporte pela membrana (fosfolipídio/proteína):</strong><br>
+            • <strong>Ativo</strong> (com gasto energético): íons, contra gradiente<br>
+            • <strong>Passivo</strong> (sem gasto energético): difusão simples / difusão facilitada / osmose
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ AULA 8 — ESPECIALIZAÇÕES ══════════ -->
+<section class="chapter" id="especializacoes">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch3">Aula 8</span> Especializações de Membrana e Citoesqueleto</h2>
+    <p class="meta">Intestino delgado · Microvilosidades · Desmossomos</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Microvilosidades</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Microvilosidades</strong> = dobras de membrana especializadas para aumentar a absorção de nutrientes (+área de contato com o meio).<br><br>
+            Encontradas principalmente no <strong>intestino delgado</strong> (epitélio de absorção).
+          </div>
+          <ul>
+            <li>São projeções da membrana plasmática voltadas para o lúmen intestinal</li>
+            <li>Aumentam drasticamente a superfície de contato sem aumentar o volume da célula</li>
+            <li>Sustentadas por microfilamentos de actina (citoesqueleto)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Desmossomos</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Desmossomos</strong> = proteínas de adesão que envolvem o citoesqueleto, para que o atrito com os alimentos não separe as células do epitélio intestinal.<br><br>
+            Funcionam como "rebites" entre células adjacentes.
+          </div>
+          <ul>
+            <li>Ligam células vizinhas mecanicamente</li>
+            <li>Ancorados ao citoesqueleto de filamentos intermediários de ambas as células</li>
+            <li>Comuns em tecidos sujeitos a stress mecânico: epitélio intestinal, pele, músculo cardíaco</li>
+          </ul>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Célula de Absorção</h5>
+              <ul>
+                <li>Microvilosidades na superfície apical</li>
+                <li>Especializada em absorver nutrientes</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Célula Caliciforme</h5>
+              <ul>
+                <li>Complexo de Golgi, mitocôndrias, vesículas de secreção, RER e núcleo bem desenvolvidos</li>
+                <li>Especializada em secretar muco glicoproteico</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ AULA 9 — ROTA SECRETORA ══════════ -->
+<section class="chapter" id="rota">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch4">Aula 9</span> Organelas da Rota Secretora</h2>
+    <p class="meta">RER · REL · Complexo de Golgi · Vesículas · Peroxissomo · Acrossomo</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">O que é a Rota Secretora?</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Rota secretora</strong> = sequência de eventos necessários para a secreção de substâncias para fora da célula. Envolve RER ou REL → Complexo de Golgi → vesículas de secreção → exterior.
+          </div>
+          <h4>Rota 1 — Proteínas e Glicoproteínas</h4>
+          <p style="font-size:0.9rem; margin-bottom:8px;">Ex: insulina/enzimas (glicocalix / muco glicoproteico)</p>
+          <div class="flow-box">
+            <span class="flow-step">DNA (gene)</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">1. Transcrição → RNAm</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">2. Tradução → RER (ribossomos)</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">3. Síntese da proteína no RER</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">4. Vesícula → Complexo de Golgi*</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">5. Vesícula de Secreção → Externo</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--text-light); margin-top:4px;">* No Complexo de Golgi a proteína é processada e empacotada — podem ser adicionados açúcares (glicoproteínas)</p>
+
+          <h4 style="margin-top:16px;">Rota 2 — Lipídicas</h4>
+          <p style="font-size:0.9rem; margin-bottom:8px;">Ex: esteroides / glândulas sebáceas</p>
+          <div class="flow-box">
+            <span class="flow-step">1. Síntese lipídica no REL</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">2. Encaminhados ao Complexo de Golgi</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">3. Secretados pela Vesícula de Secreção</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">RER — Retículo Endoplasmático Rugoso</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>RER</strong> = retículo endoplasmático coberto de ribossomos (daí "rugoso").<br><br>
+            Função: <strong>síntese de proteínas</strong> que serão secretadas ou incorporadas à membrana.
+          </div>
+          <ul>
+            <li>Os ribossomos do RER traduzem o RNAm (que saiu do núcleo) em proteína</li>
+            <li>A proteína sintetizada é encaminhada em vesículas para o Complexo de Golgi</li>
+            <li>Muito desenvolvido em células secretoras de proteínas (ex: células pancreáticas, células plasmáticas)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">REL — Retículo Endoplasmático Liso</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>REL</strong> = retículo endoplasmático <strong>sem ribossomos</strong>.<br><br>
+            Função principal: <strong>síntese de lipídios</strong> (esteroides, fosfolipídios, hormônios sexuais).
+          </div>
+          <ul>
+            <li>Muito desenvolvido em glândulas sebáceas e células que produzem hormônios esteroides</li>
+            <li>Os lipídios sintetizados são encaminhados ao Complexo de Golgi para processamento e secreção</li>
+            <li>Também atua na detoxificação de substâncias no fígado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Complexo de Golgi</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Complexo de Golgi</strong> = organela formada por cisternas achatadas empilhadas. Recebe vesículas do RER/REL, <strong>processa, modifica e empacota</strong> as substâncias, e as envia para o destino correto.
+          </div>
+          <ul>
+            <li>Adiciona açúcares às proteínas → <strong>glicoproteínas</strong> (ex: muco)</li>
+            <li>Forma <strong>vesículas de secreção</strong> para exocitose</li>
+            <li>Também origina: lisossomos, peroxissomos e acrossomos</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Analogia:</strong> o Complexo de Golgi funciona como o setor de expedição de uma fábrica — recebe o produto, faz os acabamentos finais e despacha para o destino certo.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Peroxissomo</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Peroxissomo</strong> = organela membranosa produzida pelo Complexo de Golgi que <strong>destrói/metaboliza o peróxido de hidrogênio</strong> (H₂O₂) — subproduto tóxico da oxidação/metabolização de ácidos graxos.
+          </div>
+          <ul>
+            <li>Contém a enzima <strong>catalase</strong> que converte: H₂O₂ → H₂O + O₂</li>
+            <li>Presente em grande quantidade no fígado e rins (órgãos de detoxificação)</li>
+            <li>Diferente do lisossomo: degrada compostos tóxicos, não faz digestão intracelular de partículas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Acrossomo</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Acrossomo</strong> = organela do <strong>espermatozoide</strong> que contém enzimas capazes de <strong>adentar (perfurar) a camada protetora do óvulo</strong>. Produzido pelo Complexo de Golgi.
+          </div>
+          <ul>
+            <li>Localizado na cabeça do espermatozoide, sobre o núcleo</li>
+            <li>Sem ele, a fecundação é impossível</li>
+            <li>As enzimas são liberadas ao contato com o óvulo (reação acrossômica)</li>
+            <li>Estrutura do espermatozoide: acrossomo → núcleo → mitocôndrias → flagelo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ QUIZ ══════════ -->
+<section class="quiz-section" id="quiz">
+  <h3>Banco de Questões</h3>
+  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">12 questões · Membrana, Citoesqueleto, Especializações e Rota Secretora</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (12)</button>
+    <button class="filter-btn" onclick="filterQuiz('ch1',this)">Membrana</button>
+    <button class="filter-btn" onclick="filterQuiz('ch2',this)">Citoesqueleto</button>
+    <button class="filter-btn" onclick="filterQuiz('ch3',this)">Especializações</button>
+    <button class="filter-btn" onclick="filterQuiz('ch4',this)">Rota Secretora</button>
+  </div>
+
+  <div id="score-box">Placar: <span id="score-correct">0</span> acertos de <span id="score-total">0</span> respondidas</div>
+
+  <div class="quiz-q" id="q1" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Membrana Plasmática</span>
+    <p>1. O modelo do Mosaico Fluido descreve a membrana como uma estrutura lipoproteica dinâmica. Qual das alternativas melhor explica por que a membrana é chamada de "fluida"?</p>
+    <label><input type="radio" name="q1" value="a" onclick="checkQuiz('q1','b')"> a) A membrana se dissolve em água por ser composta de fosfolipídios polares</label>
+    <label><input type="radio" name="q1" value="b" onclick="checkQuiz('q1','b')"> b) Os fosfolipídios e proteínas não são fixos — movem-se lateralmente na bicamada, tornando a membrana dinâmica</label>
+    <label><input type="radio" name="q1" value="c" onclick="checkQuiz('q1','b')"> c) O colesterol aumenta a fluidez ao impedir qualquer organização da bicamada</label>
+    <label><input type="radio" name="q1" value="d" onclick="checkQuiz('q1','b')"> d) A membrana é fluida porque as proteínas canais permitem passagem livre de todas as moléculas</label>
+    <div class="feedback" id="q1-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q2" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Membrana Plasmática</span>
+    <p>2. Um paciente diabético injeta insulina. A insulina se liga a uma proteína específica da membrana das células-alvo, ativando a captação de glicose. Que tipo de proteína de membrana está sendo ativada e por que ela é altamente específica?</p>
+    <label><input type="radio" name="q2" value="a" onclick="checkQuiz('q2','c')"> a) Proteína canal — forma um poro que permite a passagem seletiva de glicose mediante estímulo hormonal</label>
+    <label><input type="radio" name="q2" value="b" onclick="checkQuiz('q2','c')"> b) Proteína de adesão — conecta a insulina ao citoesqueleto para sinalizar a célula</label>
+    <label><input type="radio" name="q2" value="c" onclick="checkQuiz('q2','c')"> c) Proteína receptora — possui alta especificidade (modelo chave-fechadura) e, ao se ligar à insulina, altera o metabolismo celular ativando a captação de glicose</label>
+    <label><input type="radio" name="q2" value="d" onclick="checkQuiz('q2','c')"> d) Proteína de reconhecimento — identifica a insulina como substância própria do organismo e autoriza sua entrada</label>
+    <div class="feedback" id="q2-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q3" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Membrana Plasmática</span>
+    <p>3. O colesterol está presente na membrana de células animais, mas não em células vegetais. Qual é a função do colesterol na membrana e por que sua ausência não compromete as células vegetais?</p>
+    <label><input type="radio" name="q3" value="a" onclick="checkQuiz('q3','b')"> a) O colesterol aumenta a fluidez — células vegetais compensam com mais proteínas canais</label>
+    <label><input type="radio" name="q3" value="b" onclick="checkQuiz('q3','b')"> b) O colesterol reduz a fluidez, dando estabilidade à membrana animal — células vegetais têm a parede celular de celulose cumprindo essa função estrutural</label>
+    <label><input type="radio" name="q3" value="c" onclick="checkQuiz('q3','b')"> c) O colesterol impermeabiliza a membrana — células vegetais usam quitina para o mesmo fim</label>
+    <label><input type="radio" name="q3" value="d" onclick="checkQuiz('q3','b')"> d) O colesterol forma o glicocálix, que só existe em células animais pois as vegetais têm parede celular</label>
+    <div class="feedback" id="q3-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q4" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Citoesqueleto</span>
+    <p>4. Homens com síndrome de Kartagener apresentam cílios imóveis por defeito nos microtúbulos. Além da imobilidade dos cílios (que causa infecções respiratórias), qual outra consequência esperada se explica por essa mesma falha?</p>
+    <label><input type="radio" name="q4" value="a" onclick="checkQuiz('q4','c')"> a) Incapacidade de realizar fagocitose, pois os macrófagos dependem de cílios para englobar bactérias</label>
+    <label><input type="radio" name="q4" value="b" onclick="checkQuiz('q4','c')"> b) Ausência de lisossomos, pois os microtúbulos os produzem diretamente</label>
+    <label><input type="radio" name="q4" value="c" onclick="checkQuiz('q4','c')"> c) Infertilidade masculina — o flagelo do espermatozoide é formado a partir do centríolo (microtúbulos), e sem microtúbulos funcionais o espermatozoide não se move</label>
+    <label><input type="radio" name="q4" value="d" onclick="checkQuiz('q4','c')"> d) Impossibilidade de divisão celular, pois os microfilamentos de actina formam o fuso mitótico</label>
+    <div class="feedback" id="q4-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q5" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Citoesqueleto</span>
+    <p>5. Um macrófago encontra uma bactéria e a engloba por fagocitose. Qual estrutura celular torna isso possível, e por que esse processo não ocorre em células sem essa estrutura?</p>
+    <label><input type="radio" name="q5" value="a" onclick="checkQuiz('q5','b')"> a) O Complexo de Golgi — produz as vesículas que envolvem a bactéria e a digerem com enzimas</label>
+    <label><input type="radio" name="q5" value="b" onclick="checkQuiz('q5','b')"> b) O citoesqueleto (microfilamentos de actina) — permite a formação de pseudópodes que englobam a bactéria; sem citoesqueleto, não há como projetar a membrana para englobar sólidos grandes</label>
+    <label><input type="radio" name="q5" value="c" onclick="checkQuiz('q5','b')"> c) Os microtúbulos — transportam a bactéria até o núcleo para ser destruída pelo DNA celular</label>
+    <label><input type="radio" name="q5" value="d" onclick="checkQuiz('q5','b')"> d) A membrana plasmática sozinha — qualquer célula com membrana pode realizar fagocitose por pinocitose</label>
+    <div class="feedback" id="q5-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q6" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Citoesqueleto</span>
+    <p>6. Uma célula pancreática produz enzimas digestivas e as libera para o intestino. Esse processo de liberação de substâncias úteis para o organismo é chamado de:</p>
+    <label><input type="radio" name="q6" value="a" onclick="checkQuiz('q6','c')"> a) Fagocitose — internalização de sólidos grandes por pseudópodes</label>
+    <label><input type="radio" name="q6" value="b" onclick="checkQuiz('q6','c')"> b) Clasmocitose — eliminação de resíduos indigeríveis da célula</label>
+    <label><input type="radio" name="q6" value="c" onclick="checkQuiz('q6','c')"> c) Secreção (exocitose) — liberação de substâncias úteis como enzimas, hormônios e anticorpos para fora da célula</label>
+    <label><input type="radio" name="q6" value="d" onclick="checkQuiz('q6','c')"> d) Pinocitose — absorção de líquidos por invaginação da membrana</label>
+    <div class="feedback" id="q6-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q7" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Especializações</span>
+    <p>7. As células do intestino delgado possuem microvilosidades na superfície voltada para o lúmen. Qual é a vantagem funcional dessa especialização e qual estrutura do citoesqueleto a sustenta?</p>
+    <label><input type="radio" name="q7" value="a" onclick="checkQuiz('q7','b')"> a) As microvilosidades aumentam a secreção de enzimas digestivas — sustentadas por filamentos intermediários</label>
+    <label><input type="radio" name="q7" value="b" onclick="checkQuiz('q7','b')"> b) As microvilosidades aumentam a área de contato para absorção de nutrientes sem aumentar o volume celular — sustentadas por microfilamentos de actina</label>
+    <label><input type="radio" name="q7" value="c" onclick="checkQuiz('q7','b')"> c) As microvilosidades protegem a célula do atrito com os alimentos — sustentadas por desmossomos</label>
+    <label><input type="radio" name="q7" value="d" onclick="checkQuiz('q7','b')"> d) As microvilosidades aumentam a secreção de muco — sustentadas por microtúbulos do centríolo</label>
+    <div class="feedback" id="q7-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q8" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Especializações</span>
+    <p>8. Pacientes com doença celíaca têm as microvilosidades intestinais destruídas pelo sistema imune. Qual seria a principal consequência metabólica esperada?</p>
+    <label><input type="radio" name="q8" value="a" onclick="checkQuiz('q8','b')"> a) Incapacidade de secretar hormônios intestinais, causando desregulação hormonal sistêmica</label>
+    <label><input type="radio" name="q8" value="b" onclick="checkQuiz('q8','b')"> b) Má absorção de nutrientes — sem microvilosidades, a área de contato cai drasticamente e os nutrientes não são absorvidos adequadamente, levando à desnutrição</label>
+    <label><input type="radio" name="q8" value="c" onclick="checkQuiz('q8','b')"> c) Separação das células intestinais, pois as microvilosidades fazem o papel dos desmossomos</label>
+    <label><input type="radio" name="q8" value="d" onclick="checkQuiz('q8','b')"> d) Acúmulo de resíduos tóxicos, pois as microvilosidades eliminam produtos da digestão intracelular</label>
+    <div class="feedback" id="q8-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q9" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Rota Secretora</span>
+    <p>9. Uma célula das ilhotas pancreáticas produz insulina. Coloque em ordem a sequência correta da rota secretora para essa proteína:</p>
+    <label><input type="radio" name="q9" value="a" onclick="checkQuiz('q9','c')"> a) REL → Complexo de Golgi → vesícula de secreção → exterior</label>
+    <label><input type="radio" name="q9" value="b" onclick="checkQuiz('q9','c')"> b) Ribossomo livre → Complexo de Golgi → núcleo → vesícula → exterior</label>
+    <label><input type="radio" name="q9" value="c" onclick="checkQuiz('q9','c')"> c) DNA → RNAm → ribossomos do RER → proteína no RER → vesícula → Complexo de Golgi → vesícula de secreção → exterior</label>
+    <label><input type="radio" name="q9" value="d" onclick="checkQuiz('q9','c')"> d) DNA → RER → REL → Complexo de Golgi → exterior</label>
+    <div class="feedback" id="q9-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q10" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Rota Secretora</span>
+    <p>10. Por que o RER é chamado de "rugoso" e qual é a relação entre essa característica e sua função?</p>
+    <label><input type="radio" name="q10" value="a" onclick="checkQuiz('q10','b')"> a) É rugoso por estar dobrado em cisternas — as dobras aumentam a área para síntese lipídica</label>
+    <label><input type="radio" name="q10" value="b" onclick="checkQuiz('q10','b')"> b) É rugoso por estar coberto de ribossomos na sua superfície — os ribossomos traduzem o RNAm sintetizando proteínas que entram diretamente no lúmen do retículo para serem processadas</label>
+    <label><input type="radio" name="q10" value="c" onclick="checkQuiz('q10','b')"> c) É rugoso por conter enzimas digestivas em sua membrana que degradam proteínas defeituosas</label>
+    <label><input type="radio" name="q10" value="d" onclick="checkQuiz('q10','b')"> d) É rugoso por produzir vesículas com conteúdo lipídico que dão textura à organela</label>
+    <div class="feedback" id="q10-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q11" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Rota Secretora</span>
+    <p>11. Um glóbulo vermelho exposto ao H₂O₂ seria destruído. No entanto, células do fígado sobrevivem a altos níveis de H₂O₂ produzidos pelo metabolismo dos ácidos graxos. Qual organela é responsável por isso e como ela age?</p>
+    <label><input type="radio" name="q11" value="a" onclick="checkQuiz('q11','b')"> a) O lisossomo — degrada o H₂O₂ com enzimas hidrolíticas no ambiente ácido da organela</label>
+    <label><input type="radio" name="q11" value="b" onclick="checkQuiz('q11','b')"> b) O peroxissomo — contém a enzima catalase que converte H₂O₂ em H₂O + O₂, destoxificando a célula</label>
+    <label><input type="radio" name="q11" value="c" onclick="checkQuiz('q11','b')"> c) A mitocôndria — usa o H₂O₂ como substrato para produzir ATP na respiração celular</label>
+    <label><input type="radio" name="q11" value="d" onclick="checkQuiz('q11','b')"> d) O Complexo de Golgi — empacota o H₂O₂ em vesículas de secreção e o elimina por exocitose</label>
+    <div class="feedback" id="q11-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q12" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Rota Secretora</span>
+    <p>12. Homens com ausência de acrossomo são estéreis mesmo com espermatozoides morfologicamente normais e com flagelo funcional. Por que o acrossomo é indispensável para a fecundação?</p>
+    <label><input type="radio" name="q12" value="a" onclick="checkQuiz('q12','c')"> a) O acrossomo fornece energia (ATP) para o espermatozoide nadar até o óvulo</label>
+    <label><input type="radio" name="q12" value="b" onclick="checkQuiz('q12','c')"> b) O acrossomo produz hormônios que atraem o óvulo quimicamente para a fecundação</label>
+    <label><input type="radio" name="q12" value="c" onclick="checkQuiz('q12','c')"> c) O acrossomo contém enzimas que perfuram a camada protetora do óvulo (zona pelúcida) — sem ele, o espermatozoide não consegue penetrar o óvulo mesmo chegando até ele</label>
+    <label><input type="radio" name="q12" value="d" onclick="checkQuiz('q12','c')"> d) O acrossomo é responsável pela síntese de DNA necessária para a fusão dos núcleos durante a fecundação</label>
+    <div class="feedback" id="q12-fb"></div>
+  </div>
+
+  <div style="text-align:center; margin-top:28px;">
+    <button onclick="resetQuiz()" style="background:var(--secondary);color:white;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Resumo interativo — Biologia Celular · Avaliação 2026<br>
+  2ª série do Ensino Médio | <strong>Caderno Digital Band</strong>
+</footer>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+const answers = {
+  q1:  { correct: 'b', explain: 'O Mosaico Fluido é fluido porque fosfolipídios e proteínas não são estáticos — movem-se lateralmente na bicamada. O colesterol, ao contrário, reduz essa fluidez inserindo-se entre os fosfolipídios e limitando seu movimento, dando maior estabilidade estrutural à membrana animal.' },
+  q2:  { correct: 'c', explain: 'A proteína receptora possui alta especificidade pelo substrato (modelo chave-fechadura): apenas a molécula certa (insulina, neste caso) se encaixa no sítio de ligação. Ao se ligar, muda de conformação e desencadeia uma cascata de sinalização intracelular que ativa a captação de glicose. É diferente da proteína canal, que apenas forma um poro passivo.' },
+  q3:  { correct: 'b', explain: 'O colesterol insere-se entre os fosfolipídios da membrana animal e reduz sua fluidez, aumentando a estabilidade mecânica. Células vegetais não precisam dele porque a parede celular de celulose fornece a rigidez estrutural necessária. Fungos usam quitina e bactérias usam peptideoglicanos com o mesmo propósito estrutural.' },
+  q4:  { correct: 'c', explain: 'Os microtúbulos são a proteína estrutural dos centríolos, flagelos e cílios. O flagelo do espermatozoide surge do centríolo — portanto, se os microtúbulos são defeituosos, o flagelo não funciona e o espermatozoide fica imóvel, causando infertilidade masculina. Essa é uma das manifestações clássicas da síndrome de Kartagener.' },
+  q5:  { correct: 'b', explain: 'A fagocitose exige a formação de pseudópodes — extensões da membrana que envolvem e englobam a partícula sólida. Isso só é possível porque os microfilamentos de actina (citoesqueleto) se reorganizam e "empurram" a membrana para fora. Células sem citoesqueleto (ou seja, procariotos) não realizam fagocitose.' },
+  q6:  { correct: 'c', explain: 'Secreção é uma forma de exocitose em que vesículas carregando substâncias úteis (enzimas, hormônios, anticorpos) fundem-se com a membrana e liberam o conteúdo para o exterior. Diferente da clasmocitose, que elimina resíduos de digestão intracelular.' },
+  q7:  { correct: 'b', explain: 'Microvilosidades são dobras da membrana apical que multiplicam a área de contato disponível para absorção. Mais área = mais transportadores = mais nutrientes absorvidos por segundo, sem precisar aumentar o volume celular. Os microfilamentos de actina formam o núcleo interno de cada microvilosidade, sustentando sua estrutura.' },
+  q8:  { correct: 'b', explain: 'As microvilosidades multiplicam a área absortiva do intestino em até 600 vezes. Sem elas, a superfície funcional cai drasticamente e os nutrientes atravessam o intestino sem serem absorvidos. O resultado é má absorção generalizada: deficiência de vitaminas, minerais, proteínas e energia — quadro clínico de desnutrição e diarreia crônica.' },
+  q9:  { correct: 'c', explain: 'Rota proteica completa: 1) DNA é transcrito em RNAm no núcleo; 2) RNAm sai do núcleo e é traduzido pelos ribossomos presos ao RER; 3) A proteína é sintetizada dentro do lúmen do RER; 4) Vesículas transportam a proteína ao Complexo de Golgi onde é processada e empacotada (podem ser adicionados açúcares — glicoproteínas); 5) Vesícula de secreção faz exocitose → exterior.' },
+  q10: { correct: 'b', explain: 'O RER é "rugoso" visualmente porque sua membrana externa está coberta de ribossomos. Esses ribossomos traduzem RNAm específicos — enquanto a proteína é sintetizada, ela entra diretamente no lúmen do RER, onde será dobrada e preparada para ser enviada ao Golgi. O REL, sem ribossomos, tem superfície lisa e função diferente: síntese lipídica.' },
+  q11: { correct: 'b', explain: 'O peroxissomo é produzido pelo Complexo de Golgi e contém catalase, enzima que catalisa: H₂O₂ → H₂O + O₂. O H₂O₂ é um subproduto tóxico da beta-oxidação dos ácidos graxos (metabolismo lipídico). Fígado e rins são ricos em peroxissomos justamente porque metabolizam muitos ácidos graxos e substâncias tóxicas.' },
+  q12: { correct: 'c', explain: 'O acrossomo é uma vesícula modificada derivada do Complexo de Golgi, localizada na ponta da cabeça do espermatozoide. Contém enzimas (hialuronidase, acrosina) que perfuram quimicamente a zona pelúcida — camada protetora do óvulo. Sem acrossomo, o espermatozoide chega ao óvulo mas não consegue penetrá-lo: a fecundação é impossível.' },
+};
+
+let scoreCorrect = 0, scoreTotal = 0;
+
+function checkQuiz(id, correct) {
+  const radios = document.querySelectorAll(`input[name="${id}"]`);
+  let chosen = '';
+  radios.forEach(r => { if (r.checked) chosen = r.value; });
+  if (!chosen) return;
+  const fb = document.getElementById(id + '-fb');
+  if (fb.classList.contains('correct') || fb.classList.contains('wrong')) return;
+  scoreTotal++;
+  if (chosen === correct) {
+    scoreCorrect++;
+    fb.className = 'feedback correct';
+    fb.textContent = '✓ Correto! ' + answers[id].explain;
+  } else {
+    fb.className = 'feedback wrong';
+    fb.textContent = '✗ Incorreto. ' + answers[id].explain;
+  }
+  const box = document.getElementById('score-box');
+  box.style.display = 'block';
+  document.getElementById('score-correct').textContent = scoreCorrect;
+  document.getElementById('score-total').textContent = scoreTotal;
+}
+
+function filterQuiz(ch, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.quiz-q').forEach(q => {
+    q.classList.toggle('hidden', ch !== 'all' && q.dataset.ch !== ch);
+  });
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-q input[type="radio"]').forEach(r => r.checked = false);
+  document.querySelectorAll('.feedback').forEach(f => f.className = 'feedback');
+  scoreCorrect = 0; scoreTotal = 0;
+  document.getElementById('score-box').style.display = 'none';
+  document.getElementById('score-correct').textContent = '0';
+  document.getElementById('score-total').textContent = '0';
+}
+
+function toggleChat() {
+  const p = document.getElementById("chat-panel");
+  p.classList.toggle("open");
+  if (p.classList.contains("open")) document.getElementById("chat-input").focus();
+}
+function getContext() {
+  const el = document.querySelector("main") || document.body;
+  return el.innerText.replace(/\s+/g, " ").slice(0, 6000);
+}
+async function sendMsg(e) {
+  e.preventDefault();
+  const input = document.getElementById("chat-input");
+  const msgs = document.getElementById("chat-msgs");
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = "";
+  msgs.innerHTML += "<div class='cmsg user'>" + text + "</div>";
+  const loader = document.createElement("div");
+  loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
+  msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
+  try {
+    const r = await fetch("/api/chat", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ message: text, context: getContext() }) });
+    const d = await r.json();
+    loader.className = "cmsg bot"; loader.textContent = d.reply || d.error;
+  } catch(err) { loader.className = "cmsg bot"; loader.textContent = "Erro de conexão. Tente novamente."; }
+  msgs.scrollTop = msgs.scrollHeight;
+}
+</script>
+</body>
+</html>
