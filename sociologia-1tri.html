@@ -2,6 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resumo de Sociologia - Avaliação Especial 2026</title>
 <style>
@@ -104,7 +110,11 @@
   .quiz-chapter-tag.tag-ch2 { background: rgba(123,36,28,0.5); color: #f1948a; }
   .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
   .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.2); border-color: white; }
-  #score-box { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 12px 20px; text-align: center; font-weight: 700; font-size: 1rem; margin-bottom: 16px; display: none; }
+  #score-box { background: rgba(255,255,255,0.15); border-radius: 10px; padding: 14px 20px; font-weight: 700; font-size: 1rem; margin-bottom: 16px; display: none; }
+  #score-nums { margin-bottom: 10px; text-align:center; }
+  #score-chart-wrap { display:flex; align-items:center; justify-content:center; gap:14px; }
+  #score-pct-label { font-size:1.3rem; font-weight:800; }
+  #score-pct-sub { font-size:0.78rem; opacity:0.75; font-weight:400; }
 
   /* FOOTER */
   footer { text-align: center; padding: 32px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); }
@@ -463,7 +473,16 @@
     <button class="filter-btn" onclick="filterQuiz('ch2',this)">Karl Marx</button>
   </div>
 
-  <div id="score-box">Placar: <span id="score-correct">0</span> acertos de <span id="score-total">0</span> respondidas</div>
+  <div id="score-box">
+    <div id="score-nums">Placar: <span id="score-correct">0</span> acertos de <span id="score-total">0</span> respondidas</div>
+    <div id="score-chart-wrap">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="10"/>
+        <circle id="donut-arc" cx="32" cy="32" r="26" fill="none" stroke="#9b6dbd" stroke-width="10" stroke-dasharray="0 163.4" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+      </svg>
+      <div><div id="score-pct-label">0%</div><div id="score-pct-sub">de acertos</div></div>
+    </div>
+  </div>
 
   <!-- ADAM SMITH -->
   <div class="quiz-q" id="q1" data-ch="ch1">
@@ -787,10 +806,14 @@ function checkQuiz(qId, correct) {
 }
 
 function updateScore() {
-  const box = document.getElementById('score-box');
-  box.style.display = 'block';
+  document.getElementById('score-box').style.display = 'block';
   document.getElementById('score-correct').textContent = scoreCorrect;
   document.getElementById('score-total').textContent = scoreTotal;
+  const pct = scoreTotal > 0 ? Math.round((scoreCorrect / scoreTotal) * 100) : 0;
+  document.getElementById('score-pct-label').textContent = pct + '%';
+  const arc = (scoreCorrect / scoreTotal) * 163.4;
+  document.getElementById('donut-arc').setAttribute('stroke-dasharray', arc + ' ' + (163.4 - arc));
+  document.getElementById('donut-arc').setAttribute('stroke', pct >= 70 ? '#9b6dbd' : pct >= 40 ? '#f39c12' : '#e74c3c');
 }
 
 function filterQuiz(ch, btn) {
@@ -806,6 +829,8 @@ function resetQuiz() {
   document.querySelectorAll('.quiz-q .feedback').forEach(f => { f.className = 'feedback'; f.textContent = ''; });
   scoreCorrect = 0; scoreTotal = 0;
   document.getElementById('score-box').style.display = 'none';
+  document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
+  document.getElementById('score-pct-label').textContent = '0%';
   document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
 }
 </script>

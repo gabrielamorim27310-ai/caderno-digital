@@ -2,6 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resumo de Química – Avaliação Especial 2026</title>
 <style>
@@ -153,7 +159,11 @@
   .tag-ch6 { background: rgba(0,105,92,0.5); }
   .tag-ch7 { background: rgba(0,131,143,0.5); }
   .tag-ch8 { background: rgba(40,53,147,0.5); }
-  #score-box { text-align: center; margin-bottom: 20px; padding: 12px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: none; }
+  #score-box { margin-bottom: 20px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: none; }
+  #score-nums { text-align:center; margin-bottom:10px; }
+  #score-chart-wrap { display:flex; align-items:center; justify-content:center; gap:14px; color:white; }
+  #score-pct-label { font-size:1.3rem; font-weight:800; }
+  #score-pct-sub { font-size:0.78rem; opacity:0.75; font-weight:400; }
   /* PROGRESS BAR */
   .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--secondary), var(--primary)); z-index: 200; transition: width 0.2s; width: 0%; }
   /* FOOTER */
@@ -1560,7 +1570,21 @@
 <!-- QUIZ -->
 <section class="quiz-section" id="quiz">
   <h3>🧪 Teste seus Conhecimentos</h3>
-  <div id="score-box"></div>
+  <div id="score-box">
+    <div id="score-nums"></div>
+    <div id="score-chart-wrap">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="8"/>
+        <circle id="donut-arc" cx="32" cy="32" r="26" fill="none" stroke="#e07b00" stroke-width="8"
+          stroke-dasharray="0 163.4" stroke-linecap="round"
+          transform="rotate(-90 32 32)"/>
+      </svg>
+      <div>
+        <div id="score-pct-label">0%</div>
+        <div id="score-pct-sub">de acerto</div>
+      </div>
+    </div>
+  </div>
   <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; justify-content:center;">
     <button class="filter-btn active" onclick="filterQuiz('all',this)">Todos</button>
     <button class="filter-btn" onclick="filterQuiz('ch1',this)">Cap. 1</button>
@@ -2031,9 +2055,18 @@ function checkQuiz(qId, correct) {
   fb.className = 'feedback ' + (isCorrect ? 'correct' : 'wrong');
   fb.innerHTML = (isCorrect ? '✅ Correto! ' : '❌ Errado. ') + answers[qId].explain;
   document.querySelectorAll(`input[name="${qId}"]`).forEach(r => r.disabled = true);
+  updateScore();
+}
+function updateScore() {
   const box = document.getElementById('score-box');
   box.style.display = 'block';
-  box.textContent = `Placar: ${scoreCorrect} / ${scoreTotal}`;
+  document.getElementById('score-nums').textContent = `Placar: ${scoreCorrect} / ${scoreTotal}`;
+  const pct = scoreTotal ? Math.round(scoreCorrect / scoreTotal * 100) : 0;
+  const arc = (scoreCorrect / (scoreTotal || 1)) * 163.4;
+  const donut = document.getElementById('donut-arc');
+  donut.setAttribute('stroke-dasharray', `${arc} 163.4`);
+  donut.setAttribute('stroke', pct >= 70 ? '#e07b00' : pct >= 40 ? '#f39c12' : '#e74c3c');
+  document.getElementById('score-pct-label').textContent = pct + '%';
 }
 function filterQuiz(ch, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -2049,7 +2082,11 @@ function resetQuiz() {
     const fb = q.querySelector('.feedback');
     fb.className = 'feedback'; fb.innerHTML = '';
   });
-  document.getElementById('score-box').style.display = 'none';
+  const box = document.getElementById('score-box');
+  box.style.display = 'none';
+  document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
+  document.getElementById('score-pct-label').textContent = '0%';
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
 }
 </script>
 

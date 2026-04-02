@@ -2,6 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resumo de História - 1ª Avaliação Intermediária 2026</title>
 <style>
@@ -464,16 +470,11 @@
   .tag-ch2 { background: rgba(30,83,180,0.5); }
   .tag-ch3 { background: rgba(180,80,30,0.5); }
   .tag-ch4 { background: rgba(30,120,80,0.5); }
-  #score-box {
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 12px;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.12);
-    font-size: 1rem;
-    font-weight: 700;
-    display: none;
-  }
+  #score-box { margin-bottom: 20px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: none; }
+  #score-nums { text-align:center; margin-bottom:10px; }
+  #score-chart-wrap { display:flex; align-items:center; justify-content:center; gap:14px; }
+  #score-pct-label { font-size:1.3rem; font-weight:800; }
+  #score-pct-sub { font-size:0.78rem; opacity:0.75; font-weight:400; }
   /* === PROGRESS BAR === */
   .progress-bar {
     position: fixed;
@@ -1402,7 +1403,16 @@
   </div>
 
   <!-- Placar -->
-  <div id="score-box">🏆 Placar: <span id="score-correct">0</span> acertos de <span id="score-total">0</span> respondidas</div>
+  <div id="score-box">
+    <div id="score-nums">🏆 Placar: <span id="score-correct">0</span> acertos de <span id="score-total">0</span> respondidas</div>
+    <div id="score-chart-wrap">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="10"/>
+        <circle id="donut-arc" cx="32" cy="32" r="26" fill="none" stroke="#c9953c" stroke-width="10" stroke-dasharray="0 163.4" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+      </svg>
+      <div><div id="score-pct-label">0%</div><div id="score-pct-sub">de acertos</div></div>
+    </div>
+  </div>
 
   <!-- ══════════ CAP 11 - ANTIGO REGIME ══════════ -->
   <div class="quiz-q" id="q1" data-ch="ch1">
@@ -1994,10 +2004,14 @@ function checkQuiz(qId, correct) {
 }
 
 function updateScore() {
-  const box = document.getElementById('score-box');
-  box.style.display = 'block';
+  document.getElementById('score-box').style.display = 'block';
   document.getElementById('score-correct').textContent = scoreCorrect;
   document.getElementById('score-total').textContent = scoreTotal;
+  const pct = scoreTotal > 0 ? Math.round((scoreCorrect / scoreTotal) * 100) : 0;
+  document.getElementById('score-pct-label').textContent = pct + '%';
+  const arc = (scoreCorrect / scoreTotal) * 163.4;
+  document.getElementById('donut-arc').setAttribute('stroke-dasharray', arc + ' ' + (163.4 - arc));
+  document.getElementById('donut-arc').setAttribute('stroke', pct >= 70 ? '#c9953c' : pct >= 40 ? '#f39c12' : '#e74c3c');
 }
 
 function filterQuiz(ch, btn) {
@@ -2018,6 +2032,8 @@ function resetQuiz() {
   scoreCorrect = 0;
   scoreTotal = 0;
   document.getElementById('score-box').style.display = 'none';
+  document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
+  document.getElementById('score-pct-label').textContent = '0%';
   document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
 }
 // Active nav highlight

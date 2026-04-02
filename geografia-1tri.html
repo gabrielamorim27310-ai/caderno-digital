@@ -2,6 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resumo de Geografia — 1ª Avaliação Intermediária 2026</title>
 <style>
@@ -149,6 +155,7 @@
     <a class="nav-link" href="#sec6">6. Guerra Fria</a>
     <a class="nav-link" href="#sec7">7. Rev. Tecnológica</a>
     <a class="nav-link" href="#sec8">8. Mundialização</a>
+    <a class="nav-link" href="#quiz">Quiz</a>
   </div>
 </nav>
 
@@ -655,193 +662,233 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════
-       EXERCÍCIOS
+       QUIZ
   ═══════════════════════════════════════════════ -->
-  <section class="section" id="exercicios">
+  <section class="section" id="quiz">
     <div class="section-header">
-      <div class="section-num" style="background:#374151">📝</div>
+      <div class="section-num" style="background:#1b4332">🧩</div>
       <div>
-        <h2 class="section-title">Exercícios</h2>
-        <p class="section-sub">Clique em "Ver resposta" para revelar</p>
+        <h2 class="section-title">Quiz</h2>
+        <p class="section-sub">15 questões · Selecione e veja se acertou</p>
       </div>
     </div>
 
     <style>
-      .ex { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); overflow: hidden; }
-      .ex:last-child { margin-bottom: 0; }
-      .ex-q { padding: 18px 22px; display: flex; align-items: flex-start; gap: 14px; }
-      .ex-num { background: #374151; color: white; border-radius: 8px; padding: 4px 10px; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-      .ex-text { font-size: 0.93rem; font-weight: 500; flex: 1; }
-      .ex-text .topic { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); display: block; margin-bottom: 4px; }
-      details summary { list-style: none; cursor: pointer; padding: 10px 22px; background: #f5fbf7; border-top: 1px solid var(--border); font-size: 0.82rem; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 8px; user-select: none; }
-      details summary::-webkit-details-marker { display: none; }
-      details summary::before { content: '▸'; transition: transform 0.2s; }
-      details[open] summary::before { transform: rotate(90deg); }
-      details[open] summary { background: #d8f3dc; }
-      .ex-ans { padding: 16px 22px; background: #f0faf4; border-top: 1px solid var(--border); font-size: 0.91rem; line-height: 1.7; }
-      .ex-ans strong { color: var(--primary); }
+      /* Quiz Geography */
+      .quiz-filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+      .qf-btn { padding:6px 14px; border-radius:20px; border:2px solid var(--border); background:white; color:var(--text-light); font-size:0.8rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
+      .qf-btn.active, .qf-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
+      #score-box { background: linear-gradient(135deg, var(--primary), #0d2b1d); border-radius: 12px; padding: 16px 22px; color: white; font-weight: 700; font-size: 1rem; margin-bottom: 16px; display: none; }
+      #score-nums { margin-bottom: 10px; }
+      #score-chart-wrap { display:flex; align-items:center; gap:12px; }
+      #score-donut { flex-shrink:0; }
+      #score-pct-label { font-size:1.1rem; font-weight:800; }
+      #score-pct-sub { font-size:0.8rem; opacity:0.8; font-weight:400; }
+      .quiz-q { background:white; border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:14px; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+      .quiz-q.hidden { display:none; }
+      .quiz-tag { display:inline-block; font-size:0.72rem; font-weight:700; padding:3px 10px; border-radius:12px; margin-bottom:10px; background:#d8f3dc; color:var(--primary); letter-spacing:0.04em; }
+      .quiz-q p { font-size:0.93rem; margin-bottom:12px; line-height:1.6; color:var(--text); font-weight:500; }
+      .quiz-q label { display:block; padding:8px 12px; border-radius:6px; cursor:pointer; font-size:0.88rem; margin-bottom:4px; transition:background 0.2s; color:var(--text); }
+      .quiz-q label:hover { background:#f0faf4; }
+      .quiz-q input[type="radio"] { margin-right:8px; accent-color:var(--primary); }
+      .q-feedback { margin-top:10px; padding:10px 14px; border-radius:8px; font-size:0.87rem; display:none; line-height:1.5; }
+      .q-feedback.correct { background:#d8f3dc; color:#1b4332; display:block; }
+      .q-feedback.wrong { background:#fde8e8; color:#7b1d1d; display:block; }
+      .quiz-reset { background:var(--primary); color:white; border:none; padding:12px 28px; border-radius:8px; font-weight:700; cursor:pointer; font-size:1rem; margin-top:8px; }
+      .quiz-reset:hover { background:#2d6a4f; }
     </style>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">01</span>
-        <div class="ex-text">
-          <span class="topic">Capitalismo</span>
-          Qual é a principal característica do <strong>Capitalismo Financeiro</strong> e qual foi o papel do neoliberalismo na sua consolidação?
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          O <strong>Capitalismo Financeiro</strong> tem como principal característica a centralidade do sistema financeiro na economia: bancos, bolsas de valores, crédito e fluxos de capitais internacionais passam a ser mais importantes do que a produção industrial propriamente dita. O <strong>neoliberalismo</strong> — especialmente pelo Consenso de Washington (1989) — consolidou esse modelo ao defender privatizações, abertura de mercados, desregulamentação financeira e disciplina fiscal, permitindo que capitais circulassem livremente pelo globo.
-        </div>
-      </details>
+    <div class="quiz-filters">
+      <button class="qf-btn active" onclick="filterGeo('all',this)">Todas (15)</button>
+      <button class="qf-btn" onclick="filterGeo('cap',this)">Capitalismo</button>
+      <button class="qf-btn" onclick="filterGeo('ind',this)">Rev. Industriais</button>
+      <button class="qf-btn" onclick="filterGeo('dit',this)">DIT</button>
+      <button class="qf-btn" onclick="filterGeo('onu',this)">ONU</button>
+      <button class="qf-btn" onclick="filterGeo('gf',this)">Guerra Fria</button>
+      <button class="qf-btn" onclick="filterGeo('mund',this)">Mundialização</button>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">02</span>
-        <div class="ex-text">
-          <span class="topic">Revoluções Industriais</span>
-          Compare o <strong>Fordismo</strong> e o <strong>Toyotismo</strong> quanto ao tipo de produção, organização do trabalho e relação com a globalização.
+    <div id="score-box">
+      <div id="score-nums">Placar: <span id="score-correct">0</span> acertos de <span id="score-total">0</span> respondidas</div>
+      <div id="score-chart-wrap">
+        <svg id="score-donut" width="64" height="64" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="10"/>
+          <circle id="donut-arc" cx="32" cy="32" r="26" fill="none" stroke="#52b788" stroke-width="10" stroke-dasharray="0 163.4" stroke-linecap="round" transform="rotate(-90 32 32)"/>
+        </svg>
+        <div>
+          <div id="score-pct-label">0%</div>
+          <div id="score-pct-sub">de acertos</div>
         </div>
       </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          O <strong>Fordismo</strong> caracteriza-se pela produção em massa padronizada via linha de montagem, com tarefas repetitivas e fragmentadas, grandes estoques e consumo de massa. A produção era concentrada. Já o <strong>Toyotismo</strong> propõe produção flexível sob demanda (<em>just in time</em>), trabalho polivalente, estoques reduzidos e mercado diversificado. Em relação à globalização, o Toyotismo viabiliza <strong>cadeias produtivas globais</strong> — as empresas podem fragmentar a produção em vários países, descentralizando a indústria.
-        </div>
-      </details>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">03</span>
-        <div class="ex-text">
-          <span class="topic">Divisão Internacional do Trabalho</span>
-          Por que a <strong>Velha DIT</strong> é considerada um sistema de "trocas desiguais"? O que mudou com a <strong>Nova DIT</strong>?
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          Na <strong>Velha DIT</strong> (1850–1945), os países industrializados (EUA, Europa Ocidental, Japão) exportavam manufaturas de alto valor agregado, enquanto os países periféricos exportavam matérias-primas baratas. Essa troca desigual gerava riqueza para os países do centro e mantinha os periféricos em situação de dependência. Com a <strong>Nova DIT</strong> (após 1945), a independência das colônias e a expansão das multinacionais descentralizaram a produção industrial, permitindo que países emergentes passassem a exportar produtos industrializados. Porém, as trocas <strong>continuaram desiguais</strong>: os países avançados concentraram o desenvolvimento das tecnologias de ponta, de maior valor agregado.
-        </div>
-      </details>
+    <!-- Q1 -->
+    <div class="quiz-q" id="gq1" data-cat="cap">
+      <span class="quiz-tag">Capitalismo</span>
+      <p>1. Qual é a principal característica do <strong>Capitalismo Financeiro</strong>?</p>
+      <label><input type="radio" name="gq1" value="a" onclick="checkGeo('gq1','c')"> a) Centralidade da produção industrial e do trabalho fabril como motor da economia</label>
+      <label><input type="radio" name="gq1" value="b" onclick="checkGeo('gq1','c')"> b) Controle estatal dos meios de produção e planejamento centralizado da economia</label>
+      <label><input type="radio" name="gq1" value="c" onclick="checkGeo('gq1','c')"> c) Centralidade do sistema financeiro (bancos, bolsas, crédito e fluxos de capitais internacionais) sobre a produção industrial</label>
+      <label><input type="radio" name="gq1" value="d" onclick="checkGeo('gq1','c')"> d) Substituição do dólar por moedas digitais como principal mecanismo de troca global</label>
+      <div class="q-feedback" id="gq1-fb"></div>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">04</span>
-        <div class="ex-text">
-          <span class="topic">ONU e Instituições</span>
-          Qual foi a importância da <strong>Conferência de Bretton Woods (1944)</strong> para a organização econômica do pós-guerra? Cite as instituições criadas.
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          A <strong>Conferência de Bretton Woods</strong> estabeleceu um novo sistema financeiro internacional após os impactos da Grande Depressão (1929) e da 2ª Guerra Mundial. Suas principais decisões foram: definição do <strong>dólar americano</strong> como moeda de referência internacional, criação do padrão-ouro (US$ = 35g de ouro) e limite de variação cambial de 1%. As instituições criadas foram: <strong>FMI</strong> (Fundo Monetário Internacional) — estabilidade financeira; <strong>Banco Mundial</strong> — desenvolvimento econômico e social; e <strong>BIRD</strong> (Banco Internacional para Reconstrução e Desenvolvimento).
-        </div>
-      </details>
+    <!-- Q2 -->
+    <div class="quiz-q" id="gq2" data-cat="cap">
+      <span class="quiz-tag">Capitalismo · Neoliberalismo</span>
+      <p>2. O Consenso de Washington (1989) consolidou o neoliberalismo ao impor medidas como condição para empréstimos do FMI. Qual alternativa NÃO é uma das premissas neoliberais do Consenso?</p>
+      <label><input type="radio" name="gq2" value="a" onclick="checkGeo('gq2','d')"> a) Privatizações de empresas estatais</label>
+      <label><input type="radio" name="gq2" value="b" onclick="checkGeo('gq2','d')"> b) Disciplina fiscal e corte de gastos públicos</label>
+      <label><input type="radio" name="gq2" value="c" onclick="checkGeo('gq2','d')"> c) Abertura comercial e desregulamentação financeira</label>
+      <label><input type="radio" name="gq2" value="d" onclick="checkGeo('gq2','d')"> d) Aumento do protecionismo para proteger indústrias nacionais da concorrência externa</label>
+      <div class="q-feedback" id="gq2-fb"></div>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">05</span>
-        <div class="ex-text">
-          <span class="topic">ONU</span>
-          Explique a estrutura do <strong>Conselho de Segurança da ONU</strong> e por que ele é considerado o órgão mais poderoso da organização.
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          O <strong>Conselho de Segurança</strong> é responsável pela manutenção da paz e da segurança internacionais. É composto por <strong>5 membros permanentes</strong> (EUA, Rússia, China, Reino Unido e França) com poder de <strong>voto e veto</strong> — ou seja, qualquer um deles pode bloquear qualquer resolução — e <strong>10 membros rotativos</strong> com poder apenas de voto. É o órgão mais poderoso da ONU porque suas decisões são vinculantes (obrigatórias) para os países-membros, podendo autorizar intervenções militares e sanções internacionais.
-        </div>
-      </details>
+    <!-- Q3 -->
+    <div class="quiz-q" id="gq3" data-cat="ind">
+      <span class="quiz-tag">Revoluções Industriais</span>
+      <p>3. O Toyotismo superou o Fordismo ao propor um modelo de produção diferente. Qual característica é EXCLUSIVA do Toyotismo e viabiliza as cadeias produtivas globais?</p>
+      <label><input type="radio" name="gq3" value="a" onclick="checkGeo('gq3','b')"> a) Produção em massa padronizada com linha de montagem e grandes estoques</label>
+      <label><input type="radio" name="gq3" value="b" onclick="checkGeo('gq3','b')"> b) Produção flexível sob demanda (just in time), trabalho polivalente e fragmentação da produção em múltiplos países</label>
+      <label><input type="radio" name="gq3" value="c" onclick="checkGeo('gq3','b')"> c) Verticalização total da produção dentro de uma única fábrica para eliminar dependências externas</label>
+      <label><input type="radio" name="gq3" value="d" onclick="checkGeo('gq3','b')"> d) Maior participação do Estado no planejamento industrial para evitar o desperdício fordista</label>
+      <div class="q-feedback" id="gq3-fb"></div>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">06</span>
-        <div class="ex-text">
-          <span class="topic">Guerra Fria</span>
-          O que foram a <strong>Glasnost</strong> e a <strong>Perestroika</strong> e qual foi o seu resultado para a URSS?
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          A <strong>Glasnost</strong> (abertura) e a <strong>Perestroika</strong> (reestruturação) foram reformas propostas por Mikhail Gorbachev na década de 1980 para tentar salvar a URSS de sua grave crise econômica, política e social — causada pelos altos gastos militares, custos do socialismo internacional e da Guerra do Afeganistão. A <strong>Glasnost</strong> promovia abertura política e transparência; a <strong>Perestroika</strong> buscava reestruturar a economia. No entanto, ao invés de salvar o sistema, as reformas aceleraram seu colapso: movimentos de independência se fortaleceram na Europa Oriental, levando à queda do Muro de Berlim (1989) e à <strong>dissolução oficial da URSS em 15 repúblicas independentes</strong> em dezembro de 1991.
-        </div>
-      </details>
+    <!-- Q4 -->
+    <div class="quiz-q" id="gq4" data-cat="ind">
+      <span class="quiz-tag">3ª Revolução Industrial</span>
+      <p>4. Por que a 3ª Revolução Industrial é chamada de "Revolução Técnico-Científica Informacional"?</p>
+      <label><input type="radio" name="gq4" value="a" onclick="checkGeo('gq4','c')"> a) Porque foi baseada no uso do vapor e da eletricidade como fontes de energia industrial</label>
+      <label><input type="radio" name="gq4" value="b" onclick="checkGeo('gq4','c')"> b) Porque criou as primeiras multinacionais e os primeiros blocos econômicos regionais</label>
+      <label><input type="radio" name="gq4" value="c" onclick="checkGeo('gq4','c')"> c) Porque se baseia na integração entre ciência, tecnologia e informação (informática, telecomunicações, biotecnologia), diferente das anteriores que usavam energia como base</label>
+      <label><input type="radio" name="gq4" value="d" onclick="checkGeo('gq4','c')"> d) Porque levou à desindustrialização dos países centrais e transferiu a produção para a periferia</label>
+      <div class="q-feedback" id="gq4-fb"></div>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">07</span>
-        <div class="ex-text">
-          <span class="topic">Revolução Tecnológica</span>
-          Por que a <strong>3ª Revolução Industrial</strong> é chamada de "Revolução Técnico-Científica Informacional" e qual é sua relação com a globalização?
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          A <strong>3ª Revolução Industrial</strong> recebe esse nome porque se baseia na integração entre ciência, tecnologia e informação — diferente das anteriores, que eram baseadas em energia (vapor, eletricidade, petróleo). Seus pilares são: informática, microeletrônica, telecomunicações, biotecnologia e novos materiais. Ela é diretamente responsável pela globalização contemporânea porque: (1) permitiu a integração global das cadeias produtivas; (2) possibilitou a circulação quase instantânea de informações e capitais; (3) viabilizou a expansão das empresas transnacionais; e (4) possibilitou a transição do Fordismo para o Toyotismo (produção flexível e descentralizada).
-        </div>
-      </details>
+    <!-- Q5 -->
+    <div class="quiz-q" id="gq5" data-cat="dit">
+      <span class="quiz-tag">DIT</span>
+      <p>5. Por que a Velha DIT (1850–1945) é considerada um sistema de "trocas desiguais"?</p>
+      <label><input type="radio" name="gq5" value="a" onclick="checkGeo('gq5','b')"> a) Porque os países periféricos recusavam exportar matérias-primas, forçando os centrais a pagar preços abusivos</label>
+      <label><input type="radio" name="gq5" value="b" onclick="checkGeo('gq5','b')"> b) Porque países centrais exportavam manufaturas de alto valor agregado enquanto países periféricos exportavam matérias-primas baratas, gerando dependência estrutural</label>
+      <label><input type="radio" name="gq5" value="c" onclick="checkGeo('gq5','b')"> c) Porque os países centrais protegiam seus mercados com tarifas enquanto forçavam os periféricos a importar livremente</label>
+      <label><input type="radio" name="gq5" value="d" onclick="checkGeo('gq5','b')"> d) Porque a DIT só beneficiava os países asiáticos, excluindo América Latina e África do comércio global</label>
+      <div class="q-feedback" id="gq5-fb"></div>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">08</span>
-        <div class="ex-text">
-          <span class="topic">Blocos Econômicos</span>
-          Qual é a diferença entre uma <strong>Zona de Livre Comércio</strong> e uma <strong>União Política</strong>? Dê exemplos de blocos que representam cada tipo.
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          Uma <strong>Zona de Livre Comércio</strong> é o nível mais básico de integração: permite apenas a livre circulação de mercadorias entre os países membros, sem tarifas alfandegárias internas. Exemplo: <strong>NAFTA/USMCA</strong> (EUA, Canadá e México). Uma <strong>União Política</strong> é o nível mais avançado: reúne todas as características anteriores (Zona de Livre Comércio + União Aduaneira + Mercado Comum + União Monetária) e acrescenta <strong>instituições políticas comuns</strong>, moeda única e cidadania compartilhada. Exemplo: <strong>União Europeia</strong>, com 27 países membros, Euro como moeda única e o Tratado de Lisboa como mini-constituição.
-        </div>
-      </details>
+    <!-- Q6 -->
+    <div class="quiz-q" id="gq6" data-cat="dit">
+      <span class="quiz-tag">DIT · Países Emergentes</span>
+      <p>6. Qual dos três modelos de modernização econômica corresponde ao caso dos Tigres Asiáticos (Coreia do Sul, Taiwan, Hong Kong, Singapura)?</p>
+      <label><input type="radio" name="gq6" value="a" onclick="checkGeo('gq6','c')"> a) Substituição de Importações — forte Estado, empresas estatais, mercado interno</label>
+      <label><input type="radio" name="gq6" value="b" onclick="checkGeo('gq6','c')"> b) Socialismo com Mercado — partido único, economia capitalista, mão de obra barata</label>
+      <label><input type="radio" name="gq6" value="c" onclick="checkGeo('gq6','c')"> c) Plataformas de Exportação — mão de obra qualificada, importação de componentes, produção voltada ao mercado internacional</label>
+      <label><input type="radio" name="gq6" value="d" onclick="checkGeo('gq6','c')"> d) Capitalismo Financeiro — especialização em serviços bancários e movimentação de capitais internacionais</label>
+      <div class="q-feedback" id="gq6-fb"></div>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">09</span>
-        <div class="ex-text">
-          <span class="topic">Pós-1950 · Países Emergentes</span>
-          Quais foram os três <strong>modelos de modernização econômica</strong> adotados pelos países emergentes após 1945? Compare suas características.
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          <strong>1. Substituição de Importações</strong> (América Latina, déc. 1930): forte intervenção do Estado, criação de empresas estatais, produção voltada ao mercado interno. Adotado pelo Brasil, México e Argentina.<br><br>
-          <strong>2. Plataformas de Exportação</strong> (Tigres Asiáticos, déc. 1960): mão de obra qualificada, importação de componentes para montar produtos de exportação, produção voltada ao mercado internacional. Modelo dos Tigres Asiáticos (Coreia do Sul, Taiwan, Hong Kong, Singapura).<br><br>
-          <strong>3. Socialismo com Mercado</strong> (China, 1978): sistema político socialista (ditadura do partido) combinado com economia capitalista de mercado, mão de obra barata e produção para o mercado interno e global. Tornou a China a maior potência industrial do mundo.
-        </div>
-      </details>
+    <!-- Q7 -->
+    <div class="quiz-q" id="gq7" data-cat="onu">
+      <span class="quiz-tag">ONU · Bretton Woods</span>
+      <p>7. A Conferência de Bretton Woods (1944) criou instituições que moldam a economia global até hoje. Qual instituição foi criada com o objetivo de ESTABILIDADE FINANCEIRA internacional?</p>
+      <label><input type="radio" name="gq7" value="a" onclick="checkGeo('gq7','b')"> a) Banco Mundial (BIRD) — fornece empréstimos para desenvolvimento econômico e social</label>
+      <label><input type="radio" name="gq7" value="b" onclick="checkGeo('gq7','b')"> b) FMI (Fundo Monetário Internacional) — estabilidade do sistema financeiro e equilíbrio do balanço de pagamentos</label>
+      <label><input type="radio" name="gq7" value="c" onclick="checkGeo('gq7','b')"> c) ONU — coordena a paz e a segurança internacional entre os países-membros</label>
+      <label><input type="radio" name="gq7" value="d" onclick="checkGeo('gq7','b')"> d) OMC — regulamenta o comércio internacional e resolve disputas tarifárias entre países</label>
+      <div class="q-feedback" id="gq7-fb"></div>
     </div>
 
-    <div class="ex">
-      <div class="ex-q">
-        <span class="ex-num">10</span>
-        <div class="ex-text">
-          <span class="topic">Mundialização</span>
-          O que foi o <strong>Consenso de Washington (1989)</strong> e quais foram suas principais medidas? Qual é a sua relação com a globalização?
-        </div>
-      </div>
-      <details>
-        <summary>Ver resposta</summary>
-        <div class="ex-ans">
-          O <strong>Consenso de Washington</strong> foi um conjunto de medidas econômicas neoliberais formuladas em 1989, impostas como condição para concessão de empréstimos a países em desenvolvimento pelo FMI e Banco Mundial. Suas principais premissas foram: (1) <strong>disciplina fiscal</strong> — corte de gastos públicos; (2) <strong>reforma tributária</strong> — redução de impostos sobre empresas; (3) <strong>privatizações</strong> — venda de empresas estatais; (4) <strong>abertura comercial</strong> — redução do protecionismo; (5) <strong>desregulamentação</strong> — redução do controle econômico e das leis trabalhistas. Sua relação com a globalização: ao abrir as economias nacionais ao capital estrangeiro e às multinacionais, o Consenso de Washington acelerou a <strong>mundialização do capitalismo</strong>, especialmente na América Latina e no Leste Europeu pós-URSS.
-        </div>
-      </details>
+    <!-- Q8 -->
+    <div class="quiz-q" id="gq8" data-cat="onu">
+      <span class="quiz-tag">ONU · Conselho de Segurança</span>
+      <p>8. O que torna o Conselho de Segurança da ONU o órgão mais poderoso da organização?</p>
+      <label><input type="radio" name="gq8" value="a" onclick="checkGeo('gq8','c')"> a) É composto pelos 193 países-membros da ONU, garantindo representatividade máxima nas decisões</label>
+      <label><input type="radio" name="gq8" value="b" onclick="checkGeo('gq8','c')"> b) Controla o orçamento da ONU e define quais países recebem ajuda financeira das Nações Unidas</label>
+      <label><input type="radio" name="gq8" value="c" onclick="checkGeo('gq8','c')"> c) Suas decisões são vinculantes para todos os membros, e os 5 membros permanentes possuem poder de veto — qualquer um pode bloquear qualquer resolução</label>
+      <label><input type="radio" name="gq8" value="d" onclick="checkGeo('gq8','c')"> d) É o único órgão que pode expulsar países da ONU por violações sistemáticas dos direitos humanos</label>
+      <div class="q-feedback" id="gq8-fb"></div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="quiz-q" id="gq9" data-cat="gf">
+      <span class="quiz-tag">Guerra Fria</span>
+      <p>9. As reformas de Gorbachev (Glasnost e Perestroika) tinham como objetivo salvar a URSS. Por que resultaram no efeito oposto?</p>
+      <label><input type="radio" name="gq9" value="a" onclick="checkGeo('gq9','b')"> a) Porque os EUA sabotaram economicamente as reformas por meio de sanções coordenadas pela OTAN</label>
+      <label><input type="radio" name="gq9" value="b" onclick="checkGeo('gq9','b')"> b) Porque a abertura política e econômica fortaleceu movimentos de independência na Europa Oriental, acelerando o colapso do bloco soviético em vez de reformá-lo</label>
+      <label><input type="radio" name="gq9" value="c" onclick="checkGeo('gq9','b')"> c) Porque Gorbachev era um agente secreto americano infiltrado para destruir a URSS por dentro</label>
+      <label><input type="radio" name="gq9" value="d" onclick="checkGeo('gq9','b')"> d) Porque a Perestroika aboliu o Partido Comunista antes das reformas econômicas estarem consolidadas</label>
+      <div class="q-feedback" id="gq9-fb"></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="quiz-q" id="gq10" data-cat="gf">
+      <span class="quiz-tag">Guerra Fria · Bipolaridade</span>
+      <p>10. A Guerra Fria organizou o mundo em uma ordem bipolar. O que significa esse conceito e quais blocos se opunham?</p>
+      <label><input type="radio" name="gq10" value="a" onclick="checkGeo('gq10','c')"> a) Bipolar porque havia dois polos climáticos globais que ditavam a migração de populações e o desenvolvimento econômico</label>
+      <label><input type="radio" name="gq10" value="b" onclick="checkGeo('gq10','c')"> b) Bipolar porque só existiam dois continentes economicamente relevantes: América do Norte e Europa Ocidental</label>
+      <label><input type="radio" name="gq10" value="c" onclick="checkGeo('gq10','c')"> c) Bipolar porque o poder mundial estava dividido entre dois blocos antagônicos: EUA (capitalismo, OTAN) e URSS (socialismo, Pacto de Varsóvia), disputando influência global sem confronto direto</label>
+      <label><input type="radio" name="gq10" value="d" onclick="checkGeo('gq10','c')"> d) Bipolar porque os conflitos ocorriam exclusivamente entre países de dois continentes: Europa e Ásia</label>
+      <div class="q-feedback" id="gq10-fb"></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="quiz-q" id="gq11" data-cat="mund">
+      <span class="quiz-tag">Mundialização · Blocos Econômicos</span>
+      <p>11. A União Europeia representa o nível mais avançado de integração econômica. Qual das opções descreve corretamente a diferença entre Zona de Livre Comércio e União Política?</p>
+      <label><input type="radio" name="gq11" value="a" onclick="checkGeo('gq11','c')"> a) Zona de Livre Comércio inclui moeda única e instituições políticas comuns; União Política só elimina tarifas internas</label>
+      <label><input type="radio" name="gq11" value="b" onclick="checkGeo('gq11','c')"> b) Ambas têm moeda única, mas a União Política exige que os países abram mão do exército nacional</label>
+      <label><input type="radio" name="gq11" value="c" onclick="checkGeo('gq11','c')"> c) Zona de Livre Comércio elimina apenas tarifas internas (ex: USMCA); União Política acrescenta instituições comuns, moeda única e cidadania compartilhada (ex: UE)</label>
+      <label><input type="radio" name="gq11" value="d" onclick="checkGeo('gq11','c')"> d) Zona de Livre Comércio e União Política são sinônimos — a diferença é apenas de nomenclatura regional</label>
+      <div class="q-feedback" id="gq11-fb"></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="quiz-q" id="gq12" data-cat="mund">
+      <span class="quiz-tag">Mundialização · Empresas Transnacionais</span>
+      <p>12. Uma empresa com sede nos EUA produz componentes no México, monta na China, faz P&D na Alemanha e vende globalmente. Isso exemplifica qual conceito geográfico?</p>
+      <label><input type="radio" name="gq12" value="a" onclick="checkGeo('gq12','b')"> a) Velha DIT — cada país produz apenas o que tem vantagem comparativa natural (matéria-prima ou manufatura)</label>
+      <label><input type="radio" name="gq12" value="b" onclick="checkGeo('gq12','b')"> b) Nova DIT com cadeia produtiva global — o Toyotismo e a 3ª Revolução Industrial permitiram fragmentar a produção internacionalmente, com cada etapa onde é mais vantajosa</label>
+      <label><input type="radio" name="gq12" value="c" onclick="checkGeo('gq12','b')"> c) Substituição de Importações — o país usa componentes externos para produzir localmente e substituir produtos importados</label>
+      <label><input type="radio" name="gq12" value="d" onclick="checkGeo('gq12','b')"> d) Fordismo — a linha de montagem fordista foi replicada simultaneamente em vários países para aumentar a escala</label>
+      <div class="q-feedback" id="gq12-fb"></div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="quiz-q" id="gq13" data-cat="cap">
+      <span class="quiz-tag">Capitalismo · Fases</span>
+      <p>13. Qual é a ordem cronológica correta das fases do capitalismo?</p>
+      <label><input type="radio" name="gq13" value="a" onclick="checkGeo('gq13','c')"> a) Financeiro → Industrial → Comercial</label>
+      <label><input type="radio" name="gq13" value="b" onclick="checkGeo('gq13','c')"> b) Industrial → Financeiro → Comercial</label>
+      <label><input type="radio" name="gq13" value="c" onclick="checkGeo('gq13','c')"> c) Comercial (séc. XV–XVIII) → Industrial (séc. XIX) → Financeiro (séc. XX–XXI)</label>
+      <label><input type="radio" name="gq13" value="d" onclick="checkGeo('gq13','c')"> d) Comercial → Financeiro → Industrial</label>
+      <div class="q-feedback" id="gq13-fb"></div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="quiz-q" id="gq14" data-cat="gf">
+      <span class="quiz-tag">Guerra Fria · Terceiro Mundo</span>
+      <p>14. Durante a Guerra Fria, o "Terceiro Mundo" era palco de disputas indiretas entre EUA e URSS. O que caracterizava esses conflitos?</p>
+      <label><input type="radio" name="gq14" value="a" onclick="checkGeo('gq14','b')"> a) Eram guerras nucleares localizadas, contidas por acordos da ONU antes de causarem danos maiores</label>
+      <label><input type="radio" name="gq14" value="b" onclick="checkGeo('gq14','b')"> b) Eram guerras por procuração — EUA e URSS financiavam, armavam e apoiavam lados opostos em conflitos locais (ex: Coreia, Vietnã, Angola) sem confronto direto entre as superpotências</label>
+      <label><input type="radio" name="gq14" value="c" onclick="checkGeo('gq14','b')"> c) Eram conflitos exclusivamente econômicos, travados por meio de embargos comerciais e sanções financeiras</label>
+      <label><input type="radio" name="gq14" value="d" onclick="checkGeo('gq14','b')"> d) Eram disputas por colônias africanas e asiáticas para expandir territórios de cada bloco</label>
+      <div class="q-feedback" id="gq14-fb"></div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="quiz-q" id="gq15" data-cat="mund">
+      <span class="quiz-tag">Mundialização · Globalização</span>
+      <p>15. A globalização é frequentemente associada à "americanização" da cultura. O que esse conceito significa e qual é a principal crítica a ele?</p>
+      <label><input type="radio" name="gq15" value="a" onclick="checkGeo('gq15','c')"> a) Significa que os EUA dominam militarmente todos os outros países, impondo leis e sistemas de governo americanos</label>
+      <label><input type="radio" name="gq15" value="b" onclick="checkGeo('gq15','c')"> b) Significa que o inglês se tornou a única língua oficial do comércio internacional, eliminando outras línguas</label>
+      <label><input type="radio" name="gq15" value="c" onclick="checkGeo('gq15','c')"> c) Significa a difusão global de padrões culturais americanos (fast food, Hollywood, marcas, comportamento consumista) via mídia e empresas transnacionais — crítica: homogeneização cultural que apaga identidades locais</label>
+      <label><input type="radio" name="gq15" value="d" onclick="checkGeo('gq15','c')"> d) Significa que a América do Sul lidera a globalização cultural por ser o continente mais diverso demograficamente</label>
+      <div class="q-feedback" id="gq15-fb"></div>
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+      <button class="quiz-reset" onclick="resetGeo()">🔄 Refazer Quiz</button>
     </div>
 
   </section>
@@ -889,6 +936,79 @@
 </div>
 
 <script>
+  // ── GEO QUIZ ──
+  const geoAnswers = {
+    gq1:  { correct:'c', explain:'O Capitalismo Financeiro desloca o centro da economia da produção industrial para o sistema financeiro — bancos, bolsas e fluxos de capitais internacionais passam a ser mais importantes que a fábrica. O neoliberalismo (Consenso de Washington) consolidou isso ao abrir mercados e desregulamentar finanças.' },
+    gq2:  { correct:'d', explain:'O Consenso de Washington defendia exatamente o OPOSTO do protecionismo: abertura comercial, redução de tarifas e entrada livre do capital estrangeiro. Protecionismo é uma política intervencionista, contrária ao neoliberalismo.' },
+    gq3:  { correct:'b', explain:'O Toyotismo revolucionou a produção com o just in time (produção sob demanda, sem estoques), trabalho polivalente e descentralização global das cadeias produtivas. Isso foi possível graças à 3ª Revolução Industrial e viabilizou a globalização produtiva atual.' },
+    gq4:  { correct:'c', explain:'Diferente da 1ª (vapor) e 2ª (eletricidade/petróleo), a 3ª Revolução baseia-se em ciência + tecnologia + informação. Seus pilares: informática, microeletrônica, telecomunicações, biotecnologia. Ela viabilizou a globalização ao permitir integração instantânea de cadeias produtivas e fluxos financeiros.' },
+    gq5:  { correct:'b', explain:'Na Velha DIT, a especialização era rígida e hierárquica: países centrais exportavam manufaturas caras, países periféricos exportavam matérias-primas baratas. Essa estrutura reproduzia a dependência econômica dos países periféricos — quanto mais exportavam, mais pobres ficavam em termos relativos.' },
+    gq6:  { correct:'c', explain:'Os Tigres Asiáticos adotaram o modelo de Plataformas de Exportação: importavam componentes estrangeiros, montavam produtos com mão de obra qualificada barata e exportavam para o mercado mundial. Esse modelo, diferente da Substituição de Importações (voltada para dentro), integrou esses países à Nova DIT.' },
+    gq7:  { correct:'b', explain:'O FMI foi criado para garantir a estabilidade do sistema monetário internacional — emprestando a países com deficit no balanço de pagamentos e monitorando as políticas econômicas. O Banco Mundial/BIRD focava no desenvolvimento econômico e reconstrução pós-guerra.' },
+    gq8:  { correct:'c', explain:'O poder do Conselho de Segurança vem de dois elementos: (1) suas resoluções são vinculantes para todos os membros da ONU; (2) os 5 membros permanentes (EUA, Rússia, China, Reino Unido, França) têm poder de VETO — qualquer um pode sozinho bloquear qualquer decisão, mesmo aprovada pelos outros 14 membros.' },
+    gq9:  { correct:'b', explain:'A Glasnost (abertura política) permitiu que repúblicas soviéticas e países satélites expressassem livremente o desejo de independência. A Perestroika (reestruturação econômica) desorganizou a economia planejada sem substituí-la adequadamente. Juntas, aceleraram o colapso: queda do Muro de Berlim (1989) e dissolução da URSS (1991).' },
+    gq10: { correct:'c', explain:'Bipolar = dois polos de poder. EUA (capitalismo, democracia liberal, OTAN) vs. URSS (socialismo, partido único, Pacto de Varsóvia). Cada superpotência tentava expandir sua área de influência sem confronto direto nuclear — daí "fria": tensão sem guerra aberta entre os dois.' },
+    gq11: { correct:'c', explain:'Zona de Livre Comércio = nível básico, elimina só tarifas entre membros (USMCA/NAFTA). A UE avançou para União Aduaneira (tarifa externa comum) → Mercado Comum (livre circulação de pessoas, capital, serviços) → União Monetária (Euro) → União Política (parlamento, cidadania europeia, tratados). É o único exemplo de União Política plena.' },
+    gq12: { correct:'b', explain:'Isso é a Nova DIT com cadeia produtiva global: cada etapa da produção ocorre onde é mais vantajosa (P&D em países com tecnologia avançada, montagem onde a mão de obra é barata, sede onde os impostos são menores). O Toyotismo e as telecomunicações tornaram isso possível.' },
+    gq13: { correct:'c', explain:'Capitalismo Comercial (séc. XV–XVIII): comércio colonial, acumulação de metais preciosos. Capitalismo Industrial (séc. XIX): produção fabril, revoluções industriais. Capitalismo Financeiro (séc. XX–XXI): predominância do capital financeiro sobre o produtivo, globalização dos mercados.' },
+    gq14: { correct:'b', explain:'Guerras por procuração (proxy wars): EUA e URSS evitavam confronto direto nuclear mas financiavam lados opostos em conflitos locais. Ex: Coreia (1950-53), Vietnã (1955-75), Angola (1975-2002), Afeganistão (1979-89). Cada superpotência tentava ampliar sua esfera de influência sem arriscar uma guerra mundial.' },
+    gq15: { correct:'c', explain:'Americanização = exportação de padrões culturais americanos via empresas transnacionais e mídia global (Hollywood, Netflix, McDonald\'s, Coca-Cola). Crítica central: homogeneização cultural — culturas locais são enfraquecidas ou absorvidas pelo consumismo americano. Também chamada de "imperialismo cultural".' },
+  };
+
+  let geoCorrect = 0, geoTotal = 0;
+  const CIRCUM = 2 * Math.PI * 26; // ~163.4
+
+  function checkGeo(id, correct) {
+    const radios = document.querySelectorAll(`input[name="${id}"]`);
+    let chosen = '';
+    radios.forEach(r => { if (r.checked) chosen = r.value; });
+    if (!chosen) return;
+    const fb = document.getElementById(id + '-fb');
+    if (fb.classList.contains('correct') || fb.classList.contains('wrong')) return;
+    geoTotal++;
+    if (chosen === correct) {
+      geoCorrect++;
+      fb.className = 'q-feedback correct';
+      fb.textContent = '✓ Correto! ' + geoAnswers[id].explain;
+    } else {
+      fb.className = 'q-feedback wrong';
+      fb.textContent = '✗ Incorreto. ' + geoAnswers[id].explain;
+    }
+    updateGeoScore();
+  }
+
+  function updateGeoScore() {
+    const box = document.getElementById('score-box');
+    box.style.display = 'block';
+    document.getElementById('score-correct').textContent = geoCorrect;
+    document.getElementById('score-total').textContent = geoTotal;
+    const pct = geoTotal > 0 ? Math.round((geoCorrect / geoTotal) * 100) : 0;
+    document.getElementById('score-pct-label').textContent = pct + '%';
+    const arc = (geoCorrect / geoTotal) * CIRCUM;
+    document.getElementById('donut-arc').setAttribute('stroke-dasharray', arc + ' ' + (CIRCUM - arc));
+    document.getElementById('donut-arc').setAttribute('stroke', pct >= 70 ? '#52b788' : pct >= 40 ? '#f39c12' : '#e74c3c');
+  }
+
+  function filterGeo(cat, btn) {
+    document.querySelectorAll('.qf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.quiz-q').forEach(q => {
+      q.classList.toggle('hidden', cat !== 'all' && q.dataset.cat !== cat);
+    });
+  }
+
+  function resetGeo() {
+    document.querySelectorAll('.quiz-q input[type="radio"]').forEach(r => r.checked = false);
+    document.querySelectorAll('.q-feedback').forEach(f => f.className = 'q-feedback');
+    geoCorrect = 0; geoTotal = 0;
+    document.getElementById('score-box').style.display = 'none';
+    document.getElementById('score-correct').textContent = '0';
+    document.getElementById('score-total').textContent = '0';
+    document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 ' + CIRCUM);
+    document.getElementById('score-pct-label').textContent = '0%';
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
   function toggleChat() {
     const p = document.getElementById("chat-panel");
     p.classList.toggle("open");
