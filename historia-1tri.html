@@ -553,6 +553,8 @@
   gtag('js', new Date());
   gtag('config', 'G-CL1RMGB3SN');
 </script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -1920,8 +1922,7 @@
 </section>
 </main>
 <footer>
-  Resumo interativo - 1ª Avaliação Intermediária de História 2026<br>
-  2ª série do Ensino Médio | Feito por Gabriel Amorim
+  Caderno Digital — História · 2ª série do Ensino Médio · 2026
 </footer>
 <script>
 // Accordion toggle
@@ -2111,7 +2112,10 @@ window.addEventListener('scroll', () => {
     const text = input.value.trim();
     if (!text) return;
     input.value = "";
-    msgs.innerHTML += "<div class=cmsg user>" + text + "</div>";
+    const userMsg = document.createElement("div");
+    userMsg.className = "cmsg user";
+    userMsg.textContent = text;
+    msgs.appendChild(userMsg);
     const loader = document.createElement("div");
     loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
     msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;

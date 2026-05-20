@@ -150,6 +150,8 @@
   gtag('js', new Date());
   gtag('config', 'G-CL1RMGB3SN');
 </script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -158,7 +160,7 @@
   <h1>Biologia Celular</h1>
   <p class="subtitle">Avaliação · 2ª série do Ensino Médio · 2026</p>
   <div><span class="badge">Membrana · Citoesqueleto · Rota Secretora</span></div>
-  <div><span class="author">Caderno Digital Band</span></div>
+  <div><span class="author">Caderno Digital</span></div>
 </div>
 
 <nav>
@@ -695,8 +697,7 @@
 </main>
 
 <footer>
-  Resumo interativo — Biologia Celular · Avaliação 2026<br>
-  2ª série do Ensino Médio | <strong>Caderno Digital Band</strong>
+  Caderno Digital — Biologia · 2ª série do Ensino Médio · 2026
 </footer>
 
 <button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
@@ -804,7 +805,10 @@ async function sendMsg(e) {
   const text = input.value.trim();
   if (!text) return;
   input.value = "";
-  msgs.innerHTML += "<div class='cmsg user'>" + text + "</div>";
+  const userMsg = document.createElement("div");
+  userMsg.className = "cmsg user";
+  userMsg.textContent = text;
+  msgs.appendChild(userMsg);
   const loader = document.createElement("div");
   loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
   msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;

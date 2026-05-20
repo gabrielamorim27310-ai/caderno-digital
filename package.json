@@ -1,0 +1,14 @@
+{
+  "name": "caderno-digital",
+  "version": "1.0.0",
+  "description": "Caderno Digital — 2ª série do Ensino Médio 2026",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npx serve -p 3000 ."
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

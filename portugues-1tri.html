@@ -127,8 +127,11 @@
   gtag('js', new Date());
   gtag('config', 'G-CL1RMGB3SN');
 </script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="hero">
   <div class="hero-icon">📖</div>
@@ -879,7 +882,7 @@
 </div>
 
 <footer>
-  Caderno Digital — Português · Estudos Linguísticos · 2ª série do Ensino Médio 2026 · Prova Trimestral em 07/04
+  Caderno Digital — Português · 2ª série do Ensino Médio · 2026
 </footer>
 
 <!-- ═══ CHATBOT ═══ -->
@@ -934,7 +937,10 @@
     const text = input.value.trim();
     if (!text) return;
     input.value = "";
-    msgs.innerHTML += "<div class=cmsg user>" + text + "</div>";
+    const userMsg = document.createElement("div");
+    userMsg.className = "cmsg user";
+    userMsg.textContent = text;
+    msgs.appendChild(userMsg);
     const loader = document.createElement("div");
     loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
     msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
@@ -946,5 +952,6 @@
     msgs.scrollTop = msgs.scrollHeight;
   }
 </script>
+<script src="scripts/progress.js"></script>
 </body>
 </html>

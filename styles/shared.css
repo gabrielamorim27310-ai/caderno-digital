@@ -1,0 +1,115 @@
+/* ═══════════════════════════════════════════════════════════
+   shared.css — Estilos compartilhados entre todas as páginas
+   Importado por todas as páginas após o bloco :root da página.
+   Usa as variáveis CSS (--primary, --secondary, --border…)
+   definidas localmente em cada página.
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* RESET */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* BARRA DE PROGRESSO */
+.progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 3px; background: var(--secondary);
+  z-index: 999; width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* HERO — PADRÃO DE FUNDO (cross+) */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* NAV — BACK LINK PADRÃO */
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 14px 16px 14px 0;
+  color: var(--text-light); text-decoration: none;
+  font-size: 0.82rem; font-weight: 600;
+  margin-right: 8px; border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+.back-link:hover { color: var(--primary); }
+
+/* FOOTER PADRÃO */
+footer {
+  text-align: center; padding: 32px 20px;
+  color: var(--text-light, #6b6b6b); font-size: 0.82rem;
+  border-top: 1px solid var(--border, #e5ddd4);
+  max-width: 1100px; margin: 0 auto;
+}
+
+/* ═══ CHAT WIDGET (Nêuron) ═══ */
+#chat-btn {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--primary); color: white;
+  border: none; font-size: 1.4rem; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+  z-index: 999; transition: transform 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+#chat-btn:hover { transform: scale(1.08); }
+
+#chat-panel {
+  position: fixed; bottom: 86px; right: 24px;
+  width: 420px; max-width: calc(100vw - 32px);
+  background: white; border: 1px solid var(--border);
+  border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+  z-index: 998; display: none; flex-direction: column;
+  overflow: hidden; font-family: Inter, sans-serif;
+}
+#chat-panel.open { display: flex; }
+
+#chat-head {
+  background: var(--primary); color: white;
+  padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+#chat-head span { font-weight: 600; font-size: 0.92rem; }
+#chat-close {
+  background: none; border: none; color: white;
+  cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0;
+}
+
+#chat-msgs {
+  height: 360px; overflow-y: auto;
+  padding: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+
+.cmsg {
+  max-width: 88%; padding: 10px 14px;
+  border-radius: 14px; font-size: 0.93rem; line-height: 1.5;
+}
+.cmsg.user {
+  background: var(--primary); color: white;
+  align-self: flex-end; border-bottom-right-radius: 4px;
+}
+.cmsg.bot {
+  background: #f0f0f0; color: #222;
+  align-self: flex-start; border-bottom-left-radius: 4px;
+}
+.cmsg.loading { opacity: 0.6; font-style: italic; }
+
+#chat-form { display: flex; border-top: 1px solid var(--border); }
+#chat-input {
+  flex: 1; border: none; padding: 12px 14px;
+  font-size: 0.95rem; font-family: Inter, sans-serif;
+  outline: none; resize: none; height: 44px;
+}
+#chat-send {
+  background: var(--primary); color: white;
+  border: none; padding: 0 16px; cursor: pointer; font-size: 1rem;
+}
+#chat-send:hover { filter: brightness(1.2); }
+
+/* PRINT */
+@media print {
+  nav, .progress-bar, .quiz-section, #chat-btn, #chat-panel { display: none; }
+  .accordion-content { max-height: none !important; padding: 0 20px 20px !important; }
+}

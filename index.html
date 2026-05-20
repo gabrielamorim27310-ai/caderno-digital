@@ -10,6 +10,8 @@
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Caderno Digital — 2ª série EM 2026</title>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
@@ -157,13 +159,6 @@
   .item-link .label { flex: 1; font-weight: 500; }
   .item-link .arrow { font-size: 0.75rem; color: var(--text-light); transition: transform 0.2s; }
   .item-link:hover .arrow { transform: translateX(3px); }
-  .item-link .tag-new {
-    background: #dcfce7; color: #166534;
-    font-size: 0.65rem; font-weight: 700;
-    padding: 2px 6px; border-radius: 6px;
-    text-transform: uppercase; letter-spacing: 0.04em;
-  }
-
   .item-soon {
     display: flex; align-items: center; gap: 10px;
     padding: 10px 12px; border-radius: 8px;
@@ -171,15 +166,6 @@
     background: #fafaf8; border: 1px dashed var(--border);
   }
   .item-soon .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; flex-shrink: 0; }
-
-  .item-canceled {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 12px; border-radius: 8px;
-    font-size: 0.85rem; color: #aaa;
-    background: #f5f5f5; border: 1px dashed #ddd;
-    text-decoration: line-through;
-  }
-  .item-canceled .dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; flex-shrink: 0; }
 
   /* EMPTY */
   .empty-state { text-align: center; padding: 60px 20px; color: var(--text-light); }
@@ -223,7 +209,7 @@
 <nav class="tri-nav">
   <div class="tri-nav-inner">
     <button class="tri-btn active" onclick="setTri('t1',this)">
-      1º Trimestre <span class="count">6</span>
+      1º Trimestre <span class="count">7</span>
     </button>
     <button class="tri-btn" onclick="setTri('t2',this)">2º Trimestre</button>
     <button class="tri-btn" onclick="setTri('t3',this)">3º Trimestre</button>
@@ -249,8 +235,7 @@
           <a class="item-link" href="historia-1tri.html">
             <span class="dot" style="background:var(--historia)"></span>
             <span class="label">Caps. 11, 14, 15, 16 — 1ª Av. Intermediária</span>
-            <span class="tag-new">Novo</span>
-            <span class="arrow">›</span>
+<span class="arrow">›</span>
           </a>
         </div>
       </div>
@@ -267,8 +252,7 @@
           <a class="item-link" href="geografia-1tri.html">
             <span class="dot" style="background:var(--geo)"></span>
             <span class="label">Integração Mundial</span>
-            <span class="tag-new">Novo</span>
-            <span class="arrow">›</span>
+<span class="arrow">›</span>
           </a>
         </div>
       </div>
@@ -285,8 +269,7 @@
           <a class="item-link" href="portugues-1tri.html">
             <span class="dot" style="background:var(--port)"></span>
             <span class="label">AGI — Estudos Linguísticos</span>
-            <span class="tag-new">Novo</span>
-            <span class="arrow">›</span>
+<span class="arrow">›</span>
           </a>
         </div>
       </div>
@@ -310,8 +293,7 @@
           <a class="item-link" href="biologia-1tri.html">
             <span class="dot" style="background:var(--bio)"></span>
             <span class="label">Membrana · Citoesqueleto · Rota Secretora</span>
-            <span class="tag-new">Novo</span>
-            <span class="arrow">›</span>
+<span class="arrow">›</span>
           </a>
         </div>
       </div>
@@ -338,19 +320,8 @@
           <a class="item-link" href="quimica-1tri.html">
             <span class="dot" style="background:var(--qui)"></span>
             <span class="label">Caps. 1, 2, 3, 4, 6, 8, 9 e 10</span>
-            <span class="tag-new">Novo</span>
-            <span class="arrow">›</span>
+<span class="arrow">›</span>
           </a>
-        </div>
-      </div>
-
-      <div class="subject-card">
-        <div class="subject-header">
-          <div class="subject-icon" style="background:var(--ingles)">🌐</div>
-          <div><div class="subject-name">Inglês</div><div class="subject-desc">Sem resumo</div></div>
-        </div>
-        <div class="subject-items">
-          <div class="item-canceled"><span class="dot"></span> Resumo 1º tri — cancelado</div>
         </div>
       </div>
 
@@ -366,8 +337,7 @@
           <a class="item-link" href="filosofia-1tri.html">
             <span class="dot" style="background:var(--filo)"></span>
             <span class="label">Ética e Moral</span>
-            <span class="tag-new">Novo</span>
-            <span class="arrow">›</span>
+<span class="arrow">›</span>
           </a>
         </div>
       </div>
@@ -384,8 +354,7 @@
           <a class="item-link" href="sociologia-1tri.html">
             <span class="dot" style="background:var(--socio)"></span>
             <span class="label">Caps. 1, 2</span>
-            <span class="tag-new">Novo</span>
-            <span class="arrow">›</span>
+<span class="arrow">›</span>
           </a>
         </div>
       </div>
@@ -414,7 +383,7 @@
 </main>
 
 <footer>
-  Caderno Digital — 2ª série do Ensino Médio 2026 · Feito por Gabriel Amorim
+  Caderno Digital — 2ª série do Ensino Médio · 2026
 </footer>
 
 <script>

@@ -135,15 +135,18 @@
   gtag('js', new Date());
   gtag('config', 'G-CL1RMGB3SN');
 </script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="hero">
   <div class="hero-icon"><img src="pensador.png" alt="O Pensador" style="height:100px;object-fit:contain;filter:brightness(1.3) contrast(0.85) drop-shadow(0 4px 12px rgba(0,0,0,0.4));"/></div>
   <h1>Filosofia</h1>
   <p class="subtitle">Ética · Moral · Platão · Aristóteles · Epicurismo · Milgram · 2ª Série</p>
   <div class="badge">1º Trimestre · 2026</div>
-  <div><span class="author">Anotações de Sofia Alves / 2ME</span></div>
+  <div><span class="author">Caderno Digital</span></div>
 </header>
 
 <nav>
@@ -1007,8 +1010,7 @@
 </div>
 
 <footer>
-  Resumo interativo — Avaliação Especial de Filosofia 2026<br>
-  2ª série do Ensino Médio | Anotações de <strong>Sofia Alves / 2ME</strong>
+  Caderno Digital — Filosofia · 2ª série do Ensino Médio · 2026
 </footer>
 
 
@@ -1064,7 +1066,10 @@
     const text = input.value.trim();
     if (!text) return;
     input.value = "";
-    msgs.innerHTML += "<div class=cmsg user>" + text + "</div>";
+    const userMsg = document.createElement("div");
+    userMsg.className = "cmsg user";
+    userMsg.textContent = text;
+    msgs.appendChild(userMsg);
     const loader = document.createElement("div");
     loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
     msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
@@ -1076,5 +1081,6 @@
     msgs.scrollTop = msgs.scrollHeight;
   }
 </script>
+<script src="scripts/progress.js"></script>
 </body>
 </html>

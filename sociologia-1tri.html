@@ -132,6 +132,8 @@
   gtag('js', new Date());
   gtag('config', 'G-CL1RMGB3SN');
 </script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
 </head>
 <body>
 <div class="progress-bar" id="progressBar"></div>
@@ -140,7 +142,7 @@
   <h1>Sociologia</h1>
   <p class="subtitle">Avaliação Especial 2026 · 2ª série do Ensino Médio</p>
   <div><span class="badge">Adam Smith &amp; Karl Marx</span></div>
-  <div><span class="author">Anotações de Sofia Alves / 2ME</span></div>
+  <div><span class="author">Caderno Digital</span></div>
 </div>
 
 <nav>
@@ -752,8 +754,7 @@
 </main>
 
 <footer>
-  Resumo interativo — Avaliação Especial de Sociologia 2026<br>
-  2ª série do Ensino Médio | Anotações de <strong>Sofia Alves / 2ME</strong>
+  Caderno Digital — Sociologia · 2ª série do Ensino Médio · 2026
 </footer>
 
 <script>
@@ -895,7 +896,10 @@ function resetQuiz() {
     const text = input.value.trim();
     if (!text) return;
     input.value = "";
-    msgs.innerHTML += "<div class=cmsg user>" + text + "</div>";
+    const userMsg = document.createElement("div");
+    userMsg.className = "cmsg user";
+    userMsg.textContent = text;
+    msgs.appendChild(userMsg);
     const loader = document.createElement("div");
     loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
     msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
