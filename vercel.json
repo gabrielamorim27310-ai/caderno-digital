@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/chat.js", "use": "@vercel/node" },
+    { "src": "*.html",      "use": "@vercel/static" },
+    { "src": "*.js",        "use": "@vercel/static", "config": { "excludeFiles": "api/**" } },
+    { "src": "styles/**",   "use": "@vercel/static" },
+    { "src": "scripts/**",  "use": "@vercel/static" },
+    { "src": "bio-imgs/**", "use": "@vercel/static" },
+    { "src": "*.png",       "use": "@vercel/static" },
+    { "src": "*.svg",       "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/chat", "dest": "/api/chat.js" },
+    { "src": "/",         "dest": "/index.html" }
+  ]
+}
