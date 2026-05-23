@@ -208,7 +208,7 @@
 
 <nav class="tri-nav">
   <div class="tri-nav-inner">
-    <button class="tri-btn active" onclick="setTri('t1',this)">
+    <button class="tri-btn" onclick="setTri('t1',this)">
       1º Trimestre <span class="count">7</span>
     </button>
     <button class="tri-btn" onclick="setTri('t2',this)">2º Trimestre <span class="count">2</span></button>
@@ -424,8 +424,17 @@ function setTri(id, btn) {
   document.querySelectorAll('.tri-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tri-btn').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
+  history.replaceState(null, '', '#' + id);
 }
+
+(function () {
+  const hash = location.hash.replace('#', '');
+  const valid = ['t1', 't2', 't3'];
+  const id = valid.includes(hash) ? hash : 't1';
+  const btn = document.querySelector('.tri-btn[onclick*="' + id + '"]');
+  setTri(id, btn);
+})();
 </script>
 </body>
 </html>
