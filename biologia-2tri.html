@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biologia 2º Tri — Sistema Digestório e Transportes 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #1a4731;
+    --secondary: #3a9e6f;
+    --accent: #27ae60;
+    --bg: #f4faf7;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #d5eee0;
+    --shadow: 0 4px 24px rgba(0,80,40,0.09);
+    --ch1: #1a5276;
+    --ch2: #1a4731;
+    --ch3: #7b3f00;
+    --ch4: #6c3483;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--secondary); z-index: 999; width: 0%; transition: width 0.1s; }
+
+  .hero {
+    background: linear-gradient(135deg, #1a4731 0%, #2e7d52 50%, #0d2b1e 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  nav { background: white; border-bottom: 2px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  nav .nav-inner::-webkit-scrollbar { display: none; }
+  nav a { text-decoration: none; padding: 14px 20px; font-weight: 600; font-size: 0.85rem; white-space: nowrap; color: var(--text-light); border-bottom: 3px solid transparent; transition: all 0.3s; }
+  nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+  .chapter { background: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow); margin-bottom: 32px; overflow: hidden; }
+  .chapter-header { padding: 28px 32px 24px; border-bottom: 1px solid var(--border); }
+  .chapter-header h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+  .chapter-header .tag { font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; color: white; letter-spacing: 0.05em; }
+  .tag-ch1 { background: var(--ch1); }
+  .tag-ch2 { background: var(--ch2); }
+  .tag-ch3 { background: var(--ch3); }
+  .tag-ch4 { background: var(--ch4); }
+  .chapter-header .meta { font-size: 0.9rem; color: var(--text-light); margin-top: 6px; }
+  .chapter-body { padding: 24px 32px 32px; }
+
+  .accordion { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  .accordion-btn { width: 100%; background: none; border: none; padding: 16px 20px; text-align: left; font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); transition: background 0.2s; }
+  .accordion-btn:hover { background: var(--bg); }
+  .accordion-btn::after { content: '+'; font-size: 1.3rem; color: var(--accent); transition: transform 0.3s; }
+  .accordion.open .accordion-btn::after { transform: rotate(45deg); }
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0 20px; }
+  .accordion.open .accordion-content { max-height: 4000px; padding: 0 20px 20px; }
+
+  .content-block { margin-bottom: 20px; }
+  .content-block h4 { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; padding-bottom: 4px; border-bottom: 2px solid var(--border); }
+  .content-block ul { list-style: none; padding-left: 0; }
+  .content-block ul li { padding: 4px 0 4px 18px; position: relative; font-size: 0.93rem; }
+  .content-block ul li::before { content: '—'; position: absolute; left: 0; color: var(--secondary); font-weight: 700; }
+  .content-block ul ul li::before { content: '•'; }
+  .content-block ul ul { padding-left: 20px; }
+  .highlight-box { background: linear-gradient(135deg, #e8f8f0, #d5f0e2); border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .highlight-box strong { color: var(--primary); }
+  .tip-box { background: linear-gradient(135deg, #e8f4fd, #d6eaf8); border-left: 4px solid var(--ch1); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .warning-box { background: linear-gradient(135deg, #fef9e7, #fdebd0); border-left: 4px solid var(--ch3); border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.92rem; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+  .compare-card { background: var(--bg); border-radius: 8px; padding: 14px; border: 1px solid var(--border); }
+  .compare-card h5 { font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: var(--accent); }
+  .compare-card ul li { font-size: 0.88rem; }
+  @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  .flow-box { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin: 12px 0; font-size: 0.92rem; text-align: center; }
+  .flow-box .flow-step { display: inline-block; background: var(--primary); color: white; padding: 5px 14px; border-radius: 20px; font-weight: 700; font-size: 0.82rem; margin: 4px; }
+  .flow-box .flow-arrow { color: var(--secondary); font-weight: 700; margin: 0 4px; }
+
+  .enzyme-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.88rem; overflow-x: auto; display: block; }
+  .enzyme-table thead { display: table; width: 100%; table-layout: fixed; }
+  .enzyme-table tbody { display: table; width: 100%; table-layout: fixed; }
+  .enzyme-table th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; font-weight: 700; }
+  .enzyme-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .enzyme-table tr:nth-child(even) td { background: var(--bg); }
+  .enzyme-table tr:hover td { background: #e8f8f0; }
+  .enzyme-table .ok { color: #1a4731; font-weight: 700; }
+  .enzyme-table .no { color: #c0392b; font-weight: 700; }
+
+  .quiz-section { background: linear-gradient(135deg, var(--primary), #0d2b1e); border-radius: 16px; padding: 32px; color: white; margin-bottom: 32px; }
+  .quiz-section h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; }
+  .quiz-q { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin-bottom: 16px; backdrop-filter: blur(4px); }
+  .quiz-q p { font-size: 0.95rem; margin-bottom: 14px; line-height: 1.6; }
+  .quiz-q label { display: block; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; margin-bottom: 4px; transition: background 0.2s; }
+  .quiz-q label:hover { background: rgba(255,255,255,0.15); }
+  .quiz-q input[type="radio"] { margin-right: 8px; }
+  .quiz-q .feedback { margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 0.88rem; display: none; }
+  .quiz-q .feedback.correct { background: rgba(39,174,96,0.3); display: block; }
+  .quiz-q .feedback.wrong { background: rgba(231,76,60,0.3); display: block; }
+  .quiz-q.hidden { display: none; }
+  .quiz-chapter-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; letter-spacing: 0.04em; }
+  .quiz-chapter-tag.tag-ch1 { background: rgba(26,82,118,0.5); color: #aed6f1; }
+  .quiz-chapter-tag.tag-ch2 { background: rgba(26,71,49,0.6); color: #a9dfbf; }
+  .quiz-chapter-tag.tag-ch3 { background: rgba(123,63,0,0.5); color: #f5cba7; }
+  .quiz-chapter-tag.tag-ch4 { background: rgba(108,52,131,0.5); color: #d7bde2; }
+  .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.2); border-color: white; }
+  #score-box { margin-bottom: 20px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: none; }
+  #score-nums { text-align:center; margin-bottom:10px; }
+  #score-chart-wrap { display:flex; align-items:center; justify-content:center; gap:14px; color:white; }
+  #score-pct-label { font-size:1.3rem; font-weight:800; }
+  #score-pct-sub { font-size:0.78rem; opacity:0.75; font-weight:400; }
+
+  footer { text-align: center; padding: 32px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+  /* CHAT */
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: var(--primary); color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: var(--primary); color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 88%; padding: 10px 14px; border-radius: 14px; font-size: 0.93rem; line-height: 1.5; }
+  .cmsg.user { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.bot { background: #f0f0f0; color: #222; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.loading { opacity: 0.6; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid var(--border); }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: var(--primary); color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: var(--accent); }
+
+  @media print {
+    nav, .progress-bar, .quiz-section, #chat-btn, #chat-panel { display: none; }
+    .accordion-content { max-height: none !important; padding: 0 20px 20px !important; }
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CL1RMGB3SN');
+</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>Biologia — 2º Trimestre</h1>
+  <p class="subtitle">AE 27/05/2026 · 2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Sistema Digestório · Transportes de Membrana</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#digestorio">Sist. Digestório</a>
+    <a href="#intestino-delgado">Int. Delgado</a>
+    <a href="#intestino-grosso">Int. Grosso</a>
+    <a href="#transportes">Transportes</a>
+    <a href="#quiz">Quiz AE</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════ CAPÍTULO 1 — SISTEMA DIGESTÓRIO (trato superior) ══════════ -->
+<section class="chapter" id="digestorio">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch1">Cap. 1</span> Sistema Digestório — Visão Geral e Trato Superior</h2>
+    <p class="meta">Boca · Faringe · Esôfago · Estômago · Órgãos Anexos</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">O que é digestão?</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Digestão</strong> = processo de transformação dos alimentos em moléculas pequenas o suficiente para serem <strong>absorvidas</strong> pelo organismo.<br><br>
+            <strong>• Digestão mecânica</strong> — fragmentação física (mastigação, peristaltismo)<br>
+            <strong>• Digestão química</strong> — quebra de moléculas por enzimas e sucos digestivos
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Digestão Simples</h5>
+              <ul>
+                <li>Digestão e absorção no mesmo compartimento</li>
+                <li>Ex: protozoários, esponjas, planárias</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Digestão Complexa (humanos)</h5>
+              <ul>
+                <li>Sistema com órgãos especializados</li>
+                <li>Digestão e absorção em locais distintos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tip-box">
+            <strong>Absorção direta:</strong> organismos como fungos absorvem nutrientes pelo tegumento (sem trato digestório). Não confundir com digestão simples.
+          </div>
+          <h4>Trato Gastrointestinal — em ordem</h4>
+          <div class="flow-box">
+            <span class="flow-step">Boca</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Faringe</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Esôfago</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Estômago</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Int. Delgado</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Int. Grosso</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Reto / Ânus</span>
+          </div>
+          <h4>Órgãos Anexos (auxiliam sem fazer parte do trato)</h4>
+          <ul>
+            <li><strong>Glândulas salivares</strong> — produzem saliva com ptialina (amilase salivar)</li>
+            <li><strong>Fígado</strong> — produz bile (emulsificante de gordura)</li>
+            <li><strong>Vesícula biliar</strong> — armazena e concentra a bile</li>
+            <li><strong>Pâncreas</strong> — produz suco pancreático (enzimas + bicarbonato)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Boca — Início da Digestão de Carboidratos</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Boca</strong> = local da digestão mecânica (mastigação com dentes) e do início da digestão química de carboidratos.<br><br>
+            pH: <strong>~7,0</strong> (neutro)
+          </div>
+          <h4>Ptialina (Amilase Salivar)</h4>
+          <ul>
+            <li>Produzida pelas <strong>glândulas salivares</strong></li>
+            <li>Substrato: <strong>amido</strong> (polissacarídeo)</li>
+            <li>Produto: <strong>maltose</strong> (dissacarídeo) — <strong>NÃO absorvível</strong></li>
+            <li>Ação interrompida no estômago (pH ácido desnatura a ptialina)</li>
+            <li>Proteínas e gorduras <strong>não</strong> são digeridas na boca</li>
+          </ul>
+          <div class="flow-box">
+            <span class="flow-step">Amido (polissacarídeo)</span>
+            <span class="flow-arrow">—ptialina (pH~7)→</span>
+            <span class="flow-step">Maltose (dissacarídeo) — NÃO absorvível</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Faringe e Esôfago — Transporte do Alimento</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <h4>Faringe</h4>
+          <ul>
+            <li>Cruzamento das vias aérea e digestiva</li>
+            <li>Reflexo de deglutição: epiglote fecha a traqueia para o alimento ir ao esôfago</li>
+            <li>Não realiza digestão química</li>
+          </ul>
+          <h4>Esôfago</h4>
+          <ul>
+            <li>Tubo muscular que conecta faringe ao estômago</li>
+            <li><strong>Peristaltismo</strong> = ondas de contração do músculo liso que empurram o bolo alimentar</li>
+            <li>Não realiza digestão química nem absorção</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Peristaltismo</strong> funciona independentemente da gravidade — por isso conseguimos comer de cabeça para baixo. É involuntário (músculo liso) e percorre todo o trato.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Estômago — Digestão de Proteínas e o Quimo</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Estômago</strong> = digestão química e mecânica (movimentos de mistura).<br><br>
+            O alimento misturado ao suco gástrico vira <strong>quimo</strong> — pH ~2 (muito ácido).
+          </div>
+          <h4>Componentes do Suco Gástrico</h4>
+          <ul>
+            <li><strong>HCl (ácido clorídrico)</strong> — acidifica para pH~2, ativa a pepsina, destrói microrganismos</li>
+            <li><strong>Pepsinogênio</strong> (inativo) → ativado pelo HCl → <strong>Pepsina</strong> (ativa)</li>
+            <li><strong>Muco</strong> — protege a parede gástrica do ataque do HCl e da pepsina</li>
+          </ul>
+          <div class="warning-box">
+            <strong>Pepsina</strong> quebra proteínas em <strong>peptídeos</strong> — mas peptídeos <strong>não são absorvíveis</strong>. A absorção de aminoácidos só acontece no intestino delgado.
+          </div>
+          <div class="flow-box">
+            <span class="flow-step">Pepsinogênio (inativo)</span>
+            <span class="flow-arrow">—HCl→</span>
+            <span class="flow-step">Pepsina (ativa)</span>
+            <span class="flow-arrow">age em</span>
+            <span class="flow-step">Proteínas → Peptídeos (NÃO absorvíveis)</span>
+          </div>
+          <div class="tip-box">
+            <strong>Úlcera gástrica:</strong> quando o muco falha, a pepsina e o HCl atacam a própria parede do estômago, causando erosão. Frequentemente associada à bactéria Helicobacter pylori, que degrada o muco protetor.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 2 — INTESTINO DELGADO ══════════ -->
+<section class="chapter" id="intestino-delgado">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch2">Cap. 2</span> Intestino Delgado — Duodeno, Jejuno e Íleo</h2>
+    <p class="meta">Bile · Suco Pancreático · Suco Entérico · Vilosidades · Absorção</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Duodeno — Onde a Digestão Atinge o Máximo</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            O <strong>duodeno</strong> (1ª parte do intestino delgado) recebe simultaneamente:<br>
+            <strong>• Bile</strong> (do fígado/vesícula biliar via ducto colédoco)<br>
+            <strong>• Suco pancreático</strong> (do pâncreas)<br>
+            <strong>• Suco entérico</strong> (produzido pelo próprio duodeno)<br><br>
+            É aqui que a digestão química atinge capacidade máxima e a maioria das moléculas chega ao estágio absorvível.
+          </div>
+
+          <h4>Bile — Emulsificação de Gorduras</h4>
+          <ul>
+            <li>Produzida no <strong>fígado</strong>, armazenada na <strong>vesícula biliar</strong></li>
+            <li>Lançada no duodeno pelo <strong>ducto colédoco</strong></li>
+            <li><strong>Sais biliares</strong> emulsificam gorduras: dividem grandes glóbulos em gotículas (maior área para a lipase agir)</li>
+            <li><strong>Bile NÃO contém enzimas</strong> — é um emulsificante físico, não um catalisador</li>
+            <li>Neutraliza o quimo ácido vindo do estômago (ambiente passa para pH ~8)</li>
+          </ul>
+          <div class="warning-box">
+            <strong>Prova clássica:</strong> Bile <strong>não digere</strong> gordura — ela <strong>emulsifica</strong> (fragmenta fisicamente). Quem <strong>digere quimicamente</strong> é a <strong>lipase pancreática</strong>.
+          </div>
+
+          <h4>Suco Pancreático</h4>
+          <ul>
+            <li><strong>Bicarbonato</strong> — neutraliza o quimo ácido (pH ~8)</li>
+            <li><strong>Tripsinogênio</strong> (inativo) → ativado pela <strong>enteroquinase</strong> → <strong>Tripsina</strong> + Quimiotripsina: proteínas/peptídeos → peptídeos menores</li>
+            <li><strong>Amilase pancreática</strong> — amido → maltose</li>
+            <li><strong>Lipase pancreática</strong> — lipídeos (emulsificados pela bile) → <strong>ácidos graxos + glicerol</strong> (ABSORVÍVEIS)</li>
+            <li><strong>RNAse / DNAse</strong> — ácidos nucleicos → nucleotídeos (não absorvíveis ainda)</li>
+          </ul>
+
+          <h4>Suco Entérico (produzido pelo duodeno)</h4>
+          <ul>
+            <li><strong>Enteroquinase</strong> — ativa o tripsinogênio → tripsina</li>
+            <li><strong>Peptidases</strong> — peptídeos → <strong>aminoácidos</strong> (ABSORVÍVEIS)</li>
+            <li><strong>Maltase</strong> — maltose → glicose + glicose (ABSORVÍVEIS)</li>
+            <li><strong>Sacarase</strong> — sacarose → glicose + frutose (ABSORVÍVEIS)</li>
+            <li><strong>Lactase</strong> — lactose → glicose + galactose (ABSORVÍVEIS)
+              <ul><li>Deficiência de lactase = <strong>intolerância à lactose</strong></li></ul>
+            </li>
+            <li><strong>Nucleotidase</strong> — nucleotídeos → pentoses + bases nitrogenadas + fosfato (ABSORVÍVEIS)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Tabela-Resumo: Enzimas, Substratos e Produtos</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <table class="enzyme-table">
+            <thead>
+              <tr>
+                <th>Local</th>
+                <th>Enzima / Suco</th>
+                <th>Substrato</th>
+                <th>Produto</th>
+                <th>Absorvível?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Boca</td>
+                <td>Ptialina (amilase salivar)</td>
+                <td>Amido</td>
+                <td>Maltose</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Estômago</td>
+                <td>Pepsina (ativada por HCl)</td>
+                <td>Proteínas</td>
+                <td>Peptídeos</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Bile (emulsificante)</td>
+                <td>Gordura</td>
+                <td>Gotículas (emulsão)</td>
+                <td class="no">NÃO (físico)</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Lipase pancreática</td>
+                <td>Lipídeos</td>
+                <td>Ác. graxos + Glicerol</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Amilase pancreática</td>
+                <td>Amido</td>
+                <td>Maltose</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Tripsina / Quimiotripsina</td>
+                <td>Proteínas / Peptídeos</td>
+                <td>Peptídeos menores</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Peptidases (suco entérico)</td>
+                <td>Peptídeos</td>
+                <td>Aminoácidos</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Maltase</td>
+                <td>Maltose</td>
+                <td>Glicose + Glicose</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Sacarase</td>
+                <td>Sacarose</td>
+                <td>Glicose + Frutose</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Lactase</td>
+                <td>Lactose</td>
+                <td>Glicose + Galactose</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>RNAse / DNAse</td>
+                <td>Ácidos nucleicos</td>
+                <td>Nucleotídeos</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Nucleotidase</td>
+                <td>Nucleotídeos</td>
+                <td>Pentoses + bases + fosfato</td>
+                <td class="ok">SIM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Jejuno e Íleo — Absorção e Amplificação de Superfície</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Jejuno e Íleo</strong> = partes do intestino delgado onde ocorre a maior parte da <strong>absorção</strong> dos nutrientes já digeridos no duodeno.
+          </div>
+          <h4>Estruturas que Ampliam a Superfície de Absorção</h4>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Vilosidades (nível de tecido)</h5>
+              <ul>
+                <li>Dobras da mucosa intestinal</li>
+                <li>Visíveis a olho nu</li>
+                <li>Contêm capilares sanguíneos (aminoácidos, glicose) e vasos quilíferos (ác. graxos)</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Microvilosidades (nível celular)</h5>
+              <ul>
+                <li>Projeções da membrana de cada enterócito</li>
+                <li>Sustentadas por microfilamentos de actina</li>
+                <li>Formam a "borda em escova"</li>
+              </ul>
+            </div>
+          </div>
+          <p style="font-size:0.93rem;margin-top:8px;">Juntas, ampliam a superfície em até <strong>600×</strong> o comprimento tubular do intestino.</p>
+          <div class="tip-box">
+            <strong>Quilo:</strong> ao longo do intestino delgado, o quimo vai sendo digerido e absorvido, tornando-se o <strong>quilo</strong> — material restante, menos denso, que segue para o intestino grosso.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 3 — INTESTINO GROSSO ══════════ -->
+<section class="chapter" id="intestino-grosso">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch3">Cap. 3</span> Intestino Grosso — Microbiota, Água e Fezes</h2>
+    <p class="meta">Ceco · Cólon · Reto · Microbiota · Fibras · Absorção de Água</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Estrutura e Função do Intestino Grosso</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Intestino Grosso</strong> = porção final do trato digestório. Mais largo, porém mais curto que o delgado. <strong>Não digere nutrientes</strong> — sua função principal é absorver água e sais e compactar as fezes.
+          </div>
+          <h4>Partes do Intestino Grosso</h4>
+          <ul>
+            <li><strong>Ceco</strong> — bolsão inicial onde o íleo desemboca; apêndice vermiforme está aqui</li>
+            <li><strong>Cólon ascendente</strong> → <strong>Cólon transverso</strong> → <strong>Cólon descendente</strong></li>
+            <li><strong>Reto</strong> — armazena as fezes temporariamente</li>
+            <li><strong>Ânus</strong> — eliminação (esfíncter externo voluntário)</li>
+          </ul>
+          <h4>Absorção de Água e Sais</h4>
+          <ul>
+            <li>Absorção de <strong>água</strong> e <strong>sais minerais</strong> por osmose</li>
+            <li>O quilo vai sendo concentrado até formar fezes sólidas</li>
+            <li><strong>Composição das fezes:</strong> 3/4 água · 1/4 sólido (células mortas, bactérias, fibras indigeríveis)</li>
+          </ul>
+          <div class="warning-box">
+            <strong>Diarreia</strong> = fezes com excesso de água (passagem rápida ou infecção → menos tempo de absorção).<br>
+            <strong>Constipação</strong> = fezes ressecadas (passagem lenta → absorção excessiva de água).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Microbiota Intestinal</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Microbiota intestinal</strong> (flora intestinal) = conjunto de microrganismos (principalmente bactérias) em relação de <strong>mutualismo</strong> com o ser humano no intestino grosso.
+          </div>
+          <h4>O que a Microbiota Faz por Nós</h4>
+          <ul>
+            <li>Produz <strong>vitamina B12</strong> e <strong>vitamina K</strong> (essenciais ao metabolismo humano)</li>
+            <li><strong>Exclusão competitiva</strong> — ocupa nichos impedindo colonização por patógenos</li>
+            <li>Auxiliam na fermentação de fibras solúveis</li>
+            <li>Modulam o sistema imunológico intestinal</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Mutualismo:</strong> a bactéria ganha abrigo e alimento; o humano ganha vitaminas e proteção. Uso excessivo de antibióticos destrói essa microbiota, abrindo espaço para organismos oportunistas (ex: Candida albicans).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Fibras Alimentares</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Fibra Insolúvel — Celulose</h5>
+              <ul>
+                <li>Não se dissolve em água</li>
+                <li>Indigerível (sem celulase humana)</li>
+                <li>Aumenta o bolo fecal</li>
+                <li>Acelera trânsito intestinal</li>
+                <li>Ex: farelo de trigo, folhas</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Fibra Solúvel — Pectina</h5>
+              <ul>
+                <li>Dissolve-se formando gel</li>
+                <li>Fermentada pela microbiota</li>
+                <li>Retarda absorção de glicose e colesterol</li>
+                <li>Alimenta a microbiota (prebiótico)</li>
+                <li>Ex: maçã, aveia, feijão</li>
+              </ul>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <strong>Por que celulose não é digerida?</strong> Humanos não possuem a enzima <strong>celulase</strong>. Ruminantes (vacas) e cupins contam com microrganismos simbiontes que a produzem.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 4 — TRANSPORTES DE MEMBRANA ══════════ -->
+<section class="chapter" id="transportes">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch4">Cap. 4</span> Transportes de Membrana</h2>
+    <p class="meta">Difusão Simples · Difusão Facilitada · Osmose · Transporte Ativo · Bomba Na⁺/K⁺</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Visão Geral — Passivo vs Ativo</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Transporte Passivo</strong> — a favor do gradiente de concentração, <strong>sem gasto de ATP</strong><br>
+            <strong>Transporte Ativo</strong> — contra o gradiente de concentração, <strong>com gasto de ATP</strong>
+          </div>
+          <div class="flow-box">
+            <div style="margin-bottom:8px;font-weight:700;color:var(--primary)">TRANSPORTE DE MEMBRANA</div>
+            <strong style="color:var(--accent)">PASSIVO</strong>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Difusão Simples</span>
+            <span class="flow-step">Difusão Facilitada</span>
+            <span class="flow-step">Osmose</span>
+            <br><br>
+            <strong style="color:var(--accent)">ATIVO</strong>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Bomba Na⁺/K⁺</span>
+            <span class="flow-step">Endocitose</span>
+            <span class="flow-step">Exocitose</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Difusão Simples e Difusão Facilitada</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Difusão Simples</h5>
+              <ul>
+                <li>Diretamente pelos fosfolipídios</li>
+                <li>Moléculas <strong>apolares e/ou pequenas</strong></li>
+                <li>Sem proteínas transportadoras</li>
+                <li>Ex: O₂, CO₂, N₂ (gases), ácidos graxos, vitaminas A, D, E, K</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Difusão Facilitada</h5>
+              <ul>
+                <li>Via proteínas transportadoras</li>
+                <li>Moléculas <strong>polares e/ou grandes</strong></li>
+                <li><strong>Canal (poro)</strong> — íons (ex: Ca²⁺, K⁺)</li>
+                <li><strong>Carreadora</strong> — muda conformação (ex: glicose via GLUT, aminoácidos)</li>
+                <li>Ainda passivo — sem ATP</li>
+              </ul>
+            </div>
+          </div>
+          <div class="warning-box">
+            <strong>Por que glicose precisa de carreadora mas não gasta ATP?</strong> Glicose é polar — não atravessa a região apolar da bicamada. A proteína GLUT canaliza seu movimento, mas ele ainda vai a FAVOR do gradiente (de onde há mais para onde há menos). Só seria ativo se fosse contra o gradiente.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Osmose — Transporte de Água</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Osmose</strong> = difusão de água através de membrana semipermeável, do meio <strong>hipotônico</strong> (menos solutos) para o <strong>hipertônico</strong> (mais solutos).<br><br>
+            Água é polar, passa lentamente pela bicamada. Em grandes volumes, usa <strong>aquaporinas</strong> (proteínas canal de água — ainda passivo).
+          </div>
+          <h4>Tipos de Solução</h4>
+          <ul>
+            <li><strong>Isotônica</strong> — mesma concentração do interior → sem troca líquida</li>
+            <li><strong>Hipotônica</strong> — menos solutos que o interior → célula <strong>ganha água</strong></li>
+            <li><strong>Hipertônica</strong> — mais solutos que o interior → célula <strong>perde água</strong></li>
+          </ul>
+          <h4>Consequências em Célula Animal vs Vegetal</h4>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Célula Animal (sem parede celular)</h5>
+              <ul>
+                <li>Hipertônica → perde água → <strong>crenação (enrugada)</strong></li>
+                <li>Isotônica → normal</li>
+                <li>Hipotônica → ganha água → <strong>lise (estoura)</strong></li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Célula Vegetal (com parede de celulose)</h5>
+              <ul>
+                <li>Hipertônica → perde água → <strong>plasmólise</strong> (membrana descola da parede)</li>
+                <li>Isotônica → flácida</li>
+                <li>Hipotônica → ganha água → <strong>turgescente</strong> (parede impede a lise)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tip-box">
+            <strong>Absorção de água no intestino grosso</strong> funciona por osmose: o cólon absorve ativamente Na⁺ → cria gradiente osmótico → água segue o Na⁺ passivamente para os capilares.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Transporte Ativo — Bomba Na⁺/K⁺ e Vesículas</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Transporte ativo</strong> = transporte <strong>contra o gradiente</strong> de concentração, com gasto de <strong>ATP</strong>.
+          </div>
+          <h4>Bomba Na⁺/K⁺-ATPase</h4>
+          <ul>
+            <li>Usa ATP para bombear <strong>3 Na⁺ para FORA</strong> e <strong>2 K⁺ para DENTRO</strong></li>
+            <li>Ambos contra seus gradientes (ativo)</li>
+            <li>Mantém potencial de membrana (interior mais negativo)</li>
+            <li>Fundamental para neurônios e músculo cardíaco</li>
+          </ul>
+          <h4>Transporte por Vesículas (também ativo)</h4>
+          <ul>
+            <li><strong>Endocitose</strong> — internalização:
+              <ul>
+                <li><strong>Fagocitose</strong> — sólidos grandes, com pseudópodes (macrófagos, neutrófilos)</li>
+                <li><strong>Pinocitose</strong> — líquidos, por invaginação</li>
+              </ul>
+            </li>
+            <li><strong>Exocitose</strong> — liberação:
+              <ul>
+                <li><strong>Secreção</strong> — substâncias úteis (hormônios, enzimas, anticorpos)</li>
+                <li><strong>Clasmocitose</strong> — resíduos indigeríveis</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="tip-box">
+            <strong>Absorção de nutrientes no intestino (conexão com Cap. 2):</strong><br>
+            Lúmen → enterócito → capilar sanguíneo<br>
+            • Ácidos graxos e vitaminas lipossolúveis → <strong>difusão simples</strong> (apolares)<br>
+            • Glicose, aminoácidos, íons → <strong>difusão facilitada</strong> (proteínas transportadoras)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Tabela-Resumo: Tipos de Transporte</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <table class="enzyme-table">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Mecanismo</th>
+                <th>ATP?</th>
+                <th>Direção</th>
+                <th>Exemplos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Difusão Simples</td>
+                <td>Pelos fosfolipídios</td>
+                <td class="no">NÃO</td>
+                <td>Favor do gradiente</td>
+                <td>O₂, CO₂, ác. graxos, vit. A, D, E, K</td>
+              </tr>
+              <tr>
+                <td>Difusão Facilitada</td>
+                <td>Proteína canal ou carreadora</td>
+                <td class="no">NÃO</td>
+                <td>Favor do gradiente</td>
+                <td>Glicose (GLUT), aminoácidos, Ca²⁺, K⁺</td>
+              </tr>
+              <tr>
+                <td>Osmose</td>
+                <td>Fosfolipídios / aquaporinas</td>
+                <td class="no">NÃO</td>
+                <td>Hipotônico → Hipertônico</td>
+                <td>H₂O</td>
+              </tr>
+              <tr>
+                <td>Bomba Na⁺/K⁺</td>
+                <td>Proteína ATPase</td>
+                <td class="ok">SIM</td>
+                <td>Contra o gradiente</td>
+                <td>Na⁺ (saída) / K⁺ (entrada)</td>
+              </tr>
+              <tr>
+                <td>Fagocitose</td>
+                <td>Pseudópodes + vesícula</td>
+                <td class="ok">SIM</td>
+                <td>Entrada (sólidos)</td>
+                <td>Bactérias, restos celulares</td>
+              </tr>
+              <tr>
+                <td>Pinocitose</td>
+                <td>Invaginação + vesícula</td>
+                <td class="ok">SIM</td>
+                <td>Entrada (líquidos)</td>
+                <td>Fluido extracelular</td>
+              </tr>
+              <tr>
+                <td>Exocitose (secreção)</td>
+                <td>Fusão de vesícula com membrana</td>
+                <td class="ok">SIM</td>
+                <td>Saída</td>
+                <td>Insulina, enzimas, anticorpos</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ QUIZ ══════════ -->
+<section class="quiz-section" id="quiz">
+  <h3>Quiz — AE 27/05/2026</h3>
+  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">12 questões · Sistema Digestório e Transportes de Membrana</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (12)</button>
+    <button class="filter-btn" onclick="filterQuiz('ch1',this)">Trato Superior</button>
+    <button class="filter-btn" onclick="filterQuiz('ch2',this)">Int. Delgado</button>
+    <button class="filter-btn" onclick="filterQuiz('ch3',this)">Int. Grosso</button>
+    <button class="filter-btn" onclick="filterQuiz('ch4',this)">Transportes</button>
+  </div>
+
+  <div id="score-box">
+    <div id="score-nums"></div>
+    <div id="score-chart-wrap">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="8"/>
+        <circle id="donut-arc" cx="32" cy="32" r="26" fill="none" stroke="#3a9e6f" stroke-width="8"
+          stroke-dasharray="0 163.4" stroke-linecap="round"
+          transform="rotate(-90 32 32)"/>
+      </svg>
+      <div>
+        <div id="score-pct-label">0%</div>
+        <div id="score-pct-sub">de acerto</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-q" id="q1" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Trato Superior</span>
+    <p>1. A ptialina (amilase salivar) transforma amido em maltose na boca. Por que essa digestão é interrompida ao chegar ao estômago?</p>
+    <label><input type="radio" name="q1" value="a" onclick="checkQuiz('q1','b')"> a) O estômago secreta inibidores específicos que se ligam à ptialina e a inativam permanentemente</label>
+    <label><input type="radio" name="q1" value="b" onclick="checkQuiz('q1','b')"> b) O pH ácido do estômago (~2) desnatura a ptialina, que tem pH ótimo ~7 — enzimas perdem função fora de sua faixa de pH</label>
+    <label><input type="radio" name="q1" value="c" onclick="checkQuiz('q1','b')"> c) A maltose produzida inibe a ptialina por retroalimentação negativa no estômago</label>
+    <label><input type="radio" name="q1" value="d" onclick="checkQuiz('q1','b')"> d) A pepsina do estômago compete com a ptialina pelo mesmo substrato, impedindo sua ação</label>
+    <div class="feedback" id="q1-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q2" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Trato Superior</span>
+    <p>2. A pepsina é secretada pelo estômago na forma inativa de pepsinogênio. Por que esse mecanismo de pró-enzima existe e o que o ativa?</p>
+    <label><input type="radio" name="q2" value="a" onclick="checkQuiz('q2','c')"> a) O pepsinogênio é ativado pela bile que reflui do intestino, evitando que o fígado seja danificado</label>
+    <label><input type="radio" name="q2" value="b" onclick="checkQuiz('q2','c')"> b) O pepsinogênio é ativado por proteases do muco gástrico para ampliar a digestão mecânica</label>
+    <label><input type="radio" name="q2" value="c" onclick="checkQuiz('q2','c')"> c) O HCl ativa o pepsinogênio → pepsina; secretar a forma inativa protege a própria parede do estômago de ser digerida antes do momento certo</label>
+    <label><input type="radio" name="q2" value="d" onclick="checkQuiz('q2','c')"> d) A mastigação mecânica na boca ativa o pepsinogênio por pressão osmótica antes de ele chegar ao estômago</label>
+    <div class="feedback" id="q2-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q3" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Intestino Delgado</span>
+    <p>3. Uma estudante afirma: "A bile digere as gorduras no intestino". Qual é o erro e qual é a função correta da bile?</p>
+    <label><input type="radio" name="q3" value="a" onclick="checkQuiz('q3','b')"> a) A bile não age no intestino — age no estômago, acidificando o ambiente para a lipase</label>
+    <label><input type="radio" name="q3" value="b" onclick="checkQuiz('q3','b')"> b) A bile não digere (não é enzima) — ela emulsifica as gorduras, fragmentando-as em gotículas menores para que a lipase pancreática possa agir com maior eficiência</label>
+    <label><input type="radio" name="q3" value="c" onclick="checkQuiz('q3','b')"> c) A bile digere gorduras e também proteínas — a estudante errou ao limitar sua ação às gorduras</label>
+    <label><input type="radio" name="q3" value="d" onclick="checkQuiz('q3','b')"> d) A bile é produzida pelo pâncreas e tem função enzimática, quebrando lipídeos em ácidos graxos</label>
+    <div class="feedback" id="q3-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q4" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Intestino Delgado</span>
+    <p>4. Pessoas com intolerância à lactose carecem da enzima lactase. Qual seria a consequência da ingestão de leite e em que parte do trato o problema se manifesta?</p>
+    <label><input type="radio" name="q4" value="a" onclick="checkQuiz('q4','c')"> a) A lactose é digerida no estômago pela pepsina, mas sem pepsina suficiente acumula-se no sangue</label>
+    <label><input type="radio" name="q4" value="b" onclick="checkQuiz('q4','c')"> b) A lactase age na boca; sem ela, a lactose vai ao estômago onde o HCl a fermenta, causando acidez</label>
+    <label><input type="radio" name="q4" value="c" onclick="checkQuiz('q4','c')"> c) A lactase do suco entérico (intestino delgado) deveria converter lactose em glicose + galactose; sem ela, a lactose chega intacta ao intestino grosso, onde bactérias a fermentam — causando gases, diarreia e desconforto</label>
+    <label><input type="radio" name="q4" value="d" onclick="checkQuiz('q4','c')"> d) Sem lactase, a lactose é absorvida intacta como dissacarídeo e acumula-se no fígado, causando icterícia</label>
+    <div class="feedback" id="q4-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q5" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Intestino Delgado</span>
+    <p>5. O pâncreas secreta tripsinogênio (inativo). A enteroquinase, produzida pelo duodeno, o ativa → tripsina. Por que esse mecanismo de pró-enzima é importante?</p>
+    <label><input type="radio" name="q5" value="a" onclick="checkQuiz('q5','b')"> a) Porque o tripsinogênio é ativado apenas pela bile, e a enteroquinase serve só como catalisador da bile</label>
+    <label><input type="radio" name="q5" value="b" onclick="checkQuiz('q5','b')"> b) Se a tripsina fosse secretada ativa, ela digeriria o próprio tecido pancreático — a pró-enzima garante que a ativação ocorra apenas no lúmen intestinal</label>
+    <label><input type="radio" name="q5" value="c" onclick="checkQuiz('q5','b')"> c) A enteroquinase é produzida pelo fígado, não pelo duodeno, e serve para aumentar o pH antes da ativação</label>
+    <label><input type="radio" name="q5" value="d" onclick="checkQuiz('q5','b')"> d) O tripsinogênio precisa ser inativo para não se ligar à bile e perder eficiência no intestino grosso</label>
+    <div class="feedback" id="q5-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q6" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Intestino Delgado</span>
+    <p>6. O intestino delgado tem ~6 m de comprimento, mas a área de absorção real é muito maior. Quais estruturas explicam esse ganho e como se diferenciam entre si?</p>
+    <label><input type="radio" name="q6" value="a" onclick="checkQuiz('q6','c')"> a) As válvulas de Bauhin e o apêndice vermiforme dobram a área — ambas são especializações do tecido muscular</label>
+    <label><input type="radio" name="q6" value="b" onclick="checkQuiz('q6','c')"> b) Apenas as microvilosidades, que são dobras do tecido mucoso sustentadas por microtúbulos</label>
+    <label><input type="radio" name="q6" value="c" onclick="checkQuiz('q6','c')"> c) Vilosidades intestinais (dobras do tecido mucoso com capilares) + microvilosidades (projeções da membrana de cada célula epitelial sustentadas por actina) — juntas multiplicam a superfície em até 600×</label>
+    <label><input type="radio" name="q6" value="d" onclick="checkQuiz('q6','c')"> d) As vilosidades são projeções de células individuais e as microvilosidades são dobras maiores de tecido, ambas sustentadas por filamentos intermediários</label>
+    <div class="feedback" id="q6-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q7" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Intestino Grosso</span>
+    <p>7. O uso prolongado de antibióticos de amplo espectro frequentemente causa diarreia e candidíase (infecção por Candida). Como a destruição da microbiota explica ambos os efeitos?</p>
+    <label><input type="radio" name="q7" value="a" onclick="checkQuiz('q7','c')"> a) Os antibióticos aumentam o pH intestinal, impedindo absorção de água e favorecendo crescimento de fungos</label>
+    <label><input type="radio" name="q7" value="b" onclick="checkQuiz('q7','c')"> b) A microbiota produz antibióticos naturais; sem ela, o intestino perde resistência mecânica às infecções virais</label>
+    <label><input type="radio" name="q7" value="c" onclick="checkQuiz('q7','c')"> c) A microbiota, por exclusão competitiva, impede colonização por patógenos (bactérias e fungos). Sem ela, Candida coloniza livremente; além disso, bactérias residentes auxiliam na regulação do trânsito — sua ausência causa diarreia</label>
+    <label><input type="radio" name="q7" value="d" onclick="checkQuiz('q7','c')"> d) Os antibióticos destroem as vilosidades intestinais, reduzindo a absorção de água e criando ambiente favorável a fungos</label>
+    <div class="feedback" id="q7-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q8" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Intestino Grosso</span>
+    <p>8. O intestino grosso absorve água por osmose acoplada à absorção de sódio. Se uma toxina bacteriana bloqueasse os transportadores de Na⁺ do cólon, qual seria a consequência sobre as fezes?</p>
+    <label><input type="radio" name="q8" value="a" onclick="checkQuiz('q8','b')"> a) As fezes ficariam ressecadas, pois o sódio seria necessário para a secreção de água no lúmen</label>
+    <label><input type="radio" name="q8" value="b" onclick="checkQuiz('q8','b')"> b) As fezes ficariam líquidas (diarreia): sem absorção de Na⁺, o gradiente osmótico que puxa água para o sangue não se estabelece — a água permanece no lúmen</label>
+    <label><input type="radio" name="q8" value="c" onclick="checkQuiz('q8','b')"> c) As fezes ficariam normais, pois a absorção de água é independente de sódio (ocorre por aquaporinas autônomas)</label>
+    <label><input type="radio" name="q8" value="d" onclick="checkQuiz('q8','b')"> d) Haveria constipação, pois sem sódio as células do cólon não produzem muco lubrificante suficiente</label>
+    <div class="feedback" id="q8-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q9" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Transportes</span>
+    <p>9. Vitaminas A, D, E e K são absorvidas por difusão simples, enquanto a glicose precisa de difusão facilitada. O que determina qual via cada molécula usa?</p>
+    <label><input type="radio" name="q9" value="a" onclick="checkQuiz('q9','b')"> a) O tamanho exclusivamente: moléculas menores que a glicose usam difusão simples</label>
+    <label><input type="radio" name="q9" value="b" onclick="checkQuiz('q9','b')"> b) A polaridade: vitaminas A, D, E, K são lipossolúveis (apolares) — atravessam a bicamada diretamente; glicose é polar e não atravessa a região hidrofóbica — precisa de proteína carreadora</label>
+    <label><input type="radio" name="q9" value="c" onclick="checkQuiz('q9','b')"> c) A concentração: moléculas em alta concentração usam difusão simples; em baixa, usam facilitada</label>
+    <label><input type="radio" name="q9" value="d" onclick="checkQuiz('q9','b')"> d) O pH: em pH ácido usam difusão simples; em pH básico usam facilitada</label>
+    <div class="feedback" id="q9-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q10" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Transportes</span>
+    <p>10. Uma hemácia e uma célula vegetal são colocadas em água destilada (solução hipotônica). Qual é o destino de cada uma e por quê diferem?</p>
+    <label><input type="radio" name="q10" value="a" onclick="checkQuiz('q10','c')"> a) A hemácia endurece (turgescência); a célula vegetal estoura por ter membrana mais frágil</label>
+    <label><input type="radio" name="q10" value="b" onclick="checkQuiz('q10','c')"> b) Ambas ganham água e estouram da mesma forma, pois a osmose obedece apenas ao gradiente</label>
+    <label><input type="radio" name="q10" value="c" onclick="checkQuiz('q10','c')"> c) A hemácia (sem parede celular) ganha água até sofrer lise osmótica; a célula vegetal ganha água e fica turgescente — a parede celular de celulose resiste à expansão e impede a ruptura</label>
+    <label><input type="radio" name="q10" value="d" onclick="checkQuiz('q10','c')"> d) A hemácia perde água (crenação); a célula vegetal também perde (plasmólise) pois ambas têm mais solutos que a água pura</label>
+    <div class="feedback" id="q10-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q11" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Transportes</span>
+    <p>11. A bomba Na⁺/K⁺ bombeia 3 Na⁺ para fora e 2 K⁺ para dentro usando ATP. Por que esse processo é transporte ativo e não difusão facilitada?</p>
+    <label><input type="radio" name="q11" value="a" onclick="checkQuiz('q11','b')"> a) Porque usa uma proteína transportadora — qualquer transporte com proteína é ativo por definição</label>
+    <label><input type="radio" name="q11" value="b" onclick="checkQuiz('q11','b')"> b) Porque o transporte ocorre CONTRA o gradiente (bombeia Na⁺ para onde já há mais Na⁺, e K⁺ para onde já há mais K⁺), exigindo ATP; na difusão facilitada, a proteína canaliza o movimento a FAVOR do gradiente, sem ATP</label>
+    <label><input type="radio" name="q11" value="c" onclick="checkQuiz('q11','b')"> c) Porque bombeia dois íons diferentes ao mesmo tempo — qualquer cotransporte é ativo, independente da direção</label>
+    <label><input type="radio" name="q11" value="d" onclick="checkQuiz('q11','b')"> d) Porque usa o gradiente de pH para gerar energia cinética nos íons, o que caracteriza transporte ativo</label>
+    <div class="feedback" id="q11-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q12" data-ch="ch4">
+    <span class="quiz-chapter-tag tag-ch4">Transportes</span>
+    <p>12. Um pesquisador bloqueia todas as proteínas carreadoras da membrana dos enterócitos. Quais nutrientes ainda seriam absorvidos e quais não seriam?</p>
+    <label><input type="radio" name="q12" value="a" onclick="checkQuiz('q12','b')"> a) Nenhum nutriente seria absorvido, pois todos dependem de proteínas carreadoras para atravessar a membrana</label>
+    <label><input type="radio" name="q12" value="b" onclick="checkQuiz('q12','b')"> b) Ácidos graxos e vitaminas lipossolúveis (A, D, E, K) ainda seriam absorvidos por difusão simples (apolares passam pela bicamada); glicose, aminoácidos e íons NÃO seriam absorvidos — dependem de proteínas carreadoras</label>
+    <label><input type="radio" name="q12" value="c" onclick="checkQuiz('q12','b')"> c) Apenas a água seria absorvida, pois depende de aquaporinas (proteínas canal, distintas das carreadoras)</label>
+    <label><input type="radio" name="q12" value="d" onclick="checkQuiz('q12','b')"> d) Todos os açúcares seriam absorvidos por difusão simples, mas proteínas não, por serem muito grandes</label>
+    <div class="feedback" id="q12-fb"></div>
+  </div>
+
+  <div style="text-align:center; margin-top:28px;">
+    <button onclick="resetQuiz()" style="background:var(--secondary);color:white;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Caderno Digital — Biologia · 2ª série do Ensino Médio · 2026
+</footer>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+const answers = {
+  q1:  { correct: 'b', explain: 'Enzimas têm pH ótimo: a ptialina funciona em pH ~7 (boca). No estômago, o HCl baixa o pH para ~2, desnaturando a ptialina. Desnaturação = perda da estrutura tridimensional → perda da função catalítica. Por isso a digestão de amido começa na boca e para no estômago.' },
+  q2:  { correct: 'c', explain: 'O pepsinogênio é uma pró-enzima (zimogênio) — forma inativa que protege a parede do estômago de autodigestão. O HCl secretado pelas células parietais ativa o pepsinogênio → pepsina. Sem esse mecanismo, a pepsina ativa digeriria a própria mucosa gástrica (mecanismo análogo ao do tripsinogênio no pâncreas).' },
+  q3:  { correct: 'b', explain: 'Bile = emulsificante, não enzima. Contém sais biliares (anfipáticos) que envolvem os glóbulos de gordura e os dividem em gotículas menores (emulsão), aumentando a superfície de contato para a lipase pancreática agir. A digestão química das gorduras (→ ác. graxos + glicerol) é da lipase. Bile: produzida no fígado, armazenada na vesícula biliar.' },
+  q4:  { correct: 'c', explain: 'A lactase do suco entérico age no intestino delgado, quebrando lactose (dissacarídeo) → glicose + galactose (absorvíveis). Sem lactase, a lactose chega intacta ao intestino grosso, onde a microbiota a fermenta, produzindo gases (H₂, CO₂, CH₄) e ácidos que causam diarreia osmótica, cólicas e distensão abdominal.' },
+  q5:  { correct: 'b', explain: 'Tripsina é uma protease potente. Se fosse secretada ativa, digerira as próprias células pancreáticas (pancreatite aguda). O mecanismo de pró-enzima garante que a ativação ocorra apenas no lúmen intestinal seguro. A tripsina ativa também pode ativar mais tripsinogênio (autocatálise) e outras pró-enzimas pancreáticas.' },
+  q6:  { correct: 'c', explain: 'São dois níveis de especialização: Vilosidades = dobras macroscópicas da mucosa intestinal (tecido); contêm capilares sanguíneos (aminoácidos/glicose) e vasos quilíferos linfáticos (ácidos graxos). Microvilosidades = projeções microscópicas da membrana de cada enterócito (célula), sustentadas por microfilamentos de actina, formando a "borda em escova". Juntos, multiplicam a superfície em até 600×.' },
+  q7:  { correct: 'c', explain: 'A microbiota age por exclusão competitiva: ocupa espaço físico, nutrientes e receptores de adesão que seriam usados por patógenos. Sem ela, Candida e bactérias resistentes colonizam livremente (candidíase, infecções). A diarreia ocorre porque bactérias benéficas regulam motilidade e absorção intestinal — sua ausência desregula ambas. Probióticos ajudam a restaurar o equilíbrio.' },
+  q8:  { correct: 'b', explain: 'A absorção de água no intestino grosso depende do gradiente osmótico criado pela absorção ativa de Na⁺ pelas células do cólon. Ao bloquear Na⁺, o gradiente não se estabelece — a osmose não puxa água para o sangue. A água fica no lúmen, diluindo as fezes → diarreia osmótica. Esse é o mecanismo da toxina da cólera (Vibrio cholerae).' },
+  q9:  { correct: 'b', explain: 'O determinante principal é a polaridade/solubilidade lipídica. Vitaminas A, D, E, K são lipossolúveis (apolares) — dissolvem-se na bicamada fosfolipídica e a atravessam por difusão simples. A glicose é hidrofílica (polar) — não se dissolve na região apolar da membrana, portanto precisa de proteína GLUT (carreadora) para atravessá-la, mesmo que o movimento seja a favor do gradiente.' },
+  q10: { correct: 'c', explain: 'Água destilada = hipotônica (sem solutos). Osmose move água para dentro de qualquer célula. A hemácia (célula animal, sem parede) não tem estrutura que resista à expansão → a membrana rompe (lise/hemólise). A célula vegetal tem parede de celulose rígida que suporta a pressão interna e impede ruptura → turgescência (pressão de turgor), o que é benéfico para plantas (sustentação mecânica).' },
+  q11: { correct: 'b', explain: 'O critério do transporte ativo é mover solutos CONTRA o gradiente (de onde há menos para onde há mais), exigindo ATP. Na bomba Na⁺/K⁺: o interior celular já tem pouco Na⁺ → a bomba manda para o exterior onde há mais (contra gradiente). O interior já tem muito K⁺ → a bomba manda mais K⁺ para dentro (contra gradiente). Na difusão facilitada, a proteína apenas canaliza o movimento espontâneo a favor do gradiente, sem ATP.' },
+  q12: { correct: 'b', explain: 'Proteínas carreadoras são necessárias para moléculas polares/grandes. Ácidos graxos e vitaminas lipossolúveis (A, D, E, K) são apolares — atravessam os fosfolipídios por difusão simples sem proteína → ainda absorvidos. Glicose (usa GLUT), aminoácidos e a maioria dos íons dependem de carreadoras/canais → sem elas, não absorvidos. Água ainda passaria por aquaporinas (proteínas canal, distintas das carreadoras).' },
+};
+
+let scoreCorrect = 0, scoreTotal = 0;
+
+function checkQuiz(id, correct) {
+  const radios = document.querySelectorAll(`input[name="${id}"]`);
+  let chosen = '';
+  radios.forEach(r => { if (r.checked) chosen = r.value; });
+  if (!chosen) return;
+  const fb = document.getElementById(id + '-fb');
+  if (fb.classList.contains('correct') || fb.classList.contains('wrong')) return;
+  scoreTotal++;
+  if (chosen === correct) {
+    scoreCorrect++;
+    fb.className = 'feedback correct';
+    fb.textContent = '✓ Correto! ' + answers[id].explain;
+  } else {
+    fb.className = 'feedback wrong';
+    fb.textContent = '✗ Incorreto. ' + answers[id].explain;
+  }
+  updateScore();
+}
+function updateScore() {
+  const box = document.getElementById('score-box');
+  box.style.display = 'block';
+  document.getElementById('score-nums').textContent = `Placar: ${scoreCorrect} / ${scoreTotal}`;
+  const pct = scoreTotal ? Math.round(scoreCorrect / scoreTotal * 100) : 0;
+  const arc = (scoreCorrect / (scoreTotal || 1)) * 163.4;
+  const donut = document.getElementById('donut-arc');
+  donut.setAttribute('stroke-dasharray', `${arc} 163.4`);
+  donut.setAttribute('stroke', pct >= 70 ? '#3a9e6f' : pct >= 40 ? '#f39c12' : '#e74c3c');
+  document.getElementById('score-pct-label').textContent = pct + '%';
+}
+
+function filterQuiz(ch, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.quiz-q').forEach(q => {
+    q.classList.toggle('hidden', ch !== 'all' && q.dataset.ch !== ch);
+  });
+}
+
+function resetQuiz() {
+  document.querySelectorAll('.quiz-q input[type="radio"]').forEach(r => { r.checked = false; r.disabled = false; });
+  document.querySelectorAll('.feedback').forEach(f => { f.className = 'feedback'; f.textContent = ''; });
+  scoreCorrect = 0; scoreTotal = 0;
+  document.getElementById('score-box').style.display = 'none';
+  document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
+  document.getElementById('score-pct-label').textContent = '0%';
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+}
+
+function toggleChat() {
+  const p = document.getElementById("chat-panel");
+  p.classList.toggle("open");
+  if (p.classList.contains("open")) document.getElementById("chat-input").focus();
+}
+function getContext() {
+  const el = document.querySelector("main") || document.body;
+  return el.innerText.replace(/\s+/g, " ").slice(0, 6000);
+}
+async function sendMsg(e) {
+  e.preventDefault();
+  const input = document.getElementById("chat-input");
+  const msgs = document.getElementById("chat-msgs");
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = "";
+  const userMsg = document.createElement("div");
+  userMsg.className = "cmsg user";
+  userMsg.textContent = text;
+  msgs.appendChild(userMsg);
+  const loader = document.createElement("div");
+  loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
+  msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
+  try {
+    const r = await fetch("/api/chat", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ message: text, context: getContext() }) });
+    const d = await r.json();
+    loader.className = "cmsg bot"; loader.textContent = d.reply || d.error;
+  } catch(err) { loader.className = "cmsg bot"; loader.textContent = "Erro de conexão. Tente novamente."; }
+  msgs.scrollTop = msgs.scrollHeight;
+}
+</script>
+</body>
+</html>

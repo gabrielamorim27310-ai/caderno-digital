@@ -211,7 +211,7 @@
     <button class="tri-btn active" onclick="setTri('t1',this)">
       1º Trimestre <span class="count">7</span>
     </button>
-    <button class="tri-btn" onclick="setTri('t2',this)">2º Trimestre</button>
+    <button class="tri-btn" onclick="setTri('t2',this)">2º Trimestre <span class="count">1</span></button>
     <button class="tri-btn" onclick="setTri('t3',this)">3º Trimestre</button>
   </div>
 </nav>
@@ -365,9 +365,25 @@
   <!-- 2º TRIMESTRE -->
   <div class="tri-panel" id="t2">
     <p class="panel-title">2º Trimestre</p>
-    <div class="empty-state">
-      <div class="icon">📝</div>
-      <p>Nenhum resumo disponível ainda.<br>Volte quando o 2º trimestre começar!</p>
+    <div class="subject-grid">
+
+      <div class="subject-card">
+        <div class="subject-header">
+          <div class="subject-icon" style="background:var(--bio)">🧬</div>
+          <div>
+            <div class="subject-name">Biologia</div>
+            <div class="subject-desc">Sistema Digestório · Transportes de Membrana</div>
+          </div>
+        </div>
+        <div class="subject-items">
+          <a class="item-link" href="biologia-2tri.html">
+            <span class="dot" style="background:var(--bio)"></span>
+            <span class="label">Sist. Digestório · Transportes — AE 27/05</span>
+            <span class="arrow">›</span>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 
