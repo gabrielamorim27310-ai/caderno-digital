@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>História 2º Tri — Iluminismo, Revoluções e França 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary:   #1a2744;
+    --secondary: #c9953c;
+    --accent:    #8b2e2e;
+    --bg:        #faf7f2;
+    --card-bg:   #ffffff;
+    --text:      #1e1e1e;
+    --text-light:#6b6b6b;
+    --border:    #e8ddd0;
+    --shadow:    0 4px 24px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; scroll-behavior:smooth; }
+
+  .progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--secondary); z-index:999; width:0%; transition:width 0.1s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d1626 0%, #1a2744 50%, #0a0f1a 100%);
+    color:white; padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; margin-bottom:12px; position:relative; }
+  .hero .subtitle { font-size:1.1rem; opacity:0.85; font-weight:300; position:relative; }
+  .hero .badge { display:inline-block; background:var(--secondary); color:white; padding:6px 18px; border-radius:20px; font-weight:700; font-size:0.85rem; margin-top:16px; position:relative; }
+  .hero .author { display:inline-block; background:rgba(255,255,255,0.15); color:white; padding:8px 22px; border-radius:20px; font-size:1.05rem; font-weight:600; margin-top:12px; position:relative; border:1px solid rgba(255,255,255,0.4); letter-spacing:0.02em; }
+
+  /* NAV */
+  nav { background:white; border-bottom:2px solid var(--border); padding:0 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width:1100px; margin:0 auto; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+  nav .nav-inner::-webkit-scrollbar { display:none; }
+  nav a { text-decoration:none; padding:14px 20px; font-weight:600; font-size:0.85rem; white-space:nowrap; color:var(--text-light); border-bottom:3px solid transparent; transition:all 0.3s; }
+  nav a:hover, nav a.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* MAIN */
+  main { max-width:900px; margin:0 auto; padding:40px 20px 80px; }
+
+  /* CHAPTER */
+  .chapter { margin-bottom:56px; }
+  .chapter-header { margin-bottom:24px; padding-bottom:14px; border-bottom:3px solid var(--secondary); }
+  .chapter-header h2 { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--primary); font-weight:900; display:flex; align-items:center; gap:12px; }
+  .ch-tag { display:inline-block; background:var(--primary); color:white; padding:3px 12px; border-radius:6px; font-size:0.78rem; font-weight:700; letter-spacing:.5px; font-family:'Inter',sans-serif; flex-shrink:0; }
+  .chapter-header .meta { color:var(--text-light); font-size:0.9rem; margin-top:6px; }
+
+  /* ACCORDION */
+  .accordion { background:white; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .accordion-btn { width:100%; background:none; border:none; padding:17px 20px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:0.97rem; font-weight:600; color:var(--primary); transition:background .2s; }
+  .accordion-btn:hover { background:#f5f0e8; }
+  .accordion-btn .chev { transition:transform .3s; color:var(--secondary); font-size:1.1rem; }
+  .accordion.open .chev { transform:rotate(180deg); }
+  .accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .accordion.open .accordion-content { max-height:4000px; }
+  .content-block { padding:0 20px 20px; border-top:1px solid var(--border); }
+  .content-block p { margin:12px 0; font-size:0.95rem; }
+  .content-block ul, .content-block ol { margin:8px 0 12px 22px; }
+  .content-block li { margin-bottom:6px; font-size:0.93rem; }
+  .content-block h4 { font-family:'Playfair Display',serif; color:var(--primary); margin:16px 0 8px; font-size:1.05rem; }
+
+  /* INFO BOXES */
+  .highlight-box, .warn-box, .tip-box {
+    border-left:4px solid; border-radius:0 10px 10px 0; padding:13px 16px; margin:14px 0; font-size:0.93rem;
+  }
+  .highlight-box { background:#eef2f8; border-color:var(--primary); }
+  .warn-box      { background:#fdf3e3; border-color:var(--secondary); }
+  .tip-box       { background:#fdecea; border-color:var(--accent); }
+  .highlight-box strong, .warn-box strong, .tip-box strong { display:block; margin-bottom:4px; }
+
+  /* TIMELINE */
+  .timeline { margin:14px 0; }
+  .tl-item { display:flex; gap:14px; margin-bottom:13px; align-items:flex-start; }
+  .tl-year { background:var(--primary); color:white; padding:4px 10px; border-radius:20px; font-size:0.78rem; font-weight:700; white-space:nowrap; flex-shrink:0; margin-top:2px; }
+  .tl-text { font-size:0.92rem; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem; }
+  .data-table th { background:var(--primary); color:white; padding:10px 12px; text-align:left; font-weight:600; }
+  .data-table td { padding:9px 12px; border-bottom:1px solid var(--border); }
+  .data-table tr:nth-child(even) td { background:#f5f0e8; }
+
+  /* QUIZ */
+  #quiz-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+  #quiz-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
+  #quiz-section > p { color:var(--text-light); margin-bottom:20px; }
+
+  .quiz-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .filter-btn { padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); background:white; color:var(--text-light); font-size:0.82rem; font-weight:600; cursor:pointer; transition:all .2s; }
+  .filter-btn.active, .filter-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
+
+  .question-card { background:var(--bg); border:1.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; }
+  .question-card.hidden { display:none; }
+  .question-card h4 { font-size:0.95rem; font-weight:600; color:var(--primary); margin-bottom:14px; }
+  .options { display:flex; flex-direction:column; gap:8px; }
+  .option-btn { background:white; border:1.5px solid var(--border); border-radius:8px; padding:10px 14px; text-align:left; font-size:0.9rem; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .option-btn:hover { border-color:var(--secondary); background:#fdf6ea; }
+  .option-btn.correct { background:#d4edda; border-color:#27ae60; color:#155724; }
+  .option-btn.wrong   { background:#f8d7da; border-color:#e74c3c; color:#721c24; }
+
+  .quiz-result { display:none; text-align:center; padding:24px; }
+  .donut-wrap { position:relative; width:130px; height:130px; margin:0 auto 16px; }
+  .donut-wrap svg { transform:rotate(-90deg); }
+  .donut-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-score { font-size:1.8rem; font-weight:700; color:var(--primary); }
+  .donut-label { font-size:0.75rem; color:var(--text-light); }
+  .result-msg { font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:6px; }
+  .result-sub { font-size:0.9rem; color:var(--text-light); margin-bottom:20px; }
+  .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
+  .btn-reset:hover { background:#263a6e; }
+
+  /* CHAT */
+  #chat-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+  #chat-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
+  #chat-section > p { color:var(--text-light); margin-bottom:20px; }
+  #chatbox { border:1.5px solid var(--border); border-radius:12px; height:300px; overflow-y:auto; padding:16px; background:var(--bg); margin-bottom:14px; display:flex; flex-direction:column; gap:10px; }
+  .msg { max-width:82%; padding:10px 14px; border-radius:14px; font-size:0.9rem; line-height:1.55; }
+  .msg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+  .msg.bot  { background:white; border:1px solid var(--border); color:var(--text); align-self:flex-start; border-bottom-left-radius:4px; }
+  .chat-input-row { display:flex; gap:10px; }
+  #chatInput { flex:1; padding:12px 16px; border:1.5px solid var(--border); border-radius:10px; font-size:0.9rem; font-family:'Inter',sans-serif; outline:none; transition:border-color .2s; }
+  #chatInput:focus { border-color:var(--secondary); }
+  #sendBtn { background:var(--primary); color:white; border:none; padding:12px 20px; border-radius:10px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
+  #sendBtn:hover { background:#263a6e; }
+
+  footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
+
+  @media(max-width:600px) {
+    .hero { padding:56px 16px 44px; }
+    main { padding:24px 14px 60px; }
+  }
+</style>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>História — 2º Trimestre</h1>
+  <p class="subtitle">2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Iluminismo · Revolução Americana · Revolução Francesa</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#iluminismo">Iluminismo</a>
+    <a href="#treze-colonias">Treze Colônias</a>
+    <a href="#rev-francesa">Rev. Francesa</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 1 — ILUMINISMO E LIBERALISMO ECONÔMICO
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="iluminismo">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 1</span> Iluminismo e Liberalismo Econômico</h2>
+    <p class="meta">Séculos XVII e XVIII · Antigo Regime em crise</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Antigo Regime e suas características <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>O <strong>Antigo Regime</strong> era o sistema político e social que vigorou na Europa antes das Revoluções do século XVIII. Era sustentado por três pilares:</p>
+        <table class="data-table">
+          <thead><tr><th>Pilar</th><th>Característica</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Absolutismo</strong></td><td>Poder concentrado no rei — "O Estado sou eu" (Luís XIV). Nenhuma limitação legal ao monarca.</td></tr>
+            <tr><td><strong>Mercantilismo</strong></td><td>Estado controla a economia. Acúmulo de metais, balança comercial favorável, monopólios coloniais.</td></tr>
+            <tr><td><strong>Mentalidade Cristã</strong></td><td>Igreja como autoridade moral e intelectual. Ciência subordinada à fé. Visão teocêntrica do poder.</td></tr>
+          </tbody>
+        </table>
+        <div class="warn-box">
+          <strong>Mentalidade camponesa da Idade Moderna</strong>
+          A maioria da população europeia vivia no campo com valores de tradição, religião, obediência hierárquica, sentido de comunidade e desconfiança do novo — terreno que o Iluminismo vai questionar radicalmente.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Os Filósofos Iluministas <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>O <strong>Iluminismo</strong> (Século das Luzes) foi um movimento intelectual europeu dos séculos XVII-XVIII que usava a <em>razão</em> para criticar o absolutismo, a Igreja e o misticismo.</p>
+        <table class="data-table">
+          <thead><tr><th>Filósofo</th><th>Período</th><th>Contribuição Principal</th></tr></thead>
+          <tbody>
+            <tr><td><strong>John Locke</strong> — "Pai do Liberalismo Político"</td><td>1632–1704</td><td>Direitos naturais inalienáveis: <em>vida, liberdade e propriedade</em>. Contrato social. Direito à rebelião contra governos tirânicos.</td></tr>
+            <tr><td><strong>Voltaire</strong> — "Defensor da Liberdade de Expressão"</td><td>1694–1778</td><td>Combatia o fanatismo religioso e o autoritarismo. Defesa da tolerância e da liberdade de pensamento.</td></tr>
+            <tr><td><strong>Montesquieu</strong> — "Teórico da Separação dos Poderes"</td><td>1689–1755</td><td>Propôs dividir o poder em Legislativo, Executivo e Judiciário para evitar a tirania. Obra: <em>O Espírito das Leis</em>.</td></tr>
+            <tr><td><strong>Jean-Jacques Rousseau</strong> — "Defensor da Soberania Popular"</td><td>1712–1778</td><td>A soberania pertence ao povo. Contrato social fundado na vontade geral. Obra: <em>O Contrato Social</em>.</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Princípios do Iluminismo</strong>
+          Autonomia da razão · Individualidade · Universalidade dos direitos · Separação Igreja-Estado · Liberdade de expressão · Crítica ao absolutismo
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Enciclopedistas e Despotismo Esclarecido <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>A Enciclopédia (1751–1772)</h4>
+        <p>Organizada por <strong>Denis Diderot</strong> e <strong>Jean le Rond d'Alembert</strong>, a Enciclopédia foi o maior projeto editorial do Iluminismo — uma compilação do conhecimento racional humano em 28 volumes, questionando dogmas religiosos e políticos.</p>
+        <div class="tip-box">
+          <strong>Despotismo Esclarecido</strong>
+          Alguns reis europeus adotaram ideias iluministas <em>sem abrir mão do poder absoluto</em> — reformas "de cima para baixo". Exemplos: Frederico II (Prússia), José II (Áustria), Catarina II (Rússia). No Portugal/Brasil, o Marquês de Pombal aplicou o despotismo esclarecido.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Liberalismo Econômico e Fisiocracia <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Em paralelo ao Iluminismo político, surgiu o <strong>Liberalismo Econômico</strong>, que se opunha ao mercantilismo e defendia o livre mercado.</p>
+        <table class="data-table">
+          <thead><tr><th>Corrente</th><th>Principais ideias</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Fisiocracia</strong></td><td>Riqueza vem da agricultura. Lema: <em>"Laissez faire, laissez passer"</em> (Deixa fazer, deixa passar). Sem interferência do Estado.</td></tr>
+            <tr><td><strong>Adam Smith</strong> — Liberalismo Clássico</td><td>Obra: <em>A Riqueza das Nações</em> (1776). "Mão invisível" do mercado equilibra oferta e demanda sem intervenção estatal. Livre comércio gera riqueza para todos.</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Diferença: Fisiocracia × Adam Smith</strong>
+          Os fisiocratas valorizavam a agricultura como única fonte de riqueza. Smith ampliou para o trabalho como um todo e o comércio livre — base do capitalismo industrial.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 2 — INDEPENDÊNCIA DAS TREZE COLÔNIAS
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="treze-colonias">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 2</span> Independência das Treze Colônias</h2>
+    <p class="meta">Revolução Americana · 1776</p>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Contexto: Colonização e Negligência Salutar <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A América do Norte foi colonizada pelos ingleses desde o século XVII. As 13 colônias se dividiam em três regiões com economias distintas:</p>
+        <table class="data-table">
+          <thead><tr><th>Região</th><th>Características</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Norte</strong> (Nova Inglaterra)</td><td>Puritanos, pequenas propriedades, pesca, comércio marítimo, manufaturas. Mais urbana.</td></tr>
+            <tr><td><strong>Centro</strong></td><td>Agricultores diversificados, artesãos, pluralismo religioso. Misto.</td></tr>
+            <tr><td><strong>Sul</strong></td><td>Grandes plantations de tabaco e algodão. Escravidão intensa. Aristocracia colonial.</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Negligência Salutar (Salutary Neglect)</strong>
+          Durante a Revolução Gloriosa (1688) e até a Guerra dos Sete Anos (1756–1763), a Inglaterra deixou as colônias se autogovernar com pouca interferência. Isso gerou autonomia, prosperidade econômica e identidade própria — os colonos se acostumaram com a liberdade.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Causas: Impostos e Leis Intoleráveis <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A <strong>Guerra dos Sete Anos (1756–1763)</strong> endividou a Inglaterra, que tentou cobrar a conta das colônias com novos impostos:</p>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1760</span><span class="tl-text">Jorge III assume o trono inglês e adota política mais rígida com as colônias.</span></div>
+          <div class="tl-item"><span class="tl-year">1763</span><span class="tl-text">Fim da Guerra dos Sete Anos. Inglaterra endividada impõe novos impostos às colônias sem consultá-las.</span></div>
+          <div class="tl-item"><span class="tl-year">1773</span><span class="tl-text"><strong>Lei do Chá</strong> — monopólio da Companhia das Índias Orientais. Resposta: <strong>Boston Tea Party</strong> — colonos jogam 342 caixas de chá ao mar.</span></div>
+          <div class="tl-item"><span class="tl-year">1774</span><span class="tl-text"><strong>Leis Intoleráveis</strong> — fechamento do porto de Boston, restrições a reuniões, alojamento obrigatório de tropas britânicas. <strong>1º Congresso Continental</strong> reúne representantes das colônias.</span></div>
+        </div>
+        <div class="tip-box">
+          <strong>"Sem representação, sem taxação"</strong>
+          Os colonos argumentavam: não podemos ser taxados por um parlamento no qual não temos representantes. Era uma aplicação direta dos princípios de John Locke contra o contrato social violado.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Guerra de Independência e Declaração (1775–1783) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1775</span><span class="tl-text">Início da Guerra de Independência. Batalhas de Lexington e Concord. <strong>George Washington</strong> comanda o Exército Continental.</span></div>
+          <div class="tl-item"><span class="tl-year">4 jul 1776</span><span class="tl-text"><strong>Declaração de Independência</strong> — redigida por <strong>Thomas Jefferson</strong>, baseada em Locke: <em>"todos os homens são criados iguais, dotados pelo Criador de direitos inalienáveis: vida, liberdade e busca da felicidade."</em></span></div>
+          <div class="tl-item"><span class="tl-year">1777</span><span class="tl-text">Batalha de Saratoga — virada da guerra. França entra como aliada dos colonos.</span></div>
+          <div class="tl-item"><span class="tl-year">1781</span><span class="tl-text">Batalha de Yorktown — derrota definitiva dos ingleses. Washington vence.</span></div>
+          <div class="tl-item"><span class="tl-year">1783</span><span class="tl-text">Tratado de Paris — Inglaterra reconhece a independência dos EUA.</span></div>
+        </div>
+        <p><strong>Líderes da independência:</strong></p>
+        <ul>
+          <li><strong>George Washington</strong> — líder militar, 1º presidente dos EUA</li>
+          <li><strong>Thomas Jefferson</strong> — autor da Declaração de Independência</li>
+          <li><strong>Benjamin Franklin</strong> — diplomata, negociou aliança com a França</li>
+          <li><strong>John Adams</strong> — defensor da separação, 2º presidente</li>
+          <li><strong>Alexander Hamilton</strong> — criador do sistema financeiro americano</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Constituição dos EUA (1787) e Contradições <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Em 1787, foi promulgada a <strong>Constituição dos EUA</strong>, a mais antiga constituição escrita ainda em vigor.</p>
+        <div class="highlight-box">
+          <strong>Pilares da Constituição Americana</strong>
+          Liberalismo · República · Presidencialismo · Federalismo · Três Poderes (Executivo/Legislativo/Judiciário) · Democracia representativa
+        </div>
+        <div class="warn-box">
+          <strong>Contradições da Revolução Americana</strong>
+          Apesar de pregar "todos os homens são criados iguais", a Constituição de 1787:
+          <ul style="margin:6px 0 0 18px">
+            <li>Manteve a <strong>escravidão</strong> (abolida apenas em 1865)</li>
+            <li>Permitiu o <strong>extermínio de povos nativos</strong></li>
+            <li>Excluiu mulheres e homens sem propriedade do voto</li>
+          </ul>
+        </div>
+        <div class="tip-box">
+          <strong>Influência da Revolução Americana</strong>
+          Foi o <strong>primeiro rompimento bem-sucedido com o sistema colonial</strong>. Inspirou diretamente a Revolução Francesa (1789), as independências latino-americanas e os ideais de liberdade no mundo ocidental.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 3 — REVOLUÇÃO FRANCESA
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="rev-francesa">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 3</span> Revolução Francesa</h2>
+    <p class="meta">1789–1799 · As quatro fases</p>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">França Pré-Revolucionária — Causas e Estados Gerais <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>A Estrutura Social do Antigo Regime Francês</h4>
+        <table class="data-table">
+          <thead><tr><th>Estado</th><th>Composição</th><th>Situação</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1º Estado</strong></td><td>Clero</td><td>Isentos de impostos, riqueza enorme</td></tr>
+            <tr><td><strong>2º Estado</strong></td><td>Nobreza</td><td>Privilégios fiscais e judiciais</td></tr>
+            <tr><td><strong>3º Estado</strong></td><td>Todos os demais (98% da população)</td><td>Pagavam todos os impostos — burgueses, sans-culottes, camponeses</td></tr>
+          </tbody>
+        </table>
+        <div class="warn-box">
+          <strong>Sans-Culottes</strong>
+          Trabalhadores urbanos pobres (alfaiates, sapateiros, artesãos, vendedores ambulantes) que não usavam as calças curtas elegantes (<em>culottes</em>) da nobreza. Foram a força de choque da Revolução nas ruas de Paris.
+        </div>
+        <h4>Causas da Revolução</h4>
+        <ul>
+          <li>Crise financeira — dívidas da Guerra dos Sete Anos e apoio à Independência Americana</li>
+          <li>Má colheita de 1788 → desemprego urbano e fome</li>
+          <li>Desigualdade fiscal extrema (3º Estado paga tudo)</li>
+          <li>Ideias iluministas difundidas pela burguesia</li>
+          <li>Reinado fraco de <strong>Luís XVI</strong> e impopularidade de <strong>Maria Antonieta</strong></li>
+        </ul>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">Mai 1789</span><span class="tl-text"><strong>Estados Gerais</strong> convocados por Luís XVI para resolver a crise fiscal. O 3º Estado exige voto por cabeça (não por estado). Impasse.</span></div>
+          <div class="tl-item"><span class="tl-year">Jun 1789</span><span class="tl-text">3º Estado se autoproclama <strong>Assembleia Nacional</strong> — início da Revolução. Juramento da Sala da Pelota: não se dispersar até dar uma Constituição à França.</span></div>
+          <div class="tl-item"><span class="tl-year">14 Jul 1789</span><span class="tl-text"><strong>Queda da Bastilha</strong> — símbolo do absolutismo. Marco inicial da Revolução. Declaração dos Direitos do Homem e do Cidadão.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">1ª Fase — Monarquia Constitucional (1789–1792) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A <strong>burguesia moderada</strong> (girondinos) domina essa fase. O objetivo era limitar o poder do rei, não derrubá-lo.</p>
+        <ul>
+          <li><strong>Declaração dos Direitos do Homem e do Cidadão</strong> (1789) — liberdade, igualdade, propriedade</li>
+          <li><strong>Constituição de 1791</strong> — monarquia constitucional, voto censitário (só quem tem propriedade vota)</li>
+          <li>Luís XVI aceita a Constituição mas tenta fugir para o exterior (<strong>Fuga para Varennes</strong>, 1791) — traição revelada</li>
+          <li>França entra em guerra contra Áustria e Prússia (monarquias europeias ameaçadas)</li>
+        </ul>
+        <div class="tip-box">
+          <strong>Voto Censitário</strong>
+          Apenas cidadãos com renda e propriedade podiam votar — favorecia a alta burguesia e excluía os sans-culottes, que haviam lutado na rua pela revolução.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">2ª Fase — Convenção Nacional e O Terror (1792–1795) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Com a ameaça externa e pressão popular, os <strong>jacobinos</strong> (radicais) derrubam os girondinos e assumem o poder.</p>
+        <h4>Grupos Políticos na Convenção</h4>
+        <table class="data-table">
+          <thead><tr><th>Grupo</th><th>Base Social</th><th>Posição</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Girondinos</strong></td><td>Alta burguesia</td><td>Monarquia constitucional, reforma moderada</td></tr>
+            <tr><td><strong>Jacobinos (Montanheses)</strong></td><td>Média burguesia + sans-culottes</td><td>República, radicalismo, sufrágio universal</td></tr>
+            <tr><td><strong>Pântano (Planície)</strong></td><td>Centro</td><td>Sem posição definida, votavam com quem dominava</td></tr>
+          </tbody>
+        </table>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">Set 1792</span><span class="tl-text"><strong>Proclamação da República</strong> — fim da monarquia.</span></div>
+          <div class="tl-item"><span class="tl-year">Jan 1793</span><span class="tl-text"><strong>Execução de Luís XVI</strong> na guilhotina. Maria Antonieta executada em outubro de 1793.</span></div>
+          <div class="tl-item"><span class="tl-year">1793–1794</span><span class="tl-text"><strong>O Terror</strong> — <strong>Robespierre</strong> ("o Incorruptível") lidera o Comitê de Salvação Pública. Tribunal Revolucionário executa milhares de suspeitos de traição.</span></div>
+          <div class="tl-item"><span class="tl-year">1793</span><span class="tl-text">Abolição do culto católico. Libertação dos escravos nas colônias francesas (Haiti). Levée en masse — mobilização geral para a guerra.</span></div>
+          <div class="tl-item"><span class="tl-year">Jul 1794</span><span class="tl-text"><strong>Reação Termidoriana</strong> — Robespierre é preso e guilhotinado. Fim do Terror.</span></div>
+        </div>
+        <div class="highlight-box">
+          <strong>Lema da República Francesa</strong>
+          <em>Liberté, Égalité, Fraternité</em> — Liberdade, Igualdade, Fraternidade. Síntese dos valores iluministas aplicados à política.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">3ª Fase — O Diretório e Napoleão (1795–1799) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Após a queda de Robespierre, a <strong>alta burguesia</strong> retoma o controle com o Diretório — fase de estabilização conservadora.</p>
+        <h4>O Diretório (novembro de 1795)</h4>
+        <ul>
+          <li>Executivo colegiado com <strong>cinco diretores</strong></li>
+          <li>Legislativo bicameral: Conselho dos Quinhentos + Conselho dos Anciãos</li>
+          <li>Voto censitário restaurado — burguesia no poder</li>
+          <li>Constituição do Ano III (1795)</li>
+        </ul>
+        <h4>Napoleão Bonaparte</h4>
+        <p><strong>Napoleão</strong> se destacou nas guerras revolucionárias. Campanhas da Itália (1796–97) e do Egito (1798) tornaram-no herói popular.</p>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1796–97</span><span class="tl-text">Campanha da Itália — Napoleão cria as "Repúblicas Irmãs" (Cisalpina, Helvética, Liguriana, Bátava, Partenopeia).</span></div>
+          <div class="tl-item"><span class="tl-year">1798</span><span class="tl-text">Campanha do Egito — expansão francesa. Derrota naval para a Inglaterra.</span></div>
+          <div class="tl-item"><span class="tl-year">9-10 Nov 1799</span><span class="tl-text"><strong>Golpe de 18 Brumário</strong> — Napoleão dissolve o Diretório e assume o poder. Fim da Revolução Francesa. Início do Consulado.</span></div>
+        </div>
+        <div class="tip-box">
+          <strong>Legado da Revolução Francesa (1789–1799)</strong>
+          <ul style="margin:6px 0 0 18px">
+            <li>Nascimento da <strong>cidadania moderna</strong></li>
+            <li>Proclamação dos direitos universais do homem</li>
+            <li>Fim do absolutismo e dos privilégios feudais</li>
+            <li>Separação Estado-Igreja</li>
+            <li>Inspiração para revoluções no século XIX em toda a Europa e América</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ
+     ══════════════════════════════════════════════ -->
+<section id="quiz-section">
+  <a id="quiz"></a>
+  <h2>Quiz de Revisão</h2>
+  <p>Teste seus conhecimentos sobre Iluminismo, Revolução Americana e Revolução Francesa.</p>
+
+  <div class="quiz-filter">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
+    <button class="filter-btn" onclick="filterQuiz('cap1',this)">Cap. 1 — Iluminismo</button>
+    <button class="filter-btn" onclick="filterQuiz('cap2',this)">Cap. 2 — Treze Colônias</button>
+    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Cap. 3 — Rev. Francesa</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card" data-chapter="cap1" id="q1">
+    <h4>1. Qual filósofo iluminista defendeu a separação dos poderes em Legislativo, Executivo e Judiciário?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) John Locke</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) Rousseau</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) Montesquieu</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) Voltaire</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-chapter="cap1" id="q2">
+    <h4>2. O lema fisiocrático "Laissez faire, laissez passer" significava:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) O Estado deve controlar toda a economia</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) A riqueza vem apenas da agricultura</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) O Estado não deve interferir na economia — o mercado se regula sozinho</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) O comércio externo deve ser monopolizado pelo Estado</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-chapter="cap1" id="q3">
+    <h4>3. Qual obra de Adam Smith fundamentou o Liberalismo Econômico clássico?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) O Contrato Social</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) A Riqueza das Nações (1776)</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) O Espírito das Leis</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) A Enciclopédia</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-chapter="cap2" id="q4">
+    <h4>4. O que foi a "Negligência Salutar" e qual foi sua consequência?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) Política de impostos rígidos que causou a revolta das colônias</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) Política inglesa de pouca interferência nas colônias, que gerou autonomia e identidade própria</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) Aliança militar entre as colônias e a França</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) Lei que proibia o comércio entre as colônias</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-chapter="cap2" id="q5">
+    <h4>5. O Boston Tea Party (1773) foi uma resposta a qual medida britânica?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) Às Leis Intoleráveis</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) Ao fechamento do porto de Boston</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) À Lei do Chá, que concedeu monopólio à Companhia das Índias Orientais</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) À Constituição de 1787</button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-chapter="cap2" id="q6">
+    <h4>6. A Declaração de Independência dos EUA (1776) foi redigida por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) George Washington</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) Benjamin Franklin</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) Alexander Hamilton</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) Thomas Jefferson</button>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-chapter="cap2" id="q7">
+    <h4>7. Qual foi a principal contradição da Revolução Americana?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) Criar uma monarquia em vez de uma república</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) Pregar igualdade mas manter a escravidão e excluir mulheres e nativos</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) Recusar a aliança com a França</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) Não criar uma Constituição escrita</button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-chapter="cap3" id="q8">
+    <h4>8. O 3º Estado da sociedade francesa era composto por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Clero e nobreza</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Apenas a burguesia</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) Todos os demais — burgueses, sans-culottes e camponeses (98% da população)</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) Apenas os camponeses e escravos</button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-chapter="cap3" id="q9">
+    <h4>9. O período do Terror (1793–1794) foi liderado por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Napoleão Bonaparte</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Robespierre, pelo Comitê de Salvação Pública</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) Luís XVI</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) Os girondinos</button>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-chapter="cap3" id="q10">
+    <h4>10. O "Golpe de 18 Brumário" (novembro de 1799) foi dado por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) Robespierre, para iniciar o Terror</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) Luís XVI, para restaurar a monarquia</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) Napoleão Bonaparte, encerrando o Diretório e a Revolução Francesa</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) Os jacobinos, para derrubar os girondinos</button>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card" data-chapter="cap3" id="q11">
+    <h4>11. Qual foi o papel dos sans-culottes na Revolução Francesa?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) Eram a elite burguesa que redigiu a Constituição</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) Eram trabalhadores urbanos pobres que formaram a força de choque popular da Revolução</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) Eram soldados profissionais do exército de Napoleão</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) Eram nobres que apoiavam a monarquia constitucional</button>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card" data-chapter="cap1" id="q12">
+    <h4>12. O que diferencia Fisiocracia do Liberalismo de Adam Smith?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) A fisiocracia defendia o controle estatal; Smith era contra o livre mercado</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) A fisiocracia via riqueza apenas na agricultura; Smith ampliou para o trabalho e o comércio livre</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) Ambas defendiam a mesma coisa — intervenção estatal na economia</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) Smith defendia a fisiocracia como sistema ideal</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quiz-result">
+    <div class="donut-wrap">
+      <svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+        <circle cx="65" cy="65" r="55" fill="none" stroke="var(--secondary)" stroke-width="14"
+                stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+      </svg>
+      <div class="donut-center">
+        <span class="donut-score" id="donut-score">0</span>
+        <span class="donut-label">/ 12</span>
+      </div>
+    </div>
+    <div class="result-msg" id="result-msg"></div>
+    <div class="result-sub" id="result-sub"></div>
+    <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CHAT
+     ══════════════════════════════════════════════ -->
+<section id="chat-section">
+  <h2>Nêuron — Assistente de Estudos</h2>
+  <p>Tire dúvidas sobre Iluminismo, Revolução Americana e Revolução Francesa.</p>
+  <div id="chatbox">
+    <div class="msg bot">Olá! Sou o Nêuron. Pode me perguntar sobre o Iluminismo, a Independência das Treze Colônias ou qualquer fase da Revolução Francesa!</div>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Digite sua dúvida..." onkeydown="if(event.key==='Enter') sendMessage()">
+    <button id="sendBtn" onclick="sendMessage()">Enviar</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  &copy; 2025 Caderno Digital · História 2º Trimestre
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+/* ── Quiz ── */
+const ANSWERS = { q1:'c', q2:'c', q3:'b', q4:'b', q5:'c', q6:'d', q7:'b', q8:'c', q9:'b', q10:'c', q11:'b', q12:'b' };
+let answered = {}, score = 0, total = 0;
+
+function checkQuiz(qid, choice) {
+  if (answered[qid]) return;
+  answered[qid] = true; total++;
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+  const correct = ANSWERS[qid];
+  btns.forEach(b => {
+    const letter = b.textContent.trim()[0];
+    if (letter === correct) b.classList.add('correct');
+    else if (letter === choice && choice !== correct) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  if (choice === correct) score++;
+  if (total === Object.keys(ANSWERS).length) showResult();
+}
+
+function filterQuiz(chapter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+  });
+}
+
+function showResult() {
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('donut-score').textContent = score;
+  const offset = 345.4 - (score / 12) * 345.4;
+  document.getElementById('donut-arc').style.strokeDashoffset = offset;
+  const pct = Math.round((score / 12) * 100);
+  let msg, sub;
+  if (pct >= 90) { msg = 'Excelente! Dominou o conteúdo!'; sub = 'Resultado impressionante!' }
+  else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.' }
+  else if (pct >= 50) { msg = 'Bom esforço! Dá para melhorar.'; sub = 'Volte aos capítulos com dificuldade.' }
+  else { msg = 'Continue estudando!'; sub = 'Releia os acordeons e tente novamente.' }
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('result-sub').textContent = sub;
+}
+
+function resetQuiz() {
+  answered = {}; score = 0; total = 0;
+  document.querySelectorAll('.option-btn').forEach(b => { b.classList.remove('correct','wrong'); b.disabled = false; });
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+}
+
+/* ── Chat ── */
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  appendMsg(text, 'user');
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true; btn.textContent = '...';
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: text,
+        context: 'História 2º Trimestre 2ª série: Cap.1 Iluminismo (Antigo Regime, Locke/Voltaire/Montesquieu/Rousseau, Enciclopédia, Despotismo Esclarecido, Fisiocracia, Adam Smith); Cap.2 Independência das Treze Colônias (Negligência Salutar, Guerra 7 Anos, Boston Tea Party, Leis Intoleráveis, Declaração 1776, Constituição 1787, contradições); Cap.3 Revolução Francesa (Antigo Regime 3 estados, sans-culottes, Bastilha 1789, 4 fases: Monarquia Constitucional/Convenção Nacional/Terror/Diretório, Robespierre, Golpe 18 Brumário, Napoleão, lema Liberdade Igualdade Fraternidade).'
+      })
+    });
+    const data = await res.json();
+    appendMsg(data.reply || 'Erro ao obter resposta.', 'bot');
+  } catch { appendMsg('Não foi possível conectar ao servidor.', 'bot'); }
+  btn.disabled = false; btn.textContent = 'Enviar';
+}
+
+function appendMsg(text, role) {
+  const box = document.getElementById('chatbox');
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.textContent = text;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+</script>
+</body>
+</html>
