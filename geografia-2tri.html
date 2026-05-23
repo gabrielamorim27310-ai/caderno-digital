@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geografia 2º Trimestre | Caderno Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <link rel="stylesheet" href="styles/shared.css">
+  <style>
+    :root {
+      --primary: #1a3a5c;
+      --secondary: #2e6da4;
+      --accent: #2980b9;
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
+      --text: #1a2332;
+      --text-muted: #5a6a7e;
+      --border: #c8d8e8;
+      --highlight-bg: #e8f1f8;
+      --highlight-border: #2e6da4;
+      --warning-bg: #fdf3e3;
+      --warning-border: #e67e22;
+      --tip-bg: #eafaf1;
+      --tip-border: #27ae60;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 48px 24px 36px;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,.75);
+      text-decoration: none;
+      font-size: .85rem;
+      margin-bottom: 20px;
+      transition: color .2s;
+    }
+    .back-link:hover { color: white; }
+    .subject-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.3);
+      color: white;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: .95rem;
+      opacity: .85;
+      max-width: 560px;
+      margin: 0 auto 24px;
+    }
+
+    /* ── Progress bar ── */
+    .progress-wrap {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .8rem;
+      opacity: .85;
+      margin-bottom: 6px;
+    }
+    .progress-bar-bg {
+      background: rgba(255,255,255,.25);
+      border-radius: 20px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      background: white;
+      height: 100%;
+      border-radius: 20px;
+      transition: width .5s ease;
+    }
+
+    /* ── Main layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* ── Chapter headers ── */
+    .chapter-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 36px 0 18px;
+    }
+    .chapter-number {
+      background: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .95rem;
+      flex-shrink: 0;
+    }
+    .chapter-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ── Accordion ── */
+    .accordion {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .accordion-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      transition: background .2s;
+    }
+    .accordion-btn:hover { background: var(--highlight-bg); }
+    .accordion-btn .chevron {
+      transition: transform .3s;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    .accordion.open .chevron { transform: rotate(180deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+    .accordion.open .accordion-body { max-height: 3000px; }
+    .accordion-inner {
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border);
+    }
+    .accordion-inner p { margin-bottom: 12px; }
+    .accordion-inner ul, .accordion-inner ol {
+      margin: 0 0 12px 22px;
+    }
+    .accordion-inner li { margin-bottom: 6px; }
+    .accordion-inner h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin: 16px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    /* ── Info boxes ── */
+    .highlight, .warning, .tip {
+      border-left: 4px solid;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: .95rem;
+    }
+    .highlight { background: var(--highlight-bg); border-color: var(--highlight-border); }
+    .warning   { background: var(--warning-bg);   border-color: var(--warning-border); }
+    .tip       { background: var(--tip-bg);        border-color: var(--tip-border); }
+    .highlight strong, .warning strong, .tip strong { display: block; margin-bottom: 4px; }
+
+    /* ── Tables ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: .9rem;
+    }
+    .data-table th {
+      background: var(--primary);
+      color: white;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table tr:nth-child(even) td { background: var(--highlight-bg); }
+
+    /* ── Timeline ── */
+    .timeline { margin: 14px 0; }
+    .timeline-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .timeline-year {
+      background: var(--primary);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-text { font-size: .93rem; }
+
+    /* ── Images ── */
+    .slide-img {
+      width: 100%;
+      max-width: 580px;
+      display: block;
+      margin: 14px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+    }
+    .img-caption {
+      text-align: center;
+      font-size: .8rem;
+      color: var(--text-muted);
+      margin: -8px auto 14px;
+    }
+
+    /* ── Quiz ── */
+    #quiz-section {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin: 40px 0;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+    }
+    #quiz-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    #quiz-section > p { color: var(--text-muted); margin-bottom: 20px; }
+
+    .quiz-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .filter-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: white;
+      color: var(--text-muted);
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .question-card {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: border-color .2s;
+    }
+    .question-card.hidden { display: none; }
+    .question-card h4 {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .options { display: flex; flex-direction: column; gap: 8px; }
+    .option-btn {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: all .2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .option-btn:hover { border-color: var(--accent); background: var(--highlight-bg); }
+    .option-btn.correct { background: #d4edda; border-color: #27ae60; color: #155724; }
+    .option-btn.wrong   { background: #f8d7da; border-color: #e74c3c; color: #721c24; }
+
+    .quiz-result {
+      display: none;
+      text-align: center;
+      padding: 24px;
+    }
+    .donut-wrap { position: relative; width: 130px; height: 130px; margin: 0 auto 16px; }
+    .donut-wrap svg { transform: rotate(-90deg); }
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .donut-score { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+    .donut-label { font-size: .75rem; color: var(--text-muted); }
+    .result-msg { font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    .result-sub { font-size: .9rem; color: var(--text-muted); margin-bottom: 20px; }
+    .btn-reset {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 8px;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background .2s;
+    }
+    .btn-reset:hover { background: var(--secondary); }
+
+    /* ── Chat ── */
+    #chat-section {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin: 40px 0;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+    }
+    #chat-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    #chat-section > p { color: var(--text-muted); margin-bottom: 20px; }
+
+    #chatbox {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      height: 320px;
+      overflow-y: auto;
+      padding: 16px;
+      background: var(--bg);
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .msg {
+      max-width: 82%;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+    .msg.user { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .msg.bot  { background: white; border: 1px solid var(--border); color: var(--text); align-self: flex-start; border-bottom-left-radius: 4px; }
+
+    .chat-input-row {
+      display: flex;
+      gap: 10px;
+    }
+    #chatInput {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: .9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color .2s;
+    }
+    #chatInput:focus { border-color: var(--accent); }
+    #sendBtn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background .2s;
+    }
+    #sendBtn:hover { background: var(--secondary); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      font-size: .82rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .page-header { padding: 32px 16px 28px; }
+      .container { padding: 20px 14px 40px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CL1RMGB3SN');
+  </script>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="page-header">
+  <a href="index.html" class="back-link">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Voltar ao Caderno
+  </a>
+  <div class="subject-badge">Geografia · 2º Trimestre</div>
+  <h1>Espaço Econômico Europeu &amp; América do Norte</h1>
+  <p>União Europeia, Brexit, Relevo, Clima, Hidrografia e Vegetação da América do Norte</p>
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Progresso</span>
+      <span id="progressPct">0%</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ── MAIN ── -->
+<main class="container">
+
+  <!-- ════════════════════════════════════
+       CAP. 1 – FORMAÇÃO DA UNIÃO EUROPEIA
+       ════════════════════════════════════ -->
+  <div class="chapter-header">
+    <div class="chapter-number">1</div>
+    <h2>Processo de Formação da União Europeia</h2>
+  </div>
+
+  <div class="accordion" id="acc1a">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Origens e Blocos Precursores
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>A União Europeia é o maior bloco econômico do mundo, resultado de um processo de integração iniciado após a 2ª Guerra Mundial, com o objetivo de garantir paz e desenvolvimento econômico.</p>
+        <img src="geo-imgs/ue_s1_0.jpg" class="slide-img" alt="Mapa da União Europeia">
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year">1943</span>
+            <span class="timeline-text"><strong>BENELUX</strong> — Bélgica, Países Baixos (Netherlands) e Luxemburgo formam o primeiro bloco regional europeu, unindo suas economias ainda durante a guerra.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">1952</span>
+            <span class="timeline-text"><strong>CECA</strong> (Comunidade Europeia do Carvão e do Aço) — 6 países: Alemanha, França, Itália + BENELUX. Integravam a produção de matérias-primas estratégicas.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">1957</span>
+            <span class="timeline-text"><strong>MCE / CEE</strong> (Mercado Comum Europeu / Comunidade Econômica Europeia) — mesmo grupo de 6 países, agora ampliando a integração econômica por meio do Tratado de Roma.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">1986</span>
+            <span class="timeline-text"><strong>Ato Único Europeu</strong> — passa para 12 membros. Consolida o mercado único com livre circulação de mercadorias, pessoas e capitais.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">1992</span>
+            <span class="timeline-text"><strong>Tratado de Maastricht</strong> — funda oficialmente a <em>União Europeia</em>. Cria o projeto da moeda única (Euro) e o Banco Central Europeu (BCE).</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2004</span>
+            <span class="timeline-text"><strong>Grande Expansão Leste</strong> — 10 países do Leste Europeu ingressam (Polônia, República Tcheca, Eslováquia, Hungria, Eslovênia, Estônia, Letônia, Lituânia, Chipre, Malta). Passa de 15 para 25 membros.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2007</span>
+            <span class="timeline-text"><strong>Tratado de Lisboa</strong> — Bulgária e Romênia ingressam. Reformas institucionais. O bloco chega a 27 membros.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2013</span>
+            <span class="timeline-text"><strong>Croácia</strong> ingressa, levando a UE a 28 membros.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2016</span>
+            <span class="timeline-text"><strong>Brexit</strong> — Referendo no Reino Unido: 51,9% a favor da saída da UE.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2020</span>
+            <span class="timeline-text"><strong>Reino Unido sai oficialmente</strong> — A UE volta a 27 membros.</span>
+          </div>
+        </div>
+        <div class="highlight">
+          <strong>Países fundadores da UE (ex-CECA/CEE)</strong>
+          Alemanha, França, Itália, Bélgica, Países Baixos e Luxemburgo — os "6 originais".
+        </div>
+        <img src="geo-imgs/ue_s4_0.png" class="slide-img" alt="Países fundadores e expansão da UE">
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc1b">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Estrutura e Símbolos da UE
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>A UE possui símbolos próprios que representam a identidade supranacional do bloco:</p>
+        <ul>
+          <li><strong>Bandeira:</strong> 12 estrelas douradas em círculo sobre fundo azul — representa os valores de unidade, solidariedade e harmonia.</li>
+          <li><strong>Hino:</strong> "Ode à Alegria" de Beethoven.</li>
+          <li><strong>Dia da Europa:</strong> 9 de maio.</li>
+          <li><strong>Lema:</strong> "Unida na diversidade".</li>
+          <li><strong>Moeda:</strong> Euro (€) — adotada por 20 países da Zona Euro.</li>
+        </ul>
+        <img src="geo-imgs/ue_s5_0.png" class="slide-img" alt="Símbolos da União Europeia">
+        <div class="tip">
+          <strong>Principais instituições da UE</strong>
+          Parlamento Europeu (eleito pelos cidadãos), Conselho Europeu (chefes de Estado), Comissão Europeia (executivo), Tribunal de Justiça da UE e Banco Central Europeu (BCE).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       CAP. 2 – ECONOMIA EUROPEIA
+       ════════════════════════════════════ -->
+  <div class="chapter-header">
+    <div class="chapter-number">2</div>
+    <h2>Economia Europeia e a UE</h2>
+  </div>
+
+  <div class="accordion" id="acc2a">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Características Econômicas
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>A Europa concentra os países mais desenvolvidos do mundo. A UE é o maior bloco econômico global em termos de PIB combinado.</p>
+        <img src="geo-imgs/ue_s6_0.jpg" class="slide-img" alt="Mapa econômico da Europa">
+        <table class="data-table">
+          <thead>
+            <tr><th>Indicador</th><th>Detalhe</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>PIB da UE</td><td>~17 trilhões de dólares (2ª maior economia do mundo)</td></tr>
+            <tr><td>Membros</td><td>27 países (após Brexit de 2020)</td></tr>
+            <tr><td>Zona Euro</td><td>20 países usam o Euro</td></tr>
+            <tr><td>Zona Schengen</td><td>27 países com livre circulação de pessoas</td></tr>
+            <tr><td>Países mais ricos</td><td>Luxemburgo, Irlanda, Dinamarca, Suécia, Países Baixos</td></tr>
+            <tr><td>Países menos desenvolvidos</td><td>Bulgária, Romênia, Hungria (Leste Europeu)</td></tr>
+          </tbody>
+        </table>
+        <div class="warning">
+          <strong>Divisão econômica interna</strong>
+          Existe uma clara distinção entre a Europa Ocidental (mais rica, industrializada) e a Europa Oriental (menos desenvolvida, ingressou na UE em 2004). Essa assimetria gera tensões políticas e migração interna.
+        </div>
+        <img src="geo-imgs/ue_s7_0.jpg" class="slide-img" alt="Regiões econômicas da Europa">
+        <img src="geo-imgs/ue_s8_0.jpg" class="slide-img" alt="PIB per capita europeu">
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc2b">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Euro, Zona Euro e Schengen
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <h4>O Euro (€)</h4>
+        <p>O Euro foi criado pelo Tratado de Maastricht (1992) e circula fisicamente desde <strong>2002</strong>. É gerido pelo <strong>Banco Central Europeu (BCE)</strong>, com sede em Frankfurt (Alemanha).</p>
+        <img src="geo-imgs/ue_s9_0.jpg" class="slide-img" alt="Zona Euro — países membros">
+        <div class="highlight">
+          <strong>Países da UE que NÃO usam o Euro</strong>
+          Suécia, Dinamarca, Polônia, Hungria, República Tcheca, Romênia, Bulgária e Croácia (mantêm moedas nacionais).
+        </div>
+        <h4>Acordo de Schengen</h4>
+        <p>Criado em 1985 na cidade luxemburguesa de Schengen, elimina as fronteiras internas entre países signatários, permitindo livre circulação de pessoas sem necessidade de passaporte.</p>
+        <img src="geo-imgs/ue_s10_0.jpg" class="slide-img" alt="Área Schengen">
+        <div class="tip">
+          <strong>Schengen ≠ UE</strong>
+          Países como a Noruega, Suíça e Islândia fazem parte do espaço Schengen sem ser membros da UE. O Reino Unido nunca fez parte do Schengen.
+        </div>
+        <h4>Crise de 2008</h4>
+        <p>A crise financeira global afetou duramente a UE. Os países mais impactados foram <strong>Grécia, Portugal, Irlanda e Espanha</strong>, que precisaram de pacotes de resgate do FMI e BCE. A Grécia viveu a pior crise da Zona Euro.</p>
+        <img src="geo-imgs/ue_s11_0.jpg" class="slide-img" alt="Crise da Zona Euro">
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc2c">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Mapa Político e Regiões da Europa
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <img src="geo-imgs/ue_s12_0.jpg" class="slide-img" alt="Mapa político da Europa">
+        <img src="geo-imgs/ue_s13_0.png" class="slide-img" alt="Regiões da Europa - mapa">
+        <img src="geo-imgs/ue_s13_1.png" class="slide-img" alt="Europa Ocidental x Oriental">
+        <p>A Europa é dividida em sub-regiões geográficas:</p>
+        <ul>
+          <li><strong>Europa Ocidental:</strong> França, Alemanha, Bélgica, Países Baixos, Luxemburgo, Áustria, Suíça</li>
+          <li><strong>Europa do Norte (Escandinávia):</strong> Noruega, Suécia, Finlândia, Dinamarca, Islândia</li>
+          <li><strong>Europa do Sul (Mediterrânea):</strong> Portugal, Espanha, Itália, Grécia</li>
+          <li><strong>Europa Oriental:</strong> Polônia, Hungria, República Tcheca, Romênia, Bulgária, países bálticos</li>
+          <li><strong>Europa Britânica:</strong> Reino Unido e Irlanda</li>
+        </ul>
+        <img src="geo-imgs/ue_s14_0.jpg" class="slide-img" alt="Mapa físico da Europa">
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       CAP. 3 – BREXIT
+       ════════════════════════════════════ -->
+  <div class="chapter-header">
+    <div class="chapter-number">3</div>
+    <h2>Brexit</h2>
+  </div>
+
+  <div class="accordion" id="acc3a">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      O que é o Reino Unido e o Brexit
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <div class="highlight">
+          <strong>O Reino Unido é formado por 4 nações:</strong>
+          Inglaterra + País de Gales + Escócia + Irlanda do Norte
+        </div>
+        <img src="geo-imgs/ue_s16_0.jpg" class="slide-img" alt="Mapa do Reino Unido">
+        <p><strong>Brexit</strong> = <em>Britain + Exit</em> — saída do Reino Unido da União Europeia.</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year">2016</span>
+            <span class="timeline-text"><strong>Referendo</strong> — 51,9% dos britânicos votam pela saída da UE. Resultado dividido: Inglaterra e País de Gales votaram a favor; Escócia e Irlanda do Norte votaram contra.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2017</span>
+            <span class="timeline-text">Ativação do <strong>Artigo 50</strong> do Tratado de Lisboa — início formal das negociações de saída. Prazo: 2 anos.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2018-2019</span>
+            <span class="timeline-text">Negociações turbulentas. Parlamento britânico rejeita o acordo de saída por 3 vezes. Prazo prorrogado.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">Jan 2020</span>
+            <span class="timeline-text">Acordo aprovado. <strong>Reino Unido sai oficialmente da UE</strong> em 31 de janeiro de 2020.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">Dez 2020</span>
+            <span class="timeline-text">Período de transição termina. Acordo comercial UE-RU assinado. RU sai também do mercado único e da Zona Schengen.</span>
+          </div>
+        </div>
+        <img src="geo-imgs/ue_s20_0.jpg" class="slide-img" alt="Mapa Brexit - impacto territorial">
+        <img src="geo-imgs/ue_s21_0.png" class="slide-img" alt="Brexit - negociações">
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc3b">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Consequências e Implicações do Brexit
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>A saída do RU trouxe consequências significativas para ambos os lados:</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Aspecto</th><th>Antes (na UE)</th><th>Depois (fora da UE)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Circulação de pessoas</td><td>Livre (Schengen)</td><td>Necessita visto/passaporte</td></tr>
+            <tr><td>Comércio</td><td>Mercado único, sem tarifas</td><td>Acordo comercial separado</td></tr>
+            <tr><td>Moeda</td><td>Libra esterlina (nunca usou o Euro)</td><td>Libra esterlina</td></tr>
+            <tr><td>Trabalhadores EU no RU</td><td>Livre circulação</td><td>Precisam de autorização</td></tr>
+            <tr><td>Irlanda do Norte</td><td>—</td><td>Fronteira especial com República da Irlanda (ainda na UE)</td></tr>
+          </tbody>
+        </table>
+        <div class="warning">
+          <strong>Tensões internas no RU pós-Brexit</strong>
+          Escócia realizou referendo de independência (2014) e quer um novo após o Brexit. Irlanda do Norte tem situação especial de "backstop" — mantém alinhamento com o mercado único da UE para evitar fronteira física com a República da Irlanda.
+        </div>
+        <img src="geo-imgs/ue_s22_0.png" class="slide-img" alt="Consequências do Brexit">
+        <img src="geo-imgs/ue_s23_0.png" class="slide-img" alt="Irlanda do Norte e Brexit">
+        <img src="geo-imgs/ue_s25_0.png" class="slide-img" alt="Impactos econômicos do Brexit">
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       CAP. 4 – RELEVO DA AMÉRICA DO NORTE
+       ════════════════════════════════════ -->
+  <div class="chapter-header">
+    <div class="chapter-number">4</div>
+    <h2>Relevo da América do Norte</h2>
+  </div>
+
+  <div class="accordion" id="acc4a">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      As Três Porções do Relevo
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>O relevo da América do Norte é organizado em três grandes faixas no sentido Norte-Sul:</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Porção</th><th>Localização</th><th>Principais Elementos</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ocidental</strong></td>
+              <td>Costa do Pacífico</td>
+              <td>Montanhas Rochosas (Rockies), Serra Nevada, Cascades, Monte McKinley (Denali — ponto mais alto, 6.194 m)</td>
+            </tr>
+            <tr>
+              <td><strong>Central</strong></td>
+              <td>Interior do continente</td>
+              <td>Grandes Planícies (prairies), Vale do Mississipi-Missouri, Planície do Canadá</td>
+            </tr>
+            <tr>
+              <td><strong>Oriental</strong></td>
+              <td>Costa do Atlântico</td>
+              <td>Escudo Canadense (embasamento cristalino antigo), Montes Apalaches (antigos, erodidos)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="highlight">
+          <strong>Apalaches vs. Rochosas</strong>
+          Os Apalaches são montanhas antigas (Pré-cambriano/Paleozoico), muito erodidas e de baixa altitude. As Rochosas são jovens (Mesozoico/Cenozoico), altas e com picos nevados — resultado do choque de placas tectônicas.
+        </div>
+        <img src="geo-imgs/am_s15_0.jpg" class="slide-img" alt="Falha de San Andreas">
+        <div class="warning">
+          <strong>Falha de San Andreas — Califórnia</strong>
+          Localizada na costa da Califórnia (EUA), é uma das falhas geológicas mais famosas do mundo. Resulta do encontro da Placa do Pacífico com a Placa Norte-Americana. Provoca frequentes terremotos na região (ex: São Francisco 1906, Los Angeles). É uma falha <em>transcorrente</em> (as placas deslizam lateralmente uma em relação à outra).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc4b">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Mapa Político da América do Norte
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>A América do Norte é composta pelos países da América Anglo-Saxônica (EUA e Canadá) e México, além dos países da América Central e Caribe. A América Anglo-Saxônica (EUA + Canadá) é o foco desta unidade.</p>
+        <div class="tip">
+          <strong>América Anglo-Saxônica</strong>
+          Recebe este nome por ter sido colonizada por ingleses (EUA) e ingleses/franceses (Canadá), herdando cultura e língua anglossaxônica. Contrasta com a América Latina, colonizada por espanhóis e portugueses.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       CAP. 5 – CLIMA E VEGETAÇÃO
+       ════════════════════════════════════ -->
+  <div class="chapter-header">
+    <div class="chapter-number">5</div>
+    <h2>Clima e Vegetação da América do Norte</h2>
+  </div>
+
+  <div class="accordion" id="acc5a">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Tabela Clima × Vegetação
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <img src="geo-imgs/am_s2_0.png" class="slide-img" alt="Mapa de climas e correntes da América do Norte">
+        <table class="data-table">
+          <thead>
+            <tr><th>Clima</th><th>Vegetação Associada</th><th>Localização</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Polar / Subpolar</td><td>Tundra (musgos, liquens)</td><td>Norte do Canadá, Alasca</td></tr>
+            <tr><td>Temperado Frio (Continental Úmido)</td><td>Floresta de Coníferas (Taiga)</td><td>Sul do Canadá, norte dos EUA</td></tr>
+            <tr><td>Temperado Continental</td><td>Pradarias (gramíneas)</td><td>Centro dos EUA e Canadá</td></tr>
+            <tr><td>Temperado Oceânico</td><td>Floresta Temperada</td><td>Costa Noroeste (Oregon, Washington)</td></tr>
+            <tr><td>Semiárido</td><td>Estepes (vegetação baixa, xerófita)</td><td>Centro-oeste dos EUA</td></tr>
+            <tr><td>Mediterrâneo</td><td>Vegetação de Maquis (Chaparral)</td><td>Califórnia</td></tr>
+            <tr><td>Subtropical</td><td>Floresta Subtropical</td><td>Sul dos EUA (Flórida, Golfo do México)</td></tr>
+          </tbody>
+        </table>
+        <img src="geo-imgs/am_s3_0.png" class="slide-img" alt="Mapa de vegetação da América do Norte">
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc5b">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Detalhes das Vegetações
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <h4>Floresta de Coníferas (Taiga)</h4>
+        <p>Floresta de coníferas (pinheiros, abetos, cedros) que cobre o sul do Canadá e norte dos EUA. As árvores têm folhas em forma de agulha para suportar o frio intenso e neve.</p>
+        <img src="geo-imgs/am_s7_0.jpg" class="slide-img" alt="Floresta de coníferas">
+
+        <h4>Pradarias</h4>
+        <p>Grandes extensões de gramíneas nas planícies centrais. Foram amplamente convertidas em terras agrícolas — EUA e Canadá são grandes produtores de trigo, milho e soja graças às pradarias.</p>
+        <img src="geo-imgs/am_s8_0.jpg" class="slide-img" alt="Pradarias americanas">
+
+        <h4>Estepes</h4>
+        <p>Vegetação rasteira adaptada ao clima semiárido do centro-oeste dos EUA. Menos úmida que as pradarias, com gramíneas mais rígidas e arbustos esparsos.</p>
+        <img src="geo-imgs/am_s9_0.jpg" class="slide-img" alt="Estepes americanas">
+        <img src="geo-imgs/am_s9_1.jpg" class="slide-img" alt="Estepes - detalhe">
+
+        <h4>Clima Subtropical (Flórida)</h4>
+        <p>O sudeste dos EUA, especialmente a Flórida, tem clima subtropical com verões quentes e úmidos. Vegetação de floresta subtropical com manguezais no litoral.</p>
+        <img src="geo-imgs/am_s10_0.jpg" class="slide-img" alt="Clima subtropical - Flórida">
+
+        <h4>Clima de Montanha</h4>
+        <p>Nas Montanhas Rochosas, o clima varia com a altitude — base com floresta temperada, meio com coníferas, cume com neve permanente e vegetação alpina.</p>
+        <img src="geo-imgs/am_s11_0.jpg" class="slide-img" alt="Clima de montanha - Rochosas">
+
+        <h4>Clima Mediterrâneo (Califórnia)</h4>
+        <p>A Califórnia tem verões secos e quentes, invernos suaves e chuvosos. A vegetação típica é o <strong>Chaparral</strong> (arbusto mediterrâneo), adaptado à seca de verão.</p>
+        <img src="geo-imgs/am_s12_0.jpg" class="slide-img" alt="Clima mediterrâneo - Califórnia">
+
+        <div class="tip">
+          <strong>Correntes Marítimas e Clima</strong>
+          A <strong>Corrente do Golfo</strong> (quente) aquece a costa leste dos EUA e a Europa Ocidental. A <strong>Corrente da Califórnia</strong> (fria) resfria a costa oeste, contribuindo para o clima semiárido e mediterrâneo da Califórnia.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       CAP. 6 – HIDROGRAFIA
+       ════════════════════════════════════ -->
+  <div class="chapter-header">
+    <div class="chapter-number">6</div>
+    <h2>Hidrografia da América do Norte</h2>
+  </div>
+
+  <div class="accordion" id="acc6a">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Principais Rios
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <table class="data-table">
+          <thead>
+            <tr><th>Rio</th><th>Características</th><th>Importância</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mississipi-Missouri</strong></td>
+              <td>O maior sistema fluvial da América do Norte. Nasce nas Rochosas (Missouri) e nos Grandes Lagos (Mississipi), desemboca no Golfo do México.</td>
+              <td>Principal via de transporte fluvial dos EUA; bacia agrícola fundamental.</td>
+            </tr>
+            <tr>
+              <td><strong>Rio Colorado</strong></td>
+              <td>Nasce nas Rochosas, atravessa o sudoeste árido dos EUA e deságua no Golfo da Califórnia (México).</td>
+              <td>Esculpiu o <strong>Grand Canyon</strong> no Arizona. Abastece água para Las Vegas, Los Angeles e cidades do sudoeste.</td>
+            </tr>
+            <tr>
+              <td><strong>Rio Grande (Rio Bravo)</strong></td>
+              <td>Nasce no Colorado, separa os EUA do México até o Golfo do México.</td>
+              <td>Fronteira natural EUA-México. Importância geopolítica e hidrográfica.</td>
+            </tr>
+            <tr>
+              <td><strong>Rio São Lourenço</strong></td>
+              <td>Liga os Grandes Lagos ao Oceano Atlântico. Importante via de navegação.</td>
+              <td>Escoa a produção industrial da região dos Grandes Lagos para os portos do Atlântico.</td>
+            </tr>
+            <tr>
+              <td><strong>Rio Mackenzie</strong></td>
+              <td>O maior rio do Canadá, drena para o Oceano Ártico.</td>
+              <td>Bacia hidrográfica ártica do Canadá.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="highlight">
+          <strong>Grand Canyon</strong>
+          O Rio Colorado esculpiu o Grand Canyon ao longo de milhões de anos. Com 446 km de comprimento, até 29 km de largura e 1.800 m de profundidade, é um dos maiores cânions do mundo e Patrimônio Natural da UNESCO.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="acc6b">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Os Grandes Lagos
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-inner">
+        <p>Os Grandes Lagos formam o maior sistema de água doce superficial do mundo, localizados na fronteira entre EUA e Canadá (exceto o Lago Michigan, inteiramente nos EUA).</p>
+        <div class="highlight">
+          <strong>Memorize com a sigla: S-H-O-E-M</strong>
+          Superior · Huron · Ontario · Erie · Michigan
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr><th>Lago</th><th>Destaque</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Superior</strong></td><td>O maior em área de todo o hemisfério ocidental</td></tr>
+            <tr><td><strong>Huron</strong></td><td>Segundo maior; conectado ao Michigan pelo Estreito de Mackinac</td></tr>
+            <tr><td><strong>Michigan</strong></td><td>Único inteiramente em território americano</td></tr>
+            <tr><td><strong>Erie</strong></td><td>O mais raso; borda as Cataratas do Niágara</td></tr>
+            <tr><td><strong>Ontario</strong></td><td>O menor em área; escoa para o Rio São Lourenço</td></tr>
+          </tbody>
+        </table>
+        <div class="tip">
+          <strong>Cataratas do Niágara</strong>
+          Localizadas entre os lagos Erie e Ontario, na fronteira EUA-Canadá. São uma das quedas d'água mais famosas do mundo e importante fonte de energia hidrelétrica para ambos os países.
+        </div>
+        <div class="warning">
+          <strong>Importância econômica dos Grandes Lagos</strong>
+          A região dos Grandes Lagos concentra grande parte da indústria pesada dos EUA e Canadá (siderurgia, automobilística). Cidades como Chicago, Detroit, Cleveland, Toronto e Buffalo estão nessa área — conhecida historicamente como o <em>Cinturão do Aço (Rust Belt)</em>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       QUIZ
+       ════════════════════════════════════ -->
+  <section id="quiz-section">
+    <h2>Quiz de Revisão</h2>
+    <p>Teste seus conhecimentos sobre União Europeia e América do Norte.</p>
+
+    <div class="quiz-filter">
+      <button class="filter-btn active" onclick="filterQuiz('all', this)">Todas</button>
+      <button class="filter-btn" onclick="filterQuiz('cap1', this)">Cap. 1 — Formação UE</button>
+      <button class="filter-btn" onclick="filterQuiz('cap2', this)">Cap. 2 — Economia</button>
+      <button class="filter-btn" onclick="filterQuiz('cap3', this)">Cap. 3 — Brexit</button>
+      <button class="filter-btn" onclick="filterQuiz('cap4', this)">Cap. 4 — Relevo</button>
+      <button class="filter-btn" onclick="filterQuiz('cap5', this)">Cap. 5 — Clima</button>
+      <button class="filter-btn" onclick="filterQuiz('cap6', this)">Cap. 6 — Hidrografia</button>
+    </div>
+
+    <!-- Q1 -->
+    <div class="question-card" data-chapter="cap1" id="q1">
+      <h4>1. Qual foi o primeiro bloco regional europeu, formado em 1943?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q1','a')">a) CECA</button>
+        <button class="option-btn" onclick="checkQuiz('q1','b')">b) BENELUX</button>
+        <button class="option-btn" onclick="checkQuiz('q1','c')">c) Mercado Comum Europeu</button>
+        <button class="option-btn" onclick="checkQuiz('q1','d')">d) União Europeia</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card" data-chapter="cap1" id="q2">
+      <h4>2. O Tratado de Maastricht (1992) foi responsável por:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q2','a')">a) Criar a CECA</button>
+        <button class="option-btn" onclick="checkQuiz('q2','b')">b) Fundar oficialmente a União Europeia e criar o projeto do Euro</button>
+        <button class="option-btn" onclick="checkQuiz('q2','c')">c) Incluir os países do Leste Europeu</button>
+        <button class="option-btn" onclick="checkQuiz('q2','d')">d) Eliminar as fronteiras do espaço Schengen</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" data-chapter="cap2" id="q3">
+      <h4>3. O Banco Central Europeu (BCE), responsável pelo Euro, tem sede em:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q3','a')">a) Paris, França</button>
+        <button class="option-btn" onclick="checkQuiz('q3','b')">b) Bruxelas, Bélgica</button>
+        <button class="option-btn" onclick="checkQuiz('q3','c')">c) Frankfurt, Alemanha</button>
+        <button class="option-btn" onclick="checkQuiz('q3','d')">d) Amsterdã, Países Baixos</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" data-chapter="cap2" id="q4">
+      <h4>4. Qual país da UE NUNCA integrou o espaço Schengen?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q4','a')">a) Suécia</button>
+        <button class="option-btn" onclick="checkQuiz('q4','b')">b) Portugal</button>
+        <button class="option-btn" onclick="checkQuiz('q4','c')">c) Reino Unido</button>
+        <button class="option-btn" onclick="checkQuiz('q4','d')">d) Polônia</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card" data-chapter="cap3" id="q5">
+      <h4>5. O referendo do Brexit ocorreu em qual ano, e qual foi o resultado?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q5','a')">a) 2014, com 60% a favor da saída</button>
+        <button class="option-btn" onclick="checkQuiz('q5','b')">b) 2016, com 51,9% a favor da saída</button>
+        <button class="option-btn" onclick="checkQuiz('q5','c')">c) 2018, com 55% a favor da saída</button>
+        <button class="option-btn" onclick="checkQuiz('q5','d')">d) 2020, com 48% a favor da saída</button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card" data-chapter="cap3" id="q6">
+      <h4>6. O Reino Unido é formado pelas seguintes nações:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q6','a')">a) Inglaterra, Irlanda, Escócia e País de Gales</button>
+        <button class="option-btn" onclick="checkQuiz('q6','b')">b) Inglaterra, Escócia, País de Gales e Irlanda do Norte</button>
+        <button class="option-btn" onclick="checkQuiz('q6','c')">c) Inglaterra, Irlanda do Norte, Cornualha e Escócia</button>
+        <button class="option-btn" onclick="checkQuiz('q6','d')">d) Inglaterra, Irlanda, Cornualha e País de Gales</button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card" data-chapter="cap4" id="q7">
+      <h4>7. A Falha de San Andreas, na Califórnia, resulta do encontro de quais placas tectônicas?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q7','a')">a) Placa Sul-Americana e Placa Norte-Americana</button>
+        <button class="option-btn" onclick="checkQuiz('q7','b')">b) Placa de Nazca e Placa Norte-Americana</button>
+        <button class="option-btn" onclick="checkQuiz('q7','c')">c) Placa do Pacífico e Placa Norte-Americana</button>
+        <button class="option-btn" onclick="checkQuiz('q7','d')">d) Placa Juan de Fuca e Placa Norte-Americana</button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card" data-chapter="cap4" id="q8">
+      <h4>8. Qual é a diferença entre os Apalaches e as Montanhas Rochosas?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q8','a')">a) Os Apalaches são mais jovens e altos que as Rochosas</button>
+        <button class="option-btn" onclick="checkQuiz('q8','b')">b) Os Apalaches são mais antigos e erodidos; as Rochosas são jovens e altas</button>
+        <button class="option-btn" onclick="checkQuiz('q8','c')">c) Ambos têm a mesma idade geológica</button>
+        <button class="option-btn" onclick="checkQuiz('q8','d')">d) As Rochosas estão na costa leste e os Apalaches na costa oeste</button>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card" data-chapter="cap5" id="q9">
+      <h4>9. Qual clima predomina na Califórnia e qual é sua vegetação típica?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q9','a')">a) Clima temperado oceânico — pradarias</button>
+        <button class="option-btn" onclick="checkQuiz('q9','b')">b) Clima semiárido — estepes</button>
+        <button class="option-btn" onclick="checkQuiz('q9','c')">c) Clima mediterrâneo — Chaparral (Maquis)</button>
+        <button class="option-btn" onclick="checkQuiz('q9','d')">d) Clima polar — tundra</button>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card" data-chapter="cap5" id="q10">
+      <h4>10. A vegetação de coníferas (Taiga) está associada a qual tipo climático?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q10','a')">a) Clima subtropical</button>
+        <button class="option-btn" onclick="checkQuiz('q10','b')">b) Clima mediterrâneo</button>
+        <button class="option-btn" onclick="checkQuiz('q10','c')">c) Clima temperado frio (continental úmido)</button>
+        <button class="option-btn" onclick="checkQuiz('q10','d')">d) Clima semiárido</button>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="question-card" data-chapter="cap6" id="q11">
+      <h4>11. Qual rio esculpiu o Grand Canyon ao longo de milhões de anos?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q11','a')">a) Rio Mississipi</button>
+        <button class="option-btn" onclick="checkQuiz('q11','b')">b) Rio Colorado</button>
+        <button class="option-btn" onclick="checkQuiz('q11','c')">c) Rio Grande</button>
+        <button class="option-btn" onclick="checkQuiz('q11','d')">d) Rio São Lourenço</button>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="question-card" data-chapter="cap6" id="q12">
+      <h4>12. Qual dos Grandes Lagos é o ÚNICO inteiramente em território americano?</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q12','a')">a) Lago Superior</button>
+        <button class="option-btn" onclick="checkQuiz('q12','b')">b) Lago Huron</button>
+        <button class="option-btn" onclick="checkQuiz('q12','c')">c) Lago Erie</button>
+        <button class="option-btn" onclick="checkQuiz('q12','d')">d) Lago Michigan</button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="quiz-result" id="quiz-result">
+      <div class="donut-wrap">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+          <circle cx="65" cy="65" r="55" fill="none" stroke="var(--accent)" stroke-width="14"
+                  stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+        </svg>
+        <div class="donut-center">
+          <span class="donut-score" id="donut-score">0</span>
+          <span class="donut-label">/ 12</span>
+        </div>
+      </div>
+      <div class="result-msg" id="result-msg"></div>
+      <div class="result-sub" id="result-sub"></div>
+      <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       CHAT
+       ════════════════════════════════════ -->
+  <section id="chat-section">
+    <h2>Nêuron — Assistente de Estudos</h2>
+    <p>Tire dúvidas sobre União Europeia, Brexit, relevo, clima e hidrografia da América do Norte.</p>
+    <div id="chatbox">
+      <div class="msg bot">Olá! Sou o Nêuron, seu assistente de Geografia. Pode me perguntar sobre a UE, Brexit, relevo da América do Norte, climas, vegetação, Grandes Lagos ou qualquer outra dúvida da matéria!</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Digite sua dúvida..." onkeydown="if(event.key==='Enter') sendMessage()">
+      <button id="sendBtn" onclick="sendMessage()">Enviar</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Caderno Digital · Geografia 2º Trimestre
+</footer>
+
+<script>
+  /* ── Accordion ── */
+  function toggleAccordion(btn) {
+    const acc = btn.closest('.accordion');
+    const wasOpen = acc.classList.contains('open');
+    document.querySelectorAll('.accordion').forEach(a => a.classList.remove('open'));
+    if (!wasOpen) acc.classList.add('open');
+    updateProgress();
+  }
+
+  /* ── Progress ── */
+  function updateProgress() {
+    const total = document.querySelectorAll('.accordion').length;
+    const opened = document.querySelectorAll('.accordion.open').length;
+    const pct = Math.round((opened / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+  }
+
+  /* ── Quiz ── */
+  const ANSWERS = { q1:'b', q2:'b', q3:'c', q4:'c', q5:'b', q6:'b', q7:'c', q8:'b', q9:'c', q10:'c', q11:'b', q12:'d' };
+  let answered = {}, score = 0, total = 0;
+
+  function checkQuiz(qid, choice) {
+    if (answered[qid]) return;
+    answered[qid] = true;
+    total++;
+    const card = document.getElementById(qid);
+    const btns = card.querySelectorAll('.option-btn');
+    const correct = ANSWERS[qid];
+    btns.forEach(b => {
+      const letter = b.textContent.trim()[0];
+      if (letter === correct) b.classList.add('correct');
+      else if (letter === choice && choice !== correct) b.classList.add('wrong');
+      b.disabled = true;
+    });
+    if (choice === correct) score++;
+    if (total === Object.keys(ANSWERS).length) showResult();
+  }
+
+  function filterQuiz(chapter, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.question-card').forEach(c => {
+      c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+    });
+  }
+
+  function showResult() {
+    document.getElementById('quiz-result').style.display = 'block';
+    document.getElementById('donut-score').textContent = score;
+    const circumference = 345.4;
+    const offset = circumference - (score / 12) * circumference;
+    document.getElementById('donut-arc').style.strokeDashoffset = offset;
+    const pct = Math.round((score / 12) * 100);
+    let msg, sub;
+    if (pct >= 90) { msg = 'Excelente! Você dominou o conteúdo!'; sub = 'Resultado impressionante!'; }
+    else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.'; }
+    else if (pct >= 50) { msg = 'Bom esforço! Ainda há margem para melhorar.'; sub = 'Volte aos capítulos com dificuldade.'; }
+    else { msg = 'Continue estudando!'; sub = 'Releia os acordeons e tente novamente.'; }
+    document.getElementById('result-msg').textContent = msg;
+    document.getElementById('result-sub').textContent = sub;
+  }
+
+  function resetQuiz() {
+    answered = {}; score = 0; total = 0;
+    document.querySelectorAll('.option-btn').forEach(b => {
+      b.classList.remove('correct', 'wrong');
+      b.disabled = false;
+    });
+    document.getElementById('quiz-result').style.display = 'none';
+    document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+  }
+
+  /* ── Chat ── */
+  async function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    appendMsg(text, 'user');
+    const btn = document.getElementById('sendBtn');
+    btn.disabled = true;
+    btn.textContent = '...';
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: text,
+          context: 'Geografia 2º Trimestre: União Europeia (formação, BENELUX 1943, CECA 1952, Maastricht 1992, Euro, Zona Euro, Schengen, Brexit 2016-2020), América do Norte (relevo: Rochosas/Planícies/Apalaches/Falha San Andreas; climas: polar/tundra, temperado frio/coníferas, continental/pradarias, mediterrâneo/chaparral; hidrografia: Mississipi, Colorado/Grand Canyon, Rio Grande, Grandes Lagos SHOEM, Rio São Lourenço).'
+        })
+      });
+      const data = await res.json();
+      appendMsg(data.reply || 'Erro ao obter resposta.', 'bot');
+    } catch {
+      appendMsg('Não foi possível conectar ao servidor.', 'bot');
+    }
+    btn.disabled = false;
+    btn.textContent = 'Enviar';
+  }
+
+  function appendMsg(text, role) {
+    const box = document.getElementById('chatbox');
+    const div = document.createElement('div');
+    div.className = 'msg ' + role;
+    div.textContent = text;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+  }
+</script>
+
+</body>
+</html>
