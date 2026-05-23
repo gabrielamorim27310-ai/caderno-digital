@@ -2,6 +2,7 @@
   "version": 2,
   "builds": [
     { "src": "api/chat.js", "use": "@vercel/node" },
+    { "src": "api/debug.js", "use": "@vercel/node" },
     { "src": "*.html",      "use": "@vercel/static" },
     { "src": "*.js",        "use": "@vercel/static", "config": { "excludeFiles": "api/**" } },
     { "src": "styles/**",   "use": "@vercel/static" },
@@ -14,6 +15,7 @@
   ],
   "routes": [
     { "src": "/api/chat", "dest": "/api/chat.js" },
+    { "src": "/api/debug", "dest": "/api/debug.js" },
     { "src": "/",         "dest": "/index.html" }
   ]
 }
