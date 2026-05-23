@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Química 2º Tri — Funções Orgânicas e Isomeria 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary:   #7b1111;
+    --secondary: #e07b00;
+    --accent:    #b33030;
+    --bg:        #fdf8f5;
+    --card-bg:   #ffffff;
+    --text:      #1e1e1e;
+    --text-light:#6b6b6b;
+    --border:    #e8ddd0;
+    --shadow:    0 4px 24px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; scroll-behavior:smooth; }
+
+  .progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--secondary); z-index:999; width:0%; transition:width 0.1s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #3b0a0a 0%, #7b1111 50%, #b33030 100%);
+    color:white; padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; margin-bottom:12px; position:relative; }
+  .hero .subtitle { font-size:1.1rem; opacity:0.85; font-weight:300; position:relative; }
+  .hero .badge { display:inline-block; background:var(--secondary); color:white; padding:6px 18px; border-radius:20px; font-weight:700; font-size:0.85rem; margin-top:16px; position:relative; }
+  .hero .author { display:inline-block; background:rgba(255,255,255,0.15); color:white; padding:8px 22px; border-radius:20px; font-size:1.05rem; font-weight:600; margin-top:12px; position:relative; border:1px solid rgba(255,255,255,0.4); letter-spacing:0.02em; }
+
+  /* NAV */
+  nav { background:white; border-bottom:2px solid var(--border); padding:0 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width:1100px; margin:0 auto; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+  nav .nav-inner::-webkit-scrollbar { display:none; }
+  nav a { text-decoration:none; padding:14px 20px; font-weight:600; font-size:0.85rem; white-space:nowrap; color:var(--text-light); border-bottom:3px solid transparent; transition:all 0.3s; }
+  nav a:hover, nav a.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* MAIN */
+  main { max-width:900px; margin:0 auto; padding:40px 20px 80px; }
+
+  /* CHAPTER */
+  .chapter { margin-bottom:56px; }
+  .chapter-header { margin-bottom:24px; padding-bottom:14px; border-bottom:3px solid var(--secondary); }
+  .chapter-header h2 { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--primary); font-weight:900; display:flex; align-items:center; gap:12px; }
+  .ch-tag { display:inline-block; background:var(--primary); color:white; padding:3px 12px; border-radius:6px; font-size:0.78rem; font-weight:700; letter-spacing:.5px; font-family:'Inter',sans-serif; flex-shrink:0; }
+  .chapter-header .meta { color:var(--text-light); font-size:0.9rem; margin-top:6px; }
+
+  /* ACCORDION */
+  .accordion { background:white; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .accordion-btn { width:100%; background:none; border:none; padding:17px 20px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:0.97rem; font-weight:600; color:var(--primary); transition:background .2s; }
+  .accordion-btn:hover { background:#fdf0ec; }
+  .accordion-btn .chev { transition:transform .3s; color:var(--secondary); font-size:1.1rem; }
+  .accordion.open .chev { transform:rotate(180deg); }
+  .accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .accordion.open .accordion-content { max-height:4000px; }
+  .content-block { padding:0 20px 20px; border-top:1px solid var(--border); }
+  .content-block p { margin:12px 0; font-size:0.95rem; }
+  .content-block ul, .content-block ol { margin:8px 0 12px 22px; }
+  .content-block li { margin-bottom:6px; font-size:0.93rem; }
+  .content-block h4 { font-family:'Playfair Display',serif; color:var(--primary); margin:16px 0 8px; font-size:1.05rem; }
+
+  /* INFO BOXES */
+  .highlight-box, .warn-box, .tip-box {
+    border-left:4px solid; border-radius:0 10px 10px 0; padding:13px 16px; margin:14px 0; font-size:0.93rem;
+  }
+  .highlight-box { background:#fef3ef; border-color:var(--primary); }
+  .warn-box      { background:#fdf3e3; border-color:var(--secondary); }
+  .tip-box       { background:#fdecea; border-color:var(--accent); }
+  .highlight-box strong, .warn-box strong, .tip-box strong { display:block; margin-bottom:4px; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem; }
+  .data-table th { background:var(--primary); color:white; padding:10px 12px; text-align:left; font-weight:600; }
+  .data-table td { padding:9px 12px; border-bottom:1px solid var(--border); }
+  .data-table tr:nth-child(even) td { background:#fdf0ec; }
+
+  /* FORMULA */
+  .formula-pill { display:inline-block; background:#fef3ef; border:1.5px solid var(--primary); border-radius:8px; padding:3px 10px; font-family:'Courier New',monospace; font-size:0.85rem; color:var(--primary); font-weight:700; margin:2px 2px; }
+
+  /* QUIZ */
+  #quiz-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+  #quiz-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
+  #quiz-section > p { color:var(--text-light); margin-bottom:20px; }
+
+  .quiz-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .filter-btn { padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); background:white; color:var(--text-light); font-size:0.82rem; font-weight:600; cursor:pointer; transition:all .2s; }
+  .filter-btn.active, .filter-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
+
+  .question-card { background:var(--bg); border:1.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; }
+  .question-card.hidden { display:none; }
+  .question-card h4 { font-size:0.95rem; font-weight:600; color:var(--primary); margin-bottom:14px; }
+  .options { display:flex; flex-direction:column; gap:8px; }
+  .option-btn { background:white; border:1.5px solid var(--border); border-radius:8px; padding:10px 14px; text-align:left; font-size:0.9rem; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .option-btn:hover { border-color:var(--secondary); background:#fdf6ea; }
+  .option-btn.correct { background:#d4edda; border-color:#27ae60; color:#155724; }
+  .option-btn.wrong   { background:#f8d7da; border-color:#e74c3c; color:#721c24; }
+
+  .quiz-result { display:none; text-align:center; padding:24px; }
+  .donut-wrap { position:relative; width:130px; height:130px; margin:0 auto 16px; }
+  .donut-wrap svg { transform:rotate(-90deg); }
+  .donut-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-score { font-size:1.8rem; font-weight:700; color:var(--primary); }
+  .donut-label { font-size:0.75rem; color:var(--text-light); }
+  .result-msg { font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:6px; }
+  .result-sub { font-size:0.9rem; color:var(--text-light); margin-bottom:20px; }
+  .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
+  .btn-reset:hover { background:var(--accent); }
+
+  /* CHAT flutuante */
+  #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+  #chat-btn:hover { transform:scale(1.08); }
+  #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+  #chat-panel.open { display:flex; }
+  #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  #chat-head span { font-weight:600; font-size:0.92rem; }
+  #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+  #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+  .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+  .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+  .cmsg.loading { opacity:0.6; font-style:italic; }
+  #chat-form { display:flex; border-top:1px solid var(--border); }
+  #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+  #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+  #chat-send:hover { background:var(--secondary); }
+
+  footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
+
+  @media(max-width:600px) {
+    .hero { padding:56px 16px 44px; }
+    main { padding:24px 14px 60px; }
+  }
+</style>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>Química — 2º Trimestre</h1>
+  <p class="subtitle">2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Funções Orgânicas · Isomeria Plana · Isomeria Espacial</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#funcoes">Funções Orgânicas</a>
+    <a href="#isomeria-plana">Isomeria Plana</a>
+    <a href="#isomeria-espacial">Isomeria Espacial</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 13 — FUNÇÕES ORGÂNICAS
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="funcoes">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 13</span> Funções Orgânicas Oxigenadas e Nitrogenadas</h2>
+    <p class="meta">Classificação e nomenclatura dos principais grupos funcionais</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Visão Geral — Funções Oxigenadas <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Funções oxigenadas têm o <strong>oxigênio</strong> como heteroátomo principal. A presença e a posição do oxigênio na cadeia define o grupo funcional — e portanto as propriedades físicas e químicas do composto.</p>
+        <table class="data-table">
+          <thead><tr><th>Função</th><th>Grupo Funcional</th><th>Sufixo IUPAC</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Álcool</strong></td><td><span class="formula-pill">R–OH</span></td><td>-ol</td><td>Etanol (CH₃CH₂OH)</td></tr>
+            <tr><td><strong>Fenol</strong></td><td><span class="formula-pill">Ar–OH</span></td><td>fenol / -ol</td><td>Fenol (C₆H₅OH)</td></tr>
+            <tr><td><strong>Éter</strong></td><td><span class="formula-pill">R–O–R'</span></td><td>-oxi-…-ano</td><td>Éter dietílico (CH₃CH₂OCH₂CH₃)</td></tr>
+            <tr><td><strong>Aldeído</strong></td><td><span class="formula-pill">R–CHO</span></td><td>-al</td><td>Etanal (CH₃CHO)</td></tr>
+            <tr><td><strong>Cetona</strong></td><td><span class="formula-pill">R–CO–R'</span></td><td>-ona</td><td>Propanona (acetona)</td></tr>
+            <tr><td><strong>Ácido Carboxílico</strong></td><td><span class="formula-pill">R–COOH</span></td><td>ácido …-oico</td><td>Ácido etanoico (acético)</td></tr>
+            <tr><td><strong>Éster</strong></td><td><span class="formula-pill">R–COO–R'</span></td><td>…-oato de …-ila</td><td>Etanoato de etila</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Dica de ordenação por oxidação do carbono</strong>
+          Álcool → Aldeído → Ácido Carboxílico: cada etapa é uma oxidação do carbono funcional. A cetona não pode ser oxidada a ácido carboxílico sem quebrar a cadeia.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Álcoois, Fenóis e Éteres em Detalhe <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Álcoois</h4>
+        <p>O grupo <strong>–OH</strong> está ligado a um carbono saturado (sp³). Classificam-se conforme o número de carbonos ligados ao carbono que carrega o OH:</p>
+        <ul>
+          <li><strong>1º grau</strong> — carbono funcional ligado a 1 outro C (ex.: etanol)</li>
+          <li><strong>2º grau</strong> — carbono funcional ligado a 2 outros C (ex.: propan-2-ol / isopropanol)</li>
+          <li><strong>3º grau</strong> — carbono funcional ligado a 3 outros C (ex.: 2-metilpropan-2-ol)</li>
+        </ul>
+        <div class="warn-box">
+          <strong>Álcool vs. Fenol</strong>
+          No fenol o –OH está ligado diretamente ao anel aromático (benzênico). Isso torna o fenol mais ácido que os álcoois comuns — o par de elétrons do O é deslocalizado pelo anel, estabilizando o ânion fenóxido.
+        </div>
+
+        <h4>Éteres</h4>
+        <p>Um átomo de oxigênio ligado a <strong>dois radicais</strong> orgânicos: R–O–R'. A nomenclatura IUPAC usa a forma <em>[menor cadeia]-oxi-[maior cadeia]</em>. Ex.: metoxietano (CH₃–O–CH₂CH₃).</p>
+        <div class="tip-box">
+          <strong>Isomeria de função álcool × éter</strong>
+          Álcoois e éteres com a mesma fórmula molecular são isômeros de função. Ex.: C₂H₆O → etanol (álcool) e metoximetano (éter dimetílico).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Aldeídos, Cetonas, Ácidos Carboxílicos e Ésteres <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Aldeídos e Cetonas — Grupo Carbonila (C=O)</h4>
+        <p>Ambos possuem o <strong>grupo carbonila</strong> (C=O). A diferença está na posição:</p>
+        <ul>
+          <li><strong>Aldeído</strong>: carbonila na extremidade da cadeia (carbono 1). Pelo menos um H ligado ao carbono carbonílico. Sufixo <em>-al</em>.</li>
+          <li><strong>Cetona</strong>: carbonila em posição intermediária (entre dois carbonos). Sufixo <em>-ona</em>.</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>Isomeria Aldeído × Cetona</strong>
+          C₃H₆O → propanal (aldeído) e propanona/acetona (cetona) são isômeros de função.
+        </div>
+
+        <h4>Ácidos Carboxílicos</h4>
+        <p>Grupo <strong>–COOH</strong> (carboxila = carbonila + hidroxila). São ácidos fracos em solução aquosa. Nomenclatura: <em>ácido [cadeia]-oico</em>. Exemplos comuns: ácido fórmico (metanoico), ácido acético (etanoico), ácido cítrico.</p>
+
+        <h4>Ésteres</h4>
+        <p>Formados pela reação de um ácido carboxílico com um álcool (esterificação), liberando H₂O. Grupo: <strong>–COO–</strong>. Nomenclatura: <em>[ácido]-oato de [álcool]-ila</em>.</p>
+        <div class="tip-box">
+          <strong>Ésteres na natureza</strong>
+          Responsáveis pelo aroma de frutas (acetato de isoamila = banana, acetato de octila = laranja) e pela estrutura dos lipídios (triglicerídeos = ésteres de glicerol com ácidos graxos).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Funções Nitrogenadas — Aminas, Amidas e Iminas <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Funções nitrogenadas têm o <strong>nitrogênio</strong> como heteroátomo. Derivam, conceitualmente, da amônia (NH₃) por substituição dos H por radicais orgânicos.</p>
+        <table class="data-table">
+          <thead><tr><th>Função</th><th>Grupo Funcional</th><th>Classificação / Nota</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Amina Primária</strong></td><td><span class="formula-pill">R–NH₂</span></td><td>1 radical orgânico ligado ao N</td></tr>
+            <tr><td><strong>Amina Secundária</strong></td><td><span class="formula-pill">R–NH–R'</span></td><td>2 radicais ligados ao N</td></tr>
+            <tr><td><strong>Amina Terciária</strong></td><td><span class="formula-pill">R–N(R')–R''</span></td><td>3 radicais ligados ao N, nenhum H</td></tr>
+            <tr><td><strong>Amida</strong></td><td><span class="formula-pill">R–CO–NH₂</span></td><td>Carbonila + N; ligação peptídica nas proteínas</td></tr>
+            <tr><td><strong>Imina</strong></td><td><span class="formula-pill">R₂C=NH</span></td><td>Dupla ligação C=N; base de Schiff</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Aminas</h4>
+        <p>São bases (assim como a NH₃) porque o nitrogênio tem um par de elétrons livre. A cafeína, a adrenalina e as vitaminas do complexo B são aminas biologicamente importantes.</p>
+
+        <h4>Amidas</h4>
+        <p>A ligação que une os aminoácidos nas proteínas é a <strong>ligação peptídica</strong> — uma amida formada entre o grupo –COOH de um aminoácido e o grupo –NH₂ do seguinte. A ureia [CO(NH₂)₂] é a amida mais simples e é o principal produto da excreção de nitrogênio em mamíferos.</p>
+
+        <h4>Iminas</h4>
+        <p>Possuem dupla ligação <strong>C=N</strong>. Diferem das aminas (que têm C–N simples). Formadas pela condensação de aminas primárias com aldeídos ou cetonas.</p>
+        <div class="warn-box">
+          <strong>Como não confundir amina e amida</strong>
+          Amina: N ligado diretamente a carbono(s) <em>sem</em> carbonila adjacente. Amida: N ligado a carbono <em>de carbonila</em> (C=O). A palavra "amida" lembra "am + ácido" — deriva do ácido carboxílico.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 14 — ISOMERIA PLANA
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="isomeria-plana">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 14</span> Isomeria Plana</h2>
+    <p class="meta">Revisão — compostos com mesma fórmula molecular, estruturas diferentes</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Conceito e os 4 Tipos de Isomeria Plana <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>Isômeros planos</strong> (ou constitucionais) têm a mesma fórmula molecular, mas diferem na estrutura — ou seja, na sequência de ligações, sem considerar arranjo espacial.</p>
+        <table class="data-table">
+          <thead><tr><th>Tipo</th><th>O que muda</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Isomeria de Cadeia</strong></td>
+              <td>O esqueleto da cadeia carbônica (ramificações, cadeias cíclica vs. aberta, posição de heteroátomo)</td>
+              <td>Butano (cadeia reta) × isobutano (ramificado) — ambos C₄H₁₀</td>
+            </tr>
+            <tr>
+              <td><strong>Isomeria de Posição</strong></td>
+              <td>A posição de um mesmo grupo funcional ou insaturação na cadeia</td>
+              <td>But-1-eno × but-2-eno — ambos C₄H₈; propan-1-ol × propan-2-ol — ambos C₃H₈O</td>
+            </tr>
+            <tr>
+              <td><strong>Isomeria de Função</strong></td>
+              <td>O grupo funcional em si (funções diferentes)</td>
+              <td>Etanol (álcool) × metoximetano (éter) — ambos C₂H₆O; propanal × propanona — ambos C₃H₆O</td>
+            </tr>
+            <tr>
+              <td><strong>Isomeria de Compensação (Tautomeria)</strong></td>
+              <td>Equilíbrio dinâmico entre dois isômeros intercambiáveis espontaneamente em solução</td>
+              <td>Forma cetônica ⇌ forma enólica; bases nitrogenadas do DNA (adenina, guanina)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Regra prática</strong>
+          Para identificar o tipo: (1) mesma função → cadeia ou posição; (2) funções diferentes → isomeria de função; (3) equilíbrio dinâmico → tautomeria.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Tautomeria Ceto-Enólica em Detalhe <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A <strong>tautomeria ceto-enólica</strong> é o caso mais cobrado de isomeria de compensação. As duas formas existem em equilíbrio em solução:</p>
+        <ul>
+          <li><strong>Forma cetônica</strong>: grupo carbonila C=O + H em carbono adjacente — mais estável na maioria dos casos</li>
+          <li><strong>Forma enólica</strong>: dupla C=C + grupo –OH (enol) — menos estável, mas forma reativa</li>
+        </ul>
+        <div class="tip-box">
+          <strong>Importância biológica</strong>
+          As bases nitrogenadas do DNA (guanina, citosina, adenina, timina) existem predominantemente em formas cetônicas. Mutações espontâneas podem ocorrer quando uma base está na forma enólica durante a replicação — ela faz pareamento errado.
+        </div>
+        <div class="warn-box">
+          <strong>Tautômeros ≠ Ressonância</strong>
+          Tautômeros são isômeros estruturais distintos com um H migrando (existe equilíbrio de reação). Estruturas de ressonância descrevem o mesmo composto com elétrons deslocalizados — não há migração de átomo.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Aplicação: Isomerização Catalítica do Petróleo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A isomeria plana tem aplicação direta na indústria do petróleo. A <strong>gasolina</strong> é uma mistura de hidrocarbonetos C₅–C₁₂. O número de octano mede a resistência à detonação prematura (batida de pino).</p>
+        <div class="highlight-box">
+          <strong>Isomerização catalítica: octano → isoctano</strong>
+          O n-octano (cadeia linear, C₈H₁₈) tem número de octano = 0. O isoctano (2,2,4-trimetilpentano, cadeia ramificada, também C₈H₁₈) tem número de octano = 100. Sobre catalisador de platina ou alumina, o n-octano é convertido no isômero de cadeia ramificada — mais resistente à detonação e com melhor desempenho em motores de alta compressão.
+        </div>
+        <p>Outros exemplos industriais de isomeria de cadeia: <em>n</em>-butano (gás de cozinha) ⇌ isobutano (propelente em sprays aerossol), ambos C₄H₁₀.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 15 — ISOMERIA ESPACIAL
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="isomeria-espacial">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 15</span> Isomeria Espacial</h2>
+    <p class="meta">Estereoisomeria — mesma conectividade, diferente arranjo no espaço</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Isomeria Geométrica — Cis/Trans em Alcenos <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A <strong>isomeria geométrica</strong> (ou diastereoisomeria geométrica) ocorre quando a rotação livre em torno de uma ligação está impedida — principalmente em torno de duplas ligações C=C ou em anéis.</p>
+
+        <h4>Condição necessária para alcenos</h4>
+        <p>Cada carbono da dupla deve estar ligado a <strong>dois substituintes diferentes</strong> entre si. Se um carbono da dupla tiver dois substituintes iguais, não há isomeria geométrica.</p>
+        <div class="highlight-box">
+          <strong>Cis / Trans</strong>
+          <ul style="margin:6px 0 0 18px">
+            <li><strong>Cis</strong>: substituintes iguais (ou de maior prioridade) no <em>mesmo lado</em> da dupla</li>
+            <li><strong>Trans</strong>: substituintes iguais (ou de maior prioridade) em <em>lados opostos</em> da dupla</li>
+          </ul>
+        </div>
+        <p>Exemplo clássico: <strong>2-buteno</strong> (but-2-eno, C₄H₈)</p>
+        <ul>
+          <li><em>cis</em>-but-2-eno: os dois grupos CH₃ no mesmo lado → molécula mais compacta, ponto de ebulição maior</li>
+          <li><em>trans</em>-but-2-eno: os dois grupos CH₃ em lados opostos → mais linear e simétrica</li>
+        </ul>
+        <div class="tip-box">
+          <strong>Propriedades físicas distintas</strong>
+          Isômeros cis e trans são compostos diferentes com propriedades físicas distintas (pontos de fusão, ebulição, solubilidade, momento dipolar). O ácido maleico (cis) e o ácido fumárico (trans) são um exemplo famoso — o cis forma anidrido facilmente, o trans não.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Nomenclatura Z/E e Cadeias Cíclicas <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Nomenclatura Z/E (regras de Cahn-Ingold-Prelog)</h4>
+        <p>Quando os quatro substituintes em torno da dupla são <em>todos diferentes</em>, o sistema cis/trans é ambíguo. Usa-se a nomenclatura <strong>Z/E</strong>:</p>
+        <ol>
+          <li>Em cada carbono da dupla, determine qual substituinte tem <strong>maior número atômico</strong> (Z atômico) — esse é o de maior prioridade.</li>
+          <li><strong>Z</strong> (do alemão <em>Zusammen</em> = "juntos"): os substituintes de maior prioridade estão no <em>mesmo lado</em> da dupla.</li>
+          <li><strong>E</strong> (do alemão <em>Entgegen</em> = "opostos"): os substituintes de maior prioridade estão em <em>lados opostos</em> da dupla.</li>
+        </ol>
+        <div class="warn-box">
+          <strong>Z/E ≠ sempre cis/trans</strong>
+          Para substituintes simétricos (dois CH₃, dois Cl etc.), Z = cis e E = trans. Mas quando os quatro grupos são diferentes, Z pode ser o que visualmente parece "trans" — sempre use a regra do número atômico, não a visual.
+        </div>
+
+        <h4>Isomeria Geométrica em Anéis</h4>
+        <p>Em cadeias cíclicas (cicloalcanos), a rotação em torno das ligações C–C do anel também é restrita. Substituintes no anel podem estar:</p>
+        <ul>
+          <li><strong>Cis</strong>: no mesmo lado do plano do anel (representados por <strong>cunha cheia</strong> ambos para frente, ou tracejada ambos para trás)</li>
+          <li><strong>Trans</strong>: em lados opostos do plano (um em cunha cheia, outro em tracejada)</li>
+        </ul>
+        <p>Exemplo: 1,2-dimetilciclopropano — <em>cis</em> e <em>trans</em> são compostos distintos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Isomeria Óptica — Carbono Assimétrico (C*) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A <strong>isomeria óptica</strong> ocorre quando uma molécula não é sobreponível à sua imagem especular — como as mãos direita e esquerda.</p>
+
+        <h4>Condição: Carbono Assimétrico (C*)</h4>
+        <p>Um <strong>carbono assimétrico</strong> é um carbono sp³ ligado a <strong>quatro grupos todos diferentes</strong> entre si. O C* é o centro de quiralidade mais comum em química orgânica.</p>
+
+        <div class="highlight-box">
+          <strong>Número de estereoisômeros ópticos</strong>
+          Para uma molécula com <em>n</em> carbonos assimétricos distintos, o número máximo de estereoisômeros é <strong>2ⁿ</strong>. Exemplo: 2 C* → até 4 estereoisômeros; 3 C* → até 8.
+        </div>
+
+        <h4>Enantiômeros</h4>
+        <p><strong>Enantiômeros</strong> são pares de estereoisômeros que são imagens especulares não sobreponíveis. Possuem propriedades físicas e químicas idênticas, exceto na interação com luz polarizada e com outros sistemas quirais (como enzimas e receptores biológicos).</p>
+        <ul>
+          <li><strong>Dextrogiro (D+ ou +)</strong>: desvia a luz polarizada para a <em>direita</em></li>
+          <li><strong>Levogiro (L− ou −)</strong>: desvia a luz polarizada para a <em>esquerda</em></li>
+        </ul>
+        <div class="tip-box">
+          <strong>D/L não indica estrutura absoluta</strong>
+          D (dextrogiro) e L (levogiro) descrevem o efeito óptico observado experimentalmente, não a configuração espacial. A configuração absoluta é descrita pelo sistema R/S de Cahn-Ingold-Prelog.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Mistura Racêmica e Importância Farmacêutica <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Mistura Racêmica</h4>
+        <p>Uma <strong>mistura racêmica</strong> contém <strong>50% de cada enantiômero</strong>. Como os efeitos de rotação da luz se cancelam, a mistura é <strong>opticamente inativa</strong> — não desvia a luz polarizada. Também chamada de mistura racêmica ou racemate.</p>
+
+        <div class="highlight-box">
+          <strong>Resumo das propriedades</strong>
+          <ul style="margin:6px 0 0 18px">
+            <li>Enantiômero puro D+: desvia para a direita</li>
+            <li>Enantiômero puro L−: desvia para a esquerda na mesma magnitude</li>
+            <li>Mistura racêmica (50/50): sem desvio — opticamente inativa</li>
+          </ul>
+        </div>
+
+        <h4>Importância Farmacêutica</h4>
+        <p>Em sistemas biológicos, enantiômeros interagem de forma diferente com proteínas, enzimas e receptores — que são quirais. Isso faz com que os dois enantiômeros de um fármaco possam ter efeitos completamente distintos.</p>
+
+        <div class="warn-box">
+          <strong>Talidomida — o caso mais famoso</strong>
+          Comercializada no final dos anos 1950 como sedativo contra náuseas na gravidez (mistura racêmica):
+          <ul style="margin:6px 0 0 18px">
+            <li>Enantiômero <strong>R(+)</strong>: efeito sedativo desejado</li>
+            <li>Enantiômero <strong>S(−)</strong>: <strong>teratogênico</strong> — causava má-formações graves no feto (focomelia)</li>
+          </ul>
+          O caso levou a exigências regulatórias de teste separado de enantiômeros em novos fármacos.
+        </div>
+
+        <div class="tip-box">
+          <strong>Limoneno — exemplo no cotidiano</strong>
+          O composto limoneno (C₁₀H₁₆), presente em cascas de frutas cítricas, tem dois enantiômeros:
+          <ul style="margin:6px 0 0 18px">
+            <li><strong>R(+)-limoneno</strong>: cheiro de <em>laranja</em></li>
+            <li><strong>S(−)-limoneno</strong>: cheiro de <em>limão</em></li>
+          </ul>
+          Mesma fórmula molecular, mesma conectividade — apenas a configuração espacial difere, mas o olfato (receptor quiral) percebe aromas completamente distintos.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ
+     ══════════════════════════════════════════════ -->
+<section id="quiz-section">
+  <a id="quiz"></a>
+  <h2>Quiz de Revisão</h2>
+  <p>Teste seus conhecimentos sobre Funções Orgânicas e Isomeria.</p>
+
+  <div class="quiz-filter">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
+    <button class="filter-btn" onclick="filterQuiz('cap13',this)">Cap. 13 — Funções</button>
+    <button class="filter-btn" onclick="filterQuiz('cap14',this)">Cap. 14 — Isomeria Plana</button>
+    <button class="filter-btn" onclick="filterQuiz('cap15',this)">Cap. 15 — Isomeria Espacial</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card" data-chapter="cap13" id="q1">
+    <h4>1. O grupo funcional dos álcoois é o –OH ligado a um carbono sp³. O que diferencia um álcool de um fenol?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) O fenol tem dois grupos –OH; o álcool tem apenas um</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) No fenol, o –OH está ligado diretamente ao anel aromático; no álcool, a um carbono saturado</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) O álcool é mais ácido que o fenol</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) Não há diferença — ambos são chamados de álcoois</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-chapter="cap13" id="q2">
+    <h4>2. A nomenclatura IUPAC dos ésteres segue o padrão:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) [cadeia do ácido]-oato de [cadeia do álcool]-ila</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) [cadeia do álcool]-oato de [cadeia do ácido]-ila</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) ácido [cadeia]-oico de [álcool]-ila</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) [cadeia do ácido]-al de [cadeia do álcool]-oxi</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-chapter="cap13" id="q3">
+    <h4>3. A ligação peptídica, que une aminoácidos nas proteínas, é formada pelo grupo funcional das:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) Aminas</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) Iminas</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) Éteres</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) Amidas</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-chapter="cap13" id="q4">
+    <h4>4. Uma amina terciária possui:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) Um nitrogênio com dois hidrogênios e um radical orgânico</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) Um nitrogênio com um hidrogênio e dois radicais orgânicos</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) Um nitrogênio ligado a três radicais orgânicos, sem hidrogênio</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) Uma dupla ligação C=N</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-chapter="cap14" id="q5">
+    <h4>5. Dois compostos são isômeros de cadeia quando:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) Diferem no esqueleto carbônico — ramificações, cadeia cíclica vs. aberta, ou posição de heteroátomo na cadeia</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) Têm grupos funcionais diferentes</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) O mesmo grupo funcional ocupa posições diferentes na cadeia</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) Existem em equilíbrio dinâmico em solução</button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-chapter="cap14" id="q6">
+    <h4>6. Etanol (C₂H₆O) e metoximetano/éter dimetílico (C₂H₆O) são exemplos de isomeria de:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) Cadeia</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) Função</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) Posição</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) Compensação (tautomeria)</button>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-chapter="cap15" id="q7">
+    <h4>7. A condição necessária para existir isomeria geométrica cis/trans em um alceno é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) Presença de carbono assimétrico (C*) na molécula</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) Cada carbono da dupla C=C ter dois substituintes diferentes entre si</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) A molécula ser cíclica</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) A cadeia ter pelo menos 6 carbonos</button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-chapter="cap15" id="q8">
+    <h4>8. Na nomenclatura Z/E, o isômero Z (Zusammen = "juntos") é aquele em que:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Os grupos de maior prioridade (maior Z atômico) ficam em lados opostos da dupla</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Os grupos de maior prioridade ficam do mesmo lado da dupla ligação</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) Os grupos de menor número atômico ficam no mesmo lado</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) A nomenclatura Z se aplica somente a anéis</button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-chapter="cap15" id="q9">
+    <h4>9. Um carbono assimétrico (C*) é aquele que:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Está em dupla ligação C=C</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Tem hibridização sp² com três substituintes planares</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) É sp³ com quatro ligantes todos diferentes entre si</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) Pertence a um anel aromático</button>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-chapter="cap15" id="q10">
+    <h4>10. Uma mistura racêmica é formada por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) Dois diastereoisômeros em qualquer proporção</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) Um único enantiômero puro</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) Os dois enantiômeros em proporção desigual</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) 50% de cada enantiômero, tornando a mistura opticamente inativa</button>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card" data-chapter="cap15" id="q11">
+    <h4>11. Qual é a importância farmacêutica da isomeria óptica, exemplificada pela talidomida?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) Um enantiômero é mais solúvel em água que o outro</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) Ambos os enantiômeros têm exatamente o mesmo efeito biológico</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) Um enantiômero era sedativo e o outro era teratogênico — causava má-formações fetais</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) A mistura racêmica é sempre mais eficaz que um enantiômero puro</button>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card" data-chapter="cap15" id="q12">
+    <h4>12. Uma molécula com 3 carbonos assimétricos independentes tem, no máximo, quantos estereoisômeros ópticos?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) 3</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) 6</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) 8</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) 4</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quiz-result">
+    <div class="donut-wrap">
+      <svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+        <circle cx="65" cy="65" r="55" fill="none" stroke="var(--secondary)" stroke-width="14"
+                stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+      </svg>
+      <div class="donut-center">
+        <span class="donut-score" id="donut-score">0</span>
+        <span class="donut-label">/ 12</span>
+      </div>
+    </div>
+    <div class="result-msg" id="result-msg"></div>
+    <div class="result-sub" id="result-sub"></div>
+    <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+  </div>
+</section>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre funções orgânicas oxigenadas e nitrogenadas, isomeria plana ou isomeria espacial!</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+</main>
+
+<footer>
+  &copy; 2025 Caderno Digital · Química 2º Trimestre
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+/* ── Quiz ── */
+const ANSWERS = { q1:'b', q2:'a', q3:'d', q4:'c', q5:'a', q6:'b', q7:'b', q8:'b', q9:'c', q10:'d', q11:'c', q12:'c' };
+let answered = {}, score = 0, total = 0;
+
+function checkQuiz(qid, choice) {
+  if (answered[qid]) return;
+  answered[qid] = true; total++;
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+  const correct = ANSWERS[qid];
+  btns.forEach(b => {
+    const letter = b.textContent.trim()[0];
+    if (letter === correct) b.classList.add('correct');
+    else if (letter === choice && choice !== correct) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  if (choice === correct) score++;
+  if (total === Object.keys(ANSWERS).length) showResult();
+}
+
+function filterQuiz(chapter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+  });
+}
+
+function showResult() {
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('donut-score').textContent = score;
+  const offset = 345.4 - (score / 12) * 345.4;
+  document.getElementById('donut-arc').style.strokeDashoffset = offset;
+  const pct = Math.round((score / 12) * 100);
+  let msg, sub;
+  if (pct >= 90) { msg = 'Excelente! Dominou o conteúdo!'; sub = 'Resultado impressionante!' }
+  else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.' }
+  else if (pct >= 50) { msg = 'Bom esforço! Dá para melhorar.'; sub = 'Volte aos capítulos com dificuldade.' }
+  else { msg = 'Continue estudando!'; sub = 'Releia os acordeons e tente novamente.' }
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('result-sub').textContent = sub;
+}
+
+function resetQuiz() {
+  answered = {}; score = 0; total = 0;
+  document.querySelectorAll('.option-btn').forEach(b => { b.classList.remove('correct','wrong'); b.disabled = false; });
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+}
+
+/* ── Chat ── */
+function toggleChat() {
+  const p = document.getElementById('chat-panel');
+  p.classList.toggle('open');
+  if (p.classList.contains('open')) document.getElementById('chat-input').focus();
+}
+
+function getContext() {
+  return (document.querySelector('main') || document.body).innerText.replace(/\s+/g,' ').slice(0,6000);
+}
+
+async function sendMsg(e) {
+  e.preventDefault();
+  const input = document.getElementById('chat-input');
+  const msgs = document.getElementById('chat-msgs');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  const u = document.createElement('div'); u.className = 'cmsg user'; u.textContent = text; msgs.appendChild(u);
+  const l = document.createElement('div'); l.className = 'cmsg bot loading'; l.textContent = 'Pensando...'; msgs.appendChild(l); msgs.scrollTop = msgs.scrollHeight;
+  try {
+    const r = await fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:text, context:getContext() }) });
+    const d = await r.json();
+    l.className = 'cmsg bot'; l.textContent = d.reply || d.error;
+  } catch { l.className = 'cmsg bot'; l.textContent = 'Erro de conexão. Tente novamente.'; }
+  msgs.scrollTop = msgs.scrollHeight;
+}
+</script>
+</body>
+</html>
