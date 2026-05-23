@@ -317,72 +317,23 @@
     }
     .btn-reset:hover { background: var(--secondary); }
 
-    /* ── Chat ── */
-    #chat-section {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 32px 24px;
-      margin: 40px 0;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(0,0,0,.07);
-    }
-    #chat-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      color: var(--primary);
-      margin-bottom: 6px;
-    }
-    #chat-section > p { color: var(--text-muted); margin-bottom: 20px; }
-
-    #chatbox {
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      height: 320px;
-      overflow-y: auto;
-      padding: 16px;
-      background: var(--bg);
-      margin-bottom: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .msg {
-      max-width: 82%;
-      padding: 10px 14px;
-      border-radius: 14px;
-      font-size: .9rem;
-      line-height: 1.55;
-    }
-    .msg.user { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
-    .msg.bot  { background: white; border: 1px solid var(--border); color: var(--text); align-self: flex-start; border-bottom-left-radius: 4px; }
-
-    .chat-input-row {
-      display: flex;
-      gap: 10px;
-    }
-    #chatInput {
-      flex: 1;
-      padding: 12px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      font-size: .9rem;
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      transition: border-color .2s;
-    }
-    #chatInput:focus { border-color: var(--accent); }
-    #sendBtn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: background .2s;
-    }
-    #sendBtn:hover { background: var(--secondary); }
+    /* ── Chat flutuante ── */
+    #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+    #chat-btn:hover { transform:scale(1.08); }
+    #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+    #chat-panel.open { display:flex; }
+    #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+    #chat-head span { font-weight:600; font-size:0.92rem; }
+    #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+    #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+    .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+    .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+    .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+    .cmsg.loading { opacity:0.6; font-style:italic; }
+    #chat-form { display:flex; border-top:1px solid var(--border); }
+    #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+    #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+    #chat-send:hover { background:var(--secondary); }
 
     /* ── Footer ── */
     footer {
@@ -394,7 +345,7 @@
     }
 
     @media (max-width: 600px) {
-      .page-header { padding: 32px 16px 28px; }
+      .container { padding: 20px 14px 40px; }
       .container { padding: 20px 14px 40px; }
     }
   </style>
@@ -1216,26 +1167,28 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════════
-       CHAT
-       ════════════════════════════════════ -->
-  <section id="chat-section">
-    <h2>Nêuron — Assistente de Estudos</h2>
-    <p>Tire dúvidas sobre União Europeia, Brexit, relevo, clima e hidrografia da América do Norte.</p>
-    <div id="chatbox">
-      <div class="msg bot">Olá! Sou o Nêuron, seu assistente de Geografia. Pode me perguntar sobre a UE, Brexit, relevo da América do Norte, climas, vegetação, Grandes Lagos ou qualquer outra dúvida da matéria!</div>
-    </div>
-    <div class="chat-input-row">
-      <input type="text" id="chatInput" placeholder="Digite sua dúvida..." onkeydown="if(event.key==='Enter') sendMessage()">
-      <button id="sendBtn" onclick="sendMessage()">Enviar</button>
-    </div>
-  </section>
+
 
 </main>
 
 <footer>
   &copy; 2025 Caderno Digital · Geografia 2º Trimestre
 </footer>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pergunte sobre UE, Brexit, relevo, clima ou hidrografia da América do Norte!</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
 
 <script>
   /* ── Accordion ── */
@@ -1309,40 +1262,29 @@
   }
 
   /* ── Chat ── */
-  async function sendMessage() {
-    const input = document.getElementById('chatInput');
+  function toggleChat() {
+    const p = document.getElementById('chat-panel');
+    p.classList.toggle('open');
+    if (p.classList.contains('open')) document.getElementById('chat-input').focus();
+  }
+  function getContext() {
+    return (document.querySelector('main') || document.body).innerText.replace(/\s+/g,' ').slice(0,6000);
+  }
+  async function sendMsg(e) {
+    e.preventDefault();
+    const input = document.getElementById('chat-input');
+    const msgs = document.getElementById('chat-msgs');
     const text = input.value.trim();
     if (!text) return;
     input.value = '';
-    appendMsg(text, 'user');
-    const btn = document.getElementById('sendBtn');
-    btn.disabled = true;
-    btn.textContent = '...';
+    const u = document.createElement('div'); u.className = 'cmsg user'; u.textContent = text; msgs.appendChild(u);
+    const l = document.createElement('div'); l.className = 'cmsg bot loading'; l.textContent = 'Pensando...'; msgs.appendChild(l); msgs.scrollTop = msgs.scrollHeight;
     try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: text,
-          context: 'Geografia 2º Trimestre: União Europeia (formação, BENELUX 1943, CECA 1952, Maastricht 1992, Euro, Zona Euro, Schengen, Brexit 2016-2020), América do Norte (relevo: Rochosas/Planícies/Apalaches/Falha San Andreas; climas: polar/tundra, temperado frio/coníferas, continental/pradarias, mediterrâneo/chaparral; hidrografia: Mississipi, Colorado/Grand Canyon, Rio Grande, Grandes Lagos SHOEM, Rio São Lourenço).'
-        })
-      });
-      const data = await res.json();
-      appendMsg(data.reply || 'Erro ao obter resposta.', 'bot');
-    } catch {
-      appendMsg('Não foi possível conectar ao servidor.', 'bot');
-    }
-    btn.disabled = false;
-    btn.textContent = 'Enviar';
-  }
-
-  function appendMsg(text, role) {
-    const box = document.getElementById('chatbox');
-    const div = document.createElement('div');
-    div.className = 'msg ' + role;
-    div.textContent = text;
-    box.appendChild(div);
-    box.scrollTop = box.scrollHeight;
+      const r = await fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:text, context:getContext() }) });
+      const d = await r.json();
+      l.className = 'cmsg bot'; l.textContent = d.reply || d.error;
+    } catch { l.className = 'cmsg bot'; l.textContent = 'Erro de conexão. Tente novamente.'; }
+    msgs.scrollTop = msgs.scrollHeight;
   }
 </script>
 

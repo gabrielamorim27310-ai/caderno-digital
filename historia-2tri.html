@@ -123,19 +123,23 @@
   .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
   .btn-reset:hover { background:#263a6e; }
 
-  /* CHAT */
-  #chat-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
-  #chat-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
-  #chat-section > p { color:var(--text-light); margin-bottom:20px; }
-  #chatbox { border:1.5px solid var(--border); border-radius:12px; height:300px; overflow-y:auto; padding:16px; background:var(--bg); margin-bottom:14px; display:flex; flex-direction:column; gap:10px; }
-  .msg { max-width:82%; padding:10px 14px; border-radius:14px; font-size:0.9rem; line-height:1.55; }
-  .msg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
-  .msg.bot  { background:white; border:1px solid var(--border); color:var(--text); align-self:flex-start; border-bottom-left-radius:4px; }
-  .chat-input-row { display:flex; gap:10px; }
-  #chatInput { flex:1; padding:12px 16px; border:1.5px solid var(--border); border-radius:10px; font-size:0.9rem; font-family:'Inter',sans-serif; outline:none; transition:border-color .2s; }
-  #chatInput:focus { border-color:var(--secondary); }
-  #sendBtn { background:var(--primary); color:white; border:none; padding:12px 20px; border-radius:10px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
-  #sendBtn:hover { background:#263a6e; }
+  /* CHAT flutuante */
+  #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+  #chat-btn:hover { transform:scale(1.08); }
+  #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+  #chat-panel.open { display:flex; }
+  #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  #chat-head span { font-weight:600; font-size:0.92rem; }
+  #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+  #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+  .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+  .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+  .cmsg.loading { opacity:0.6; font-style:italic; }
+  #chat-form { display:flex; border-top:1px solid var(--border); }
+  #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+  #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+  #chat-send:hover { background:var(--secondary); }
 
   footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
 
@@ -649,20 +653,20 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     CHAT
-     ══════════════════════════════════════════════ -->
-<section id="chat-section">
-  <h2>Nêuron — Assistente de Estudos</h2>
-  <p>Tire dúvidas sobre Iluminismo, Revolução Americana e Revolução Francesa.</p>
-  <div id="chatbox">
-    <div class="msg bot">Olá! Sou o Nêuron. Pode me perguntar sobre o Iluminismo, a Independência das Treze Colônias ou qualquer fase da Revolução Francesa!</div>
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
   </div>
-  <div class="chat-input-row">
-    <input type="text" id="chatInput" placeholder="Digite sua dúvida..." onkeydown="if(event.key==='Enter') sendMessage()">
-    <button id="sendBtn" onclick="sendMessage()">Enviar</button>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre o Iluminismo, a Independência das Treze Colônias ou qualquer fase da Revolução Francesa!</div>
   </div>
-</section>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
 
 </main>
 
@@ -731,35 +735,31 @@ function resetQuiz() {
 }
 
 /* ── Chat ── */
-async function sendMessage() {
-  const input = document.getElementById('chatInput');
+function toggleChat() {
+  const p = document.getElementById('chat-panel');
+  p.classList.toggle('open');
+  if (p.classList.contains('open')) document.getElementById('chat-input').focus();
+}
+
+function getContext() {
+  return (document.querySelector('main') || document.body).innerText.replace(/\s+/g,' ').slice(0,6000);
+}
+
+async function sendMsg(e) {
+  e.preventDefault();
+  const input = document.getElementById('chat-input');
+  const msgs = document.getElementById('chat-msgs');
   const text = input.value.trim();
   if (!text) return;
   input.value = '';
-  appendMsg(text, 'user');
-  const btn = document.getElementById('sendBtn');
-  btn.disabled = true; btn.textContent = '...';
+  const u = document.createElement('div'); u.className = 'cmsg user'; u.textContent = text; msgs.appendChild(u);
+  const l = document.createElement('div'); l.className = 'cmsg bot loading'; l.textContent = 'Pensando...'; msgs.appendChild(l); msgs.scrollTop = msgs.scrollHeight;
   try {
-    const res = await fetch('/api/chat', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: text,
-        context: 'História 2º Trimestre 2ª série: Cap.1 Iluminismo (Antigo Regime, Locke/Voltaire/Montesquieu/Rousseau, Enciclopédia, Despotismo Esclarecido, Fisiocracia, Adam Smith); Cap.2 Independência das Treze Colônias (Negligência Salutar, Guerra 7 Anos, Boston Tea Party, Leis Intoleráveis, Declaração 1776, Constituição 1787, contradições); Cap.3 Revolução Francesa (Antigo Regime 3 estados, sans-culottes, Bastilha 1789, 4 fases: Monarquia Constitucional/Convenção Nacional/Terror/Diretório, Robespierre, Golpe 18 Brumário, Napoleão, lema Liberdade Igualdade Fraternidade).'
-      })
-    });
-    const data = await res.json();
-    appendMsg(data.reply || 'Erro ao obter resposta.', 'bot');
-  } catch { appendMsg('Não foi possível conectar ao servidor.', 'bot'); }
-  btn.disabled = false; btn.textContent = 'Enviar';
-}
-
-function appendMsg(text, role) {
-  const box = document.getElementById('chatbox');
-  const div = document.createElement('div');
-  div.className = 'msg ' + role;
-  div.textContent = text;
-  box.appendChild(div);
-  box.scrollTop = box.scrollHeight;
+    const r = await fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:text, context:getContext() }) });
+    const d = await r.json();
+    l.className = 'cmsg bot'; l.textContent = d.reply || d.error;
+  } catch { l.className = 'cmsg bot'; l.textContent = 'Erro de conexão. Tente novamente.'; }
+  msgs.scrollTop = msgs.scrollHeight;
 }
 </script>
 </body>
