@@ -32,81 +32,28 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
 
-    /* ── Header ── */
-    .page-header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: white;
-      padding: 48px 24px 36px;
-      text-align: center;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: rgba(255,255,255,.75);
-      text-decoration: none;
-      font-size: .85rem;
-      margin-bottom: 20px;
-      transition: color .2s;
-    }
-    .back-link:hover { color: white; }
-    .subject-badge {
-      display: inline-block;
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.3);
-      color: white;
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .page-header p {
-      font-size: .95rem;
-      opacity: .85;
-      max-width: 560px;
-      margin: 0 auto 24px;
-    }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--secondary); z-index: 999; width: 0%; transition: width 0.1s; }
 
-    /* ── Progress bar ── */
-    .progress-wrap {
-      max-width: 400px;
-      margin: 0 auto;
+    .hero {
+      background: linear-gradient(135deg, #0d2240 0%, #1a3a5c 50%, #0a1826 100%);
+      color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
     }
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: .8rem;
-      opacity: .85;
-      margin-bottom: 6px;
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-    .progress-bar-bg {
-      background: rgba(255,255,255,.25);
-      border-radius: 20px;
-      height: 8px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      background: white;
-      height: 100%;
-      border-radius: 20px;
-      transition: width .5s ease;
-    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+    .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 300; position: relative; }
+    .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+    .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+    nav { background: white; border-bottom: 2px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    nav .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+    nav .nav-inner::-webkit-scrollbar { display: none; }
+    nav a { text-decoration: none; padding: 14px 20px; font-weight: 600; font-size: 0.85rem; white-space: nowrap; color: var(--text-muted); border-bottom: 3px solid transparent; transition: all 0.3s; }
+    nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
     /* ── Main layout ── */
     .container {
@@ -461,26 +408,27 @@
   </script>
 </head>
 <body>
+<div class="progress-bar" id="progressBar"></div>
 
-<!-- ── HEADER ── -->
-<header class="page-header">
-  <a href="index.html#t2" class="back-link">
-    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Voltar ao Caderno
-  </a>
-  <div class="subject-badge">Geografia · 2º Trimestre</div>
-  <h1>Espaço Econômico Europeu &amp; América do Norte</h1>
-  <p>União Europeia, Brexit, Relevo, Clima, Hidrografia e Vegetação da América do Norte</p>
-  <div class="progress-wrap">
-    <div class="progress-label">
-      <span>Progresso</span>
-      <span id="progressPct">0%</span>
-    </div>
-    <div class="progress-bar-bg">
-      <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
-    </div>
+<div class="hero">
+  <h1>Geografia — 2º Trimestre</h1>
+  <p class="subtitle">2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Espaço Econômico Europeu · América do Norte</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#ue">União Europeia</a>
+    <a href="#economia">Economia</a>
+    <a href="#brexit">Brexit</a>
+    <a href="#relevo">Relevo</a>
+    <a href="#clima">Clima</a>
+    <a href="#hidrografia">Hidrografia</a>
+    <a href="#quiz">Quiz</a>
   </div>
-</header>
+</nav>
 
 <!-- ── MAIN ── -->
 <main class="container">
@@ -488,7 +436,7 @@
   <!-- ════════════════════════════════════
        CAP. 1 – FORMAÇÃO DA UNIÃO EUROPEIA
        ════════════════════════════════════ -->
-  <div class="chapter-header">
+  <div class="chapter-header" id="ue">
     <div class="chapter-number">1</div>
     <h2>Processo de Formação da União Europeia</h2>
   </div>
@@ -580,7 +528,7 @@
   <!-- ════════════════════════════════════
        CAP. 2 – ECONOMIA EUROPEIA
        ════════════════════════════════════ -->
-  <div class="chapter-header">
+  <div class="chapter-header" id="economia">
     <div class="chapter-number">2</div>
     <h2>Economia Europeia e a UE</h2>
   </div>
@@ -768,7 +716,7 @@
   <!-- ════════════════════════════════════
        CAP. 3 – BREXIT
        ════════════════════════════════════ -->
-  <div class="chapter-header">
+  <div class="chapter-header" id="brexit">
     <div class="chapter-number">3</div>
     <h2>Brexit</h2>
   </div>
@@ -848,7 +796,7 @@
   <!-- ════════════════════════════════════
        CAP. 4 – RELEVO DA AMÉRICA DO NORTE
        ════════════════════════════════════ -->
-  <div class="chapter-header">
+  <div class="chapter-header" id="relevo">
     <div class="chapter-number">4</div>
     <h2>Relevo da América do Norte</h2>
   </div>
@@ -915,7 +863,7 @@
   <!-- ════════════════════════════════════
        CAP. 5 – CLIMA E VEGETAÇÃO
        ════════════════════════════════════ -->
-  <div class="chapter-header">
+  <div class="chapter-header" id="clima">
     <div class="chapter-number">5</div>
     <h2>Clima e Vegetação da América do Norte</h2>
   </div>
@@ -990,7 +938,7 @@
   <!-- ════════════════════════════════════
        CAP. 6 – HIDROGRAFIA
        ════════════════════════════════════ -->
-  <div class="chapter-header">
+  <div class="chapter-header" id="hidrografia">
     <div class="chapter-number">6</div>
     <h2>Hidrografia da América do Norte</h2>
   </div>
@@ -1081,7 +1029,7 @@
   <!-- ════════════════════════════════════
        QUIZ
        ════════════════════════════════════ -->
-  <section id="quiz-section">
+  <section id="quiz-section" style="scroll-margin-top: 56px"><a id="quiz"></a>
     <h2>Quiz de Revisão</h2>
     <p>Teste seus conhecimentos sobre União Europeia e América do Norte.</p>
 
@@ -1296,17 +1244,13 @@
     const wasOpen = acc.classList.contains('open');
     document.querySelectorAll('.accordion').forEach(a => a.classList.remove('open'));
     if (!wasOpen) acc.classList.add('open');
-    updateProgress();
   }
 
-  /* ── Progress ── */
-  function updateProgress() {
-    const total = document.querySelectorAll('.accordion').length;
-    const opened = document.querySelectorAll('.accordion.open').length;
-    const pct = Math.round((opened / total) * 100);
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressPct').textContent = pct + '%';
-  }
+  /* ── Progress bar (scroll-based) ── */
+  window.addEventListener('scroll', () => {
+    const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('progressBar').style.width = p + '%';
+  });
 
   /* ── Quiz ── */
   const ANSWERS = { q1:'b', q2:'b', q3:'c', q4:'c', q5:'b', q6:'b', q7:'c', q8:'b', q9:'c', q10:'c', q11:'b', q12:'d', q13:'b', q14:'c' };
