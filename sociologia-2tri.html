@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sociologia 2º Tri — Weber e Formas de Governo 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary:   #3b1f5e;
+    --secondary: #9b6dbd;
+    --accent:    #6c3483;
+    --bg:        #f8f5fc;
+    --card-bg:   #ffffff;
+    --text:      #1e1e1e;
+    --text-light:#6b6b6b;
+    --border:    #e4d9f0;
+    --shadow:    0 4px 24px rgba(60,0,80,0.09);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; scroll-behavior:smooth; }
+
+  .progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--secondary); z-index:999; width:0%; transition:width 0.1s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a0a2e 0%, #3b1f5e 50%, #5c2d8e 100%);
+    color:white; padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; margin-bottom:12px; position:relative; }
+  .hero .subtitle { font-size:1.1rem; opacity:0.85; font-weight:300; position:relative; }
+  .hero .badge { display:inline-block; background:var(--secondary); color:white; padding:6px 18px; border-radius:20px; font-weight:700; font-size:0.85rem; margin-top:16px; position:relative; }
+  .hero .author { display:inline-block; background:rgba(255,255,255,0.15); color:white; padding:8px 22px; border-radius:20px; font-size:1.05rem; font-weight:600; margin-top:12px; position:relative; border:1px solid rgba(255,255,255,0.4); letter-spacing:0.02em; }
+
+  /* NAV */
+  nav { background:white; border-bottom:2px solid var(--border); padding:0 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width:1100px; margin:0 auto; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+  nav .nav-inner::-webkit-scrollbar { display:none; }
+  nav a { text-decoration:none; padding:14px 20px; font-weight:600; font-size:0.85rem; white-space:nowrap; color:var(--text-light); border-bottom:3px solid transparent; transition:all 0.3s; }
+  nav a:hover, nav a.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* MAIN */
+  main { max-width:900px; margin:0 auto; padding:40px 20px 80px; }
+
+  /* CHAPTER */
+  .chapter { margin-bottom:56px; }
+  .chapter-header { margin-bottom:24px; padding-bottom:14px; border-bottom:3px solid var(--secondary); }
+  .chapter-header h2 { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--primary); font-weight:900; display:flex; align-items:center; gap:12px; }
+  .ch-tag { display:inline-block; background:var(--primary); color:white; padding:3px 12px; border-radius:6px; font-size:0.78rem; font-weight:700; letter-spacing:.5px; font-family:'Inter',sans-serif; flex-shrink:0; }
+  .chapter-header .meta { color:var(--text-light); font-size:0.9rem; margin-top:6px; }
+
+  /* ACCORDION */
+  .accordion { background:white; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .accordion-btn { width:100%; background:none; border:none; padding:17px 20px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:0.97rem; font-weight:600; color:var(--primary); transition:background .2s; }
+  .accordion-btn:hover { background:#f3eefa; }
+  .accordion-btn .chev { transition:transform .3s; color:var(--secondary); font-size:1.1rem; }
+  .accordion.open .chev { transform:rotate(180deg); }
+  .accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .accordion.open .accordion-content { max-height:5000px; }
+  .content-block { padding:0 20px 20px; border-top:1px solid var(--border); }
+  .content-block p { margin:12px 0; font-size:0.95rem; }
+  .content-block ul, .content-block ol { margin:8px 0 12px 22px; }
+  .content-block li { margin-bottom:6px; font-size:0.93rem; }
+  .content-block h4 { font-family:'Playfair Display',serif; color:var(--primary); margin:16px 0 8px; font-size:1.05rem; }
+
+  /* INFO BOXES */
+  .highlight-box, .warn-box, .tip-box {
+    border-left:4px solid; border-radius:0 10px 10px 0; padding:13px 16px; margin:14px 0; font-size:0.93rem;
+  }
+  .highlight-box { background:#f3e8ff; border-color:var(--primary); }
+  .warn-box      { background:#fdf3e3; border-color:#e07b00; }
+  .tip-box       { background:#eaf4fb; border-color:#2980b9; }
+  .highlight-box strong, .warn-box strong, .tip-box strong { display:block; margin-bottom:4px; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem; }
+  .data-table th { background:var(--primary); color:white; padding:10px 12px; text-align:left; font-weight:600; }
+  .data-table td { padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .data-table tr:nth-child(even) td { background:#f3eefa; }
+
+  /* COMPARE GRID */
+  .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0; }
+  .compare-card { background:var(--bg); border-radius:10px; padding:14px 16px; border:1px solid var(--border); }
+  .compare-card h5 { font-size:0.88rem; font-weight:700; color:var(--accent); margin-bottom:8px; }
+  .compare-card ul { margin:0 0 0 16px; }
+  .compare-card li { font-size:0.87rem; margin-bottom:4px; }
+  @media(max-width:600px) { .compare-grid { grid-template-columns:1fr; } }
+
+  /* QUIZ */
+  #quiz-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+  #quiz-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
+  #quiz-section > p { color:var(--text-light); margin-bottom:20px; }
+
+  .quiz-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .filter-btn { padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); background:white; color:var(--text-light); font-size:0.82rem; font-weight:600; cursor:pointer; transition:all .2s; }
+  .filter-btn.active, .filter-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
+
+  .question-card { background:var(--bg); border:1.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; }
+  .question-card.hidden { display:none; }
+  .question-card h4 { font-size:0.95rem; font-weight:600; color:var(--primary); margin-bottom:14px; }
+  .options { display:flex; flex-direction:column; gap:8px; }
+  .option-btn { background:white; border:1.5px solid var(--border); border-radius:8px; padding:10px 14px; text-align:left; font-size:0.9rem; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .option-btn:hover { border-color:var(--secondary); background:#f3eefa; }
+  .option-btn.correct { background:#d4edda; border-color:#27ae60; color:#155724; }
+  .option-btn.wrong   { background:#f8d7da; border-color:#e74c3c; color:#721c24; }
+
+  .quiz-result { display:none; text-align:center; padding:24px; }
+  .donut-wrap { position:relative; width:130px; height:130px; margin:0 auto 16px; }
+  .donut-wrap svg { transform:rotate(-90deg); }
+  .donut-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-score { font-size:1.8rem; font-weight:700; color:var(--primary); }
+  .donut-label { font-size:0.75rem; color:var(--text-light); }
+  .result-msg { font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:6px; }
+  .result-sub { font-size:0.9rem; color:var(--text-light); margin-bottom:20px; }
+  .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
+  .btn-reset:hover { background:var(--accent); }
+
+  /* CHAT flutuante */
+  #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+  #chat-btn:hover { transform:scale(1.08); }
+  #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+  #chat-panel.open { display:flex; }
+  #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  #chat-head span { font-weight:600; font-size:0.92rem; }
+  #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+  #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+  .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+  .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+  .cmsg.loading { opacity:0.6; font-style:italic; }
+  #chat-form { display:flex; border-top:1px solid var(--border); }
+  #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+  #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+  #chat-send:hover { background:var(--secondary); }
+
+  footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
+
+  @media(max-width:600px) {
+    .hero { padding:56px 16px 44px; }
+    main { padding:24px 14px 60px; }
+  }
+</style>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>Sociologia — 2º Trimestre</h1>
+  <p class="subtitle">2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Weber: Poder &amp; Dominação · Formas de Governo</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#weber">Weber</a>
+    <a href="#formas-governo">Formas de Governo</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 1 — WEBER: PODER E DOMINAÇÃO
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="weber">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 1</span> Max Weber — Poder e Dominação</h2>
+    <p class="meta">Legitimidade · Tipos de Dominação · O Estado</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O que é Poder? Coerção vs Autoridade <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <img src="socio-imgs/Weber_Poder_e_Dominacao_p1.png" alt="Infográfico Weber: Poder, Coerção, Autoridade e os 3 tipos de dominação legítima" style="width:100%;max-width:640px;display:block;margin:14px auto;border-radius:10px;">
+        <p>Para Weber, <strong>Poder</strong> é a capacidade de fazer alguém agir conforme a própria vontade, mesmo que contrário à vontade dessa pessoa. O poder em si não diz nada sobre legitimidade.</p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Sem Legitimidade — Coerção</h5>
+            <ul>
+              <li>Obediência por <strong>força, ameaça ou medo</strong></li>
+              <li>Os dominados não aceitam o poder como válido</li>
+              <li>Tentam resistir ou se libertar</li>
+            </ul>
+            <div style="margin-top:10px;font-size:0.85rem;color:var(--text-light);">Ex: assalto, bullying, ditadura, ocupação colonial</div>
+          </div>
+          <div class="compare-card">
+            <h5>Com Legitimidade — Autoridade (Dominação)</h5>
+            <ul>
+              <li>Obediência <strong>voluntária</strong></li>
+              <li>Os dominados reconhecem e aceitam o poder como válido</li>
+              <li>Estabilidade e menor necessidade de força</li>
+            </ul>
+            <div style="margin-top:10px;font-size:0.85rem;color:var(--text-light);">Ex: governo eleito, professor, líder religioso reconhecido</div>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <strong>Quem define a legitimidade?</strong>
+          A legitimidade não é decidida por quem exerce o poder — mas pelos próprios <strong>dominados</strong>. Se os dominados aceitam o poder como válido, ele é legítimo. Se não aceitam, é pura coerção.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Os 3 Tipos de Dominação Legítima <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Weber identificou três fontes pelas quais o poder pode ser reconhecido como legítimo pelos dominados:</p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Tipo</th><th>Base da Obediência</th><th>Exemplos Cotidianos</th><th>Forma de Governo</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tradicional</strong></td>
+              <td>"Sempre foi assim" — <em>costume e herança histórica</em>. Autoridade sagrada pelos hábitos e tradições.</td>
+              <td>Pai que manda em casa, chefe de tribo, ancião da aldeia</td>
+              <td>Monarquia, Teocracia, Feudalismo, Oligarquia</td>
+            </tr>
+            <tr>
+              <td><strong>Carismática</strong></td>
+              <td>Qualidades <em>pessoais extraordinárias</em> do líder — admiração, devoção emocional, heroísmo percebido.</td>
+              <td>Líder religioso, pastor evangélico, celebridade, treinador inspirador</td>
+              <td>Líderes populistas (Lula, Bolsonaro, Hitler, Napoleão, Perón, Fidel Castro)</td>
+            </tr>
+            <tr>
+              <td><strong>Legal-Racional</strong></td>
+              <td><em>Regras impessoais escritas</em> — a lei, não a pessoa. Obediência ao cargo, não ao indivíduo. Base da burocracia moderna.</td>
+              <td>Presidente eleito, juiz, fiscal, policial em serviço, funcionário público</td>
+              <td>República constitucional — presidencialismo e parlamentarismo</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="warn-box">
+          <strong>Dominação carismática é instável</strong>
+          Depende do carisma pessoal de um indivíduo. Quando o líder morre ou perde o apelo, a dominação entra em crise — o grupo precisa se "rotinizar" migrando para a forma tradicional ou legal-racional para sobreviver. Exemplos: Igreja Católica (carisma de Jesus → tradição + legalidade) e partidos políticos após seus fundadores.
+        </div>
+        <div class="tip-box">
+          <strong>Na prática, os tipos se misturam</strong>
+          Um presidente eleito (legal-racional) pode ter muito carisma (Lula, Obama). Um monarca pode ter carisma pessoal além da tradição. Weber usava esses tipos como "tipos ideais" — instrumentos analíticos, não descrições puras da realidade.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Estado para Weber <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="highlight-box">
+          <strong>Definição clássica de Estado (Weber)</strong>
+          O Estado é a <strong>comunidade humana que reivindica, com êxito, o monopólio do uso legítimo da violência física dentro de um determinado território</strong>.
+        </div>
+        <p>Pontos centrais dessa definição:</p>
+        <ul>
+          <li><strong>Monopólio</strong>: só o Estado tem o direito exclusivo de usar a força coercitiva — exército, polícia, prisão.</li>
+          <li><strong>Legítimo</strong>: a violência estatal é aceita como válida pela população — diferente de um grupo criminoso que também usa violência mas sem legitimidade.</li>
+          <li><strong>Território</strong>: o Estado tem jurisdição sobre um espaço geográfico delimitado.</li>
+          <li><strong>Violência física</strong>: não é que o Estado está sempre usando violência, mas que só ele tem o direito de fazê-lo em último recurso.</li>
+        </ul>
+        <div class="tip-box">
+          <strong>Estado democrático vs autoritário</strong>
+          Em ambos o Estado detém o monopólio da violência. A diferença está na <em>origem e controle</em> do poder: no democrático, o povo delega e pode revogar; no autoritário, não há controle popular sobre o uso da força.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 2 — FORMAS E SISTEMAS DE GOVERNO
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="formas-governo">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 2</span> Formas e Sistemas de Governo</h2>
+    <p class="meta">Monarquia · República · Presidencialismo · Parlamentarismo · Crise de Governabilidade</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Forma de Governo: Monarquia <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <img src="socio-imgs/Formas_e_sistemas_de_Governo_p1.png" alt="Mapa mental — Formas e Sistemas de Governo: Monarquia e República" style="width:100%;max-width:480px;display:block;margin:14px auto;border-radius:10px;">
+        <p>A <strong>Monarquia</strong> é uma forma de governo em que o chefe de Estado é um <strong>monarca hereditário</strong> — sua posição deriva da tradição e da linhagem familiar, não de eleição.</p>
+        <table class="data-table">
+          <thead><tr><th>Tipo</th><th>Características</th><th>Exemplos</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Monarquia Absoluta</strong></td>
+              <td>Rei concentra todo o poder — legisla, executa e julga. Sem Constituição que o limite. "Manda e desmanda."</td>
+              <td>França de Luís XIV, Arábia Saudita (ainda hoje)</td>
+            </tr>
+            <tr>
+              <td><strong>Monarquia Constitucional</strong></td>
+              <td>Poder do rei limitado por uma Constituição. Existe Parlamento com poder real. Rei reina mas não governa sozinho.</td>
+              <td>Inglaterra pós Magna Carta, Espanha, Suécia, Bélgica</td>
+            </tr>
+            <tr>
+              <td><strong>Monarquia Parlamentarista</strong></td>
+              <td>Rei é Chefe de Estado (função simbólica e cerimonial). Primeiro-Ministro, eleito pelo Parlamento, é o Chefe de Governo real.</td>
+              <td>Reino Unido, Japão, Holanda, Suécia, Noruega</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Características gerais da Monarquia</strong>
+          Tradição · Hereditariedade · "Sangue azul" (aristocracia) · Vitaliciedade do cargo · Legitimidade do tipo <em>tradicional</em> segundo Weber
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Forma de Governo: República e Sistemas de Governo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A palavra <strong>República</strong> vem do latim <em>res publica</em> — "coisa pública". É uma forma de governo fundada na <strong>soberania popular</strong>, com mandatos eletivos e alternância de poder.</p>
+        <div class="highlight-box">
+          <strong>Características da República</strong>
+          Mandato temporário e eletivo · Alternância de poder · Prestação de contas (accountability) · Distinção entre cidadãos (res publica) · Sempre há um Presidente eleito
+        </div>
+        <p>Dentro da República, o <strong>sistema de governo</strong> define como se organiza a relação entre Executivo e Legislativo:</p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Presidencialismo</h5>
+            <ul>
+              <li>Presidente = Chefe de Estado <strong>e</strong> Chefe de Governo</li>
+              <li>Eleito diretamente pelo povo</li>
+              <li>Mandato fixo — não depende do Parlamento para governar</li>
+              <li>Separação rígida entre Executivo e Legislativo</li>
+            </ul>
+            <div style="margin-top:8px;font-size:0.85rem;color:var(--text-light);">Ex: Brasil, Estados Unidos, Argentina, México</div>
+          </div>
+          <div class="compare-card">
+            <h5>Parlamentarismo</h5>
+            <ul>
+              <li>Presidente = Chefe de Estado (representação simbólica)</li>
+              <li>Primeiro-Ministro = Chefe de Governo (eleito pelo Parlamento)</li>
+              <li>Governo depende da confiança do Parlamento — pode ser derrubado por voto de desconfiança</li>
+              <li>Fusão entre Executivo e Legislativo</li>
+            </ul>
+            <div style="margin-top:8px;font-size:0.85rem;color:var(--text-light);">Ex: Portugal, Alemanha, Itália, Índia, Israel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Crise de Governabilidade no Presidencialismo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>No Brasil, o presidencialismo opera em um cenário de <strong>multipartidarismo extremo</strong>: dezenas de partidos no Congresso, nenhum com maioria sozinho. Isso cria um desafio estrutural para governar.</p>
+
+        <h4>Presidencialismo de Coalizão</h4>
+        <p>O conceito de <strong>"presidencialismo de coalizão"</strong> foi criado pelo cientista político <strong>Sérgio Abranches (1988)</strong> para descrever a situação brasileira: o presidente precisa montar uma coalizão de múltiplos partidos para ter maioria no Congresso e aprovar sua agenda.</p>
+        <div class="warn-box">
+          <strong>Como funciona na prática</strong>
+          <ul style="margin:8px 0 0 18px">
+            <li>O presidente distribui <strong>ministérios e cargos</strong> para os partidos aliados em troca de apoio parlamentar — fenômeno chamado de <em>loteamento de ministérios</em> ou <em>fisiologismo</em>.</li>
+            <li>Partidos aliados votam com o governo nos projetos, mas cobram favores em troca.</li>
+            <li>A coalizão é frágil: um partido pode retirar o apoio a qualquer momento.</li>
+          </ul>
+        </div>
+
+        <h4>Quando a Coalizão Quebra — Crise de Governabilidade</h4>
+        <p>A <strong>crise de governabilidade</strong> ocorre quando o presidente <strong>perde a maioria parlamentar</strong> e não consegue mais aprovar projetos de lei, reformas ou o orçamento. O governo fica paralisado.</p>
+        <table class="data-table">
+          <thead><tr><th>Consequência</th><th>Descrição</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Paralisia legislativa</strong></td><td>Governo não consegue aprovar pautas essenciais — reformas, orçamento, medidas provisórias caducam.</td></tr>
+            <tr><td><strong>Instabilidade política</strong></td><td>Ministros trocados, escândalos, vazamentos, perda de credibilidade.</td></tr>
+            <tr><td><strong>Impeachment</strong></td><td>Se o presidente perde apoio e há motivação jurídica, o Congresso pode abrir processo de impeachment.</td></tr>
+            <tr><td><strong>Crise econômica</strong></td><td>Incerteza política afugenta investimentos, derruba a moeda e eleva o risco-país.</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">
+          <strong>Exemplo histórico: Impeachment de Dilma Rousseff (2016)</strong>
+          Dilma perdeu progressivamente a base aliada no Congresso (PMDB abandonou a coalizão em março/2016). Sem maioria, o governo ficou paralisado. O Congresso aprovou o impeachment por 367 votos a favor — muito acima dos 2/3 necessários. A crise de governabilidade precedeu e acelerou o processo jurídico.
+        </div>
+        <div class="highlight-box">
+          <strong>Por que o presidencialismo é mais vulnerável a isso que o parlamentarismo?</strong>
+          No parlamentarismo, se o governo perde a maioria, o Parlamento faz uma nova eleição rapidamente — o sistema se reconfigura. No presidencialismo, o mandato é fixo: mesmo sem maioria, o presidente permanece no cargo até o fim do mandato (ou ser deposto por impeachment), criando um longo período de paralisia.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Presidencialismo vs Parlamentarismo — Comparação <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Critério</th><th>Presidencialismo</th><th>Parlamentarismo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Chefe de Governo</strong></td><td>Presidente (eleito pelo povo)</td><td>Primeiro-Ministro (indicado pelo Parlamento)</td></tr>
+            <tr><td><strong>Chefe de Estado</strong></td><td>Presidente (mesmo cargo)</td><td>Presidente ou Monarca (função simbólica)</td></tr>
+            <tr><td><strong>Mandato</strong></td><td>Fixo — não depende do Parlamento</td><td>Flexível — depende da confiança do Parlamento</td></tr>
+            <tr><td><strong>Relação Executivo/Legislativo</strong></td><td>Separação rígida</td><td>Fusão — governo nasce do Parlamento</td></tr>
+            <tr><td><strong>Estabilidade</strong></td><td>Alta (mandato garantido)</td><td>Baixa (governo pode cair a qualquer momento)</td></tr>
+            <tr><td><strong>Crise de governabilidade</strong></td><td>Mais grave — paralisia sem saída rápida</td><td>Resolvida com nova eleição ou governo</td></tr>
+            <tr><td><strong>Exemplos</strong></td><td>Brasil, EUA, Argentina</td><td>Reino Unido, Alemanha, Portugal, Japão</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">
+          <strong>Brasil: tentativa de adotar o parlamentarismo</strong>
+          Em 1961, após a renúncia de Jânio Quadros, o Brasil adotou brevemente o parlamentarismo para permitir a posse do vice João Goulart (vetado pelos militares). Em 1963, um plebiscito restaurou o presidencialismo. Em 1993, outro plebiscito confirmou o presidencialismo (55% × 25% parlamentarismo).
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ
+     ══════════════════════════════════════════════ -->
+<section id="quiz-section">
+  <a id="quiz"></a>
+  <h2>Quiz de Revisão</h2>
+  <p>Teste seus conhecimentos sobre Weber e Formas de Governo.</p>
+
+  <div class="quiz-filter">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
+    <button class="filter-btn" onclick="filterQuiz('cap1',this)">Cap. 1 — Weber</button>
+    <button class="filter-btn" onclick="filterQuiz('cap2',this)">Cap. 2 — Formas de Governo</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card" data-chapter="cap1" id="q1">
+    <h4>1. Para Weber, "Poder" é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) A capacidade de convencer alguém a agir por razões racionais</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) A capacidade de fazer alguém agir conforme sua vontade, mesmo que contrário à vontade dessa pessoa</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) O direito exclusivo do Estado de usar a violência física</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) O conjunto de leis que regulam a convivência social</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-chapter="cap1" id="q2">
+    <h4>2. Quem decide se um determinado poder é legítimo?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) O próprio governante, por suas qualidades pessoais</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) A Constituição e as leis escritas</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) Os próprios dominados — são eles que aceitam ou rejeitam o poder como válido</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) A comunidade internacional e os tratados diplomáticos</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-chapter="cap1" id="q3">
+    <h4>3. Um rei que governa por direito hereditário e tradição histórica exerce que tipo de dominação?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) Tradicional</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) Carismática</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) Legal-Racional</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) Coercitiva</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-chapter="cap1" id="q4">
+    <h4>4. A dominação carismática é considerada instável porque:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) Depende de leis escritas que podem ser revogadas</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) Depende das qualidades pessoais do líder — quando ele desaparece, o grupo precisa se reorganizar em outra base</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) É baseada em costumes que mudam lentamente</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) Só funciona em sistemas monarchicos</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-chapter="cap1" id="q5">
+    <h4>5. Segundo Weber, o Estado é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) A organização que distribui bens e serviços para a população</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) O conjunto de partidos políticos que disputam o poder</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) A comunidade que reivindica com êxito o monopólio do uso legítimo da violência física dentro de um território</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) A reunião de cidadãos que elaboram as leis democraticamente</button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-chapter="cap1" id="q6">
+    <h4>6. Um presidente eleito que age conforme a lei e pode ser substituído ao fim do mandato exerce dominação:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) Tradicional</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) Carismática</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) Coercitiva</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) Legal-Racional</button>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-chapter="cap2" id="q7">
+    <h4>7. Na Monarquia Parlamentarista, quem governa de fato?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) O rei, que concentra todos os poderes</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) O Presidente da República, eleito diretamente</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) O Primeiro-Ministro, eleito pelo Parlamento — o rei tem função simbólica</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) O Supremo Tribunal, que valida as decisões reais</button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-chapter="cap2" id="q8">
+    <h4>8. No sistema presidencialista, o Presidente é ao mesmo tempo:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Chefe de Estado e Chefe de Governo</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Chefe de Estado apenas — o Primeiro-Ministro chefia o governo</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) Líder do Parlamento e do Executivo</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) Presidente do Supremo e do Executivo</button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-chapter="cap2" id="q9">
+    <h4>9. O conceito de "Presidencialismo de Coalizão" foi criado por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Max Weber</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Karl Marx</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) Sérgio Abranches (1988)</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) Adam Smith</button>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-chapter="cap2" id="q10">
+    <h4>10. Uma crise de governabilidade no presidencialismo ocorre principalmente quando:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) O presidente é acusado de corrupção por qualquer cidadão</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) O presidente perde a maioria parlamentar e não consegue aprovar sua agenda — gerando paralisia do governo</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) O Judiciário derruba uma lei aprovada pelo Congresso</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) O partido do presidente perde uma eleição municipal</button>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card" data-chapter="cap2" id="q11">
+    <h4>11. Uma vantagem do parlamentarismo sobre o presidencialismo em situações de crise política é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) O Primeiro-Ministro tem mandato fixo e não pode ser derrubado</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) O povo vota diretamente no Primeiro-Ministro a cada crise</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) O sistema pode se reconfigurar rapidamente — nova eleição ou novo governo sem esperar o fim do mandato</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) O rei resolve os conflitos sem necessidade de eleição</button>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card" data-chapter="cap2" id="q12">
+    <h4>12. O que fundamentalmente diferencia República de Monarquia?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) Na República, o cargo de chefe de Estado é eletivo e temporário; na Monarquia, é hereditário e vitalício</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) A República sempre é democrática; a Monarquia sempre é autoritária</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) Na República não existe Constituição; na Monarquia sim</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) A República tem Primeiro-Ministro; a Monarquia não</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quiz-result">
+    <div class="donut-wrap">
+      <svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+        <circle cx="65" cy="65" r="55" fill="none" stroke="var(--secondary)" stroke-width="14"
+                stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+      </svg>
+      <div class="donut-center">
+        <span class="donut-score" id="donut-score">0</span>
+        <span class="donut-label">/ 12</span>
+      </div>
+    </div>
+    <div class="result-msg" id="result-msg"></div>
+    <div class="result-sub" id="result-sub"></div>
+    <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+  </div>
+</section>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre Poder e Dominação de Weber, os tipos de dominação legítima, formas de governo ou crise de governabilidade!</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+</main>
+
+<footer>
+  &copy; 2025 Caderno Digital · Sociologia 2º Trimestre
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+/* ── Quiz ── */
+const ANSWERS = { q1:'b', q2:'c', q3:'a', q4:'b', q5:'c', q6:'d', q7:'c', q8:'a', q9:'c', q10:'b', q11:'c', q12:'a' };
+let answered = {}, score = 0, total = 0;
+
+function checkQuiz(qid, choice) {
+  if (answered[qid]) return;
+  answered[qid] = true; total++;
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+  const correct = ANSWERS[qid];
+  btns.forEach(b => {
+    const letter = b.textContent.trim()[0];
+    if (letter === correct) b.classList.add('correct');
+    else if (letter === choice && choice !== correct) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  if (choice === correct) score++;
+  if (total === Object.keys(ANSWERS).length) showResult();
+}
+
+function filterQuiz(chapter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+  });
+}
+
+function showResult() {
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('donut-score').textContent = score;
+  const offset = 345.4 - (score / 12) * 345.4;
+  document.getElementById('donut-arc').style.strokeDashoffset = offset;
+  const pct = Math.round((score / 12) * 100);
+  let msg, sub;
+  if (pct >= 90) { msg = 'Excelente! Dominou o conteúdo!'; sub = 'Resultado impressionante!' }
+  else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.' }
+  else if (pct >= 50) { msg = 'Bom esforço! Dá para melhorar.'; sub = 'Volte aos capítulos com dificuldade.' }
+  else { msg = 'Continue estudando!'; sub = 'Releia os acordeons e tente novamente.' }
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('result-sub').textContent = sub;
+}
+
+function resetQuiz() {
+  answered = {}; score = 0; total = 0;
+  document.querySelectorAll('.option-btn').forEach(b => { b.classList.remove('correct','wrong'); b.disabled = false; });
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+}
+
+/* ── Chat ── */
+function toggleChat() {
+  const p = document.getElementById('chat-panel');
+  p.classList.toggle('open');
+  if (p.classList.contains('open')) document.getElementById('chat-input').focus();
+}
+
+function getContext() {
+  return (document.querySelector('main') || document.body).innerText.replace(/\s+/g,' ').slice(0,6000);
+}
+
+async function sendMsg(e) {
+  e.preventDefault();
+  const input = document.getElementById('chat-input');
+  const msgs = document.getElementById('chat-msgs');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  const u = document.createElement('div'); u.className = 'cmsg user'; u.textContent = text; msgs.appendChild(u);
+  const l = document.createElement('div'); l.className = 'cmsg bot loading'; l.textContent = 'Pensando...'; msgs.appendChild(l); msgs.scrollTop = msgs.scrollHeight;
+  try {
+    const r = await fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:text, context:getContext() }) });
+    const d = await r.json();
+    l.className = 'cmsg bot'; l.textContent = d.reply || d.error;
+  } catch { l.className = 'cmsg bot'; l.textContent = 'Erro de conexão. Tente novamente.'; }
+  msgs.scrollTop = msgs.scrollHeight;
+}
+</script>
+</body>
+</html>
