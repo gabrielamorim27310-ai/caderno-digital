@@ -127,6 +127,12 @@
   .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
   .btn-reset:hover { background:#263a6e; }
 
+  .quiz-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+  .score-live { font-size:0.9rem; font-weight:600; color:var(--primary); background:var(--bg); padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); }
+  .btn-reset-mid { background:none; border:1.5px solid var(--border); color:var(--text-light); padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all .2s; }
+  .btn-reset-mid:hover { border-color:var(--primary); color:var(--primary); }
+  .answer-exp { display:none; align-items:flex-start; gap:8px; margin-top:10px; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px; padding:10px 14px; font-size:0.87rem; color:#1b5e20; line-height:1.5; }
+
   /* CHAT flutuante */
   #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
   #chat-btn:hover { transform:scale(1.08); }
@@ -499,6 +505,10 @@
   <h2>Quiz de Revisão</h2>
   <p>Teste seus conhecimentos sobre Iluminismo, Revolução Americana e Revolução Francesa.</p>
 
+  <div class="quiz-topbar">
+    <div class="score-live" id="score-live">Placar: <strong>0 / 12</strong></div>
+    <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
   <div class="quiz-filter">
     <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
     <button class="filter-btn" onclick="filterQuiz('cap1',this)">Cap. 1 — Iluminismo</button>
@@ -700,14 +710,21 @@ function checkQuiz(qid, choice) {
   const card = document.getElementById(qid);
   const btns = card.querySelectorAll('.option-btn');
   const correct = ANSWERS[qid];
+  let correctText = '';
   btns.forEach(b => {
     const letter = b.textContent.trim()[0];
-    if (letter === correct) b.classList.add('correct');
+    if (letter === correct) { b.classList.add('correct'); correctText = b.textContent.trim(); }
     else if (letter === choice && choice !== correct) b.classList.add('wrong');
     b.disabled = true;
   });
   if (choice === correct) score++;
-  if (total === Object.keys(ANSWERS).length) showResult();
+  let exp = card.querySelector('.answer-exp');
+  if (!exp) { exp = document.createElement('div'); exp.className = 'answer-exp'; card.querySelector('.options').after(exp); }
+  exp.innerHTML = '<span>✔</span><span>' + correctText + '</span>';
+  exp.style.display = 'flex';
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
+  if (total === N) showResult();
 }
 
 function filterQuiz(chapter, btn) {
@@ -736,8 +753,11 @@ function showResult() {
 function resetQuiz() {
   answered = {}; score = 0; total = 0;
   document.querySelectorAll('.option-btn').forEach(b => { b.classList.remove('correct','wrong'); b.disabled = false; });
+  document.querySelectorAll('.answer-exp').forEach(e => e.style.display = 'none');
   document.getElementById('quiz-result').style.display = 'none';
   document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / ' + N + '</strong>';
 }
 
 /* ── Chat ── */

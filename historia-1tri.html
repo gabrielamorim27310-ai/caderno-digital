@@ -1404,6 +1404,10 @@
   <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">48 questões cobrindo todos os capítulos · Selecione e veja se acertou!</p>
 
   <!-- Filtro por capítulo -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+    <div id="score-live" style="font-size:0.9rem;font-weight:600;color:white;">Placar: <strong>0 / 0</strong></div>
+    <button onclick="resetQuiz()" style="background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.35);color:white;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">↺ Reiniciar</button>
+  </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
     <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (48)</button>
     <button class="filter-btn" onclick="filterQuiz('ch1',this)">Cap. 11 – Antigo Regime</button>
@@ -2016,6 +2020,7 @@ function updateScore() {
   document.getElementById('score-box').style.display = 'block';
   document.getElementById('score-correct').textContent = scoreCorrect;
   document.getElementById('score-total').textContent = scoreTotal;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + scoreCorrect + ' / ' + scoreTotal + '</strong>';
   const pct = scoreTotal > 0 ? Math.round((scoreCorrect / scoreTotal) * 100) : 0;
   document.getElementById('score-pct-label').textContent = pct + '%';
   const arc = (scoreCorrect / scoreTotal) * 163.4;
@@ -2043,6 +2048,7 @@ function resetQuiz() {
   document.getElementById('score-box').style.display = 'none';
   document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
   document.getElementById('score-pct-label').textContent = '0%';
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / 0</strong>';
   document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
 }
 // Active nav highlight

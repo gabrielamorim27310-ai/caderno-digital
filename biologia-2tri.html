@@ -121,7 +121,10 @@
   .quiz-chapter-tag.tag-ch4 { background: rgba(108,52,131,0.5); color: #d7bde2; }
   .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
   .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.2); border-color: white; }
-  #score-box { margin-bottom: 20px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: none; }
+  #score-box { margin-bottom: 20px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: block; }
+  .bio-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+  .btn-reset-mid { background:rgba(255,255,255,0.15); border:1.5px solid rgba(255,255,255,0.35); color:white; padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all .2s; }
+  .btn-reset-mid:hover { background:rgba(255,255,255,0.28); }
   #score-nums { text-align:center; margin-bottom:10px; }
   #score-chart-wrap { display:flex; align-items:center; justify-content:center; gap:14px; color:white; }
   #score-pct-label { font-size:1.3rem; font-weight:800; }
@@ -858,6 +861,10 @@
   <h3>Quiz — AE 27/05/2026</h3>
   <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">12 questões · Sistema Digestório e Transportes de Membrana</p>
 
+  <div class="bio-topbar">
+    <div style="font-size:0.9rem;font-weight:600;color:white;" id="score-live">Placar: <strong>0 / 12</strong></div>
+    <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
     <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (12)</button>
     <button class="filter-btn" onclick="filterQuiz('ch1',this)">Trato Superior</button>
@@ -1076,6 +1083,7 @@ function updateScore() {
   const box = document.getElementById('score-box');
   box.style.display = 'block';
   document.getElementById('score-nums').textContent = `Placar: ${scoreCorrect} / ${scoreTotal}`;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + scoreCorrect + ' / 12</strong>';
   const pct = scoreTotal ? Math.round(scoreCorrect / scoreTotal * 100) : 0;
   const arc = (scoreCorrect / (scoreTotal || 1)) * 163.4;
   const donut = document.getElementById('donut-arc');
@@ -1099,6 +1107,7 @@ function resetQuiz() {
   document.getElementById('score-box').style.display = 'none';
   document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
   document.getElementById('score-pct-label').textContent = '0%';
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / 12</strong>';
   document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
 }
 

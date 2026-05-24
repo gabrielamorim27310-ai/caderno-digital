@@ -545,6 +545,10 @@
   <h3>Banco de Questões</h3>
   <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">12 questões · Membrana, Citoesqueleto, Especializações e Rota Secretora</p>
 
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+    <div id="score-live" style="font-size:0.9rem;font-weight:600;color:white;">Placar: <strong>0 / 0</strong></div>
+    <button onclick="resetQuiz()" style="background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.35);color:white;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">↺ Reiniciar</button>
+  </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
     <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (12)</button>
     <button class="filter-btn" onclick="filterQuiz('ch1',this)">Membrana</button>
@@ -763,6 +767,7 @@ function updateScore() {
   const box = document.getElementById('score-box');
   box.style.display = 'block';
   document.getElementById('score-nums').textContent = `Placar: ${scoreCorrect} / ${scoreTotal}`;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + scoreCorrect + ' / ' + scoreTotal + '</strong>';
   const pct = scoreTotal ? Math.round(scoreCorrect / scoreTotal * 100) : 0;
   const arc = (scoreCorrect / (scoreTotal || 1)) * 163.4;
   const donut = document.getElementById('donut-arc');
@@ -786,6 +791,7 @@ function resetQuiz() {
   document.getElementById('score-box').style.display = 'none';
   document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
   document.getElementById('score-pct-label').textContent = '0%';
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / 0</strong>';
   document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
 }
 
