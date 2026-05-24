@@ -10,6 +10,7 @@
     { "src": "bio-imgs/**", "use": "@vercel/static" },
     { "src": "geo-imgs/**",  "use": "@vercel/static" },
     { "src": "hist-imgs/**", "use": "@vercel/static" },
+    { "src": "qui-imgs/**",  "use": "@vercel/static" },
     { "src": "*.png",       "use": "@vercel/static" },
     { "src": "*.svg",       "use": "@vercel/static" }
   ],
