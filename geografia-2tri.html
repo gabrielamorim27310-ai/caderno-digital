@@ -318,6 +318,10 @@
     .btn-reset:hover { background: var(--secondary); }
 
     .quiz-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+    .score-left { display:flex; align-items:center; gap:12px; }
+    .mini-donut-wrap { position:relative; width:44px; height:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+    .mini-donut-wrap svg { position:absolute; top:0; left:0; }
+    #mini-pct { position:relative; font-size:0.65rem; font-weight:800; color:#aaa; line-height:1; }
     .score-live { font-size:0.9rem; font-weight:600; color:var(--primary); background:var(--bg); padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); }
     .btn-reset-mid { background:none; border:1.5px solid var(--border); color:var(--text-muted); padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all .2s; }
     .btn-reset-mid:hover { border-color:var(--primary); color:var(--primary); }
@@ -991,7 +995,18 @@
     <p>Teste seus conhecimentos sobre União Europeia e América do Norte.</p>
 
     <div class="quiz-topbar">
-      <div class="score-live" id="score-live">Placar: <strong>0 / 14</strong></div>
+      <div class="score-left">
+        <div class="mini-donut-wrap">
+          <svg width="44" height="44" viewBox="0 0 44 44">
+            <circle cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"/>
+            <circle id="mini-arc" cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"
+                    stroke-dasharray="106.8" stroke-dashoffset="106.8" stroke-linecap="round"
+                    transform="rotate(-90 22 22)"/>
+          </svg>
+          <span id="mini-pct">—</span>
+        </div>
+        <div class="score-live" id="score-live">Placar: <strong>0 / 14</strong></div>
+      </div>
       <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
     </div>
     <div class="quiz-filter">
@@ -1240,6 +1255,13 @@
     exp.style.display = 'flex';
     const N = Object.keys(ANSWERS).length;
     document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
+    const pct = Math.round((score / total) * 100);
+    const arc = document.getElementById('mini-arc');
+    arc.style.strokeDashoffset = 106.8 - (pct / 100) * 106.8;
+    arc.style.stroke = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+    const pctEl = document.getElementById('mini-pct');
+    pctEl.textContent = pct + '%';
+    pctEl.style.color = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
     if (total === N) showResult();
 
   }
@@ -1279,6 +1301,10 @@
     document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
     const N = Object.keys(ANSWERS).length;
     document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / ' + N + '</strong>';
+    const arc = document.getElementById('mini-arc');
+    arc.style.strokeDashoffset = '106.8'; arc.style.stroke = '#e0e0e0';
+    const pctEl = document.getElementById('mini-pct');
+    pctEl.textContent = '—'; pctEl.style.color = '#aaa';
   }
 
   /* ── Chat ── */

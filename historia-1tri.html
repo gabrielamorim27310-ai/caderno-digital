@@ -1405,7 +1405,18 @@
 
   <!-- Filtro por capítulo -->
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
-    <div id="score-live" style="font-size:0.9rem;font-weight:600;color:white;">Placar: <strong>0 / 0</strong></div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="position:relative;width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+        <svg width="44" height="44" viewBox="0 0 44 44" style="position:absolute;top:0;left:0;">
+          <circle cx="22" cy="22" r="17" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="5"/>
+          <circle id="mini-arc" cx="22" cy="22" r="17" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="5"
+                  stroke-dasharray="106.8" stroke-dashoffset="106.8" stroke-linecap="round"
+                  transform="rotate(-90 22 22)"/>
+        </svg>
+        <span id="mini-pct" style="position:relative;font-size:0.65rem;font-weight:800;color:rgba(255,255,255,0.5);">—</span>
+      </div>
+      <div id="score-live" style="font-size:0.9rem;font-weight:600;color:white;">Placar: <strong>0 / 0</strong></div>
+    </div>
     <button onclick="resetQuiz()" style="background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.35);color:white;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">↺ Reiniciar</button>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
@@ -2023,6 +2034,11 @@ function updateScore() {
   document.getElementById('score-live').innerHTML = 'Placar: <strong>' + scoreCorrect + ' / ' + scoreTotal + '</strong>';
   const pct = scoreTotal > 0 ? Math.round((scoreCorrect / scoreTotal) * 100) : 0;
   document.getElementById('score-pct-label').textContent = pct + '%';
+  const arcColor = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  const miniArc = document.getElementById('mini-arc');
+  miniArc.style.strokeDashoffset = 106.8 - (pct / 100) * 106.8; miniArc.style.stroke = arcColor;
+  const miniPct = document.getElementById('mini-pct');
+  miniPct.textContent = pct + '%'; miniPct.style.color = arcColor;
   const arc = (scoreCorrect / scoreTotal) * 163.4;
   document.getElementById('donut-arc').setAttribute('stroke-dasharray', arc + ' ' + (163.4 - arc));
   document.getElementById('donut-arc').setAttribute('stroke', pct >= 70 ? '#c9953c' : pct >= 40 ? '#f39c12' : '#e74c3c');
@@ -2049,6 +2065,10 @@ function resetQuiz() {
   document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
   document.getElementById('score-pct-label').textContent = '0%';
   document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / 0</strong>';
+  document.getElementById('mini-arc').style.strokeDashoffset = '106.8';
+  document.getElementById('mini-arc').style.stroke = 'rgba(255,255,255,0.2)';
+  document.getElementById('mini-pct').textContent = '—';
+  document.getElementById('mini-pct').style.color = 'rgba(255,255,255,0.5)';
   document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
 }
 // Active nav highlight
