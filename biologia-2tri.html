@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biologia 2º Tri — Sistema Digestório e Transportes 2026</title>
+<title>Biologia 2º Tri — Digestório, Transportes e Sistema Circulatório 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
@@ -26,6 +26,7 @@
     --ch2: #1a4731;
     --ch3: #7b3f00;
     --ch4: #6c3483;
+    --ch5: #922b21;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
@@ -61,6 +62,7 @@
   .tag-ch2 { background: var(--ch2); }
   .tag-ch3 { background: var(--ch3); }
   .tag-ch4 { background: var(--ch4); }
+  .tag-ch5 { background: var(--ch5); }
   .chapter-header .meta { font-size: 0.9rem; color: var(--text-light); margin-top: 6px; }
   .chapter-body { padding: 24px 32px 32px; }
 
@@ -119,6 +121,7 @@
   .quiz-chapter-tag.tag-ch2 { background: rgba(26,71,49,0.6); color: #a9dfbf; }
   .quiz-chapter-tag.tag-ch3 { background: rgba(123,63,0,0.5); color: #f5cba7; }
   .quiz-chapter-tag.tag-ch4 { background: rgba(108,52,131,0.5); color: #d7bde2; }
+  .quiz-chapter-tag.tag-ch5 { background: rgba(146,43,33,0.5); color: #f1948a; }
   .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
   .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.2); border-color: white; }
   #score-box { margin-bottom: 20px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: block; }
@@ -129,6 +132,14 @@
   #score-chart-wrap { display:flex; align-items:center; justify-content:center; gap:14px; color:white; }
   #score-pct-label { font-size:1.3rem; font-weight:800; }
   #score-pct-sub { font-size:0.78rem; opacity:0.75; font-weight:400; }
+
+  .resource-links { display:flex; flex-wrap:wrap; gap:12px; margin:16px 0; }
+  .resource-link { display:flex; align-items:center; gap:10px; background: linear-gradient(135deg, #fef9f9, #fdeaea); border:1.5px solid #f5b7b1; border-radius:10px; padding:12px 18px; text-decoration:none; color:var(--ch5); font-weight:600; font-size:0.9rem; transition:all .2s; }
+  .resource-link:hover { background: linear-gradient(135deg, #fdeaea, #fad7d7); border-color:var(--ch5); transform:translateY(-1px); box-shadow:0 4px 12px rgba(146,43,33,0.15); }
+  .resource-link .rl-icon { font-size:1.4rem; flex-shrink:0; }
+  .resource-link .rl-label { display:flex; flex-direction:column; gap:2px; }
+  .resource-link .rl-title { font-size:0.88rem; font-weight:700; }
+  .resource-link .rl-sub { font-size:0.78rem; color:var(--text-light); font-weight:400; }
 
   footer { text-align: center; padding: 32px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); }
 
@@ -171,8 +182,8 @@
 
 <div class="hero">
   <h1>Biologia — 2º Trimestre</h1>
-  <p class="subtitle">AE 27/05/2026 · 2ª série do Ensino Médio · 2026</p>
-  <div><span class="badge">Sistema Digestório · Transportes de Membrana</span></div>
+  <p class="subtitle">AI Unificada 01/06/2026 · 2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Sistema Digestório · Transportes de Membrana · Sistema Circulatório</span></div>
   <div><span class="author">Caderno Digital</span></div>
 </div>
 
@@ -183,7 +194,9 @@
     <a href="#intestino-delgado">Int. Delgado</a>
     <a href="#intestino-grosso">Int. Grosso</a>
     <a href="#transportes">Transportes</a>
-    <a href="#quiz">Quiz AE</a>
+    <a href="#circulatorio-anat">Circulatório — Anat.</a>
+    <a href="#circulatorio-fisio">Circulatório — Fisio.</a>
+    <a href="#quiz">Quiz AI</a>
   </div>
 </nav>
 
@@ -856,10 +869,338 @@
   </div>
 </section>
 
+<!-- ══════════ CAPÍTULO 5 — SISTEMA CIRCULATÓRIO: ORGANIZAÇÃO ══════════ -->
+<section class="chapter" id="circulatorio-anat">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch5">Cap. 5</span> Sistema Circulatório — Organização e Anatomia</h2>
+    <p class="meta">Coração · Câmaras · Válvulas Cardíacas · Artérias · Veias · Capilares</p>
+  </div>
+  <div class="chapter-body">
+
+    <!-- Recursos de Acesso -->
+    <div class="highlight-box" style="background:linear-gradient(135deg,#fef9f9,#fdeaea);border-left-color:var(--ch5);">
+      <strong style="color:var(--ch5);">Recursos de Acesso — Sistema Circulatório</strong>
+      <div class="resource-links" style="margin-top:10px;">
+        <a class="resource-link" href="https://app.nearpod.com/?pin=NZ6TK" target="_blank" rel="noopener">
+          <span class="rl-icon">🎯</span>
+          <span class="rl-label">
+            <span class="rl-title">Nearpod — Aula Interativa</span>
+            <span class="rl-sub">PIN: NZ6TK · app.nearpod.com</span>
+          </span>
+        </a>
+        <a class="resource-link" href="https://moodle.colband.com.br/mod/url/view.php?id=51308" target="_blank" rel="noopener">
+          <span class="rl-icon">📚</span>
+          <span class="rl-label">
+            <span class="rl-title">Moodle — Material de Apoio</span>
+            <span class="rl-sub">colband.com.br · Biologia 2º Tri</span>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Visão Geral do Sistema Circulatório</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            O sistema circulatório é responsável pelo <strong>transporte de substâncias</strong> pelo organismo: nutrientes, gases (O₂ e CO₂), hormônios, células de defesa e resíduos metabólicos.
+          </div>
+          <h4>Componentes principais</h4>
+          <ul>
+            <li><strong>Coração</strong> — bomba que impulsiona o sangue</li>
+            <li><strong>Artérias</strong> — conduzem sangue DO coração para os tecidos</li>
+            <li><strong>Veias</strong> — conduzem sangue DOS tecidos para o coração</li>
+            <li><strong>Capilares</strong> — vasos microscópicos onde ocorrem as trocas entre sangue e tecidos</li>
+          </ul>
+          <img src="bio-imgs/circulatorio-anat_p2.png" alt="Componentes do sistema circulatório — coração, artérias, veias e capilares" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Anatomia do Coração — Câmaras e Paredes</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            O coração humano possui <strong>4 câmaras</strong>: 2 átrios (superiores) e 2 ventrículos (inferiores), separados por septos musculares. A parede muscular do coração é chamada de <strong>miocárdio</strong>.
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Átrio Direito</h5>
+              <ul>
+                <li>Recebe sangue venoso (O₂ baixo) das veias cavas superior e inferior</li>
+                <li>Envia para o ventrículo direito pela válvula tricúspide</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Átrio Esquerdo</h5>
+              <ul>
+                <li>Recebe sangue arterial (O₂ alto) das veias pulmonares</li>
+                <li>Envia para o ventrículo esquerdo pela válvula mitral/bicúspide</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Ventrículo Direito</h5>
+              <ul>
+                <li>Bombeia sangue para os pulmões pela artéria pulmonar</li>
+                <li>Parede mais fina (pressão menor — pequena circulação)</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Ventrículo Esquerdo</h5>
+              <ul>
+                <li>Bombeia sangue para todo o corpo pela aorta</li>
+                <li>Parede mais espessa (pressão maior — grande circulação)</li>
+              </ul>
+            </div>
+          </div>
+          <img src="bio-imgs/circulatorio-anat_p4.png" alt="Anatomia interna do coração — 4 câmaras, miocárdio e septos" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="tip-box">
+            <strong>Pericárdio</strong> = membrana que envolve e protege o coração. O <strong>miocárdio</strong> é o músculo cardíaco propriamente dito — tecido muscular estriado involuntário.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Válvulas Cardíacas</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            As <strong>válvulas cardíacas</strong> garantem o fluxo unidirecional do sangue, impedindo o refluxo.
+          </div>
+          <h4>Válvulas Atrioventriculares (AV)</h4>
+          <ul>
+            <li><strong>Tricúspide</strong> — entre átrio direito e ventrículo direito (3 cúspides)</li>
+            <li><strong>Mitral (bicúspide)</strong> — entre átrio esquerdo e ventrículo esquerdo (2 cúspides)</li>
+            <li>Abrem durante a diástole ventricular (enchimento); fecham durante a sístole (evitam refluxo para os átrios)</li>
+          </ul>
+          <h4>Válvulas Semilunares</h4>
+          <ul>
+            <li><strong>Pulmonar</strong> — entre ventrículo direito e artéria pulmonar</li>
+            <li><strong>Aórtica</strong> — entre ventrículo esquerdo e aorta</li>
+            <li>Abrem durante a sístole ventricular; fecham durante a diástole (impedem refluxo das artérias)</li>
+          </ul>
+          <img src="bio-imgs/circulatorio-anat_p5.png" alt="Válvulas cardíacas — tricúspide, mitral, pulmonar e aórtica" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="warning-box">
+            <strong>Macete:</strong> Válvulas AV fecham → produzem o 1° som cardíaco ("lub"); válvulas semilunares fecham → 2° som ("dub"). Juntos formam o "lub-dub" do batimento.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Tipos de Vasos Sanguíneos</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <h4>Artérias</h4>
+          <ul>
+            <li>Conduzem sangue <strong>do coração</strong> para os tecidos</li>
+            <li>Paredes espessas e elásticas — suportam alta pressão</li>
+            <li>Camada muscular lisa desenvolvida (se contraem para regular fluxo)</li>
+            <li>Regra geral: conduzem sangue oxigenado (exceto artéria pulmonar)</li>
+          </ul>
+          <h4>Veias</h4>
+          <ul>
+            <li>Conduzem sangue <strong>para o coração</strong> a partir dos tecidos</li>
+            <li>Paredes mais finas, menor pressão</li>
+            <li>Possuem <strong>válvulas venosas</strong> que impedem o refluxo do sangue</li>
+            <li>Regra geral: conduzem sangue desoxigenado (exceto veias pulmonares)</li>
+          </ul>
+          <h4>Capilares</h4>
+          <ul>
+            <li>Vasos microscópicos — parede com apenas 1 camada de células (endotélio)</li>
+            <li>Local de <strong>troca de substâncias</strong> entre sangue e tecidos (O₂, CO₂, nutrientes, resíduos)</li>
+            <li>Maior área total de secção transversal → menor velocidade do sangue → mais tempo para trocas</li>
+          </ul>
+          <img src="bio-imgs/circulatorio-anat_p6.png" alt="Comparação entre artérias, veias e capilares — estrutura e função" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="tip-box">
+            <strong>Pressão × Velocidade × Área:</strong> A pressão é maior nas artérias e cai progressivamente até os capilares. A velocidade do sangue é inversamente proporcional à área total dos vasos — nos capilares a área total é máxima, então a velocidade é mínima.
+          </div>
+          <img src="bio-imgs/circulatorio-anat_p10.png" alt="Gráfico de pressão, velocidade e área nos diferentes vasos sanguíneos" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 6 — SISTEMA CIRCULATÓRIO: FISIOLOGIA ══════════ -->
+<section class="chapter" id="circulatorio-fisio">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch5">Cap. 6</span> Sistema Circulatório — Fisiologia</h2>
+    <p class="meta">Circulação Dupla e Completa · Ciclo Cardíaco · Marcapasso · Pressão Arterial · Frequência Cardíaca</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Características da Circulação Humana</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            A circulação humana é: <strong>Fechada · Dupla · Completa</strong>
+          </div>
+          <ul>
+            <li><strong>Fechada</strong> — o sangue circula sempre dentro de vasos (nunca banha diretamente os tecidos, ao contrário da circulação aberta de insetos)</li>
+            <li><strong>Dupla</strong> — existem dois circuitos: <strong>pequena circulação</strong> (pulmonar) e <strong>grande circulação</strong> (sistêmica)</li>
+            <li><strong>Completa</strong> — sangue oxigenado e desoxigenado <strong>não se misturam</strong> no coração (septos cardíacos completos); diferente de anfíbios e répteis (incompleta)</li>
+          </ul>
+          <img src="bio-imgs/circulatorio-fisio_p2.png" alt="Características da circulação humana — fechada, dupla e completa" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Pequena e Grande Circulação</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Pequena Circulação (Pulmonar)</h5>
+              <ul>
+                <li>Ventrículo direito → Artéria pulmonar → Pulmões → Veias pulmonares → Átrio esquerdo</li>
+                <li>Objetivo: hematose (troca de CO₂ por O₂ nos pulmões)</li>
+                <li>Sangue venoso (azul) → Sangue arterial (vermelho)</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Grande Circulação (Sistêmica)</h5>
+              <ul>
+                <li>Ventrículo esquerdo → Aorta → Tecidos → Veias cavas → Átrio direito</li>
+                <li>Objetivo: distribuir O₂ e nutrientes para todos os tecidos e recolher CO₂ e resíduos</li>
+                <li>Sangue arterial (vermelho) → Sangue venoso (azul)</li>
+              </ul>
+            </div>
+          </div>
+          <img src="bio-imgs/circulatorio-fisio_p3.png" alt="Esquema da pequena e grande circulação — caminho do sangue pelo coração" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="flow-box">
+            <div style="margin-bottom:8px;font-weight:700;color:var(--ch5)">CAMINHO DO SANGUE</div>
+            <span class="flow-step" style="background:#1a5276">Átrio Dir.</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:#1a5276">Ventrículo Dir.</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:#1a5276">Art. Pulmonar</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:#27ae60">Pulmões</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:#922b21">Veias Pulm.</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:#922b21">Átrio Esq.</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:#922b21">Ventrículo Esq.</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:#922b21">Aorta</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step" style="background:#27ae60">Tecidos</span>
+          </div>
+          <div class="warning-box">
+            <strong>Atenção:</strong> A artéria pulmonar carrega sangue <em>venoso</em> (pobre em O₂) e as veias pulmonares carregam sangue <em>arterial</em> (rico em O₂). Artéria ≠ sangue oxigenado — o critério é a direção (do coração).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Ciclo Cardíaco — Sístole e Diástole</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Sístole</strong> = contração do músculo cardíaco → sangue é ejetado<br>
+            <strong>Diástole</strong> = relaxamento do músculo cardíaco → câmara se enche de sangue
+          </div>
+          <h4>Fases do Ciclo Cardíaco</h4>
+          <ul>
+            <li><strong>Diástole atrial</strong> — átrios relaxam e se enchem de sangue vindo das veias</li>
+            <li><strong>Sístole atrial</strong> — átrios contraem e empurram sangue para os ventrículos (válvulas AV abertas)</li>
+            <li><strong>Diástole ventricular</strong> — ventrículos relaxam e se enchem</li>
+            <li><strong>Sístole ventricular</strong> — ventrículos contraem com força, fechando válvulas AV e abrindo semilunares → sangue sai para artérias</li>
+          </ul>
+          <img src="bio-imgs/circulatorio-fisio_p5.png" alt="Ciclo cardíaco — sístole e diástole atrial e ventricular" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Sistema de Condução — Marcapasso Cardíaco</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            O coração tem automação própria: o <strong>nó sinoatrial (NSA)</strong> gera impulsos elétricos rítmicos que coordenam as contrações cardíacas — é o <strong>marcapasso natural</strong>.
+          </div>
+          <h4>Caminho do Impulso Elétrico</h4>
+          <div class="flow-box">
+            <span class="flow-step">Nó Sinoatrial (NSA)</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Nó Atrioventricular (NAV)</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Feixe de His</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Fibras de Purkinje</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-step">Contração Ventricular</span>
+          </div>
+          <ul>
+            <li><strong>Nó sinoatrial (NSA)</strong> — localizado no átrio direito; gera ~60–100 impulsos/min (FC normal); ativa os átrios</li>
+            <li><strong>Nó atrioventricular (NAV)</strong> — entre átrios e ventrículos; retarda levemente o impulso para os átrios contraírem antes dos ventrículos</li>
+            <li><strong>Feixe de His</strong> — conduz o impulso pelo septo interventricular</li>
+            <li><strong>Fibras de Purkinje</strong> — distribuem o impulso pelas paredes ventriculares, coordenando a contração de baixo para cima</li>
+          </ul>
+          <img src="bio-imgs/circulatorio-fisio_p7.png" alt="Sistema de condução cardíaca — nó sinoatrial, NAV, Feixe de His e Fibras de Purkinje" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="tip-box">
+            O <strong>eletrocardiograma (ECG)</strong> registra a atividade elétrica do coração. Marcapassos artificiais são dispositivos implantados quando o NSA não funciona adequadamente.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Pressão Arterial e Frequência Cardíaca</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Pressão Arterial (PA)</strong> = força que o sangue exerce contra a parede das artérias.<br>
+            Expressa em mmHg no formato <strong>sistólica/diastólica</strong>.<br>
+            PA normal: <strong>12 × 8</strong> (120/80 mmHg)
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Hipertensão (Pressão Alta)</h5>
+              <ul>
+                <li>PA ≥ 14 × 9 (140/90 mmHg)</li>
+                <li>Silenciosa — frequentemente sem sintomas</li>
+                <li>Riscos: AVC, infarto, insuficiência renal</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Hipotensão (Pressão Baixa)</h5>
+              <ul>
+                <li>PA &lt; 9 × 6 (90/60 mmHg)</li>
+                <li>Sintomas: tontura, desmaio, fraqueza</li>
+                <li>Pode indicar desidratação ou problemas cardíacos</li>
+              </ul>
+            </div>
+          </div>
+          <img src="bio-imgs/circulatorio-fisio_p11.png" alt="Pressão arterial — valores normais, hipertensão e hipotensão" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <h4>Frequência Cardíaca (FC)</h4>
+          <ul>
+            <li>Número de batimentos cardíacos por minuto (bpm)</li>
+            <li>Normal em repouso: <strong>60–100 bpm</strong> (adultos)</li>
+            <li><strong>Bradicardia</strong> — FC &lt; 60 bpm (atletas frequentemente têm FC baixa — coração mais eficiente)</li>
+            <li><strong>Taquicardia</strong> — FC &gt; 100 bpm (esforço, estresse, patologias)</li>
+            <li>Regulada pelo sistema nervoso autônomo (simpático ↑ FC; parassimpático ↓ FC) e hormônios (adrenalina ↑ FC)</li>
+          </ul>
+          <img src="bio-imgs/circulatorio-fisio_p12.png" alt="Frequência cardíaca — valores normais, bradicardia e taquicardia" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ══════════ QUIZ ══════════ -->
 <section class="quiz-section" id="quiz">
-  <h3>Quiz — AE 27/05/2026</h3>
-  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">12 questões · Sistema Digestório e Transportes de Membrana</p>
+  <h3>Quiz — AI Unificada 01/06/2026</h3>
+  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">18 questões · Sistema Digestório · Transportes de Membrana · Sistema Circulatório</p>
 
   <div class="bio-topbar">
     <div style="display:flex;align-items:center;gap:10px;">
@@ -872,16 +1213,17 @@
         </svg>
         <span id="mini-pct" style="position:relative;font-size:0.65rem;font-weight:800;color:rgba(255,255,255,0.5);">—</span>
       </div>
-      <div style="font-size:0.9rem;font-weight:600;color:white;" id="score-live">Placar: <strong>0 / 12</strong></div>
+      <div style="font-size:0.9rem;font-weight:600;color:white;" id="score-live">Placar: <strong>0 / 18</strong></div>
     </div>
     <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
-    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (12)</button>
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (18)</button>
     <button class="filter-btn" onclick="filterQuiz('ch1',this)">Trato Superior</button>
     <button class="filter-btn" onclick="filterQuiz('ch2',this)">Int. Delgado</button>
     <button class="filter-btn" onclick="filterQuiz('ch3',this)">Int. Grosso</button>
     <button class="filter-btn" onclick="filterQuiz('ch4',this)">Transportes</button>
+    <button class="filter-btn" onclick="filterQuiz('ch5',this)">Sist. Circulatório</button>
   </div>
 
   <div id="score-box">
@@ -1020,6 +1362,66 @@
     <div class="feedback" id="q12-fb"></div>
   </div>
 
+  <div class="quiz-q" id="q13" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Sist. Circulatório</span>
+    <p>13. A circulação humana é descrita como "dupla e completa". O que significa cada um desses termos e qual é a vantagem da circulação completa em relação à de anfíbios?</p>
+    <label><input type="radio" name="q13" value="a" onclick="checkQuiz('q13','c')"> a) Dupla = dois corações; completa = o sangue completa um ciclo antes de retornar</label>
+    <label><input type="radio" name="q13" value="b" onclick="checkQuiz('q13','c')"> b) Dupla = dois circuitos paralelos que se misturam no coração; completa = todos os tecidos recebem sangue</label>
+    <label><input type="radio" name="q13" value="c" onclick="checkQuiz('q13','c')"> c) Dupla = existem dois circuitos (pulmonar e sistêmico) que passam pelo coração; completa = sangue oxigenado e venoso NÃO se misturam (septos completos), garantindo maior eficiência no transporte de O₂</label>
+    <label><input type="radio" name="q13" value="d" onclick="checkQuiz('q13','c')"> d) Dupla = o coração bombeia duas vezes por ciclo; completa = todos os vasos são fechados</label>
+    <div class="feedback" id="q13-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q14" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Sist. Circulatório</span>
+    <p>14. O ventrículo esquerdo tem paredes musculares muito mais espessas que o ventrículo direito. Por que essa diferença anatômica existe?</p>
+    <label><input type="radio" name="q14" value="a" onclick="checkQuiz('q14','b')"> a) Porque o ventrículo esquerdo bombeia sangue para os pulmões, que são mais resistentes</label>
+    <label><input type="radio" name="q14" value="b" onclick="checkQuiz('q14','b')"> b) Porque o ventrículo esquerdo precisa gerar pressão suficiente para bombear sangue para todo o corpo pela aorta (grande circulação — maior resistência), enquanto o direito bombeia apenas para os pulmões (pequena circulação — menor resistência)</label>
+    <label><input type="radio" name="q14" value="c" onclick="checkQuiz('q14','b')"> c) Porque o ventrículo esquerdo recebe sangue venoso mais viscoso, precisando de mais força para bombeá-lo</label>
+    <label><input type="radio" name="q14" value="d" onclick="checkQuiz('q14','b')"> d) Porque o ventrículo esquerdo está localizado mais longe dos pulmões e precisa compensar essa distância</label>
+    <div class="feedback" id="q14-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q15" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Sist. Circulatório</span>
+    <p>15. Durante a sístole ventricular, as válvulas atrioventriculares (tricúspide e mitral) se fecham, enquanto as semilunares (pulmonar e aórtica) se abrem. Por que esse padrão inverso de abertura é necessário?</p>
+    <label><input type="radio" name="q15" value="a" onclick="checkQuiz('q15','c')"> a) Porque as válvulas AV abrem quando a pressão ventricular sobe e as semilunares fecham para proteger as artérias</label>
+    <label><input type="radio" name="q15" value="b" onclick="checkQuiz('q15','c')"> b) As válvulas se abrem e fecham por ação muscular ativa, independentemente da pressão</label>
+    <label><input type="radio" name="q15" value="c" onclick="checkQuiz('q15','c')"> c) Na sístole, a pressão ventricular supera a dos átrios → válvulas AV fecham (evitam refluxo para os átrios) e supera a das artérias → semilunares abrem (sangue flui para as artérias). É o gradiente de pressão que determina a abertura e fechamento passivos das válvulas</label>
+    <label><input type="radio" name="q15" value="d" onclick="checkQuiz('q15','c')"> d) As válvulas AV fecham por ação do nó sinoatrial e as semilunares abrem por ação do nó atrioventricular</label>
+    <div class="feedback" id="q15-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q16" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Sist. Circulatório</span>
+    <p>16. Por que os capilares sanguíneos, apesar de serem os vasos mais finos, são o local ideal para as trocas entre sangue e tecidos?</p>
+    <label><input type="radio" name="q16" value="a" onclick="checkQuiz('q16','b')"> a) Porque têm a maior pressão sanguínea, forçando as substâncias a sair do sangue para os tecidos</label>
+    <label><input type="radio" name="q16" value="b" onclick="checkQuiz('q16','b')"> b) Porque possuem parede de apenas 1 célula de espessura (mínima distância de difusão), maior área total de secção transversal (menor velocidade do fluxo = mais tempo de contato) e estão em íntimo contato com todas as células dos tecidos</label>
+    <label><input type="radio" name="q16" value="c" onclick="checkQuiz('q16','b')"> c) Porque possuem válvulas que retêm as substâncias trocadas e impedem o refluxo para as artérias</label>
+    <label><input type="radio" name="q16" value="d" onclick="checkQuiz('q16','b')"> d) Porque o sangue nos capilares tem maior concentração de O₂ do que em qualquer outro vaso</label>
+    <div class="feedback" id="q16-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q17" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Sist. Circulatório</span>
+    <p>17. O nó sinoatrial (NSA) é chamado de "marcapasso natural" do coração. Qual seria a consequência se o NSA fosse danificado e o impulso partisse apenas do nó atrioventricular (NAV)?</p>
+    <label><input type="radio" name="q17" value="a" onclick="checkQuiz('q17','c')"> a) O coração pararia completamente, pois o NAV não tem capacidade de gerar impulsos</label>
+    <label><input type="radio" name="q17" value="b" onclick="checkQuiz('q17','c')"> b) A frequência cardíaca aumentaria, pois o NAV gera impulsos mais rápidos que o NSA</label>
+    <label><input type="radio" name="q17" value="c" onclick="checkQuiz('q17','c')"> c) A frequência cardíaca diminuiria (o NAV dispara mais lentamente que o NSA) e os átrios não seriam ativados antes dos ventrículos, comprometendo a eficiência do enchimento ventricular — é o que ocorre em bloqueios cardíacos</label>
+    <label><input type="radio" name="q17" value="d" onclick="checkQuiz('q17','c')"> d) O coração passaria a contrair de cima para baixo em vez de baixo para cima, mas manteria a mesma frequência</label>
+    <div class="feedback" id="q17-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q18" data-ch="ch5">
+    <span class="quiz-chapter-tag tag-ch5">Sist. Circulatório</span>
+    <p>18. A pressão arterial de uma paciente é 15 × 10. Como essa medida é interpretada clinicamente e quais são os riscos associados se mantida cronicamente?</p>
+    <label><input type="radio" name="q18" value="a" onclick="checkQuiz('q18','b')"> a) A pressão é normal — 15 × 10 está dentro dos valores de referência para adultos saudáveis</label>
+    <label><input type="radio" name="q18" value="b" onclick="checkQuiz('q18','b')"> b) É hipertensão (PA ≥ 14 × 9 = 140/90 mmHg). Se crônica, a pressão excessiva danifica a parede arterial, podendo levar a AVC (rompimento de vasos cerebrais), infarto agudo do miocárdio (sobrecarga do coração), e insuficiência renal (dano aos glomérulos)</label>
+    <label><input type="radio" name="q18" value="c" onclick="checkQuiz('q18','b')"> c) É hipotensão — a pressão sistólica de 15 está abaixo do normal de 12 × 8 indicando baixa perfusão</label>
+    <label><input type="radio" name="q18" value="d" onclick="checkQuiz('q18','b')"> d) A medida não tem significado clínico isolado — só é relevante comparada com medições anteriores da própria paciente</label>
+    <div class="feedback" id="q18-fb"></div>
+  </div>
+
   <div style="text-align:center; margin-top:28px;">
     <button onclick="resetQuiz()" style="background:var(--secondary);color:white;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
   </div>
@@ -1068,6 +1470,12 @@ const answers = {
   q10: { correct: 'c', explain: 'Água destilada = hipotônica (sem solutos). Osmose move água para dentro de qualquer célula. A hemácia (célula animal, sem parede) não tem estrutura que resista à expansão → a membrana rompe (lise/hemólise). A célula vegetal tem parede de celulose rígida que suporta a pressão interna e impede ruptura → turgescência (pressão de turgor), o que é benéfico para plantas (sustentação mecânica).' },
   q11: { correct: 'b', explain: 'O critério do transporte ativo é mover solutos CONTRA o gradiente (de onde há menos para onde há mais), exigindo ATP. Na bomba Na⁺/K⁺: o interior celular já tem pouco Na⁺ → a bomba manda para o exterior onde há mais (contra gradiente). O interior já tem muito K⁺ → a bomba manda mais K⁺ para dentro (contra gradiente). Na difusão facilitada, a proteína apenas canaliza o movimento espontâneo a favor do gradiente, sem ATP.' },
   q12: { correct: 'b', explain: 'Proteínas carreadoras são necessárias para moléculas polares/grandes. Ácidos graxos e vitaminas lipossolúveis (A, D, E, K) são apolares — atravessam os fosfolipídios por difusão simples sem proteína → ainda absorvidos. Glicose (usa GLUT), aminoácidos e a maioria dos íons dependem de carreadoras/canais → sem elas, não absorvidos. Água ainda passaria por aquaporinas (proteínas canal, distintas das carreadoras).' },
+  q13: { correct: 'c', explain: 'Dupla = dois circuitos distintos que passam pelo coração: pequena circulação (coração → pulmões → coração) e grande circulação (coração → tecidos → coração). Completa = o septo ventricular é completo em humanos, impedindo que sangue arterial e venoso se misturem — diferente de anfíbios, onde o septo é incompleto e ocorre mistura, reduzindo a eficiência do transporte de O₂.' },
+  q14: { correct: 'b', explain: 'O ventrículo esquerdo bombeia sangue pela aorta para toda a grande circulação (corpo inteiro), que apresenta alta resistência vascular periférica. Já o ventrículo direito bombeia apenas para os pulmões (pequena circulação), com muito menor resistência. A maior pressão gerada pelo ventrículo esquerdo (sistólica ~120 mmHg) exige paredes musculares mais espessas — o miocárdio é maior e mais forte do lado esquerdo.' },
+  q15: { correct: 'c', explain: 'As válvulas cardíacas são passivas — abrem e fecham por diferença de pressão. Na sístole ventricular, a pressão nos ventrículos aumenta enormemente: (1) supera a pressão dos átrios → as válvulas AV (tricúspide e mitral) fecham, evitando refluxo; (2) supera a pressão das artérias → as semilunares (pulmonar e aórtica) abrem, permitindo a ejeção do sangue. Na diástole, o processo se inverte.' },
+  q16: { correct: 'b', explain: 'Os capilares reúnem três características que os tornam ideais para trocas: (1) parede de uma única camada de células endoteliais → distância mínima para difusão de gases e nutrientes; (2) área total de secção transversal máxima → velocidade mínima do fluxo → mais tempo de contato sangue-tecido; (3) rede capilar densa → nenhuma célula fica distante de um capilar. Juntas, essas características maximizam a eficiência das trocas.' },
+  q17: { correct: 'c', explain: 'O NSA gera ~60–100 bpm. O NAV, como marcapasso de segurança, gera ~40–60 bpm. Se o impulso partir apenas do NAV, a FC cai (bradicardia). Além disso, sem ativação prévia pelo NSA, os átrios não se contraem antes dos ventrículos — perde-se o "impulso atrial" que completa o enchimento ventricular (cerca de 20–30% do volume). Isso reduz o débito cardíaco. É o quadro do bloqueio atrioventricular, frequentemente tratado com marcapasso artificial.' },
+  q18: { correct: 'b', explain: 'PA normal é ~12 × 8 (120/80 mmHg). Hipertensão é definida como PA ≥ 14 × 9 (140/90 mmHg). 15 × 10 (150/100 mmHg) está claramente acima desse limiar. Cronicamente, a pressão elevada: (1) danifica o endotélio das artérias → favorece aterosclerose → risco de infarto e AVC; (2) sobrecarrega o ventrículo esquerdo → hipertrofia → insuficiência cardíaca; (3) lesiona os glomérulos renais → insuficiência renal. É a "assassina silenciosa" pois frequentemente é assintomática.' },
 };
 
 let scoreCorrect = 0, scoreTotal = 0;
@@ -1094,7 +1502,7 @@ function updateScore() {
   const box = document.getElementById('score-box');
   box.style.display = 'block';
   document.getElementById('score-nums').textContent = `Placar: ${scoreCorrect} / ${scoreTotal}`;
-  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + scoreCorrect + ' / 12</strong>';
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + scoreCorrect + ' / 18</strong>';
   const pct = scoreTotal ? Math.round(scoreCorrect / scoreTotal * 100) : 0;
   const arc = (scoreCorrect / (scoreTotal || 1)) * 163.4;
   const donut = document.getElementById('donut-arc');
@@ -1124,7 +1532,7 @@ function resetQuiz() {
   document.getElementById('score-box').style.display = 'none';
   document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
   document.getElementById('score-pct-label').textContent = '0%';
-  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / 12</strong>';
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / 18</strong>';
   document.getElementById('mini-arc').style.strokeDashoffset = '106.8';
   document.getElementById('mini-arc').style.stroke = 'rgba(255,255,255,0.2)';
   document.getElementById('mini-pct').textContent = '—';
