@@ -1,0 +1,333 @@
+/* ═══════════════════════════════════════════════════════════
+   effects.css — Efeitos visuais opcionais
+   Portados de react-bits (https://github.com/DavidHDev/react-bits)
+   para CSS/JS puro. Ver docs/ui-recursos.md.
+
+   COMO USAR
+   1. No <head> da página, nesta ordem:
+        <link rel="stylesheet" href="styles/effects.css">
+        <script src="scripts/effects.js"></script>
+      O script vai no <head> SEM defer — ele é minúsculo e só marca
+      <html class="fx-ready"> na hora, adiando o resto para o
+      DOMContentLoaded. Com defer, os .fx-reveal apareceriam e sumiriam
+      (piscada) antes de a classe chegar.
+   2. Marque os elementos com as classes abaixo.
+   Nada aqui age sozinho — sem as classes, o arquivo é inerte.
+
+   Todo efeito consome as variáveis da página (--primary, --secondary,
+   --border, --text-light) e se desliga em prefers-reduced-motion.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────
+   1. REVELAÇÃO AO ROLAR   .fx-reveal
+   Adicione a classe; o effects.js aplica .fx-in ao entrar na viewport.
+   Variantes: .fx-reveal--left  .fx-reveal--right  .fx-reveal--blur
+   Escalonamento: .fx-stagger no pai anima os filhos em cascata.
+   ───────────────────────────────────────────── */
+/* Só esconde se o effects.js estiver vivo (ele marca <html class="fx-ready">).
+   Sem JS, o conteúdo aparece normalmente em vez de sumir. */
+.fx-ready .fx-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.7s ease;
+}
+.fx-ready .fx-reveal--left  { transform: translateX(-28px); }
+.fx-ready .fx-reveal--right { transform: translateX(28px); }
+.fx-ready .fx-reveal--blur  { filter: blur(8px); transform: translateY(12px); }
+
+.fx-ready .fx-reveal.fx-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* cascata: cada filho entra 80ms depois do anterior (até 12) */
+.fx-stagger > *:nth-child(1)  { transition-delay: 0ms; }
+.fx-stagger > *:nth-child(2)  { transition-delay: 80ms; }
+.fx-stagger > *:nth-child(3)  { transition-delay: 160ms; }
+.fx-stagger > *:nth-child(4)  { transition-delay: 240ms; }
+.fx-stagger > *:nth-child(5)  { transition-delay: 320ms; }
+.fx-stagger > *:nth-child(6)  { transition-delay: 400ms; }
+.fx-stagger > *:nth-child(7)  { transition-delay: 480ms; }
+.fx-stagger > *:nth-child(8)  { transition-delay: 560ms; }
+.fx-stagger > *:nth-child(9)  { transition-delay: 640ms; }
+.fx-stagger > *:nth-child(10) { transition-delay: 720ms; }
+.fx-stagger > *:nth-child(11) { transition-delay: 800ms; }
+.fx-stagger > *:nth-child(12) { transition-delay: 880ms; }
+
+/* ─────────────────────────────────────────────
+   2. SPOTLIGHT   .fx-spotlight
+   Brilho radial seguindo o cursor. effects.js alimenta --fx-x / --fx-y.
+   Origem: react-bits SpotlightCard
+   ───────────────────────────────────────────── */
+.fx-spotlight {
+  position: relative;
+  overflow: hidden;
+  --fx-x: 50%;
+  --fx-y: 50%;
+  --fx-spot: color-mix(in srgb, var(--primary, #7a5c3e) 22%, transparent);
+}
+.fx-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 260px at var(--fx-x) var(--fx-y),
+                              var(--fx-spot), transparent 75%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.fx-spotlight:hover::after,
+.fx-spotlight:focus-within::after { opacity: 1; }
+/* garante que o conteúdo fique acima do brilho */
+.fx-spotlight > * { position: relative; z-index: 1; }
+
+/* ─────────────────────────────────────────────
+   3. GLARE HOVER   .fx-glare
+   Reflexo diagonal cruzando o elemento no hover. CSS puro.
+   Origem: react-bits GlareHover
+   ───────────────────────────────────────────── */
+.fx-glare {
+  position: relative;
+  overflow: hidden;
+}
+.fx-glare::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    -45deg,
+    transparent 60%,
+    rgba(255, 255, 255, 0.28) 70%,
+    transparent 80%,
+    transparent 100%
+  );
+  background-size: 250% 250%;
+  background-repeat: no-repeat;
+  background-position: -100% -100%;
+  transition: background-position 0.65s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.fx-glare:hover::before { background-position: 100% 100%; }
+
+/* ─────────────────────────────────────────────
+   4. STAR BORDER   .fx-starborder
+   Brilho percorrendo a borda. CSS puro.
+   Origem: react-bits StarBorder
+   ───────────────────────────────────────────── */
+.fx-starborder {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  --fx-star: var(--secondary, #c9a227);
+  --fx-star-speed: 5s;
+}
+.fx-starborder::before,
+.fx-starborder::after {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--fx-star), transparent 12%);
+}
+.fx-starborder::before {
+  bottom: -11px;
+  right: -250%;
+  animation: fx-star-bottom var(--fx-star-speed) linear infinite alternate;
+}
+.fx-starborder::after {
+  top: -11px;
+  left: -250%;
+  animation: fx-star-top var(--fx-star-speed) linear infinite alternate;
+}
+@keyframes fx-star-bottom {
+  0%   { transform: translateX(0%);    opacity: 0.8; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+@keyframes fx-star-top {
+  0%   { transform: translateX(0%);   opacity: 0.8; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────
+   5. SHINY TEXT   .fx-shiny
+   Brilho varrendo o texto. CSS puro.
+   Origem: react-bits ShinyText
+   ───────────────────────────────────────────── */
+.fx-shiny {
+  background: linear-gradient(
+    120deg,
+    currentColor 40%,
+    color-mix(in srgb, var(--secondary, #c9a227) 90%, white) 50%,
+    currentColor 60%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fx-shine 4s linear infinite;
+}
+@keyframes fx-shine {
+  0%   { background-position: 180% 0; }
+  100% { background-position: -80% 0; }
+}
+
+/* ─────────────────────────────────────────────
+   6. GRADIENT TEXT   .fx-gradient-text
+   Gradiente animado no texto, entre --primary e --secondary.
+   Origem: react-bits GradientText
+   ───────────────────────────────────────────── */
+.fx-gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--primary, #7a5c3e),
+    var(--secondary, #c9a227),
+    var(--primary, #7a5c3e)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fx-gradient-pan 6s linear infinite;
+}
+@keyframes fx-gradient-pan {
+  to { background-position: 200% center; }
+}
+
+/* ─────────────────────────────────────────────
+   7. FUNDOS DE HERO
+   Alternativas em CSS aos shaders WebGL do react-bits.
+   Aplicar no .hero (que já tem um ::before com o padrão cross+),
+   por isso estes usam ::after.
+   ───────────────────────────────────────────── */
+
+/* 7a. Aurora suave — .fx-aurora  (alternativa a Aurora/Silk/SoftAurora) */
+.fx-aurora { position: relative; overflow: hidden; }
+.fx-aurora::after {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 30%,
+      color-mix(in srgb, var(--secondary, #c9a227) 30%, transparent), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 75% 60%,
+      color-mix(in srgb, var(--primary, #7a5c3e) 35%, transparent), transparent 62%);
+  filter: blur(48px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: fx-aurora-drift 18s ease-in-out infinite alternate;
+}
+@keyframes fx-aurora-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(4%, -3%) scale(1.08); }
+  100% { transform: translate(-3%, 4%) scale(1.03); }
+}
+
+/* 7b. Grade de pontos — .fx-dotgrid  (alternativa a DotGrid/DotField) */
+.fx-dotgrid { position: relative; }
+.fx-dotgrid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle, color-mix(in srgb, currentColor 22%, transparent) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────
+   8. BOTÃO MAGNÉTICO   .fx-magnet
+   effects.js alimenta --fx-mx / --fx-my.
+   Origem: react-bits Magnet
+   ───────────────────────────────────────────── */
+.fx-magnet {
+  --fx-mx: 0px;
+  --fx-my: 0px;
+  transform: translate(var(--fx-mx), var(--fx-my));
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─────────────────────────────────────────────
+   9. CARD INCLINADO   .fx-tilt
+   effects.js alimenta --fx-rx / --fx-ry.
+   Origem: react-bits TiltedCard
+   ───────────────────────────────────────────── */
+.fx-tilt {
+  --fx-rx: 0deg;
+  --fx-ry: 0deg;
+  transform: perspective(900px) rotateX(var(--fx-rx)) rotateY(var(--fx-ry));
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* ─────────────────────────────────────────────
+   10. EFEITOS SEM CSS — só comportamento, em scripts/effects.js
+
+   .fx-count     contador animado de 0 até o valor
+                 <span class="fx-count" data-fx-to="87">0</span>
+                 opcionais: data-fx-from, data-fx-dur, data-fx-decimals
+                 Origem: react-bits CountUp
+
+   .fx-scramble  texto embaralhado que se resolve letra a letra
+                 <h1 class="fx-scramble">Biologia</h1>
+                 opcional: data-fx-speed (ms por quadro)
+                 Origem: react-bits DecryptedText
+
+   .fx-spark     faíscas no ponto do clique
+                 <button class="fx-spark">Responder</button>
+                 Origem: react-bits ClickSpark
+
+   Os três respeitam prefers-reduced-motion no próprio JS.
+   ───────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────
+   ACESSIBILIDADE — desliga tudo que se move
+   ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .fx-ready .fx-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+  .fx-starborder::before,
+  .fx-starborder::after,
+  .fx-shiny,
+  .fx-gradient-text,
+  .fx-aurora::after {
+    animation: none !important;
+  }
+  .fx-shiny,
+  .fx-gradient-text {
+    background: none;
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+  }
+  .fx-glare::before { transition: none; }
+  .fx-magnet, .fx-tilt { transform: none !important; transition: none; }
+}
+
+/* ─────────────────────────────────────────────
+   IMPRESSÃO — nenhum efeito no papel
+   ───────────────────────────────────────────── */
+@media print {
+  .fx-ready .fx-reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .fx-spotlight::after,
+  .fx-glare::before,
+  .fx-starborder::before,
+  .fx-starborder::after,
+  .fx-aurora::after,
+  .fx-dotgrid::after { display: none !important; }
+  .fx-shiny, .fx-gradient-text {
+    background: none; color: inherit; -webkit-text-fill-color: currentColor;
+  }
+}
