@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geografia — Continente Americano | 2º Trimestre | Caderno Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="config.js"></script>
+  <link rel="stylesheet" href="styles/shared.css">
+  <link rel="stylesheet" href="styles/effects.css">
+  <script src="scripts/effects.js"></script>
+  <style>
+    :root {
+      --primary: #1a3a5c;
+      --secondary: #2e6da4;
+      --accent: #2980b9;
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
+      --text: #1a2332;
+      --text-muted: #5a6a7e;
+      --border: #c8d8e8;
+      --highlight-bg: #e8f1f8;
+      --highlight-border: #2e6da4;
+      --warning-bg: #fdf3e3;
+      --warning-border: #e67e22;
+      --tip-bg: #eafaf1;
+      --tip-border: #27ae60;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--secondary); z-index: 999; width: 0%; transition: width 0.1s; }
+
+    .hero {
+      background: linear-gradient(135deg, #0d2240 0%, #1a3a5c 50%, #0a1826 100%);
+      color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem,5vw,3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+    .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 300; position: relative; }
+    .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+    .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+    nav { background: white; border-bottom: 2px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    nav .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+    nav .nav-inner::-webkit-scrollbar { display: none; }
+    nav a { text-decoration: none; padding: 14px 20px; font-weight: 600; font-size: 0.85rem; white-space: nowrap; color: var(--text-muted); border-bottom: 3px solid transparent; transition: all 0.3s; }
+    nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ── Main layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* ── Chapter headers ── */
+    .chapter-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 36px 0 18px;
+    }
+    .chapter-number {
+      background: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .95rem;
+      flex-shrink: 0;
+    }
+    .chapter-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+  
+  /* ── Accordion ── */
+    .accordion {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .accordion-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      transition: background .2s;
+    }
+    .accordion-btn:hover { background: var(--highlight-bg); }
+    .accordion-btn .chevron {
+      transition: transform .3s;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    .accordion.open .chevron { transform: rotate(180deg); }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+    .accordion.open .accordion-body { max-height: 3000px; }
+    .accordion-inner {
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border);
+    }
+    .accordion-inner p { margin-bottom: 12px; }
+    .accordion-inner ul, .accordion-inner ol {
+      margin: 0 0 12px 22px;
+    }
+    .accordion-inner li { margin-bottom: 6px; }
+    .accordion-inner h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin: 16px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    /* ── Info boxes ── */
+    .highlight, .warning, .tip {
+      border-left: 4px solid;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: .95rem;
+    }
+    .highlight { background: var(--highlight-bg); border-color: var(--highlight-border); }
+    .warning   { background: var(--warning-bg);   border-color: var(--warning-border); }
+    .tip       { background: var(--tip-bg);        border-color: var(--tip-border); }
+    .highlight strong, .warning strong, .tip strong { display: block; margin-bottom: 4px; }
+
+    /* ── Tables ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: .9rem;
+    }
+    .data-table th {
+      background: var(--primary);
+      color: white;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table tr:nth-child(even) td { background: var(--highlight-bg); }
+
+    /* ── Timeline ── */
+    .timeline { margin: 14px 0; }
+    .timeline-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .timeline-year {
+      background: var(--primary);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: .8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .timeline-text { font-size: .93rem; }
+
+    /* ── Images ── */
+    .slide-img {
+      width: 100%;
+      max-width: 580px;
+      display: block;
+      margin: 14px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+    }
+    .img-caption {
+      text-align: center;
+      font-size: .8rem;
+      color: var(--text-muted);
+      margin: -8px auto 14px;
+    }
+
+    /* ── Quiz ── */
+    #quiz-section {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin: 40px 0;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+    }
+    #quiz-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    #quiz-section > p { color: var(--text-muted); margin-bottom: 20px; }
+
+    .quiz-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .filter-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: white;
+      color: var(--text-muted);
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .question-card {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: border-color .2s;
+    }
+    .question-card.hidden { display: none; }
+    .question-card h4 {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+    .options { display: flex; flex-direction: column; gap: 8px; }
+    .option-btn {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: all .2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .option-btn:hover { border-color: var(--accent); background: var(--highlight-bg); }
+    .option-btn.correct { background: #d4edda; border-color: #27ae60; color: #155724; }
+    .option-btn.wrong   { background: #f8d7da; border-color: #e74c3c; color: #721c24; }
+
+    .quiz-result {
+      display: none;
+      text-align: center;
+      padding: 24px;
+    }
+    .donut-wrap { position: relative; width: 130px; height: 130px; margin: 0 auto 16px; }
+    .donut-wrap svg { transform: rotate(-90deg); }
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .donut-score { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+    .donut-label { font-size: .75rem; color: var(--text-muted); }
+    .result-msg { font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    .result-sub { font-size: .9rem; color: var(--text-muted); margin-bottom: 20px; }
+    .btn-reset {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 8px;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background .2s;
+    }
+    .btn-reset:hover { background: var(--secondary); }
+
+    .quiz-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+    .score-left { display:flex; align-items:center; gap:12px; }
+    .mini-donut-wrap { position:relative; width:44px; height:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+    .mini-donut-wrap svg { position:absolute; top:0; left:0; }
+    #mini-pct { position:relative; font-size:0.65rem; font-weight:800; color:#aaa; line-height:1; }
+    .score-live { font-size:0.9rem; font-weight:600; color:var(--primary); background:var(--bg); padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); }
+    .btn-reset-mid { background:none; border:1.5px solid var(--border); color:var(--text-muted); padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all .2s; }
+    .btn-reset-mid:hover { border-color:var(--primary); color:var(--primary); }
+    .answer-exp { display:none; align-items:flex-start; gap:8px; margin-top:10px; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px; padding:10px 14px; font-size:0.87rem; color:#1b5e20; line-height:1.5; }
+
+    /* ── Chat flutuante ── */
+    #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+    #chat-btn:hover { transform:scale(1.08); }
+    #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+    #chat-panel.open { display:flex; }
+    #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+    #chat-head span { font-weight:600; font-size:0.92rem; }
+    #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+    #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+    .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+    .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+    .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+    .cmsg.loading { opacity:0.6; font-style:italic; }
+    #chat-form { display:flex; border-top:1px solid var(--border); }
+    #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+    #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+    #chat-send:hover { background:var(--secondary); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      font-size: .82rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 20px 14px 40px; }
+      .container { padding: 20px 14px 40px; }
+    }
+  
+    /* ── Globo no hero ── */
+    .hero .globe-wrap {
+      max-width: 340px;
+      margin: 28px auto 0;
+      position: relative;
+      --globe-land: #ffffff;
+      --globe-water: #7fa8cc;
+      --globe-marker: #6ec1e4;
+      --globe-label: #ffffff;
+    }
+    .hero .globe-caption {
+      position: relative;
+      font-size: .78rem;
+      opacity: .6;
+      margin-top: 4px;
+      color: #fff;
+    }
+    @media (max-width: 600px) { .hero .globe-wrap { max-width: 260px; } }
+
+    /* no canto, o fundo é claro: o branco do hero sumiria */
+    .hero .globe-wrap.is-mini {
+      --globe-land: #1a3a5c;
+      --globe-water: #b9cee0;
+      --globe-marker: #2e6da4;
+      --globe-label: #ffffff;
+    }
+
+    /* tabelas largas rolam sozinhas em vez de estourar a página */
+    .accordion-inner { overflow-x: auto; }
+    .data-table { min-width: 100%; }
+  </style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero fx-aurora">
+  <h1>Geografia — Continente Americano</h1>
+  <p class="subtitle">2ª série do Ensino Médio · 2º Trimestre · 2026</p>
+  <div><span class="badge">América Anglo-Saxônica &amp; América Latina</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+
+  <div class="globe-wrap globe-sticky" id="globeWrap">
+    <canvas class="globe"
+            data-globe-tilt="12"
+            data-globe-lon="-85"
+            data-globe-markers="38.90,-77.04,Washington|45.42,-75.70,Ottawa|19.43,-99.13,Cidade do México|8.98,-79.52,Canal do Panamá|23.11,-82.37,Havana|-12.05,-77.04,Lima|-16.50,-68.15,La Paz|-34.60,-58.38,Buenos Aires|-33.45,-70.67,Santiago|-15.79,-47.88,Brasília"></canvas>
+  </div>
+  <p class="globe-caption">Arraste o globo para girar · as capitais estudadas estão marcadas</p>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#visao">Visão Geral</a>
+    <a href="#anglo">Anglo-Saxônica</a>
+    <a href="#eua">EUA</a>
+    <a href="#canada">Canadá</a>
+    <a href="#latina">América Latina</a>
+    <a href="#mexico">México</a>
+    <a href="#central">A. Central</a>
+    <a href="#andina">A. Andina</a>
+    <a href="#platina">A. Platina</a>
+    <a href="#blocos">Blocos</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <div class="tip fx-reveal">
+    <strong>O que cai na prova:</strong> regiões do continente americano — América Anglo-Saxônica
+    (EUA e Canadá), características gerais da América Latina, México, América Central
+    (continental e insular, com as questões geopolíticas), América Andina e América Platina.
+    Em cada região, três frentes: <strong>ambiente físico, humano e econômico</strong>.
+  </div>
+
+  <!-- ═══════════ 1. VISÃO GERAL ═══════════ -->
+  <div class="chapter-header fx-reveal" id="visao" data-globe-focus="15,-80" style="scroll-margin-top:64px">
+    <div class="chapter-number">1</div>
+    <h2>Visão Geral da América</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Números e as três regionalizações
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>A América é o <strong>segundo maior continente</strong> em extensão: mais de
+      42 milhões de km² e cerca de 950 milhões de habitantes. É banhada pelos oceanos
+      Atlântico e Pacífico, além dos glaciais Ártico e Antártico. Foi chamada de
+      <em>Novo Mundo</em> pelos europeus a partir do fim do século XV.</p>
+
+      <p>O continente pode ser regionalizado por <strong>três critérios diferentes</strong> —
+      e é justamente aí que costuma cair pegadinha de prova:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Critério</th><th>Divisão</th><th>Base</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Localização geográfica</strong></td>
+            <td>América do Norte · Central (ístmica e insular) · do Sul</td>
+            <td>Posição física; dois blocos unidos por um istmo</td>
+          </tr>
+          <tr>
+            <td><strong>Histórico-cultural</strong></td>
+            <td>América Anglo-Saxônica · América Latina</td>
+            <td>Tipo de colonização e língua do colonizador</td>
+          </tr>
+          <tr>
+            <td><strong>Socioeconômico</strong></td>
+            <td>Desenvolvidos · Subdesenvolvidos</td>
+            <td>Grau de desenvolvimento</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <strong>Anglo-Saxônica × Latina.</strong> EUA e Canadá foram <strong>colônias de
+        povoamento</strong>, sobretudo de ingleses — formam a América Anglo-Saxônica.
+        Os demais países foram <strong>colônias de exploração</strong> de povos latinos
+        (portugueses e espanhóis) — formam a América Latina.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      O caso do México — a questão clássica de prova
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>O México é o exemplo perfeito de como o critério muda a resposta:</p>
+      <ul>
+        <li><strong>Pelo critério físico-natural</strong> → está na <strong>América do Norte</strong>,
+        por ter semelhanças de relevo e clima com EUA e Canadá.</li>
+        <li><strong>Pelo critério histórico-cultural</strong> → é <strong>América Latina</strong>:
+        colônia de exploração espanhola, língua latina, economia agroexportadora.</li>
+      </ul>
+      <p>Além disso, por questões estratégicas, integra o <strong>USMCA</strong> (antigo NAFTA)
+      junto com EUA e Canadá.</p>
+      <div class="warning">
+        <strong>Cuidado:</strong> México ser América do Norte <em>e</em> América Latina ao mesmo
+        tempo não é contradição — são critérios diferentes. Se a questão falar em posição
+        física, é América do Norte; se falar em colonização ou cultura, é América Latina.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Tectônica de placas e o relevo americano
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>Duas dinâmicas opostas explicam o relevo do continente:</p>
+      <ul>
+        <li><strong>A leste — afastamento.</strong> Sob o Atlântico está a
+        <strong>Dorsal Meso-Atlântica</strong>, um sistema de falhamento por onde aflora magma.
+        Isso expande o assoalho oceânico e <em>afasta</em> a América da África.</li>
+        <li><strong>A oeste — choque.</strong> As placas americanas colidem com a do Pacífico
+        (e a de Nazca), que sofre <strong>subducção</strong>. Daí nascem os
+        <strong>dobramentos modernos</strong>: Montanhas Rochosas ao norte e
+        Cordilheira dos Andes ao sul.</li>
+      </ul>
+      <div class="highlight">
+        Na costa oeste dos EUA está a <strong>Falha de San Andreas</strong> — cerca de 1.290 km
+        pela Califórnia. É um <strong>limite transformante</strong> (as placas deslizam lado a
+        lado) entre a Placa do Pacífico e a Norte-Americana, e epicentro de terremotos frequentes.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Correntes marítimas
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>As correntes explicam clima, desertos e pesca — caem muito em questão de mapa.</p>
+      <table class="data-table">
+        <thead><tr><th>Tipo</th><th>Oceano</th><th>Correntes</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2"><strong>Quentes</strong></td><td>Atlântico</td>
+              <td>do Brasil · das Guianas · do Golfo</td></tr>
+          <tr><td>Pacífico</td><td>do Pacífico Norte</td></tr>
+          <tr><td rowspan="2"><strong>Frias</strong></td><td>Atlântico</td>
+              <td>das Falklands (Malvinas)</td></tr>
+          <tr><td>Pacífico</td><td>de Humboldt · da Califórnia</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>Regra de ouro:</strong> corrente <strong>fria</strong> impede a chegada de ventos
+        úmidos ao litoral e gera <strong>deserto</strong> — Atacama (Chile) pela de Humboldt,
+        e a Península da Califórnia (México) pela da Califórnia. Corrente fria também é
+        sinônimo de <strong>pesca abundante</strong>: Humboldt faz do Peru e do Chile grandes
+        produtores de pescado.
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 2. ANGLO-SAXÔNICA ═══════════ -->
+  <div class="chapter-header fx-reveal" id="anglo" data-globe-focus="50,-100" style="scroll-margin-top:64px">
+    <div class="chapter-number">2</div>
+    <h2>América Anglo-Saxônica — Quadro Natural</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Relevo: as três porções (oeste, centro, leste)
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>O relevo da América Anglo-Saxônica se organiza em três faixas no sentido
+      oeste→leste. Saber essa sequência resolve qualquer questão de perfil topográfico:</p>
+      <table class="data-table">
+        <thead><tr><th>Porção</th><th>Formação</th><th>Exemplos</th><th>Recursos</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Ocidental</strong></td>
+            <td>Dobramentos modernos (recentes, elevados, instáveis)</td>
+            <td>Montanhas Rochosas, Cadeia da Costa, Planalto do Colorado.
+                Monte McKinley (Alasca), +6.000 m</td>
+            <td>Metais e hidroeletricidade</td>
+          </tr>
+          <tr>
+            <td><strong>Central</strong></td>
+            <td>Bacias sedimentares recentes (deposição de rios e lagos)</td>
+            <td>Grandes Planícies — do Mississipi-Missouri (EUA) e do São Lourenço (Canadá)</td>
+            <td>Solos férteis e petróleo</td>
+          </tr>
+          <tr>
+            <td><strong>Oriental</strong></td>
+            <td>Maciços antigos, muito desgastados pela erosão (baixa altitude)</td>
+            <td>Escudo Canadense (com Planalto do Labrador) e Montes Apalaches</td>
+            <td>Minérios metálicos e carvão mineral</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight">
+        <strong>Perfil longitudinal dos EUA (Pacífico → Atlântico):</strong>
+        1. Cadeia da Costa → 2. Planalto do Colorado → 3. Montanhas Rochosas →
+        4. Planícies Centrais → 5. Rio Mississipi → 6. Montes Apalaches.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Hidrografia: os rios que você precisa saber
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>O relevo comanda a hidrografia: as bacias voltadas para o <strong>Atlântico são mais
+      desenvolvidas</strong>, enquanto na vertente do Pacífico os rios são curtos, rápidos e
+      irregulares — barrados pelas cordilheiras.</p>
+      <table class="data-table">
+        <thead><tr><th>Rio</th><th>Por que importa</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mississipi</strong></td>
+              <td>~5.620 km, corta os EUA no sentido norte-sul. Navegável em quase toda a
+                  extensão — uma das hidrovias mais movimentadas do mundo. Atravessa a
+                  principal região agrícola e escoa a produção até o porto de Nova Orleans.</td></tr>
+          <tr><td><strong>São Lourenço</strong></td>
+              <td>Nasce nos Grandes Lagos (Lago Ontário) e liga a região ao Atlântico.
+                  Via de transporte central para a economia canadense e a ocupação do Quebec.</td></tr>
+          <tr><td><strong>Rio Grande</strong></td>
+              <td>Fronteira natural EUA–México. Atravessa área semiárida e desemboca no
+                  Golfo do México. Marcado pela imigração clandestina.</td></tr>
+          <tr><td><strong>Colorado</strong></td>
+              <td>Rio de planalto, nasce nas Rochosas e esculpiu o <strong>Grand Canyon</strong>.
+                  Grande atividade turística.</td></tr>
+          <tr><td><strong>Mackenzie</strong></td>
+              <td>Principal rio de alta latitude; deságua no Ártico. Caudaloso, mas
+                  <strong>congela no inverno</strong>, o que limita a navegação.</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>Grandes Lagos</strong> — formados na última Era Glacial, entre EUA e Canadá:
+        <strong>S</strong>uperior, <strong>H</strong>uron, <strong>O</strong>ntário,
+        <strong>E</strong>rie e <strong>M</strong>ichigan (mnemônico: <em>SHOEM</em>).
+        O <strong>Michigan é o único totalmente estadunidense</strong> — essa é a pegadinha
+        clássica. Destaque para navegação, energia e enorme adensamento populacional e industrial.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Clima e vegetação — tabela completa
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <table class="data-table">
+        <thead><tr><th>Clima</th><th>Onde</th><th>Característica</th><th>Vegetação</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Polar</strong></td><td>Extremo norte do Canadá e Alasca</td>
+              <td>Muito frio e seco; verões curtos que só descongelam o solo</td>
+              <td><strong>Tundra</strong> — musgos e liquens, cor amarelada, serve de pasto</td></tr>
+          <tr><td><strong>Temperado Frio</strong></td><td>Centro-norte do Canadá, parte do Alasca</td>
+              <td>Frio, grande amplitude térmica, ~6 meses de inverno rigoroso</td>
+              <td><strong>Floresta Boreal de Coníferas</strong> — homogênea, aciculifoliada
+                  (folhas em agulha). Base da indústria madeireira canadense</td></tr>
+          <tr><td><strong>Temperado Continental</strong></td><td>Centro dos EUA e centro-sul do Canadá</td>
+              <td>Alta amplitude térmica; chuvas concentradas no verão e primavera</td>
+              <td><strong>Pradarias</strong> (planícies centrais) — onde fica o Wheat Belt</td></tr>
+          <tr><td><strong>Temperado Oceânico</strong></td><td>Sudoeste do Canadá e noroeste dos EUA (costa do Pacífico)</td>
+              <td>Úmido, quatro estações bem definidas, amplitude menor</td>
+              <td><strong>Floresta Temperada</strong> — folhas largas, caducas
+                  (caem no inverno; ficam avermelhadas no outono)</td></tr>
+          <tr><td><strong>Semiárido</strong></td><td>Sudoeste dos EUA</td>
+              <td>Grande amplitude térmica, pouca chuva</td>
+              <td><strong>Estepes</strong> (semiárido) e <strong>xerófitas</strong> (árido)</td></tr>
+          <tr><td><strong>Mediterrâneo</strong></td><td>Pequenas áreas da costa do Pacífico (Califórnia)</td>
+              <td>Verões quentes e secos, invernos chuvosos e amenos</td>
+              <td>Arbustos de folhas duras: <strong>maquis</strong> (fechada) e
+                  <strong>garrigues</strong> (aberta). Solos rasos e pedregosos</td></tr>
+          <tr><td><strong>De Montanha</strong></td><td>Montanhas Rochosas</td>
+              <td>Varia com a altitude (reduz temperatura e umidade)</td>
+              <td>Vegetação em andares: floresta temperada → coníferas → campos → neve</td></tr>
+          <tr><td><strong>Subtropical</strong></td><td>Sudeste dos EUA (Flórida)</td>
+              <td>Verões quentes, invernos amenos, chuvoso o ano todo</td>
+              <td>Vegetação complexa do tipo tropical</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Quadro humano: onde está — e onde não está — a população
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p><strong>Grandes concentrações demográficas:</strong></p>
+      <ul>
+        <li>Norte e Nordeste dos EUA — megalópoles <strong>BOSWASH</strong>
+        (Boston–Nova Iorque–Washington) e <strong>CHIPITTS</strong> (Chicago–Detroit–Pittsburgh)</li>
+        <li>Leste dos EUA</li>
+        <li>Sudeste do Canadá (Grandes Lagos e vale do São Lourenço)</li>
+        <li>Costa oeste — megalópole <strong>SAN-SAN</strong> (São Francisco a San Diego)</li>
+      </ul>
+      <p><strong>Vazios demográficos</strong> — e a explicação de cada um:</p>
+      <ul>
+        <li><strong>Norte do Canadá</strong> — clima polar, altas latitudes</li>
+        <li><strong>Montanhas Rochosas</strong> — relevo acidentado</li>
+        <li><strong>Desertos do sudoeste dos EUA</strong> — aridez</li>
+      </ul>
+      <div class="tip">
+        <strong>Megalópole</strong> = área urbana contínua com mais de 10 milhões de habitantes
+        (semelhante a conurbação). Não confunda com <strong>metrópole</strong>, que é o núcleo
+        urbano concentrador de pessoas, recursos e serviços especializados.
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 3. EUA ═══════════ -->
+  <div class="chapter-header fx-reveal" id="eua" data-globe-focus="39,-98" style="scroll-margin-top:64px">
+    <div class="chapter-number">3</div>
+    <h2>Estados Unidos</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Ficha e formação territorial
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <table class="data-table">
+        <tbody>
+          <tr><td><strong>Área</strong></td><td>9.833.520 km²</td></tr>
+          <tr><td><strong>População</strong></td><td>~340,3 milhões (US Census, 2024)</td></tr>
+          <tr><td><strong>Densidade</strong></td><td>36,4 hab./km²</td></tr>
+          <tr><td><strong>Crescimento demográfico</strong></td><td>0,1%</td></tr>
+          <tr><td><strong>PIB</strong></td><td>US$ 28,7 trilhões (2024)</td></tr>
+          <tr><td><strong>Capital / Governo</strong></td><td>Washington D.C. · Presidencialismo · 50 estados</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>As 13 colônias e a diferença entre norte e sul</strong> — essa divisão explica
+      a Guerra de Secessão e a economia americana até hoje:</p>
+      <table class="data-table">
+        <thead><tr><th>Colônias do Norte</th><th>Colônias do Sul</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Colônias de <strong>povoamento</strong></td>
+            <td>Colônias de <strong>exploração</strong></td>
+          </tr>
+          <tr>
+            <td>Paisagens semelhantes às da Europa; clima temperado</td>
+            <td>Paisagens subtropicais</td>
+          </tr>
+          <tr>
+            <td>Pequena e média propriedade; comércio local; primeiras cidades e portos</td>
+            <td>Modelo de <strong>plantation</strong>: latifúndio, monocultura,
+                mão de obra escravizada</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>O clima temperado do norte <strong>não permitia culturas tropicais</strong> valorizadas
+      na Europa, nem havia metais preciosos — por isso a produção se voltou para a própria
+      população, criando <strong>mercado consumidor interno</strong>. É esse o alicerce do
+      crescimento econômico posterior.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">1776</span>
+          <span class="timeline-text">Independência das 13 colônias, com apoio militar francês
+          (contexto: Guerra dos Sete Anos)</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1788</span>
+          <span class="timeline-text">Constituição americana, de base iluminista</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">séc. XIX</span>
+          <span class="timeline-text">1ª fase da expansão — até o Mississipi: compra da Flórida
+          (Espanha), da Louisiana (França) e acordos com a Inglaterra (Grandes Lagos)</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1846-48</span>
+          <span class="timeline-text">2ª fase — Guerra contra o México: anexação do Texas,
+          Novo México e Califórnia. Oregon vem por acordo com a Inglaterra</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1862</span>
+          <span class="timeline-text"><strong>Homestead Act</strong> — lei de Lincoln que garantia
+          terras a famílias que ocupassem o oeste (65 a 260 hectares)</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1861-65</span>
+          <span class="timeline-text">Guerra de Secessão — Norte industrial e antiescravista
+          vence o Sul agrário e escravista</span>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>Destino Manifesto</strong> — ideologia de base protestante calvinista que
+        justificava a expansão para o oeste como missão divina. Vem junto com a figura do
+        cowboy, a construção de ferrovias e os conflitos com os povos indígenas.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      População, WASP, negros e hispânicos
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>O crescimento populacional resulta do <strong>crescimento vegetativo</strong>
+      (natalidade − mortalidade) somado ao <strong>crescimento horizontal</strong>
+      (imigrantes − emigrantes).</p>
+      <table class="data-table">
+        <thead><tr><th>Grupo</th><th>%</th></tr></thead>
+        <tbody>
+          <tr><td>Brancos</td><td>59,3</td></tr>
+          <tr><td>Hispânicos e latinos</td><td>18,9</td></tr>
+          <tr><td>Negros</td><td>12,6</td></tr>
+          <tr><td>Asiáticos</td><td>5,9</td></tr>
+          <tr><td>Mestiços de dois ou mais grupos</td><td>2,3</td></tr>
+          <tr><td>Índios americanos</td><td>0,7</td></tr>
+          <tr><td>Nativos do Havaí</td><td>0,2</td></tr>
+        </tbody>
+      </table>
+      <p><strong>WASP</strong> (<em>White, Anglo-Saxon and Protestant</em>) — a elite de brancos,
+      anglo-saxões e protestantes, descendentes de ingleses, escoceses e irlandeses.
+      É o "comportamento padrão" estadunidense.</p>
+      <p><strong>Hispânicos/latinos</strong> — americanos de origem espanhola ou latino-americana:
+      mexicanos, porto-riquenhos, cubanos, salvadorenhos e outros. É o grupo que mais cresce.</p>
+      <p><strong>A população negra:</strong></p>
+      <ul>
+        <li>Fim do século XIX: 90% dos negros do Sul viviam sob forte discriminação, sem amparo legal</li>
+        <li>Após a Guerra de Secessão a segregação persistiu no Sul, com grupos racistas como a
+        <strong>Ku Klux Klan</strong>; metrópoles do Nordeste e Oeste passam a receber migrantes negros</li>
+        <li>Anos 1960: luta e conquista dos direitos civis, com destaque para
+        <strong>Martin Luther King</strong></li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Imigração — os períodos
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>Os EUA são o <strong>primeiro país do mundo em número de imigrantes</strong>
+      (~45 milhões); o Canadá é o segundo (~5 milhões).</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">1850-1900</span>
+          <span class="timeline-text"><strong>Destino rural.</strong> Ingleses, irlandeses
+          (Grande Fome de 1845-49), escoceses, alemães, suecos, eslavos e italianos.
+          Ocupação do oeste do Mississipi via Homestead Act</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1900-1930</span>
+          <span class="timeline-text"><strong>Destino urbano.</strong> Metrópoles industriais do
+          norte e nordeste; atividades urbanas e formação de guetos</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1930</span>
+          <span class="timeline-text"><strong>Restrições.</strong> Crise de 1929 e Grande Depressão;
+          discriminação de mediterrâneos, eslavos, chineses e judeus; sindicatos rejeitam a
+          concorrência do imigrante</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1945-1973</span>
+          <span class="timeline-text"><strong>Pós-guerra.</strong> Grande aumento dos fluxos
+          (legais e clandestinos), com predomínio de latino-americanos.
+          Cubanos a partir da Revolução de 1959</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1980→</span>
+          <span class="timeline-text">Intensificação do fluxo mexicano pela fronteira</span>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Eleição americana — voto indireto e Colégio Eleitoral
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>Os EUA são uma <strong>República Federalista Presidencialista</strong>. O voto
+      <strong>não é obrigatório e é indireto</strong>: o cidadão elege delegados, e são eles
+      que votam no presidente.</p>
+      <ul>
+        <li><strong>Primárias (prévias)</strong> em cada estado escolhem o candidato de cada
+        partido — os dois majoritários são o <strong>Democrata</strong> e o
+        <strong>Republicano</strong>. Cada estado decide o formato: abertas, fechadas, livres
+        ou do tipo <em>cáucus</em>. O escolhido é confirmado na Convenção Partidária</li>
+        <li>Cada estado tem um número de delegados proporcional à população, com
+        <strong>mínimo de 3</strong>. Ao todo são <strong>540 delegados</strong>; para vencer é
+        preciso <strong>271</strong> (metade mais um)</li>
+      </ul>
+      <div class="warning">
+        <strong>Consequência do sistema:</strong> é possível ser eleito <em>sem</em> ter a maioria
+        dos votos populares. Em <strong>2000</strong>, Al Gore teve mais votos populares
+        (51.003.926) que George W. Bush (50.460.110), mas Bush venceu no Colégio Eleitoral
+        por 271 a 266. No Brasil, com voto direto, isso não acontece.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Agricultura: os <em>belts</em> (cinturões)
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>A agricultura é só <strong>3% da renda nacional</strong>, mas com enorme volume,
+      intensa mecanização e alta produtividade. A marca é a
+      <strong>especialização regional</strong> em <em>belts</em> — a localização de cada um
+      depende de clima, relevo e proximidade do mercado consumidor.</p>
+      <table class="data-table">
+        <thead><tr><th>Belt</th><th>Onde / o quê</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Dry Farming</strong></td><td>Agricultura irrigada em áreas secas da Califórnia</td></tr>
+          <tr><td><strong>Ranch Belt</strong></td><td>Pecuária extensiva em áreas secas e montanhosas</td></tr>
+          <tr><td><strong>Wheat Belt</strong> (trigo)</td><td>Sul: cultivo o ano inteiro · Norte: trigo de primavera</td></tr>
+          <tr><td><strong>Dairy Belt</strong> (laticínios)</td><td>Junto ao mercado consumidor do Nordeste</td></tr>
+          <tr><td><strong>Corn Belt</strong> (milho)</td><td>Produção agroindustrial em grande escala; rações e exportação</td></tr>
+          <tr><td><strong>Cotton Belt</strong> (algodão)</td><td>Produção histórica; abastece indústrias alimentícia, têxtil e farmacêutica</td></tr>
+          <tr><td><strong>Fruit Belt</strong> (fruticultura)</td><td>Sul do país (climas quentes); trabalho de imigrantes latino-americanos</td></tr>
+        </tbody>
+      </table>
+      <div class="warning">
+        Apesar de defenderem o livre mercado, os EUA são
+        <strong>protecionistas na agricultura</strong>: barreiras alfandegárias, sanções e
+        embargos para proteger o produtor rural — inclusive contra produtos brasileiros.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Indústria, energia e as regiões econômicas
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p><strong>Manufacturing Belt × Sun Belt</strong> — a comparação mais cobrada:</p>
+      <table class="data-table">
+        <thead><tr><th></th><th>Manufacturing Belt</th><th>Sun Belt</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Quando</strong></td><td>Século XIX (primeira região industrial)</td>
+              <td>Após a 2ª Guerra Mundial (contexto: Guerra Fria)</td></tr>
+          <tr><td><strong>Onde</strong></td><td>Nordeste dos EUA</td><td>Texas e Califórnia</td></tr>
+          <tr><td><strong>O quê</strong></td>
+              <td>1ª e 2ª revoluções industriais: siderurgia (Pittsburgh),
+                  automobilística (Detroit)</td>
+              <td>3ª revolução industrial: aeroespacial (Texas, NASA) e alta tecnologia
+                  (Vale do Silício, Califórnia)</td></tr>
+          <tr><td><strong>Mão de obra</strong></td>
+              <td>Nativa e imigrante → formou a classe média americana</td>
+              <td>Altamente qualificada — MIT, Stanford, Yale, Harvard</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Fatores da industrialização:</strong> recursos minerais (carvão nos Apalaches,
+      ferro nos Grandes Lagos), energia, mão de obra e mercado consumidor. As
+      <strong>duas guerras mundiais</strong> foram decisivas: as indústrias europeias foram
+      arrasadas, e as americanas — geograficamente distantes — não só ficaram intactas como
+      passaram a abastecer a Europa no pós-guerra.</p>
+
+      <p><strong>Energia:</strong> os EUA são os maiores produtores <em>e</em> consumidores do
+      mundo — consomem 22% da energia mundial e são o maior importador de combustíveis.</p>
+      <table class="data-table">
+        <thead><tr><th>Fonte</th><th>%</th></tr></thead>
+        <tbody>
+          <tr><td>Petróleo</td><td>40</td></tr>
+          <tr><td>Gás natural</td><td>23</td></tr>
+          <tr><td>Carvão mineral</td><td>22</td></tr>
+          <tr><td>Nuclear</td><td>8</td></tr>
+          <tr><td>Renováveis</td><td>7</td></tr>
+        </tbody>
+      </table>
+      <p>Hidrelétricas predominam no oeste (bacias do Columbia e Colorado, 12% da produção
+      mundial); termelétricas no Nordeste; nuclear responde por 30,7% da produção mundial,
+      com urânio das Rochosas.</p>
+
+      <p><strong>As cinco regiões econômicas:</strong></p>
+      <table class="data-table">
+        <thead><tr><th>Região</th><th>Destaques</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Costa do Pacífico</strong></td>
+              <td>Indústria cultural (Los Angeles), berço da revolução tecnológica,
+                  indústrias de ponta, grande atração de imigrantes</td></tr>
+          <tr><td><strong>Oeste</strong></td>
+              <td>Montanhas Rochosas; pecuária extensiva e turismo de inverno</td></tr>
+          <tr><td><strong>Grandes Planícies</strong></td>
+              <td>Solos férteis, agricultura moderna, destaque agroindustrial</td></tr>
+          <tr><td><strong>Nordeste</strong></td>
+              <td>Grandes metrópoles, Washington D.C., sedes de empresas, organismos
+                  internacionais, bancos e mercado financeiro</td></tr>
+          <tr><td><strong>Sul</strong></td>
+              <td>Turismo e escritórios na Flórida; petróleo e petroquímica no Texas;
+                  novas tecnologias e NASA</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 4. CANADÁ ═══════════ -->
+  <div class="chapter-header fx-reveal" id="canada" data-globe-focus="58,-106" style="scroll-margin-top:64px">
+    <div class="chapter-number">4</div>
+    <h2>Canadá</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Ficha, território e o Quebec
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <table class="data-table">
+        <tbody>
+          <tr><td><strong>Área</strong></td>
+              <td>9.970.610 km² — <strong>2º maior país do mundo</strong> (o 1º é a Rússia)</td></tr>
+          <tr><td><strong>População</strong></td><td>39,5 milhões · apenas <strong>3 hab./km²</strong></td></tr>
+          <tr><td><strong>Capital</strong></td><td>Ottawa, na província de Ontário</td></tr>
+          <tr><td><strong>Divisão</strong></td><td>10 províncias + 3 territórios</td></tr>
+          <tr><td><strong>Crescimento</strong></td><td>1,9% (2021/22) — bem acima dos EUA</td></tr>
+          <tr><td><strong>IDH</strong></td><td>0,936 (muito alto) · expectativa de vida 82,9 anos</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Composição da população:</strong> 40% britânicos · 27% franceses ·
+      23% outras nacionalidades europeias · 8% outros imigrantes ·
+      2% grupos autóctones.</p>
+      <div class="highlight">
+        <strong>Nunavut</strong> — território criado em abril de 1999, cerca de 20% das terras do
+        país. O nome significa "nossa terra" na língua inuktitut do povo <strong>Inuit</strong>.
+      </div>
+      <div class="tip">
+        <strong>O separatismo do Quebec.</strong> Movimento nacionalista na província francófona,
+        sustentado por forte identidade cultural francesa. Houve plebiscitos em
+        <strong>1980 e 1995</strong> — ambos derrotados nas urnas, mas o de 1995 por margem
+        mínima. O tema segue vivo na política canadense.
+      </div>
+      <p><strong>Independência tardia:</strong> o Canadá foi domínio britânico e só se tornou
+      independente em <strong>1931</strong> (Estatuto de Westminster). A última província
+      anexada foi a Terra Nova, em 1949.</p>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Economia e as cinco regiões geoeconômicas
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>O primeiro impulso industrial veio na <strong>1ª Guerra Mundial</strong>, quando a
+      Grã-Bretanha interrompeu as exportações. O Canadá então intensificou as relações com os
+      EUA — que hoje são seu <strong>principal parceiro comercial</strong>, dentro do USMCA.</p>
+      <ul>
+        <li><strong>Silvicultura</strong> — 40% do país é coberto por florestas de coníferas;
+        é o <strong>maior exportador mundial</strong> de madeiras, móveis e papel</li>
+        <li><strong>Mineração</strong> — produz mais de 60 metais e minerais; está entre os cinco
+        maiores produtores mundiais de 14 deles. Maior produtor mundial de
+        <strong>zinco e urânio</strong>; também potássio, nióbio, alumínio, níquel, ouro</li>
+        <li><strong>Energia</strong> — 2ª maior reserva de petróleo do mundo (Athabasca);
+        grande potencial hidrelétrico</li>
+        <li><strong>Agropecuária</strong> — só 7% da área: trigo (Saskatchewan, Alberta,
+        Manitoba), bovinos (Alberta), frango e ovos (Colúmbia Britânica), batata nas
+        províncias atlânticas</li>
+        <li><strong>Pesca</strong> — caranguejo, lagosta e camarão no Atlântico;
+        salmão na Colúmbia Britânica</li>
+        <li><strong>Indústria</strong> — Ontário e Quebec produzem <strong>mais de 75%</strong>
+        do industrializado; Toronto e Montreal são os centros de manufatura</li>
+        <li><strong>Serviços</strong> — empregam 3 de cada 4 canadenses</li>
+      </ul>
+      <table class="data-table">
+        <thead><tr><th>Região</th><th>Características</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Grande Norte</strong></td>
+              <td>Clima polar com tundra; vazio demográfico. No Atlântico: caça, pesca e madeira</td></tr>
+          <tr><td><strong>Costa Oeste</strong></td>
+              <td>Temperado oceânico com florestas; porto de Vancouver; pesca, carvão, cobre,
+                  hidroeletricidade; papel e alta tecnologia</td></tr>
+          <tr><td><strong>Pradarias</strong></td>
+              <td>Planícies com solos férteis e agricultura destacada; carvão, petróleo,
+                  gás natural e petroquímica</td></tr>
+          <tr><td><strong>Sudeste</strong></td>
+              <td><strong>50% da população</strong>; Toronto e Montreal; ferro, níquel, cobre,
+                  zinco; alto potencial hidrelétrico; policultura e pecuária leiteira</td></tr>
+          <tr><td><strong>Províncias Atlânticas</strong></td>
+              <td>Halifax — polo industrial e maior porto do Atlântico</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>Contraste de imigração:</strong> o Canadá mantém política
+        <strong>acolhedora</strong> a imigrantes e refugiados — em parte para reverter o
+        envelhecimento populacional — enquanto os EUA endurecem o controle de fronteira.
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 5. AMÉRICA LATINA ═══════════ -->
+  <div class="chapter-header fx-reveal" id="latina" data-globe-focus="-12,-65" style="scroll-margin-top:64px">
+    <div class="chapter-number">5</div>
+    <h2>América Latina — Características Gerais</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Definição, população e a herança colonial
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>Vai <strong>do México ao extremo sul</strong> do continente: 21.267.547 km² e cerca de
+      660 milhões de habitantes. Limites: ao norte os EUA; a oeste o Pacífico; a leste o
+      Atlântico, o Golfo do México e o Mar do Caribe; ao sul o continente antártico.</p>
+      <table class="data-table">
+        <thead><tr><th>Sub-região</th><th>População</th></tr></thead>
+        <tbody>
+          <tr><td>México</td><td>126,7 milhões (2024)</td></tr>
+          <tr><td>América Central</td><td>87 milhões</td></tr>
+          <tr><td>América do Sul</td><td>447,7 milhões (2024)</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Povos pré-colombianos:</strong> <strong>astecas</strong> (México),
+      <strong>maias</strong> (Península de Yucatán e América Central) e
+      <strong>incas</strong> (Andes) — todos com sólida estrutura política e domínio de
+      técnicas avançadas de agricultura e ciências.</p>
+      <div class="highlight">
+        <strong>A herança da colonização de exploração</strong> — a tropicalidade e as riquezas
+        minerais determinaram esse modelo, que deixou quatro marcas profundas:
+        <ol>
+          <li><strong>Grandes propriedades</strong> → concentração de terra e renda</li>
+          <li><strong>Mão de obra escravizada</strong> → não especializada e sem poder de compra,
+          logo sem mercado consumidor que estimulasse a indústria</li>
+          <li><strong>Monocultura tropical</strong></li>
+          <li><strong>Exploração mineral</strong> → dependência da frágil exportação de
+          produtos primários</li>
+        </ol>
+      </div>
+      <p>Hoje, "América Latina" designa países marcados pelo predomínio de línguas latinas,
+      pela <strong>dependência tecnológica e financeira</strong> dos países centrais
+      (Alemanha, Reino Unido, EUA) e por <strong>grandes desigualdades sociais</strong>.
+      Mas há diferenças internas fortes: ao lado de economias primário-exportadoras frágeis
+      (América Central), há países industrializados como <strong>Brasil, México e Argentina</strong>.</p>
+      <div class="warning">
+        <strong>Urbanização latino-americana:</strong> rápida e desequilibrada, e — atenção —
+        <strong>não decorre do desenvolvimento industrial</strong>, e sim de alterações no campo
+        que expulsaram a população rural. Resultado: favelização, criminalidade e falta de
+        moradia adequada.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Quadro natural: relevo, hidrografia, clima
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p><strong>Três grandes estruturas de relevo:</strong></p>
+      <table class="data-table">
+        <thead><tr><th>Estrutura</th><th>Onde</th><th>Marca</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Altas montanhas</strong></td>
+              <td>Dobramentos modernos (terciários): México, América Central e
+                  oeste da América do Sul</td>
+              <td>Grande instabilidade geológica</td></tr>
+          <tr><td><strong>Planaltos e velhas montanhas</strong></td>
+              <td>Maciços antigos, leste da América do Sul</td>
+              <td>Importantes reservas minerais</td></tr>
+          <tr><td><strong>Planícies</strong></td>
+              <td>Interioranas (quaternárias) no centro da América do Sul;
+                  costeiras estreitas em boa parte da região</td>
+              <td>Atravessadas por grandes rios</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Hidrografia:</strong> variada. Rios de planície favorecem navegação e
+      agricultura; rios de planalto, a produção de energia. A América do Sul se destaca
+      mundialmente pelas reservas de água doce — <strong>Bacia Amazônica</strong> e
+      <strong>Aquífero Guarani</strong>, o que atrai atenção internacional.</p>
+
+      <p><strong>Seis fatores que explicam o clima</strong> (pergunta clássica):</p>
+      <ul>
+        <li><strong>Latitude</strong> — a maior parte está na zona intertropical → climas quentes</li>
+        <li><strong>Altitude</strong> — nas altas montanhas surge o frio de montanha; há neve
+        mesmo sobre a linha do Equador, na porção ocidental</li>
+        <li><strong>Correntes marítimas</strong> — as frias barram os ventos úmidos e criam os
+        desertos do Atacama (Chile), da Península da Califórnia (México) e da Patagônia</li>
+        <li><strong>Relevo</strong> — dificulta a penetração dos ventos úmidos → climas áridos e
+        semiáridos (interior do México, Patagônia, nordeste brasileiro)</li>
+        <li><strong>Vegetação</strong> — boa parte da umidade amazônica vem da
+        evapotranspiração da própria floresta</li>
+        <li><strong>Continentalidade</strong> — interior do Brasil, Bolívia, Paraguai e norte da
+        Argentina são menos úmidos por estarem longe do mar</li>
+      </ul>
+      <table class="data-table">
+        <thead><tr><th>Clima</th><th>Onde</th><th>Característica</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Equatorial</strong></td><td>Norte da América do Sul, América Central</td>
+              <td>Maiores médias térmicas (+25 °C), pequena amplitude, ~2.000 mm/ano</td></tr>
+          <tr><td><strong>Tropical</strong></td><td>Ao norte e ao sul do equatorial</td>
+              <td>Estações alternadas: verão quente e chuvoso, inverno seco</td></tr>
+          <tr><td><strong>Frio de montanha</strong></td><td>Cordilheira dos Andes</td>
+              <td>Média térmica baixa pela altitude; precipitação constante de neve</td></tr>
+          <tr><td><strong>Desértico</strong></td>
+              <td>Atacama (Chile), Patagônia (Argentina), Sonora (norte do México)</td>
+              <td>Menos de 250 mm/ano — as áreas mais secas recebem só 10 mm</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 6. MÉXICO ═══════════ -->
+  <div class="chapter-header fx-reveal" id="mexico" data-globe-focus="23.6,-102.5" style="scroll-margin-top:64px">
+    <div class="chapter-number">6</div>
+    <h2>México</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Ficha, relevo e população
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <table class="data-table">
+        <tbody>
+          <tr><td><strong>Área</strong></td><td>~1.958.201 km²</td></tr>
+          <tr><td><strong>População</strong></td><td>~127 milhões — <strong>10º país mais populoso</strong></td></tr>
+          <tr><td><strong>População urbana</strong></td><td>~76-80%</td></tr>
+          <tr><td><strong>Crescimento</strong></td><td>1,04% ao ano</td></tr>
+          <tr><td><strong>Capital</strong></td><td>Cidade do México (antiga Tenochtitlán)</td></tr>
+          <tr><td><strong>Religião</strong></td><td>Catolicismo 82%</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Composição étnica:</strong> ~62% mestiços (<em>mestizaje</em>),
+      ~28-30% ameríndios, ~8-9% brancos. Território dos antigos impérios
+      <strong>Asteca</strong> (Planalto de Anahuac, centro) e <strong>Maia</strong>
+      (Península de Yucatán, sul).</p>
+
+      <p><strong>Relevo — perfil leste-oeste</strong> (dobramentos modernos terciários,
+      com muitos terremotos e vulcanismo):</p>
+      <table class="data-table">
+        <thead><tr><th>Porção</th><th>Formação</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Oeste</strong></td><td>Sierra Madre Ocidental</td></tr>
+          <tr><td><strong>Centro</strong></td><td><strong>Altiplano — Planalto de Anahuac</strong></td></tr>
+          <tr><td><strong>Leste</strong></td><td>Sierra Madre Oriental</td></tr>
+        </tbody>
+      </table>
+      <p>Há ainda a Sierra Madre do Sul e as planícies costeiras (Pacífico a oeste,
+      Golfo do México a leste).</p>
+      <div class="highlight">
+        <strong>Cidade do México</strong> — a 2.600 m de altitude no altiplano.
+        Região metropolitana de ~20-22 milhões (5ª maior do mundo), quase 20% da população
+        nacional. Principal centro econômico e capital administrativa; sofre com
+        <strong>altos índices de poluição atmosférica</strong>.
+      </div>
+      <p><strong>Paisagens naturais:</strong> norte árido e semiárido (Deserto de Chihuahua,
+      xerófitas) · sul tropical (floresta tropical) · centro subtropical úmido
+      (estepes e florestas) · Serra Madre com clima de montanha · litorais tropicais
+      (Acapulco no Pacífico, Cancún no Golfo).</p>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Economia: maquiladoras, petróleo e o USMCA
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p><strong>Agropecuária</strong> — só ~10% do território é agricultável (aridez e
+      montanhas). É o 12º maior produtor e 7º maior exportador de alimentos do mundo.</p>
+      <ul>
+        <li><strong>Milho</strong> (principal produto) — Planalto de Anahuac, porção central</li>
+        <li><strong>Algodão e pecuária bovina</strong> — no chaparral, ao norte</li>
+        <li><strong>Café e cana-de-açúcar</strong> — orla litorânea do Golfo do México</li>
+        <li><strong>Ejidos</strong> — propriedades rurais de <strong>uso coletivo</strong>,
+        fruto da reforma agrária pós-revolucionária</li>
+      </ul>
+      <p><strong>Recursos minerais:</strong> prata, zinco, chumbo e cobre. Energéticos:
+      <strong>petróleo no Golfo do México</strong>, explorado pela estatal <strong>PEMEX</strong>.</p>
+
+      <p><strong>Industrialização — duas fases:</strong></p>
+      <table class="data-table">
+        <thead><tr><th>1ª fase (1930→)</th><th>2ª fase (1990→)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Substituição de importações</strong>, modelo latino-americano.
+                Industrialização tardia. Estado cria infraestrutura e estatais
+                (energia, transportes, telefonia, indústria de base)</td>
+            <td><strong>Reformas neoliberais</strong>: redução do Estado, privatizações,
+                abertura de mercado, maior integração internacional —
+                e <strong>aumento da desigualdade</strong></td>
+          </tr>
+          <tr>
+            <td>A partir de 1950, chegada de multinacionais atraídas por mão de obra barata,
+                mercado consumidor e recursos. Gerou dependência tecnológica e política
+                protecionista</td>
+            <td>1992-94: entrada no <strong>NAFTA</strong> (hoje USMCA) e aproximação da
+                Bacia do Pacífico via <strong>APEC</strong>. Intensifica a migração para os EUA</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight">
+        <strong>Indústrias maquiladoras</strong> — o conceito mais cobrado sobre o México.
+        São fábricas de montagem instaladas <strong>na fronteira com os EUA</strong>, de
+        empresas americanas (sobretudo automobilísticas e de autopeças), que reduzem custos
+        usando <strong>mão de obra mexicana barata</strong>. A produção final
+        <strong>retorna ao mercado consumidor americano</strong>. Cresceram muito depois do NAFTA.
+      </div>
+      <p><strong>Triângulo industrial:</strong> Cidade do México – Guadalajara – Monterrey.
+      Some-se a petroquímica do Golfo (Tampico e Veracruz). Cidades de fronteira:
+      <strong>Tijuana</strong> (conurbada com San Diego) e <strong>Ciudad Juárez</strong>
+      (conurbada com El Paso).</p>
+      <p><strong>Turismo:</strong> é o país da América Latina que <strong>mais recebe turistas</strong>,
+      principalmente norte-americanos — beleza cênica somada a riqueza histórico-cultural.</p>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      História e questões do século XXI
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">1876-1911</span>
+          <span class="timeline-text"><strong>Porfiriato</strong> — 35 anos de governo ditatorial
+          do general Porfírio Díaz. Termina em crise com as elites urbanas e insurreição camponesa</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1910-1920</span>
+          <span class="timeline-text"><strong>Revolução Mexicana</strong> — insurgência popular
+          derruba Díaz em 1911 e vira conflito entre grupos. Líderes:
+          <strong>Pancho Villa</strong> (norte) e <strong>Emiliano Zapata</strong> (sul)</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1917</span>
+          <span class="timeline-text">Constituição nacionalista: reforma agrária, expropriação de
+          propriedades estrangeiras e nacionalização das terras</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1929-2000</span>
+          <span class="timeline-text"><strong>PRI</strong> (Partido Revolucionário Institucional)
+          governa por 71 anos seguidos. Nacional-desenvolvimentista até 1980, depois neoliberal</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1994→</span>
+          <span class="timeline-text"><strong>Zapatismo</strong> — o EZLN (Ejército Zapatista de
+          Liberación Nacional) surge no sul; movimento camponês e indígena que pede autonomia
+          política</span>
+        </div>
+      </div>
+      <div class="warning">
+        <strong>Os cartéis.</strong> O norte do país (Sonora, Chihuahua, Coahuila) vive grave
+        crise social pelo controle territorial dos cartéis de drogas — o mais conhecido é o
+        <strong>Cartel de Sinaloa</strong>. A proximidade da fronteira americana explica a
+        instalação: é a rota do tráfico. Nem o governo mexicano nem a cooperação com os EUA
+        conseguiram reverter o quadro.
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 7. AMÉRICA CENTRAL ═══════════ -->
+  <div class="chapter-header fx-reveal" id="central" data-globe-focus="13,-85" style="scroll-margin-top:64px">
+    <div class="chapter-number">7</div>
+    <h2>América Central</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Os 14 países: porção continental e insular
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>731.000 km², 87 milhões de habitantes, 57% urbana. Situada quase toda na
+      <strong>zona intertropical</strong>, entre o México e a Colômbia.</p>
+      <table class="data-table">
+        <thead><tr><th colspan="2">Trecho Continental (ístmico)</th>
+                   <th colspan="2">Trecho Insular (Caribe/Antilhas)</th></tr>
+               <tr><th>País</th><th>Capital</th><th>País</th><th>Capital</th></tr></thead>
+        <tbody>
+          <tr><td>Guatemala</td><td>Cidade da Guatemala</td><td>Cuba</td><td>Havana</td></tr>
+          <tr><td>Belize</td><td>Belmopan</td><td>Jamaica</td><td>Kingston</td></tr>
+          <tr><td>Honduras</td><td>Tegucigalpa</td><td>Haiti</td><td>Porto Príncipe</td></tr>
+          <tr><td>El Salvador</td><td>San Salvador</td><td>República Dominicana</td><td>Santo Domingo</td></tr>
+          <tr><td>Nicarágua</td><td>Manágua</td><td>Bahamas</td><td>Nassau</td></tr>
+          <tr><td>Costa Rica</td><td>San José</td><td>Porto Rico</td><td>San Juan</td></tr>
+          <tr><td>Panamá</td><td>Panamá</td><td>Pequenas Antilhas</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        Os países são <strong>pouco populosos, mas densamente povoados</strong> — territórios
+        muito pequenos. Essa distinção entre população <em>absoluta</em> e <em>relativa</em>
+        costuma cair.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Relevo, clima e os andares de altitude
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p><strong>América Central Ístmica:</strong> relevo acidentado de formação terciária, com
+      estreitas planícies costeiras. Clima quente e úmido no litoral — a porção oriental recebe
+      os <strong>ventos alísios</strong> do Mar do Caribe. No interior, o clima varia por altitude:</p>
+      <table class="data-table">
+        <thead><tr><th>Altitude</th><th>Relevo</th><th>Clima</th><th>Vegetação</th></tr></thead>
+        <tbody>
+          <tr><td>0 – 1.000 m</td><td>Planícies e baixos planaltos</td>
+              <td>Equatorial e tropical</td><td>Florestas latifoliadas</td></tr>
+          <tr><td>1.000 – 2.000 m</td><td>Altiplanos</td>
+              <td>Tropical de altitude</td><td>Florestas temperadas</td></tr>
+          <tr><td>2.000 – 3.000 m</td><td>Elevações montanhosas</td>
+              <td>Temperaturas baixas</td><td>Florestas temperadas; neve eterna no topo</td></tr>
+        </tbody>
+      </table>
+      <p><strong>América Central Insular:</strong> o relevo das ilhas é
+      <strong>prolongamento do continental</strong> — montanhoso no interior, planícies na
+      costa. Grande instabilidade geológica (terremotos e vulcanismo) e, no verão,
+      <strong>furacões e ciclones tropicais</strong> frequentes.</p>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      População e economia: das <em>Banana Republics</em> aos paraísos fiscais
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p><strong>População</strong> — heterogênea. Na porção ístmica floresceu o
+      <strong>Império Maia</strong>, que impressionou os espanhóis pelo domínio da matemática,
+      astronomia e agricultura. Hoje predominam mestiços de brancos, indígenas e
+      afrodescendentes.</p>
+      <p>Nas Antilhas, os povos pré-colombianos eram os <strong>arauaques</strong> (Grandes
+      Antilhas) e os <strong>caraíbas</strong> (Pequenas Antilhas) — em grande parte dizimados.
+      Em Jamaica e Haiti a cultura indígena praticamente inexiste devido ao genocídio.
+      Para o trabalho agrícola os colonizadores trouxeram africanos escravizados, e por isso
+      <strong>Haiti e Jamaica são as nações com maior participação de negros fora da África</strong>.</p>
+
+      <p><strong>Economia</strong> — primário-exportadora, de base agrária. No fim do século XX
+      vários países ficaram conhecidos como <strong><em>Banana Republics</em></strong> pela
+      dependência da exportação de bananas.</p>
+      <ul>
+        <li><strong>Plantation</strong>: cacau, café e banana</li>
+        <li><strong>Subsistência</strong>: milho, feijão e arroz</li>
+      </ul>
+      <table class="data-table">
+        <thead><tr><th>País</th><th>Atividades</th></tr></thead>
+        <tbody>
+          <tr><td>Cuba</td><td>Turismo, açúcar e rum</td></tr>
+          <tr><td>Jamaica</td><td>Turismo e bauxita</td></tr>
+          <tr><td>Trinidad e Tobago</td><td>Turismo e petróleo</td></tr>
+          <tr><td>Ilhas Cayman</td><td><strong>Paraíso fiscal</strong></td></tr>
+          <tr><td>Costa Rica</td><td>Estabilidade política (extinguiu as forças armadas) atraiu
+              empresas de informática</td></tr>
+          <tr><td>Panamá</td><td>Economia diversificada pelo canal: setor bancário, seguros e
+              comércio exterior</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">
+        <strong>Paraíso fiscal</strong> — território com estrutura fiscal flexível que explora a
+        demanda mundial por evasão fiscal: sigilo bancário absoluto, facilidade de abertura de
+        empresas e lavagem de dinheiro.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Geopolítica: Canal do Panamá, Cuba, Porto Rico e Haiti
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>Desde o fim do século XIX a América Central foi incorporada à
+      <strong>zona de influência dos EUA</strong>. A vitória na Guerra Hispano-Americana
+      garantiu hegemonia sobre o Caribe.</p>
+
+      <p><strong>Canal do Panamá</strong> — a parte mais estreita do istmo:</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">1903</span>
+          <span class="timeline-text">Panamá se separa da Colômbia <strong>com ajuda dos EUA</strong>,
+          que haviam comprado a concessão do canal (obra iniciada por Ferdinand de Lesseps,
+          o mesmo do Canal de Suez)</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1914</span>
+          <span class="timeline-text">Inauguração, sob controle americano. Liga
+          Atlântico e Pacífico</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1977 / 1999</span>
+          <span class="timeline-text">Acordo assinado em 1977; em <strong>1999</strong> o canal
+          passa ao governo panamenho — com os EUA reservando direito de intervenção se a livre
+          navegação for ameaçada</span>
+        </div>
+      </div>
+
+      <p><strong>Porto Rico</strong> — "Estado Associado aos Estados Unidos": tem autonomia
+      administrativa, mas usa o <strong>dólar</strong> e aceita o controle americano sobre
+      defesa e relações internacionais.</p>
+
+      <p><strong>Cuba</strong> — a revolução socialista de <strong>1959</strong>, em plena Guerra
+      Fria e a poucos quilômetros da Flórida, agravou o conflito EUA–URSS. O embargo econômico
+      durou cerca de 53 anos; em 2014 Obama e Raúl Castro anunciaram a reaproximação, com
+      reabertura das embaixadas. Fidel Castro morreu em 2016; Raúl deixou o poder em 2018,
+      sucedido por Miguel Díaz-Canel.</p>
+
+      <div class="warning">
+        <strong>Haiti — o país mais pobre da América.</strong> Mais da metade da população vive
+        com menos de US$ 1/dia e ~67% abaixo da linha de pobreza. A crise vem de décadas de
+        governos corruptos, foi agravada pelo <strong>terremoto de 2010</strong> (100 a 200 mil
+        mortos) e pelo furacão Matthew (2016). O presidente Jovenel Moïse foi assassinado em
+        2021. Hoje cerca de <strong>60% de Porto Príncipe está sob controle de gangues</strong>,
+        e a ONU compara a situação à de um país em guerra. Muitos haitianos emigraram —
+        boa parte para o <strong>Brasil</strong>, que liderou a missão da ONU no país.
+      </div>
+      <p><strong>Caravanas de migrantes</strong> — milhares de pessoas da América Central, do Sul
+      e do Caribe (Cuba, Haiti, Venezuela, México) rumo aos EUA, fugindo da pobreza e da violência.</p>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 8. AMÉRICA ANDINA ═══════════ -->
+  <div class="chapter-header fx-reveal" id="andina" data-globe-focus="-12,-72" style="scroll-margin-top:64px">
+    <div class="chapter-number">8</div>
+    <h2>América do Sul — Região Andina</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      A América do Sul e suas sub-regiões
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>17.833.000 km², 447 milhões de habitantes, <strong>79% urbana</strong>, 13 países.</p>
+      <ul>
+        <li><strong>Vazios demográficos:</strong> florestas tropicais, deserto do Atacama,
+        porções geladas da Patagônia</li>
+        <li><strong>Áreas densamente ocupadas:</strong> São Paulo, Rio de Janeiro, Buenos Aires,
+        Bogotá, Lima e Santiago</li>
+      </ul>
+      <table class="data-table">
+        <thead><tr><th>Sub-região</th><th>Países</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Guianas</strong></td><td>Guiana, Suriname e Guiana Francesa</td></tr>
+          <tr><td><strong>América Andina</strong></td>
+              <td>Venezuela, Colômbia, Equador, Peru, Bolívia e Chile</td></tr>
+          <tr><td><strong>América Platina</strong></td><td>Argentina, Uruguai e Paraguai</td></tr>
+          <tr><td><strong>Brasil</strong></td><td>tratado à parte</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Relevo (oeste → leste):</strong></p>
+      <table class="data-table">
+        <thead><tr><th>Posição</th><th>Relevo</th><th>Estrutura geológica</th></tr></thead>
+        <tbody>
+          <tr><td>Oeste</td><td>Cordilheira dos Andes</td>
+              <td>Dobramentos do Terciário (era Cenozoica)</td></tr>
+          <tr><td>Centro</td><td>Planícies Amazônica, Platina e do Orinoco</td>
+              <td>Bacias sedimentares recentes</td></tr>
+          <tr><td>Leste</td><td>Planaltos Brasileiro e das Guianas</td>
+              <td>Terrenos cristalinos muito erodidos (Arqueozoica e Proterozoica)</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight">
+        <strong>Doutrina Monroe (1823)</strong> — "América para os americanos". Três pontos:
+        não criação de novas colônias nas Américas; não intervenção nos assuntos internos dos
+        países americanos; não intervenção dos EUA em conflitos europeus. Na prática, ao longo
+        do século XX serviu para justificar a <strong>influência americana</strong> na região —
+        incluindo o apoio a ditaduras durante a Guerra Fria para conter o comunismo.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Guianas
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>As <strong>únicas áreas da América do Sul não colonizadas por portugueses ou
+      espanhóis</strong> — foram inglesa, holandesa e francesa. Independências
+      <strong>tardias</strong>: Guiana em 1966, Suriname em 1975; a
+      <strong>Guiana Francesa continua sendo departamento ultramarino da França</strong>.</p>
+      <p>População pequena e muito diversificada: negros, indígenas, mestiços e asiáticos
+      (indianos, chineses, indonésios). Região <strong>pouco integrada</strong> ao continente,
+      pelo passado colonial e pela barreira da floresta amazônica.</p>
+      <table class="data-table">
+        <thead><tr><th>País</th><th>Economia</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Guiana</strong></td><td>Base agrária (cana-de-açúcar) e mineração de bauxita</td></tr>
+          <tr><td><strong>Suriname</strong></td><td>Um dos principais produtores mundiais de
+              <strong>bauxita</strong>; arroz e cana</td></tr>
+          <tr><td><strong>Guiana Francesa</strong></td><td>Ligada à França (subsídios); pesca e
+              silvicultura. <strong>Centro Espacial de Kourou</strong> — ~25% do PIB e polo de
+              atração de imigrantes</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Os países andinos, um a um
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>Região da <strong>Cordilheira dos Andes</strong>, do Deserto do Atacama e do
+      Salar de Uyuni. Colonização espanhola, território do antigo <strong>Império Inca</strong>
+      (séc. XIII-XV, sobretudo Peru e Bolívia). População indígena ou mestiça.
+      Grandes reservas minerais. União aduaneira: <strong>CAN</strong>.</p>
+
+      <table class="data-table">
+        <thead><tr><th>País</th><th>O que você precisa saber</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Venezuela</strong></td>
+            <td>Membro da <strong>OPEP</strong>; petróleo do <strong>Lago Maracaibo</strong> —
+            mais de 90% da receita do governo. Hidrelétrica de <strong>Guri</strong>.
+            Crise desde 2013 (Chávez → Maduro): hiperinflação, repressão, eleição contestada
+            em 2024. Mais de <strong>7 milhões de migrantes</strong> desde 2014 (Colômbia,
+            Peru, EUA, Brasil, Chile). Suspensa do Mercosul</td>
+          </tr>
+          <tr>
+            <td><strong>Colômbia</strong></td>
+            <td>3ª maior economia da América do Sul. Exporta café, cana, ouro,
+            <strong>esmeraldas</strong>, carvão, níquel. Conflito armado desde
+            <strong>1964</strong>: FARC (guerrilha marxista), depois cartéis e paramilitares
+            (AUC). <strong>Plano Colômbia</strong> (2000, com os EUA) contra o narcotráfico —
+            efeito colateral: contaminação de rios e lavouras pelos herbicidas.
+            <strong>Acordo de paz com as FARC em 2016</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Equador</strong></td>
+            <td>Petróleo = ~40-50% das exportações; banana e cacau; pesca. Após crise
+            cambial, <strong>adotou o dólar americano como moeda oficial</strong>.
+            Enfrenta grave crise de violência</td>
+          </tr>
+          <tr>
+            <td><strong>Peru</strong></td>
+            <td>Antigo Império Inca; <strong>Machu Picchu</strong> impulsiona o turismo.
+            Mineração (cobre, prata, zinco, chumbo — Cerro de Pasco) e
+            <strong>pesca favorecida pela Corrente de Humboldt</strong>. Maior crescimento
+            econômico recente da região, mas ainda primário-exportador. História conturbada:
+            ditadura militar, crise nos anos 80 com o <strong>Sendero Luminoso</strong>
+            (guerrilha maoísta), governo Fujimori nos 90</td>
+          </tr>
+          <tr>
+            <td><strong>Bolívia</strong></td>
+            <td>~60% ameríndios. <strong>Estanho</strong> e, principalmente,
+            <strong>gás natural</strong> — nacionalizado por <strong>Evo Morales em 2006</strong>
+            (primeiro presidente indígena), com royalties de 50% para ~80% e 82% dos lucros
+            para o Estado. Gasoduto Bolívia-Brasil. Problema central:
+            <strong>não tem saída para o mar</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Chile</strong></td>
+            <td><strong>Maior exportador mundial de cobre</strong> (~40% das exportações),
+            do Atacama — que também tem nitrato, ferro, bórax e enxofre. Pesca (Humboldt),
+            vinicultura e serviços. Ditadura <strong>Pinochet (1973-1990)</strong> e reformas
+            neoliberais; nos anos 90 só a China cresceu mais. Membro pleno da
+            <strong>Aliança do Pacífico e da APEC</strong>, associado do Mercosul</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight">
+        <strong>"Eixo da Energia"</strong> — Venezuela e Equador (petróleo) mais Bolívia
+        (gás natural). Coincidentemente, os países de <strong>maior contingente ameríndio</strong>.
+        Todos romperam acordos com petrolíferas e renegociaram preços e condições de extração.
+      </div>
+      <div class="warning">
+        <strong>Guerra do Pacífico (1879-1884)</strong> — Chile contra Bolívia e Peru pelo
+        controle do Atacama, rico em minérios. <strong>O Chile venceu</strong>: o Peru perdeu
+        Tarapacá e a <strong>Bolívia perdeu Antofagasta, sua única saída para o mar</strong>.
+        A relação segue delicada — a Bolívia ainda reivindica acesso soberano ao oceano.
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 9. AMÉRICA PLATINA ═══════════ -->
+  <div class="chapter-header fx-reveal" id="platina" data-globe-focus="-32,-60" style="scroll-margin-top:64px">
+    <div class="chapter-number">9</div>
+    <h2>América Platina</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Argentina, Uruguai e Paraguai
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p>O nome vem da <strong>Bacia Platina</strong>, formada pelos rios Paraná, Paraguai e
+      Uruguai. Colonização espanhola, países agroexportadores de industrialização tardia,
+      membros plenos do <strong>Mercosul</strong>.</p>
+      <div class="tip">
+        <strong>Diferença étnica marcante:</strong> Argentina e Uruguai têm predomínio de
+        população de <strong>origem europeia</strong> (forte imigração italiana no século XX) e
+        baixas taxas de crescimento demográfico — ao contrário do resto da América Latina.
+        Já no <strong>Paraguai, 95% da população é mestiça</strong> de indígenas com espanhóis,
+        e o <strong>guarani é língua oficial</strong> ao lado do espanhol.
+      </div>
+      <table class="data-table">
+        <thead><tr><th>País</th><th>Economia e questões</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Argentina</strong></td>
+            <td>Industrialização intensa (como Brasil e México), mas forte setor primário —
+            pecuária e trigo, sobretudo nos <strong>Pampas</strong>. Buenos Aires concentra
+            <strong>1/3 da população</strong> do país. Vinhos na região andina.
+            Em crise desde os anos 2000; alternância entre governos populistas
+            (kirchnerismo) e liberais (Macri)</td>
+          </tr>
+          <tr>
+            <td><strong>Uruguai</strong></td>
+            <td>Economia de base agrária: gado bovino e ovino; exporta carne, lã e couro.
+            Turismo e <strong>setor bancário</strong> (não é paraíso fiscal, mas tem
+            redução de impostos e liberdade cambial). Mercado pequeno (3,5 milhões) —
+            já ameaçou sair do Mercosul e tentou acordo bilateral com os EUA em 2006</td>
+          </tr>
+          <tr>
+            <td><strong>Paraguai</strong></td>
+            <td><strong>País menos industrializado do Mercosul</strong>. Soja, algodão, cana e
+            carne bovina. Como a Bolívia, <strong>não tem saída para o mar</strong> — depende de
+            acordos: navega o Paraguai e o Paraná até o porto de Buenos Aires, e usa Santos e
+            Paranaguá no Brasil. Divide <strong>Itaipu</strong> com o Brasil e vende a maior
+            parte da energia a que tem direito</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>As cinco regiões geoeconômicas da Argentina:</strong></p>
+      <table class="data-table">
+        <thead><tr><th>Região</th><th>Características</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pampa</strong></td>
+              <td>Planície da Bacia Platina; densamente povoada e urbanizada; indústria,
+                  serviços, agricultura e pecuária modernas</td></tr>
+          <tr><td><strong>Mesopotâmia</strong> (Entre Ríos)</td>
+              <td>Faixa entre os rios Paraguai e Uruguai; arroz nos vales inundados,
+                  erva-mate e pecuária extensiva. Usina de <strong>Yaciretá-Apipé</strong>
+                  (binacional com o Paraguai)</td></tr>
+          <tr><td><strong>Chaco</strong></td>
+              <td>Ambiente tropical; açúcar, algodão, pecuária, madeira e petróleo</td></tr>
+          <tr><td><strong>Andes</strong> (Piemonte)</td>
+              <td>Relevo acidentado, clima seco; <strong>vinhedos irrigados</strong> de
+                  qualidade, turismo e petróleo</td></tr>
+          <tr><td><strong>Patagônia</strong></td>
+              <td>Planáltica, fria e árida; povoamento escasso; lã, frutas, petróleo e
+                  hidroeletricidade</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Geopolítica: Canal de Beagle e Malvinas
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <p><strong>Canal de Beagle</strong> — estreito que separa as ilhas da Terra do Fogo, no
+      extremo sul. Um tratado de <strong>1881</strong> o definiu como divisa Chile-Argentina, mas
+      nenhum dos dois conhecia o traçado real. Quando ficou provado que o canal contornava a
+      ilha Navarino, deixando a leste as ilhas Lennox, Picton e Nueva, a Argentina propôs nova
+      demarcação (1904) e começou um longo conflito. Em <strong>1978</strong> quase houve
+      guerra — o <strong>Papa João Paulo II interveio</strong>. Acordo em
+      <strong>1985</strong>: as ilhas ficaram com o <strong>Chile</strong>.</p>
+
+      <p><strong>Guerra das Malvinas / Falklands (1982)</strong>:</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-year">2/abr/1982</span>
+          <span class="timeline-text">A Argentina, sob a ditadura do general
+          <strong>Leopoldo Galtieri</strong>, ocupa militarmente as Malvinas, Geórgia e
+          Sandwich do Sul — territórios britânicos. Objetivo real: reacender o
+          <strong>orgulho nacionalista</strong> e sustentar o regime</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">jun/1982</span>
+          <span class="timeline-text">Superioridade britânica em terra, mar e ar leva à rendição
+          argentina. A guerra <strong>aprofundou a crise econômica</strong> do país</span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">hoje</span>
+          <span class="timeline-text">Reino Unido invoca a <strong>autodeterminação</strong> da
+          população insular (britânica); a Argentina alega razões históricas, jurídicas e
+          geográficas. A UE apoia os britânicos; os EUA são neutros;
+          <strong>Brasil, Chile, Venezuela, Bolívia e Equador</strong> reconhecem a soberania
+          argentina</span>
+        </div>
+      </div>
+      <p>A Constituição argentina define as Malvinas como "objetivo permanente e irrenunciável
+      do povo argentino".</p>
+    </div></div>
+  </div>
+
+  <!-- ═══════════ 10. BLOCOS ═══════════ -->
+  <div class="chapter-header fx-reveal" id="blocos" data-globe-focus="0,-70" style="scroll-margin-top:64px">
+    <div class="chapter-number">10</div>
+    <h2>Blocos Econômicos das Américas</h2>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Tabela comparativa dos blocos
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <table class="data-table">
+        <thead><tr><th>Bloco</th><th>Criação</th><th>Países</th><th>Objetivo</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>MERCOSUL</strong></td><td>1991</td>
+            <td>Brasil, Argentina, Paraguai, Uruguai e Venezuela (2005, hoje suspensa).
+            Associados: Chile e Bolívia</td>
+            <td>União aduaneira: livre circulação de bens, serviços e fatores produtivos;
+            tarifa externa comum</td>
+          </tr>
+          <tr>
+            <td><strong>Aliança do Pacífico</strong></td><td>2012</td>
+            <td>Chile, Colômbia, Peru, México e Costa Rica (2013)</td>
+            <td>Livre comércio com <strong>orientação voltada à Ásia</strong>. Mais aberto que o
+            Mercosul: ~36% do PIB latino-americano e exportações ~60% maiores</td>
+          </tr>
+          <tr>
+            <td><strong>UNASUL</strong></td><td>2008 / vigor 2011</td>
+            <td>12 países sul-americanos; observadores: México e Panamá. Sede em Quito</td>
+            <td>Integração econômica, social e política; cooperação em educação, cultura,
+            infraestrutura e energia</td>
+          </tr>
+          <tr>
+            <td><strong>CAN</strong> (Comunidade Andina)</td><td>1969 (Tratado de Cartagena)</td>
+            <td>Colômbia, Peru, Equador e Bolívia</td>
+            <td>Livre circulação de pessoas sem visto; Passaporte Andino; integração
+            econômica e cultural</td>
+          </tr>
+          <tr>
+            <td><strong>NAFTA → USMCA</strong></td><td>1994-2018 → 2018</td>
+            <td>EUA, México e Canadá</td>
+            <td>Eliminar barreiras alfandegárias; o USMCA moderniza o acordo e busca maior
+            igualdade de competitividade</td>
+          </tr>
+          <tr>
+            <td><strong>APEC</strong></td><td>1989</td>
+            <td>18 países do Pacífico — inclui EUA, Canadá, México, Chile, China, Japão</td>
+            <td>Transformar o Pacífico em área de livre-comércio</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>Coadjuvantes:</strong></p>
+      <ul>
+        <li><strong>ALCA</strong> — patrocinada pelos EUA, <strong>engavetada desde 2005</strong>
+        (4ª Cúpula das Américas)</li>
+        <li><strong>ALADI</strong> — sede em Montevidéu; <strong>maior bloco da América Latina</strong>
+        (13 países). Mercosul e CAN são esquemas sub-regionais amparados por ela</li>
+        <li><strong>MCCA</strong> — Mercado Comum Centro-Americano (1961): Costa Rica, Guatemala,
+        Honduras, Nicarágua e El Salvador</li>
+      </ul>
+      <div class="tip">
+        <strong>Contraste de projetos:</strong> os EUA apostaram por anos na ALCA; hoje observam
+        com desconfiança a UNASUL, ligada ao fortalecimento de partidos de esquerda na região.
+        No século XXI, a disputa por influência na América do Sul é entre
+        <strong>EUA e China</strong>.
+      </div>
+    </div></div>
+  </div>
+
+  <div class="accordion fx-reveal">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">
+      Glossário essencial
+      <span class="chevron">▾</span>
+    </button>
+    <div class="accordion-body"><div class="accordion-inner">
+      <table class="data-table">
+        <tbody>
+          <tr><td><strong>Balança comercial</strong></td>
+              <td>Exportações − importações. Positiva quando se exporta mais</td></tr>
+          <tr><td><strong>Cartel</strong></td>
+              <td>Grupo de empresas ou países que combinam preços. Ex.: OPEP</td></tr>
+          <tr><td><strong>Truste</strong></td>
+              <td>Empresa que incorpora concorrentes formando conglomerado</td></tr>
+          <tr><td><strong>Holding</strong></td>
+              <td>Empresa que controla outras pela posse majoritária de ações;
+                  em geral não produz nada</td></tr>
+          <tr><td><strong>Monopólio</strong></td>
+              <td>Uma empresa (ou grupo) domina a oferta de um produto</td></tr>
+          <tr><td><strong>Dumping</strong></td>
+              <td>Vender abaixo do custo para eliminar a concorrência deslealmente</td></tr>
+          <tr><td><strong>Protecionismo</strong></td>
+              <td>Proteção da indústria nacional via tarifas a importados</td></tr>
+          <tr><td><strong>Economia de escala</strong></td>
+              <td>Produzir em grande quantidade para reduzir custos</td></tr>
+          <tr><td><strong>Istmo</strong></td>
+              <td>Faixa estreita de terra que liga dois continentes ou um continente a
+                  uma península</td></tr>
+          <tr><td><strong>PIB × PNB per capita</strong></td>
+              <td>PIB: tudo produzido no território, <em>incluindo</em> lucros remetidos ao
+                  exterior. PNB per capita: só o que <em>fica</em> no país, dividido pela
+                  população</td></tr>
+          <tr><td><strong>Pecuária extensiva × intensiva</strong></td>
+              <td>Extensiva: grandes áreas, gado solto, pouca tecnologia.
+                  Intensiva: confinamento, inseminação artificial, controle por satélite</td></tr>
+          <tr><td><strong>Coníferas</strong></td>
+              <td>Pinheiros de madeira "mole", ideal para papel</td></tr>
+          <tr><td><strong>Homestead Act</strong></td>
+              <td>Lei de Lincoln (1862) que garantia terra a quem ocupasse o oeste americano</td></tr>
+          <tr><td><strong>Royalty</strong></td>
+              <td>Valor pago ao detentor do direito de exploração de um produto</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       QUIZ
+       ════════════════════════════════════ -->
+  <section id="quiz-section" style="scroll-margin-top: 56px"><a id="quiz"></a>
+    <h2>Quiz de Revisão</h2>
+    <p>16 questões sobre o Continente Americano.</p>
+
+    <div class="quiz-topbar">
+      <div class="score-left">
+        <div class="mini-donut-wrap">
+          <svg width="44" height="44" viewBox="0 0 44 44">
+            <circle cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"/>
+            <circle id="mini-arc" cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"
+                    stroke-dasharray="106.8" stroke-dashoffset="106.8" stroke-linecap="round"
+                    transform="rotate(-90 22 22)"/>
+          </svg>
+          <span id="mini-pct">—</span>
+        </div>
+        <div class="score-live" id="score-live">Placar: <strong>0 / 16</strong></div>
+      </div>
+      <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
+    </div>
+    <div class="quiz-filter">
+      <button class="filter-btn active" onclick="filterQuiz('all', this)">Todas</button>
+      <button class="filter-btn" onclick="filterQuiz('cap1', this)">Visão Geral</button>
+      <button class="filter-btn" onclick="filterQuiz('cap2', this)">Anglo-Saxônica</button>
+      <button class="filter-btn" onclick="filterQuiz('cap3', this)">EUA e Canadá</button>
+      <button class="filter-btn" onclick="filterQuiz('cap4', this)">A. Latina e México</button>
+      <button class="filter-btn" onclick="filterQuiz('cap5', this)">A. Central</button>
+      <button class="filter-btn" onclick="filterQuiz('cap6', this)">Andina e Platina</button>
+    </div>
+
+    <div class="question-card" data-chapter="cap1" id="q1">
+      <h4>1. Pelo critério histórico-cultural, o México pertence à América Latina porque:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q1','a')">a) Está ao sul do Rio Grande</button>
+        <button class="option-btn" onclick="checkQuiz('q1','b')">b) Foi colônia de exploração espanhola, de língua latina</button>
+        <button class="option-btn" onclick="checkQuiz('q1','c')">c) Não faz parte do USMCA</button>
+        <button class="option-btn" onclick="checkQuiz('q1','d')">d) Tem relevo diferente do dos EUA</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap1" id="q2">
+      <h4>2. A formação das Montanhas Rochosas e da Cordilheira dos Andes resulta:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q2','a')">a) Da Dorsal Meso-Atlântica</button>
+        <button class="option-btn" onclick="checkQuiz('q2','b')">b) Da erosão de maciços antigos</button>
+        <button class="option-btn" onclick="checkQuiz('q2','c')">c) Da subducção da placa do Pacífico sob as placas americanas</button>
+        <button class="option-btn" onclick="checkQuiz('q2','d')">d) Da deposição de sedimentos quaternários</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap1" id="q3">
+      <h4>3. O Deserto do Atacama é explicado principalmente pela:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q3','a')">a) Corrente quente do Brasil</button>
+        <button class="option-btn" onclick="checkQuiz('q3','b')">b) Corrente fria de Humboldt</button>
+        <button class="option-btn" onclick="checkQuiz('q3','c')">c) Corrente do Golfo</button>
+        <button class="option-btn" onclick="checkQuiz('q3','d')">d) Corrente das Guianas</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap2" id="q4">
+      <h4>4. Escudo Canadense e Montes Apalaches correspondem, na América Anglo-Saxônica, à:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q4','a')">a) Porção ocidental, de dobramentos modernos</button>
+        <button class="option-btn" onclick="checkQuiz('q4','b')">b) Porção central, de bacias sedimentares</button>
+        <button class="option-btn" onclick="checkQuiz('q4','c')">c) Porção oriental, de maciços antigos erodidos</button>
+        <button class="option-btn" onclick="checkQuiz('q4','d')">d) Faixa litorânea do Pacífico</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap2" id="q5">
+      <h4>5. Entre os cinco Grandes Lagos, o único totalmente estadunidense é o:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q5','a')">a) Superior</button>
+        <button class="option-btn" onclick="checkQuiz('q5','b')">b) Michigan</button>
+        <button class="option-btn" onclick="checkQuiz('q5','c')">c) Ontário</button>
+        <button class="option-btn" onclick="checkQuiz('q5','d')">d) Erie</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap2" id="q6">
+      <h4>6. A vegetação de tundra, com musgos e liquens, está associada ao clima:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q6','a')">a) Temperado continental</button>
+        <button class="option-btn" onclick="checkQuiz('q6','b')">b) Polar</button>
+        <button class="option-btn" onclick="checkQuiz('q6','c')">c) Mediterrâneo</button>
+        <button class="option-btn" onclick="checkQuiz('q6','d')">d) Subtropical</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap3" id="q7">
+      <h4>7. A megalópole BOSWASH corresponde ao eixo:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q7','a')">a) Chicago–Detroit–Pittsburgh</button>
+        <button class="option-btn" onclick="checkQuiz('q7','b')">b) São Francisco–San Diego</button>
+        <button class="option-btn" onclick="checkQuiz('q7','c')">c) Boston–Nova Iorque–Washington</button>
+        <button class="option-btn" onclick="checkQuiz('q7','d')">d) Houston–Dallas–Miami</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap3" id="q8">
+      <h4>8. O Sun Belt se diferencia do Manufacturing Belt porque:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q8','a')">a) Concentra siderurgia e automobilística do século XIX</button>
+        <button class="option-btn" onclick="checkQuiz('q8','b')">b) Reúne indústrias da 3ª revolução industrial e alta tecnologia, no Texas e na Califórnia</button>
+        <button class="option-btn" onclick="checkQuiz('q8','c')">c) Localiza-se no Nordeste do país</button>
+        <button class="option-btn" onclick="checkQuiz('q8','d')">d) Depende de mão de obra não qualificada</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap3" id="q9">
+      <h4>9. Na eleição americana de 2000, Bush venceu Al Gore mesmo tendo menos votos populares porque:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q9','a')">a) O voto é obrigatório nos EUA</button>
+        <button class="option-btn" onclick="checkQuiz('q9','b')">b) Obteve maioria no Colégio Eleitoral (271 a 266)</button>
+        <button class="option-btn" onclick="checkQuiz('q9','c')">c) Venceu todas as primárias</button>
+        <button class="option-btn" onclick="checkQuiz('q9','d')">d) O Congresso escolheu o presidente</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap3" id="q10">
+      <h4>10. O Canadá é o maior exportador mundial de madeiras, móveis e papel graças:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q10','a')">a) Às pradarias do centro-sul</button>
+        <button class="option-btn" onclick="checkQuiz('q10','b')">b) Às florestas de coníferas, que cobrem ~40% do país</button>
+        <button class="option-btn" onclick="checkQuiz('q10','c')">c) À tundra do Nunavut</button>
+        <button class="option-btn" onclick="checkQuiz('q10','d')">d) À floresta temperada da Colúmbia Britânica</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap4" id="q11">
+      <h4>11. A urbanização latino-americana se caracteriza por:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q11','a')">a) Decorrer do desenvolvimento industrial, como na Europa</button>
+        <button class="option-btn" onclick="checkQuiz('q11','b')">b) Ser lenta e planejada</button>
+        <button class="option-btn" onclick="checkQuiz('q11','c')">c) Ser rápida e desequilibrada, resultado de alterações no campo, gerando favelização</button>
+        <button class="option-btn" onclick="checkQuiz('q11','d')">d) Concentrar-se em cidades médias</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap4" id="q12">
+      <h4>12. As indústrias maquiladoras mexicanas caracterizam-se por:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q12','a')">a) Serem estatais e ficarem no Planalto de Anahuac</button>
+        <button class="option-btn" onclick="checkQuiz('q12','b')">b) Montarem produtos na fronteira com os EUA, com mão de obra barata, para o mercado americano</button>
+        <button class="option-btn" onclick="checkQuiz('q12','c')">c) Produzirem apenas petroquímicos no Golfo</button>
+        <button class="option-btn" onclick="checkQuiz('q12','d')">d) Abastecerem exclusivamente o mercado interno</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap4" id="q13">
+      <h4>13. Os <em>ejidos</em>, no México, são:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q13','a')">a) Grandes latifúndios de exportação</button>
+        <button class="option-btn" onclick="checkQuiz('q13','b')">b) Propriedades rurais de uso coletivo, fruto da reforma agrária</button>
+        <button class="option-btn" onclick="checkQuiz('q13','c')">c) Zonas francas industriais</button>
+        <button class="option-btn" onclick="checkQuiz('q13','d')">d) Reservas indígenas autônomas</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap5" id="q14">
+      <h4>14. Sobre o Canal do Panamá, é correto afirmar:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q14','a')">a) Foi construído pelos franceses e nunca saiu do controle deles</button>
+        <button class="option-btn" onclick="checkQuiz('q14','b')">b) Passou ao controle panamenho em 1999, após acordo de 1977</button>
+        <button class="option-btn" onclick="checkQuiz('q14','c')">c) Liga o Atlântico ao Mar do Caribe</button>
+        <button class="option-btn" onclick="checkQuiz('q14','d')">d) Está sob soberania colombiana desde 1903</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap5" id="q15">
+      <h4>15. Haiti e Jamaica destacam-se por:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q15','a')">a) Preservarem intacta a cultura indígena originária</button>
+        <button class="option-btn" onclick="checkQuiz('q15','b')">b) Serem as nações com maior participação de negros fora da África</button>
+        <button class="option-btn" onclick="checkQuiz('q15','c')">c) Terem economia industrializada</button>
+        <button class="option-btn" onclick="checkQuiz('q15','d')">d) Serem paraísos fiscais</button>
+      </div>
+    </div>
+
+    <div class="question-card" data-chapter="cap6" id="q16">
+      <h4>16. A Guerra do Pacífico (1879-1884) teve como consequência para a Bolívia:</h4>
+      <div class="options">
+        <button class="option-btn" onclick="checkQuiz('q16','a')">a) A conquista do deserto do Atacama</button>
+        <button class="option-btn" onclick="checkQuiz('q16','b')">b) A perda de Antofagasta, sua única saída para o mar</button>
+        <button class="option-btn" onclick="checkQuiz('q16','c')">c) A anexação de Tarapacá</button>
+        <button class="option-btn" onclick="checkQuiz('q16','d')">d) A independência em relação ao Peru</button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="quiz-result" id="quiz-result">
+      <div class="donut-wrap">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+          <circle cx="65" cy="65" r="55" fill="none" stroke="var(--accent)" stroke-width="14"
+                  stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+        </svg>
+        <div class="donut-center">
+          <span class="donut-score" id="donut-score">0</span>
+          <span class="donut-label">/ 16</span>
+        </div>
+      </div>
+      <div class="result-msg" id="result-msg"></div>
+      <div class="result-sub" id="result-sub"></div>
+      <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Caderno Digital · Geografia 2º Trimestre — Continente Americano
+</footer>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pergunte sobre a América Anglo-Saxônica, a América Latina, México, América Central, Andina ou Platina.</div>
+  </div>
+  <form id="chat-form" onsubmit="sendChat(event)">
+    <input id="chat-input" placeholder="Digite sua pergunta..." autocomplete="off">
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script src="scripts/globe-landmask.js"></script>
+<script src="scripts/globe.js"></script>
+<script src="scripts/chat.js"></script>
+<script>
+  /* ── Accordion ── */
+  function toggleAccordion(btn) {
+    const acc = btn.closest('.accordion');
+    const wasOpen = acc.classList.contains('open');
+    document.querySelectorAll('.accordion').forEach(a => a.classList.remove('open'));
+    if (!wasOpen) acc.classList.add('open');
+  }
+
+
+  /* ── Globo: encolhe para o canto ao sair do hero ── */
+  (function () {
+    var wrap = document.getElementById('globeWrap');
+    var hero = document.querySelector('.hero');
+    if (!wrap || !hero || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    new IntersectionObserver(function (entries) {
+      // enquanto sobrar um pedaço do hero na tela, o globo fica lá
+      wrap.classList.toggle('is-mini', !entries[0].isIntersecting);
+      // o fundo mudou (hero escuro ↔ página clara): o globo precisa
+      // reler as variáveis de cor, senão fica invisível
+      var c = wrap.querySelector('canvas.globe');
+      if (c && c.__globe) c.__globe.refreshColors();
+    }, { threshold: 0.15 }).observe(hero);
+  })();
+
+  /* ── Progress bar ── */
+  window.addEventListener('scroll', () => {
+    const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('progressBar').style.width = p + '%';
+  });
+
+  /* ── Quiz ── */
+  const ANSWERS = {
+    q1:'b', q2:'c', q3:'b', q4:'c', q5:'b', q6:'b', q7:'c', q8:'b',
+    q9:'b', q10:'b', q11:'c', q12:'b', q13:'b', q14:'b', q15:'b', q16:'b'
+  };
+  const N = Object.keys(ANSWERS).length;
+  let answered = {}, score = 0, total = 0;
+
+  function checkQuiz(qid, choice) {
+    if (answered[qid]) return;
+    answered[qid] = true;
+    total++;
+    const card = document.getElementById(qid);
+    const btns = card.querySelectorAll('.option-btn');
+    const correct = ANSWERS[qid];
+    let correctText = '';
+    btns.forEach(b => {
+      const letter = b.textContent.trim()[0];
+      if (letter === correct) { b.classList.add('correct'); correctText = b.textContent.trim(); }
+      else if (letter === choice && choice !== correct) b.classList.add('wrong');
+      b.disabled = true;
+    });
+    if (choice === correct) score++;
+    let exp = card.querySelector('.answer-exp');
+    if (!exp) { exp = document.createElement('div'); exp.className = 'answer-exp'; card.querySelector('.options').after(exp); }
+    exp.innerHTML = '<span>✔</span><span>' + correctText + '</span>';
+    exp.style.display = 'flex';
+    document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
+    const pct = Math.round((score / total) * 100);
+    const arc = document.getElementById('mini-arc');
+    arc.style.strokeDashoffset = 106.8 - (pct / 100) * 106.8;
+    arc.style.stroke = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+    const pctEl = document.getElementById('mini-pct');
+    pctEl.textContent = pct + '%';
+    pctEl.style.color = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+    if (total === N) showResult();
+  }
+
+  function filterQuiz(chapter, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.question-card').forEach(c => {
+      c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+    });
+  }
+
+  function showResult() {
+    document.getElementById('quiz-result').style.display = 'block';
+    document.getElementById('donut-score').textContent = score;
+    const circumference = 345.4;
+    document.getElementById('donut-arc').style.strokeDashoffset =
+      circumference - (score / N) * circumference;
+    const pct = Math.round((score / N) * 100);
+    let msg, sub;
+    if (pct >= 90) { msg = 'Excelente! Você dominou o conteúdo!'; sub = 'Resultado impressionante!'; }
+    else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.'; }
+    else if (pct >= 50) { msg = 'Bom esforço! Ainda há margem para melhorar.'; sub = 'Volte aos capítulos com dificuldade.'; }
+    else { msg = 'Continue estudando!'; sub = 'Releia os acordeons e tente novamente.'; }
+    document.getElementById('result-msg').textContent = msg;
+    document.getElementById('result-sub').textContent = sub;
+  }
+
+  function resetQuiz() {
+    answered = {}; score = 0; total = 0;
+    document.querySelectorAll('.option-btn').forEach(b => {
+      b.classList.remove('correct', 'wrong');
+      b.disabled = false;
+    });
+    document.querySelectorAll('.answer-exp').forEach(e => e.style.display = 'none');
+    document.getElementById('quiz-result').style.display = 'none';
+    document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+    document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / ' + N + '</strong>';
+    const arc = document.getElementById('mini-arc');
+    arc.style.strokeDashoffset = '106.8';
+    arc.style.stroke = '#e0e0e0';
+    const pctEl = document.getElementById('mini-pct');
+    pctEl.textContent = '—';
+    pctEl.style.color = '';
+    window.scrollTo({ top: document.getElementById('quiz-section').offsetTop - 60, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

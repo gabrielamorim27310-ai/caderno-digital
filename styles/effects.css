@@ -331,3 +331,75 @@
     background: none; color: inherit; -webkit-text-fill-color: currentColor;
   }
 }
+
+/* ─────────────────────────────────────────────
+   11. GLOBO TERRESTRE   canvas.globe
+   Comportamento em scripts/globe.js (+ globe-landmask.js).
+   Cores: define --globe-land / --globe-water / --globe-marker /
+   --globe-label, ou deixa cair no --primary/--border/--secondary
+   da página.
+   ───────────────────────────────────────────── */
+.globe-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+}
+canvas.globe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;  /* deixa a página rolar na vertical; o giro é horizontal */
+}
+.globe-caption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-light, #6b6b6b);
+  margin-top: 6px;
+}
+
+/* ─────────────────────────────────────────────
+   12. GLOBO QUE ACOMPANHA A LEITURA  .globe-sticky
+   Inspirado no ScrollGlobe do 21st.dev (React) — aqui em CSS puro.
+   No topo o globo é grande, dentro do hero; ao rolar, encolhe e fica
+   fixo num canto, girando para a região do capítulo em foco
+   (ver data-globe-focus em scripts/globe.js).
+
+   O JS não mexe em nada disso: quem decide o tamanho é a media query
+   e a classe .is-mini, que a página aplica ao sair do hero.
+   ───────────────────────────────────────────── */
+.globe-sticky {
+  transition: max-width .8s cubic-bezier(.22,1,.36,1),
+              transform  .8s cubic-bezier(.22,1,.36,1),
+              opacity    .5s ease;
+}
+
+/* telas largas: vira um globo de canto, fixo, atrás do conteúdo */
+@media (min-width: 1000px) {
+  .globe-wrap.globe-sticky.is-mini {
+    position: fixed;
+    right: 24px;
+    bottom: 84px;   /* acima do botão do chat */
+    left: auto;
+    max-width: 190px;
+    margin: 0;
+    z-index: 5;
+    opacity: .92;
+  }
+  .globe-wrap.globe-sticky.is-mini + .globe-caption { display: none; }
+}
+
+/* telas estreitas: não vira canto nenhum — ficaria em cima do texto.
+   O globo simplesmente fica no hero e some ao rolar. */
+@media (max-width: 999px) {
+  .globe-wrap.globe-sticky.is-mini { opacity: 0; pointer-events: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-sticky { transition: none; }
+}
+
+@media print {
+  .globe-wrap, .globe-caption { display: none !important; }
+}
