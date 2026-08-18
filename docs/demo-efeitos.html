@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demonstração de efeitos — Caderno Digital</title>
+
+<!-- as variáveis que cada página de matéria define no seu :root -->
+<style>
+  :root {
+    --primary: #7a5c3e;
+    --secondary: #c9a227;
+    --border: #e5ddd4;
+    --text-light: #6b6b6b;
+  }
+  body {
+    font-family: Inter, system-ui, sans-serif;
+    margin: 0; color: #221a12; background: #fdfbf7;
+    line-height: 1.6;
+  }
+  .hero {
+    position: relative; min-height: 320px;
+    display: grid; place-items: center; text-align: center;
+    background: #2b2118; color: #fff; padding: 40px 20px;
+  }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 3rem; margin: 0 0 8px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 120px; }
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  h2 { font-family: 'Playfair Display', Georgia, serif; margin: 0 0 6px; }
+  .hint { color: var(--text-light); font-size: 0.88rem; margin: 0 0 20px; }
+  code { background: #f2ece3; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card {
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 24px; background: #fff;
+  }
+  .btn {
+    background: var(--primary); color: #fff; border: none;
+    padding: 14px 26px; border-radius: 10px; cursor: pointer;
+    font-size: 0.95rem; font-family: inherit;
+  }
+  .nota { font-size: 3rem; font-weight: 700; color: var(--primary); }
+</style>
+
+<link rel="stylesheet" href="../styles/effects.css">
+<script src="../scripts/effects.js"></script>
+</head>
+<body>
+
+<div class="hero fx-aurora">
+  <div>
+    <h1 class="fx-gradient-text">Caderno Digital</h1>
+    <p class="fx-shiny">efeitos disponíveis em styles/effects.css</p>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <h2>1. Revelação ao rolar</h2>
+    <p class="hint">
+      <code>.fx-reveal</code> nos filhos, <code>.fx-stagger</code> no pai para a cascata.
+      Variantes: <code>--left</code>, <code>--right</code>, <code>--blur</code>.
+    </p>
+    <div class="grid fx-stagger">
+      <div class="card fx-reveal">Entra de baixo</div>
+      <div class="card fx-reveal fx-reveal--left">Entra da esquerda</div>
+      <div class="card fx-reveal fx-reveal--blur">Entra desfocado</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. Spotlight e glare</h2>
+    <p class="hint">
+      <code>.fx-spotlight</code> segue o cursor; <code>.fx-glare</code> passa um
+      reflexo no hover. Passe o mouse por cima.
+    </p>
+    <div class="grid">
+      <div class="card fx-reveal fx-spotlight">Spotlight</div>
+      <div class="card fx-reveal fx-glare">Glare</div>
+      <div class="card fx-reveal fx-spotlight fx-glare">Os dois juntos</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Card inclinado</h2>
+    <p class="hint">
+      <code>.fx-tilt</code> — inclina conforme a posição do cursor.
+      Ajuste com <code>data-fx-max</code>.
+    </p>
+    <div class="grid">
+      <div class="card fx-reveal fx-tilt fx-spotlight" data-fx-max="12">Incline-me</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>4. Contador animado</h2>
+    <p class="hint">
+      <code>.fx-count</code> com <code>data-fx-to</code> — para a nota dos quizzes.
+      Dispara ao entrar na tela.
+    </p>
+    <p class="nota fx-reveal"><span class="fx-count" data-fx-to="87">0</span>%</p>
+  </section>
+
+  <section>
+    <h2>5. Texto embaralhado</h2>
+    <p class="hint">
+      <code>.fx-scramble</code> — resolve letra a letra. Bom para o título da matéria.
+    </p>
+    <h2 class="fx-scramble" style="font-size:2.4rem">Biologia</h2>
+  </section>
+
+  <section>
+    <h2>6. Botão magnético, faísca e borda estelar</h2>
+    <p class="hint">
+      <code>.fx-magnet</code> (atrai o botão),
+      <code>.fx-spark</code> (faíscas no clique),
+      <code>.fx-starborder</code> (brilho na borda).
+    </p>
+    <button class="btn fx-magnet fx-spark">Magnético + faísca</button>
+    <span class="fx-starborder" style="display:inline-block;border-radius:10px;margin-left:12px">
+      <span class="btn" style="display:inline-block">Borda estelar</span>
+    </span>
+  </section>
+
+  <section style="border:none">
+    <h2>7. Fundo de grade de pontos</h2>
+    <p class="hint"><code>.fx-dotgrid</code> — alternativa leve aos fundos WebGL.</p>
+    <div class="card fx-dotgrid fx-reveal" style="min-height:140px">
+      Conteúdo sobre a grade
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
