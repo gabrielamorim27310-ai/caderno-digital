@@ -122,6 +122,10 @@
     gap: 18px;
   }
 
+  /* Ocultos por não caírem na prova do trimestre — o conteúdo continua
+     no arquivo, só não aparece na home. Remova a classe pra reexibir. */
+  .not-on-exam { display: none !important; }
+
   /* CARD */
   .subject-card {
     background: var(--card-bg);
@@ -213,7 +217,7 @@
     <button class="tri-btn" onclick="setTri('t1',this)">
       1º Trimestre <span class="count">7</span>
     </button>
-    <button class="tri-btn" onclick="setTri('t2',this)">2º Trimestre <span class="count">6</span></button>
+    <button class="tri-btn" onclick="setTri('t2',this)">2º Trimestre <span class="count">3</span></button>
     <button class="tri-btn" onclick="setTri('t3',this)">3º Trimestre</button>
   </div>
 </nav>
@@ -369,7 +373,7 @@
     <p class="panel-title">2º Trimestre</p>
     <div class="subject-grid fx-stagger">
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal not-on-exam">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--bio)">🧬</div>
           <div>
@@ -391,7 +395,7 @@
           <div class="subject-icon" style="background:var(--geo)">🌍</div>
           <div>
             <div class="subject-name">Geografia</div>
-            <div class="subject-desc">Espaço Econômico Europeu · América do Norte</div>
+            <div class="subject-desc">Continente Americano</div>
           </div>
         </div>
         <div class="subject-items">
@@ -400,7 +404,7 @@
             <span class="label">Continente Americano — conteúdo da prova</span>
             <span class="arrow">›</span>
           </a>
-          <a class="item-link" href="geografia-2tri.html">
+          <a class="item-link not-on-exam" href="geografia-2tri.html">
             <span class="dot" style="background:var(--geo)"></span>
             <span class="label">UE, Brexit, Relevo, Clima &amp; Hidrografia</span>
             <span class="arrow">›</span>
@@ -408,7 +412,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal not-on-exam">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--historia)">🏛️</div>
           <div>
@@ -425,7 +429,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal not-on-exam">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--qui)">🧪</div>
           <div>
