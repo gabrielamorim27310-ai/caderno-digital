@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matemática 2º Tri — Combinatória, Trig, Inequações e Probabilidade 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary:   #1565c0;
+    --secondary: #2e93e0;
+    --accent:    #e0722e;
+    --bg:        #f4f8fc;
+    --card-bg:   #ffffff;
+    --text:      #1e1e1e;
+    --text-light:#5b6b7a;
+    --border:    #d9e6f2;
+    --shadow:    0 4px 24px rgba(10,60,110,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; scroll-behavior:smooth; }
+
+  .progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--secondary); z-index:999; width:0%; transition:width 0.1s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #061c33 0%, #1565c0 50%, #2e93e0 100%);
+    color:white; padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; margin-bottom:12px; position:relative; }
+  .hero .subtitle { font-size:1.1rem; opacity:0.85; font-weight:300; position:relative; }
+  .hero .badge { display:inline-block; background:var(--secondary); color:white; padding:6px 18px; border-radius:20px; font-weight:700; font-size:0.85rem; margin-top:16px; position:relative; }
+  .hero .author { display:inline-block; background:rgba(255,255,255,0.15); color:white; padding:8px 22px; border-radius:20px; font-size:1.05rem; font-weight:600; margin-top:12px; position:relative; border:1px solid rgba(255,255,255,0.4); letter-spacing:0.02em; }
+
+  /* NAV */
+  nav { background:white; border-bottom:2px solid var(--border); padding:0 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width:1100px; margin:0 auto; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+  nav .nav-inner::-webkit-scrollbar { display:none; }
+  nav a { text-decoration:none; padding:14px 18px; font-weight:600; font-size:0.82rem; white-space:nowrap; color:var(--text-light); border-bottom:3px solid transparent; transition:all 0.3s; }
+  nav a:hover, nav a.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* MAIN */
+  main { max-width:900px; margin:0 auto; padding:40px 20px 80px; }
+
+  /* CHAPTER */
+  .chapter { margin-bottom:56px; }
+  .chapter-header { margin-bottom:24px; padding-bottom:14px; border-bottom:3px solid var(--secondary); }
+  .chapter-header h2 { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--primary); font-weight:900; display:flex; align-items:center; gap:12px; }
+  .ch-tag { display:inline-block; background:var(--primary); color:white; padding:3px 12px; border-radius:6px; font-size:0.78rem; font-weight:700; letter-spacing:.5px; font-family:'Inter',sans-serif; flex-shrink:0; }
+  .chapter-header .meta { color:var(--text-light); font-size:0.9rem; margin-top:6px; }
+
+  /* ACCORDION */
+  .accordion { background:white; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .accordion-btn { width:100%; background:none; border:none; padding:17px 20px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:0.97rem; font-weight:600; color:var(--primary); transition:background .2s; }
+  .accordion-btn:hover { background:#eaf3fc; }
+  .accordion-btn .chev { transition:transform .3s; color:var(--secondary); font-size:1.1rem; }
+  .accordion.open .chev { transform:rotate(180deg); }
+  .accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .accordion.open .accordion-content { max-height:6000px; }
+  .content-block { padding:0 20px 20px; border-top:1px solid var(--border); }
+  .content-block p { margin:12px 0; font-size:0.95rem; }
+  .content-block ul, .content-block ol { margin:8px 0 12px 22px; }
+  .content-block li { margin-bottom:6px; font-size:0.93rem; }
+  .content-block h4 { font-family:'Playfair Display',serif; color:var(--primary); margin:16px 0 8px; font-size:1.05rem; }
+
+  /* INFO BOXES */
+  .highlight-box, .warn-box, .tip-box {
+    border-left:4px solid; border-radius:0 10px 10px 0; padding:13px 16px; margin:14px 0; font-size:0.93rem;
+  }
+  .highlight-box { background:#eaf3fc; border-color:var(--primary); }
+  .warn-box      { background:#fdf1e6; border-color:var(--accent); }
+  .tip-box       { background:#e9f8f0; border-color:#1f9e5e; }
+  .highlight-box strong:first-child, .warn-box strong:first-child, .tip-box strong:first-child { display:block; margin-bottom:4px; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem; }
+  .data-table th { background:var(--primary); color:white; padding:10px 12px; text-align:left; font-weight:600; }
+  .data-table td { padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .data-table tr:nth-child(even) td { background:#eaf3fc; }
+
+  /* FORMULA PILL */
+  .formula-pill { display:inline-block; background:#eaf3fc; border:1.5px solid var(--primary); border-radius:8px; padding:5px 12px; font-family:'Courier New',monospace; font-size:0.92rem; color:var(--primary); font-weight:700; margin:4px 2px; }
+  .formula-block { text-align:center; background:#eaf3fc; border:1.5px solid var(--primary); border-radius:10px; padding:14px; margin:14px 0; font-family:'Courier New',monospace; font-size:1rem; color:var(--primary); font-weight:700; }
+
+  /* COMPARE GRID */
+  .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0; }
+  .compare-card { background:var(--bg); border-radius:10px; padding:14px 16px; border:1px solid var(--border); }
+  .compare-card h5 { font-size:0.88rem; font-weight:700; color:var(--accent); margin-bottom:8px; }
+  .compare-card ul { margin:0 0 0 16px; }
+  .compare-card li { font-size:0.87rem; margin-bottom:4px; }
+  @media(max-width:600px) { .compare-grid { grid-template-columns:1fr; } }
+
+  /* SIGN CHART (quadro de sinais / reta numérica) */
+  .sign-chart { display:flex; align-items:stretch; margin:14px 0; font-family:'Courier New',monospace; font-size:0.85rem; overflow-x:auto; }
+  .sign-chart .seg { flex:1; min-width:44px; text-align:center; padding:8px 4px 2px; border-top:3px solid; font-weight:700; }
+  .sign-chart .seg.pos { border-color:#1f9e5e; color:#1f9e5e; }
+  .sign-chart .seg.neg { border-color:#d64545; color:#d64545; }
+  .sign-chart .root { flex:0 0 auto; padding:24px 8px 2px 8px; font-weight:700; color:var(--primary); font-size:0.82rem; white-space:nowrap; }
+  .sign-chart .cap { text-align:center; font-size:0.78rem; color:var(--text-light); margin-top:-4px; margin-bottom:10px; }
+
+  figure.diagram { text-align:center; margin:16px 0; }
+  figure.diagram figcaption { font-size:0.8rem; color:var(--text-light); margin-top:4px; }
+
+  /* QUIZ */
+  #quiz-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+  #quiz-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
+  #quiz-section > p { color:var(--text-light); margin-bottom:20px; }
+
+  .quiz-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .filter-btn { padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); background:white; color:var(--text-light); font-size:0.82rem; font-weight:600; cursor:pointer; transition:all .2s; }
+  .filter-btn.active, .filter-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
+
+  .question-card { background:var(--bg); border:1.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; }
+  .question-card.hidden { display:none; }
+  .question-card h4 { font-size:0.95rem; font-weight:600; color:var(--primary); margin-bottom:14px; }
+  .options { display:flex; flex-direction:column; gap:8px; }
+  .option-btn { background:white; border:1.5px solid var(--border); border-radius:8px; padding:10px 14px; text-align:left; font-size:0.9rem; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .option-btn:hover { border-color:var(--secondary); background:#eaf3fc; }
+  .option-btn.correct { background:#d4edda; border-color:#27ae60; color:#155724; }
+  .option-btn.wrong   { background:#f8d7da; border-color:#e74c3c; color:#721c24; }
+
+  .quiz-result { display:none; text-align:center; padding:24px; }
+  .donut-wrap { position:relative; width:130px; height:130px; margin:0 auto 16px; }
+  .donut-wrap svg { transform:rotate(-90deg); }
+  .donut-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-score { font-size:1.8rem; font-weight:700; color:var(--primary); }
+  .donut-label { font-size:0.75rem; color:var(--text-light); }
+  .result-msg { font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:6px; }
+  .result-sub { font-size:0.9rem; color:var(--text-light); margin-bottom:20px; }
+  .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
+  .btn-reset:hover { background:var(--accent); }
+
+  .quiz-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+  .score-left { display:flex; align-items:center; gap:12px; }
+  .mini-donut-wrap { position:relative; width:44px; height:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .mini-donut-wrap svg { position:absolute; top:0; left:0; }
+  #mini-pct { position:relative; font-size:0.65rem; font-weight:800; color:#aaa; line-height:1; }
+  .score-live { font-size:0.9rem; font-weight:600; color:var(--primary); background:var(--bg); padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); }
+  .btn-reset-mid { background:none; border:1.5px solid var(--border); color:var(--text-light); padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all .2s; }
+  .btn-reset-mid:hover { border-color:var(--primary); color:var(--primary); }
+  .answer-exp { display:none; align-items:flex-start; gap:8px; margin-top:10px; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px; padding:10px 14px; font-size:0.87rem; color:#1b5e20; line-height:1.5; }
+
+  /* CHAT flutuante */
+  #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+  #chat-btn:hover { transform:scale(1.08); }
+  #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+  #chat-panel.open { display:flex; }
+  #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  #chat-head span { font-weight:600; font-size:0.92rem; }
+  #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+  #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+  .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+  .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+  .cmsg.loading { opacity:0.6; font-style:italic; }
+  #chat-form { display:flex; border-top:1px solid var(--border); }
+  #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+  #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+  #chat-send:hover { background:var(--accent); }
+
+  footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
+
+  @media(max-width:600px) {
+    .hero { padding:56px 16px 44px; }
+    main { padding:24px 14px 60px; }
+  }
+</style>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>Matemática — 2º Trimestre</h1>
+  <p class="subtitle">2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Combinatória · Trigonometria · Inequações · Probabilidade</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#combinatoria">Combinatória</a>
+    <a href="#trigonometria">Trigonometria</a>
+    <a href="#modulares">Modulares</a>
+    <a href="#exponenciais">Exponenciais</a>
+    <a href="#logaritmicas">Logarítmicas</a>
+    <a href="#graficos">Gráficos</a>
+    <a href="#probabilidade">Probabilidade</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="tip-box" style="margin-bottom:32px">
+  <strong>O que cai na prova</strong>
+  Este trimestre reúne o conteúdo de duas turmas de Matemática — se sua prova for só de uma
+  frente, use o menu acima para ir direto ao que interessa. <strong>Matemática 1:</strong>
+  inequações modulares, exponenciais e logarítmicas, gráficos de exponencial/log.
+  <strong>Matemática 2:</strong> análise combinatória (permutação simples, com repetição,
+  circular, combinação simples) e equações trigonométricas. Probabilidade aparece combinada com
+  combinatória em provas de anos anteriores — vale revisar.
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 1 — ANÁLISE COMBINATÓRIA
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="combinatoria">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 1</span> Análise Combinatória</h2>
+    <p class="meta">Permutação, combinação, problemas condicionados e permutação circular</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Os quatro tipos fundamentais <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A primeira pergunta de qualquer problema de contagem é: <strong>a ordem importa? E
+        pode repetir?</strong></p>
+        <table class="data-table">
+          <thead><tr><th>Tipo</th><th>Ordem importa?</th><th>Fórmula</th><th>Quando usar</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Arranjo simples</strong></td><td>Sim</td>
+                <td class="formula-pill">A(n,p) = n!/(n−p)!</td>
+                <td>Escolher e ordenar p de n elementos distintos</td></tr>
+            <tr><td><strong>Combinação simples</strong></td><td>Não</td>
+                <td class="formula-pill">C(n,p) = n!/[p!(n−p)!]</td>
+                <td>Escolher p de n, sem se importar com a ordem (formar grupos/comissões)</td></tr>
+            <tr><td><strong>Permutação simples</strong></td><td>Sim</td>
+                <td class="formula-pill">P(n) = n!</td>
+                <td>Organizar n elementos distintos numa fila</td></tr>
+            <tr><td><strong>Permutação com repetição</strong></td><td>Sim</td>
+                <td class="formula-pill">P(n)^(a,b,c) = n!/(a!·b!·c!)</td>
+                <td>Anagramas de palavras com letras repetidas</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Exemplo — anagramas de COMBINATÓRIA (12 letras)</strong>
+          Letras repetidas: O(2), I(2), A(2); as outras 6 (C,M,B,N,T,R) são únicas.
+          n = 12!/(2!·2!·2!) = <strong>59.875.200</strong> anagramas.<br><br>
+          Se além disso todas as vogais (O,I,A,O,I,A) precisam ficar juntas num bloco e todas as
+          consoantes (C,M,B,N,T,R) juntas em outro: permuta as 6 vogais → 6!/(2!2!2!) = 90 · permuta
+          as 6 consoantes, todas distintas → 6! = 720 · permuta os 2 blocos entre si → 2!.
+          <strong>Total: 90 × 720 × 2 = 129.600</strong> anagramas nessas condições — a
+          <em>probabilidade</em> de sortear um desses ao acaso é 129.600/59.875.200 = 1/462.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Blocos: vogais juntas, consoantes juntas <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Um padrão muito cobrado: <strong>"todas as vogais juntas em um bloco e todas as
+        consoantes juntas em outro"</strong>. O método tem 3 passos:</p>
+        <ol>
+          <li>Permute as vogais <strong>dentro</strong> do bloco delas (considerando repetições)</li>
+          <li>Permute as consoantes <strong>dentro</strong> do bloco delas (considerando repetições)</li>
+          <li>Permute os <strong>2 blocos</strong> entre si — geralmente é só 2! = 2 (vogais primeiro
+          ou consoantes primeiro)</li>
+        </ol>
+        <div class="highlight-box">
+          <strong>Exemplo — ESTATISTICA (11 letras)</strong>
+          Vogais (E,A,I,I,A): 5 letras, 2 A e 2 I → P = 5!/2!2! = 30.<br>
+          Consoantes (S,T,T,S,T,C): 6 letras, 2 S e 3 T → P = 6!/2!3! = 60.<br>
+          Blocos: 2! = 2.<br>
+          <strong>Total: 2 × 30 × 60 = 3.600</strong>
+        </div>
+        <div class="tip-box">
+          <strong>Truque rápido</strong>
+          Sempre identifique primeiro <em>quais letras se repetem em cada bloco</em> antes de
+          calcular — é o erro mais comum (esquecer de dividir pelas repetições).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">"Pelo menos": combinações condicionadas <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Quando o problema pede um grupo com <strong>"pelo menos X de um tipo"</strong>, você
+        precisa <strong>separar em casos</strong> (quantos exatamente de cada tipo) e
+        <strong>somar</strong> os resultados — nunca existe uma fórmula única de "pelo menos".</p>
+        <div class="highlight-box">
+          <strong>Exemplo — equipe de cirurgia</strong>
+          6 médicos, 5 enfermeiros; equipe de 5 pessoas, no mínimo 3 enfermeiros. Casos possíveis:
+          <ul>
+            <li>3 enfermeiros + 2 médicos: C(5,3)·C(6,2) = 10·15 = 150</li>
+            <li>4 enfermeiros + 1 médico: C(5,4)·C(6,1) = 5·6 = 30</li>
+            <li>5 enfermeiros + 0 médicos: C(5,5)·C(6,0) = 1·1 = 1</li>
+          </ul>
+          <strong>Soma: 150+30+1 = 181 equipes possíveis.</strong>
+        </div>
+        <h4>"Pelo menos 1 de cada" — distribuição com repetição (CR)</h4>
+        <p>Quando o problema pede para distribuir <em>n</em> itens idênticos entre <em>k</em>
+        categorias, exigindo <strong>pelo menos 1 de cada categoria</strong>, use o truque de dar 1
+        de cada categoria primeiro (garantindo o mínimo) e distribuir o resto livremente pela
+        fórmula de combinação completa:</p>
+        <div class="formula-block">CR(k, n−k) = C(n−1, k−1)</div>
+        <div class="tip-box">
+          <strong>Exemplo — buquê de flores</strong>
+          15 flores, 4 espécies, pelo menos 1 de cada. Reserva 1 de cada (sobra 11 pra distribuir
+          livremente entre as 4 espécies): CR(4,11) = C(11+4−1, 11) = C(14,11) = 364 maneiras.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Pontos colineares: triângulos e quadriláteros <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Quando alguns pontos estão alinhados (colineares), eles <strong>não formam
+        triângulo/polígono</strong> — o método é sempre <strong>combinação total menos os casos
+        impossíveis</strong>.</p>
+        <div class="highlight-box">
+          <strong>Exemplo — triângulos</strong>
+          10 pontos no total, sendo 4 colineares (numa mesma reta) e 6 fora dela.
+          Total de combinações de 3 pontos: C(10,3) = 120. Triângulos impossíveis (3 pontos
+          colineares dentre os 4): C(4,3) = 4. <strong>Triângulos possíveis: 120 − 4 = 116.</strong>
+        </div>
+        <p>Para <strong>quadriláteros</strong> (4 vértices), há dois jeitos de "dar errado": 4
+        pontos colineares, OU 3 colineares + 1 fora (esses 3 ainda ficam alinhados e não fecham
+        quadrilátero convexo). Subtraia os dois casos da combinação total.</p>
+        <div class="tip-box">
+          <strong>Exemplo — quadriláteros com arco + reta externa</strong>
+          8 pontos num arco de circunferência + n pontos numa reta externa (nunca alinhados com
+          o arco). O total de quadriláteros com vértice nesses (n+8) pontos é a soma de 3 casos:
+          2 pontos na reta + 2 no arco, OU 1 na reta + 3 no arco, OU 4 no arco (nenhum na reta) —
+          já que pegar ≥3 pontos numa mesma reta não forma quadrilátero válido daquele jeito.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Caminhos em grade com ponto bloqueado <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Um robô/drone/carteiro anda só para <strong>Norte/cima</strong> ou
+        <strong>Leste/direita</strong> numa grade, de um ponto A até um ponto B, com um ponto
+        bloqueado no meio do caminho. O número de trajetos entre dois pontos é uma
+        <strong>permutação com repetição</strong> dos passos:</p>
+        <div class="formula-block">De (0,0) a (a,b): P(a+b)^(a,b) = (a+b)! / (a!·b!)</div>
+        <figure class="diagram">
+          <svg viewBox="0 0 220 180" style="width:100%;max-width:260px">
+            <g stroke="var(--border)" stroke-width="1">
+              <line x1="20" y1="20" x2="20" y2="160"/><line x1="60" y1="20" x2="60" y2="160"/>
+              <line x1="100" y1="20" x2="100" y2="160"/><line x1="140" y1="20" x2="140" y2="160"/>
+              <line x1="180" y1="20" x2="180" y2="160"/><line x1="220" y1="20" x2="220" y2="160"/>
+              <line x1="20" y1="20" x2="220" y2="20"/><line x1="20" y1="60" x2="220" y2="60"/>
+              <line x1="20" y1="100" x2="220" y2="100"/><line x1="20" y1="140" x2="220" y2="140"/>
+              <line x1="20" y1="160" x2="220" y2="160"/>
+            </g>
+            <circle cx="20" cy="160" r="6" fill="var(--primary)"/>
+            <text x="20" y="176" text-anchor="middle" font-size="11" fill="var(--text-light)">(0,0)</text>
+            <circle cx="220" cy="20" r="6" fill="var(--secondary)"/>
+            <text x="220" y="14" text-anchor="middle" font-size="11" fill="var(--text-light)">(5,4)</text>
+            <circle cx="100" cy="100" r="7" fill="#e0722e"/>
+            <text x="100" y="118" text-anchor="middle" font-size="11" fill="#e0722e">(2,2) bloqueado</text>
+          </svg>
+          <figcaption>Grade de (0,0) a (5,4), passagem proibida em (2,2)</figcaption>
+        </figure>
+        <div class="highlight-box">
+          <strong>O método: total menos o que passa pelo bloqueio</strong>
+          Total de (0,0) a (5,4), sem restrição: P(9)^(5,4) = 9!/(5!4!) = 126.<br>
+          Caminhos que passam por (2,2): [de (0,0) a (2,2)] × [de (2,2) a (5,4)] =
+          P(4)^(2,2) × P(5)^(3,2) = 6 × 10 = 60.<br>
+          <strong>Rotas seguras: 126 − 60 = 66.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Permutação circular (com e sem restrição) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Numa roda/mesa circular, o que importa é a <strong>posição relativa</strong> entre as
+        pessoas, não uma posição "absoluta" — por isso a fórmula tem um fator a menos que a
+        permutação em fila:</p>
+        <div class="formula-block">PC(n) = (n−1)!</div>
+        <h4>Quando dois elementos DEVEM ficar juntos</h4>
+        <ol>
+          <li>Trate os dois como um <strong>bloco único</strong> — agora são (n−1) "elementos" pra
+          arrumar em círculo: PC(n−1) = (n−2)!</li>
+          <li>Multiplique pelas <strong>2 formas internas</strong> do bloco (quem fica à
+          esquerda/direita de quem): × 2!</li>
+        </ol>
+        <h4>Quando dois elementos NÃO PODEM ficar de frente (diametralmente opostos) ou lado a lado</h4>
+        <p>Calcule o total com a primeira restrição (ex.: par obrigatório junto), depois
+        <strong>subtraia os casos indesejados</strong> (onde a segunda restrição também é
+        violada) — é sempre <em>total − proibido</em>, nunca uma fórmula pronta.</p>
+        <div class="highlight-box">
+          <strong>Exemplo — 6 diplomatas numa mesa redonda</strong>
+          Espanha e Portugal devem ficar juntos; Inglaterra e França não podem ficar de frente um
+          pro outro.<br>
+          Passo 1 — Espanha+Portugal juntos (bloco): PC(5) × 2! = 4! × 2 = 48.<br>
+          Passo 2 — dentre esses 48, quantos têm Inglaterra e França de frente <em>e</em>
+          Espanha/Portugal juntos? Fixando Inglaterra/França nos lugares opostos, sobram 2 pares de
+          lugares adjacentes livres para o bloco Espanha/Portugal: 2 (vagas) × 2! (Esp/Por) × 2!
+          (os 2 restantes) = 8.<br>
+          <strong>Total válido: 48 − 8 = 40 maneiras.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 2 — EQUAÇÕES TRIGONOMÉTRICAS
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="trigonometria">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 2</span> Equações Trigonométricas</h2>
+    <p class="meta">Resolver no conjunto dos Reais, usando as identidades do arco duplo</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">As identidades que resolvem quase tudo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A maioria das equações trigonométricas da prova mistura <strong>cos(2x)</strong> ou
+        <strong>sen(2x)</strong> com sen(x)/cos(x) — o primeiro passo é <strong>sempre</strong>
+        trocar o arco duplo por uma das formas equivalentes, escolhendo a que combina com o resto
+        da equação:</p>
+        <table class="data-table">
+          <thead><tr><th>Identidade</th><th>Use quando a equação também tem…</th></tr></thead>
+          <tbody>
+            <tr><td class="formula-pill">cos(2x) = 1 − 2sen²(x)</td><td>…sen²(x)</td></tr>
+            <tr><td class="formula-pill">cos(2x) = 2cos²(x) − 1</td><td>…cos²(x) ou cos(x)</td></tr>
+            <tr><td class="formula-pill">sen(2x) = 2·sen(x)·cos(x)</td><td>…sen(x) ou cos(x) isolados</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Exemplo — cos(2x) + sen²(x) = 1/2</strong>
+          Troca por 1 − 2sen²(x): 1 − 2sen²(x) + sen²(x) = 1/2 ⇒ 1 − sen²(x) = 1/2 ⇒
+          sen²(x) = 1/2 ⇒ sen(x) = ±√2/2.<br>
+          <strong>S = {x ∈ ℝ | x = π/4 + kπ/2, k ∈ ℤ}</strong>
+        </div>
+        <div class="tip-box">
+          <strong>Depois de trocar o arco duplo</strong>
+          A equação vira uma equação do 2º grau em sen(x) ou cos(x) — resolva normalmente (Δ,
+          Bhaskara) e <strong>lembre que sen e cos só valem entre −1 e 1</strong>: descarte
+          qualquer raiz fora desse intervalo.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Arcos notáveis — tabela de consulta <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>x</th><th>sen(x)</th><th>cos(x)</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>π/6 (30°)</td><td>1/2</td><td>√3/2</td></tr>
+            <tr><td>π/4 (45°)</td><td>√2/2</td><td>√2/2</td></tr>
+            <tr><td>π/3 (60°)</td><td>√3/2</td><td>1/2</td></tr>
+            <tr><td>π/2 (90°)</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+        <p>Para valores como sen(x) = −2/3, que não é um arco notável, a resposta fica em função
+        de <strong>arcsen</strong> (ou arcsin): x = arcsen(−2/3) + 2kπ ou x = π − arcsen(−2/3) + 2kπ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 3 — INEQUAÇÕES MODULARES
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="modulares">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 3</span> Inequações Modulares</h2>
+    <p class="meta">|f(x)| ≤ a, |f(x)| ≥ a, e módulo elevado ao quadrado</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">As duas regras-base <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Inequação (a &gt; 0)</th><th>Equivale a</th></tr></thead>
+          <tbody>
+            <tr><td class="formula-pill">|f(x)| ≤ a</td><td class="formula-pill">−a ≤ f(x) ≤ a</td></tr>
+            <tr><td class="formula-pill">|f(x)| ≥ a</td><td class="formula-pill">f(x) ≤ −a ou f(x) ≥ a</td></tr>
+          </tbody>
+        </table>
+        <div class="warn-box">
+          <strong>Decore o padrão: "≤ vira intervalo fechado no meio", "≥ vira dois lados abertos"</strong>
+          Confundir essas duas é o erro nº 1 nessas questões — o símbolo de menor gera uma
+          <em>faixa</em>; o de maior gera <em>duas pontas</em>.
+        </div>
+        <div class="highlight-box">
+          <strong>Exemplo completo — |x² − 5x − 45| ≤ 21</strong>
+          Vira duas inequações simultâneas:<br>
+          x² − 5x − 45 ≤ 21 ⇒ x² − 5x − 66 ≤ 0 ⇒ raízes −6 e 11 ⇒ solução: [−6, 11]<br>
+          x² − 5x − 45 ≥ −21 ⇒ x² − 5x − 24 ≥ 0 ⇒ raízes −3 e 8 ⇒ solução: x≤−3 ou x≥8<br>
+          <strong>Interseção das duas: S = [−6, −3] ∪ [8, 11]</strong>
+          <div class="sign-chart">
+            <div class="seg pos">+</div><div class="root">−6</div>
+            <div class="seg neg">−</div><div class="root">−3</div>
+            <div class="seg pos">+</div><div class="root">8</div>
+            <div class="seg neg">−</div><div class="root">11</div>
+            <div class="seg pos">+</div>
+          </div>
+          <p class="sign-chart cap">Interseção das duas condições — a resposta fica só onde as duas concordam</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Módulo duplo e módulo ao quadrado <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Módulo dentro de módulo: ||f(x)| − b| ≤ c</h4>
+        <p>Aplique a regra de fora pra dentro: primeiro isole |f(x)|, depois aplique a regra de
+        novo.</p>
+        <div class="tip-box">
+          <strong>Exemplo — |2x − 7| − 10| ≤ 9</strong>
+          −9 ≤ |2x−7| − 10 ≤ 9 ⇒ 1 ≤ |2x−7| ≤ 19 ⇒ duas inequações modulares simples, uma pra cada lado.
+        </div>
+        <h4>|x|² − b|x| + c ⋛ 0 — substituição y = |x|</h4>
+        <p>Troque |x| por y (lembrando que <strong>y ≥ 0 sempre</strong>), resolva a inequação do
+        2º grau normalmente e, no final, desfaça a troca: cada faixa de y vira duas faixas de x
+        (uma positiva, uma negativa espelhada).</p>
+        <div class="highlight-box">
+          <strong>Exemplo — |x|² − 9|x| + 14 &gt; 0</strong>
+          Com y=|x|: y² − 9y + 14 > 0 ⇒ raízes 2 e 7 ⇒ y &lt; 2 ou y &gt; 7.<br>
+          Desfazendo (y=|x| ≥ 0): |x| &lt; 2 ⇒ −2 &lt; x &lt; 2; ou |x| &gt; 7 ⇒ x&lt;−7 ou x&gt;7.<br>
+          <strong>S = ]−∞,−7[ ∪ ]−2,2[ ∪ ]7,+∞[</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 4 — INEQUAÇÕES EXPONENCIAIS
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="exponenciais">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 4</span> Inequações Exponenciais</h2>
+    <p class="meta">Mesma base, fatoração e substituição y = aˣ</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A regra de ouro: mantém ou inverte <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Depois de igualar as duas bases, a comparação dos <strong>expoentes</strong> depende do
+        valor da base:</p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Base &gt; 1</h5>
+            <ul><li><strong>Mantém</strong> o sentido da desigualdade</li></ul>
+          </div>
+          <div class="compare-card">
+            <h5>0 &lt; Base &lt; 1</h5>
+            <ul><li><strong>Inverte</strong> o sentido da desigualdade</li></ul>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <strong>Exemplo a) — 3^(5x−3) &lt; 3^(x+5)</strong>
+          Base = 3 &gt; 1 → mantém o sentido: 5x−3 &lt; x+5 ⇒ 4x &lt; 8 ⇒ <strong>S = {x∈ℝ | x&lt;2}</strong>
+        </div>
+        <div class="warn-box">
+          <strong>Exemplo b) — (3/5)^(9x+8) &lt; (3/5)^(2x−20)</strong>
+          Base = 3/5, entre 0 e 1 → <strong>inverte</strong> o sentido: 9x+8 &gt; 2x−20 ⇒ 7x &gt; −28
+          ⇒ <strong>S = {x∈ℝ | x&gt;−4}</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Reduzindo à mesma base <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Quando as bases parecem diferentes, escreva as duas como potência de um número primo
+        comum (2, 3, 5…). Ex.: 256 = 2⁸ e 32 = 2⁵.</p>
+        <div class="highlight-box">
+          <strong>Exemplo — 256^(2x−2) ≤ 32^(3x−2)</strong>
+          (2⁸)^(2x−2) ≤ (2⁵)^(3x−2) ⇒ 2^(16x−16) ≤ 2^(15x−10) ⇒ base &gt; 1, mantém:<br>
+          16x−16 ≤ 15x−10 ⇒ <strong>S = {x∈ℝ | x ≤ 6}</strong>
+        </div>
+        <p>Outro truque comum: quando as <strong>bases já são iguais mas os expoentes têm
+        coeficientes diferentes</strong> multiplicando (ex.: 3·2^x + 7·2^(x−1) − 9·2^(x−2) ≥
+        1088), <strong>coloque a menor potência em evidência</strong> (2^(x−2), no exemplo) e
+        simplifique os coeficientes numa conta só, antes de comparar expoentes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Substituição y = aˣ (forma quadrática) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Quando a mesma base aparece <strong>duas vezes com o dobro do expoente</strong> (ex.:
+        3^(2x) e 3^x), é sempre uma equação do 2º grau disfarçada — substitua y = aˣ.</p>
+        <div class="warn-box">
+          <strong>Não esqueça: y = aˣ é sempre positivo!</strong>
+          Depois de resolver o Δ e achar as raízes de y, <strong>descarte qualquer raiz negativa
+          ou zero</strong> — ela não corresponde a nenhum x real.
+        </div>
+        <div class="highlight-box">
+          <strong>Exemplo — 3^(2x) − 26·3^x − 27 ≥ 0</strong>
+          Com y = 3^x: y² − 26y − 27 ≥ 0 ⇒ (y−27)(y+1) ≥ 0 ⇒ y ≤ −1 ou y ≥ 27.<br>
+          Como y = 3^x &gt; 0 sempre, <strong>y ≤ −1 não tem solução</strong> — só resta y ≥ 27.<br>
+          3^x ≥ 27 ⇒ 3^x ≥ 3³ ⇒ <strong>S = {x∈ℝ | x ≥ 3}</strong>
+          <div class="sign-chart">
+            <div class="seg pos">+</div><div class="root">−1</div>
+            <div class="seg neg">−</div><div class="root">27</div>
+            <div class="seg pos">+</div>
+          </div>
+          <p class="sign-chart cap">Sinais de y² − 26y − 27 — mas só a região y≥27 é possível, pois y=3ˣ&gt;0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 5 — INEQUAÇÕES LOGARÍTMICAS
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="logaritmicas">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 5</span> Inequações Logarítmicas</h2>
+    <p class="meta">Condição de existência + mantém/inverte + interseção final</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O método em 3 partes <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Toda inequação logarítmica se resolve com o mesmo roteiro de <strong>3 partes</strong> —
+        pule uma e a resposta sai errada:</p>
+        <ol>
+          <li><strong>Parte I — Condição de existência (domínio):</strong> o que está dentro do
+          log tem que ser &gt; 0</li>
+          <li><strong>Parte II — Resolver a inequação em si:</strong> comparando os "de dentro"
+          dos logs, igual às exponenciais — <strong>mantém</strong> o sentido se base &gt; 1,
+          <strong>inverte</strong> se 0 &lt; base &lt; 1</li>
+          <li><strong>Parte III — Interseção:</strong> a resposta final é a <strong>interseção</strong>
+          da Parte I com a Parte II — nunca só uma das duas</li>
+        </ol>
+        <div class="highlight-box">
+          <strong>Exemplo — log_(1/2)(x) + log_(1/2)(x−2) ≥ −3</strong>
+          <strong>I.</strong> Existência: x&gt;0 e x−2&gt;0 ⇒ x&gt;2.<br>
+          <strong>II.</strong> log_(1/2)[x(x−2)] ≥ −3 ⇒ como a base 1/2 está entre 0 e 1,
+          <strong>inverte</strong>: x(x−2) ≤ (1/2)⁻³ ⇒ x² −2x −8 ≤ 0 ⇒ −2 ≤ x ≤ 4.<br>
+          <strong>III.</strong> Interseção de x&gt;2 com −2≤x≤4: <strong>S = ]2, 4]</strong>
+          <div class="sign-chart">
+            <div class="seg" style="border-color:var(--text-light);color:var(--text-light)">(I) x&gt;2</div>
+            <div class="root">2</div>
+            <div class="seg pos">4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Comparando log com log — exemplos rápidos <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Inequação</th><th>Base</th><th>Solução</th></tr></thead>
+          <tbody>
+            <tr><td>log₅x &gt; log₅6</td><td>5 &gt; 1 → mantém</td><td>x &gt; 6 (e x&gt;0, já incluso)</td></tr>
+            <tr><td>log_(1/2)x &gt; log_(1/2)7</td><td>0&lt;1/2&lt;1 → inverte</td><td>0 &lt; x &lt; 7</td></tr>
+            <tr><td>log₂(x−7) &gt; 3</td><td>2 &gt; 1 → mantém</td><td>x−7&gt;0 e x−7&gt;2³ ⇒ x&gt;15</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">
+          <strong>Log elevado ao quadrado — (log₃x)² ≥ 4</strong>
+          Também é uma substituição! Faça y = log₃x: y² ≥ 4 ⇒ y ≤ −2 ou y ≥ 2. Desfazendo:
+          log₃x ≤ −2 ⇒ 0&lt;x≤1/9; ou log₃x ≥ 2 ⇒ x≥9. Junte com a condição de existência
+          (x&gt;0) no final.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 6 — GRÁFICOS DE EXPONENCIAL E LOGARÍTMICA
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="graficos">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 6</span> Gráficos das Funções Exponencial e Logarítmica</h2>
+    <p class="meta">Crescimento × decaimento, assíntotas, e a simetria entre as duas famílias</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">y = aˣ — crescente ou decrescente? <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <figure class="diagram">
+          <svg viewBox="0 0 300 260" style="width:100%;max-width:340px">
+            <line x1="40" y1="10" x2="40" y2="240" stroke="var(--text-light)" stroke-width="1.2"/>
+            <line x1="10" y1="200" x2="290" y2="200" stroke="var(--text-light)" stroke-width="1.2"/>
+            <line x1="10" y1="200" x2="290" y2="200" stroke="var(--border)" stroke-width="1" stroke-dasharray="3,3"/>
+            <polyline points="-80.0,198.8 -74.0,198.6 -68.0,198.4 -62.0,198.1 -56.0,197.8 -50.0,197.5 -44.0,197.1 -38.0,196.7 -32.0,196.2 -26.0,195.6 -20.0,195.0 -14.0,194.3 -8.0,193.4 -2.0,192.4 4.0,191.3 10.0,190.0 16.0,188.5 22.0,186.8 28.0,184.8 34.0,182.6 40.0,180.0 46.0,177.0 52.0,173.6 58.0,169.7 64.0,165.2 70.0,160.0 76.0,154.1 82.0,147.2 88.0,139.4 94.0,130.4 100.0,120.0 106.0,108.1 112.0,94.4 118.0,78.7 124.0,60.7"
+                      fill="none" stroke="var(--primary)" stroke-width="2.5" transform="translate(40,0)"/>
+            <polyline points="-47.0,50.7 -41.0,70.0 -35.0,86.9 -29.0,101.5 -23.0,114.3 -17.0,125.4 -11.0,135.0 -5.0,143.4 1.0,150.8 7.0,157.1 13.0,162.7 19.0,167.5 25.0,171.7 31.0,175.4 37.0,178.6 43.0,181.3 49.0,183.8 55.0,185.9 61.0,187.7 67.0,189.3 73.0,190.7 79.0,191.9 85.0,192.9 91.0,193.8 97.0,194.6 103.0,195.3 109.0,195.9 115.0,196.5 121.0,196.9 127.0,197.3 133.0,197.7 139.0,198.0 145.0,198.2 151.0,198.5 157.0,198.7"
+                      fill="none" stroke="var(--accent)" stroke-width="2.5" transform="translate(40,0)"/>
+            <text x="205" y="70" fill="var(--primary)" font-size="13" font-weight="700">y=2ˣ (a&gt;1)</text>
+            <text x="205" y="185" fill="var(--accent)" font-size="13" font-weight="700">y=(1/2)ˣ (0&lt;a&lt;1)</text>
+            <text x="42" y="212" font-size="11" fill="var(--text-light)">0</text>
+            <text x="70" y="215" font-size="11" fill="var(--text-light)">1</text>
+          </svg>
+          <figcaption>Domínio: ℝ · Imagem: (0, +∞) · sempre passa por (0,1) · assíntota horizontal em y=0</figcaption>
+        </figure>
+        <table class="data-table">
+          <thead><tr><th>Caso</th><th>Comportamento</th></tr></thead>
+          <tbody>
+            <tr><td><strong>a &gt; 1</strong></td><td>Função <strong>crescente</strong> — quanto maior x, maior y</td></tr>
+            <tr><td><strong>0 &lt; a &lt; 1</strong></td><td>Função <strong>decrescente</strong> — quanto maior x, menor y</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>O que nunca muda, seja qual for a base a</strong>
+          Domínio ℝ (todo x é permitido) · Imagem (0,+∞) (y nunca é zero ou negativo) · o gráfico
+          <strong>sempre passa por (0, 1)</strong>, pois a⁰=1 · <strong>assíntota horizontal em
+          y=0</strong> — a curva se aproxima do eixo x mas nunca o toca.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">y = log_a(x) — o espelho da exponencial <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <figure class="diagram">
+          <svg viewBox="0 0 300 260" style="width:100%;max-width:340px">
+            <line x1="40" y1="10" x2="40" y2="240" stroke="var(--text-light)" stroke-width="1.2"/>
+            <line x1="10" y1="200" x2="290" y2="200" stroke="var(--text-light)" stroke-width="1.2"/>
+            <line x1="40" y1="10" x2="40" y2="240" stroke="var(--border)" stroke-width="1" stroke-dasharray="3,3"/>
+            <polyline points="47.5,240.0 52.0,226.4 56.5,217.2 61.0,210.3 65.5,204.7 70.0,200.0 74.5,196.0 79.0,192.4 83.5,189.3 88.0,186.4 92.5,183.9 97.0,181.5 101.5,179.3 110.5,175.3 119.5,171.9 128.5,168.8 137.5,166.0 146.5,163.4 155.5,161.1 164.5,158.9 173.5,156.9 182.5,155.0 191.5,153.3 200.5,151.6 209.5,150.0 218.5,148.5"
+                      fill="none" stroke="var(--primary)" stroke-width="2.5"/>
+            <polyline points="47.5,160.0 52.0,173.6 56.5,182.8 61.0,189.7 65.5,195.3 70.0,200.0 74.5,204.0 79.0,207.6 83.5,210.7 88.0,213.6 92.5,216.1 97.0,218.5 101.5,220.7 110.5,224.7 119.5,228.1 128.5,231.2 137.5,234.0 146.5,236.6 155.5,238.9 164.5,241.1 173.5,243.1 182.5,245.0 191.5,246.7 200.5,248.4 209.5,250.0 218.5,251.5"
+                      fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+            <text x="225" y="145" fill="var(--primary)" font-size="13" font-weight="700">y=log₂x (a&gt;1)</text>
+            <text x="150" y="256" fill="var(--accent)" font-size="13" font-weight="700">y=log_(1/2)x (0&lt;a&lt;1)</text>
+            <text x="60" y="212" font-size="11" fill="var(--text-light)">1</text>
+          </svg>
+          <figcaption>Domínio: (0, +∞) · Imagem: ℝ · sempre passa por (1,0) · assíntota vertical em x=0</figcaption>
+        </figure>
+        <div class="warn-box">
+          <strong>Domínio e imagem trocados em relação à exponencial</strong>
+          Isso não é coincidência: <strong>y = aˣ e y = log_a(x) são funções inversas uma da
+          outra</strong>. Por isso seus gráficos são <strong>simétricos em relação à reta
+          y = x</strong> — o que era assíntota horizontal (y=0) numa vira assíntota vertical
+          (x=0) na outra, e o ponto (0,1) de uma corresponde ao ponto (1,0) da outra.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 7 — PROBABILIDADE
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="probabilidade">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 7</span> Probabilidade</h2>
+    <p class="meta">Probabilidade simples, condicional, e combinada com combinatória</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O básico: casos favoráveis / casos possíveis <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="formula-block">P(evento) = nº de casos favoráveis / nº de casos possíveis</div>
+        <div class="highlight-box">
+          <strong>Exemplo — tabela de dupla entrada</strong>
+          24.000 pessoas: 600 desenvolveram uma doença, 800 foram expostas a um agente de risco,
+          500 estão nas duas categorias.<br>
+          P(doente) = 600/24.000 = <strong>1/40</strong>.<br>
+          P(exposto <em>dado que</em> desenvolveu a doença) = 500/600 = <strong>5/6</strong> — repare
+          que aqui o "universo" muda: não são mais as 24.000 pessoas, só as 600 doentes.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Probabilidade condicional <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="formula-block">P(A | B) = P(A ∩ B) / P(B)</div>
+        <p>Lê-se "probabilidade de A <strong>dado que</strong> B aconteceu". Na prática, quando o
+        problema já informa um subconjunto fixo (como no exemplo acima, "dado que desenvolveu a
+        doença"), muitas vezes você já pode montar a razão diretamente com os números da tabela,
+        sem precisar escrever a fórmula — mas ela é o que justifica o cálculo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">"Pelo menos" em probabilidade — combine com binômio <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Assim como em combinatória, "pelo menos" em probabilidade também exige separar em casos
+        — ou, quando for mais fácil, calcular pelo <strong>complementar</strong>
+        (P(pelo menos 1) = 1 − P(nenhum)).</p>
+        <div class="highlight-box">
+          <strong>Exemplo — torneio de 3 provas, vencer = ganhar ≥ 2</strong>
+          P(ganhar uma prova) = 2/3, P(perder) = 1/3. Para vencer o torneio, o atleta precisa
+          ganhar <strong>exatamente 2</strong> OU <strong>exatamente 3</strong> das provas:<br>
+          Ganhar 2 e perder 1 (de 3 jeitos diferentes — C(3,2)): P₁ = 3 · (2/3)²·(1/3) = 12/27<br>
+          Ganhar as 3: P₂ = (2/3)³ = 8/27<br>
+          <strong>P(vencer) = 12/27 + 8/27 = 20/27</strong>
+        </div>
+        <div class="tip-box">
+          <strong>Reconhecendo o padrão binomial</strong>
+          "Evento com a mesma probabilidade se repete várias vezes, de forma independente" é o
+          sinal de que você vai somar C(n,k)·p^k·(1−p)^(n−k) para os valores de k pedidos — mesmo
+          sem citar o nome "binomial" no enunciado.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ
+     ══════════════════════════════════════════════ -->
+<section id="quiz-section">
+  <a id="quiz"></a>
+  <h2>Quiz de Revisão</h2>
+  <p>31 questões sobre combinatória, trigonometria, inequações e probabilidade.</p>
+
+  <div class="quiz-topbar">
+    <div class="score-left">
+      <div class="mini-donut-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44">
+          <circle cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"/>
+          <circle id="mini-arc" cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"
+                  stroke-dasharray="106.8" stroke-dashoffset="106.8" stroke-linecap="round"
+                  transform="rotate(-90 22 22)"/>
+        </svg>
+        <span id="mini-pct">—</span>
+      </div>
+      <div class="score-live" id="score-live">Placar: <strong>0 / 31</strong></div>
+    </div>
+    <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
+  <div class="quiz-filter">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
+    <button class="filter-btn" onclick="filterQuiz('cap1',this)">Combinatória</button>
+    <button class="filter-btn" onclick="filterQuiz('cap2',this)">Trigonometria</button>
+    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Modulares</button>
+    <button class="filter-btn" onclick="filterQuiz('cap4',this)">Exponenciais</button>
+    <button class="filter-btn" onclick="filterQuiz('cap5',this)">Logarítmicas</button>
+    <button class="filter-btn" onclick="filterQuiz('cap6',this)">Gráficos</button>
+    <button class="filter-btn" onclick="filterQuiz('cap7',this)">Probabilidade</button>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q1">
+    <h4>1. Uma permutação circular de n elementos distintos tem, ao todo:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) (n−1)!</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) n!</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) n²</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) n(n−1)</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q2">
+    <h4>2. O número de anagramas de uma palavra com letras repetidas (como ARARA) é calculado por qual tipo de permutação?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) Permutação simples</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) Permutação com repetição</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) Combinação</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) Arranjo</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q3">
+    <h4>3. Na palavra COMBINATÓRIA (desprezando o acento), quantas vezes a letra "A" aparece?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) 1</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) 4</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) 2</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) 3</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q4">
+    <h4>4. A diferença fundamental entre arranjo e combinação é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) No arranjo a ordem não importa; na combinação importa</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) Arranjo permite repetição, combinação não</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) Não há diferença</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) No arranjo a ordem importa; na combinação não</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q5">
+    <h4>5. Um hospital tem 6 médicos e 5 enfermeiros. Uma equipe de 5 profissionais precisa ter pelo menos 3 enfermeiros. Quantas equipes são possíveis?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) 181</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) 155</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) 252</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) 224</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q6">
+    <h4>6. Um florista tem 4 espécies de flores e vai montar um buquê de 15 flores, com pelo menos uma de cada espécie. De quantas formas ele pode montar o buquê?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) 165</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) 364</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) 220</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) 455</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q7">
+    <h4>7. Numa folha há 10 pontos, sendo 4 colineares (mesma reta) e 6 fora dela. Quantos triângulos distintos podem ser formados?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) 120</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) 4</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) 116</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) 100</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q8">
+    <h4>8. Um drone vai de (0,0) até (5,4) numa grade, só para cima/direita. Há um bloqueio em (2,2). Quantas rotas seguras existem?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) 126</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) 60</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) 70</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) 66</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q9">
+    <h4>9. Numa mesa circular, quando dois elementos DEVEM ficar juntos, o método padrão é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Tratar os dois como um bloco único, permutar os "elementos" restantes em círculo, e multiplicar pelas 2 formas internas do bloco</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Multiplicar (n−1)! por 2 sem mais nenhum ajuste</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) Somar as permutações de cada um separadamente</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) Ignorar a restrição e usar (n−1)!</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q10">
+    <h4>10. 6 diplomatas numa mesa redonda: Espanha e Portugal devem sentar juntos; Inglaterra e França não podem ficar de frente um pro outro. Quantas configurações são possíveis?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) 48</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) 40</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) 8</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) 24</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap2" id="q11">
+    <h4>11. Qual identidade é mais útil para transformar cos(2x) quando a equação também tem sen²(x)?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) cos(2x) = sen(x)·cos(x)</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) cos(2x) = 2sen(x)</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) cos(2x) = 1 − 2sen²(x)</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) cos(2x) = tan(x)</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap2" id="q12">
+    <h4>12. Resolvendo cos(2x) + sen²(x) = 1/2 no conjunto ℝ, chega-se a:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) S = {x | x = π/2 + kπ, k∈ℤ}</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) S = {x | x = kπ, k∈ℤ}</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) S = ∅</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) S = {x | x = π/4 + kπ/2, k∈ℤ}</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap2" id="q13">
+    <h4>13. Resolvendo cos(2x) + 3sen²(x) = 2 no conjunto ℝ, chega-se a:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q13','a')">a) S = {x | x = π/2 + kπ, k∈ℤ}</button>
+      <button class="option-btn" onclick="checkQuiz('q13','b')">b) S = {x | x = π + kπ, k∈ℤ}</button>
+      <button class="option-btn" onclick="checkQuiz('q13','c')">c) S = {x | x = π/4 + kπ, k∈ℤ}</button>
+      <button class="option-btn" onclick="checkQuiz('q13','d')">d) S = ∅</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap3" id="q14">
+    <h4>14. A inequação |f(x)| ≤ a (com a &gt; 0) é equivalente a:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) f(x) ≤ a apenas</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) −a ≤ f(x) ≤ a</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) f(x) ≤ −a ou f(x) ≥ a</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) f(x) = a</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap3" id="q15">
+    <h4>15. A inequação |f(x)| ≥ a (com a &gt; 0) é equivalente a:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) −a ≤ f(x) ≤ a</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) f(x) ≤ a</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) f(x) ≤ −a ou f(x) ≥ a</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) f(x) = −a</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap3" id="q16">
+    <h4>16. A solução de |x² − 5x − 45| ≤ 21 é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) S = [−6, 11]</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) S = [−3, 8]</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) S = ∅</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) S = [−6, −3] ∪ [8, 11]</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap4" id="q17">
+    <h4>17. Numa inequação exponencial com base entre 0 e 1, ao comparar diretamente os expoentes:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) Invertemos o sentido da desigualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) Mantemos o sentido da desigualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) A inequação vira uma igualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) Não é possível resolver</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap4" id="q18">
+    <h4>18. A solução de 3^(5x−3) &lt; 3^(x+5) é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q18','a')">a) x &gt; 2</button>
+      <button class="option-btn" onclick="checkQuiz('q18','b')">b) x &lt; 2</button>
+      <button class="option-btn" onclick="checkQuiz('q18','c')">c) x &lt; −2</button>
+      <button class="option-btn" onclick="checkQuiz('q18','d')">d) x ≥ 2</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap4" id="q19">
+    <h4>19. A solução de 3^(3x−7) &gt; 3^(x+5) é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q19','a')">a) x &gt; 4</button>
+      <button class="option-btn" onclick="checkQuiz('q19','b')">b) x ≥ 4</button>
+      <button class="option-btn" onclick="checkQuiz('q19','c')">c) x &gt; 6</button>
+      <button class="option-btn" onclick="checkQuiz('q19','d')">d) x ≤ −5</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap4" id="q20">
+    <h4>20. Ao resolver 3^(2x) − 26·3^x − 27 ≥ 0 substituindo y = 3^x, qual restrição sobre y deve sempre ser lembrada?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q20','a')">a) y pode ser qualquer número real</button>
+      <button class="option-btn" onclick="checkQuiz('q20','b')">b) y deve ser negativo</button>
+      <button class="option-btn" onclick="checkQuiz('q20','c')">c) y deve ser um número inteiro</button>
+      <button class="option-btn" onclick="checkQuiz('q20','d')">d) y deve ser positivo (y = 3^x &gt; 0) — raízes negativas de y são descartadas</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap5" id="q21">
+    <h4>21. Para log_a(x) existir, é necessário que:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q21','a')">a) x &gt; 0, com a &gt; 0 e a ≠ 1</button>
+      <button class="option-btn" onclick="checkQuiz('q21','b')">b) x seja qualquer número real</button>
+      <button class="option-btn" onclick="checkQuiz('q21','c')">c) x &lt; 0</button>
+      <button class="option-btn" onclick="checkQuiz('q21','d')">d) a = 1</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap5" id="q22">
+    <h4>22. Assim como nas exponenciais, ao remover os logaritmos numa inequação com base entre 0 e 1:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q22','a')">a) Mantemos o sentido da desigualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q22','b')">b) Invertemos o sentido da desigualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q22','c')">c) A inequação não tem solução</button>
+      <button class="option-btn" onclick="checkQuiz('q22','d')">d) Ignoramos a condição de existência</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap5" id="q23">
+    <h4>23. A solução de log₅x &gt; log₅6 é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q23','a')">a) 0 &lt; x &lt; 6</button>
+      <button class="option-btn" onclick="checkQuiz('q23','b')">b) x &lt; 6</button>
+      <button class="option-btn" onclick="checkQuiz('q23','c')">c) x &gt; 6</button>
+      <button class="option-btn" onclick="checkQuiz('q23','d')">d) x ≥ 0</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap5" id="q24">
+    <h4>24. Antes de comparar os "de dentro" dos logaritmos numa inequação logarítmica, o primeiro passo obrigatório é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Elevar ambos os lados ao quadrado</button>
+      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Multiplicar tudo por 3</button>
+      <button class="option-btn" onclick="checkQuiz('q24','c')">c) Ignorar a base</button>
+      <button class="option-btn" onclick="checkQuiz('q24','d')">d) Verificar a condição de existência (o que está dentro do log deve ser &gt; 0)</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap6" id="q25">
+    <h4>25. O gráfico de y = aˣ, com a &gt; 1, é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q25','a')">a) Sempre crescente, com assíntota horizontal em y = 0</button>
+      <button class="option-btn" onclick="checkQuiz('q25','b')">b) Sempre decrescente</button>
+      <button class="option-btn" onclick="checkQuiz('q25','c')">c) Uma reta</button>
+      <button class="option-btn" onclick="checkQuiz('q25','d')">d) Uma parábola</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap6" id="q26">
+    <h4>26. O gráfico de y = log_a(x) tem assíntota:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q26','a')">a) Horizontal em y = 0</button>
+      <button class="option-btn" onclick="checkQuiz('q26','b')">b) Vertical em x = 0</button>
+      <button class="option-btn" onclick="checkQuiz('q26','c')">c) Não tem assíntota</button>
+      <button class="option-btn" onclick="checkQuiz('q26','d')">d) Horizontal em y = 1</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap6" id="q27">
+    <h4>27. Os gráficos de y = aˣ e y = log_a(x) são:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q27','a')">a) Idênticos</button>
+      <button class="option-btn" onclick="checkQuiz('q27','b')">b) Paralelos</button>
+      <button class="option-btn" onclick="checkQuiz('q27','c')">c) Simétricos em relação à reta y = x (são funções inversas)</button>
+      <button class="option-btn" onclick="checkQuiz('q27','d')">d) Perpendiculares</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap7" id="q28">
+    <h4>28. Numa população de 24.000 pessoas, 600 têm uma doença. A probabilidade de uma pessoa qualquer ter a doença é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q28','a')">a) 1/6</button>
+      <button class="option-btn" onclick="checkQuiz('q28','b')">b) 5/6</button>
+      <button class="option-btn" onclick="checkQuiz('q28','c')">c) 1/24</button>
+      <button class="option-btn" onclick="checkQuiz('q28','d')">d) 1/40</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap7" id="q29">
+    <h4>29. Na mesma população, 500 das 600 pessoas doentes foram expostas a um agente de risco. A probabilidade de ter sido exposto, dado que desenvolveu a doença, é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q29','a')">a) 5/6</button>
+      <button class="option-btn" onclick="checkQuiz('q29','b')">b) 1/40</button>
+      <button class="option-btn" onclick="checkQuiz('q29','c')">c) 1/6</button>
+      <button class="option-btn" onclick="checkQuiz('q29','d')">d) 500/24000</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap7" id="q30">
+    <h4>30. Num torneio de 3 provas, a probabilidade de vencer cada prova é 2/3, e é preciso ganhar pelo menos 2 para vencer o torneio. A probabilidade de vencer o torneio é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q30','a')">a) 8/27</button>
+      <button class="option-btn" onclick="checkQuiz('q30','b')">b) 20/27</button>
+      <button class="option-btn" onclick="checkQuiz('q30','c')">c) 12/27</button>
+      <button class="option-btn" onclick="checkQuiz('q30','d')">d) 2/3</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap7" id="q31">
+    <h4>31. Em probabilidade condicional, P(A | B) é calculado por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q31','a')">a) P(A) · P(B)</button>
+      <button class="option-btn" onclick="checkQuiz('q31','b')">b) P(A) + P(B)</button>
+      <button class="option-btn" onclick="checkQuiz('q31','c')">c) P(A ∩ B) / P(B)</button>
+      <button class="option-btn" onclick="checkQuiz('q31','d')">d) P(A ∪ B)</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quiz-result">
+    <div class="donut-wrap">
+      <svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+        <circle cx="65" cy="65" r="55" fill="none" stroke="var(--secondary)" stroke-width="14"
+                stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+      </svg>
+      <div class="donut-center">
+        <span class="donut-score" id="donut-score">0</span>
+        <span class="donut-label">/ 31</span>
+      </div>
+    </div>
+    <div class="result-msg" id="result-msg"></div>
+    <div class="result-sub" id="result-sub"></div>
+    <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+  </div>
+</section>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre combinatória, trigonometria, inequações modulares/exponenciais/logarítmicas, gráficos ou probabilidade!</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+</main>
+
+<footer>
+  &copy; 2026 Caderno Digital · Matemática · 2º Trimestre
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+/* ── Quiz ── */
+const ANSWERS = {
+  q1:'a', q2:'b', q3:'c', q4:'d', q5:'a', q6:'b', q7:'c', q8:'d', q9:'a', q10:'b',
+  q11:'c', q12:'d', q13:'a',
+  q14:'b', q15:'c', q16:'d',
+  q17:'a', q18:'b', q19:'c', q20:'d',
+  q21:'a', q22:'b', q23:'c', q24:'d',
+  q25:'a', q26:'b', q27:'c',
+  q28:'d', q29:'a', q30:'b', q31:'c'
+};
+let answered = {}, score = 0, total = 0;
+
+function checkQuiz(qid, choice) {
+  if (answered[qid]) return;
+  answered[qid] = true; total++;
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+  const correct = ANSWERS[qid];
+  let correctText = '';
+  btns.forEach(b => {
+    const letter = b.textContent.trim()[0];
+    if (letter === correct) { b.classList.add('correct'); correctText = b.textContent.trim(); }
+    else if (letter === choice && choice !== correct) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  if (choice === correct) score++;
+  let exp = card.querySelector('.answer-exp');
+  if (!exp) { exp = document.createElement('div'); exp.className = 'answer-exp'; card.querySelector('.options').after(exp); }
+  exp.innerHTML = '<span>✔</span><span>' + correctText + '</span>';
+  exp.style.display = 'flex';
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
+  const pct = Math.round((score / total) * 100);
+  const arc = document.getElementById('mini-arc');
+  arc.style.strokeDashoffset = 106.8 - (pct / 100) * 106.8;
+  arc.style.stroke = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  const pctEl = document.getElementById('mini-pct');
+  pctEl.textContent = pct + '%';
+  pctEl.style.color = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  if (total === N) showResult();
+}
+
+function filterQuiz(chapter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+  });
+}
+
+function showResult() {
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('donut-score').textContent = score;
+  const N = Object.keys(ANSWERS).length;
+  const circumference = 345.4;
+  document.getElementById('donut-arc').style.strokeDashoffset = circumference - (score / N) * circumference;
+  const pct = Math.round((score / N) * 100);
+  let msg, sub;
+  if (pct >= 90) { msg = 'Excelente! Dominou o conteúdo!'; sub = 'Resultado impressionante!' }
+  else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.' }
+  else if (pct >= 50) { msg = 'Bom esforço! Dá para melhorar.'; sub = 'Volte aos capítulos com dificuldade.' }
+  else { msg = 'Continue estudando!'; sub = 'Releia os acordeons e tente novamente.' }
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('result-sub').textContent = sub;
+}
+
+function resetQuiz() {
+  answered = {}; score = 0; total = 0;
+  document.querySelectorAll('.option-btn').forEach(b => { b.classList.remove('correct','wrong'); b.disabled = false; });
+  document.querySelectorAll('.answer-exp').forEach(e => e.style.display = 'none');
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / ' + N + '</strong>';
+  const arc = document.getElementById('mini-arc');
+  arc.style.strokeDashoffset = '106.8'; arc.style.stroke = '#e0e0e0';
+  const pctEl = document.getElementById('mini-pct');
+  pctEl.textContent = '—'; pctEl.style.color = '#aaa';
+}
+
+/* ── Chat ── */
+function toggleChat() {
+  const p = document.getElementById('chat-panel');
+  p.classList.toggle('open');
+  if (p.classList.contains('open')) document.getElementById('chat-input').focus();
+}
+
+function getContext() {
+  return (document.querySelector('main') || document.body).innerText.replace(/\s+/g,' ').slice(0,6000);
+}
+
+async function sendMsg(e) {
+  e.preventDefault();
+  const input = document.getElementById('chat-input');
+  const msgs = document.getElementById('chat-msgs');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  const u = document.createElement('div'); u.className = 'cmsg user'; u.textContent = text; msgs.appendChild(u);
+  const l = document.createElement('div'); l.className = 'cmsg bot loading'; l.textContent = 'Pensando...'; msgs.appendChild(l); msgs.scrollTop = msgs.scrollHeight;
+  try {
+    const r = await fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:text, context:getContext() }) });
+    const d = await r.json();
+    l.className = 'cmsg bot'; l.textContent = d.reply || d.error;
+  } catch { l.className = 'cmsg bot'; l.textContent = 'Erro de conexão. Tente novamente.'; }
+  msgs.scrollTop = msgs.scrollHeight;
+}
+</script>
+</body>
+</html>
