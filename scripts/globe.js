@@ -9,6 +9,7 @@
 
    COMO USAR
      <script src="scripts/globe-landmask.js"></script>
+     <script src="scripts/globe-regions.js"></script>  <!-- opcional -->
      <script src="scripts/globe.js"></script>
 
      <div class="globe-wrap">
@@ -20,12 +21,25 @@
    Latitude: positiva ao norte. Longitude: positiva a leste.
 
    Atributos opcionais no <canvas>:
-     data-globe-dots     densidade dos continentes (padrão 5200)
+     data-globe-dots     densidade dos continentes (padrão 8600)
      data-globe-speed    velocidade da rotação (padrão 1)
      data-globe-tilt     inclinação do eixo em graus (padrão 18)
 
    Arraste com o mouse ou o dedo para girar. Solte e ele volta a girar
    sozinho. Em prefers-reduced-motion ele desenha parado, sem animar.
+
+   REGIÕES (subdivisão por cor + fronteiras) — opcional
+   Se scripts/globe-regions.js estiver carregado, as 5 subdivisões do
+   resumo (anglo/méxico/central/andina/platina) ganham cor própria e
+   contorno de fronteira. Marque cada capítulo com:
+
+     <div class="chapter-header" data-globe-focus="23.6,-102.5"
+          data-globe-region="mexico">México</div>
+
+   Ao rolar até ali, o globo gira para a região E acende só aquela cor,
+   apagando as demais (efeito "holofote"). Capítulos sem
+   data-globe-region (ex.: Visão Geral) mostram as 5 cores cheias.
+   Cores em --globe-region-anglo / -mexico / -central / -andina / -platina.
    ═══════════════════════════════════════════════════════════ */
 
 (function () {
@@ -50,6 +64,42 @@
     if (row < 0) row = 0; else if (row >= mask.h) row = mask.h - 1;
     var idx = row * mask.w + col;
     return (mask.bytes[idx >> 3] >> (7 - (idx & 7))) & 1;
+  }
+
+  /* ── Regiões (subdivisão por cor) + fronteiras ────────────
+     Opcional: só carrega se scripts/globe-regions.js estiver presente
+     na página. Mesma grade do landmask, mas 4 bits/célula (código de
+     região 0-5) mais 1 bit/célula (célula de fronteira). */
+
+  function decodeRegions(r) {
+    var rbin = atob(r.regionData);
+    var rbytes = new Uint8Array(rbin.length);
+    for (var i = 0; i < rbin.length; i++) rbytes[i] = rbin.charCodeAt(i);
+    var bbin = atob(r.borderData);
+    var bbytes = new Uint8Array(bbin.length);
+    for (var j = 0; j < bbin.length; j++) bbytes[j] = bbin.charCodeAt(j);
+    return { w: r.width, h: r.height, region: rbytes, border: bbytes, names: r.regionNames };
+  }
+
+  function cellIndex(regions, lat, lon) {
+    var col = Math.floor((lon + 180) / 360 * regions.w);
+    var row = Math.floor((90 - lat) / 180 * regions.h);
+    if (col < 0) col = 0; else if (col >= regions.w) col = regions.w - 1;
+    if (row < 0) row = 0; else if (row >= regions.h) row = regions.h - 1;
+    return row * regions.w + col;
+  }
+
+  // lat/lon -> código de região (0 = nenhuma / resto do mundo)
+  function regionAt(regions, lat, lon) {
+    var idx = cellIndex(regions, lat, lon);
+    var byte = regions.region[idx >> 1];
+    return (idx & 1) === 0 ? (byte >> 4) : (byte & 0x0F);
+  }
+
+  // lat/lon -> true se a célula está na borda entre duas regiões (ou litoral)
+  function borderAt(regions, lat, lon) {
+    var idx = cellIndex(regions, lat, lon);
+    return !!((regions.border[idx >> 3] >> (7 - (idx & 7))) & 1);
   }
 
   /* ── Geometria ────────────────────────────────────────── */
@@ -106,25 +156,41 @@
 
   /* ── Leitura das cores da página ──────────────────────── */
 
+  // Paleta padrão das 5 subdivisões do resumo. Pode ser sobrescrita por
+  // página via as custom properties --globe-region-<nome> no CSS.
+  var REGION_DEFAULTS = {
+    anglo:   '#2e6da4',  // América Anglo-Saxônica — azul
+    mexico:  '#d9822b',  // México — terracota
+    central: '#1f9e7a',  // América Central — verde-água
+    andina:  '#8859c9',  // América Andina — violeta
+    platina: '#c9a227'   // América Platina — âmbar
+  };
+
   function readColors(canvas) {
     var cs = getComputedStyle(canvas);
     function pick(name, fallback) {
       var v = cs.getPropertyValue(name).trim();
       return v || fallback;
     }
+    var regionColors = {};
+    for (var name in REGION_DEFAULTS) {
+      regionColors[name] = pick('--globe-region-' + name, REGION_DEFAULTS[name]);
+    }
     return {
       land: pick('--globe-land', pick('--primary', '#1a3a5c')),
       water: pick('--globe-water', pick('--border', '#cbd7e2')),
       marker: pick('--globe-marker', pick('--secondary', '#2e6da4')),
-      label: pick('--globe-label', pick('--text', '#1e1e1e'))
+      label: pick('--globe-label', pick('--text', '#1e1e1e')),
+      border: pick('--globe-border-cell', '#ffffff'),
+      region: regionColors
     };
   }
 
   /* ── Um globo ─────────────────────────────────────────── */
 
-  function createGlobe(canvas, mask) {
+  function createGlobe(canvas, mask, regions) {
     var ctx = canvas.getContext('2d');
-    var dots = parseInt(canvas.dataset.globeDots, 10) || 5200;
+    var dots = parseInt(canvas.dataset.globeDots, 10) || 8600;
     var speed = parseFloat(canvas.dataset.globeSpeed);
     if (isNaN(speed)) speed = 1;
     var tiltDeg = parseFloat(canvas.dataset.globeTilt);
@@ -140,11 +206,19 @@
     // justamente onde não queremos densidade. Então geramos uma espiral
     // grande e ficamos com a terra, e outra pequena para o oceano — a terra
     // fica desenhada com detalhe pelo mesmo custo por quadro.
-    var land = [], water = [];
+    // land[0] = terra sem região marcada (resto do mundo); land[1..5] = as
+    // 5 subdivisões do resumo (anglo/méxico/central/andina/platina).
+    // borderPts = subconjunto que cai em célula de fronteira — desenhado
+    // de novo por cima, como um realce, dando o efeito de contorno.
+    var REGION_NAMES = ['none', 'anglo', 'mexico', 'central', 'andina', 'platina'];
+    var land = [[], [], [], [], [], []], water = [], borderPts = [];
 
     fibonacciSphere(dots * 3).forEach(function (p) {
       var ll = vecToLatLon(p);
-      if (isLand(mask, ll.lat, ll.lon)) land.push(p);
+      if (!isLand(mask, ll.lat, ll.lon)) return;
+      var code = regions ? regionAt(regions, ll.lat, ll.lon) : 0;
+      land[code].push(p);
+      if (regions && code !== 0 && borderAt(regions, ll.lat, ll.lon)) borderPts.push(p);
     });
 
     fibonacciSphere(Math.round(dots * 0.5)).forEach(function (p) {
@@ -176,6 +250,11 @@
     var dragging = false, lastX = 0, dragVel = 0;
     var w = 0, h = 0, radius = 0, cx = 0, cy = 0, dpr = 1;
 
+    // null = mostra as 5 subdivisões cheias (visão geral); 1-5 = só essa
+    // região em cor plena, as demais apagadas (ver setRegion mais abaixo).
+    var focusRegion = null;
+    var REGION_INDEX = { anglo: 1, mexico: 2, central: 3, andina: 4, platina: 5 };
+
     function resize() {
       var rect = canvas.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
@@ -203,8 +282,23 @@
 
       // oceano: pontos discretos, só para dar volume à esfera
       drawDots(water, colors.water, 0.8, 0.34);
-      // continentes: destacados
-      drawDots(land, colors.land, 1.15, 0.95);
+      // resto do mundo (sem região marcada): cor neutra de continente
+      drawDots(land[0], colors.land, 1.15, 0.95);
+
+      // as 5 subdivisões do resumo, cada uma na sua cor. Quando uma seção
+      // está em foco (focusRegion), as outras apagam — um "holofote" que
+      // acompanha a rolagem; sem foco (visão geral), todas aparecem cheias.
+      for (var ri = 1; ri <= 5; ri++) {
+        if (!land[ri].length) continue;
+        var isFocused = focusRegion === null || focusRegion === ri;
+        var dim = isFocused ? 1 : 0.16;
+        var pop = isFocused && focusRegion !== null ? 1.25 : 1;
+        drawDots(land[ri], colors.region[REGION_NAMES[ri]], 1.15 * pop, 0.95 * dim);
+      }
+
+      // fronteiras/litoral das subdivisões: realce constante por cima,
+      // independente do foco — funciona como o contorno do mapa.
+      if (borderPts.length) drawDots(borderPts, colors.border, 0.85, 0.55);
 
       drawMarkers();
     }
@@ -435,8 +529,17 @@
       draw();
     }
 
+    // Acende uma subdivisão e apaga as demais ("nome" ∈ anglo/mexico/
+    // central/andina/platina), ou volta a mostrar todas cheias (null /
+    // nome desconhecido). Chamado pelo modo de rolagem a cada capítulo.
+    function setRegion(name) {
+      var code = name ? REGION_INDEX[name] : null;
+      focusRegion = code || null;
+      draw();
+    }
+
     // deixa a API acessível de fora (usada pelo controlador de rolagem)
-    canvas.__globe = { flyTo: flyTo, refreshColors: refreshColors };
+    canvas.__globe = { flyTo: flyTo, refreshColors: refreshColors, setRegion: setRegion };
 
     var resizeTimer;
     window.addEventListener('resize', function () {
@@ -506,7 +609,10 @@
       var lat = parseFloat(partes[0]), lon = parseFloat(partes[1]);
       if (isNaN(lat) || isNaN(lon)) return;
 
-      if (canvas.__globe) canvas.__globe.flyTo(lat, lon);
+      if (canvas.__globe) {
+        canvas.__globe.flyTo(lat, lon);
+        canvas.__globe.setRegion(el.dataset.globeRegion || null);
+      }
 
       // deixa a página estilizar o trecho em foco, se quiser
       document.querySelectorAll('.globe-focused').forEach(function (o) {
@@ -530,7 +636,8 @@
     }
 
     var mask = decodeMask(window.GLOBE_LANDMASK);
-    canvases.forEach(function (c) { createGlobe(c, mask); });
+    var regions = window.GLOBE_REGIONS ? decodeRegions(window.GLOBE_REGIONS) : null;
+    canvases.forEach(function (c) { createGlobe(c, mask, regions); });
 
     // só o primeiro globo da página segue a rolagem
     if (!reduced) initScrollFocus(canvases[0]);

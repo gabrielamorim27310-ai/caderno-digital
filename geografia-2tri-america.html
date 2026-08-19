@@ -409,7 +409,8 @@
             data-globe-lon="-85"
             data-globe-markers="38.90,-77.04,Washington|45.42,-75.70,Ottawa|19.43,-99.13,Cidade do México|8.98,-79.52,Canal do Panamá|23.11,-82.37,Havana|-12.05,-77.04,Lima|-16.50,-68.15,La Paz|-34.60,-58.38,Buenos Aires|-33.45,-70.67,Santiago|-15.79,-47.88,Brasília"></canvas>
   </div>
-  <p class="globe-caption">Arraste o globo para girar · as capitais estudadas estão marcadas</p>
+  <p class="globe-caption">Arraste o globo para girar · as capitais estudadas estão marcadas · a
+  cor acende a região que você está lendo</p>
 </div>
 
 <nav>
@@ -566,7 +567,7 @@
   </div>
 
   <!-- ═══════════ 2. ANGLO-SAXÔNICA ═══════════ -->
-  <div class="chapter-header fx-reveal" id="anglo" data-globe-focus="50,-100" style="scroll-margin-top:64px">
+  <div class="chapter-header fx-reveal" id="anglo" data-globe-focus="50,-100" data-globe-region="anglo" style="scroll-margin-top:64px">
     <div class="chapter-number">2</div>
     <h2>América Anglo-Saxônica — Quadro Natural</h2>
   </div>
@@ -721,7 +722,7 @@
   </div>
 
   <!-- ═══════════ 3. EUA ═══════════ -->
-  <div class="chapter-header fx-reveal" id="eua" data-globe-focus="39,-98" style="scroll-margin-top:64px">
+  <div class="chapter-header fx-reveal" id="eua" data-globe-focus="39,-98" data-globe-region="anglo" style="scroll-margin-top:64px">
     <div class="chapter-number">3</div>
     <h2>Estados Unidos</h2>
   </div>
@@ -1009,7 +1010,7 @@
   </div>
 
   <!-- ═══════════ 4. CANADÁ ═══════════ -->
-  <div class="chapter-header fx-reveal" id="canada" data-globe-focus="58,-106" style="scroll-margin-top:64px">
+  <div class="chapter-header fx-reveal" id="canada" data-globe-focus="58,-106" data-globe-region="anglo" style="scroll-margin-top:64px">
     <div class="chapter-number">4</div>
     <h2>Canadá</h2>
   </div>
@@ -1215,7 +1216,7 @@
   </div>
 
   <!-- ═══════════ 6. MÉXICO ═══════════ -->
-  <div class="chapter-header fx-reveal" id="mexico" data-globe-focus="23.6,-102.5" style="scroll-margin-top:64px">
+  <div class="chapter-header fx-reveal" id="mexico" data-globe-focus="23.6,-102.5" data-globe-region="mexico" style="scroll-margin-top:64px">
     <div class="chapter-number">6</div>
     <h2>México</h2>
   </div>
@@ -1381,7 +1382,7 @@
   </div>
 
   <!-- ═══════════ 7. AMÉRICA CENTRAL ═══════════ -->
-  <div class="chapter-header fx-reveal" id="central" data-globe-focus="13,-85" style="scroll-margin-top:64px">
+  <div class="chapter-header fx-reveal" id="central" data-globe-focus="13,-85" data-globe-region="central" style="scroll-margin-top:64px">
     <div class="chapter-number">7</div>
     <h2>América Central</h2>
   </div>
@@ -1642,7 +1643,7 @@
   </div>
 
   <!-- ═══════════ 8. AMÉRICA ANDINA ═══════════ -->
-  <div class="chapter-header fx-reveal" id="andina" data-globe-focus="-12,-72" style="scroll-margin-top:64px">
+  <div class="chapter-header fx-reveal" id="andina" data-globe-focus="-12,-72" data-globe-region="andina" style="scroll-margin-top:64px">
     <div class="chapter-number">8</div>
     <h2>América do Sul — Região Andina</h2>
   </div>
@@ -1798,7 +1799,7 @@
   </div>
 
   <!-- ═══════════ 9. AMÉRICA PLATINA ═══════════ -->
-  <div class="chapter-header fx-reveal" id="platina" data-globe-focus="-32,-60" style="scroll-margin-top:64px">
+  <div class="chapter-header fx-reveal" id="platina" data-globe-focus="-32,-60" data-globe-region="platina" style="scroll-margin-top:64px">
     <div class="chapter-number">9</div>
     <h2>América Platina</h2>
   </div>
@@ -2406,6 +2407,7 @@
 </div>
 
 <script src="scripts/globe-landmask.js"></script>
+<script src="scripts/globe-regions.js"></script>
 <script src="scripts/globe.js"></script>
 <script src="scripts/chat.js"></script>
 <script>
@@ -2425,9 +2427,28 @@
     if (!wrap || !hero || !('IntersectionObserver' in window)) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    // O globo (e a legenda) saem do fluxo normal quando viram .is-mini
+    // (position:fixed) — sem isso, o hero encolhe de repente (até uns
+    // 560px, o tamanho do globo), o conteúdo abaixo pula pra cima, e o
+    // observador de foco por capítulo (globe.js) acaba lendo o capítulo
+    // errado bem na hora da transição. Trava a altura do hero no valor
+    // medido ANTES de tirar o globo do fluxo, então nada pula.
+    var lockedHeight = null;
+    function lockHeight() {
+      if (lockedHeight === null) lockedHeight = hero.getBoundingClientRect().height;
+      hero.style.minHeight = lockedHeight + 'px';
+    }
+    function unlockHeight() {
+      hero.style.minHeight = '';
+      lockedHeight = null;  // recalcula da próxima vez — a viewport pode ter mudado
+    }
+
     new IntersectionObserver(function (entries) {
+      var saindo = !entries[0].isIntersecting;
+      if (saindo) lockHeight();
       // enquanto sobrar um pedaço do hero na tela, o globo fica lá
-      wrap.classList.toggle('is-mini', !entries[0].isIntersecting);
+      wrap.classList.toggle('is-mini', saindo);
+      if (!saindo) unlockHeight();
       // o fundo mudou (hero escuro ↔ página clara): o globo precisa
       // reler as variáveis de cor, senão fica invisível
       var c = wrap.querySelector('canvas.globe');
