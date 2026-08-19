@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards — Vocabulário Inglês C1 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary:   #0e6b7a;
+    --secondary: #17a2ad;
+    --accent:    #d9713c;
+    --know:      #1f9e5e;
+    --bg:        #f5fbfa;
+    --card-bg:   #ffffff;
+    --text:      #1e1e1e;
+    --text-light:#5f6f6e;
+    --border:    #d9ebe8;
+    --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --shadow-sm: 0 1px 2px rgba(6,49,56,.06), 0 4px 12px -6px rgba(6,49,56,.16);
+    --shadow-lg: 0 1px 2px rgba(6,49,56,.08), 0 28px 52px -20px rgba(6,49,56,.32);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; min-height:100vh; }
+  h1, h2 { text-wrap:balance; }
+  a:focus-visible, button:focus-visible { outline:2px solid var(--secondary); outline-offset:2px; border-radius:4px; }
+
+  .hero {
+    background: linear-gradient(135deg, #063138 0%, #0e6b7a 50%, #14919b 100%);
+    color:white; padding:56px 20px 40px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-nav { position:relative; display:flex; justify-content:center; gap:6px; margin-bottom:22px; flex-wrap:wrap; }
+  .hero-nav a {
+    color:rgba(255,255,255,.82); text-decoration:none; font-size:0.82rem; font-weight:600;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:999px;
+    padding:6px 14px; transition: background .25s var(--ease-out), color .25s var(--ease-out);
+  }
+  .hero-nav a:hover { background:rgba(255,255,255,.2); color:#fff; }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,4.4vw,2.6rem); font-weight:900; letter-spacing:-0.015em; margin-bottom:8px; position:relative; }
+  .hero p { opacity:.82; font-weight:300; position:relative; font-size:.98rem; }
+
+  main { max-width:640px; margin:0 auto; padding:38px 20px 90px; }
+
+  /* filtros de baralho */
+  .deck-filter { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:28px; }
+  .deck-btn {
+    padding:8px 16px; border-radius:999px; border:1.5px solid var(--border); background:#fff;
+    color:var(--text-light); font-size:0.82rem; font-weight:600; cursor:pointer;
+    transition: background .25s var(--ease-out), color .25s var(--ease-out), border-color .25s var(--ease-out), transform .2s var(--ease-out);
+  }
+  .deck-btn:hover { border-color:var(--secondary); color:var(--primary); }
+  .deck-btn:active { transform:scale(.96); }
+  .deck-btn.active { background:var(--primary); border-color:var(--primary); color:#fff; }
+
+  /* progresso */
+  .fc-progress-wrap { max-width:520px; margin:0 auto 22px; }
+  .fc-progress-bar { height:6px; border-radius:999px; background:var(--border); overflow:hidden; }
+  .fc-progress-fill { height:100%; background:linear-gradient(90deg, var(--primary), var(--secondary)); width:0%; transition:width .4s var(--ease-out); border-radius:999px; }
+  .fc-progress-label { display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-light); margin-top:6px; }
+
+  /* palco do card */
+  .fc-stage { max-width:520px; margin:0 auto; perspective:1800px; }
+  .fc-card { position:relative; width:100%; aspect-ratio:5/3; cursor:pointer; }
+  .fc-card-inner {
+    position:relative; width:100%; height:100%;
+    transition: transform .55s var(--ease-in-out);
+    transform-style:preserve-3d;
+  }
+  .fc-card.flipped .fc-card-inner { transform:rotateY(180deg); }
+  .fc-face {
+    position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border-radius:22px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:32px; box-shadow:var(--shadow-lg);
+  }
+  .fc-front { background:linear-gradient(135deg, var(--primary), var(--secondary)); color:#fff; }
+  .fc-back { background:#fff; border:1px solid var(--border); transform:rotateY(180deg); }
+  .fc-unit-tag {
+    position:absolute; top:16px; left:16px; font-size:.68rem; font-weight:700; letter-spacing:.04em;
+    text-transform:uppercase; padding:4px 10px; border-radius:999px;
+  }
+  .fc-front .fc-unit-tag { background:rgba(255,255,255,.18); color:#fff; }
+  .fc-back .fc-unit-tag { background:color-mix(in srgb, var(--secondary) 14%, transparent); color:var(--primary); }
+  .fc-term { font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(1.3rem,4.6vw,1.9rem); line-height:1.25; }
+  .fc-hint { margin-top:14px; font-size:.78rem; opacity:.72; font-weight:500; }
+  .fc-pt { font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(1.15rem,4vw,1.5rem); color:var(--primary); line-height:1.3; }
+  .fc-ex { margin-top:14px; font-size:.86rem; color:var(--text-light); font-style:italic; line-height:1.5; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fc-card-inner { transition:none; }
+    .fc-face { transition:opacity .2s ease; }
+    .fc-front { position:absolute; opacity:1; }
+    .fc-back { opacity:0; pointer-events:none; transform:none; }
+    .fc-card.flipped .fc-card-inner { transform:none; }
+    .fc-card.flipped .fc-front { opacity:0; pointer-events:none; }
+    .fc-card.flipped .fc-back { opacity:1; pointer-events:auto; }
+  }
+
+  /* controles */
+  .fc-controls { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:24px; }
+  .fc-nav-btn {
+    width:44px; height:44px; border-radius:50%; border:1.5px solid var(--border); background:#fff;
+    color:var(--text-light); font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: background .25s var(--ease-out), border-color .25s var(--ease-out), transform .2s var(--ease-out);
+  }
+  .fc-nav-btn:hover { border-color:var(--secondary); color:var(--primary); }
+  .fc-nav-btn:active { transform:scale(.93); }
+  .fc-flip-hint {
+    font-size:.82rem; color:var(--text-light); background:#fff; border:1.5px solid var(--border);
+    border-radius:999px; padding:10px 20px; cursor:pointer; font-weight:600;
+    transition: background .25s var(--ease-out), transform .2s var(--ease-out);
+  }
+  .fc-flip-hint:hover { background:#eef8f7; }
+  .fc-flip-hint:active { transform:scale(.97); }
+
+  .fc-assess { display:flex; justify-content:center; gap:12px; margin-top:22px; }
+  .fc-btn {
+    flex:1; max-width:200px; padding:13px 18px; border-radius:14px; border:none; cursor:pointer;
+    font-family:'Inter',sans-serif; font-weight:700; font-size:.9rem; color:#fff;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
+    box-shadow:var(--shadow-sm);
+  }
+  .fc-btn:active { transform:scale(.97); }
+  .fc-btn-review { background:linear-gradient(135deg, var(--accent), #c25a24); }
+  .fc-btn-know { background:linear-gradient(135deg, var(--know), #157a48); }
+  .fc-btn:hover { box-shadow:var(--shadow-lg); }
+
+  /* tela de resumo */
+  .fc-summary {
+    display:none; background:#fff; border:1px solid var(--border); border-radius:22px; padding:40px 28px;
+    text-align:center; box-shadow:var(--shadow-lg);
+  }
+  .fc-summary.show { display:block; }
+  .fc-summary .icon { font-size:2.6rem; margin-bottom:10px; }
+  .fc-summary h2 { font-family:'Playfair Display',serif; color:var(--primary); font-size:1.5rem; margin-bottom:8px; }
+  .fc-summary p { color:var(--text-light); font-size:.92rem; margin-bottom:22px; }
+  .fc-summary-stats { display:flex; justify-content:center; gap:28px; margin-bottom:26px; }
+  .fc-stat { text-align:center; }
+  .fc-stat .n { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; }
+  .fc-stat.know .n { color:var(--know); }
+  .fc-stat.review .n { color:var(--accent); }
+  .fc-stat .lbl { font-size:.76rem; color:var(--text-light); margin-top:2px; }
+  .fc-summary-actions { display:flex; flex-direction:column; gap:10px; align-items:center; }
+  .fc-summary-actions button {
+    font-family:'Inter',sans-serif; font-weight:700; font-size:.88rem; border-radius:999px; cursor:pointer;
+    padding:12px 26px; border:none; transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
+  }
+  .fc-summary-actions button:active { transform:scale(.97); }
+  #btnReviewOnly { background:linear-gradient(135deg, var(--accent), #c25a24); color:#fff; box-shadow:var(--shadow-sm); }
+  #btnRestart { background:none; color:var(--text-light); border:1.5px solid var(--border) !important; }
+  #btnRestart:hover { border-color:var(--secondary) !important; color:var(--primary); }
+
+  #fcStudyArea.hidden, .fc-summary-actions button.hidden { display:none; }
+
+  footer { text-align:center; padding:28px 20px; color:var(--text-light); font-size:0.8rem; }
+
+  @media (max-width:520px) {
+    main { padding:28px 16px 70px; }
+    .fc-face { padding:22px; }
+    .fc-assess { flex-direction:column; align-items:center; }
+    .fc-btn { max-width:100%; width:100%; }
+  }
+</style>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
+<script src="config.js"></script>
+</head>
+<body>
+
+<div class="hero">
+  <nav class="hero-nav">
+    <a href="index.html#t2">← Início</a>
+    <a href="ingles-2tri.html">← Resumo de Inglês</a>
+  </nav>
+  <h1>🗂️ Flashcards — Vocabulário</h1>
+  <p>Unit 2 &amp; Unit 9 · 35 termos · clique no card para virar</p>
+</div>
+
+<main>
+
+  <div class="deck-filter" id="deckFilter">
+    <button class="deck-btn active" data-unit="all">Tudo (35)</button>
+    <button class="deck-btn" data-unit="u2">Unit 2 (10)</button>
+    <button class="deck-btn" data-unit="u9c">Unit 9 — Collocations (7)</button>
+    <button class="deck-btn" data-unit="u9a">Unit 9 — Adjetivos (6)</button>
+    <button class="deck-btn" data-unit="u9m">Unit 9 — Mais expressões (12)</button>
+  </div>
+
+  <div id="fcStudyArea">
+    <div class="fc-progress-wrap">
+      <div class="fc-progress-bar"><div class="fc-progress-fill" id="fcProgressFill"></div></div>
+      <div class="fc-progress-label">
+        <span id="fcCounter">1 / 35</span>
+        <span id="fcDeckLabel">Tudo</span>
+      </div>
+    </div>
+
+    <div class="fc-stage">
+      <div class="fc-card" id="fcCard">
+        <div class="fc-card-inner">
+          <div class="fc-face fc-front">
+            <span class="fc-unit-tag" id="fcTagFront">Unit 2</span>
+            <div class="fc-term" id="fcTermEn"></div>
+            <div class="fc-hint">clique para ver o significado ↺</div>
+          </div>
+          <div class="fc-face fc-back">
+            <span class="fc-unit-tag" id="fcTagBack">Unit 2</span>
+            <div class="fc-pt" id="fcTermPt"></div>
+            <div class="fc-ex" id="fcTermEx"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc-controls">
+      <button class="fc-nav-btn" id="fcPrev" aria-label="Card anterior">‹</button>
+      <button class="fc-flip-hint" id="fcFlipBtn">virar (espaço)</button>
+      <button class="fc-nav-btn" id="fcNext" aria-label="Próximo card">›</button>
+    </div>
+
+    <div class="fc-assess">
+      <button class="fc-btn fc-btn-review" id="fcMarkReview">✗ Ainda não sei</button>
+      <button class="fc-btn fc-btn-know" id="fcMarkKnow">✓ Já sei</button>
+    </div>
+  </div>
+
+  <div class="fc-summary" id="fcSummary">
+    <div class="icon" id="fcSummaryIcon">🎉</div>
+    <h2 id="fcSummaryTitle">Baralho concluído!</h2>
+    <p id="fcSummarySub">Veja como foi:</p>
+    <div class="fc-summary-stats">
+      <div class="fc-stat know"><div class="n" id="fcKnowCount">0</div><div class="lbl">já sei</div></div>
+      <div class="fc-stat review"><div class="n" id="fcReviewCount">0</div><div class="lbl">revisar</div></div>
+    </div>
+    <div class="fc-summary-actions">
+      <button id="btnReviewOnly">Revisar só as que eu não sabia</button>
+      <button id="btnRestart">Recomeçar este baralho</button>
+    </div>
+  </div>
+
+</main>
+
+<footer>Caderno Digital — Flashcards de Inglês C1 · 2º Trimestre 2026</footer>
+
+<script>
+/* ── Dados: mesmo vocabulário de ingles-2tri.html (Unit 2 e Unit 9) ── */
+const CARDS = [
+  // Unit 2 — Student's book p.24
+  { unit:'u2', label:'Unit 2', en:'hurdle', pt:'obstáculo, desafio a superar', ex:"The team faced several hurdles before launching the product." },
+  { unit:'u2', label:'Unit 2', en:'overcome', pt:'superar (uma dificuldade, um problema)', ex:"She managed to overcome her fear of public speaking." },
+  { unit:'u2', label:'Unit 2', en:'at breakneck speed', pt:'numa velocidade perigosamente rápida', ex:"The company grew at breakneck speed after going viral." },
+  { unit:'u2', label:'Unit 2', en:'leave your mark', pt:'deixar uma marca/lembrança duradoura', ex:"The young engineer wanted to leave her mark on the industry." },
+  { unit:'u2', label:'Unit 2', en:'knock-on effect', pt:'efeito colateral, consequência indireta', ex:"The delay had a knock-on effect on the whole schedule." },
+  { unit:'u2', label:'Unit 2', en:'outcome', pt:'resultado (de um processo, decisão)', ex:"Nobody could predict the outcome of the negotiation." },
+  { unit:'u2', label:'Unit 2', en:'setback', pt:'revés, contratempo que atrasa o progresso', ex:"Losing their main investor was a serious setback." },
+  { unit:'u2', label:'Unit 2', en:'outset', pt:'o início, o começo (de algo)', ex:"They knew, from the outset, that it wouldn't be easy." },
+  { unit:'u2', label:'Unit 2', en:'outlay', pt:'gasto inicial, quantia investida', ex:"The initial outlay for the equipment was enormous." },
+  { unit:'u2', label:'Unit 2', en:'outcry', pt:'forte reação pública de indignação/protesto', ex:"The decision provoked a public outcry." },
+
+  // Unit 9 — Collocations (p.125/p.130)
+  { unit:'u9c', label:'Unit 9 · Collocations', en:'lay a rumor to rest', pt:'pôr fim a um boato, provar que ele é falso' },
+  { unit:'u9c', label:'Unit 9 · Collocations', en:'have an open mind', pt:'estar disposto a considerar ideias/opiniões diferentes' },
+  { unit:'u9c', label:'Unit 9 · Collocations', en:'open an investigation', pt:'começar oficialmente a apurar o que aconteceu' },
+  { unit:'u9c', label:'Unit 9 · Collocations', en:'disregard the possibility', pt:'não considerar algo como uma opção possível' },
+  { unit:'u9c', label:'Unit 9 · Collocations', en:"ridicule someone's ideas", pt:'zombar das ideias de alguém, tratá-las com desdém' },
+  { unit:'u9c', label:'Unit 9 · Collocations', en:'make detailed mention of', pt:'falar/escrever sobre algo com muitos detalhes' },
+  { unit:'u9c', label:'Unit 9 · Collocations', en:'raise questions about', pt:'fazer as pessoas terem dúvidas sobre algo' },
+
+  // Unit 9 — Adjetivos (p.131, Rendlesham Forest)
+  { unit:'u9a', label:'Unit 9 · Adjetivos', en:'intriguing', pt:'fascinante por ser incomum ou misterioso' },
+  { unit:'u9a', label:'Unit 9 · Adjetivos', en:'reputable', pt:'que tem boa reputação, confiável' },
+  { unit:'u9a', label:'Unit 9 · Adjetivos', en:'far-fetched', pt:'exagerado, difícil de acreditar' },
+  { unit:'u9a', label:'Unit 9 · Adjetivos', en:'elaborate', pt:'cheio de detalhes, complexo' },
+  { unit:'u9a', label:'Unit 9 · Adjetivos', en:'single-minded', pt:'com foco forte e constante em um único objetivo' },
+  { unit:'u9a', label:'Unit 9 · Adjetivos', en:'reluctant', pt:'relutante, hesitante em fazer algo' },
+
+  // Unit 9 — Mais adjetivos e expressões de espanto
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'baffling', pt:'muito confuso, incompreensível' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'mind-blowing', pt:'surpreendente ao ponto de ser difícil de processar' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'mystifying', pt:'intrigante, impossível de entender' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'riveting', pt:'fascinante, prende a atenção' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'mesmerizing', pt:'hipnotizante, cativante' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'electrifying', pt:'extremamente empolgante' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'heart-stopping', pt:'de tirar o fôlego (susto/emoção)' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'breathtaking', pt:'de tirar o fôlego (beleza/espanto)' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'scratch your head', pt:'ficar confuso, sem entender algo' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'beats me', pt:'"não faço ideia" (informal)' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'bowled over', pt:'ficar muito impressionado/emocionado' },
+  { unit:'u9m', label:'Unit 9 · Mais expressões', en:'taken in', pt:'enganado, iludido por algo/alguém' },
+];
+CARDS.forEach((c, i) => c.id = i);
+
+const DECK_NAMES = { all:'Tudo', u2:'Unit 2', u9c:'Unit 9 — Collocations', u9a:'Unit 9 — Adjetivos', u9m:'Unit 9 — Mais expressões' };
+
+let deck = [];        // baralho ativo (lista de cards em estudo agora)
+let idx = 0;
+let results = {};     // id -> 'know' | 'review'
+let currentFilter = 'all';
+let reviewOnlyMode = false;
+
+const el = {
+  studyArea: document.getElementById('fcStudyArea'),
+  summary: document.getElementById('fcSummary'),
+  card: document.getElementById('fcCard'),
+  tagFront: document.getElementById('fcTagFront'),
+  tagBack: document.getElementById('fcTagBack'),
+  termEn: document.getElementById('fcTermEn'),
+  termPt: document.getElementById('fcTermPt'),
+  termEx: document.getElementById('fcTermEx'),
+  counter: document.getElementById('fcCounter'),
+  deckLabel: document.getElementById('fcDeckLabel'),
+  progressFill: document.getElementById('fcProgressFill'),
+  knowCount: document.getElementById('fcKnowCount'),
+  reviewCount: document.getElementById('fcReviewCount'),
+  summaryTitle: document.getElementById('fcSummaryTitle'),
+  summarySub: document.getElementById('fcSummarySub'),
+  btnReviewOnly: document.getElementById('btnReviewOnly'),
+};
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildDeck(filterUnit, sourceCards, isReview) {
+  currentFilter = filterUnit;
+  reviewOnlyMode = !!isReview;
+  const pool = sourceCards || CARDS.filter(c => filterUnit === 'all' || c.unit === filterUnit);
+  deck = shuffle(pool);
+  idx = 0;
+  results = {};
+  el.deckLabel.textContent = isReview ? 'Revisão' : (DECK_NAMES[filterUnit] || 'Revisão');
+  el.summary.classList.remove('show');
+  el.studyArea.classList.remove('hidden');
+  renderCard();
+}
+
+function renderCard() {
+  if (!deck.length) return;
+  const c = deck[idx];
+  el.card.classList.remove('flipped');
+  el.tagFront.textContent = c.label;
+  el.tagBack.textContent = c.label;
+  el.termEn.textContent = c.en;
+  el.termPt.textContent = c.pt;
+  el.termEx.textContent = c.ex ? '"' + c.ex + '"' : '';
+  el.counter.textContent = (idx + 1) + ' / ' + deck.length;
+  el.progressFill.style.width = ((idx) / deck.length * 100) + '%';
+}
+
+function flipCard() { el.card.classList.toggle('flipped'); }
+
+function goTo(newIdx) {
+  if (newIdx < 0) newIdx = 0;
+  if (newIdx >= deck.length) { showSummary(); return; }
+  idx = newIdx;
+  renderCard();
+}
+
+function markAndAdvance(status) {
+  results[deck[idx].id] = status;
+  goTo(idx + 1);
+}
+
+function showSummary() {
+  el.progressFill.style.width = '100%';
+  el.studyArea.classList.add('hidden');
+  const know = Object.values(results).filter(r => r === 'know').length;
+  const review = Object.values(results).filter(r => r === 'review').length;
+  el.knowCount.textContent = know;
+  el.reviewCount.textContent = review;
+  if (reviewOnlyMode) {
+    el.summaryTitle.textContent = review === 0 ? 'Revisão concluída — mandou bem!' : 'Revisão concluída';
+  } else {
+    el.summaryTitle.textContent = 'Baralho concluído!';
+  }
+  el.summarySub.textContent = review === 0
+    ? 'Você marcou "já sei" em todos os cards deste baralho.'
+    : 'Você ainda pode revisar os que marcou como "ainda não sei".';
+  el.btnReviewOnly.classList.toggle('hidden', review === 0);
+  el.summary.classList.add('show');
+}
+
+/* ── filtros de baralho ── */
+document.getElementById('deckFilter').addEventListener('click', (e) => {
+  const btn = e.target.closest('.deck-btn');
+  if (!btn) return;
+  document.querySelectorAll('.deck-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  buildDeck(btn.dataset.unit);
+});
+
+/* ── controles ── */
+document.getElementById('fcFlipBtn').addEventListener('click', flipCard);
+el.card.addEventListener('click', flipCard);
+document.getElementById('fcPrev').addEventListener('click', () => goTo(idx - 1));
+document.getElementById('fcNext').addEventListener('click', () => goTo(idx + 1));
+document.getElementById('fcMarkReview').addEventListener('click', () => markAndAdvance('review'));
+document.getElementById('fcMarkKnow').addEventListener('click', () => markAndAdvance('know'));
+
+document.getElementById('btnRestart').addEventListener('click', () => {
+  buildDeck(currentFilter);
+});
+el.btnReviewOnly.addEventListener('click', () => {
+  const reviewCards = deck.filter(c => results[c.id] === 'review');
+  buildDeck(currentFilter, reviewCards, true);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (el.summary.classList.contains('show')) return;
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flipCard(); }
+  if (e.key === 'ArrowRight') goTo(idx + 1);
+  if (e.key === 'ArrowLeft') goTo(idx - 1);
+});
+
+/* ── início ── */
+buildDeck('all');
+</script>
+</body>
+</html>
