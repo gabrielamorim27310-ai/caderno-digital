@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inglês C1 2º Tri — Inversion, Unit 2 &amp; Unit 9 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary:   #0e6b7a;
+    --secondary: #17a2ad;
+    --accent:    #d9713c;
+    --bg:        #f5fbfa;
+    --card-bg:   #ffffff;
+    --text:      #1e1e1e;
+    --text-light:#5f6f6e;
+    --border:    #d9ebe8;
+    --shadow:    0 4px 24px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; scroll-behavior:smooth; }
+
+  .progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--secondary); z-index:999; width:0%; transition:width 0.1s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #063138 0%, #0e6b7a 50%, #14919b 100%);
+    color:white; padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; margin-bottom:12px; position:relative; }
+  .hero .subtitle { font-size:1.1rem; opacity:0.85; font-weight:300; position:relative; }
+  .hero .badge { display:inline-block; background:var(--secondary); color:white; padding:6px 18px; border-radius:20px; font-weight:700; font-size:0.85rem; margin-top:16px; position:relative; }
+  .hero .author { display:inline-block; background:rgba(255,255,255,0.15); color:white; padding:8px 22px; border-radius:20px; font-size:1.05rem; font-weight:600; margin-top:12px; position:relative; border:1px solid rgba(255,255,255,0.4); letter-spacing:0.02em; }
+
+  /* NAV */
+  nav { background:white; border-bottom:2px solid var(--border); padding:0 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width:1100px; margin:0 auto; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+  nav .nav-inner::-webkit-scrollbar { display:none; }
+  nav a { text-decoration:none; padding:14px 20px; font-weight:600; font-size:0.85rem; white-space:nowrap; color:var(--text-light); border-bottom:3px solid transparent; transition:all 0.3s; }
+  nav a:hover, nav a.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* MAIN */
+  main { max-width:900px; margin:0 auto; padding:40px 20px 80px; }
+
+  /* CHAPTER */
+  .chapter { margin-bottom:56px; }
+  .chapter-header { margin-bottom:24px; padding-bottom:14px; border-bottom:3px solid var(--secondary); }
+  .chapter-header h2 { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--primary); font-weight:900; display:flex; align-items:center; gap:12px; }
+  .ch-tag { display:inline-block; background:var(--primary); color:white; padding:3px 12px; border-radius:6px; font-size:0.78rem; font-weight:700; letter-spacing:.5px; font-family:'Inter',sans-serif; flex-shrink:0; }
+  .chapter-header .meta { color:var(--text-light); font-size:0.9rem; margin-top:6px; }
+
+  /* ACCORDION */
+  .accordion { background:white; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .accordion-btn { width:100%; background:none; border:none; padding:17px 20px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:0.97rem; font-weight:600; color:var(--primary); transition:background .2s; }
+  .accordion-btn:hover { background:#eef8f7; }
+  .accordion-btn .chev { transition:transform .3s; color:var(--secondary); font-size:1.1rem; }
+  .accordion.open .chev { transform:rotate(180deg); }
+  .accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .accordion.open .accordion-content { max-height:4000px; }
+  .content-block { padding:0 20px 20px; border-top:1px solid var(--border); }
+  .content-block p { margin:12px 0; font-size:0.95rem; }
+  .content-block ul, .content-block ol { margin:8px 0 12px 22px; }
+  .content-block li { margin-bottom:6px; font-size:0.93rem; }
+  .content-block h4 { font-family:'Playfair Display',serif; color:var(--primary); margin:16px 0 8px; font-size:1.05rem; }
+
+  /* INFO BOXES */
+  .highlight-box, .warn-box, .tip-box {
+    border-left:4px solid; border-radius:0 10px 10px 0; padding:13px 16px; margin:14px 0; font-size:0.93rem;
+  }
+  .highlight-box { background:#eaf6f5; border-color:var(--primary); }
+  .warn-box      { background:#fdf1e9; border-color:var(--accent); }
+  .tip-box       { background:#e7f7f2; border-color:#1f9e7a; }
+  .highlight-box strong, .warn-box strong, .tip-box strong { display:block; margin-bottom:4px; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem; }
+  .data-table th { background:var(--primary); color:white; padding:10px 12px; text-align:left; font-weight:600; }
+  .data-table td { padding:9px 12px; border-bottom:1px solid var(--border); }
+  .data-table tr:nth-child(even) td { background:#eef8f7; }
+
+  /* FORMULA / phrase pill */
+  .formula-pill { display:inline-block; background:#eaf6f5; border:1.5px solid var(--primary); border-radius:8px; padding:3px 10px; font-family:'Courier New',monospace; font-size:0.85rem; color:var(--primary); font-weight:700; margin:2px 2px; }
+
+  /* QUIZ */
+  #quiz-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+  #quiz-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
+  #quiz-section > p { color:var(--text-light); margin-bottom:20px; }
+
+  .quiz-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .filter-btn { padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); background:white; color:var(--text-light); font-size:0.82rem; font-weight:600; cursor:pointer; transition:all .2s; }
+  .filter-btn.active, .filter-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
+
+  .question-card { background:var(--bg); border:1.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; }
+  .question-card.hidden { display:none; }
+  .question-card h4 { font-size:0.95rem; font-weight:600; color:var(--primary); margin-bottom:14px; }
+  .options { display:flex; flex-direction:column; gap:8px; }
+  .option-btn { background:white; border:1.5px solid var(--border); border-radius:8px; padding:10px 14px; text-align:left; font-size:0.9rem; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .option-btn:hover { border-color:var(--secondary); background:#eef8f7; }
+  .option-btn.correct { background:#d4edda; border-color:#27ae60; color:#155724; }
+  .option-btn.wrong   { background:#f8d7da; border-color:#e74c3c; color:#721c24; }
+
+  .quiz-result { display:none; text-align:center; padding:24px; }
+  .donut-wrap { position:relative; width:130px; height:130px; margin:0 auto 16px; }
+  .donut-wrap svg { transform:rotate(-90deg); }
+  .donut-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-score { font-size:1.8rem; font-weight:700; color:var(--primary); }
+  .donut-label { font-size:0.75rem; color:var(--text-light); }
+  .result-msg { font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:6px; }
+  .result-sub { font-size:0.9rem; color:var(--text-light); margin-bottom:20px; }
+  .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
+  .btn-reset:hover { background:var(--accent); }
+
+  .quiz-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+  .score-left { display:flex; align-items:center; gap:12px; }
+  .mini-donut-wrap { position:relative; width:44px; height:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .mini-donut-wrap svg { position:absolute; top:0; left:0; }
+  #mini-pct { position:relative; font-size:0.65rem; font-weight:800; color:#aaa; line-height:1; }
+  .score-live { font-size:0.9rem; font-weight:600; color:var(--primary); background:var(--bg); padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); }
+  .btn-reset-mid { background:none; border:1.5px solid var(--border); color:var(--text-light); padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all .2s; }
+  .btn-reset-mid:hover { border-color:var(--primary); color:var(--primary); }
+  .answer-exp { display:none; align-items:flex-start; gap:8px; margin-top:10px; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px; padding:10px 14px; font-size:0.87rem; color:#1b5e20; line-height:1.5; }
+
+  /* CHAT flutuante */
+  #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+  #chat-btn:hover { transform:scale(1.08); }
+  #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+  #chat-panel.open { display:flex; }
+  #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  #chat-head span { font-weight:600; font-size:0.92rem; }
+  #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+  #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+  .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+  .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+  .cmsg.loading { opacity:0.6; font-style:italic; }
+  #chat-form { display:flex; border-top:1px solid var(--border); }
+  #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+  #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+  #chat-send:hover { background:var(--accent); }
+
+  footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
+
+  @media(max-width:600px) {
+    .hero { padding:56px 16px 44px; }
+    main { padding:24px 14px 60px; }
+  }
+</style>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>Inglês C1 — 2º Trimestre</h1>
+  <p class="subtitle">2ª série do Ensino Médio · High Note 5 · 2026</p>
+  <div><span class="badge">Inversion · Unit 2 &amp; Unit 9 Vocabulary · Reading Comprehension</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#formato">Formato da Prova</a>
+    <a href="#inversion">Inversion</a>
+    <a href="#unit2">Unit 2 — Vocabulary</a>
+    <a href="#unit9">Unit 9 — Vocabulary</a>
+    <a href="#reading">Reading</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════
+     FORMATO DA PROVA
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="formato">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Guia</span> Formato da Prova Trimestral</h2>
+    <p class="meta">Baseado no guia de estudos oficial (2º tri/2026) — professores André, Cynara, Daniela, Fernanda, Maria Eugenia, Katia e Rosana</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">As 4 partes da prova <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Parte</th><th>O que cai</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Part 1</strong><br>Multiple choice</td>
+                <td>8 questões: 4 de Reading Comprehension sobre <em>The Catcher in the Rye</em>,
+                2 de Vocabulary, 2 de Grammar</td></tr>
+            <tr><td><strong>Part 2</strong><br>Reading Comprehension</td>
+                <td>A) Ordenar as ideias principais na ordem em que aparecem no texto ·
+                B) Inferência (entender vocabulário pelo contexto) · C) Duas perguntas abertas</td></tr>
+            <tr><td><strong>Part 3</strong><br>Use of English</td>
+                <td>A) Vocabulary — usar uma palavra do quadro na forma correta ·
+                B) Vocabulary — formar collocations/expressões com palavras do quadro ·
+                C) Grammar — transformar a frase mantendo o sentido, usando a(s) palavra(s) dada(s) ·
+                D) Grammar — completar o texto com uma palavra adequada ·
+                E) Grammar — completar o texto com a forma correta dos verbos dados</td></tr>
+            <tr><td><strong>Part 4</strong><br>Open Questions</td>
+                <td>Responder <strong>uma</strong> de duas perguntas sobre um tópico discutido em sala,
+                usando suas próprias palavras e o vocabulário aprendido no trimestre</td></tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Onde a transformação de frases (Part 3C) mais cai:</strong> exatamente na estrutura
+          de <strong>Inversion</strong> — é o item de gramática mais citado no guia de estudos.
+          Domine as estruturas do capítulo abaixo.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O que revisar, por área <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Vocabulary</h4>
+        <ul>
+          <li><strong>Unit 2</strong> — Student's book p.24 (ex. 4 e 5), Workbook p.22 (ex. 1 e 2) e p.25 (ex. 4)</li>
+          <li><strong>Unit 9</strong> — Student's book p.125 (ex. 4-6), p.130 (ex. 5-7), vocabulário do texto da p.131,
+          Workbook p.100 (ex. 1-3)</li>
+        </ul>
+        <h4>Grammar</h4>
+        <ul>
+          <li>Student's book — Grammar Reference p.167 (<strong>Inversion</strong>)</li>
+          <li>Workbook p.20 (ex. 2 e 3) e p.25 (ex. 4)</li>
+          <li>Moodle — Materials: <em>Inversion Practice 1</em> e <em>2</em></li>
+        </ul>
+        <h4>Reading Comprehension</h4>
+        <ul>
+          <li>Workbook p.18 (ex. 1 a 4)</li>
+          <li>Student's book p.131 — <em>The Mystery of Rendlesham Forest</em></li>
+        </ul>
+        <div class="tip-box">
+          <strong>Não esqueça:</strong> checar o Moodle para material extra e revisar as anotações de aula —
+          o guia oficial reforça os dois pontos.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     INVERSION
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="inversion">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Grammar</span> Inversion</h2>
+    <p class="meta">O tópico gramatical mais cobrado do trimestre — Grammar Reference p.167</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Por que e quando usar inversion <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Usamos <strong>inversion</strong> (inversão da ordem sujeito-verbo, com um auxiliar vindo
+        antes do sujeito) quando queremos <strong>enfatizar</strong> um evento por ele ser novo, raro,
+        inesperado, súbito ou impossível. Para isso, começamos a frase com um
+        <strong>advérbio negativo ou restritivo</strong>, seguido da ordem invertida.</p>
+        <div class="highlight-box">
+          <strong>Registro formal</strong>
+          Inversion é uma estrutura <strong>formal</strong> — aparece mais em textos escritos
+          (narrativas, artigos) e em discursos formais (apresentações) do que na fala do dia a dia.
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Frase normal</th><th>Com inversion</th></tr></thead>
+          <tbody>
+            <tr><td>I had never been there before.</td><td><strong>Never before had I been there.</strong></td></tr>
+            <tr><td>They didn't try to help me.</td><td><strong>Not once did they try to help me.</strong></td></tr>
+            <tr><td>When he came home, we realized we had missed him.</td>
+                <td><strong>Only when he came home did we realize we had missed him.</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">As estruturas, uma a uma <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>1. Advérbios de frequência negativa: Never, Rarely, Hardly ever, Seldom</h4>
+        <p><span class="formula-pill">Adverb + auxiliar + sujeito + verbo principal</span></p>
+        <ul>
+          <li>Never <strong>have I</strong> seen such dedication. <em>(present perfect)</em></li>
+          <li>Rarely <strong>does she</strong> arrive late. <em>(present simples → precisa de "does/do")</em></li>
+          <li>Hardly ever <strong>does Tom</strong> eat vegetables for dinner.</li>
+        </ul>
+
+        <h4>2. No sooner ... than / Hardly, Barely, Scarcely ... when</h4>
+        <p>Duas estruturas parecidas, mas com <strong>conjunções diferentes</strong> — é a pegadinha mais
+        comum da prova:</p>
+        <div class="warn-box">
+          <strong>Decore o par certo</strong>
+          <strong>No sooner</strong> + inversion + <strong>than</strong> ... <br>
+          <strong>Hardly / Barely / Scarcely</strong> + inversion + <strong>when</strong> ...
+        </div>
+        <ul>
+          <li><strong>No sooner had</strong> Sofia arrived <strong>than</strong> the meeting started.</li>
+          <li><strong>Hardly had</strong> we fallen asleep <strong>when</strong> the alarm went off.</li>
+        </ul>
+
+        <h4>3. Only + expressão de tempo (Only when / Only after / Only then)</h4>
+        <ul>
+          <li><strong>Only after</strong> James left <strong>did David realize</strong> his mistake.</li>
+          <li><strong>Only when</strong> the lights came back on <strong>did we understand</strong> what had happened.</li>
+        </ul>
+
+        <h4>4. So + adjetivo/advérbio ... that / Such ... that</h4>
+        <p><span class="formula-pill">So + adj/adv + auxiliar + sujeito + verbo + that</span></p>
+        <ul>
+          <li>So loudly <strong>did the music play</strong> that we couldn't hear each other.</li>
+          <li>So amazing <strong>was the performance</strong> that the audience gave a standing ovation.</li>
+        </ul>
+
+        <h4>5. Little (did) — para dizer que alguém não fazia ideia de algo</h4>
+        <ul>
+          <li><strong>Little did</strong> Olivia know what was about to happen.</li>
+        </ul>
+
+        <div class="tip-box">
+          <strong>Checklist rápido antes de responder</strong>
+          1) O advérbio/expressão vem primeiro. 2) Se o verbo original não tem auxiliar
+          (present/past simple), você <strong>cria um</strong> (do/does/did). 3) Se já existe auxiliar
+          (had, will, is), ele é o que se move para antes do sujeito — nunca duplique o auxiliar.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     UNIT 2 VOCABULARY
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="unit2">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Vocabulary</span> Unit 2 — Student's Book p.24</h2>
+    <p class="meta">Expressões sobre superar desafios e alcançar (ou não) um objetivo</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O vocabulário, com exemplo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Expressão</th><th>Significado</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>hurdle</strong></td><td>obstáculo, desafio a superar</td>
+                <td>The team faced several hurdles before launching the product.</td></tr>
+            <tr><td><strong>overcome</strong></td><td>superar (uma dificuldade, um problema)</td>
+                <td>She managed to overcome her fear of public speaking.</td></tr>
+            <tr><td><strong>at breakneck speed</strong></td><td>numa velocidade perigosamente rápida</td>
+                <td>The company grew at breakneck speed after going viral.</td></tr>
+            <tr><td><strong>leave your mark</strong></td><td>deixar uma marca/lembrança duradoura</td>
+                <td>The young engineer wanted to leave her mark on the industry.</td></tr>
+            <tr><td><strong>knock-on effect</strong></td><td>efeito colateral, consequência indireta</td>
+                <td>The delay had a knock-on effect on the whole schedule.</td></tr>
+            <tr><td><strong>outcome</strong></td><td>resultado (de um processo, decisão)</td>
+                <td>Nobody could predict the outcome of the negotiation.</td></tr>
+            <tr><td><strong>setback</strong></td><td>revés, contratempo que atrasa o progresso</td>
+                <td>Losing their main investor was a serious setback.</td></tr>
+            <tr><td><strong>outset</strong></td><td>o início, o começo (de algo)</td>
+                <td>They knew, from the outset, that it wouldn't be easy.</td></tr>
+            <tr><td><strong>outlay</strong></td><td>gasto inicial, quantia investida</td>
+                <td>The initial outlay for the equipment was enormous.</td></tr>
+            <tr><td><strong>outcry</strong></td><td>forte reação pública de indignação/protesto</td>
+                <td>The decision provoked a public outcry.</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">
+          <strong>Truque para decorar:</strong> repare quantas dessas palavras começam com
+          <strong>out-</strong> (outcome, outset, outlay, outcry) — todas têm a ideia de algo que
+          "sai" de um processo: o resultado que sai, o ponto de saída, o dinheiro que sai do bolso,
+          a reação que sai do público.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     UNIT 9 VOCABULARY
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="unit9">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Vocabulary</span> Unit 9 — Explaining Unexplained Events</h2>
+    <p class="meta">Student's book p.125, p.130 e o vocabulário do texto da p.131 (Rendlesham Forest)</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Collocations para discutir um mistério <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Expressão</th><th>Significado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>lay a rumor to rest</strong></td><td>pôr fim a um boato, provar que ele é falso</td></tr>
+            <tr><td><strong>have an open mind</strong></td><td>estar disposto a considerar ideias/opiniões diferentes</td></tr>
+            <tr><td><strong>open an investigation</strong></td><td>começar oficialmente a apurar o que aconteceu</td></tr>
+            <tr><td><strong>disregard the possibility</strong></td><td>não considerar algo como uma opção possível</td></tr>
+            <tr><td><strong>ridicule someone's ideas</strong></td><td>zombar das ideias de alguém, tratá-las com desdém</td></tr>
+            <tr><td><strong>make detailed mention of</strong></td><td>falar/escrever sobre algo com muitos detalhes</td></tr>
+            <tr><td><strong>raise questions about</strong></td><td>fazer as pessoas terem dúvidas sobre algo</td></tr>
+          </tbody>
+        </table>
+        <p><em>Exemplo:</em> The strange lights <strong>raised questions about</strong> what really
+        happened that night, so the Air Force decided to <strong>open an investigation</strong> —
+        but officials were quick to <strong>disregard the possibility</strong> of anything
+        extraordinary.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Adjetivos: descrevendo o inexplicável (p.131) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Palavra</th><th>Significado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>intriguing</strong></td><td>fascinante por ser incomum ou misterioso</td></tr>
+            <tr><td><strong>reputable</strong></td><td>que tem boa reputação, confiável</td></tr>
+            <tr><td><strong>far-fetched</strong></td><td>exagerado, difícil de acreditar</td></tr>
+            <tr><td><strong>elaborate</strong></td><td>cheio de detalhes, complexo</td></tr>
+            <tr><td><strong>single-minded</strong></td><td>com foco forte e constante em um único objetivo</td></tr>
+            <tr><td><strong>reluctant</strong></td><td>relutante, hesitante em fazer algo</td></tr>
+          </tbody>
+        </table>
+        <div class="warn-box">
+          <strong>Cuidado com o falso cognato / a armadilha do sentido</strong>
+          <strong>Far-fetched</strong> ≠ "buscado de longe" ao pé da letra — significa que uma
+          explicação é <strong>pouco crível</strong>. E <strong>reputable</strong> não tem nada a ver
+          com "reprovável": é o oposto — alguém <strong>confiável</strong>, de boa reputação.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Mais adjetivos e expressões de espanto <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Palavra/expressão</th><th>Significado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>baffling</strong></td><td>muito confuso, incompreensível</td></tr>
+            <tr><td><strong>mind-blowing</strong></td><td>surpreendente ao ponto de ser difícil de processar</td></tr>
+            <tr><td><strong>mystifying</strong></td><td>intrigante, impossível de entender</td></tr>
+            <tr><td><strong>riveting</strong></td><td>fascinante, prende a atenção</td></tr>
+            <tr><td><strong>mesmerizing</strong></td><td>hipnotizante, cativante</td></tr>
+            <tr><td><strong>electrifying</strong></td><td>extremamente empolgante</td></tr>
+            <tr><td><strong>heart-stopping</strong></td><td>de tirar o fôlego (susto/emoção)</td></tr>
+            <tr><td><strong>breathtaking</strong></td><td>de tirar o fôlego (beleza/espanto)</td></tr>
+            <tr><td><strong>scratch your head</strong></td><td>ficar confuso, sem entender algo</td></tr>
+            <tr><td><strong>beats me</strong></td><td>"não faço ideia" (informal)</td></tr>
+            <tr><td><strong>bowled over</strong></td><td>ficar muito impressionado/emocionado</td></tr>
+            <tr><td><strong>taken in</strong></td><td>enganado, iludido por algo/alguém</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     READING COMPREHENSION
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="reading">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Reading</span> Os dois textos da prova</h2>
+    <p class="meta">Contexto para estudar — releia os textos originais no Student's Book/Workbook antes da prova</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)"><em>The Catcher in the Rye</em> — o que você precisa saber <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Romance de <strong>J.D. Salinger</strong> (1951), um clássico da literatura americana.
+        Narrado em primeira pessoa por <strong>Holden Caulfield</strong>, um adolescente expulso do
+        colégio interno Pencey Prep, ao longo de poucos dias em Nova York.</p>
+        <ul>
+          <li><strong>Narrador não confiável</strong> — Holden filtra tudo pela sua própria visão
+          cínica e emocionalmente instável; preste atenção ao que ele omite ou contradiz.</li>
+          <li><strong>Temas centrais:</strong> alienação adolescente, a "falsidade" (<em>phoniness</em>)
+          do mundo adulto, perda da inocência, luto (a morte do irmão Allie ronda o livro todo).</li>
+          <li><strong>Símbolo-chave:</strong> o título vem da fantasia de Holden de ser o
+          "catcher in the rye" — alguém que protege crianças da perda da inocência, "pegando-as"
+          antes que caiam de um penhasco enquanto brincam num campo de centeio.</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>Para as 4 questões de Reading Comprehension (Part 1)</strong>
+          Revise o(s) capítulo(s) trabalhados em sala — as perguntas tendem a testar compreensão de
+          eventos específicos da trama e a voz/tom de Holden, não só o enredo geral.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)"><em>The Mystery of Rendlesham Forest</em> — contexto real <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>O texto da p.131 é sobre um caso real, conhecido como o <strong>"Roswell britânico"</strong>:</p>
+        <ul>
+          <li>Na madrugada de <strong>26 de dezembro de 1980</strong>, militares da Força Aérea
+          americana baseados em <strong>RAF Woodbridge</strong> (Suffolk, Inglaterra) relataram luzes
+          estranhas descendo sobre a Rendlesham Forest, ao lado da base.</li>
+          <li>Ao investigar, disseram ter visto um objeto metálico com luzes coloridas, que parecia
+          se mover entre as árvores — e os animais de uma fazenda próxima entraram em pânico.</li>
+          <li>Dois dias depois, o tenente-coronel <strong>Charles Halt</strong> liderou uma nova
+          investigação e registrou, num memorando oficial, marcas estranhas no chão, queimaduras em
+          árvores e níveis elevados de radiação no local.</li>
+          <li>Dezenas de militares testemunharam eventos ao longo de dois ou três dias — até hoje é
+          um dos casos de OVNI mais famosos do mundo, nunca oficialmente explicado.</li>
+        </ul>
+        <div class="tip-box">
+          <strong>Para a prova</strong>
+          Use exatamente o vocabulário de Unit 9 (acima) para descrever esse caso: é
+          <strong>intriguing</strong>, <strong>baffling</strong>, gerou <strong>an investigation</strong>
+          e, para muitos céticos, permanece <strong>far-fetched</strong>.
+        </div>
+        <p style="font-size:.78rem;color:var(--text-light);margin-top:6px">Fonte factual:
+          <a href="https://en.wikipedia.org/wiki/Rendlesham_Forest_incident" target="_blank" rel="noopener">Wikipedia — Rendlesham Forest incident</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Estratégia para a Part 2 (Reading) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>A) Ordenar ideias</strong> — leia o texto uma vez inteiro antes de ordenar;
+          não tente ordenar frase por frase na primeira leitura.</li>
+          <li><strong>B) Inferência</strong> — para vocabulário desconhecido, use o contexto ao redor
+          (frase anterior e seguinte) e a lógica da frase, não tente "traduzir" a palavra isoladamente.</li>
+          <li><strong>C) Perguntas abertas</strong> — responda com frases completas, citando
+          evidência do texto quando possível; releia a pergunta depois de escrever para confirmar que
+          respondeu exatamente o que foi pedido.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ
+     ══════════════════════════════════════════════ -->
+<section id="quiz-section">
+  <a id="quiz"></a>
+  <h2>Quiz de Revisão</h2>
+  <p>17 questões sobre Inversion e o vocabulário das Units 2 e 9.</p>
+
+  <div class="quiz-topbar">
+    <div class="score-left">
+      <div class="mini-donut-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44">
+          <circle cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"/>
+          <circle id="mini-arc" cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"
+                  stroke-dasharray="106.8" stroke-dashoffset="106.8" stroke-linecap="round"
+                  transform="rotate(-90 22 22)"/>
+        </svg>
+        <span id="mini-pct">—</span>
+      </div>
+      <div class="score-live" id="score-live">Placar: <strong>0 / 17</strong></div>
+    </div>
+    <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
+  <div class="quiz-filter">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
+    <button class="filter-btn" onclick="filterQuiz('cap1',this)">Inversion</button>
+    <button class="filter-btn" onclick="filterQuiz('cap2',this)">Unit 2 Vocab</button>
+    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Unit 9 Vocab</button>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q1">
+    <h4>1. Choose the correct inversion for: "I have never tasted such delicious food."</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) Never I have tasted such delicious food.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) Never have I tasted such delicious food.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) Never had I tasted such delicious food.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) Never do I taste such delicious food.</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q2">
+    <h4>2. "She rarely arrives late." → correct inversion:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) Rarely she arrives late.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) Rarely does she arrive late.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) Rarely arrives she late.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) Rarely is she arriving late.</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q3">
+    <h4>3. Complete: "No sooner had the movie started ___ the lights went out."</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) than</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) when</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) that</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) then</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q4">
+    <h4>4. Complete: "Hardly had we sat down ___ the phone rang."</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) than</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) when</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) that</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) so</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q5">
+    <h4>5. Which sentence uses inversion correctly?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) Little did she know that her life was about to change.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) Little she did know that her life was about to change.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) Little knew she that her life was about to change.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) She little did know that her life was about to change.</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q6">
+    <h4>6. "The concert was so loud that we couldn't hear each other." → inversion with "so":</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) So loud the concert was that we couldn't hear each other.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) So loud was the concert that we couldn't hear each other.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) So the concert was loud that we couldn't hear each other.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) So loud did the concert be that we couldn't hear each other.</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q7">
+    <h4>7. Inversion is typically used to:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) Make a sentence more casual and conversational</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) Emphasize something new, rare, sudden, or unexpected, mainly in formal/written English</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) Turn a statement into a question</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) Replace the passive voice</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap1" id="q8">
+    <h4>8. "Only after the alarm went off did we realize what had happened." — the inversion here is triggered by:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) A time expression introduced by "only after"</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) A simple adverb of frequency</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) A conditional clause</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) A relative clause</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap2" id="q9">
+    <h4>9. A "setback" is:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) A quick, unexpected success</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Something that delays or hinders progress</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) A financial reward</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) A type of business meeting</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap2" id="q10">
+    <h4>10. If a company faces a public "outcry," it means:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) A strong, negative public reaction, sometimes leading to protest</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) A private internal disagreement</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) A celebration of the company's success</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) A quiet, positive reaction</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap2" id="q11">
+    <h4>11. The "outset" of a project is:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) Its final stage</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) A summary report</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) The beginning</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) A budget cut</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap2" id="q12">
+    <h4>12. "Outlay" refers to:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) The physical layout of an office</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) An amount of money spent on something</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) A written outline of a plan</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) A type of legal contract</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap3" id="q13">
+    <h4>13. If a story is described as "far-fetched," it means it is:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q13','a')">a) Very easy to believe because it's well documented</button>
+      <button class="option-btn" onclick="checkQuiz('q13','b')">b) Exaggerated and hard to believe</button>
+      <button class="option-btn" onclick="checkQuiz('q13','c')">c) Boring and unoriginal</button>
+      <button class="option-btn" onclick="checkQuiz('q13','d')">d) Based on solid scientific evidence</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap3" id="q14">
+    <h4>14. To "lay a rumor to rest" means to:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) Spread it further</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) Put an end to it, proving it isn't true</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) Write it down formally</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) Ignore it completely</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap3" id="q15">
+    <h4>15. Something "baffling" is:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) Very confusing, impossible to understand</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) Extremely boring</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) Completely predictable</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) Very cheap</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap3" id="q16">
+    <h4>16. If the police "open an investigation," they:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) End their search for answers</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) Officially start looking into what happened</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) Publicly announce a suspect</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) Close the case</button>
+    </div>
+  </div>
+
+  <div class="question-card" data-chapter="cap3" id="q17">
+    <h4>17. A "single-minded" person is someone who:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) Has many different, changing opinions</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) Struggles to make decisions</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) Has a strong, steady focus on one goal</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) Refuses to work with others</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quiz-result">
+    <div class="donut-wrap">
+      <svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+        <circle cx="65" cy="65" r="55" fill="none" stroke="var(--secondary)" stroke-width="14"
+                stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+      </svg>
+      <div class="donut-center">
+        <span class="donut-score" id="donut-score">0</span>
+        <span class="donut-label">/ 17</span>
+      </div>
+    </div>
+    <div class="result-msg" id="result-msg"></div>
+    <div class="result-sub" id="result-sub"></div>
+    <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+  </div>
+</section>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre Inversion, o vocabulário das Units 2 e 9, ou os textos da prova!</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+</main>
+
+<footer>
+  &copy; 2026 Caderno Digital · Inglês C1 · 2º Trimestre
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+/* ── Quiz ── */
+const ANSWERS = {
+  q1:'b', q2:'b', q3:'a', q4:'b', q5:'a', q6:'b', q7:'b', q8:'a',
+  q9:'b', q10:'a', q11:'c', q12:'b',
+  q13:'b', q14:'b', q15:'a', q16:'b', q17:'c'
+};
+let answered = {}, score = 0, total = 0;
+
+function checkQuiz(qid, choice) {
+  if (answered[qid]) return;
+  answered[qid] = true; total++;
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+  const correct = ANSWERS[qid];
+  let correctText = '';
+  btns.forEach(b => {
+    const letter = b.textContent.trim()[0];
+    if (letter === correct) { b.classList.add('correct'); correctText = b.textContent.trim(); }
+    else if (letter === choice && choice !== correct) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  if (choice === correct) score++;
+  let exp = card.querySelector('.answer-exp');
+  if (!exp) { exp = document.createElement('div'); exp.className = 'answer-exp'; card.querySelector('.options').after(exp); }
+  exp.innerHTML = '<span>✔</span><span>' + correctText + '</span>';
+  exp.style.display = 'flex';
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
+  const pct = Math.round((score / total) * 100);
+  const arc = document.getElementById('mini-arc');
+  arc.style.strokeDashoffset = 106.8 - (pct / 100) * 106.8;
+  arc.style.stroke = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  const pctEl = document.getElementById('mini-pct');
+  pctEl.textContent = pct + '%';
+  pctEl.style.color = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  if (total === N) showResult();
+}
+
+function filterQuiz(chapter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+  });
+}
+
+function showResult() {
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('donut-score').textContent = score;
+  const N = Object.keys(ANSWERS).length;
+  const circumference = 345.4;
+  document.getElementById('donut-arc').style.strokeDashoffset = circumference - (score / N) * circumference;
+  const pct = Math.round((score / N) * 100);
+  let msg, sub;
+  if (pct >= 90) { msg = 'Excellent! You have mastered this!'; sub = 'Resultado impressionante!' }
+  else if (pct >= 70) { msg = 'Well done! Good performance.'; sub = 'Revise os tópicos que errou.' }
+  else if (pct >= 50) { msg = 'Good effort! Room to improve.'; sub = 'Volte aos capítulos com dificuldade.' }
+  else { msg = 'Keep studying!'; sub = 'Releia os acordeons e tente novamente.' }
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('result-sub').textContent = sub;
+}
+
+function resetQuiz() {
+  answered = {}; score = 0; total = 0;
+  document.querySelectorAll('.option-btn').forEach(b => { b.classList.remove('correct','wrong'); b.disabled = false; });
+  document.querySelectorAll('.answer-exp').forEach(e => e.style.display = 'none');
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / ' + N + '</strong>';
+  const arc = document.getElementById('mini-arc');
+  arc.style.strokeDashoffset = '106.8'; arc.style.stroke = '#e0e0e0';
+  const pctEl = document.getElementById('mini-pct');
+  pctEl.textContent = '—'; pctEl.style.color = '#aaa';
+}
+
+/* ── Chat ── */
+function toggleChat() {
+  const p = document.getElementById('chat-panel');
+  p.classList.toggle('open');
+  if (p.classList.contains('open')) document.getElementById('chat-input').focus();
+}
+
+function getContext() {
+  return (document.querySelector('main') || document.body).innerText.replace(/\s+/g,' ').slice(0,6000);
+}
+
+async function sendMsg(e) {
+  e.preventDefault();
+  const input = document.getElementById('chat-input');
+  const msgs = document.getElementById('chat-msgs');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  const u = document.createElement('div'); u.className = 'cmsg user'; u.textContent = text; msgs.appendChild(u);
+  const l = document.createElement('div'); l.className = 'cmsg bot loading'; l.textContent = 'Pensando...'; msgs.appendChild(l); msgs.scrollTop = msgs.scrollHeight;
+  try {
+    const r = await fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:text, context:getContext() }) });
+    const d = await r.json();
+    l.className = 'cmsg bot'; l.textContent = d.reply || d.error;
+  } catch { l.className = 'cmsg bot'; l.textContent = 'Erro de conexão. Tente novamente.'; }
+  msgs.scrollTop = msgs.scrollHeight;
+}
+</script>
+</body>
+</html>
