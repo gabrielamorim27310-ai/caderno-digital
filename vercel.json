@@ -18,6 +18,7 @@
   "routes": [
     { "src": "/api/chat", "dest": "/api/chat.js" },
     { "src": "/api/debug", "dest": "/api/debug.js" },
-    { "src": "/",         "dest": "/index.html" }
+    { "src": "/",         "dest": "/index.html" },
+    { "handle": "filesystem" }
   ]
 }
