@@ -202,6 +202,25 @@
   to { background-position: 200% center; }
 }
 
+/* Sem fallback, .fx-shiny/.fx-gradient-text deixam o texto invisível
+   (color:transparent) sempre que o recorte do gradiente pelo texto
+   não é aplicado — texto sem cor com um retângulo cinza atrás, como
+   se estivesse selecionado. Acontece sem suporte a background-clip:
+   text e também no modo de alto contraste do Windows (forced-colors),
+   que ignora o "color:transparent" e escurece o fundo. Os dois casos
+   pedem o mesmo remédio: cor sólida, sem o gradiente. */
+@supports not (background-clip: text) {
+  .fx-shiny, .fx-gradient-text {
+    background: none; color: inherit; -webkit-text-fill-color: currentColor;
+  }
+}
+@media (forced-colors: active) {
+  .fx-shiny, .fx-gradient-text {
+    background: none !important; color: CanvasText !important;
+    -webkit-text-fill-color: CanvasText !important; forced-color-adjust: none;
+  }
+}
+
 /* ─────────────────────────────────────────────
    7. FUNDOS DE HERO
    Alternativas em CSS aos shaders WebGL do react-bits.
