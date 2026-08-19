@@ -34,15 +34,26 @@
     --ingles:   #0e6b7a;
     --filo:     #4a3800;
     --socio:    #5c3d72;
+    /* curvas com peso — nada de ease/linear padrão do navegador */
+    --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    /* sombra com a cor do fundo embutida, não preto genérico */
+    --shadow-card:  0 1px 2px rgba(58, 42, 20, 0.06), 0 16px 36px -18px rgba(58, 42, 20, 0.22);
+    --shadow-card-hover: 0 1px 2px rgba(58, 42, 20, 0.08), 0 26px 48px -18px rgba(58, 42, 20, 0.30);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  h1, h2, h3, p { text-wrap: balance; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--secondary, #c9953c); outline-offset: 2px; border-radius: 4px;
+  }
 
   /* HERO */
   .hero {
     background: linear-gradient(135deg, #0d1b2a 0%, #1a2744 60%, #2d3e6e 100%);
     color: white;
-    padding: 60px 24px 50px;
+    padding: 76px 24px 64px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -53,65 +64,89 @@
     inset: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
-  .hero-icon { font-size: 2.8rem; margin-bottom: 14px; position: relative; }
+  /* grão sutil por cima do gradiente — quebra a chapa lisa do degradê */
+  .hero .grain {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    opacity: 0.5; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+  .hero-icon {
+    font-size: 2.6rem; margin-bottom: 16px; position: relative;
+    display: inline-flex; width: 68px; height: 68px; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 20px; box-shadow: inset 0 1px 1px rgba(255,255,255,0.2);
+  }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
     font-weight: 900;
-    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
     position: relative;
   }
-  .hero p { font-size: 1rem; opacity: 0.75; font-weight: 300; position: relative; }
+  .hero p { font-size: 1rem; opacity: 0.72; font-weight: 300; position: relative; letter-spacing: 0.01em; }
   .hero .badges {
     display: flex; gap: 8px; justify-content: center;
-    margin-top: 18px; flex-wrap: wrap; position: relative;
+    margin-top: 20px; flex-wrap: wrap; position: relative;
   }
   .badge {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: white; padding: 5px 14px; border-radius: 20px;
-    font-size: 0.8rem; font-weight: 600;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white; padding: 6px 15px; border-radius: 20px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.01em;
+    backdrop-filter: blur(6px);
   }
 
-  /* TABS */
+  /* TABS — barra flutuante em vidro, não colada na borda */
   .tri-nav {
-    background: white;
-    border-bottom: 2px solid var(--border);
-    position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    position: sticky; top: 14px; z-index: 100;
+    display: flex; justify-content: center;
+    padding: 0 16px; margin-bottom: -14px;
   }
   .tri-nav-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; padding: 0 24px;
+    max-width: 100%; margin: 0 auto;
+    display: flex; gap: 2px; padding: 5px;
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border: 1px solid rgba(30,30,30,0.06);
+    border-radius: 999px;
+    box-shadow: 0 1px 2px rgba(58,42,20,0.05), 0 12px 28px -14px rgba(58,42,20,0.28);
     overflow-x: auto; scrollbar-width: none;
   }
   .tri-nav-inner::-webkit-scrollbar { display: none; }
   .tri-btn {
-    padding: 16px 28px; border: none; background: transparent;
-    font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+    padding: 11px 22px; border: none; background: transparent;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif; font-size: 0.86rem; font-weight: 600;
     color: var(--text-light); cursor: pointer;
-    border-bottom: 3px solid transparent;
-    white-space: nowrap; transition: all 0.25s;
+    white-space: nowrap; transition: color 0.3s var(--ease-out), background 0.3s var(--ease-out);
   }
   .tri-btn:hover { color: var(--text); }
-  .tri-btn.active { color: #1a2744; border-bottom-color: #c9953c; }
+  .tri-btn:active { transform: scale(0.97); }
+  .tri-btn.active { color: #fff; background: #1a2744; box-shadow: 0 4px 14px -4px rgba(26,39,68,0.45); }
   .tri-btn .count {
     display: inline-flex; align-items: center; justify-content: center;
     width: 18px; height: 18px; border-radius: 50%;
     font-size: 0.65rem; font-weight: 700; margin-left: 6px;
     background: #c9953c; color: white;
   }
+  .tri-btn.active .count { background: rgba(255,255,255,0.25); }
 
   /* MAIN */
-  main { max-width: 1100px; margin: 0 auto; padding: 36px 24px 80px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 56px 24px 80px; }
   .tri-panel { display: none; }
   .tri-panel.active { display: block; }
 
   .panel-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem; color: var(--text-light);
-    margin-bottom: 28px; font-weight: 700;
-    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 30px; font-weight: 700;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .panel-title::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%;
+    background: #c9953c; flex-shrink: 0;
   }
   .panel-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
@@ -119,76 +154,95 @@
   .subject-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 18px;
+    gap: 20px;
+    align-items: start;
   }
 
   /* Ocultos por não caírem na prova do trimestre — o conteúdo continua
      no arquivo, só não aparece na home. Remova a classe pra reexibir. */
   .not-on-exam { display: none !important; }
 
-  /* CARD */
+  /* CARD — bezel duplo: moldura clara por cima + sombra tingida embaixo,
+     em vez do card genérico "borda + sombra cinza + fundo branco" */
   .subject-card {
-    background: var(--card-bg);
+    background: linear-gradient(180deg, #fff, var(--card-bg) 55%);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+    position: relative;
   }
-  .subject-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  @media (hover: hover) and (pointer: fine) {
+    .subject-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover), inset 0 1px 0 rgba(255,255,255,0.6); }
+  }
   .subject-header {
-    padding: 18px 20px 14px;
-    display: flex; align-items: center; gap: 12px;
+    padding: 20px 22px 16px;
+    display: flex; align-items: center; gap: 13px;
   }
   .subject-icon {
-    width: 42px; height: 42px; border-radius: 10px;
+    width: 44px; height: 44px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.3rem; flex-shrink: 0; color: white;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.35), inset 0 -3px 6px rgba(0,0,0,0.16), 0 4px 10px -4px rgba(0,0,0,0.35);
   }
-  .subject-name { font-weight: 700; font-size: 1rem; color: var(--text); }
+  .subject-name { font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: -0.01em; }
   .subject-desc { font-size: 0.8rem; color: var(--text-light); margin-top: 2px; }
-  .subject-items { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 6px; }
+  .subject-items { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 6px; }
 
   .item-link {
     display: flex; align-items: center; gap: 10px;
-    padding: 10px 12px; border-radius: 8px;
+    padding: 11px 13px; border-radius: 11px;
     text-decoration: none; color: var(--text);
     background: #f8f6f3; border: 1px solid var(--border);
-    transition: all 0.2s; font-size: 0.88rem;
+    transition: background 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out),
+                transform 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+    font-size: 0.88rem;
   }
-  .item-link:hover {
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transform: translateX(3px);
+  @media (hover: hover) and (pointer: fine) {
+    .item-link:hover {
+      background: #fff; border-color: rgba(0,0,0,0.09);
+      box-shadow: 0 6px 16px -8px rgba(58,42,20,0.25);
+      transform: translateX(3px);
+    }
+    .item-link:hover .arrow { transform: translateX(3px); }
   }
+  .item-link:active { transform: scale(0.985); }
   .item-link .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .item-link .label { flex: 1; font-weight: 500; }
-  .item-link .arrow { font-size: 0.75rem; color: var(--text-light); transition: transform 0.2s; }
-  .item-link:hover .arrow { transform: translateX(3px); }
+  .item-link .arrow { font-size: 0.75rem; color: var(--text-light); transition: transform 0.25s var(--ease-out); }
   .item-soon {
     display: flex; align-items: center; gap: 10px;
-    padding: 10px 12px; border-radius: 8px;
+    padding: 11px 13px; border-radius: 11px;
     font-size: 0.85rem; color: var(--text-light);
     background: #fafaf8; border: 1px dashed var(--border);
   }
   .item-soon .dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; flex-shrink: 0; }
 
   /* EMPTY */
-  .empty-state { text-align: center; padding: 60px 20px; color: var(--text-light); }
+  .empty-state { text-align: center; padding: 70px 20px; color: var(--text-light); }
   .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
   .empty-state p { font-size: 0.95rem; }
 
   footer {
-    text-align: center; padding: 28px 20px;
+    text-align: center; padding: 32px 20px 40px;
     color: var(--text-light); font-size: 0.82rem;
-    border-top: 1px solid var(--border);
-    max-width: 1100px; margin: 0 auto;
+    max-width: 1100px; margin: 40px auto 0;
+    position: relative;
+  }
+  footer::before {
+    content: ''; display: block; height: 1px; margin: 0 auto 32px;
+    max-width: 1100px;
+    background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
   }
 
   @media (max-width: 600px) {
     .subject-grid { grid-template-columns: 1fr; }
-    main { padding: 24px 16px 60px; }
-    .hero { padding: 40px 16px 36px; }
+    main { padding: 40px 16px 60px; }
+    .hero { padding: 52px 16px 44px; }
+    .tri-nav { top: 10px; padding: 0 10px; }
+    .tri-btn { padding: 10px 14px; font-size: 0.8rem; }
+    .tri-btn .count { width: 16px; height: 16px; font-size: 0.6rem; margin-left: 4px; }
   }
 </style>
 <!-- Google Analytics -->
@@ -203,6 +257,7 @@
 <body>
 
 <header class="hero fx-aurora">
+  <div class="grain"></div>
   <div class="hero-icon">📚</div>
   <h1 class="fx-shiny">Caderno Digital</h1>
   <p>2ª série do Ensino Médio · 2026</p>
@@ -229,7 +284,7 @@
     <p class="panel-title">1º Trimestre</p>
     <div class="subject-grid fx-stagger">
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--historia)">🏛️</div>
           <div>
@@ -246,7 +301,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--geo)">🌍</div>
           <div>
@@ -263,7 +318,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--port)">📖</div>
           <div>
@@ -280,7 +335,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--mat)">➗</div>
           <div><div class="subject-name">Matemática</div><div class="subject-desc">Em construção</div></div>
@@ -290,7 +345,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--bio)">🧬</div>
           <div><div class="subject-name">Biologia</div><div class="subject-desc">Membrana · Citoesqueleto · Rota Secretora</div></div>
@@ -304,7 +359,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--fis)">⚡</div>
           <div><div class="subject-name">Física</div><div class="subject-desc">Em construção</div></div>
@@ -314,7 +369,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--qui)">🧪</div>
           <div>
@@ -331,7 +386,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--filo); padding:2px; overflow:hidden;"><img src="pensador.png" alt="O Pensador" style="width:100%;height:100%;object-fit:contain;filter:brightness(1.15) contrast(0.9) sepia(0.1);"/></div>
           <div>
@@ -348,7 +403,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--socio)">🏙️</div>
           <div>
@@ -373,7 +428,7 @@
     <p class="panel-title">2º Trimestre</p>
     <div class="subject-grid fx-stagger">
 
-      <div class="subject-card fx-reveal not-on-exam">
+      <div class="subject-card fx-reveal fx-spotlight not-on-exam">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--bio)">🧬</div>
           <div>
@@ -390,7 +445,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--geo)">🌍</div>
           <div>
@@ -412,7 +467,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal not-on-exam">
+      <div class="subject-card fx-reveal fx-spotlight not-on-exam">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--historia)">🏛️</div>
           <div>
@@ -429,7 +484,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal not-on-exam">
+      <div class="subject-card fx-reveal fx-spotlight not-on-exam">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--qui)">🧪</div>
           <div>
@@ -446,7 +501,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--socio)">🏙️</div>
           <div>
@@ -463,7 +518,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--ingles)">🔤</div>
           <div>
@@ -480,7 +535,7 @@
         </div>
       </div>
 
-      <div class="subject-card fx-reveal">
+      <div class="subject-card fx-reveal fx-spotlight">
         <div class="subject-header">
           <div class="subject-icon" style="background:var(--mat)">➗</div>
           <div>
