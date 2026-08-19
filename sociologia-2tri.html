@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sociologia 2º Tri — Weber e Formas de Governo 2026</title>
+<title>Sociologia 2º Tri — Poder, Governo e Democracia 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
@@ -80,7 +80,7 @@
   .highlight-box { background:#f3e8ff; border-color:var(--primary); }
   .warn-box      { background:#fdf3e3; border-color:#e07b00; }
   .tip-box       { background:#eaf4fb; border-color:#2980b9; }
-  .highlight-box strong, .warn-box strong, .tip-box strong { display:block; margin-bottom:4px; }
+  .highlight-box strong:first-child, .warn-box strong:first-child, .tip-box strong:first-child { display:block; margin-bottom:4px; }
 
   /* TABLE */
   .data-table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem; }
@@ -172,7 +172,7 @@
 <div class="hero">
   <h1>Sociologia — 2º Trimestre</h1>
   <p class="subtitle">2ª série do Ensino Médio · 2026</p>
-  <div><span class="badge">Weber: Poder &amp; Dominação · Formas de Governo</span></div>
+  <div><span class="badge">Weber · Formas de Governo · Três Poderes · Eleições · Democracia</span></div>
   <div><span class="author">Caderno Digital</span></div>
 </div>
 
@@ -181,11 +181,24 @@
     <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
     <a href="#weber">Weber</a>
     <a href="#formas-governo">Formas de Governo</a>
+    <a href="#estado-poderes">Estado &amp; Poderes</a>
+    <a href="#tres-poderes">Três Poderes no Brasil</a>
+    <a href="#eleicoes">Partidos &amp; Eleições</a>
+    <a href="#democracia">Democracia</a>
     <a href="#quiz">Quiz</a>
   </div>
 </nav>
 
 <main>
+
+<div class="tip-box" style="margin-bottom:32px">
+  <strong>O que cai na prova</strong>
+  A teoria do poder de Weber · formas de governo (monarquia e república) · sistemas de governo
+  (parlamentarismo, centralismo/absolutismo, presidencialismo) · crise de governabilidade e suas
+  soluções · formas de Estado (unitário e federal) · a separação dos poderes de Montesquieu · os três
+  poderes no Brasil · partidos políticos e eleições · democracia e participação política. Os
+  capítulos 3 a 6 foram complementados com as anotações de aula da colega Sofia Alves.
+</div>
 
 <!-- ══════════════════════════════════════════════
      CAP. 1 — WEBER: PODER E DOMINAÇÃO
@@ -441,12 +454,386 @@
 </section>
 
 <!-- ══════════════════════════════════════════════
+     CAP. 3 — FORMAS DE ESTADO E SEPARAÇÃO DOS PODERES
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="estado-poderes">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 3</span> Formas de Estado &amp; Separação dos Poderes</h2>
+    <p class="meta">Federal vs Unitário · Montesquieu e os freios e contrapesos</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Formas de Estado: Federal vs Unitário <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Não confunda com <strong>forma de governo</strong> (Cap. 2): a <strong>forma de Estado</strong>
+        descreve como o poder se organiza <em>territorialmente</em> — se é concentrado no governo
+        nacional ou dividido com unidades internas.</p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Estado Federal</h5>
+            <ul>
+              <li>Governo nacional <strong>+</strong> unidades internas (estados, províncias) com
+              <strong>autonomia própria</strong></li>
+              <li>As unidades podem tomar decisões políticas, financeiras e culturais próprias —
+              <strong>nunca em âmbito nacional</strong></li>
+              <li>Ex.: leis estaduais, rodízio de carros em São Paulo, feriados regionais</li>
+            </ul>
+            <div style="margin-top:8px;font-size:0.85rem;color:var(--text-light);">Ex. clássico: Estados Unidos — cada estado tem autonomia significativa (leis variam de estado para estado)</div>
+          </div>
+          <div class="compare-card">
+            <h5>Estado Unitário</h5>
+            <ul>
+              <li>Governo nacional <strong>mais centralizado</strong></li>
+              <li>Decisões políticas, culturais e financeiras são tomadas <strong>a nível federal</strong></li>
+              <li>Ainda existem unidades internas (condados, municípios), mas só
+              <strong>executam</strong> as decisões federais — não legislam sozinhas</li>
+            </ul>
+            <div style="margin-top:8px;font-size:0.85rem;color:var(--text-light);">Ex. clássico: Reino Unido — decisão no Parlamento único e nacional; execução pelos condados</div>
+          </div>
+        </div>
+        <div class="tip-box">
+          <strong>Brasil é Federal e República</strong>
+          As duas classificações são independentes: o Brasil é uma <strong>República Federativa
+          Presidencialista</strong> — soma a forma de governo (república), o sistema de governo
+          (presidencialismo) e a forma de Estado (federação, com União + 26 estados + DF + municípios).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Montesquieu e a Separação dos Poderes <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>Montesquieu</strong> partiu de uma constatação simples: <strong>o poder corrompe
+        quem o exerce</strong>. Mesmo alguém com boas intenções no início tende a se corromper depois
+        de acumular poder por tempo suficiente — e ele observava esse cenário justamente nas
+        <strong>monarquias absolutistas</strong>, com todo o poder concentrado nas mãos do rei.</p>
+        <div class="highlight-box">
+          <strong>A solução: decentralização do poder</strong>
+          Montesquieu propôs dividir o poder do Estado em <strong>três funções separadas</strong> —
+          Legislativo, Executivo e Judiciário — de modo que nenhuma pessoa ou grupo concentre poder
+          demais. Com menos poder disponível para se corromper, os danos de uma eventual corrupção
+          também ficam menores do que se tudo estivesse concentrado.
+        </div>
+        <p><strong>Sistema de freios e contrapesos</strong> (<em>checks and balances</em>): os três
+        poderes fiscalizam e limitam uns aos outros, evitando que qualquer um deles se torne
+        hegemônico.</p>
+        <div class="warn-box">
+          <strong>A linha é tênue</strong>
+          Mesmo com a separação, ainda existe risco de abuso de autoridade — por isso os freios e
+          contrapesos exigem vigilância constante, não são uma garantia automática.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 4 — OS TRÊS PODERES NO BRASIL
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="tres-poderes">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 4</span> Os Três Poderes no Brasil</h2>
+    <p class="meta">Executivo, Legislativo e Judiciário nas três esferas · STF · Judicialização da política</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A tabela que resolve a maioria das questões <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th></th><th>Municipal</th><th>Estadual</th><th>Federal</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Executivo</strong></td>
+              <td>Prefeito + Vice (eleitos) + Secretários (indicados)</td>
+              <td>Governador + Vice (eleitos) + Secretários (indicados)</td>
+              <td>Presidente + Vice (eleitos) + Ministros (indicados)</td>
+            </tr>
+            <tr>
+              <td><strong>Legislativo</strong></td>
+              <td>Vereadores → formam a Câmara Municipal</td>
+              <td>Deputados Estaduais → formam a Assembleia Legislativa (ALESP em SP)</td>
+              <td>Deputados Federais (Câmara) + Senadores (Senado) = Congresso Nacional</td>
+            </tr>
+            <tr>
+              <td><strong>Judiciário</strong></td>
+              <td colspan="3" style="text-align:center">Sem divisão por esfera política — organizado por competência (veja abaixo)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Bicameralismo</strong>
+          Para uma lei <strong>nacional</strong> ser aprovada, precisa passar tanto pela <strong>Câmara
+          dos Deputados</strong> (513 deputados, proporcional à população de cada estado) quanto pelo
+          <strong>Senado</strong> (81 senadores — 3 por estado + DF, garantindo representação
+          igualitária entre os estados, independente do tamanho).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Judiciário: princípio da inércia e divisões <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>O Judiciário tem três objetivos centrais: <strong>garantir direitos</strong> individuais e
+        coletivos, <strong>equilibrar os poderes</strong> (toda decisão do Executivo e do Legislativo
+        pode ser levada à sua aprovação/revisão final) e <strong>resolver conflitos</strong>.</p>
+        <div class="warn-box">
+          <strong>Princípio da Inércia</strong>
+          O Judiciário não sai "caçando" problemas sozinho — ele só age quando é
+          <strong>provocado</strong> por um processo formal (ex.: um Boletim de Ocorrência). O sistema
+          se move apenas em casos concretos, acionados formalmente pelos interessados.
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Divisão</th><th>Cobre</th><th>% aprox. dos casos</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Justiça Estadual</strong></td>
+                <td>Conflitos do dia a dia que não são federais nem especializados — divórcio, pensão, direito do consumidor, homicídios</td>
+                <td>~90%</td></tr>
+            <tr><td><strong>Justiça Federal</strong></td>
+                <td>Conflitos que envolvem a União, órgãos federais ou empresas públicas (INSS, Caixa) — tráfico internacional, invasão de terras indígenas, falsificação de dinheiro</td>
+                <td>~10%</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Braços especializados</strong> — setores do sistema para contextos específicos:</p>
+        <table class="data-table">
+          <thead><tr><th>Justiça</th><th>Cuida de</th><th>Órgão máximo</th></tr></thead>
+          <tbody>
+            <tr><td>Trabalho</td><td>Conflitos entre trabalhadores e empregadores</td><td>TST — Tribunal Superior do Trabalho</td></tr>
+            <tr><td>Eleitoral</td><td>Alistamento, votação, apuração e diplomação de eleitos</td><td>TSE — Tribunal Superior Eleitoral</td></tr>
+            <tr><td>Militar</td><td>Crimes militares — motins, corrupção nas Forças Armadas</td><td>STM — Superior Tribunal Militar</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">STF e a Judicialização da Política <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>O <strong>STF (Supremo Tribunal Federal)</strong> é a instância máxima do Judiciário
+        brasileiro. Garante o cumprimento da Constituição Federal e julga presidentes, ministros e
+        altas autoridades por meio do <strong>Foro Especial</strong>.</p>
+        <div class="highlight-box">
+          <strong>Como alguém vira ministro do STF</strong>
+          1) É indicado pelo Presidente da República · 2) É aprovado pela maioria absoluta do Senado ·
+          3) Uma vez aprovado, permanece no cargo até a aposentadoria compulsória (75 anos) — a
+          <strong>ausência de mandato</strong> evita que ministros tentem agradar um grupo político
+          específico para se manterem no cargo.
+        </div>
+        <p><strong>Judicialização da política</strong>: ocorre quando o STF decide grandes temas
+        morais e sociais que, em tese, caberiam ao Legislativo. Isso acontece porque o Congresso, para
+        não desagradar seus eleitores, evita votar sobre temas polêmicos (drogas, aborto) — uma
+        <strong>omissão legislativa</strong>. Diante do silêncio, o STF é acionado e decide.</p>
+        <p><em>Exemplos:</em> reconhecimento do casamento homoafetivo, descriminalização do porte de
+        drogas para uso pessoal.</p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Defesa da judicialização</h5>
+            <ul>
+              <li>O STF só está cumprindo seu papel constitucional: garantir direitos fundamentais e
+              proteger a Constituição</li>
+            </ul>
+          </div>
+          <div class="compare-card">
+            <h5>Crítica à judicialização</h5>
+            <ul>
+              <li>O STF invade a competência do Legislativo eleito pelo povo, "anulando" a
+              representação popular e desequilibrando os poderes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 5 — PARTIDOS POLÍTICOS E ELEIÇÕES
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="eleicoes">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 5</span> Partidos Políticos e Eleições</h2>
+    <p class="meta">Sistema Majoritário vs Proporcional · Quociente Eleitoral</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O voto no Brasil <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Secreto</strong> — ninguém pode saber em quem você votou</li>
+          <li><strong>Universal e obrigatório</strong> — entre 18 e 70 anos (facultativo para 16-18 e 70+)</li>
+          <li><strong>Direto</strong> — sem intermediários, o voto vai direto ao candidato/partido</li>
+        </ul>
+        <div class="tip-box">
+          <strong>A exceção do voto direto</strong>
+          Ocorre em casos de <strong>dupla vacância</strong> de presidente e vice (os dois saem do
+          cargo antes do fim do mandato) — quem escolhe o novo líder provisório, nesse caso, é o
+          Congresso Nacional, não o povo diretamente.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Sistema Majoritário — elege quem administra <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Elege quem vai <strong>administrar</strong> — vence o candidato com mais votos. Usado para
+        Presidente, Governadores e Prefeitos.</p>
+        <table class="data-table">
+          <thead><tr><th>Tipo</th><th>Como funciona</th><th>Onde se aplica</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Majoritário Simples</strong><br>(1 turno só)</td>
+              <td>Vence quem tiver o maior percentual de votos, <strong>independente do número</strong>. Nunca tem 2º turno.</td>
+              <td>Senadores e prefeitos de municípios com <strong>menos de 200 mil habitantes</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Majoritário Absoluto</strong><br>(pode ter 2º turno)</td>
+              <td>Vence quem tiver <strong>mais da metade dos votos válidos</strong> (brancos e nulos não contam). Sem maioria absoluta no 1º turno, vai para o 2º turno.</td>
+              <td>Presidente, Governadores e prefeitos de cidades com <strong>+200 mil habitantes</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="highlight-box">
+          <strong>Por que o 2º turno importa</strong>
+          Ele garante a eleição de um representante da maioria real: força a criação de alianças entre
+          os candidatos não-eleitos no 1º turno e obriga o vencedor a ter a aprovação de mais da metade
+          da população, não só a maior minoria.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Sistema Proporcional — elege quem legisla <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Elege quem vai <strong>legislar</strong> — vereadores e deputados. Diferente do
+        majoritário, os votos <strong>tecnicamente não vão para candidatos, e sim para partidos</strong>,
+        que depois escolhem seus melhores candidatos para preencher as cadeiras conquistadas.</p>
+        <div class="tip-box">
+          <strong>Passo a passo, com um exemplo</strong>
+          Imagine que João e Maria querem se tornar vereadores pelo mesmo partido X:
+          <ol style="margin-top:8px">
+            <li>Os dois se afiliam ao partido X</li>
+            <li>Recebem votos, tentando fazer o partido atingir o <strong>Quociente Eleitoral</strong>
+            — a "nota de corte" que um partido precisa alcançar para ganhar uma cadeira</li>
+            <li>Se o partido atinge o quociente (pode atingir mais de uma vez → mais de uma cadeira),
+            são eleitos os candidatos <strong>com mais votos dentro do próprio partido</strong></li>
+          </ol>
+          Se Maria tirou 50 mil votos e João 10 mil, e o partido de ambos atingiu o quociente
+          <strong>apenas uma vez</strong>, a cadeira vai para Maria — mesmo que outro partido menor
+          tivesse um candidato isolado com mais votos que ela.
+        </div>
+        <div class="highlight-box">
+          <strong>Como se calcula o Quociente Eleitoral</strong>
+          <span class="formula-pill" style="display:inline-block;background:#f3e8ff;border:1.5px solid var(--primary);border-radius:8px;padding:3px 10px;font-family:'Courier New',monospace;font-size:0.85rem;color:var(--primary);font-weight:700;">nº de deputados (vagas) na eleição ÷ nº de eleitores</span>
+        </div>
+        <p><strong>Dois jeitos de votar no sistema proporcional:</strong></p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Voto Nominal</h5>
+            <ul><li>Vota direto num candidato específico</li></ul>
+          </div>
+          <div class="compare-card">
+            <h5>Voto de Legenda</h5>
+            <ul>
+              <li>Vota no partido (não num candidato)</li>
+              <li>Contribui para o partido atingir o quociente, e vai indiretamente para o candidato
+              mais votado do partido</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 6 — DEMOCRACIA E PARTICIPAÇÃO POLÍTICA
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="democracia">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 6</span> Democracia e Participação Política</h2>
+    <p class="meta">Poliarquia · Pilares da democracia plena · Índice de Democracia</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Poliarquia: além do binarismo democracia × ditadura <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="warn-box">
+          <strong>A ilusão do binarismo</strong>
+          É comum pensar a política de forma extrema e polarizada: "ou é ditadura total, ou é
+          democracia total". Na prática, a política moderna varia muito e raramente chega aos extremos.
+        </div>
+        <p>Por isso o cientista político <strong>Robert Dahl</strong> criou o conceito de
+        <strong>Poliarquia</strong> ("governo de muitos") — uma escala para descrever sistemas
+        políticos conforme sua <em>proximidade</em> com a democracia, em vez de uma classificação
+        binária.</p>
+        <p><strong>Pilares de uma democracia plena</strong> — a democracia não é garantida só por uma
+        Constituição no papel, mas por esses pilares na prática:</p>
+        <ul>
+          <li><strong>Judiciário independente</strong> — decisões sem interferência de partidos, do
+          Executivo ou de outras figuras políticas</li>
+          <li><strong>Liberdades civis e políticas</strong> — participação política garantida e
+          respeitada; a população tem poder real de contestação</li>
+          <li><strong>Governo funcional e equilibrado</strong> — os três poderes em harmonia (freios e
+          contrapesos funcionando), sem corrupção estrutural</li>
+          <li><strong>Mídia diversificada</strong> — sem mídia estatal única e dependente do governo;
+          liberdade de expressão respeitada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Índice de Democracia (The Economist) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Uma escala criada pela revista <strong>The Economist</strong> para quantificar e comparar o
+        nível de democracia dos países — de <strong>0,00</strong> (autoritarismo absoluto) a
+        <strong>10,00</strong> (democracia perfeita).</p>
+        <p>O índice avalia cinco dimensões: <strong>processo eleitoral e pluralismo</strong> (as
+        eleições são justas e livres? há pluralidade de partidos?), <strong>funcionamento do
+        governo</strong> (há equilíbrio entre os poderes? há corrupção?),
+        <strong>participação política</strong>, <strong>cultura política</strong> (os cidadãos confiam
+        nas instituições?) e <strong>liberdades civis</strong>.</p>
+        <table class="data-table">
+          <thead><tr><th></th><th>Plena</th><th>Imperfeita</th><th>Híbrida</th><th>Autoritária</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Processo Eleitoral</strong></td><td>Livre e justo</td><td>Livre mas vulnerável</td><td>Fraudulento/irregular</td><td>Inexistente ou falso</td></tr>
+            <tr><td><strong>Oposição Política</strong></td><td>Governa em rodízio</td><td>Atua livremente</td><td>Sofre pressão/assédio</td><td>Ilegalizada ou presa</td></tr>
+            <tr><td><strong>Poder Judiciário</strong></td><td>Totalmente independente</td><td>Funcional</td><td>Parcialmente cooptado</td><td>Subordinado ao líder</td></tr>
+            <tr><td><strong>Mídia e Imprensa</strong></td><td>Diversa e independente</td><td>Sofre pressões menores</td><td>Assediada e censurada</td><td>Controlada pelo Estado</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">
+          <strong>Para usar na prova</strong>
+          Uma classificação como "democracia híbrida" ou "imperfeita" não é contraditória — é
+          exatamente o ponto da Poliarquia: a maioria dos países reais está em algum ponto do espectro,
+          não nos extremos.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
      QUIZ
      ══════════════════════════════════════════════ -->
 <section id="quiz-section">
   <a id="quiz"></a>
   <h2>Quiz de Revisão</h2>
-  <p>Teste seus conhecimentos sobre Weber e Formas de Governo.</p>
+  <p>28 questões sobre Weber, formas de governo, Estado, os três poderes, eleições e democracia.</p>
 
   <div class="quiz-topbar">
     <div class="score-left">
@@ -459,7 +846,7 @@
         </svg>
         <span id="mini-pct">—</span>
       </div>
-      <div class="score-live" id="score-live">Placar: <strong>0 / 12</strong></div>
+      <div class="score-live" id="score-live">Placar: <strong>0 / 28</strong></div>
     </div>
     <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
   </div>
@@ -467,6 +854,10 @@
     <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
     <button class="filter-btn" onclick="filterQuiz('cap1',this)">Cap. 1 — Weber</button>
     <button class="filter-btn" onclick="filterQuiz('cap2',this)">Cap. 2 — Formas de Governo</button>
+    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Cap. 3 — Estado &amp; Poderes</button>
+    <button class="filter-btn" onclick="filterQuiz('cap4',this)">Cap. 4 — Três Poderes</button>
+    <button class="filter-btn" onclick="filterQuiz('cap5',this)">Cap. 5 — Eleições</button>
+    <button class="filter-btn" onclick="filterQuiz('cap6',this)">Cap. 6 — Democracia</button>
   </div>
 
   <!-- Q1 -->
@@ -601,6 +992,182 @@
     </div>
   </div>
 
+  <!-- Q13 -->
+  <div class="question-card" data-chapter="cap3" id="q13">
+    <h4>13. No Estado Federal, diferente do Unitário:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q13','a')">a) As unidades internas têm autonomia para decisões políticas, financeiras e culturais próprias — nunca em âmbito nacional</button>
+      <button class="option-btn" onclick="checkQuiz('q13','b')">b) Não existem unidades internas</button>
+      <button class="option-btn" onclick="checkQuiz('q13','c')">c) Todas as decisões são centralizadas no governo nacional</button>
+      <button class="option-btn" onclick="checkQuiz('q13','d')">d) Não há Constituição</button>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question-card" data-chapter="cap3" id="q14">
+    <h4>14. O Reino Unido é o exemplo clássico de Estado:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) Federal</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) Unitário</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) Confederado</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) Absolutista</button>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question-card" data-chapter="cap3" id="q15">
+    <h4>15. Para Montesquieu, a razão para dividir o poder em três funções é:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) Aumentar a eficiência administrativa</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) Reduzir o número de funcionários públicos</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) O poder corrompe quem o exerce — menos poder concentrado significa menos dano em caso de corrupção</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) Facilitar a comunicação entre os poderes</button>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="question-card" data-chapter="cap3" id="q16">
+    <h4>16. O "sistema de freios e contrapesos" (checks and balances) significa que:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) Cada poder atua isoladamente, sem contato com os outros</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) O Judiciário sempre tem a palavra final sem ser questionado</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) O Executivo controla os outros dois poderes</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) Os três poderes se fiscalizam e se limitam mutuamente, evitando que um se torne hegemônico</button>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="question-card" data-chapter="cap4" id="q17">
+    <h4>17. No Legislativo federal brasileiro, o Senado garante:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) Representação igualitária entre os estados — 3 senadores por estado, independente do tamanho</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) Representação proporcional à população de cada estado</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) Representação apenas dos estados mais populosos</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) Representação direta dos municípios</button>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="question-card" data-chapter="cap4" id="q18">
+    <h4>18. O "Princípio da Inércia" do Judiciário significa que:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q18','a')">a) O Judiciário atua constantemente monitorando a sociedade</button>
+      <button class="option-btn" onclick="checkQuiz('q18','b')">b) As decisões judiciais nunca podem ser recorridas</button>
+      <button class="option-btn" onclick="checkQuiz('q18','c')">c) O Judiciário só age quando é formalmente provocado — não sai "caçando" problemas</button>
+      <button class="option-btn" onclick="checkQuiz('q18','d')">d) O Judiciário nunca pode ser acionado</button>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="question-card" data-chapter="cap4" id="q19">
+    <h4>19. Um crime de tráfico internacional de drogas é julgado por qual esfera do Judiciário?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q19','a')">a) Justiça Federal — envolve a União em um crime que abrange mais países</button>
+      <button class="option-btn" onclick="checkQuiz('q19','b')">b) Justiça Estadual</button>
+      <button class="option-btn" onclick="checkQuiz('q19','c')">c) Justiça do Trabalho</button>
+      <button class="option-btn" onclick="checkQuiz('q19','d')">d) Justiça Militar</button>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="question-card" data-chapter="cap4" id="q20">
+    <h4>20. "Judicialização da política" ocorre quando:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q20','a')">a) O Congresso aprova rapidamente todas as pautas polêmicas</button>
+      <button class="option-btn" onclick="checkQuiz('q20','b')">b) O Executivo assume funções do Judiciário</button>
+      <button class="option-btn" onclick="checkQuiz('q20','c')">c) Ministros do STF são eleitos diretamente pelo povo</button>
+      <button class="option-btn" onclick="checkQuiz('q20','d')">d) O STF decide sobre temas morais/sociais que, em tese, caberiam ao Legislativo — muitas vezes por omissão do Congresso</button>
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="question-card" data-chapter="cap5" id="q21">
+    <h4>21. O sistema Majoritário Simples (1 turno) se aplica a:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q21','a')">a) Deputados federais e estaduais</button>
+      <button class="option-btn" onclick="checkQuiz('q21','b')">b) Vereadores</button>
+      <button class="option-btn" onclick="checkQuiz('q21','c')">c) Senadores e prefeitos de municípios com menos de 200 mil habitantes</button>
+      <button class="option-btn" onclick="checkQuiz('q21','d')">d) Presidente e governadores</button>
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="question-card" data-chapter="cap5" id="q22">
+    <h4>22. No sistema Majoritário Absoluto, o candidato precisa de:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q22','a')">a) Mais da metade dos votos válidos (sem contar brancos e nulos)</button>
+      <button class="option-btn" onclick="checkQuiz('q22','b')">b) Qualquer maioria simples de votos</button>
+      <button class="option-btn" onclick="checkQuiz('q22','c')">c) Exatamente 50% dos votos totais, incluindo brancos e nulos</button>
+      <button class="option-btn" onclick="checkQuiz('q22','d')">d) Apenas o maior número de votos, não importa o percentual</button>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="question-card" data-chapter="cap5" id="q23">
+    <h4>23. No sistema Proporcional, os votos:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q23','a')">a) Vão diretamente e apenas para o candidato escolhido, sem relação com o partido</button>
+      <button class="option-btn" onclick="checkQuiz('q23','b')">b) Tecnicamente vão para o partido, que atinge o quociente eleitoral e distribui as cadeiras aos candidatos mais votados dentro dele</button>
+      <button class="option-btn" onclick="checkQuiz('q23','c')">c) São sempre anulados se o candidato não vencer</button>
+      <button class="option-btn" onclick="checkQuiz('q23','d')">d) Determinam diretamente quem será o presidente</button>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="question-card" data-chapter="cap5" id="q24">
+    <h4>24. O Quociente Eleitoral é calculado por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Número de candidatos ÷ número de partidos</button>
+      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Número de votos válidos ÷ número de candidatos</button>
+      <button class="option-btn" onclick="checkQuiz('q24','c')">c) População total ÷ número de vagas no executivo</button>
+      <button class="option-btn" onclick="checkQuiz('q24','d')">d) Número de vagas (deputados) na eleição ÷ número de eleitores</button>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="question-card" data-chapter="cap6" id="q25">
+    <h4>25. O conceito de "Poliarquia", criado por Robert Dahl, serve para:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q25','a')">a) Descrever sistemas políticos numa escala de proximidade com a democracia, evitando o binarismo</button>
+      <button class="option-btn" onclick="checkQuiz('q25','b')">b) Classificar países apenas como "democracia" ou "ditadura"</button>
+      <button class="option-btn" onclick="checkQuiz('q25','c')">c) Definir o número ideal de partidos políticos</button>
+      <button class="option-btn" onclick="checkQuiz('q25','d')">d) Medir apenas o PIB de um país</button>
+    </div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="question-card" data-chapter="cap6" id="q26">
+    <h4>26. NÃO é um dos pilares de uma democracia plena:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q26','a')">a) Judiciário independente</button>
+      <button class="option-btn" onclick="checkQuiz('q26','b')">b) Mídia diversificada e livre</button>
+      <button class="option-btn" onclick="checkQuiz('q26','c')">c) Um único partido com maioria absoluta permanente</button>
+      <button class="option-btn" onclick="checkQuiz('q26','d')">d) Liberdades civis e políticas garantidas</button>
+    </div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="question-card" data-chapter="cap6" id="q27">
+    <h4>27. No Índice de Democracia da The Economist, a nota 0,00 representa:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q27','a')">a) Democracia perfeita</button>
+      <button class="option-btn" onclick="checkQuiz('q27','b')">b) Democracia híbrida</button>
+      <button class="option-btn" onclick="checkQuiz('q27','c')">c) Estado federal</button>
+      <button class="option-btn" onclick="checkQuiz('q27','d')">d) Autoritarismo absoluto</button>
+    </div>
+  </div>
+
+  <!-- Q28 -->
+  <div class="question-card" data-chapter="cap6" id="q28">
+    <h4>28. Um país classificado como "democracia híbrida" no Índice de Democracia tipicamente apresenta:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q28','a')">a) Processo eleitoral totalmente livre e justo, sem nenhuma irregularidade</button>
+      <button class="option-btn" onclick="checkQuiz('q28','b')">b) Oposição política atuando com total liberdade</button>
+      <button class="option-btn" onclick="checkQuiz('q28','c')">c) Processo eleitoral fraudulento/irregular e oposição sofrendo pressão ou assédio</button>
+      <button class="option-btn" onclick="checkQuiz('q28','d')">d) Mídia totalmente controlada pelo Estado, sem qualquer diversidade</button>
+    </div>
+  </div>
+
   <!-- Result -->
   <div class="quiz-result" id="quiz-result">
     <div class="donut-wrap">
@@ -611,7 +1178,7 @@
       </svg>
       <div class="donut-center">
         <span class="donut-score" id="donut-score">0</span>
-        <span class="donut-label">/ 12</span>
+        <span class="donut-label">/ 28</span>
       </div>
     </div>
     <div class="result-msg" id="result-msg"></div>
@@ -627,7 +1194,7 @@
     <button id="chat-close" onclick="toggleChat()">✕</button>
   </div>
   <div id="chat-msgs">
-    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre Poder e Dominação de Weber, os tipos de dominação legítima, formas de governo ou crise de governabilidade!</div>
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre Poder e Dominação de Weber, formas de governo, formas de Estado, Montesquieu, os três poderes no Brasil, eleições ou democracia!</div>
   </div>
   <form id="chat-form" onsubmit="sendMsg(event)">
     <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
@@ -652,7 +1219,13 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── Quiz ── */
-const ANSWERS = { q1:'b', q2:'c', q3:'a', q4:'b', q5:'c', q6:'d', q7:'c', q8:'a', q9:'c', q10:'b', q11:'c', q12:'a' };
+const ANSWERS = {
+  q1:'b', q2:'c', q3:'a', q4:'b', q5:'c', q6:'d', q7:'c', q8:'a', q9:'c', q10:'b', q11:'c', q12:'a',
+  q13:'a', q14:'b', q15:'c', q16:'d',
+  q17:'a', q18:'c', q19:'a', q20:'d',
+  q21:'c', q22:'a', q23:'b', q24:'d',
+  q25:'a', q26:'c', q27:'d', q28:'c'
+};
 let answered = {}, score = 0, total = 0;
 
 function checkQuiz(qid, choice) {
@@ -696,9 +1269,10 @@ function filterQuiz(chapter, btn) {
 function showResult() {
   document.getElementById('quiz-result').style.display = 'block';
   document.getElementById('donut-score').textContent = score;
-  const offset = 345.4 - (score / 12) * 345.4;
+  const N = Object.keys(ANSWERS).length;
+  const offset = 345.4 - (score / N) * 345.4;
   document.getElementById('donut-arc').style.strokeDashoffset = offset;
-  const pct = Math.round((score / 12) * 100);
+  const pct = Math.round((score / N) * 100);
   let msg, sub;
   if (pct >= 90) { msg = 'Excelente! Dominou o conteúdo!'; sub = 'Resultado impressionante!' }
   else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.' }
