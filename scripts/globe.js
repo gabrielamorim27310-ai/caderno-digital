@@ -485,7 +485,16 @@
 
     /* ── Voar até uma coordenada ──────────────────────────
        Anima o giro até deixar (lat, lon) de frente. Usado pelo modo
-       de rolagem: cada capítulo pede a sua região. */
+       de rolagem: cada capítulo pede a sua região.
+
+       tiltTo tem o MESMO sinal de lat, não o oposto: depois do spin
+       trazer a longitude alvo para o centro, o ponto fica em
+       (y=sin(lat), z=cos(lat)); a inclinação em torno de X leva esse
+       ponto para (y=sin(lat-tilt), z=cos(lat-tilt)) — tilt=lat central-
+       iza perfeitamente (z=1, y=0). Com o sinal invertido (bug antigo),
+       uma latitude alta como a dos EUA (39°) girava o eixo pro lado
+       errado, jogando o hemisfério norte pra trás do globo em vez de
+       para a frente — por isso "girava pra baixo" ao focar nos EUA. */
 
     var flight = null;   // {from, to, t0, dur} enquanto anima
     var autoSpin = true; // pausa a rotação de repouso durante o voo
@@ -502,7 +511,7 @@
         from: spin,
         to: spin + delta,
         tiltFrom: tilt,
-        tiltTo: -lat * Math.PI / 180 * 0.55,  // inclina um pouco na direção da latitude
+        tiltTo: lat * Math.PI / 180 * 0.55,  // inclina um pouco na direção da latitude
         t0: null,
         dur: dur || 1400
       };

@@ -364,7 +364,7 @@
   
     /* ── Globo no hero ── */
     .hero .globe-wrap {
-      max-width: 340px;
+      max-width: 440px;
       margin: 28px auto 0;
       position: relative;
       --globe-land: #ffffff;
@@ -379,15 +379,12 @@
       margin-top: 4px;
       color: #fff;
     }
-    @media (max-width: 600px) { .hero .globe-wrap { max-width: 260px; } }
+    @media (max-width: 600px) { .hero .globe-wrap { max-width: 300px; } }
 
-    /* no canto, o fundo é claro: o branco do hero sumiria */
-    .hero .globe-wrap.is-mini {
-      --globe-land: #1a3a5c;
-      --globe-water: #b9cee0;
-      --globe-marker: #2e6da4;
-      --globe-label: #ffffff;
-    }
+    /* o painel-doca (ver .globe-sticky.is-mini em effects.css) tem vidro
+       escuro próprio em qualquer tamanho de tela — por isso, ao encolher,
+       o globo continua com as MESMAS cores claras do hero (não precisa
+       escurecer a terra como quando ficava nu sobre a página clara) */
 
     /* tabelas largas rolam sozinhas em vez de estourar a página */
     .accordion-inner { overflow-x: auto; }
@@ -408,9 +405,9 @@
             data-globe-tilt="12"
             data-globe-lon="-85"
             data-globe-markers="38.90,-77.04,Washington|45.42,-75.70,Ottawa|19.43,-99.13,Cidade do México|8.98,-79.52,Canal do Panamá|23.11,-82.37,Havana|-12.05,-77.04,Lima|-16.50,-68.15,La Paz|-34.60,-58.38,Buenos Aires|-33.45,-70.67,Santiago|-15.79,-47.88,Brasília"></canvas>
+    <p class="globe-caption">Arraste o globo para girar · as capitais estudadas estão marcadas · a
+    cor acende a região que você está lendo</p>
   </div>
-  <p class="globe-caption">Arraste o globo para girar · as capitais estudadas estão marcadas · a
-  cor acende a região que você está lendo</p>
 </div>
 
 <nav>

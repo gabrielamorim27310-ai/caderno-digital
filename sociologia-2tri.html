@@ -159,6 +159,72 @@
     .hero { padding:56px 16px 44px; }
     main { padding:24px 14px 60px; }
   }
+
+  /* ═══ GALERIA — fotos originais das anotações da Sofia ═══ */
+  .photos-cta {
+    display:inline-flex; align-items:center; gap:8px; margin-top:12px;
+    background:var(--primary); color:#fff; border:none; padding:10px 18px;
+    border-radius:999px; font-family:'Inter',sans-serif; font-weight:600; font-size:0.85rem;
+    cursor:pointer; box-shadow:0 6px 16px -6px rgba(59,31,94,.5);
+    transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s cubic-bezier(.16,1,.3,1);
+  }
+  .photos-cta:hover { transform:translateY(-2px); box-shadow:0 10px 22px -6px rgba(59,31,94,.55); }
+  .photos-cta:active { transform:scale(.97); }
+
+  .photo-modal {
+    position:fixed; inset:0; z-index:2000;
+    display:none; align-items:center; justify-content:center; padding:24px;
+    background:rgba(10,4,20,0.86); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    opacity:0; transition:opacity .3s ease;
+  }
+  .photo-modal.open { display:flex; }
+  .photo-modal.show { opacity:1; }
+  .photo-modal-inner {
+    position:relative; max-width:min(880px, 92vw); width:100%;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+  }
+  .photo-modal-frame {
+    position:relative; width:100%; max-height:78vh; border-radius:16px; overflow:hidden;
+    background:#150a24; box-shadow:0 40px 80px -20px rgba(0,0,0,.6);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .photo-modal-frame img {
+    display:block; max-width:100%; max-height:78vh; width:auto; height:auto;
+    transform:scale(.97); opacity:0;
+    transition: transform .35s cubic-bezier(.16,1,.3,1), opacity .35s cubic-bezier(.16,1,.3,1);
+  }
+  .photo-modal-frame img.show { transform:scale(1); opacity:1; }
+  .photo-modal-close, .photo-modal-nav {
+    border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08); color:#fff;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: background .25s ease, transform .2s cubic-bezier(.16,1,.3,1);
+  }
+  .photo-modal-close:hover, .photo-modal-nav:hover { background:rgba(255,255,255,.2); }
+  .photo-modal-close {
+    position:absolute; top:-44px; right:0; width:36px; height:36px; border-radius:50%; font-size:1.1rem;
+  }
+  .photo-modal-close:active { transform:scale(.92); }
+  .photo-modal-nav {
+    position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; font-size:1.3rem;
+  }
+  .photo-modal-nav:active { transform:translateY(-50%) scale(.92); }
+  .photo-modal-prev { left:10px; }
+  .photo-modal-next { right:10px; }
+  .photo-modal-counter { color:rgba(255,255,255,.7); font-size:0.82rem; font-weight:600; letter-spacing:.02em; }
+  .photo-modal-thumbs { display:flex; gap:8px; overflow-x:auto; max-width:100%; padding:2px 2px 8px; scrollbar-width:thin; }
+  .photo-modal-thumbs button {
+    flex:0 0 auto; width:52px; height:66px; border-radius:8px; overflow:hidden; padding:0;
+    border:2px solid transparent; cursor:pointer; opacity:.55; background:none;
+    transition: opacity .25s ease, border-color .25s ease, transform .2s cubic-bezier(.16,1,.3,1);
+  }
+  .photo-modal-thumbs button img { width:100%; height:100%; object-fit:cover; display:block; }
+  .photo-modal-thumbs button:hover { opacity:.85; }
+  .photo-modal-thumbs button.active { opacity:1; border-color:var(--secondary); transform:translateY(-2px); }
+  @media (max-width:600px) {
+    .photo-modal-nav { width:38px; height:38px; font-size:1.1rem; }
+    .photo-modal-close { top:-40px; }
+    .photo-modal-thumbs button { width:40px; height:52px; }
+  }
 </style>
 <!-- Google tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
@@ -198,6 +264,8 @@
   soluções · formas de Estado (unitário e federal) · a separação dos poderes de Montesquieu · os três
   poderes no Brasil · partidos políticos e eleições · democracia e participação política. Os
   capítulos 3 a 6 foram complementados com as anotações de aula da colega Sofia Alves.
+  <br>
+  <button class="photos-cta" onclick="openGallery(0)">📷 Ver as fotos originais das anotações da Sofia</button>
 </div>
 
 <!-- ══════════════════════════════════════════════
@@ -1204,6 +1272,21 @@
 
 </main>
 
+<!-- ═══ GALERIA — fotos originais das anotações da Sofia ═══ -->
+<div class="photo-modal" id="photoModal" role="dialog" aria-modal="true" aria-label="Fotos originais das anotações"
+     onclick="if (event.target === this) closeGallery()">
+  <div class="photo-modal-inner">
+    <div class="photo-modal-frame">
+      <button class="photo-modal-close" onclick="closeGallery()" aria-label="Fechar">✕</button>
+      <button class="photo-modal-nav photo-modal-prev" onclick="stepGallery(-1)" aria-label="Foto anterior">‹</button>
+      <img id="photoModalImg" src="" alt="Anotação original de Sociologia, cedida pela Sofia Alves">
+      <button class="photo-modal-nav photo-modal-next" onclick="stepGallery(1)" aria-label="Próxima foto">›</button>
+    </div>
+    <div class="photo-modal-counter" id="photoModalCounter"></div>
+    <div class="photo-modal-thumbs" id="photoModalThumbs"></div>
+  </div>
+</div>
+
 <footer>
   &copy; 2025 Caderno Digital · Sociologia 2º Trimestre
 </footer>
@@ -1212,6 +1295,63 @@
 function toggleAccordion(btn) {
   btn.parentElement.classList.toggle('open');
 }
+
+/* ── Galeria: fotos originais das anotações da Sofia ──
+   19 fotos em socio-imgs/fotos-sofia/foto-NN.jpeg, com uma miniatura
+   leve (thumb-NN.jpeg, ~10KB) pra tira de baixo não puxar as 19 fotos
+   em resolução cheia só de abrir a galeria. */
+const GALLERY_PHOTOS = Array.from({ length: 19 }, (_, i) => {
+  const n = String(i + 1).padStart(2, '0');
+  return { full: 'socio-imgs/fotos-sofia/foto-' + n + '.jpeg', thumb: 'socio-imgs/fotos-sofia/thumb-' + n + '.jpeg' };
+});
+let galleryIndex = 0;
+
+function buildGalleryThumbs() {
+  const wrap = document.getElementById('photoModalThumbs');
+  wrap.innerHTML = GALLERY_PHOTOS.map((p, i) =>
+    '<button onclick="showGalleryPhoto(' + i + ')" aria-label="Foto ' + (i + 1) + '"><img src="' + p.thumb + '" alt="" loading="lazy"></button>'
+  ).join('');
+}
+
+function showGalleryPhoto(i) {
+  galleryIndex = (i + GALLERY_PHOTOS.length) % GALLERY_PHOTOS.length;
+  const img = document.getElementById('photoModalImg');
+  img.classList.remove('show');
+  requestAnimationFrame(function () {
+    img.src = GALLERY_PHOTOS[galleryIndex].full;
+    img.onload = function () { img.classList.add('show'); };
+  });
+  document.getElementById('photoModalCounter').textContent = (galleryIndex + 1) + ' / ' + GALLERY_PHOTOS.length;
+  var thumbs = document.querySelectorAll('.photo-modal-thumbs button');
+  thumbs.forEach(function (b, i2) { b.classList.toggle('active', i2 === galleryIndex); });
+  if (thumbs[galleryIndex]) thumbs[galleryIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function stepGallery(delta) { showGalleryPhoto(galleryIndex + delta); }
+
+function openGallery(i) {
+  if (!document.getElementById('photoModalThumbs').children.length) buildGalleryThumbs();
+  showGalleryPhoto(i || 0);
+  const modal = document.getElementById('photoModal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(function () { modal.classList.add('show'); });
+}
+
+function closeGallery() {
+  const modal = document.getElementById('photoModal');
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+  setTimeout(function () { modal.classList.remove('open'); }, 300);
+}
+
+document.addEventListener('keydown', function (e) {
+  const modal = document.getElementById('photoModal');
+  if (!modal || !modal.classList.contains('open')) return;
+  if (e.key === 'Escape') closeGallery();
+  if (e.key === 'ArrowLeft') stepGallery(-1);
+  if (e.key === 'ArrowRight') stepGallery(1);
+});
 
 window.addEventListener('scroll', () => {
   const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;

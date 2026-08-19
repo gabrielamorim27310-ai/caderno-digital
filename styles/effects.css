@@ -374,12 +374,14 @@
   width: 100%;
   max-width: 560px;
   margin: 0 auto;
-  aspect-ratio: 1 / 1;
 }
+/* o quadrado vem do canvas, não do wrap — assim o wrap pode crescer pra
+   baixo (ex.: legenda encaixada dentro dele no modo doca grande) sem
+   esticar o globo numa elipse */
 canvas.globe {
   display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
   touch-action: pan-y;  /* deixa a página rolar na vertical; o giro é horizontal */
 }
 .globe-caption {
@@ -400,44 +402,90 @@ canvas.globe {
    e a classe .is-mini, que a página aplica ao sair do hero.
    ───────────────────────────────────────────── */
 .globe-sticky {
-  transition: max-width .8s cubic-bezier(.22,1,.36,1),
+  transition: width      .8s cubic-bezier(.22,1,.36,1),
+              max-width  .8s cubic-bezier(.22,1,.36,1),
+              padding    .8s cubic-bezier(.22,1,.36,1),
               transform  .8s cubic-bezier(.22,1,.36,1),
               opacity    .5s ease;
 }
 
-/* telas largas: vira um globo de canto, fixo, atrás do conteúdo — bem
-   maior que antes, pra continuar lendo os continentes com clareza */
-@media (min-width: 1000px) {
+/* base do painel-doca, para os 3 tamanhos abaixo: o globo flutuante
+   ganha vidro por trás dele — sem isso ele fica nu por cima do texto,
+   os pontos translúcidos brigando com as linhas por baixo. Cada media
+   query só ajusta tamanho e posição em cima disso. */
+.globe-wrap.globe-sticky.is-mini {
+  position: fixed;
+  left: auto;
+  margin: 0;
+  z-index: 5;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(8, 20, 38, 0.55);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  box-shadow: 0 24px 48px -20px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.globe-wrap.globe-sticky.is-mini .globe-caption { display: none; margin: 0; opacity: .82; }
+
+/* telas bem largas: sobra espaço nas laterais do texto (a coluna de
+   conteúdo tem ~860-900px) — em vez de espremer o globo num cantinho,
+   ele ganha uma doca de verdade: painel fixo, verticalmente centrado,
+   grande o bastante pra continuar lendo os continentes (e a legenda)
+   durante a rolagem. */
+@media (min-width: 1360px) {
+  :root { --globe-dock: clamp(260px, 21vw, 400px); }
   .globe-wrap.globe-sticky.is-mini {
-    position: fixed;
-    right: 24px;
-    bottom: 90px;   /* acima do botão do chat */
-    left: auto;
-    max-width: 300px;
-    margin: 0;
-    z-index: 5;
-    opacity: .94;
+    top: 50%;
+    right: 32px;
+    bottom: auto;
+    transform: translateY(-50%);
+    width: var(--globe-dock);
+    max-width: var(--globe-dock);
+    padding: 24px;
+    opacity: 1;
+    border-radius: 32px;
   }
-  .globe-wrap.globe-sticky.is-mini + .globe-caption { display: none; }
+  .globe-wrap.globe-sticky.is-mini .globe-caption { display: block; }
+}
+
+/* desktop médio: ainda sem espaço pra doca grande, fica no canto — mas
+   com o mesmo vidro por trás (não mais um globo nu por cima do texto)
+   e bem maior que antes (300px "pelado" → ~300px de globo dentro de
+   um painel de 340px) */
+@media (min-width: 1000px) and (max-width: 1359px) {
+  .globe-wrap.globe-sticky.is-mini {
+    right: 22px;
+    bottom: 86px;   /* acima do botão do chat */
+    top: auto;
+    transform: none;
+    width: 340px;
+    max-width: 340px;
+    padding: 18px;
+    opacity: .97;
+  }
 }
 
 /* celular: é a plataforma mais usada, então o globo NUNCA some — fica
-   fixo num canto pequeno, sempre visível enquanto se rola o resumo
-   (era opacity:0 aqui antes; trocado por um canto compacto, do mesmo
-   jeito que o desktop). */
+   fixo num canto, sempre visível enquanto se rola o resumo (maior que
+   antes: 124px "pelado" → ~150px de globo dentro de um painel de 170px) */
 @media (max-width: 999px) {
   .globe-wrap.globe-sticky.is-mini {
-    position: fixed;
-    right: 10px;
-    bottom: 86px;   /* acima do botão do chat */
-    left: auto;
-    max-width: 124px;
-    margin: 0;
-    z-index: 5;
-    opacity: .95;
+    right: 8px;
+    bottom: 82px;   /* acima do botão do chat */
+    top: auto;
+    transform: none;
+    width: 170px;
+    max-width: 170px;
+    padding: 10px;
+    opacity: .97;
+    border-radius: 22px;
     pointer-events: auto;
   }
-  .globe-wrap.globe-sticky.is-mini + .globe-caption { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
