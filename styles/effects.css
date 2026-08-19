@@ -163,6 +163,14 @@
    Origem: react-bits ShinyText
    ───────────────────────────────────────────── */
 .fx-shiny {
+  /* NÃO usar "color: transparent" aqui: currentColor, duas linhas
+     abaixo, resolveria para essa mesma cor transparente — o texto
+     ficaria invisível sempre que o recorte (background-clip: text)
+     falhasse por qualquer motivo (navegador, alto contraste, GPU).
+     -webkit-text-fill-color é quem esconde o preenchimento; "color"
+     fica de fora e continua herdando uma cor visível (branco, aqui
+     dentro do .hero) como último recurso — e currentColor, no
+     gradiente, aponta pra essa cor visível em vez de transparente. */
   background: linear-gradient(
     120deg,
     currentColor 40%,
@@ -172,7 +180,7 @@
   background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
   animation: fx-shine 4s linear infinite;
 }
 @keyframes fx-shine {
@@ -186,6 +194,9 @@
    Origem: react-bits GradientText
    ───────────────────────────────────────────── */
 .fx-gradient-text {
+  /* mesmo motivo do .fx-shiny acima: -webkit-text-fill-color, não
+     color, esconde o preenchimento — "color" sobra como fallback
+     visível caso o recorte não seja aplicado. */
   background: linear-gradient(
     90deg,
     var(--primary, #7a5c3e),
@@ -195,7 +206,7 @@
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
   animation: fx-gradient-pan 6s linear infinite;
 }
 @keyframes fx-gradient-pan {
