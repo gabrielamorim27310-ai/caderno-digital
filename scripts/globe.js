@@ -248,7 +248,9 @@
     var spin = isNaN(startLon) ? 0 : startLon * Math.PI / 180;
 
     var dragging = false, lastX = 0, dragVel = 0;
-    var w = 0, h = 0, radius = 0, cx = 0, cy = 0, dpr = 1;
+    var w = 0, h = 0, baseRadius = 0, radius = 0, cx = 0, cy = 0, dpr = 1;
+    var zoom = 1;
+    var ZOOM_MIN = 0.6, ZOOM_MAX = 2.6, ZOOM_STEP = 0.25;
 
     // null = mostra as 5 subdivisões cheias (visão geral); 1-5 = só essa
     // região em cor plena, as demais apagadas (ver setRegion mais abaixo).
@@ -264,7 +266,16 @@
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cx = w / 2; cy = h / 2;
-      radius = Math.min(w, h) / 2 * 0.86;  // folga para os rótulos
+      baseRadius = Math.min(w, h) / 2 * 0.86;  // folga para os rótulos
+      radius = baseRadius * zoom;
+    }
+
+    // dá/tira zoom sem recalcular w/h/cx/cy — só o raio (usado por tudo que
+    // desenha: pontos, halo, marcadores). Botão +/− na página chama isso.
+    function applyZoom(next) {
+      zoom = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, next));
+      radius = baseRadius * zoom;
+      draw();
     }
 
     function draw() {
@@ -453,18 +464,29 @@
 
     function frame(ts) {
       if (!running) return;
+      // sem rotação de repouso: o globo fica parado onde o usuário soltou
+      // ou onde o último flyTo() o deixou (ver initScrollFocus) — não gira
+      // sozinho o tempo todo. "active" só fica true enquanto algo de fato
+      // está mudando (voo, arrasto ou a inércia logo depois de soltar);
+      // parado, o loop se desliga sozinho em vez de redesenhar sem motivo
+      // a cada quadro pra sempre (start() liga de novo quando precisa).
+      var active = false;
       if (flight) {
         stepFlight(ts);
-      } else if (!dragging) {
-        if (Math.abs(dragVel) > 0.0002) {
-          spin += dragVel;          // inércia depois de soltar
-          dragVel *= 0.94;
-        } else if (autoSpin) {
-          spin += 0.0016 * speed;   // rotação de repouso
-        }
+        active = true;
+      } else if (dragging) {
+        active = true;
+      } else if (Math.abs(dragVel) > 0.0002) {
+        spin += dragVel;            // inércia depois de soltar
+        dragVel *= 0.94;
+        active = true;
       }
       draw();
-      requestAnimationFrame(frame);
+      if (active) {
+        requestAnimationFrame(frame);
+      } else {
+        running = false;
+      }
     }
 
     // só anima enquanto o globo estiver visível na tela
@@ -548,7 +570,15 @@
     }
 
     // deixa a API acessível de fora (usada pelo controlador de rolagem)
-    canvas.__globe = { flyTo: flyTo, refreshColors: refreshColors, setRegion: setRegion };
+    canvas.__globe = {
+      flyTo: flyTo,
+      refreshColors: refreshColors,
+      setRegion: setRegion,
+      zoomIn: function () { applyZoom(zoom + ZOOM_STEP); },
+      zoomOut: function () { applyZoom(zoom - ZOOM_STEP); },
+      resetZoom: function () { applyZoom(1); },
+      getZoom: function () { return zoom; }
+    };
 
     var resizeTimer;
     window.addEventListener('resize', function () {

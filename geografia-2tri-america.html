@@ -216,6 +216,73 @@
       margin: -8px auto 14px;
     }
 
+    /* ── Figura de mapa, com zoom ── */
+    .map-figure { margin: 16px 0; }
+    .map-figure-frame {
+      position: relative; cursor: zoom-in; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+      transition: box-shadow .3s ease, transform .3s cubic-bezier(.16,1,.3,1);
+    }
+    .map-figure-frame:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(0,0,0,.22); }
+    .map-figure-frame img { width: 100%; max-width: 580px; display: block; margin: 0 auto; }
+    .map-figure-badge {
+      position: absolute; right: 10px; bottom: 10px;
+      background: rgba(10,10,10,.62); color: #fff; font-size: .74rem; font-weight: 600;
+      padding: 5px 11px; border-radius: 999px; backdrop-filter: blur(4px);
+      display: flex; align-items: center; gap: 5px; pointer-events: none;
+    }
+    .map-figure figcaption {
+      text-align: center; font-size: .8rem; color: var(--text-muted); margin: 8px auto 0; max-width: 580px;
+    }
+
+    /* ── Lightbox de mapa: zoom de verdade (botões, scroll, arrasto) ── */
+    .map-modal {
+      position: fixed; inset: 0; z-index: 2000;
+      display: none; align-items: center; justify-content: center; padding: 20px;
+      background: rgba(8,10,14,.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      opacity: 0; transition: opacity .3s ease;
+    }
+    .map-modal.open { display: flex; }
+    .map-modal.show { opacity: 1; }
+    .map-modal-viewport {
+      position: relative; width: min(1000px, 94vw); height: min(80vh, 900px);
+      background: #14181c; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 40px 80px -20px rgba(0,0,0,.6);
+      cursor: grab;
+    }
+    .map-modal-viewport.dragging { cursor: grabbing; }
+    .map-modal-viewport img {
+      position: absolute; top: 50%; left: 50%; max-width: none;
+      transform: translate(-50%, -50%) scale(1) translate(0px, 0px);
+      transition: transform .25s cubic-bezier(.16,1,.3,1);
+      width: 100%; height: 100%; object-fit: contain;
+      user-select: none; -webkit-user-drag: none;
+    }
+    .map-modal-viewport.dragging img { transition: none; }
+    .map-modal-toolbar {
+      position: absolute; top: 12px; right: 12px; z-index: 2;
+      display: flex; gap: 6px;
+    }
+    .map-modal-toolbar button {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.1); color: #fff;
+      font-size: 1.05rem; font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .25s ease, transform .2s cubic-bezier(.16,1,.3,1);
+    }
+    .map-modal-toolbar button:hover { background: rgba(255,255,255,.22); }
+    .map-modal-toolbar button:active { transform: scale(.92); }
+    .map-modal-caption {
+      margin-top: 14px; text-align: center; color: rgba(255,255,255,.78); font-size: .86rem;
+      max-width: 700px;
+    }
+    .map-modal-hint {
+      margin-top: 4px; text-align: center; color: rgba(255,255,255,.42); font-size: .74rem;
+    }
+    @media (max-width: 600px) {
+      .map-modal-viewport { height: min(64vh, 620px); }
+    }
+
     /* ── Quiz ── */
     #quiz-section {
       background: var(--card-bg);
@@ -381,6 +448,23 @@
     }
     @media (max-width: 600px) { .hero .globe-wrap { max-width: 300px; } }
 
+    /* zoom do globo — botões +/− no canto, funcionam tanto no globo grande
+       do hero quanto na doca/canto (ver .globe-sticky.is-mini em effects.css) */
+    .globe-zoom {
+      position: absolute; top: 8px; right: 8px; z-index: 3;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .globe-zoom button {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.12);
+      color: #fff; font-size: 1rem; font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; line-height: 1;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: background .25s ease, transform .2s cubic-bezier(.16,1,.3,1);
+    }
+    .globe-zoom button:hover { background: rgba(255,255,255,.24); }
+    .globe-zoom button:active { transform: scale(.9); }
+
     /* o painel-doca (ver .globe-sticky.is-mini em effects.css) tem vidro
        escuro próprio em qualquer tamanho de tela — por isso, ao encolher,
        o globo continua com as MESMAS cores claras do hero (não precisa
@@ -405,6 +489,10 @@
             data-globe-tilt="12"
             data-globe-lon="-85"
             data-globe-markers="38.90,-77.04,Washington|45.42,-75.70,Ottawa|19.43,-99.13,Cidade do México|8.98,-79.52,Canal do Panamá|23.11,-82.37,Havana|-12.05,-77.04,Lima|-16.50,-68.15,La Paz|-34.60,-58.38,Buenos Aires|-33.45,-70.67,Santiago|-15.79,-47.88,Brasília"></canvas>
+    <div class="globe-zoom">
+      <button type="button" onclick="globeZoom(1)" aria-label="Aproximar o globo" title="Aproximar">+</button>
+      <button type="button" onclick="globeZoom(-1)" aria-label="Afastar o globo" title="Afastar">−</button>
+    </div>
     <p class="globe-caption">Arraste o globo para girar · as capitais estudadas estão marcadas · a
     cor acende a região que você está lendo</p>
   </div>
@@ -606,6 +694,24 @@
         1. Cadeia da Costa → 2. Planalto do Colorado → 3. Montanhas Rochosas →
         4. Planícies Centrais → 5. Rio Mississipi → 6. Montes Apalaches.
       </div>
+
+      <figure class="map-figure">
+        <div class="map-figure-frame" onclick="openMapZoom('geo-imgs/anglo-relevo-estrutura.jpg', 'Estrutura geológica e relevo da América Anglo-Saxônica — Rochosas, Planícies Centrais, Escudo Canadense e Apalaches')">
+          <img class="slide-img" src="geo-imgs/anglo-relevo-estrutura.jpg"
+               alt="Mapa da estrutura geológica e relevo da América Anglo-Saxônica, com Rochosas, Planícies Centrais, Escudo Canadense e Apalaches" loading="lazy">
+          <span class="map-figure-badge">🔍 Ampliar</span>
+        </div>
+        <figcaption>Estrutura geológica e relevo — as mesmas três faixas da tabela acima, no mapa</figcaption>
+      </figure>
+
+      <figure class="map-figure">
+        <div class="map-figure-frame" onclick="openMapZoom('geo-imgs/anglo-relevo-perfil.jpg', 'Perfil longitudinal dos EUA, Pacífico a leste: Cadeia da Costa, Planalto do Colorado, Montanhas Rochosas, Planícies Centrais, Rio Mississipi e Montes Apalaches')">
+          <img class="slide-img" src="geo-imgs/anglo-relevo-perfil.jpg"
+               alt="Perfil topográfico longitudinal dos Estados Unidos, do Oceano Pacífico ao Atlântico" loading="lazy">
+          <span class="map-figure-badge">🔍 Ampliar</span>
+        </div>
+        <figcaption>O corte transversal do quadro acima — de olho na ordem, é o que mais cai</figcaption>
+      </figure>
     </div></div>
   </div>
 
@@ -687,6 +793,15 @@
               <td>Vegetação complexa do tipo tropical</td></tr>
         </tbody>
       </table>
+
+      <figure class="map-figure">
+        <div class="map-figure-frame" onclick="openMapZoom('geo-imgs/anglo-clima-vegetacao.jpg', 'Vegetação original e precipitações da América Anglo-Saxônica — tundra, taiga, floresta temperada, pradarias, estepe, deserto e vegetação mediterrânea')">
+          <img class="slide-img" src="geo-imgs/anglo-clima-vegetacao.jpg"
+               alt="Mapa de vegetação original e precipitações da América Anglo-Saxônica, com legenda de tundra, taiga, floresta temperada, pradarias, estepe, deserto e vegetação mediterrânea" loading="lazy">
+          <span class="map-figure-badge">🔍 Ampliar</span>
+        </div>
+        <figcaption>Vegetação original e precipitações — mesma lógica da tabela, agora no mapa</figcaption>
+      </figure>
     </div></div>
   </div>
 
@@ -959,9 +1074,18 @@
                   (Vale do Silício, Califórnia)</td></tr>
           <tr><td><strong>Mão de obra</strong></td>
               <td>Nativa e imigrante → formou a classe média americana</td>
-              <td>Altamente qualificada — MIT, Stanford, Yale, Harvard</td></tr>
+              <td>Altamente qualificada, formada em MIT, Yale e Harvard</td></tr>
         </tbody>
       </table>
+      <div class="tip">
+        <strong>Cuidado: "formada em" não é "localizada em".</strong> MIT, Yale e Harvard ficam
+        no <strong>Nordeste</strong> (Massachusetts e Connecticut) — no Manufacturing Belt, não no
+        Sun Belt. Elas entram nessa tabela só como <strong>origem da mão de obra</strong> que
+        depois migra para o Sun Belt trabalhar. A única dessas universidades que fica
+        <strong>de fato dentro do Sun Belt</strong> é <strong>Stanford</strong>, na Califórnia —
+        e não por acaso: é ela quem está no coração do <strong>Vale do Silício</strong>, ao lado
+        das empresas de alta tecnologia que a região representa.
+      </div>
       <p><strong>Fatores da industrialização:</strong> recursos minerais (carvão nos Apalaches,
       ferro nos Grandes Lagos), energia, mão de obra e mercado consumidor. As
       <strong>duas guerras mundiais</strong> foram decisivas: as indústrias europeias foram
@@ -1176,6 +1300,16 @@
               <td>Atravessadas por grandes rios</td></tr>
         </tbody>
       </table>
+
+      <figure class="map-figure">
+        <div class="map-figure-frame" onclick="openMapZoom('geo-imgs/latina-relevo-sul.jpg', 'Relevo da América do Sul (montanhas, planaltos, planícies) e as correntes marítimas de Humboldt, do Brasil, das Guianas e das Falklands, com perfis topográficos A-B e C-D')">
+          <img class="slide-img" src="geo-imgs/latina-relevo-sul.jpg"
+               alt="Mapa de relevo da América do Sul com montanhas, planaltos e planícies, e as correntes marítimas de Humboldt, do Brasil, das Guianas e das Falklands, além de dois perfis topográficos" loading="lazy">
+          <span class="map-figure-badge">🔍 Ampliar</span>
+        </div>
+        <figcaption>Relevo e correntes marítimas da América do Sul — repare como a Corrente de Humboldt (fria) acompanha o litoral onde nascem os desertos</figcaption>
+      </figure>
+
       <p><strong>Hidrografia:</strong> variada. Rios de planície favorecem navegação e
       agricultura; rios de planalto, a produção de energia. A América do Sul se destaca
       mundialmente pelas reservas de água doce — <strong>Bacia Amazônica</strong> e
@@ -1209,6 +1343,15 @@
               <td>Menos de 250 mm/ano — as áreas mais secas recebem só 10 mm</td></tr>
         </tbody>
       </table>
+
+      <figure class="map-figure">
+        <div class="map-figure-frame" onclick="openMapZoom('geo-imgs/latina-vegetacao.jpg', 'Vegetação original da América Latina — floresta equatorial amazônica, savana, floresta tropical, pradarias, estepes, deserto e vegetação de altitude')">
+          <img class="slide-img" src="geo-imgs/latina-vegetacao.jpg"
+               alt="Mapa de vegetação original da América Latina, com legenda de floresta equatorial, savana, floresta tropical, pradarias, estepes, deserto e vegetação de altitude" loading="lazy">
+          <span class="map-figure-badge">🔍 Ampliar</span>
+        </div>
+        <figcaption>Vegetação original da América Latina — a mancha vermelha central é a Floresta Amazônica</figcaption>
+      </figure>
     </div></div>
   </div>
 
@@ -1251,6 +1394,16 @@
       </table>
       <p>Há ainda a Sierra Madre do Sul e as planícies costeiras (Pacífico a oeste,
       Golfo do México a leste).</p>
+
+      <figure class="map-figure">
+        <div class="map-figure-frame" onclick="openMapZoom('geo-imgs/mexico-relevo-perfil.jpg', 'Perfil do relevo mexicano, oeste a leste: Sierra Madre Ocidental, Planalto de Anahuac e Sierra Madre Oriental')">
+          <img class="slide-img" src="geo-imgs/mexico-relevo-perfil.jpg"
+               alt="Perfil topográfico do México, do Oceano Pacífico ao Golfo do México, com Sierra Madre Ocidental, Planalto de Anahuac e Sierra Madre Oriental" loading="lazy">
+          <span class="map-figure-badge">🔍 Ampliar</span>
+        </div>
+        <figcaption>O mesmo perfil oeste→leste da tabela acima, em corte</figcaption>
+      </figure>
+
       <div class="highlight">
         <strong>Cidade do México</strong> — a 2.600 m de altitude no altiplano.
         Região metropolitana de ~20-22 milhões (5ª maior do mundo), quase 20% da população
@@ -1438,6 +1591,15 @@
       <strong>prolongamento do continental</strong> — montanhoso no interior, planícies na
       costa. Grande instabilidade geológica (terremotos e vulcanismo) e, no verão,
       <strong>furacões e ciclones tropicais</strong> frequentes.</p>
+
+      <figure class="map-figure">
+        <div class="map-figure-frame" onclick="openMapZoom('geo-imgs/central-relevo-clima.jpg', 'Relevo da América Central e do Caribe — planícies, planaltos e montanhas, na porção ístmica e nas Antilhas')">
+          <img class="slide-img" src="geo-imgs/central-relevo-clima.jpg"
+               alt="Mapa de relevo da América Central e do Caribe, mostrando planícies, planaltos e montanhas" loading="lazy">
+          <span class="map-figure-badge">🔍 Ampliar</span>
+        </div>
+        <figcaption>Planícies, planaltos e montanhas — a mesma lógica dos "andares de altitude" da tabela</figcaption>
+      </figure>
     </div></div>
   </div>
 
@@ -2384,6 +2546,23 @@
 
 </main>
 
+<!-- ═══ LIGHTBOX — zoom nos mapas ═══ -->
+<div class="map-modal" id="mapModal" role="dialog" aria-modal="true" aria-label="Mapa ampliado"
+     onclick="if (event.target === this) closeMapZoom()">
+  <div>
+    <div class="map-modal-viewport" id="mapViewport">
+      <div class="map-modal-toolbar">
+        <button type="button" onclick="mapZoomStep(1)" aria-label="Aumentar">+</button>
+        <button type="button" onclick="mapZoomStep(-1)" aria-label="Reduzir">−</button>
+        <button type="button" onclick="closeMapZoom()" aria-label="Fechar">✕</button>
+      </div>
+      <img id="mapModalImg" src="" alt="">
+    </div>
+    <p class="map-modal-caption" id="mapModalCaption"></p>
+    <p class="map-modal-hint">arraste para mover · role o mouse ou use os botões pra ampliar · duplo clique para resetar</p>
+  </div>
+</div>
+
 <footer>
   &copy; 2026 Caderno Digital · Geografia 2º Trimestre — Continente Americano
 </footer>
@@ -2408,6 +2587,99 @@
 <script src="scripts/globe.js"></script>
 <script src="scripts/chat.js"></script>
 <script>
+  /* ── Zoom nos mapas (lightbox com zoom de verdade) ── */
+  let mapScale = 1, mapTx = 0, mapTy = 0;
+  let mapDragging = false, mapDragStartX = 0, mapDragStartY = 0, mapStartTx = 0, mapStartTy = 0;
+  const MAP_MIN = 1, MAP_MAX = 4.5, MAP_STEP = 0.6;
+
+  function applyMapTransform(animated) {
+    const img = document.getElementById('mapModalImg');
+    const vp = document.getElementById('mapViewport');
+    img.style.transition = animated ? '' : 'none';
+    img.style.transform = `translate(-50%, -50%) scale(${mapScale}) translate(${mapTx}px, ${mapTy}px)`;
+    vp.style.cursor = mapScale > 1 ? 'grab' : 'zoom-in';
+  }
+
+  function mapZoomStep(dir) {
+    mapScale = Math.min(MAP_MAX, Math.max(MAP_MIN, mapScale + dir * MAP_STEP));
+    if (mapScale === MAP_MIN) { mapTx = 0; mapTy = 0; }
+    applyMapTransform(true);
+  }
+
+  function openMapZoom(src, caption) {
+    const modal = document.getElementById('mapModal');
+    const img = document.getElementById('mapModalImg');
+    mapScale = 1; mapTx = 0; mapTy = 0;
+    img.src = src;
+    img.alt = caption;
+    document.getElementById('mapModalCaption').textContent = caption;
+    applyMapTransform(false);
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => modal.classList.add('show'));
+  }
+
+  function closeMapZoom() {
+    const modal = document.getElementById('mapModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+    setTimeout(() => modal.classList.remove('open'), 300);
+  }
+
+  (function () {
+    const vp = document.getElementById('mapViewport');
+    const img = document.getElementById('mapModalImg');
+
+    vp.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      mapZoomStep(e.deltaY < 0 ? 1 : -1);
+    }, { passive: false });
+
+    vp.addEventListener('dblclick', () => { mapScale = 1; mapTx = 0; mapTy = 0; applyMapTransform(true); });
+
+    function dragStart(x, y) {
+      if (mapScale <= 1) return;
+      mapDragging = true;
+      mapDragStartX = x; mapDragStartY = y;
+      mapStartTx = mapTx; mapStartTy = mapTy;
+      vp.classList.add('dragging');
+    }
+    function dragMove(x, y) {
+      if (!mapDragging) return;
+      // divide por mapScale: o translate roda ANTES do scale() na matriz
+      // (translate * scale), então mover N px de tela equivale a N/scale
+      // px no espaço da imagem já ampliada.
+      mapTx = mapStartTx + (x - mapDragStartX) / mapScale;
+      mapTy = mapStartTy + (y - mapDragStartY) / mapScale;
+      applyMapTransform(false);
+    }
+    function dragEnd() { mapDragging = false; vp.classList.remove('dragging'); }
+
+    vp.addEventListener('mousedown', (e) => { e.preventDefault(); dragStart(e.clientX, e.clientY); });
+    window.addEventListener('mousemove', (e) => dragMove(e.clientX, e.clientY));
+    window.addEventListener('mouseup', dragEnd);
+    vp.addEventListener('touchstart', (e) => { const t = e.touches[0]; dragStart(t.clientX, t.clientY); }, { passive: true });
+    vp.addEventListener('touchmove', (e) => { const t = e.touches[0]; dragMove(t.clientX, t.clientY); }, { passive: true });
+    vp.addEventListener('touchend', dragEnd);
+
+    img.addEventListener('dragstart', (e) => e.preventDefault());
+  })();
+
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('mapModal');
+    if (!modal || !modal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeMapZoom();
+    if (e.key === '+' || e.key === '=') mapZoomStep(1);
+    if (e.key === '-') mapZoomStep(-1);
+  });
+
+  /* ── Zoom do globo (botões +/−, ver scripts/globe.js) ── */
+  function globeZoom(dir) {
+    const c = document.querySelector('canvas.globe');
+    if (!c || !c.__globe) return;
+    if (dir > 0) c.__globe.zoomIn(); else c.__globe.zoomOut();
+  }
+
   /* ── Accordion ── */
   function toggleAccordion(btn) {
     const acc = btn.closest('.accordion');
