@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matemática 2º Tri — Combinatória, Trig, Inequações e Probabilidade 2026</title>
+<title>Matemática 2º Tri — Combinatória, Trigonometria e Inequações 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
@@ -266,7 +266,7 @@
 <div class="hero">
   <h1>Matemática — 2º Trimestre</h1>
   <p class="subtitle">2ª série do Ensino Médio · 2026</p>
-  <div><span class="badge">Combinatória · Trigonometria · Inequações · Probabilidade</span></div>
+  <div><span class="badge">Combinatória · Trigonometria · Inequações</span></div>
   <div><span class="author">Caderno Digital</span></div>
 </div>
 
@@ -279,7 +279,6 @@
     <a href="#exponenciais">Exponenciais</a>
     <a href="#logaritmicas">Logarítmicas</a>
     <a href="#graficos">Gráficos</a>
-    <a href="#probabilidade">Probabilidade</a>
     <a href="#quiz">Quiz</a>
   </div>
 </nav>
@@ -292,8 +291,8 @@
   frente, use o menu acima para ir direto ao que interessa. <strong>Matemática 1:</strong>
   inequações modulares, exponenciais e logarítmicas, gráficos de exponencial/log.
   <strong>Matemática 2:</strong> análise combinatória (permutação simples, com repetição,
-  circular, combinação simples) e equações trigonométricas. Probabilidade aparece combinada com
-  combinatória em provas de anos anteriores — vale revisar.
+  circular, combinação simples) e equações trigonométricas — conforme a orientação de estudos
+  oficial da Equipe de Matemática.
 </div>
 
 <!-- ══════════════════════════════════════════════
@@ -861,77 +860,12 @@
 </section>
 
 <!-- ══════════════════════════════════════════════
-     CAP. 7 — PROBABILIDADE
-     ══════════════════════════════════════════════ -->
-<section class="chapter" id="probabilidade">
-  <div class="chapter-header">
-    <h2><span class="ch-tag">Cap. 7</span> Probabilidade</h2>
-    <p class="meta">Probabilidade simples, condicional, e combinada com combinatória</p>
-  </div>
-
-  <div class="accordion open">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">O básico: casos favoráveis / casos possíveis <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <div class="formula-block">P(evento) = nº de casos favoráveis / nº de casos possíveis</div>
-        <div class="highlight-box">
-          <strong>Exemplo — tabela de dupla entrada</strong>
-          24.000 pessoas: 600 desenvolveram uma doença, 800 foram expostas a um agente de risco,
-          500 estão nas duas categorias.<br>
-          P(doente) = 600/24.000 = <strong>1/40</strong>.<br>
-          P(exposto <em>dado que</em> desenvolveu a doença) = 500/600 = <strong>5/6</strong> — repare
-          que aqui o "universo" muda: não são mais as 24.000 pessoas, só as 600 doentes.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Probabilidade condicional <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <div class="formula-block">P(A | B) = P(A ∩ B) / P(B)</div>
-        <p>Lê-se "probabilidade de A <strong>dado que</strong> B aconteceu". Na prática, quando o
-        problema já informa um subconjunto fixo (como no exemplo acima, "dado que desenvolveu a
-        doença"), muitas vezes você já pode montar a razão diretamente com os números da tabela,
-        sem precisar escrever a fórmula — mas ela é o que justifica o cálculo.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">"Pelo menos" em probabilidade — combine com binômio <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <p>Assim como em combinatória, "pelo menos" em probabilidade também exige separar em casos
-        — ou, quando for mais fácil, calcular pelo <strong>complementar</strong>
-        (P(pelo menos 1) = 1 − P(nenhum)).</p>
-        <div class="highlight-box">
-          <strong>Exemplo — torneio de 3 provas, vencer = ganhar ≥ 2</strong>
-          P(ganhar uma prova) = 2/3, P(perder) = 1/3. Para vencer o torneio, o atleta precisa
-          ganhar <strong>exatamente 2</strong> OU <strong>exatamente 3</strong> das provas:<br>
-          Ganhar 2 e perder 1 (de 3 jeitos diferentes — C(3,2)): P₁ = 3 · (2/3)²·(1/3) = 12/27<br>
-          Ganhar as 3: P₂ = (2/3)³ = 8/27<br>
-          <strong>P(vencer) = 12/27 + 8/27 = 20/27</strong>
-        </div>
-        <div class="tip-box">
-          <strong>Reconhecendo o padrão binomial</strong>
-          "Evento com a mesma probabilidade se repete várias vezes, de forma independente" é o
-          sinal de que você vai somar C(n,k)·p^k·(1−p)^(n−k) para os valores de k pedidos — mesmo
-          sem citar o nome "binomial" no enunciado.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════
      QUIZ
      ══════════════════════════════════════════════ -->
 <section id="quiz-section">
   <a id="quiz"></a>
   <h2>Quiz de Revisão</h2>
-  <p>31 questões sobre combinatória, trigonometria, inequações e probabilidade.</p>
+  <p>27 questões sobre combinatória, trigonometria e inequações.</p>
 
   <div class="quiz-topbar">
     <div class="score-left">
@@ -944,7 +878,7 @@
         </svg>
         <span id="mini-pct">—</span>
       </div>
-      <div class="score-live" id="score-live">Placar: <strong>0 / 31</strong></div>
+      <div class="score-live" id="score-live">Placar: <strong>0 / 27</strong></div>
     </div>
     <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
   </div>
@@ -956,7 +890,6 @@
     <button class="filter-btn" onclick="filterQuiz('cap4',this)">Exponenciais</button>
     <button class="filter-btn" onclick="filterQuiz('cap5',this)">Logarítmicas</button>
     <button class="filter-btn" onclick="filterQuiz('cap6',this)">Gráficos</button>
-    <button class="filter-btn" onclick="filterQuiz('cap7',this)">Probabilidade</button>
   </div>
 
   <div class="question-card" data-chapter="cap1" id="q1">
@@ -1229,46 +1162,6 @@
     </div>
   </div>
 
-  <div class="question-card" data-chapter="cap7" id="q28">
-    <h4>28. Numa população de 24.000 pessoas, 600 têm uma doença. A probabilidade de uma pessoa qualquer ter a doença é:</h4>
-    <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q28','a')">a) 1/6</button>
-      <button class="option-btn" onclick="checkQuiz('q28','b')">b) 5/6</button>
-      <button class="option-btn" onclick="checkQuiz('q28','c')">c) 1/24</button>
-      <button class="option-btn" onclick="checkQuiz('q28','d')">d) 1/40</button>
-    </div>
-  </div>
-
-  <div class="question-card" data-chapter="cap7" id="q29">
-    <h4>29. Na mesma população, 500 das 600 pessoas doentes foram expostas a um agente de risco. A probabilidade de ter sido exposto, dado que desenvolveu a doença, é:</h4>
-    <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q29','a')">a) 5/6</button>
-      <button class="option-btn" onclick="checkQuiz('q29','b')">b) 1/40</button>
-      <button class="option-btn" onclick="checkQuiz('q29','c')">c) 1/6</button>
-      <button class="option-btn" onclick="checkQuiz('q29','d')">d) 500/24000</button>
-    </div>
-  </div>
-
-  <div class="question-card" data-chapter="cap7" id="q30">
-    <h4>30. Num torneio de 3 provas, a probabilidade de vencer cada prova é 2/3, e é preciso ganhar pelo menos 2 para vencer o torneio. A probabilidade de vencer o torneio é:</h4>
-    <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q30','a')">a) 8/27</button>
-      <button class="option-btn" onclick="checkQuiz('q30','b')">b) 20/27</button>
-      <button class="option-btn" onclick="checkQuiz('q30','c')">c) 12/27</button>
-      <button class="option-btn" onclick="checkQuiz('q30','d')">d) 2/3</button>
-    </div>
-  </div>
-
-  <div class="question-card" data-chapter="cap7" id="q31">
-    <h4>31. Em probabilidade condicional, P(A | B) é calculado por:</h4>
-    <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q31','a')">a) P(A) · P(B)</button>
-      <button class="option-btn" onclick="checkQuiz('q31','b')">b) P(A) + P(B)</button>
-      <button class="option-btn" onclick="checkQuiz('q31','c')">c) P(A ∩ B) / P(B)</button>
-      <button class="option-btn" onclick="checkQuiz('q31','d')">d) P(A ∪ B)</button>
-    </div>
-  </div>
-
   <!-- Result -->
   <div class="quiz-result" id="quiz-result">
     <div class="donut-wrap">
@@ -1279,7 +1172,7 @@
       </svg>
       <div class="donut-center">
         <span class="donut-score" id="donut-score">0</span>
-        <span class="donut-label">/ 31</span>
+        <span class="donut-label">/ 27</span>
       </div>
     </div>
     <div class="result-msg" id="result-msg"></div>
@@ -1295,7 +1188,7 @@
     <button id="chat-close" onclick="toggleChat()">✕</button>
   </div>
   <div id="chat-msgs">
-    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre combinatória, trigonometria, inequações modulares/exponenciais/logarítmicas, gráficos ou probabilidade!</div>
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre combinatória, trigonometria, inequações modulares/exponenciais/logarítmicas ou gráficos!</div>
   </div>
   <form id="chat-form" onsubmit="sendMsg(event)">
     <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
@@ -1326,8 +1219,7 @@ const ANSWERS = {
   q14:'b', q15:'c', q16:'d',
   q17:'a', q18:'b', q19:'c', q20:'d',
   q21:'a', q22:'b', q23:'c', q24:'d',
-  q25:'a', q26:'b', q27:'c',
-  q28:'d', q29:'a', q30:'b', q31:'c'
+  q25:'a', q26:'b', q27:'c'
 };
 let answered = {}, score = 0, total = 0;
 
@@ -1373,6 +1265,7 @@ function showResult() {
   document.getElementById('quiz-result').style.display = 'block';
   document.getElementById('donut-score').textContent = score;
   const N = Object.keys(ANSWERS).length;
+  document.querySelector('.donut-label').textContent = '/ ' + N;
   const circumference = 345.4;
   document.getElementById('donut-arc').style.strokeDashoffset = circumference - (score / N) * circumference;
   const pct = Math.round((score / N) * 100);
