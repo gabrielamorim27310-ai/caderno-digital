@@ -275,7 +275,6 @@
     <a href="index.html#t2" style="opacity:0.6;margin-right:6px;">← Início</a>
     <a href="#combinatoria">Combinatória</a>
     <a href="#trigonometria">Trigonometria</a>
-    <a href="#modulares">Modulares</a>
     <a href="#exponenciais">Exponenciais</a>
     <a href="#logaritmicas">Logarítmicas</a>
     <a href="#graficos">Gráficos</a>
@@ -289,7 +288,7 @@
   <strong>O que cai na prova</strong>
   Este trimestre reúne o conteúdo de duas turmas de Matemática — se sua prova for só de uma
   frente, use o menu acima para ir direto ao que interessa. <strong>Matemática 1:</strong>
-  inequações modulares, exponenciais e logarítmicas, gráficos de exponencial/log.
+  inequações exponenciais e logarítmicas, gráficos de exponencial/log.
   <strong>Matemática 2:</strong> análise combinatória (permutação simples, com repetição,
   circular, combinação simples) e equações trigonométricas — conforme a orientação de estudos
   oficial da Equipe de Matemática.
@@ -565,81 +564,11 @@
 </section>
 
 <!-- ══════════════════════════════════════════════
-     CAP. 3 — INEQUAÇÕES MODULARES
-     ══════════════════════════════════════════════ -->
-<section class="chapter" id="modulares">
-  <div class="chapter-header">
-    <h2><span class="ch-tag">Cap. 3</span> Inequações Modulares</h2>
-    <p class="meta">|f(x)| ≤ a, |f(x)| ≥ a, e módulo elevado ao quadrado</p>
-  </div>
-
-  <div class="accordion open">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">As duas regras-base <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <table class="data-table">
-          <thead><tr><th>Inequação (a &gt; 0)</th><th>Equivale a</th></tr></thead>
-          <tbody>
-            <tr><td class="formula-pill">|f(x)| ≤ a</td><td class="formula-pill">−a ≤ f(x) ≤ a</td></tr>
-            <tr><td class="formula-pill">|f(x)| ≥ a</td><td class="formula-pill">f(x) ≤ −a ou f(x) ≥ a</td></tr>
-          </tbody>
-        </table>
-        <div class="warn-box">
-          <strong>Decore o padrão: "≤ vira intervalo fechado no meio", "≥ vira dois lados abertos"</strong>
-          Confundir essas duas é o erro nº 1 nessas questões — o símbolo de menor gera uma
-          <em>faixa</em>; o de maior gera <em>duas pontas</em>.
-        </div>
-        <div class="highlight-box">
-          <strong>Exemplo completo — |x² − 5x − 45| ≤ 21</strong>
-          Vira duas inequações simultâneas:<br>
-          x² − 5x − 45 ≤ 21 ⇒ x² − 5x − 66 ≤ 0 ⇒ raízes −6 e 11 ⇒ solução: [−6, 11]<br>
-          x² − 5x − 45 ≥ −21 ⇒ x² − 5x − 24 ≥ 0 ⇒ raízes −3 e 8 ⇒ solução: x≤−3 ou x≥8<br>
-          <strong>Interseção das duas: S = [−6, −3] ∪ [8, 11]</strong>
-          <div class="sign-chart">
-            <div class="seg pos">+</div><div class="root">−6</div>
-            <div class="seg neg">−</div><div class="root">−3</div>
-            <div class="seg pos">+</div><div class="root">8</div>
-            <div class="seg neg">−</div><div class="root">11</div>
-            <div class="seg pos">+</div>
-          </div>
-          <p class="sign-chart cap">Interseção das duas condições — a resposta fica só onde as duas concordam</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Módulo duplo e módulo ao quadrado <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <h4>Módulo dentro de módulo: ||f(x)| − b| ≤ c</h4>
-        <p>Aplique a regra de fora pra dentro: primeiro isole |f(x)|, depois aplique a regra de
-        novo.</p>
-        <div class="tip-box">
-          <strong>Exemplo — |2x − 7| − 10| ≤ 9</strong>
-          −9 ≤ |2x−7| − 10 ≤ 9 ⇒ 1 ≤ |2x−7| ≤ 19 ⇒ duas inequações modulares simples, uma pra cada lado.
-        </div>
-        <h4>|x|² − b|x| + c ⋛ 0 — substituição y = |x|</h4>
-        <p>Troque |x| por y (lembrando que <strong>y ≥ 0 sempre</strong>), resolva a inequação do
-        2º grau normalmente e, no final, desfaça a troca: cada faixa de y vira duas faixas de x
-        (uma positiva, uma negativa espelhada).</p>
-        <div class="highlight-box">
-          <strong>Exemplo — |x|² − 9|x| + 14 &gt; 0</strong>
-          Com y=|x|: y² − 9y + 14 > 0 ⇒ raízes 2 e 7 ⇒ y &lt; 2 ou y &gt; 7.<br>
-          Desfazendo (y=|x| ≥ 0): |x| &lt; 2 ⇒ −2 &lt; x &lt; 2; ou |x| &gt; 7 ⇒ x&lt;−7 ou x&gt;7.<br>
-          <strong>S = ]−∞,−7[ ∪ ]−2,2[ ∪ ]7,+∞[</strong>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════
-     CAP. 4 — INEQUAÇÕES EXPONENCIAIS
+     CAP. 3 — INEQUAÇÕES EXPONENCIAIS
      ══════════════════════════════════════════════ -->
 <section class="chapter" id="exponenciais">
   <div class="chapter-header">
-    <h2><span class="ch-tag">Cap. 4</span> Inequações Exponenciais</h2>
+    <h2><span class="ch-tag">Cap. 3</span> Inequações Exponenciais</h2>
     <p class="meta">Mesma base, fatoração e substituição y = aˣ</p>
   </div>
 
@@ -724,7 +653,7 @@
      ══════════════════════════════════════════════ -->
 <section class="chapter" id="logaritmicas">
   <div class="chapter-header">
-    <h2><span class="ch-tag">Cap. 5</span> Inequações Logarítmicas</h2>
+    <h2><span class="ch-tag">Cap. 4</span> Inequações Logarítmicas</h2>
     <p class="meta">Condição de existência + mantém/inverte + interseção final</p>
   </div>
 
@@ -787,7 +716,7 @@
      ══════════════════════════════════════════════ -->
 <section class="chapter" id="graficos">
   <div class="chapter-header">
-    <h2><span class="ch-tag">Cap. 6</span> Gráficos das Funções Exponencial e Logarítmica</h2>
+    <h2><span class="ch-tag">Cap. 5</span> Gráficos das Funções Exponencial e Logarítmica</h2>
     <p class="meta">Crescimento × decaimento, assíntotas, e a simetria entre as duas famílias</p>
   </div>
 
@@ -865,7 +794,7 @@
 <section id="quiz-section">
   <a id="quiz"></a>
   <h2>Quiz de Revisão</h2>
-  <p>27 questões sobre combinatória, trigonometria e inequações.</p>
+  <p>24 questões sobre combinatória, trigonometria e inequações exponenciais e logarítmicas.</p>
 
   <div class="quiz-topbar">
     <div class="score-left">
@@ -878,7 +807,7 @@
         </svg>
         <span id="mini-pct">—</span>
       </div>
-      <div class="score-live" id="score-live">Placar: <strong>0 / 27</strong></div>
+      <div class="score-live" id="score-live">Placar: <strong>0 / 24</strong></div>
     </div>
     <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
   </div>
@@ -886,10 +815,9 @@
     <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
     <button class="filter-btn" onclick="filterQuiz('cap1',this)">Combinatória</button>
     <button class="filter-btn" onclick="filterQuiz('cap2',this)">Trigonometria</button>
-    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Modulares</button>
-    <button class="filter-btn" onclick="filterQuiz('cap4',this)">Exponenciais</button>
-    <button class="filter-btn" onclick="filterQuiz('cap5',this)">Logarítmicas</button>
-    <button class="filter-btn" onclick="filterQuiz('cap6',this)">Gráficos</button>
+    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Exponenciais</button>
+    <button class="filter-btn" onclick="filterQuiz('cap4',this)">Logarítmicas</button>
+    <button class="filter-btn" onclick="filterQuiz('cap5',this)">Gráficos</button>
   </div>
 
   <div class="question-card" data-chapter="cap1" id="q1">
@@ -1023,142 +951,112 @@
   </div>
 
   <div class="question-card" data-chapter="cap3" id="q14">
-    <h4>14. A inequação |f(x)| ≤ a (com a &gt; 0) é equivalente a:</h4>
+    <h4>14. Numa inequação exponencial com base entre 0 e 1, ao comparar diretamente os expoentes:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q14','a')">a) f(x) ≤ a apenas</button>
-      <button class="option-btn" onclick="checkQuiz('q14','b')">b) −a ≤ f(x) ≤ a</button>
-      <button class="option-btn" onclick="checkQuiz('q14','c')">c) f(x) ≤ −a ou f(x) ≥ a</button>
-      <button class="option-btn" onclick="checkQuiz('q14','d')">d) f(x) = a</button>
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) Invertemos o sentido da desigualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) Mantemos o sentido da desigualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) A inequação vira uma igualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) Não é possível resolver</button>
     </div>
   </div>
 
   <div class="question-card" data-chapter="cap3" id="q15">
-    <h4>15. A inequação |f(x)| ≥ a (com a &gt; 0) é equivalente a:</h4>
+    <h4>15. A solução de 3^(5x−3) &lt; 3^(x+5) é:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q15','a')">a) −a ≤ f(x) ≤ a</button>
-      <button class="option-btn" onclick="checkQuiz('q15','b')">b) f(x) ≤ a</button>
-      <button class="option-btn" onclick="checkQuiz('q15','c')">c) f(x) ≤ −a ou f(x) ≥ a</button>
-      <button class="option-btn" onclick="checkQuiz('q15','d')">d) f(x) = −a</button>
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) x &gt; 2</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) x &lt; 2</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) x &lt; −2</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) x ≥ 2</button>
     </div>
   </div>
 
   <div class="question-card" data-chapter="cap3" id="q16">
-    <h4>16. A solução de |x² − 5x − 45| ≤ 21 é:</h4>
+    <h4>16. A solução de 3^(3x−7) &gt; 3^(x+5) é:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q16','a')">a) S = [−6, 11]</button>
-      <button class="option-btn" onclick="checkQuiz('q16','b')">b) S = [−3, 8]</button>
-      <button class="option-btn" onclick="checkQuiz('q16','c')">c) S = ∅</button>
-      <button class="option-btn" onclick="checkQuiz('q16','d')">d) S = [−6, −3] ∪ [8, 11]</button>
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) x &gt; 4</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) x ≥ 4</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) x &gt; 6</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) x ≤ −5</button>
     </div>
   </div>
 
-  <div class="question-card" data-chapter="cap4" id="q17">
-    <h4>17. Numa inequação exponencial com base entre 0 e 1, ao comparar diretamente os expoentes:</h4>
+  <div class="question-card" data-chapter="cap3" id="q17">
+    <h4>17. Ao resolver 3^(2x) − 26·3^x − 27 ≥ 0 substituindo y = 3^x, qual restrição sobre y deve sempre ser lembrada?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q17','a')">a) Invertemos o sentido da desigualdade</button>
-      <button class="option-btn" onclick="checkQuiz('q17','b')">b) Mantemos o sentido da desigualdade</button>
-      <button class="option-btn" onclick="checkQuiz('q17','c')">c) A inequação vira uma igualdade</button>
-      <button class="option-btn" onclick="checkQuiz('q17','d')">d) Não é possível resolver</button>
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) y pode ser qualquer número real</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) y deve ser negativo</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) y deve ser um número inteiro</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) y deve ser positivo (y = 3^x &gt; 0) — raízes negativas de y são descartadas</button>
     </div>
   </div>
 
   <div class="question-card" data-chapter="cap4" id="q18">
-    <h4>18. A solução de 3^(5x−3) &lt; 3^(x+5) é:</h4>
+    <h4>18. Para log_a(x) existir, é necessário que:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q18','a')">a) x &gt; 2</button>
-      <button class="option-btn" onclick="checkQuiz('q18','b')">b) x &lt; 2</button>
-      <button class="option-btn" onclick="checkQuiz('q18','c')">c) x &lt; −2</button>
-      <button class="option-btn" onclick="checkQuiz('q18','d')">d) x ≥ 2</button>
+      <button class="option-btn" onclick="checkQuiz('q18','a')">a) x &gt; 0, com a &gt; 0 e a ≠ 1</button>
+      <button class="option-btn" onclick="checkQuiz('q18','b')">b) x seja qualquer número real</button>
+      <button class="option-btn" onclick="checkQuiz('q18','c')">c) x &lt; 0</button>
+      <button class="option-btn" onclick="checkQuiz('q18','d')">d) a = 1</button>
     </div>
   </div>
 
   <div class="question-card" data-chapter="cap4" id="q19">
-    <h4>19. A solução de 3^(3x−7) &gt; 3^(x+5) é:</h4>
+    <h4>19. Assim como nas exponenciais, ao remover os logaritmos numa inequação com base entre 0 e 1:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q19','a')">a) x &gt; 4</button>
-      <button class="option-btn" onclick="checkQuiz('q19','b')">b) x ≥ 4</button>
-      <button class="option-btn" onclick="checkQuiz('q19','c')">c) x &gt; 6</button>
-      <button class="option-btn" onclick="checkQuiz('q19','d')">d) x ≤ −5</button>
+      <button class="option-btn" onclick="checkQuiz('q19','a')">a) Mantemos o sentido da desigualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q19','b')">b) Invertemos o sentido da desigualdade</button>
+      <button class="option-btn" onclick="checkQuiz('q19','c')">c) A inequação não tem solução</button>
+      <button class="option-btn" onclick="checkQuiz('q19','d')">d) Ignoramos a condição de existência</button>
     </div>
   </div>
 
   <div class="question-card" data-chapter="cap4" id="q20">
-    <h4>20. Ao resolver 3^(2x) − 26·3^x − 27 ≥ 0 substituindo y = 3^x, qual restrição sobre y deve sempre ser lembrada?</h4>
+    <h4>20. A solução de log₅x &gt; log₅6 é:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q20','a')">a) y pode ser qualquer número real</button>
-      <button class="option-btn" onclick="checkQuiz('q20','b')">b) y deve ser negativo</button>
-      <button class="option-btn" onclick="checkQuiz('q20','c')">c) y deve ser um número inteiro</button>
-      <button class="option-btn" onclick="checkQuiz('q20','d')">d) y deve ser positivo (y = 3^x &gt; 0) — raízes negativas de y são descartadas</button>
+      <button class="option-btn" onclick="checkQuiz('q20','a')">a) 0 &lt; x &lt; 6</button>
+      <button class="option-btn" onclick="checkQuiz('q20','b')">b) x &lt; 6</button>
+      <button class="option-btn" onclick="checkQuiz('q20','c')">c) x &gt; 6</button>
+      <button class="option-btn" onclick="checkQuiz('q20','d')">d) x ≥ 0</button>
     </div>
   </div>
 
-  <div class="question-card" data-chapter="cap5" id="q21">
-    <h4>21. Para log_a(x) existir, é necessário que:</h4>
+  <div class="question-card" data-chapter="cap4" id="q21">
+    <h4>21. Antes de comparar os "de dentro" dos logaritmos numa inequação logarítmica, o primeiro passo obrigatório é:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q21','a')">a) x &gt; 0, com a &gt; 0 e a ≠ 1</button>
-      <button class="option-btn" onclick="checkQuiz('q21','b')">b) x seja qualquer número real</button>
-      <button class="option-btn" onclick="checkQuiz('q21','c')">c) x &lt; 0</button>
-      <button class="option-btn" onclick="checkQuiz('q21','d')">d) a = 1</button>
+      <button class="option-btn" onclick="checkQuiz('q21','a')">a) Elevar ambos os lados ao quadrado</button>
+      <button class="option-btn" onclick="checkQuiz('q21','b')">b) Multiplicar tudo por 3</button>
+      <button class="option-btn" onclick="checkQuiz('q21','c')">c) Ignorar a base</button>
+      <button class="option-btn" onclick="checkQuiz('q21','d')">d) Verificar a condição de existência (o que está dentro do log deve ser &gt; 0)</button>
     </div>
   </div>
 
   <div class="question-card" data-chapter="cap5" id="q22">
-    <h4>22. Assim como nas exponenciais, ao remover os logaritmos numa inequação com base entre 0 e 1:</h4>
+    <h4>22. O gráfico de y = aˣ, com a &gt; 1, é:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q22','a')">a) Mantemos o sentido da desigualdade</button>
-      <button class="option-btn" onclick="checkQuiz('q22','b')">b) Invertemos o sentido da desigualdade</button>
-      <button class="option-btn" onclick="checkQuiz('q22','c')">c) A inequação não tem solução</button>
-      <button class="option-btn" onclick="checkQuiz('q22','d')">d) Ignoramos a condição de existência</button>
+      <button class="option-btn" onclick="checkQuiz('q22','a')">a) Sempre crescente, com assíntota horizontal em y = 0</button>
+      <button class="option-btn" onclick="checkQuiz('q22','b')">b) Sempre decrescente</button>
+      <button class="option-btn" onclick="checkQuiz('q22','c')">c) Uma reta</button>
+      <button class="option-btn" onclick="checkQuiz('q22','d')">d) Uma parábola</button>
     </div>
   </div>
 
   <div class="question-card" data-chapter="cap5" id="q23">
-    <h4>23. A solução de log₅x &gt; log₅6 é:</h4>
+    <h4>23. O gráfico de y = log_a(x) tem assíntota:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q23','a')">a) 0 &lt; x &lt; 6</button>
-      <button class="option-btn" onclick="checkQuiz('q23','b')">b) x &lt; 6</button>
-      <button class="option-btn" onclick="checkQuiz('q23','c')">c) x &gt; 6</button>
-      <button class="option-btn" onclick="checkQuiz('q23','d')">d) x ≥ 0</button>
+      <button class="option-btn" onclick="checkQuiz('q23','a')">a) Horizontal em y = 0</button>
+      <button class="option-btn" onclick="checkQuiz('q23','b')">b) Vertical em x = 0</button>
+      <button class="option-btn" onclick="checkQuiz('q23','c')">c) Não tem assíntota</button>
+      <button class="option-btn" onclick="checkQuiz('q23','d')">d) Horizontal em y = 1</button>
     </div>
   </div>
 
   <div class="question-card" data-chapter="cap5" id="q24">
-    <h4>24. Antes de comparar os "de dentro" dos logaritmos numa inequação logarítmica, o primeiro passo obrigatório é:</h4>
+    <h4>24. Os gráficos de y = aˣ e y = log_a(x) são:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Elevar ambos os lados ao quadrado</button>
-      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Multiplicar tudo por 3</button>
-      <button class="option-btn" onclick="checkQuiz('q24','c')">c) Ignorar a base</button>
-      <button class="option-btn" onclick="checkQuiz('q24','d')">d) Verificar a condição de existência (o que está dentro do log deve ser &gt; 0)</button>
-    </div>
-  </div>
-
-  <div class="question-card" data-chapter="cap6" id="q25">
-    <h4>25. O gráfico de y = aˣ, com a &gt; 1, é:</h4>
-    <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q25','a')">a) Sempre crescente, com assíntota horizontal em y = 0</button>
-      <button class="option-btn" onclick="checkQuiz('q25','b')">b) Sempre decrescente</button>
-      <button class="option-btn" onclick="checkQuiz('q25','c')">c) Uma reta</button>
-      <button class="option-btn" onclick="checkQuiz('q25','d')">d) Uma parábola</button>
-    </div>
-  </div>
-
-  <div class="question-card" data-chapter="cap6" id="q26">
-    <h4>26. O gráfico de y = log_a(x) tem assíntota:</h4>
-    <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q26','a')">a) Horizontal em y = 0</button>
-      <button class="option-btn" onclick="checkQuiz('q26','b')">b) Vertical em x = 0</button>
-      <button class="option-btn" onclick="checkQuiz('q26','c')">c) Não tem assíntota</button>
-      <button class="option-btn" onclick="checkQuiz('q26','d')">d) Horizontal em y = 1</button>
-    </div>
-  </div>
-
-  <div class="question-card" data-chapter="cap6" id="q27">
-    <h4>27. Os gráficos de y = aˣ e y = log_a(x) são:</h4>
-    <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q27','a')">a) Idênticos</button>
-      <button class="option-btn" onclick="checkQuiz('q27','b')">b) Paralelos</button>
-      <button class="option-btn" onclick="checkQuiz('q27','c')">c) Simétricos em relação à reta y = x (são funções inversas)</button>
-      <button class="option-btn" onclick="checkQuiz('q27','d')">d) Perpendiculares</button>
+      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Idênticos</button>
+      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Paralelos</button>
+      <button class="option-btn" onclick="checkQuiz('q24','c')">c) Simétricos em relação à reta y = x (são funções inversas)</button>
+      <button class="option-btn" onclick="checkQuiz('q24','d')">d) Perpendiculares</button>
     </div>
   </div>
 
@@ -1172,7 +1070,7 @@
       </svg>
       <div class="donut-center">
         <span class="donut-score" id="donut-score">0</span>
-        <span class="donut-label">/ 27</span>
+        <span class="donut-label">/ 24</span>
       </div>
     </div>
     <div class="result-msg" id="result-msg"></div>
@@ -1188,7 +1086,7 @@
     <button id="chat-close" onclick="toggleChat()">✕</button>
   </div>
   <div id="chat-msgs">
-    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre combinatória, trigonometria, inequações modulares/exponenciais/logarítmicas ou gráficos!</div>
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre combinatória, trigonometria, inequações exponenciais/logarítmicas ou gráficos!</div>
   </div>
   <form id="chat-form" onsubmit="sendMsg(event)">
     <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
@@ -1216,10 +1114,9 @@ window.addEventListener('scroll', () => {
 const ANSWERS = {
   q1:'a', q2:'b', q3:'c', q4:'d', q5:'a', q6:'b', q7:'c', q8:'d', q9:'a', q10:'b',
   q11:'c', q12:'d', q13:'a',
-  q14:'b', q15:'c', q16:'d',
-  q17:'a', q18:'b', q19:'c', q20:'d',
-  q21:'a', q22:'b', q23:'c', q24:'d',
-  q25:'a', q26:'b', q27:'c'
+  q14:'a', q15:'b', q16:'c', q17:'d',
+  q18:'a', q19:'b', q20:'c', q21:'d',
+  q22:'a', q23:'b', q24:'c'
 };
 let answered = {}, score = 0, total = 0;
 
