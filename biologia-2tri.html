@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biologia 2º Tri — Digestório, Transportes e Sistema Circulatório 2026</title>
+<title>Biologia 2º Tri — Digestório ao Sistema Excretor 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
@@ -27,6 +27,10 @@
     --ch3: #7b3f00;
     --ch4: #6c3483;
     --ch5: #922b21;
+    --ch6: #a8324a;
+    --ch7: #8e7d0e;
+    --ch8: #2471a3;
+    --ch9: #148f77;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
@@ -63,6 +67,10 @@
   .tag-ch3 { background: var(--ch3); }
   .tag-ch4 { background: var(--ch4); }
   .tag-ch5 { background: var(--ch5); }
+  .tag-ch6 { background: var(--ch6); }
+  .tag-ch7 { background: var(--ch7); }
+  .tag-ch8 { background: var(--ch8); }
+  .tag-ch9 { background: var(--ch9); }
   .chapter-header .meta { font-size: 0.9rem; color: var(--text-light); margin-top: 6px; }
   .chapter-body { padding: 24px 32px 32px; }
 
@@ -122,6 +130,10 @@
   .quiz-chapter-tag.tag-ch3 { background: rgba(123,63,0,0.5); color: #f5cba7; }
   .quiz-chapter-tag.tag-ch4 { background: rgba(108,52,131,0.5); color: #d7bde2; }
   .quiz-chapter-tag.tag-ch5 { background: rgba(146,43,33,0.5); color: #f1948a; }
+  .quiz-chapter-tag.tag-ch6 { background: rgba(168,50,74,0.5); color: #f3aebc; }
+  .quiz-chapter-tag.tag-ch7 { background: rgba(142,125,14,0.5); color: #f0e199; }
+  .quiz-chapter-tag.tag-ch8 { background: rgba(36,113,163,0.5); color: #a9d3ee; }
+  .quiz-chapter-tag.tag-ch9 { background: rgba(20,143,119,0.5); color: #9fe6d5; }
   .filter-btn { padding: 7px 16px; border-radius: 20px; border: 2px solid rgba(255,255,255,0.3); background: transparent; color: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
   .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.2); border-color: white; }
   #score-box { margin-bottom: 20px; padding: 14px; border-radius: 10px; background: rgba(255,255,255,0.12); font-size: 1rem; font-weight: 700; display: block; }
@@ -182,8 +194,8 @@
 
 <div class="hero">
   <h1>Biologia — 2º Trimestre</h1>
-  <p class="subtitle">AI Unificada 01/06/2026 · 2ª série do Ensino Médio · 2026</p>
-  <div><span class="badge">Sistema Digestório · Transportes de Membrana · Sistema Circulatório</span></div>
+  <p class="subtitle">AI Unificada 01/06 · Prova Trimestral · 2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">Digestório · Circulatório · Sangue e Linfa · Imunológico · Respiratório · Excretor</span></div>
   <div><span class="author">Caderno Digital</span></div>
 </div>
 
@@ -196,7 +208,11 @@
     <a href="#transportes">Transportes</a>
     <a href="#circulatorio-anat">Circulatório — Anat.</a>
     <a href="#circulatorio-fisio">Circulatório — Fisio.</a>
-    <a href="#quiz">Quiz AI</a>
+    <a href="#sangue">Sangue e Linfa</a>
+    <a href="#imune">Sist. Imunológico</a>
+    <a href="#respiratorio">Sist. Respiratório</a>
+    <a href="#excretor">Sist. Excretor</a>
+    <a href="#quiz">Quiz</a>
   </div>
 </nav>
 
@@ -1197,10 +1213,585 @@
   </div>
 </section>
 
+<!-- ══════════ CAPÍTULO 7 — SANGUE E LINFA ══════════ -->
+<section class="chapter" id="sangue">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch6">Cap. 7</span> Sangue e Linfa</h2>
+    <p class="meta">Plasma · Elementos Figurados · Hemograma · Coagulação · Sistema Linfático</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Sangue: um Tecido Conjuntivo Líquido</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            O sangue é classificado como <strong>tecido conjuntivo especializado</strong>: origem mesodérmica, poucas células e muita matriz extracelular — só que, nele, a matriz é <strong>líquida</strong> (o plasma), e não gelatinosa ou rígida como nos outros conjuntivos.
+          </div>
+          <h4>Plasma (~55% do volume)</h4>
+          <ul>
+            <li>~90% água + proteínas plasmáticas (albumina, globulinas, fibrinogênio)</li>
+            <li>Sais e íons (Na⁺, K⁺, Cl⁻, HCO₃⁻, Ca²⁺), nutrientes, hormônios, gases dissolvidos e excretas</li>
+          </ul>
+          <h4>Elementos figurados (~45% — o hematócrito)</h4>
+          <ul>
+            <li><strong>Hemácias</strong> (eritrócitos) — transporte de gases</li>
+            <li><strong>Leucócitos</strong> — defesa</li>
+            <li><strong>Plaquetas</strong> (trombócitos) — fragmentos de megacariócitos, não são células inteiras — coagulação</li>
+          </ul>
+          <img src="bio-imgs/sangue-composicao.jpg" alt="Composição do sangue — plasma e elementos figurados, com quantidades e funções" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="warning-box">
+            <strong>Pegadinha:</strong> plasma e soro <strong>não são sinônimos</strong>. O soro é o plasma <em>sem</em> o fibrinogênio e os demais fatores consumidos na coagulação.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">As Proteínas Plasmáticas</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Albumina (~60% — produzida no fígado)</h5>
+              <ul>
+                <li>Mantém a <strong>pressão oncótica</strong>, "segurando" água dentro dos vasos por osmose</li>
+                <li>Transporta hormônios, ácidos graxos, bilirrubina, cálcio e medicamentos</li>
+                <li>Sua falta causa <strong>edema</strong> (a água escapa dos capilares)</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Globulinas</h5>
+              <ul>
+                <li>Alfa/beta — transportam lipídios, vitaminas, hormônios e íons metálicos</li>
+                <li><strong>Gamaglobulinas = anticorpos</strong> (imunoglobulinas), produzidos pelos plasmócitos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tip-box">
+            <strong>Fibrinogênio</strong> (fígado) é o fator da coagulação: sob ação da trombina, converte-se em <strong>fibrina</strong>, insolúvel, formando a rede do coágulo.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Hemácias, Leucócitos e Plaquetas — o Hemograma</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <h4>Hemácias (eritrócitos)</h4>
+          <ul>
+            <li>Componente principal: <strong>hemoglobina</strong> (4 cadeias, cada uma com um grupo heme + Fe²⁺)</li>
+            <li>São <strong>anucleadas</strong> nos mamíferos — perdem núcleo, mitocôndrias e ribossomos na medula, abrindo espaço para mais hemoglobina</li>
+            <li><strong>Anemia</strong> = redução de hemácias/hemoglobina. Causas: ferro, B12/ácido fólico, hemorragias, hemólise, doenças genéticas (falciforme, talassemia), verminose, insuficiência renal (menos eritropoietina)</li>
+          </ul>
+          <div class="warning-box">
+            <strong>Pegadinha clássica de vestibular:</strong> hemácias <strong>não servem</strong> para teste de paternidade — são anucleadas, sem DNA nuclear. O exame usa os <strong>leucócitos</strong> (células completas). Em outros vertebrados (aves, répteis, anfíbios, peixes) as hemácias SÃO nucleadas — a anucleação é exclusiva dos mamíferos.
+          </div>
+          <h4>Leucócitos (glóbulos brancos)</h4>
+          <ul>
+            <li>Função: <strong>defesa</strong>. Chegam ao local da infecção por <strong>diapedese</strong> (atravessam o capilar) guiados por <strong>quimiotaxia</strong> (sinais químicos)</li>
+            <li><strong>Neutrófilos</strong> (50-70%, mais numerosos) — 1ºs a chegar, fagocitam bactérias, morrem no processo (formam o pus)</li>
+            <li><strong>Linfócitos B</strong> — produzem anticorpos; <strong>Linfócitos T</strong> — coordenam (auxiliares) ou destroem células infectadas (citotóxicos)</li>
+            <li><strong>Monócitos</strong> — maiores leucócitos, viram <strong>macrófagos</strong> nos tecidos</li>
+            <li>Eosinófilos (alergias/parasitoses) e basófilos (histamina/heparina)</li>
+            <li><strong>Leucocitose</strong> (aumento): infecções, inflamação, estresse, ou de forma grave — leucemia. <strong>Leucopenia</strong> (queda): infecções virais, quimioterapia, doenças autoimunes → imunodepressão</li>
+          </ul>
+          <h4>Plaquetas</h4>
+          <ul>
+            <li>Função: <strong>hemostasia</strong> — formam o tampão plaquetário e liberam tromboplastina</li>
+            <li><strong>Trombocitopenia</strong> (queda): petéquias, hematomas, sangramentos (dengue grave)</li>
+            <li><strong>Trombocitose</strong> (aumento): risco de trombos → AVC, embolia, infarto</li>
+          </ul>
+          <div class="tip-box">
+            <strong>O hemograma</strong> se divide em três: <strong>eritrograma</strong> (hemácias/hemoglobina/hematócrito), <strong>leucograma</strong> (contagem total e diferencial dos leucócitos) e <strong>plaquetograma</strong>.
+          </div>
+          <h4>Onde são produzidos</h4>
+          <p>Todos derivam de uma célula-tronco na <strong>medula óssea vermelha</strong> (hematopoiese). Os linfócitos T saem imaturos e amadurecem no <strong>timo</strong>; os linfócitos B amadurecem na própria medula.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Coagulação Sanguínea</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="flow-box">
+            <span class="flow-step">Tromboplastina + Ca²⁺</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Protrombina → Trombina</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Fibrinogênio → Fibrina</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Coágulo</span>
+          </div>
+          <p>As plaquetas e o tecido lesionado liberam <strong>tromboplastina</strong>, que — com íons Ca²⁺ — converte a protrombina (proteína inativa, produzida no fígado com ajuda da <strong>vitamina K</strong>) em <strong>trombina</strong>. A trombina age sobre o fibrinogênio, transformando-o em <strong>fibrina</strong>, que forma a rede do coágulo.</p>
+          <img src="bio-imgs/sangue-coagulacao.jpg" alt="Etapas da coagulação sanguínea — tromboplastina, protrombina, trombina, fibrinogênio e fibrina" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Vitamina K</h5>
+              <ul>
+                <li>Cofator para o fígado sintetizar protrombina e outros fatores</li>
+                <li>Fontes: folhas verde-escuras, fígado, ovos — e parte é produzida pela <strong>microbiota intestinal</strong></li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Cálcio (fator IV)</h5>
+              <ul>
+                <li>Cofator em várias etapas, inclusive protrombina→trombina</li>
+                <li>Tubos de coleta com EDTA/citrato impedem a coagulação sequestrando o cálcio</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Linfa e Sistema Linfático</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            Nos capilares, a pressão do sangue empurra parte do plasma para fora — o <strong>líquido intersticial</strong>. Cerca de 10% dele não retorna aos capilares; esse excedente, recolhido pelos capilares linfáticos, é a <strong>linfa</strong>.
+          </div>
+          <p>Composição parecida com o plasma, mas com menos proteínas, sem hemácias nem plaquetas — rica em <strong>linfócitos</strong>. No intestino, os vasos quilíferos absorvem gorduras e a linfa fica leitosa (<strong>quilo</strong>).</p>
+          <h4>Relação com o sangue</h4>
+          <ul>
+            <li><strong>Origem:</strong> vem do plasma que extravasou dos capilares</li>
+            <li><strong>Destino:</strong> retorna ao sangue pelo ducto torácico e ducto linfático direito, que desembocam nas veias subclávias</li>
+            <li><strong>Diferenças:</strong> circulação de <strong>mão única</strong> (nunca ao contrário), <strong>sem bomba própria</strong> (depende dos músculos esqueléticos e de válvulas) e não transporta hemácias</li>
+          </ul>
+          <div class="warning-box">
+            Se a drenagem falha, o líquido se acumula e ocorre <strong>edema</strong> — é o caso da <strong>elefantíase</strong> (filariose), em que o verme obstrui os vasos linfáticos.
+          </div>
+          <img src="bio-imgs/sangue-linfatico.jpg" alt="Sistema linfático — vasos, linfonodos, timo e baço, e suas funções" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <h4>Órgãos linfoides</h4>
+          <ul>
+            <li><strong>Vasos linfáticos</strong> — devolvem o líquido ao sangue; nos vasos quilíferos, absorvem lipídios e vitaminas A/D/E/K</li>
+            <li><strong>Linfonodos</strong> — filtram a linfa, concentram linfócitos/macrófagos; incham na "íngua" (linfadenopatia)</li>
+            <li><strong>Baço</strong> — polpa branca (filtra o sangue, monta resposta imune) e polpa vermelha (destrói hemácias velhas, ~120 dias, recicla o ferro)</li>
+            <li><strong>Timo</strong> — maturação e seleção dos linfócitos T; ativo na infância, involui na puberdade</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 8 — SISTEMA IMUNOLÓGICO ══════════ -->
+<section class="chapter" id="imune">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch7">Cap. 8</span> Sistema Imunológico</h2>
+    <p class="meta">Imunidade Inata e Adaptativa · Fagocitose · Vacinas e Soros</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Organização e Importância do Sistema Imunológico</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <h4>Funções essenciais</h4>
+          <ul>
+            <li>Distinguir o <strong>próprio</strong> (self) do <strong>estranho</strong> (não self)</li>
+            <li>Combater agentes infecciosos (bactérias, vírus, fungos, protozoários, vermes)</li>
+            <li><strong>Vigilância imunológica</strong> — destruir células tumorais</li>
+            <li>Limpeza e reparo — remover células mortas/restos celulares</li>
+            <li><strong>Memória imunológica</strong> — respostas mais rápidas em novos contatos (base das vacinas)</li>
+          </ul>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Quando falha por falta</h5>
+              <ul><li>Imunodeficiências (AIDS) — infecções oportunistas se tornam letais</li></ul>
+            </div>
+            <div class="compare-card">
+              <h5>Quando falha por excesso</h5>
+              <ul><li>Alergias (resposta a pólen/ácaros) e doenças autoimunes (lúpus, diabetes tipo 1, artrite reumatoide)</li></ul>
+            </div>
+          </div>
+          <img src="bio-imgs/imune-organizacao.jpg" alt="Órgãos do sistema imunológico — linfonodos, baço, timo, amígdalas, apêndice e medula óssea" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <h4>Órgãos e antígenos</h4>
+          <ul>
+            <li><strong>Linfonodos, baço, amígdalas e apêndice</strong> — local das respostas imunológicas</li>
+            <li><strong>Medula óssea vermelha</strong> — produção de todos os leucócitos</li>
+            <li><strong>Timo</strong> — amadurecimento dos linfócitos T</li>
+            <li><strong>Antígenos</strong> — componentes moleculares (em geral proteínas/polissacarídeos) de corpos estranhos, que deflagram a produção de anticorpos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Imunidade Inata × Adaptativa e a Fagocitose</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <table class="enzyme-table">
+            <thead><tr><th></th><th>Imunidade INATA</th><th>Imunidade ADAPTATIVA</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Também chamada</strong></td><td>natural, inespecífica</td><td>adquirida, específica</td></tr>
+              <tr><td><strong>Quando surge</strong></td><td>já nascemos com ela</td><td>desenvolve-se após contato com o antígeno</td></tr>
+              <tr><td><strong>Especificidade</strong></td><td>age igual contra qualquer invasor</td><td>sob medida para cada antígeno</td></tr>
+              <tr><td><strong>Velocidade</strong></td><td>imediata (minutos a horas)</td><td>lenta no 1º contato (dias)</td></tr>
+              <tr><td><strong>Memória</strong></td><td class="no">NÃO gera</td><td class="ok">GERA memória</td></tr>
+            </tbody>
+          </table>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Componentes da Inata</h5>
+              <ul>
+                <li>Barreiras físicas/químicas (pele, muco, cílios, lisozima, suco gástrico, microbiota)</li>
+                <li>Fagócitos (neutrófilos, macrófagos, dendríticas)</li>
+                <li>Células NK (matam infectadas/tumorais)</li>
+                <li>Inflamação, febre, sistema complemento</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Componentes da Adaptativa</h5>
+              <ul>
+                <li><strong>Linfócitos B</strong> → plasmócitos → anticorpos (imunidade humoral)</li>
+                <li><strong>Linfócitos T</strong>: citotóxicos (CD8, destroem infectadas) e auxiliares (CD4, coordenam)</li>
+                <li>Ambos deixam células de memória</li>
+              </ul>
+            </div>
+          </div>
+          <img src="bio-imgs/imune-fagocitose.jpg" alt="Mecanismo da fagocitose por um neutrófilo — fagossomo, lisossomo e exocitose dos restos digeridos" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <h4>Fagocitose</h4>
+          <ul>
+            <li><strong>Neutrófilo</strong> engloba o micro-organismo em um fagossomo, que se funde a lisossomos (fagolisossomo) — resposta rápida, morre no processo, forma o pus</li>
+            <li><strong>Macrófago</strong> (do monócito) fagocita mais e vive mais, e ainda atua como <strong>célula apresentadora de antígeno</strong> — a ponte entre a imunidade inata e a adaptativa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Imunização: Ativa × Passiva, Natural × Artificial</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="tip-box">
+            <strong>Chave para não errar:</strong> ATIVA ou PASSIVA responde "quem produziu o anticorpo?" (o próprio corpo ou outro organismo). NATURAL ou ARTIFICIAL responde "como o contato aconteceu?" (sozinho ou por intervenção humana).
+          </div>
+          <table class="enzyme-table">
+            <thead><tr><th>Tipo</th><th>Definição</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ativa Natural</strong></td><td>O organismo contrai a doença e produz seus próprios anticorpos e memória. Lenta, duradoura.</td><td>Ter tido catapora</td></tr>
+              <tr><td><strong>Ativa Artificial</strong></td><td>Produz os próprios anticorpos, mas o antígeno foi introduzido artificialmente. Lenta, duradoura, com memória.</td><td><strong>VACINAS</strong></td></tr>
+              <tr><td><strong>Passiva Natural</strong></td><td>Recebe anticorpos prontos por via natural. Sem memória, curta duração.</td><td>Placenta (IgG), leite/colostro (IgA)</td></tr>
+              <tr><td><strong>Passiva Artificial</strong></td><td>Recebe anticorpos prontos inoculados artificialmente. Imediata, sem memória.</td><td><strong>SOROS</strong></td></tr>
+            </tbody>
+          </table>
+          <img src="bio-imgs/imune-vacina-soro.jpg" alt="Resumo comparando vacinas (imunização ativa artificial) e soros (imunização passiva artificial)" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>VACINA (ativa artificial)</h5>
+              <ul>
+                <li>Antígeno morto/atenuado/mRNA estimula a produção dos próprios anticorpos</li>
+                <li>Ação lenta (dias/semanas) — por isso é <strong>preventiva</strong></li>
+                <li>Duração longa, gera <strong>memória</strong> — daí as doses de reforço</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>SORO (passiva artificial)</h5>
+              <ul>
+                <li>Anticorpos prontos (produzidos em animal, ex. cavalo) transferidos ao paciente</li>
+                <li>Ação imediata — por isso é <strong>curativo/tratamento</strong></li>
+                <li>Duração curta, <strong>sem memória</strong> — precisa de novo soro se picado de novo</li>
+              </ul>
+            </div>
+          </div>
+          <div class="warning-box"><strong>Macete:</strong> VACINA = prevenção, lenta, duradoura, com memória. SORO = tratamento, imediato, passageiro, sem memória.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Resposta Primária × Resposta Secundária</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <img src="bio-imgs/imune-resposta-primaria-secundaria.jpg" alt="Gráfico da resposta imunológica primária e secundária — nível de anticorpos ao longo do tempo" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>1º contato (resposta primária)</h5>
+              <ul>
+                <li>Poucos linfócitos reconhecem aquele antígeno — precisam se multiplicar (expansão clonal)</li>
+                <li>Latência de vários dias, produção baixa, predomínio de <strong>IgM</strong></li>
+                <li>Ao final, ficam as <strong>células de memória</strong></li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>2º contato (resposta secundária)</h5>
+              <ul>
+                <li>Células de memória já existem em grande número</li>
+                <li>Resposta rápida (horas a poucos dias), muito mais intensa, predomínio de <strong>IgG</strong></li>
+                <li>Patógeno costuma ser eliminado antes de causar sintomas</li>
+              </ul>
+            </div>
+          </div>
+          <div class="highlight-box">É por isso que <strong>não se pega sarampo duas vezes</strong> e por isso as vacinas funcionam: a primeira dose "ensaia" a resposta primária em segurança, e o reforço aproveita a memória para produzir a resposta secundária.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 9 — SISTEMA RESPIRATÓRIO ══════════ -->
+<section class="chapter" id="respiratorio">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch8">Cap. 9</span> Sistema Respiratório</h2>
+    <p class="meta">Anatomia · Hematose · Transporte de Gases · Curva de Saturação da Hemoglobina</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Por que Respiramos — Sistêmica × Celular</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            Não conseguimos ficar sem respirar porque as células dependem da <strong>respiração celular aeróbia</strong> para produzir ATP, e essa via exige O₂ como <strong>aceptor final de elétrons</strong> da cadeia respiratória.
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Respiração Sistêmica</h5>
+              <ul>
+                <li>Processo mecânico/físico: entrada e saída de ar, hematose, transporte pelo sangue</li>
+                <li>Não produz energia</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Respiração Celular</h5>
+              <ul>
+                <li>Processo bioquímico, ocorre nas <strong>mitocôndrias</strong></li>
+                <li>Oxida glicose com O₂, libera CO₂, água e ATP</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flow-box">C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + Energia (ATP)</div>
+          <div class="warning-box">
+            <strong>Sem O₂:</strong> a fermentação rende só 2 ATP (contra ~30-32 na via aeróbia); o CO₂ acumulado acidifica o sangue; os neurônios (altíssima demanda, sem fermentação eficiente) começam a morrer em 3-5 minutos. Por isso a respiração é controlada pelo <strong>bulbo</strong>, que responde ao <strong>aumento de CO₂</strong> — não à falta de O₂ — e é por isso que é impossível se matar prendendo a respiração.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Organização Anatômica e Ventilação</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="flow-box">
+            <span class="flow-step">Fossas nasais</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Faringe</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Laringe</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Traqueia</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Brônquios</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Bronquíolos</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Alvéolos</span>
+          </div>
+          <img src="bio-imgs/respiratorio-organizacao.jpg" alt="Organização anatômica do sistema respiratório — cavidade nasal, faringe, laringe, traqueia, brônquios e pulmões" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Trato Superior</h5>
+              <ul><li>Conduz, <strong>filtra, umedece e aquece</strong> o ar</li></ul>
+            </div>
+            <div class="compare-card">
+              <h5>Trato Inferior</h5>
+              <ul><li>Conduz o ar e realiza as <strong>trocas gasosas</strong> (pulmões)</li></ul>
+            </div>
+          </div>
+          <ul>
+            <li>A <strong>faringe</strong> é comum ao sistema respiratório e digestório; a epiglote fecha a laringe na deglutição, evitando engasgo</li>
+            <li>A <strong>traqueia</strong> tem anéis cartilaginosos em C e epitélio ciliado com muco — o aparelho mucociliar, destruído pelo cigarro</li>
+            <li>Do nariz aos bronquíolos terminais o ar só circula, sem trocar nada: é o <strong>espaço morto anatômico</strong>. A troca começa nos bronquíolos respiratórios</li>
+          </ul>
+          <h4>Músculos e movimentos respiratórios</h4>
+          <table class="enzyme-table">
+            <thead><tr><th>Movimento</th><th>Volume torácico</th><th>Pressão interna</th><th>Diafragma</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Inspiração</strong></td><td>Aumenta</td><td>Diminui (menor que a atmosférica → ar entra)</td><td>Contraído, se aplana</td></tr>
+              <tr><td><strong>Expiração</strong></td><td>Diminui</td><td>Aumenta (maior que a atmosférica → ar sai)</td><td>Relaxado, volta à cúpula</td></tr>
+            </tbody>
+          </table>
+          <div class="tip-box">
+            O <strong>diafragma</strong> responde por 70-75% do ar que entra na respiração tranquila. A <strong>expiração tranquila é passiva</strong> (só relaxamento) — só na expiração forçada entram os intercostais internos e os músculos abdominais.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Hematose e Transporte de O₂ e CO₂</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Hematose</strong> é a troca gasosa que transforma sangue venoso em arterial, nos <strong>alvéolos pulmonares</strong>. Ocorre por <strong>difusão simples</strong> — passiva, a favor do gradiente, sem gastar ATP.
+          </div>
+          <img src="bio-imgs/respiratorio-alveolos.jpg" alt="Alvéolos pulmonares e a rede de capilares onde ocorre a hematose" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <h4>Hemoglobina e o transporte de O₂</h4>
+          <ul>
+            <li>4 cadeias, cada uma com um grupo heme + <strong>Fe²⁺</strong>. Liga até 4 O₂, formando <strong>oxi-hemoglobina</strong></li>
+            <li>~98,5% do O₂ do sangue viaja ligado a ela (multiplica ~70× a capacidade de transporte do plasma sozinho)</li>
+            <li>Ligação cooperativa → curva <strong>sigmoide</strong>. Liberação nos tecidos é favorecida por baixa pO₂, <strong>pH baixo</strong> (efeito Bohr), temperatura alta</li>
+          </ul>
+          <div class="warning-box">O <strong>monóxido de carbono (CO)</strong> se liga ao mesmo ferro com afinidade 200-250× maior — forma carboxi-hemoglobina e bloqueia o transporte de O₂. É o mecanismo da intoxicação por CO.</div>
+          <h4>Transporte de CO₂ (o inverso: hemoglobina é coadjuvante)</h4>
+          <img src="bio-imgs/respiratorio-transporte-co2.jpg" alt="Transporte de CO2 no sangue — íons bicarbonato, anidrase carbônica e a reação nos tecidos e nos pulmões" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <ul>
+            <li><strong>~70% como bicarbonato (HCO₃⁻)</strong> — CO₂ + H₂O → H₂CO₃ → H⁺ + HCO₃⁻, reação acelerada pela <strong>anidrase carbônica</strong> dentro da hemácia</li>
+            <li>~23% como <strong>carbaminoemoglobina</strong> — liga-se à parte proteica (globina), não ao ferro, por isso não compete com o O₂</li>
+            <li>~7% dissolvido no plasma</li>
+          </ul>
+          <div class="tip-box"><strong>Efeito Haldane:</strong> quanto menos oxigenada a hemoglobina, mais CO₂ e H⁺ ela carrega — nos tecidos ela solta O₂ e fica mais apta a recolher CO₂; nos pulmões, ao captar O₂, libera o CO₂. É o <strong>Princípio de Le Chatelier</strong> aplicado: a mesma reação corre para um lado nos tecidos (sobra CO₂) e para o outro nos pulmões (falta CO₂).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Curva de Saturação da Hemoglobina</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <img src="bio-imgs/hemoglobina-curva-saturacao.jpg" alt="Curva de saturação da hemoglobina em função da pressão parcial de oxigênio, e o efeito do pH" style="width:100%;max-width:520px;display:block;margin:16px auto;border-radius:10px;">
+          <ul>
+            <li>A saturação de Hb em função da pO₂ é <strong>sempre crescente</strong> — nunca chega a 0%</li>
+            <li>pO₂ entre <strong>80-120 mmHg</strong> (sangue arterial, saindo dos pulmões): saturação &gt;90%, ~97%</li>
+            <li>pO₂ ~<strong>40 mmHg</strong> (sangue venoso normal): saturação ~75%</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>Efeito do pH:</strong> na mesma pO₂ (40 mmHg), pH mais ácido (7,2) → saturação menor (60%) do que em pH normal (7,4, saturação 75%). Em atividade física intensa, mais CO₂ → mais H⁺ → pH cai → a hemoglobina libera mais O₂ exatamente onde o músculo mais precisa. A <strong>temperatura</strong> alta age da mesma forma.
+          </div>
+          <div class="warning-box">
+            <strong>Hipóxia e Mal da Montanha:</strong> em altitude, o ar é rarefeito → cai a pO₂ atmosférica → menos oxigenação. Adaptação fisiológica: a medula óssea aumenta a produção de hemácias.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 10 — SISTEMA EXCRETOR ══════════ -->
+<section class="chapter" id="excretor">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch9">Cap. 10</span> Sistema Excretor</h2>
+    <p class="meta">Néfron · Formação da Urina · Homeostase Renal</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">O que é Excretar e a Estrutura do Sistema</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Excretar</strong> é qualquer processo pelo qual um organismo se livra de substâncias indesejáveis do metabolismo — não só pelos rins.
+          </div>
+          <table class="enzyme-table">
+            <thead><tr><th>Estrutura</th><th>O que elimina</th></tr></thead>
+            <tbody>
+              <tr><td>Rins (Sistema excretor)</td><td>Urina — água, sais, ureia, H⁺</td></tr>
+              <tr><td>Pulmões</td><td>Água e CO₂</td></tr>
+              <tr><td>Glândulas sudoríparas (pele)</td><td>Água, sais e ureia (suor)</td></tr>
+            </tbody>
+          </table>
+          <div class="warning-box"><strong>Urina ≠ ureia:</strong> a urina é uma solução que contém excretas — a ureia é só um deles (o principal excreta nitrogenado). A <strong>ureia é formada no FÍGADO</strong> (desaminação de aminoácidos e bases nitrogenadas); os rins <strong>apenas a eliminam</strong>.</div>
+          <img src="bio-imgs/excretor-estrutura.jpg" alt="Estrutura do sistema excretor — rim, ureter, bexiga urinária e uretra" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <ul>
+            <li><strong>Rins</strong> — filtram o sangue, formam a urina</li>
+            <li><strong>Ureteres</strong> — conduzem a urina até a bexiga por movimentos peristálticos (não por gravidade)</li>
+            <li><strong>Bexiga urinária</strong> — armazena a urina (~400-600 mL)</li>
+            <li><strong>Uretra</strong> — conduz a urina ao exterior, com esfíncter interno (involuntário) e externo (voluntário); no homem também é via reprodutiva</li>
+          </ul>
+          <div class="warning-box"><strong>Pegadinha:</strong> as <strong>glândulas suprarrenais</strong> aparecem no esquema por ficarem sobre os rins, mas são glândulas <strong>endócrinas</strong> e <strong>não participam</strong> da formação da urina (embora a aldosterona que produzem regule a reabsorção renal de sódio e água).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Anatomia do Rim e o Néfron</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Córtex renal (externo)</h5>
+              <ul><li>Corpúsculos renais (glomérulo + cápsula de Bowman) e túbulos contorcidos — onde ocorre a <strong>filtração</strong></li></ul>
+            </div>
+            <div class="compare-card">
+              <h5>Medula renal (interno)</h5>
+              <ul><li>Pirâmides renais, alças de Henle e ductos coletores — gradiente que concentra a urina</li></ul>
+            </div>
+          </div>
+          <p>A <strong>pelve renal</strong>, em forma de funil, recebe a urina das papilas e a conduz ao ureter.</p>
+          <img src="bio-imgs/excretor-nefron.jpg" alt="O néfron, unidade funcional do rim — cerca de 1 milhão por rim" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <h4>As partes do néfron (~1 milhão por rim)</h4>
+          <ul>
+            <li><strong>Glomérulo</strong> — novelo de capilares (arteríola aferente entra, eferente — mais estreita — sai, mantendo alta pressão)</li>
+            <li><strong>Cápsula de Bowman</strong> — recebe o filtrado; glomérulo + cápsula = <strong>corpúsculo renal</strong></li>
+            <li><strong>Túbulo contorcido proximal</strong> — reabsorção em massa (100% glicose e aminoácidos)</li>
+            <li><strong>Alça de Henle</strong> — gradiente osmótico da medula (mecanismo de contracorrente)</li>
+            <li><strong>Túbulo contorcido distal</strong> — ajuste fino, sob ação de aldosterona e ADH</li>
+            <li><strong>Ducto coletor</strong> — compartilhado por vários néfrons, reabsorção final de água (ADH)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Formação da Urina — Filtração, Reabsorção e Secreção</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <img src="bio-imgs/excretor-filtracao-glomerular.jpg" alt="Filtração glomerular — arteríola aferente e eferente, cápsula de Bowman e o filtrado glomerular" style="width:100%;max-width:680px;display:block;margin:16px auto;border-radius:10px;">
+          <table class="enzyme-table">
+            <thead><tr><th>Local</th><th>Processo</th><th>Substâncias</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Corpúsculo renal</strong> (glomérulo + cápsula)</td><td><strong>Filtração</strong>, sob alta pressão (~75 mmHg)</td><td>Água, glicose, aminoácidos, sais, ureia etc.</td></tr>
+              <tr><td><strong>Túbulo contorcido proximal</strong></td><td><strong>Reabsorção</strong> em massa (100% glicose/aminoácidos)</td><td>Água, glicose, aminoácidos, sais</td></tr>
+              <tr><td><strong>Alça de Henle</strong></td><td>Reabsorção por osmose (gradiente de contracorrente)</td><td>Água e sais</td></tr>
+              <tr><td><strong>Túbulo contorcido distal</strong></td><td><strong>Secreção</strong> ativa de excretas</td><td>Ácido úrico, amônia, H⁺</td></tr>
+              <tr><td><strong>Ducto coletor</strong></td><td>Reabsorção final de água (ADH), conduz a urina ao ureter</td><td>Água, ureia, sais</td></tr>
+            </tbody>
+          </table>
+          <div class="tip-box">Os rins filtram <strong>~2.000 L de sangue por dia</strong>, formando <strong>~160-180 L de filtrado glomerular</strong> — mas eliminamos só ~1,5 L de urina. Quase tudo é reabsorvido.</div>
+          <div class="warning-box"><strong>Não confunda:</strong> na <strong>reabsorção</strong>, a substância sai do filtrado e volta para o sangue. Na <strong>secreção</strong>, é o contrário — sai do sangue e é jogada no filtrado. São sentidos opostos.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Importância do Sistema Excretor e Cálculo Renal</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <p>O rim é o principal órgão da <strong>homeostase</strong>:</p>
+          <ul>
+            <li>Excreção de resíduos nitrogenados (ureia, ácido úrico, creatinina)</li>
+            <li><strong>Osmorregulação</strong> — volume de água, via <strong>ADH</strong> (antidiurético)</li>
+            <li>Equilíbrio hidroeletrolítico (Na⁺, K⁺, Cl⁻, Ca²⁺...)</li>
+            <li>Equilíbrio ácido-base — excreta H⁺, reabsorve bicarbonato</li>
+            <li>Regulação da pressão arterial — pela <strong>renina</strong> (sistema renina-angiotensina-aldosterona)</li>
+            <li>Função endócrina — <strong>eritropoietina</strong> (estimula produção de hemácias) e ativação da <strong>vitamina D</strong></li>
+          </ul>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Componentes normais da urina</h5>
+              <ul><li>Água (~95%), ureia, sais/íons, creatinina, ácido úrico, urocromo/urobilina (cor amarela)</li></ul>
+            </div>
+            <div class="compare-card">
+              <h5>O que NÃO deve aparecer</h5>
+              <ul>
+                <li><strong>Glicose</strong> (glicosúria) → sinal de diabetes</li>
+                <li><strong>Proteínas</strong> (proteinúria) → lesão glomerular</li>
+                <li><strong>Hemácias</strong> (hematúria) → lesão, cálculo ou infecção</li>
+              </ul>
+            </div>
+          </div>
+          <div class="warning-box">
+            <strong>Cálculo renal:</strong> baixa ingestão de líquidos ou dieta rica em sais → alta concentração de sais no néfron → formação de cristais, que lesionam o rim e causam dor intensa ao se deslocar.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ══════════ QUIZ ══════════ -->
 <section class="quiz-section" id="quiz">
-  <h3>Quiz — AI Unificada 01/06/2026</h3>
-  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">18 questões · Sistema Digestório · Transportes de Membrana · Sistema Circulatório</p>
+  <h3>Quiz — AI Unificada e Prova Trimestral</h3>
+  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">42 questões · Digestório · Transportes · Circulatório · Sangue e Linfa · Imunológico · Respiratório · Excretor</p>
 
   <div class="bio-topbar">
     <div style="display:flex;align-items:center;gap:10px;">
@@ -1213,17 +1804,21 @@
         </svg>
         <span id="mini-pct" style="position:relative;font-size:0.65rem;font-weight:800;color:rgba(255,255,255,0.5);">—</span>
       </div>
-      <div style="font-size:0.9rem;font-weight:600;color:white;" id="score-live">Placar: <strong>0 / 18</strong></div>
+      <div style="font-size:0.9rem;font-weight:600;color:white;" id="score-live">Placar: <strong>0 / 42</strong></div>
     </div>
     <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
-    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (18)</button>
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (42)</button>
     <button class="filter-btn" onclick="filterQuiz('ch1',this)">Trato Superior</button>
     <button class="filter-btn" onclick="filterQuiz('ch2',this)">Int. Delgado</button>
     <button class="filter-btn" onclick="filterQuiz('ch3',this)">Int. Grosso</button>
     <button class="filter-btn" onclick="filterQuiz('ch4',this)">Transportes</button>
     <button class="filter-btn" onclick="filterQuiz('ch5',this)">Sist. Circulatório</button>
+    <button class="filter-btn" onclick="filterQuiz('ch6',this)">Sangue e Linfa</button>
+    <button class="filter-btn" onclick="filterQuiz('ch7',this)">Sist. Imunológico</button>
+    <button class="filter-btn" onclick="filterQuiz('ch8',this)">Sist. Respiratório</button>
+    <button class="filter-btn" onclick="filterQuiz('ch9',this)">Sist. Excretor</button>
   </div>
 
   <div id="score-box">
@@ -1422,6 +2017,246 @@
     <div class="feedback" id="q18-fb"></div>
   </div>
 
+  <div class="quiz-q" id="q19" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Sangue e Linfa</span>
+    <p>19. Por que o sangue é classificado como um tecido conjuntivo, mesmo sendo líquido?</p>
+    <label><input type="radio" name="q19" value="a" onclick="checkQuiz('q19','b')"> a) Porque tem muitas células e pouca matriz, como o tecido epitelial</label>
+    <label><input type="radio" name="q19" value="b" onclick="checkQuiz('q19','b')"> b) Porque tem origem mesodérmica, poucas células e muita matriz extracelular — só que essa matriz (o plasma) é líquida, em vez de gelatinosa ou rígida</label>
+    <label><input type="radio" name="q19" value="c" onclick="checkQuiz('q19','b')"> c) Porque circula dentro de vasos, e todo tecido que circula é classificado como conjuntivo</label>
+    <label><input type="radio" name="q19" value="d" onclick="checkQuiz('q19','b')"> d) Porque contém fibras de colágeno permanentes, como o tecido conjuntivo denso</label>
+    <div class="feedback" id="q19-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q20" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Sangue e Linfa</span>
+    <p>20. Um paciente faz um teste de paternidade com uma amostra de sangue. Por que o exame não pode usar diretamente o DNA das hemácias?</p>
+    <label><input type="radio" name="q20" value="a" onclick="checkQuiz('q20','b')"> a) Hemácias são muito pequenas para se extrair DNA em quantidade suficiente</label>
+    <label><input type="radio" name="q20" value="b" onclick="checkQuiz('q20','b')"> b) Hemácias de mamíferos são anucleadas — perdem o núcleo durante a maturação, não têm DNA nuclear; o exame usa os leucócitos, que são células completas e nucleadas</label>
+    <label><input type="radio" name="q20" value="c" onclick="checkQuiz('q20','b')"> c) Hemácias contêm apenas DNA mitocondrial, que muda a cada geração</label>
+    <label><input type="radio" name="q20" value="d" onclick="checkQuiz('q20','b')"> d) Hemácias trocam de DNA constantemente devido à reposição contínua pela medula óssea</label>
+    <div class="feedback" id="q20-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q21" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Sangue e Linfa</span>
+    <p>21. Uma pessoa com desnutrição grave e baixa produção de albumina desenvolve inchaço (edema) generalizado. Qual é a explicação?</p>
+    <label><input type="radio" name="q21" value="a" onclick="checkQuiz('q21','b')"> a) A albumina transporta água diretamente; sem ela, a água simplesmente não circula</label>
+    <label><input type="radio" name="q21" value="b" onclick="checkQuiz('q21','b')"> b) A albumina mantém a pressão oncótica que retém água dentro dos vasos por osmose; sem albumina suficiente, a água escapa dos capilares para o interstício</label>
+    <label><input type="radio" name="q21" value="c" onclick="checkQuiz('q21','b')"> c) A albumina é necessária para a filtração renal; sem ela, a urina simplesmente não é formada</label>
+    <label><input type="radio" name="q21" value="d" onclick="checkQuiz('q21','b')"> d) A albumina compõe a parede dos capilares; sua falta faz os vasos se romperem</label>
+    <div class="feedback" id="q21-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q22" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Sangue e Linfa</span>
+    <p>22. Após um corte, o sangue coagula por uma cascata de reações. Qual a sequência correta, e qual o papel da vitamina K nesse processo?</p>
+    <label><input type="radio" name="q22" value="a" onclick="checkQuiz('q22','b')"> a) Fibrina → trombina → protrombina, com a vitamina K atuando diretamente na parede do vaso lesionado</label>
+    <label><input type="radio" name="q22" value="b" onclick="checkQuiz('q22','b')"> b) Tromboplastina + Ca²⁺ ativa a protrombina em trombina; a trombina converte fibrinogênio em fibrina; a vitamina K é necessária no fígado para sintetizar a protrombina</label>
+    <label><input type="radio" name="q22" value="c" onclick="checkQuiz('q22','b')"> c) As plaquetas se transformam diretamente em fibrina, sem nenhuma etapa intermediária</label>
+    <label><input type="radio" name="q22" value="d" onclick="checkQuiz('q22','b')"> d) A vitamina K substitui o cálcio, ativando diretamente o fibrinogênio</label>
+    <div class="feedback" id="q22-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q23" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Sangue e Linfa</span>
+    <p>23. Por que uma obstrução nos vasos linfáticos, como ocorre na elefantíase (filariose), causa inchaço na região afetada?</p>
+    <label><input type="radio" name="q23" value="a" onclick="checkQuiz('q23','b')"> a) Porque o sangue arterial deixa de circular completamente para a região</label>
+    <label><input type="radio" name="q23" value="b" onclick="checkQuiz('q23','b')"> b) Porque o líquido intersticial que normalmente é drenado pela linfa (cerca de 10% do que extravasa dos capilares) se acumula nos tecidos, causando edema</label>
+    <label><input type="radio" name="q23" value="c" onclick="checkQuiz('q23','b')"> c) Porque os linfonodos da região param de produzir hemácias</label>
+    <label><input type="radio" name="q23" value="d" onclick="checkQuiz('q23','b')"> d) Porque a linfa é o único líquido responsável por hidratar as células, e sua falta causa desidratação celular</label>
+    <div class="feedback" id="q23-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q24" data-ch="ch6">
+    <span class="quiz-chapter-tag tag-ch6">Sangue e Linfa</span>
+    <p>24. Qual a diferença fundamental entre a circulação sanguínea e a circulação linfática?</p>
+    <label><input type="radio" name="q24" value="a" onclick="checkQuiz('q24','b')"> a) Ambas têm bomba própria (o coração) e circulam nos dois sentidos</label>
+    <label><input type="radio" name="q24" value="b" onclick="checkQuiz('q24','b')"> b) A circulação sanguínea é fechada e o sangue percorre um circuito; a linfática é de mão única (só em direção ao coração), sem bomba própria — depende da contração dos músculos esqueléticos e de válvulas</label>
+    <label><input type="radio" name="q24" value="c" onclick="checkQuiz('q24','b')"> c) A linfa é impulsionada pelo coração, assim como o sangue, só que em vasos mais finos</label>
+    <label><input type="radio" name="q24" value="d" onclick="checkQuiz('q24','b')"> d) O sangue é de mão única e a linfa circula nos dois sentidos</label>
+    <div class="feedback" id="q24-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q25" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Sist. Imunológico</span>
+    <p>25. Qual a diferença central entre imunidade inata e adaptativa, quanto à memória e à velocidade de resposta?</p>
+    <label><input type="radio" name="q25" value="a" onclick="checkQuiz('q25','b')"> a) A inata gera memória e é lenta; a adaptativa não gera memória e é rápida</label>
+    <label><input type="radio" name="q25" value="b" onclick="checkQuiz('q25','b')"> b) A inata age de forma imediata e não gera memória; a adaptativa é lenta no primeiro contato, mas gera memória imunológica, tornando as respostas seguintes muito mais rápidas</label>
+    <label><input type="radio" name="q25" value="c" onclick="checkQuiz('q25','b')"> c) Ambas são igualmente rápidas, mas só a imunidade inata gera memória</label>
+    <label><input type="radio" name="q25" value="d" onclick="checkQuiz('q25','b')"> d) A imunidade inata só age contra vírus; a adaptativa só age contra bactérias</label>
+    <div class="feedback" id="q25-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q26" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Sist. Imunológico</span>
+    <p>26. Um macrófago, além de fagocitar micro-organismos, expõe fragmentos do invasor na própria membrana para os linfócitos T. Que função é essa, e por que ela é importante?</p>
+    <label><input type="radio" name="q26" value="a" onclick="checkQuiz('q26','b')"> a) É a diapedese — permite ao macrófago atravessar a parede do capilar</label>
+    <label><input type="radio" name="q26" value="b" onclick="checkQuiz('q26','b')"> b) É a função de célula apresentadora de antígeno (APC) — liga a imunidade inata à adaptativa, ativando a resposta específica dos linfócitos T</label>
+    <label><input type="radio" name="q26" value="c" onclick="checkQuiz('q26','b')"> c) É a opsonização — marca o próprio macrófago para ser destruído por outro fagócito</label>
+    <label><input type="radio" name="q26" value="d" onclick="checkQuiz('q26','b')"> d) É a quimiotaxia — atrai mais macrófagos para o local da infecção</label>
+    <div class="feedback" id="q26-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q27" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Sist. Imunológico</span>
+    <p>27. Por que uma vacina é considerada prevenção, e um soro é considerado tratamento?</p>
+    <label><input type="radio" name="q27" value="a" onclick="checkQuiz('q27','b')"> a) Porque a vacina é sempre injetável e o soro é sempre administrado por via oral</label>
+    <label><input type="radio" name="q27" value="b" onclick="checkQuiz('q27','b')"> b) Porque a vacina estimula o próprio organismo a produzir anticorpos (ação lenta, mas com memória duradoura); o soro fornece anticorpos já prontos (ação imediata, mas sem memória)</label>
+    <label><input type="radio" name="q27" value="c" onclick="checkQuiz('q27','b')"> c) Porque o soro é sempre mais barato de produzir do que a vacina</label>
+    <label><input type="radio" name="q27" value="d" onclick="checkQuiz('q27','b')"> d) Porque a vacina só é eficaz em crianças, e o soro só em adultos</label>
+    <div class="feedback" id="q27-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q28" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Sist. Imunológico</span>
+    <p>28. Um recém-nascido recebe anticorpos da mãe através do colostro (leite materno). Que tipo de imunidade é essa, e por que ela é temporária?</p>
+    <label><input type="radio" name="q28" value="a" onclick="checkQuiz('q28','b')"> a) Imunidade ativa artificial — pois o bebê produziu os próprios anticorpos</label>
+    <label><input type="radio" name="q28" value="b" onclick="checkQuiz('q28','b')"> b) Imunidade passiva natural — o bebê recebe anticorpos prontos por via natural, sem produzir os próprios nem gerar memória; por isso a proteção se esgota com o tempo</label>
+    <label><input type="radio" name="q28" value="c" onclick="checkQuiz('q28','b')"> c) Imunidade ativa natural — pois o contato ocorreu de forma natural, pela amamentação</label>
+    <label><input type="radio" name="q28" value="d" onclick="checkQuiz('q28','b')"> d) Imunidade passiva artificial — pois a amamentação envolve a intervenção de terceiros</label>
+    <div class="feedback" id="q28-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q29" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Sist. Imunológico</span>
+    <p>29. Por que a segunda dose de uma vacina (reforço) provoca uma resposta muito mais rápida e intensa que a primeira?</p>
+    <label><input type="radio" name="q29" value="a" onclick="checkQuiz('q29','b')"> a) Porque a segunda dose sempre contém uma quantidade maior de antígeno</label>
+    <label><input type="radio" name="q29" value="b" onclick="checkQuiz('q29','b')"> b) Porque já existem células de memória (linfócitos B e T) da primeira exposição, prontas para reconhecer o antígeno e se multiplicar rapidamente, produzindo mais anticorpos (predominantemente IgG) em menos tempo</label>
+    <label><input type="radio" name="q29" value="c" onclick="checkQuiz('q29','b')"> c) Porque a segunda dose ativa apenas a imunidade inata, que é sempre mais rápida</label>
+    <label><input type="radio" name="q29" value="d" onclick="checkQuiz('q29','b')"> d) Porque o antígeno da segunda dose é sempre diferente e mais fácil de combater</label>
+    <div class="feedback" id="q29-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q30" data-ch="ch7">
+    <span class="quiz-chapter-tag tag-ch7">Sist. Imunológico</span>
+    <p>30. Uma pessoa com AIDS tem seus linfócitos T auxiliares (CD4) destruídos pelo HIV. Por que isso a torna vulnerável a infecções que normalmente não afetariam uma pessoa saudável?</p>
+    <label><input type="radio" name="q30" value="a" onclick="checkQuiz('q30','b')"> a) Porque, sem T auxiliares, a imunidade inata para de funcionar completamente</label>
+    <label><input type="radio" name="q30" value="b" onclick="checkQuiz('q30','b')"> b) Porque os T auxiliares coordenam a resposta adaptativa, estimulando linfócitos B (anticorpos) e T citotóxicos; sem essa coordenação, a resposta específica fica comprometida, abrindo espaço para infecções oportunistas</label>
+    <label><input type="radio" name="q30" value="c" onclick="checkQuiz('q30','b')"> c) Porque, sem T auxiliares, o corpo passa a produzir anticorpos contra si mesmo</label>
+    <label><input type="radio" name="q30" value="d" onclick="checkQuiz('q30','b')"> d) Porque os T auxiliares são os únicos leucócitos capazes de fagocitose</label>
+    <div class="feedback" id="q30-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q31" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Sist. Respiratório</span>
+    <p>31. Por que uma pessoa não consegue "se matar" simplesmente prendendo a respiração?</p>
+    <label><input type="radio" name="q31" value="a" onclick="checkQuiz('q31','b')"> a) Porque os pulmões se enchem automaticamente de ar, independente da vontade da pessoa</label>
+    <label><input type="radio" name="q31" value="b" onclick="checkQuiz('q31','b')"> b) Porque o bulbo controla o ritmo respiratório respondendo principalmente ao aumento de CO₂ no sangue (não à falta de O₂); o acúmulo de CO₂ dispara involuntariamente a inspiração</label>
+    <label><input type="radio" name="q31" value="c" onclick="checkQuiz('q31','b')"> c) Porque o diafragma é um músculo involuntário que jamais interrompe seu movimento</label>
+    <label><input type="radio" name="q31" value="d" onclick="checkQuiz('q31','b')"> d) Porque o oxigênio estocado no corpo dura muitas horas, tornando a asfixia voluntária impossível</label>
+    <div class="feedback" id="q31-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q32" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Sist. Respiratório</span>
+    <p>32. Qual o tipo de transporte envolvido na hematose (troca gasosa nos alvéolos), e por que ele não consome ATP?</p>
+    <label><input type="radio" name="q32" value="a" onclick="checkQuiz('q32','b')"> a) Transporte ativo, pois os gases se movem contra o gradiente de pressão parcial</label>
+    <label><input type="radio" name="q32" value="b" onclick="checkQuiz('q32','b')"> b) Difusão simples — os gases, pequenos e apolares, atravessam a bicamada lipídica a favor do próprio gradiente de pressão parcial, sem necessidade de proteínas ou energia</label>
+    <label><input type="radio" name="q32" value="c" onclick="checkQuiz('q32','b')"> c) Difusão facilitada, pois depende de canais proteicos específicos para O₂ e CO₂</label>
+    <label><input type="radio" name="q32" value="d" onclick="checkQuiz('q32','b')"> d) Osmose, já que o sangue tem maior concentração de solutos do que o ar alveolar</label>
+    <div class="feedback" id="q32-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q33" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Sist. Respiratório</span>
+    <p>33. Durante um exercício físico intenso, o músculo produz mais CO₂ e fica mais ácido. Como isso afeta a liberação de oxigênio pela hemoglobina?</p>
+    <label><input type="radio" name="q33" value="a" onclick="checkQuiz('q33','b')"> a) A liberação de O₂ diminui, pois o pH ácido desnatura a hemoglobina</label>
+    <label><input type="radio" name="q33" value="b" onclick="checkQuiz('q33','b')"> b) A liberação de O₂ aumenta — o pH mais baixo (mais H⁺) desloca a curva de saturação, fazendo a hemoglobina liberar mais oxigênio exatamente onde o tecido mais precisa (efeito Bohr)</label>
+    <label><input type="radio" name="q33" value="c" onclick="checkQuiz('q33','b')"> c) A liberação de O₂ não se altera, pois depende apenas da pressão parcial de oxigênio</label>
+    <label><input type="radio" name="q33" value="d" onclick="checkQuiz('q33','b')"> d) A hemoglobina passa a transportar CO₂ no lugar de O₂, trocando de função</label>
+    <div class="feedback" id="q33-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q34" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Sist. Respiratório</span>
+    <p>34. Qual é a principal forma de transporte do gás carbônico no sangue, e qual enzima acelera essa reação dentro da hemácia?</p>
+    <label><input type="radio" name="q34" value="a" onclick="checkQuiz('q34','b')"> a) Dissolvido diretamente no plasma (70%), sem necessidade de nenhuma enzima</label>
+    <label><input type="radio" name="q34" value="b" onclick="checkQuiz('q34','b')"> b) Como íon bicarbonato (~70%), formado a partir de CO₂ + H₂O → H₂CO₃ → H⁺ + HCO₃⁻, reação acelerada pela anidrase carbônica dentro da hemácia</label>
+    <label><input type="radio" name="q34" value="c" onclick="checkQuiz('q34','b')"> c) Ligado ao ferro do grupo heme, competindo diretamente com o oxigênio pelo mesmo sítio</label>
+    <label><input type="radio" name="q34" value="d" onclick="checkQuiz('q34','b')"> d) Como carbaminoemoglobina (70%), formada no plasma antes de entrar na hemácia</label>
+    <div class="feedback" id="q34-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q35" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Sist. Respiratório</span>
+    <p>35. Um alpinista sobe rapidamente a uma grande altitude e sente falta de ar, apesar de respirar normalmente. Qual a causa fisiológica, e qual a adaptação do corpo a longo prazo?</p>
+    <label><input type="radio" name="q35" value="a" onclick="checkQuiz('q35','b')"> a) O ar contém menos oxigênio químico em altitude, que só se recompõe ao nível do mar</label>
+    <label><input type="radio" name="q35" value="b" onclick="checkQuiz('q35','b')"> b) O ar é mais rarefeito em altitude, reduzindo a pressão parcial de O₂ atmosférico (hipóxia); com o tempo, a medula óssea aumenta a produção de hemácias para compensar</label>
+    <label><input type="radio" name="q35" value="c" onclick="checkQuiz('q35','b')"> c) A hemoglobina perde permanentemente a capacidade de se ligar ao oxigênio</label>
+    <label><input type="radio" name="q35" value="d" onclick="checkQuiz('q35','b')"> d) O aumento da pressão atmosférica em altitude dificulta a ventilação pulmonar</label>
+    <div class="feedback" id="q35-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q36" data-ch="ch8">
+    <span class="quiz-chapter-tag tag-ch8">Sist. Respiratório</span>
+    <p>36. Por que o monóxido de carbono (CO) é tão perigoso para o transporte de oxigênio no sangue?</p>
+    <label><input type="radio" name="q36" value="a" onclick="checkQuiz('q36','b')"> a) Ele destrói fisicamente as hemácias, causando hemólise maciça</label>
+    <label><input type="radio" name="q36" value="b" onclick="checkQuiz('q36','b')"> b) Ele se liga ao mesmo sítio do ferro da hemoglobina com afinidade 200-250 vezes maior que o oxigênio, formando carboxi-hemoglobina e bloqueando o transporte de O₂</label>
+    <label><input type="radio" name="q36" value="c" onclick="checkQuiz('q36','b')"> c) Ele reage com a água do plasma, formando ácido carbônico em excesso</label>
+    <label><input type="radio" name="q36" value="d" onclick="checkQuiz('q36','b')"> d) Ele aumenta demais a produção de bicarbonato, elevando o pH do sangue</label>
+    <div class="feedback" id="q36-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q37" data-ch="ch9">
+    <span class="quiz-chapter-tag tag-ch9">Sist. Excretor</span>
+    <p>37. Qual órgão realmente produz a ureia, e qual o papel dos rins nesse processo?</p>
+    <label><input type="radio" name="q37" value="a" onclick="checkQuiz('q37','b')"> a) Os próprios rins produzem e eliminam a ureia</label>
+    <label><input type="radio" name="q37" value="b" onclick="checkQuiz('q37','b')"> b) O fígado produz a ureia, a partir da desaminação de aminoácidos; os rins apenas a filtram e a eliminam na urina</label>
+    <label><input type="radio" name="q37" value="c" onclick="checkQuiz('q37','b')"> c) A medula óssea produz a ureia, e os rins apenas a armazenam</label>
+    <label><input type="radio" name="q37" value="d" onclick="checkQuiz('q37','b')"> d) O pâncreas produz a ureia, e a bexiga a elimina diretamente</label>
+    <div class="feedback" id="q37-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q38" data-ch="ch9">
+    <span class="quiz-chapter-tag tag-ch9">Sist. Excretor</span>
+    <p>38. Por que a arteríola eferente do glomérulo é mais estreita que a arteríola aferente, e qual a consequência disso?</p>
+    <label><input type="radio" name="q38" value="a" onclick="checkQuiz('q38','b')"> a) Não há diferença real de calibre entre elas — essa é uma ideia equivocada</label>
+    <label><input type="radio" name="q38" value="b" onclick="checkQuiz('q38','b')"> b) O estreitamento da arteríola eferente represa o sangue dentro do glomérulo, mantendo uma pressão hidrostática alta (~75 mmHg), essencial para forçar a filtração do plasma para a cápsula de Bowman</label>
+    <label><input type="radio" name="q38" value="c" onclick="checkQuiz('q38','b')"> c) A arteríola eferente é mais estreita apenas para reduzir a velocidade do sangue e evitar hemorragias</label>
+    <label><input type="radio" name="q38" value="d" onclick="checkQuiz('q38','b')"> d) O estreitamento serve para impedir fisicamente a entrada de glicose no filtrado</label>
+    <div class="feedback" id="q38-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q39" data-ch="ch9">
+    <span class="quiz-chapter-tag tag-ch9">Sist. Excretor</span>
+    <p>39. Um exame de urina detecta a presença de glicose (glicosúria). O que isso normalmente indica?</p>
+    <label><input type="radio" name="q39" value="a" onclick="checkQuiz('q39','b')"> a) É um achado normal, presente em qualquer urina saudável</label>
+    <label><input type="radio" name="q39" value="b" onclick="checkQuiz('q39','b')"> b) Indica que a glicemia ultrapassou o limiar renal (~180 mg/dL) e o túbulo proximal não conseguiu reabsorver toda a glicose filtrada — sinal clássico de diabetes mellitus</label>
+    <label><input type="radio" name="q39" value="c" onclick="checkQuiz('q39','b')"> c) Indica apenas desidratação simples, sem relação com o metabolismo da glicose</label>
+    <label><input type="radio" name="q39" value="d" onclick="checkQuiz('q39','b')"> d) Indica que os rins estão produzindo glicose em excesso</label>
+    <div class="feedback" id="q39-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q40" data-ch="ch9">
+    <span class="quiz-chapter-tag tag-ch9">Sist. Excretor</span>
+    <p>40. Qual a diferença entre reabsorção e secreção tubular na formação da urina?</p>
+    <label><input type="radio" name="q40" value="a" onclick="checkQuiz('q40','b')"> a) São processos idênticos, apenas com nomes diferentes</label>
+    <label><input type="radio" name="q40" value="b" onclick="checkQuiz('q40','b')"> b) Na reabsorção, substâncias saem do filtrado e voltam para o sangue; na secreção, substâncias saem do sangue e são lançadas no filtrado — são sentidos opostos</label>
+    <label><input type="radio" name="q40" value="c" onclick="checkQuiz('q40','b')"> c) A reabsorção ocorre só no glomérulo; a secreção ocorre só na bexiga</label>
+    <label><input type="radio" name="q40" value="d" onclick="checkQuiz('q40','b')"> d) A reabsorção elimina excretas; a secreção retém nutrientes</label>
+    <div class="feedback" id="q40-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q41" data-ch="ch9">
+    <span class="quiz-chapter-tag tag-ch9">Sist. Excretor</span>
+    <p>41. Por que a alça de Henle é fundamental para a capacidade do rim de concentrar a urina e economizar água?</p>
+    <label><input type="radio" name="q41" value="a" onclick="checkQuiz('q41','b')"> a) Porque nela ocorre a filtração inicial do sangue</label>
+    <label><input type="radio" name="q41" value="b" onclick="checkQuiz('q41','b')"> b) Porque ela cria e mantém um gradiente osmótico crescente na medula renal (mecanismo de contracorrente), o que permite ao ducto coletor reabsorver mais água depois</label>
+    <label><input type="radio" name="q41" value="c" onclick="checkQuiz('q41','b')"> c) Porque ela secreta hormônio antidiurético (ADH) diretamente na urina</label>
+    <label><input type="radio" name="q41" value="d" onclick="checkQuiz('q41','b')"> d) Porque ela é o único local do néfron onde ocorre a filtração glomerular</label>
+    <div class="feedback" id="q41-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q42" data-ch="ch9">
+    <span class="quiz-chapter-tag tag-ch9">Sist. Excretor</span>
+    <p>42. As glândulas suprarrenais aparecem nos esquemas do sistema excretor, posicionadas sobre os rins. Por que isso pode gerar confusão em uma prova?</p>
+    <label><input type="radio" name="q42" value="a" onclick="checkQuiz('q42','b')"> a) Porque elas realmente participam da filtração do sangue, junto com os rins</label>
+    <label><input type="radio" name="q42" value="b" onclick="checkQuiz('q42','b')"> b) Porque, apesar da posição anatômica próxima, elas são glândulas endócrinas e não participam da formação da urina — embora um de seus hormônios, a aldosterona, regule a reabsorção renal de sódio e água</label>
+    <label><input type="radio" name="q42" value="c" onclick="checkQuiz('q42','b')"> c) Porque elas produzem a urina antes de ela chegar aos rins</label>
+    <label><input type="radio" name="q42" value="d" onclick="checkQuiz('q42','b')"> d) Porque elas substituem completamente a função dos rins em caso de insuficiência renal</label>
+    <div class="feedback" id="q42-fb"></div>
+  </div>
+
   <div style="text-align:center; margin-top:28px;">
     <button onclick="resetQuiz()" style="background:var(--secondary);color:white;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
   </div>
@@ -1476,6 +2311,30 @@ const answers = {
   q16: { correct: 'b', explain: 'Os capilares reúnem três características que os tornam ideais para trocas: (1) parede de uma única camada de células endoteliais → distância mínima para difusão de gases e nutrientes; (2) área total de secção transversal máxima → velocidade mínima do fluxo → mais tempo de contato sangue-tecido; (3) rede capilar densa → nenhuma célula fica distante de um capilar. Juntas, essas características maximizam a eficiência das trocas.' },
   q17: { correct: 'c', explain: 'O NSA gera ~60–100 bpm. O NAV, como marcapasso de segurança, gera ~40–60 bpm. Se o impulso partir apenas do NAV, a FC cai (bradicardia). Além disso, sem ativação prévia pelo NSA, os átrios não se contraem antes dos ventrículos — perde-se o "impulso atrial" que completa o enchimento ventricular (cerca de 20–30% do volume). Isso reduz o débito cardíaco. É o quadro do bloqueio atrioventricular, frequentemente tratado com marcapasso artificial.' },
   q18: { correct: 'b', explain: 'PA normal é ~12 × 8 (120/80 mmHg). Hipertensão é definida como PA ≥ 14 × 9 (140/90 mmHg). 15 × 10 (150/100 mmHg) está claramente acima desse limiar. Cronicamente, a pressão elevada: (1) danifica o endotélio das artérias → favorece aterosclerose → risco de infarto e AVC; (2) sobrecarrega o ventrículo esquerdo → hipertrofia → insuficiência cardíaca; (3) lesiona os glomérulos renais → insuficiência renal. É a "assassina silenciosa" pois frequentemente é assintomática.' },
+  q19: { correct: 'b', explain: 'O sangue atende à definição de tecido conjuntivo: origem mesodérmica, poucas células, muita matriz extracelular. A particularidade é que a matriz (o plasma) é líquida, em vez de gelatinosa (conjuntivo frouxo) ou rígida (cartilagem, osso). As "fibras" (fibrina) só aparecem quando necessário, na coagulação.' },
+  q20: { correct: 'b', explain: 'As hemácias humanas maduras são anucleadas: durante a diferenciação na medula óssea, expulsam o núcleo (e mitocôndrias e ribossomos) para abrir espaço para mais hemoglobina. Sem núcleo, não há DNA a analisar. O teste usa os leucócitos, que são células completas e nucleadas — por isso funciona com sangue total, mas não funcionaria com hemácias isoladas.' },
+  q21: { correct: 'b', explain: 'A albumina (produzida no fígado) é a principal responsável pela pressão oncótica (coloidosmótica) do plasma — ela "segura" água dentro dos vasos por osmose. Quando falta (desnutrição grave, doença hepática ou renal), a água escapa dos capilares para o interstício, causando edema — é a explicação do abdome inchado no kwashiorkor.' },
+  q22: { correct: 'b', explain: 'A cascata: tromboplastina (liberada pelas plaquetas e tecido lesionado) + Ca²⁺ converte protrombina em trombina; a trombina age sobre o fibrinogênio, transformando-o em fibrina, que forma a rede do coágulo. A vitamina K é o cofator necessário para o fígado sintetizar a protrombina (e outros fatores) — sem ela, a coagulação fica lenta.' },
+  q23: { correct: 'b', explain: 'Nos capilares, parte do plasma extravasa para os tecidos como líquido intersticial; cerca de 10% não retorna diretamente e é recolhido pelos vasos linfáticos, formando a linfa. Se a drenagem linfática falha (obstrução por vermes, na filariose), esse excedente se acumula nos tecidos — é o edema da elefantíase.' },
+  q24: { correct: 'b', explain: 'A circulação sanguínea é fechada, dupla e bidirecional dentro do seu circuito, bombeada pelo coração. Já a circulação linfática é de mão única — sempre da periferia em direção ao coração, nunca ao contrário — e não tem bomba própria: depende da compressão dos músculos esqueléticos e de válvulas internas dos vasos linfáticos.' },
+  q25: { correct: 'b', explain: 'A imunidade inata (natural, inespecífica) já nasce conosco, age igual contra qualquer invasor e responde em minutos a horas, mas não gera memória. A adaptativa (específica) leva dias para se desenvolver no primeiro contato, mas gera memória imunológica — por isso contatos seguintes são muito mais rápidos e eficientes.' },
+  q26: { correct: 'b', explain: 'O macrófago funciona como célula apresentadora de antígeno (APC): expõe fragmentos do invasor (via MHC) na própria membrana para os linfócitos T auxiliares, ativando a imunidade adaptativa. É essa apresentação — junto com a das células dendríticas — que conecta a resposta inata (rápida, inespecífica) à resposta adaptativa (lenta, específica).' },
+  q27: { correct: 'b', explain: 'A vacina contém o antígeno (morto, atenuado, fragmentado ou como mRNA) e estimula o próprio organismo a produzir anticorpos — processo lento, mas que gera memória duradoura, por isso é preventiva. O soro contém anticorpos já prontos, produzidos por outro organismo — ação imediata, mas sem memória, por isso é usado como tratamento após a exposição.' },
+  q28: { correct: 'b', explain: 'É um caso de imunidade passiva natural: o bebê recebe anticorpos prontos (IgA no colostro, IgG pela placenta) produzidos por outro organismo (a mãe), sem produzir os próprios nem formar células de memória. Como os anticorpos recebidos são gradualmente degradados e não repostos, a proteção dura pouco — diferente da imunidade ativa, que é duradoura.' },
+  q29: { correct: 'b', explain: 'No primeiro contato, poucos linfócitos reconhecem aquele antígeno específico e precisam se multiplicar (expansão clonal) antes de produzir anticorpos — resposta primária, lenta e de baixo nível (IgM). No segundo contato, já existem numerosas células de memória prontas, gerando a resposta secundária: mais rápida, mais intensa e com predomínio de IgG.' },
+  q30: { correct: 'b', explain: 'Os linfócitos T auxiliares (CD4) coordenam a resposta adaptativa: estimulam os linfócitos B a produzir anticorpos e os T citotóxicos a destruir células infectadas. Quando o HIV destrói essas células, a coordenação da resposta específica falha, e infecções que um sistema imune saudável combateria facilmente (oportunistas) se tornam graves ou letais.' },
+  q31: { correct: 'b', explain: 'O centro respiratório, no bulbo, monitora principalmente o nível de CO₂ no sangue (não o de O₂). Prender a respiração faz o CO₂ se acumular rapidamente; esse acúmulo dispara um reflexo involuntário de inspiração forte, superando a vontade consciente — por isso é fisiologicamente impossível se asfixiar apenas prendendo o fôlego.' },
+  q32: { correct: 'b', explain: 'A hematose ocorre por difusão simples: O₂ e CO₂ são moléculas pequenas e apolares que atravessam diretamente a bicamada lipídica da barreira alvéolo-capilar, movendo-se a favor do próprio gradiente de pressão parcial. Por ser um transporte passivo, não exige proteínas carreadoras nem gasto de ATP.' },
+  q33: { correct: 'b', explain: 'É o efeito Bohr: mais CO₂ no músculo em atividade gera mais H⁺, baixando o pH local. Esse ambiente mais ácido reduz a afinidade da hemoglobina pelo oxigênio, fazendo-a liberar mais O₂ exatamente onde a demanda é maior — um mecanismo que ajusta automaticamente a entrega de oxigênio à necessidade metabólica do tecido.' },
+  q34: { correct: 'b', explain: 'Cerca de 70% do CO₂ viaja como íon bicarbonato. Dentro da hemácia, a enzima anidrase carbônica acelera a reação CO₂ + H₂O → H₂CO₃ → H⁺ + HCO₃⁻; o bicarbonato sai para o plasma (trocando por um cloreto — efeito Hamburger) enquanto o H⁺ é tamponado pela própria hemoglobina. As outras formas são carbaminoemoglobina (~23%) e CO₂ dissolvido no plasma (~7%).' },
+  q35: { correct: 'b', explain: 'Em altitudes elevadas, o ar é mais rarefeito, reduzindo a pressão parcial de oxigênio disponível — mesmo respirando normalmente, menos O₂ chega ao sangue (hipóxia). Como adaptação fisiológica de médio prazo, a medula óssea aumenta a produção de hemácias, elevando a capacidade de transporte de oxigênio do sangue.' },
+  q36: { correct: 'b', explain: 'O monóxido de carbono se liga ao ferro (Fe²⁺) do grupo heme no mesmo sítio que o oxigênio, mas com afinidade 200 a 250 vezes maior. Isso forma a carboxi-hemoglobina, que não libera o sítio para o O₂ — bloqueando o transporte de oxigênio mesmo com hemoglobina íntegra e em quantidade normal.' },
+  q37: { correct: 'b', explain: 'A ureia é sintetizada no fígado, principalmente a partir da desaminação de aminoácidos e bases nitrogenadas — um processo que transforma a amônia (tóxica) em ureia (menos tóxica, solúvel). Os rins não produzem ureia: eles apenas filtram o sangue e a eliminam na urina.' },
+  q38: { correct: 'b', explain: 'A arteríola eferente, mais estreita que a aferente, funciona como uma represa parcial: dificulta a saída do sangue do glomérulo, mantendo ali uma pressão hidrostática alta (~75 mmHg) — muito maior que em capilares comuns. É essa pressão elevada que força a filtração do plasma para dentro da cápsula de Bowman.' },
+  q39: { correct: 'b', explain: 'Em condições normais, toda a glicose filtrada é reabsorvida no túbulo contorcido proximal. Quando a glicemia ultrapassa o limiar renal (~180 mg/dL), a capacidade de reabsorção dos transportadores é excedida, e parte da glicose "vaza" para a urina — a glicosúria é um sinal clássico de diabetes mellitus não controlado.' },
+  q40: { correct: 'b', explain: 'Reabsorção e secreção têm sentidos opostos: na reabsorção, substâncias saem do filtrado (dentro do néfron) e retornam ao sangue, pelos capilares peritubulares; na secreção, substâncias saem do sangue e são lançadas ativamente no filtrado, para serem eliminadas na urina. Confundir os dois sentidos é um erro comum em prova.' },
+  q41: { correct: 'b', explain: 'A alça de Henle usa um mecanismo de contracorrente: o ramo descendente é permeável à água (que sai) e o ascendente transporta ativamente sais, sem deixar a água acompanhar. Isso cria um gradiente osmótico crescente na medula renal, que o ducto coletor aproveita depois — sob ação do ADH — para reabsorver mais água e concentrar a urina.' },
+  q42: { correct: 'b', explain: 'As glândulas suprarrenais (adrenais) ficam anatomicamente apoiadas sobre o polo superior de cada rim, por isso aparecem nos esquemas do sistema excretor — mas são glândulas endócrinas (produzem adrenalina, noradrenalina, cortisol e aldosterona) e não participam da filtração do sangue nem da formação da urina. A aldosterona que produzem, porém, age sobre o néfron, regulando a reabsorção de sódio e água.' },
 };
 
 let scoreCorrect = 0, scoreTotal = 0;
@@ -1502,7 +2361,7 @@ function updateScore() {
   const box = document.getElementById('score-box');
   box.style.display = 'block';
   document.getElementById('score-nums').textContent = `Placar: ${scoreCorrect} / ${scoreTotal}`;
-  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + scoreCorrect + ' / 18</strong>';
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + scoreCorrect + ' / ' + Object.keys(answers).length + '</strong>';
   const pct = scoreTotal ? Math.round(scoreCorrect / scoreTotal * 100) : 0;
   const arc = (scoreCorrect / (scoreTotal || 1)) * 163.4;
   const donut = document.getElementById('donut-arc');
@@ -1532,7 +2391,7 @@ function resetQuiz() {
   document.getElementById('score-box').style.display = 'none';
   document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
   document.getElementById('score-pct-label').textContent = '0%';
-  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / 18</strong>';
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / ' + Object.keys(answers).length + '</strong>';
   document.getElementById('mini-arc').style.strokeDashoffset = '106.8';
   document.getElementById('mini-arc').style.stroke = 'rgba(255,255,255,0.2)';
   document.getElementById('mini-pct').textContent = '—';
