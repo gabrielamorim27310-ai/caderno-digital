@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>História 2º Tri — Iluminismo, Revoluções e França 2026</title>
+<title>História 2º Tri — Revolução Francesa ao Período Regencial 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
@@ -59,9 +59,7 @@
   .ch-tag { display:inline-block; background:var(--primary); color:white; padding:3px 12px; border-radius:6px; font-size:0.78rem; font-weight:700; letter-spacing:.5px; font-family:'Inter',sans-serif; flex-shrink:0; }
   .chapter-header .meta { color:var(--text-light); font-size:0.9rem; margin-top:6px; }
 
-  .ae-off-badge { display:inline-flex; align-items:center; background:#fff3cd; color:#856404; border:1px solid #ffc107; border-radius:6px; font-size:0.68rem; font-weight:700; padding:2px 7px; margin-left:8px; white-space:nowrap; flex-shrink:0; }
-  .question-card.ae-off { border-left:3px solid #ffc107; }
-  .question-card.ae-off .ae-off-label { display:block; font-size:0.72rem; font-weight:700; color:#856404; background:#fff3cd; border-radius:6px; padding:3px 10px; margin-bottom:6px; width:fit-content; }
+  .pending-badge { display:inline-flex; align-items:center; background:#fff3cd; color:#856404; border:1px solid #ffc107; border-radius:6px; font-size:0.68rem; font-weight:700; padding:2px 7px; margin-left:8px; white-space:nowrap; flex-shrink:0; }
 
   /* ACCORDION */
   .accordion { background:white; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04); }
@@ -70,7 +68,7 @@
   .accordion-btn .chev { transition:transform .3s; color:var(--secondary); font-size:1.1rem; }
   .accordion.open .chev { transform:rotate(180deg); }
   .accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
-  .accordion.open .accordion-content { max-height:4000px; }
+  .accordion.open .accordion-content { max-height:6000px; }
   .content-block { padding:0 20px 20px; border-top:1px solid var(--border); }
   .content-block p { margin:12px 0; font-size:0.95rem; }
   .content-block ul, .content-block ol { margin:8px 0 12px 22px; }
@@ -174,215 +172,40 @@
 <div class="hero">
   <h1>História — 2º Trimestre</h1>
   <p class="subtitle">2ª série do Ensino Médio · 2026</p>
-  <div><span class="badge">Iluminismo · Revolução Americana · Revolução Francesa</span></div>
+  <div><span class="badge">Rev. Francesa · Napoleão · Congresso de Viena · América Espanhola · Brasil Império</span></div>
   <div><span class="author">Caderno Digital</span></div>
 </div>
 
 <nav>
   <div class="nav-inner">
     <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
-    <a href="#iluminismo">Iluminismo</a>
-    <a href="#treze-colonias">Treze Colônias</a>
     <a href="#rev-francesa">Rev. Francesa</a>
+    <a href="#napoleao">Napoleão</a>
+    <a href="#congresso-viena">Congresso de Viena</a>
+    <a href="#america-espanhola">América Espanhola</a>
+    <a href="#periodo-joanino">Período Joanino</a>
+    <a href="#primeiro-reinado">1º Reinado</a>
+    <a href="#periodo-regencial">Período Regencial</a>
     <a href="#quiz">Quiz</a>
   </div>
 </nav>
 
 <main>
 
-<!-- ══════════════════════════════════════════════
-     CAP. 1 — ILUMINISMO E LIBERALISMO ECONÔMICO
-     ══════════════════════════════════════════════ -->
-<section class="chapter" id="iluminismo">
-  <div class="chapter-header">
-    <h2><span class="ch-tag">Cap. 1</span> Iluminismo e Liberalismo Econômico</h2>
-    <p class="meta">Séculos XVII e XVIII · Antigo Regime em crise</p>
-  </div>
-
-  <div class="accordion open">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">O Antigo Regime e suas características <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <p>O <strong>Antigo Regime</strong> era o sistema político e social que vigorou na Europa antes das Revoluções do século XVIII. Era sustentado por três pilares:</p>
-        <table class="data-table">
-          <thead><tr><th>Pilar</th><th>Característica</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Absolutismo</strong></td><td>Poder concentrado no rei — "O Estado sou eu" (Luís XIV). Nenhuma limitação legal ao monarca.</td></tr>
-            <tr><td><strong>Mercantilismo</strong></td><td>Estado controla a economia. Acúmulo de metais, balança comercial favorável, monopólios coloniais.</td></tr>
-            <tr><td><strong>Mentalidade Cristã</strong></td><td>Igreja como autoridade moral e intelectual. Ciência subordinada à fé. Visão teocêntrica do poder.</td></tr>
-          </tbody>
-        </table>
-        <div class="warn-box">
-          <strong>Mentalidade camponesa da Idade Moderna</strong>
-          A maioria da população europeia vivia no campo com valores de tradição, religião, obediência hierárquica, sentido de comunidade e desconfiança do novo — terreno que o Iluminismo vai questionar radicalmente.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Os Filósofos Iluministas <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <p>O <strong>Iluminismo</strong> (Século das Luzes) foi um movimento intelectual europeu dos séculos XVII-XVIII que usava a <em>razão</em> para criticar o absolutismo, a Igreja e o misticismo.</p>
-        <table class="data-table">
-          <thead><tr><th>Filósofo</th><th>Período</th><th>Contribuição Principal</th></tr></thead>
-          <tbody>
-            <tr><td><strong>John Locke</strong> — "Pai do Liberalismo Político"</td><td>1632–1704</td><td>Direitos naturais inalienáveis: <em>vida, liberdade e propriedade</em>. Contrato social. Direito à rebelião contra governos tirânicos.</td></tr>
-            <tr><td><strong>Voltaire</strong> — "Defensor da Liberdade de Expressão"</td><td>1694–1778</td><td>Combatia o fanatismo religioso e o autoritarismo. Defesa da tolerância e da liberdade de pensamento.</td></tr>
-            <tr><td><strong>Montesquieu</strong> — "Teórico da Separação dos Poderes"</td><td>1689–1755</td><td>Propôs dividir o poder em Legislativo, Executivo e Judiciário para evitar a tirania. Obra: <em>O Espírito das Leis</em>.</td></tr>
-            <tr><td><strong>Jean-Jacques Rousseau</strong> — "Defensor da Soberania Popular"</td><td>1712–1778</td><td>A soberania pertence ao povo. Contrato social fundado na vontade geral. Obra: <em>O Contrato Social</em>.</td></tr>
-          </tbody>
-        </table>
-        <div class="highlight-box">
-          <strong>Princípios do Iluminismo</strong>
-          Autonomia da razão · Individualidade · Universalidade dos direitos · Separação Igreja-Estado · Liberdade de expressão · Crítica ao absolutismo
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Enciclopedistas e Despotismo Esclarecido <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <h4>A Enciclopédia (1751–1772)</h4>
-        <p>Organizada por <strong>Denis Diderot</strong> e <strong>Jean le Rond d'Alembert</strong>, a Enciclopédia foi o maior projeto editorial do Iluminismo — uma compilação do conhecimento racional humano em 28 volumes, questionando dogmas religiosos e políticos.</p>
-        <div class="tip-box">
-          <strong>Despotismo Esclarecido</strong>
-          Alguns reis europeus adotaram ideias iluministas <em>sem abrir mão do poder absoluto</em> — reformas "de cima para baixo". Exemplos: Frederico II (Prússia), José II (Áustria), Catarina II (Rússia). No Portugal/Brasil, o Marquês de Pombal aplicou o despotismo esclarecido.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Liberalismo Econômico e Fisiocracia <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <p>Em paralelo ao Iluminismo político, surgiu o <strong>Liberalismo Econômico</strong>, que se opunha ao mercantilismo e defendia o livre mercado.</p>
-        <table class="data-table">
-          <thead><tr><th>Corrente</th><th>Principais ideias</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Fisiocracia</strong></td><td>Riqueza vem da agricultura. Lema: <em>"Laissez faire, laissez passer"</em> (Deixa fazer, deixa passar). Sem interferência do Estado.</td></tr>
-            <tr><td><strong>Adam Smith</strong> — Liberalismo Clássico</td><td>Obra: <em>A Riqueza das Nações</em> (1776). "Mão invisível" do mercado equilibra oferta e demanda sem intervenção estatal. Livre comércio gera riqueza para todos.</td></tr>
-          </tbody>
-        </table>
-        <div class="highlight-box">
-          <strong>Diferença: Fisiocracia × Adam Smith</strong>
-          Os fisiocratas valorizavam a agricultura como única fonte de riqueza. Smith ampliou para o trabalho como um todo e o comércio livre — base do capitalismo industrial.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="tip-box" style="max-width:900px;margin:0 auto 32px;">
+  <strong>Conforme a orientação oficial da Equipe de História (2º tri)</strong>
+  Revolução Francesa e Independência do Haiti (Cap. 23) · Período Napoleônico (Cap. 24) · Congresso de Viena e Santa Aliança (Cap. 25) ·
+  Independências da América Espanhola (Cap. 28) · Período Joanino e Independência do Brasil (Cap. 29) · Primeiro Reinado — 1822-1831 (Cap. 30) ·
+  Período Regencial — 1831-1840 (Cap. 31). O conteúdo de revisão da 1ª série (Migrações Germânicas, Bizâncio, Islã, Peste Negra etc.) entra em uma atualização futura deste resumo.
+</div>
 
 <!-- ══════════════════════════════════════════════
-     CAP. 2 — INDEPENDÊNCIA DAS TREZE COLÔNIAS
-     ══════════════════════════════════════════════ -->
-<section class="chapter" id="treze-colonias">
-  <div class="chapter-header">
-    <h2><span class="ch-tag">Cap. 2</span> Independência das Treze Colônias</h2>
-    <p class="meta">Revolução Americana · 1776</p>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Contexto: Colonização e Negligência Salutar <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <p>A América do Norte foi colonizada pelos ingleses desde o século XVII. As 13 colônias se dividiam em três regiões com economias distintas:</p>
-        <table class="data-table">
-          <thead><tr><th>Região</th><th>Características</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Norte</strong> (Nova Inglaterra)</td><td>Puritanos, pequenas propriedades, pesca, comércio marítimo, manufaturas. Mais urbana.</td></tr>
-            <tr><td><strong>Centro</strong></td><td>Agricultores diversificados, artesãos, pluralismo religioso. Misto.</td></tr>
-            <tr><td><strong>Sul</strong></td><td>Grandes plantations de tabaco e algodão. Escravidão intensa. Aristocracia colonial.</td></tr>
-          </tbody>
-        </table>
-        <div class="highlight-box">
-          <strong>Negligência Salutar (Salutary Neglect)</strong>
-          Durante a Revolução Gloriosa (1688) e até a Guerra dos Sete Anos (1756–1763), a Inglaterra deixou as colônias se autogovernar com pouca interferência. Isso gerou autonomia, prosperidade econômica e identidade própria — os colonos se acostumaram com a liberdade.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Causas: Impostos e Leis Intoleráveis <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <p>A <strong>Guerra dos Sete Anos (1756–1763)</strong> endividou a Inglaterra, que tentou cobrar a conta das colônias com novos impostos:</p>
-        <div class="timeline">
-          <div class="tl-item"><span class="tl-year">1760</span><span class="tl-text">Jorge III assume o trono inglês e adota política mais rígida com as colônias.</span></div>
-          <div class="tl-item"><span class="tl-year">1763</span><span class="tl-text">Fim da Guerra dos Sete Anos. Inglaterra endividada impõe novos impostos às colônias sem consultá-las.</span></div>
-          <div class="tl-item"><span class="tl-year">1773</span><span class="tl-text"><strong>Lei do Chá</strong> — monopólio da Companhia das Índias Orientais. Resposta: <strong>Boston Tea Party</strong> — colonos jogam 342 caixas de chá ao mar.</span></div>
-          <div class="tl-item"><span class="tl-year">1774</span><span class="tl-text"><strong>Leis Intoleráveis</strong> — fechamento do porto de Boston, restrições a reuniões, alojamento obrigatório de tropas britânicas. <strong>1º Congresso Continental</strong> reúne representantes das colônias.</span></div>
-        </div>
-        <div class="tip-box">
-          <strong>"Sem representação, sem taxação"</strong>
-          Os colonos argumentavam: não podemos ser taxados por um parlamento no qual não temos representantes. Era uma aplicação direta dos princípios de John Locke contra o contrato social violado.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Guerra de Independência e Declaração (1775–1783) <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <div class="timeline">
-          <div class="tl-item"><span class="tl-year">1775</span><span class="tl-text">Início da Guerra de Independência. Batalhas de Lexington e Concord. <strong>George Washington</strong> comanda o Exército Continental.</span></div>
-          <div class="tl-item"><span class="tl-year">4 jul 1776</span><span class="tl-text"><strong>Declaração de Independência</strong> — redigida por <strong>Thomas Jefferson</strong>, baseada em Locke: <em>"todos os homens são criados iguais, dotados pelo Criador de direitos inalienáveis: vida, liberdade e busca da felicidade."</em></span></div>
-          <div class="tl-item"><span class="tl-year">1777</span><span class="tl-text">Batalha de Saratoga — virada da guerra. França entra como aliada dos colonos.</span></div>
-          <div class="tl-item"><span class="tl-year">1781</span><span class="tl-text">Batalha de Yorktown — derrota definitiva dos ingleses. Washington vence.</span></div>
-          <div class="tl-item"><span class="tl-year">1783</span><span class="tl-text">Tratado de Paris — Inglaterra reconhece a independência dos EUA.</span></div>
-        </div>
-        <p><strong>Líderes da independência:</strong></p>
-        <ul>
-          <li><strong>George Washington</strong> — líder militar, 1º presidente dos EUA</li>
-          <li><strong>Thomas Jefferson</strong> — autor da Declaração de Independência</li>
-          <li><strong>Benjamin Franklin</strong> — diplomata, negociou aliança com a França</li>
-          <li><strong>John Adams</strong> — defensor da separação, 2º presidente</li>
-          <li><strong>Alexander Hamilton</strong> — criador do sistema financeiro americano</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">Constituição dos EUA (1787) e Contradições <span class="chev">▾</span></button>
-    <div class="accordion-content">
-      <div class="content-block">
-        <p>Em 1787, foi promulgada a <strong>Constituição dos EUA</strong>, a mais antiga constituição escrita ainda em vigor.</p>
-        <div class="highlight-box">
-          <strong>Pilares da Constituição Americana</strong>
-          Liberalismo · República · Presidencialismo · Federalismo · Três Poderes (Executivo/Legislativo/Judiciário) · Democracia representativa
-        </div>
-        <div class="warn-box">
-          <strong>Contradições da Revolução Americana</strong>
-          Apesar de pregar "todos os homens são criados iguais", a Constituição de 1787:
-          <ul style="margin:6px 0 0 18px">
-            <li>Manteve a <strong>escravidão</strong> (abolida apenas em 1865)</li>
-            <li>Permitiu o <strong>extermínio de povos nativos</strong></li>
-            <li>Excluiu mulheres e homens sem propriedade do voto</li>
-          </ul>
-        </div>
-        <div class="tip-box">
-          <strong>Influência da Revolução Americana</strong>
-          Foi o <strong>primeiro rompimento bem-sucedido com o sistema colonial</strong>. Inspirou diretamente a Revolução Francesa (1789), as independências latino-americanas e os ideais de liberdade no mundo ocidental.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════
-     CAP. 3 — REVOLUÇÃO FRANCESA
+     CAP. 1 — REVOLUÇÃO FRANCESA E INDEPENDÊNCIA DO HAITI (Capítulo 23)
      ══════════════════════════════════════════════ -->
 <section class="chapter" id="rev-francesa">
   <div class="chapter-header">
-    <h2><span class="ch-tag">Cap. 3</span> Revolução Francesa</h2>
-    <p class="meta">1789–1799 · As quatro fases</p>
+    <h2><span class="ch-tag">Cap. 1</span> Revolução Francesa e Independência do Haiti</h2>
+    <p class="meta">Capítulo 23 do livro · 1789–1804</p>
   </div>
 
   <div class="accordion">
@@ -439,7 +262,7 @@
   </div>
 
   <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">2ª Fase — Convenção Nacional e O Terror (1792–1795) <span class="ae-off-badge">⚠️ Não cai na AE</span><span class="chev">▾</span></button>
+    <button class="accordion-btn" onclick="toggleAccordion(this)">2ª Fase — Convenção Nacional e O Terror (1792–1795) <span class="chev">▾</span></button>
     <div class="accordion-content">
       <div class="content-block">
         <p>Com a ameaça externa e pressão popular, os <strong>jacobinos</strong> (radicais) derrubam os girondinos e assumem o poder.</p>
@@ -456,7 +279,7 @@
           <div class="tl-item"><span class="tl-year">Set 1792</span><span class="tl-text"><strong>Proclamação da República</strong> — fim da monarquia.</span></div>
           <div class="tl-item"><span class="tl-year">Jan 1793</span><span class="tl-text"><strong>Execução de Luís XVI</strong> na guilhotina. Maria Antonieta executada em outubro de 1793.</span></div>
           <div class="tl-item"><span class="tl-year">1793–1794</span><span class="tl-text"><strong>O Terror</strong> — <strong>Robespierre</strong> ("o Incorruptível") lidera o Comitê de Salvação Pública. Tribunal Revolucionário executa milhares de suspeitos de traição.</span></div>
-          <div class="tl-item"><span class="tl-year">1793</span><span class="tl-text">Abolição do culto católico. Libertação dos escravos nas colônias francesas (Haiti). Levée en masse — mobilização geral para a guerra.</span></div>
+          <div class="tl-item"><span class="tl-year">1793</span><span class="tl-text">Abolição do culto católico. Levée en masse — mobilização geral para a guerra.</span></div>
           <div class="tl-item"><span class="tl-year">Jul 1794</span><span class="tl-text"><strong>Reação Termidoriana</strong> — Robespierre é preso e guilhotinado. Fim do Terror.</span></div>
         </div>
         <div class="highlight-box">
@@ -468,7 +291,7 @@
   </div>
 
   <div class="accordion">
-    <button class="accordion-btn" onclick="toggleAccordion(this)">3ª Fase — O Diretório e Napoleão (1795–1799) <span class="ae-off-badge">⚠️ Não cai na AE</span><span class="chev">▾</span></button>
+    <button class="accordion-btn" onclick="toggleAccordion(this)">3ª Fase — O Diretório e o Golpe de Napoleão (1795–1799) <span class="chev">▾</span></button>
     <div class="accordion-content">
       <div class="content-block">
         <p>Após a queda de Robespierre, a <strong>alta burguesia</strong> retoma o controle com o Diretório — fase de estabilização conservadora.</p>
@@ -484,7 +307,7 @@
         <div class="timeline">
           <div class="tl-item"><span class="tl-year">1796–97</span><span class="tl-text">Campanha da Itália — Napoleão cria as "Repúblicas Irmãs" (Cisalpina, Helvética, Liguriana, Bátava, Partenopeia).</span></div>
           <div class="tl-item"><span class="tl-year">1798</span><span class="tl-text">Campanha do Egito — expansão francesa. Derrota naval para a Inglaterra.</span></div>
-          <div class="tl-item"><span class="tl-year">9-10 Nov 1799</span><span class="tl-text"><strong>Golpe de 18 Brumário</strong> — Napoleão dissolve o Diretório e assume o poder. Fim da Revolução Francesa. Início do Consulado.</span></div>
+          <div class="tl-item"><span class="tl-year">9-10 Nov 1799</span><span class="tl-text"><strong>Golpe de 18 Brumário</strong> — Napoleão dissolve o Diretório e assume o poder. Fim da Revolução Francesa. Início do Consulado (ver Cap. 2).</span></div>
         </div>
         <div class="tip-box">
           <strong>Legado da Revolução Francesa (1789–1799)</strong>
@@ -499,6 +322,499 @@
       </div>
     </div>
   </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A Independência do Haiti (1791–1804) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Saint-Domingue: a "Pérola das Antilhas"</h4>
+        <p>Colônia francesa no Caribe (disputada com a Espanha até 1697), Saint-Domingue era a colônia mais lucrativa do mundo no século XVIII — economia de <em>plantation</em> (açúcar, café, algodão, anil), baseada em trabalho escravo brutalizado. Numa população de ~536 mil pessoas, cerca de 480 mil eram escravizadas, muitas africanas recém-chegadas. O <strong>Code Noir</strong> (Código Negro) regulava e legitimava castigos cruéis.</p>
+        <div class="tip-box">
+          <strong>Vodu como resistência</strong>
+          O vodu (mistura de crenças africanas e cristãs) funcionava como elo cultural, espiritual e político entre os escravizados, fortalecendo identidades e articulando revoltas.
+        </div>
+        <h4>O Início da Revolução (1791)</h4>
+        <p>A cerimônia vodu de <strong>Bois Caïman</strong> marcou simbolicamente o início da rebelião: escravizados exigiam liberdade, fim dos castigos e redistribuição de terra. Foi a <strong>primeira grande revolução escrava da era moderna</strong>, com alcance continental.</p>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1792-94</span><span class="tl-text">Período Jacobino — a Revolução Francesa influencia debates sobre liberdade nas colônias. Em 1794, a Convenção decreta a <strong>abolição da escravidão</strong> nas colônias francesas (medida também política, para conter as rebeliões e barrar influência inglesa/espanhola). <strong>Toussaint L'Ouverture</strong>, ex-escravizado autodidata, assume papel central como líder militar e articulador político, aliando-se às tropas republicanas francesas.</span></div>
+          <div class="tl-item"><span class="tl-year">1801</span><span class="tl-text">Toussaint cria uma Constituição e organiza um governo negro de fato, sem romper formalmente com a França.</span></div>
+          <div class="tl-item"><span class="tl-year">1802-03</span><span class="tl-text">Napoleão decreta a restauração da escravidão nas colônias e envia uma grande expedição militar para retomar Saint-Domingue. Toussaint é traído, preso e enviado à Fort-de-Joux (França), onde morre em abril de 1803.</span></div>
+          <div class="tl-item"><span class="tl-year">1803</span><span class="tl-text"><strong>Jean-Jacques Dessalines</strong>, general mais radical de Toussaint, rompe de vez com a França. Na <strong>Batalha de Vertières</strong>, o exército haitiano derrota os franceses (mais de 30 mil soldados enviados por Napoleão).</span></div>
+          <div class="tl-item"><span class="tl-year">1º Jan 1804</span><span class="tl-text">Dessalines proclama a <strong>independência do Haiti</strong> — primeira república negra independente do mundo e segundo país independente das Américas. Torna-se imperador Jacques I.</span></div>
+        </div>
+        <div class="warn-box">
+          <strong>"Liberdade ou Morte" — Dessalines, 1804</strong>
+          "Tremei, tiranos, usurpadores, flagelos do Novo Mundo! [...] 'Guerra e morte aos tiranos!' — esse é o nosso lema. 'Liberdade e Independência!' — esse é o nosso grito de união."
+        </div>
+        <h4>"Haitianismo" e o Legado</h4>
+        <p>O <strong>Haitianismo</strong> foi o pânico das elites escravistas das Américas e da Europa (EUA, Cuba, Brasil) diante da possibilidade de uma revolta escrava bem-sucedida se repetir em seus territórios — motivou repressões mais severas e censura a ideias abolicionistas.</p>
+        <div class="highlight-box">
+          <strong>O Haiti depois — e hoje</strong>
+          Isolado internacionalmente, o Haiti foi obrigado a pagar uma "indenização" à França que drenou sua economia por mais de um século. Sofreu ocupação dos EUA (1915–1934), ditaduras violentas (Duvalier), terremotos devastadores (2010, 2021) e a intervenção da ONU (MINUSTAH, 2004–2017, com tropas brasileiras), marcada por denúncias de abuso. Em 2010, a médica brasileira Zilda Arns morreu no terremoto de Porto Príncipe, em meio a um esforço humanitário num contexto de abandono internacional.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 2 — O PERÍODO NAPOLEÔNICO (Capítulo 24)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="napoleao">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 2</span> O Período Napoleônico</h2>
+    <p class="meta">Capítulo 24 do livro · 1799–1815</p>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Do Consulado ao Império (1799–1804) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Com o Diretório enfraquecido por crises econômicas e instabilidade política, e Napoleão em alta pelo prestígio militar, ele dá o <strong>Golpe de 18 Brumário</strong> (9 nov 1799), dissolvendo o Diretório e criando o <strong>Consulado</strong> — governo de três cônsules, com Napoleão como 1º cônsul.</p>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1799</span><span class="tl-text">Constituição do Consulado estabelece o novo regime.</span></div>
+          <div class="tl-item"><span class="tl-year">1801</span><span class="tl-text"><strong>Concordata</strong> com o Papa — reaproxima Estado e Igreja Católica. Criação da <strong>Legião de Honra</strong>, para premiar méritos civis e militares.</span></div>
+          <div class="tl-item"><span class="tl-year">1802</span><span class="tl-text"><strong>Paz de Amiens</strong> com a Inglaterra (trégua temporária). Napoleão torna-se <strong>Cônsul Vitalício</strong>.</span></div>
+          <div class="tl-item"><span class="tl-year">1804</span><span class="tl-text">Napoleão se transforma em <strong>Imperador dos franceses</strong> — fim do Consulado, início do Império.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Império Napoleônico (1804–1815) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Medidas Internas</h4>
+        <ul>
+          <li>Apoio da burguesia às reformas econômicas</li>
+          <li>Reforma tributária mais justa e investimentos em obras públicas</li>
+          <li>Reorganização do sistema educacional por níveis</li>
+        </ul>
+        <h4>O Código Napoleônico</h4>
+        <table class="data-table">
+          <thead><tr><th>Princípios</th><th>Contradições</th></tr></thead>
+          <tbody>
+            <tr><td>Liberdade individual</td><td>Restabelecimento da escravidão nas colônias</td></tr>
+            <tr><td>Igualdade perante a lei</td><td>Supressão de organizações operárias</td></tr>
+            <tr><td>Defesa da propriedade privada</td><td>Submissão jurídica de mulheres e trabalhadores</td></tr>
+          </tbody>
+        </table>
+        <h4>Política Externa e Conflito com a Inglaterra</h4>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1805</span><span class="tl-text">Expansão territorial após a <strong>Batalha de Austerlitz</strong>. Difusão do Código Civil francês pela Europa. Parentes de Napoleão são colocados no poder (José na Espanha, Luís na Holanda, Jerônimo na Vestfália).</span></div>
+          <div class="tl-item"><span class="tl-year">1805</span><span class="tl-text">Derrota naval em <strong>Trafalgar</strong> — a Inglaterra domina os mares.</span></div>
+          <div class="tl-item"><span class="tl-year">1806</span><span class="tl-text"><strong>Bloqueio Continental</strong> — Napoleão proíbe a Europa de comerciar com a Inglaterra para asfixiar sua economia, já que não consegue vencê-la no mar.</span></div>
+          <div class="tl-item"><span class="tl-year">1807</span><span class="tl-text"><strong>Invasão de Portugal</strong>, que se recusa a aderir ao Bloqueio — motivo direto da fuga da família real portuguesa para o Brasil (ver Cap. 5, Período Joanino).</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Queda de Napoleão e os Cem Dias <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1813</span><span class="tl-text"><strong>Batalha de Leipzig</strong> ("Batalha das Nações") — mais de 500 mil soldados envolvidos, o maior confronto europeu até a 1ª Guerra Mundial. Derrota de Napoleão.</span></div>
+          <div class="tl-item"><span class="tl-year">1814</span><span class="tl-text">Paris é invadida pelas potências aliadas. <strong>Primeira abdicação</strong> de Napoleão e exílio na ilha de Elba.</span></div>
+          <div class="tl-item"><span class="tl-year">Fev 1815</span><span class="tl-text">Napoleão foge de Elba e retorna triunfalmente a Paris — início dos <strong>"Cem Dias"</strong>.</span></div>
+          <div class="tl-item"><span class="tl-year">18 Jun 1815</span><span class="tl-text"><strong>Batalha de Waterloo</strong> — derrota decisiva e definitiva. Exílio em Santa Helena, onde morre em 5 de maio de 1821.</span></div>
+        </div>
+        <div class="warn-box">
+          <strong>Uma crítica contemporânea — Thomas Jefferson</strong>
+          Jefferson criticou Napoleão por "perverter os poderes" que lhe foram confiados e instituir um "despotismo militar", afirmando que seu "egoísmo atroz bloqueou o progresso" — mostrando que a figura de Napoleão já era controversa entre pensadores liberais da época.
+        </div>
+        <div class="tip-box">
+          <strong>Legado Napoleônico Atual</strong>
+          <ul style="margin:6px 0 0 18px">
+            <li>O Código Civil segue como base de sistemas jurídicos europeus e latino-americanos</li>
+            <li>Modelo de Estado laico e centralizado</li>
+            <li>Sistema educacional público organizado</li>
+            <li>Disseminação dos ideais iluministas por toda a Europa conquistada</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 3 — CONGRESSO DE VIENA E SANTA ALIANÇA (Capítulo 25)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="congresso-viena">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 3</span> Congresso de Viena e Santa Aliança</h2>
+    <p class="meta">Capítulo 25 do livro · 1814–1815</p>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Congresso de Viena (1814–1815) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Com Napoleão derrotado, as potências vencedoras — <strong>Áustria, Prússia, Rússia e Grã-Bretanha</strong> (depois também a França) — se reúnem em Viena para reorganizar a Europa e evitar que uma nova potência única volte a dominar o continente.</p>
+        <h4>Objetivos</h4>
+        <ul>
+          <li>Restauração das monarquias depostas pela Revolução e por Napoleão</li>
+          <li>Repressão ao liberalismo e aos ideais revolucionários</li>
+          <li>Reorganização das fronteiras europeias</li>
+          <li>Sanções à França: perda territorial, ocupação militar, indenizações</li>
+        </ul>
+        <h4>Princípios Norteadores</h4>
+        <table class="data-table">
+          <thead><tr><th>Princípio</th><th>Significado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Legitimidade</strong></td><td>Restauração das casas reais que reinavam antes de 1789</td></tr>
+            <tr><td><strong>Privilégios</strong></td><td>Retomada dos privilégios do clero e da nobreza</td></tr>
+            <tr><td><strong>Equilíbrio de poder</strong></td><td>Nenhuma potência isolada deveria voltar a dominar a Europa</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A Santa Aliança <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Criada pelo czar <strong>Alexandre I da Rússia</strong>, a Santa Aliança uniu Rússia, Prússia e Áustria com o objetivo de preservar a ordem cristã e o absolutismo, intervindo militarmente contra revoltas liberais e independentistas onde surgissem na Europa.</p>
+        <div class="warn-box">
+          <strong>A Inglaterra recusou a adesão</strong>
+          A Inglaterra priorizava o livre comércio e via mais vantagem econômica em mercados abertos (inclusive novas nações independentes na América Latina) do que numa Europa sufocada pelo absolutismo — por isso não aderiu à Santa Aliança.
+        </div>
+        <div class="tip-box">
+          <strong>Conexão com a América</strong>
+          A ameaça de a Santa Aliança intervir para devolver as colônias latino-americanas recém-independentes ao domínio espanhol foi um dos fatores que motivaram os EUA a lançar a <strong>Doutrina Monroe</strong> ("América para os americanos", 1823) e a Inglaterra a apoiar, por interesse comercial, as independências da América Espanhola — tema do próximo capítulo.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 4 — INDEPENDÊNCIAS DA AMÉRICA ESPANHOLA (Capítulo 28)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="america-espanhola">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 4</span> Independências da América Espanhola</h2>
+    <p class="meta">Capítulo 28 do livro · c. 1780–1826</p>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Estrutura Colonial e Crise do Antigo Sistema <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>As colônias espanholas eram organizadas em <strong>Vice-Reinos</strong> (Nova Espanha, Peru, Nova Granada, Rio da Prata) e <strong>Capitanias-Gerais</strong> (Chile, Venezuela, Cuba, Guatemala), controlados por autoridades nomeadas pela Coroa. A riqueza vinha da mineração (ouro e prata, sobretudo no México e no Alto Peru), de produtos como cacau, açúcar, tabaco e couro, e do trabalho intensivo de indígenas e africanos. O comércio era monopolizado, com portos-chave como Veracruz, Cartagena, Callao e Buenos Aires.</p>
+        <h4>As Reformas Bourbônicas</h4>
+        <p>A partir de 1700, a dinastia Bourbon tentou centralizar o poder e modernizar o império: criou o sistema de intendências, enfraqueceu os <em>cabildos</em> (câmaras municipais) e aumentou impostos, favorecendo os <em>peninsulares</em> (nascidos na Espanha) em detrimento dos <em>criollos</em> (descendentes de espanhóis nascidos na América) — intensificando desigualdades e tensões.</p>
+        <div class="warn-box">
+          <strong>Sociedade Colonial Estratificada</strong>
+          Peninsulares no topo → criollos (ricos, mas excluídos dos cargos políticos altos) → mestiços → indígenas → negros e escravizados. Os criollos defendiam uma independência conservadora: preservar a ordem social, o latifúndio e a escravidão, mas com mais poder para si próprios.
+        </div>
+        <div class="tip-box">
+          <strong>Túpac Amaru II (1780)</strong>
+          Líder indígena de ascendência inca que denunciou os abusos contra os povos nativos, exigindo o fim da mita e do trabalho forçado. Mobilizou milhares de indígenas no Peru e no Alto Peru; foi brutalmente reprimido, mas deixou marcas profundas na região.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Napoleão, a Crise da Monarquia Espanhola e a Constituição de Cádiz <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1808</span><span class="tl-text">Napoleão invade a Espanha, força a abdicação de <strong>Fernando VII</strong> e coloca seu irmão <strong>José Bonaparte</strong> no trono espanhol.</span></div>
+          <div class="tl-item"><span class="tl-year">1808-12</span><span class="tl-text">Vácuo de poder: a quem obedecer — o rei ausente, o usurpador francês ou as autoridades locais? Surgem <strong>Juntas de Governo</strong> na Espanha e nas colônias, que governam "em nome de Fernando VII" já exercendo autonomia política de fato.</span></div>
+          <div class="tl-item"><span class="tl-year">1812</span><span class="tl-text">A Junta de Cádiz redige a <strong>Constituição de Cádiz</strong> — monarquia constitucional, separação de poderes e cidadania espanhola às colônias. Muitos criollos, porém, rejeitavam a igualdade jurídica com mestiços, indígenas e negros. Os <em>cabildos abertos</em> tornam-se centros de articulação política revolucionária.</span></div>
+          <div class="tl-item"><span class="tl-year">1814</span><span class="tl-text">Fernando VII retorna ao trono e <strong>revoga a Constituição de Cádiz</strong>, restaurando o absolutismo — muitos passam a ver a monarquia espanhola como irreformável, o que intensifica as lutas de independência.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Simón Bolívar e a Independência do Norte <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>Simón Bolívar</strong>, criollo venezuelano influenciado pelo Iluminismo e pela Revolução Francesa, escreveu em 1815 a <strong>Carta da Jamaica</strong>, analisando as causas da dominação espanhola e defendendo a necessidade da independência.</p>
+        <div class="highlight-box">
+          <strong>Carta da Jamaica (1815)</strong>
+          "A Europa não diz que somos incapazes de nos governar? Por que não seríamos capazes? Será uma monarquia tão frágil como a da Espanha o auge da perfeição política?" — Bolívar propunha nações latino-americanas autônomas, unidas por valores comuns, rejeitando tanto o domínio europeu quanto o isolamento entre si.
+        </div>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1819</span><span class="tl-text">Bolívar realiza uma das operações mais ousadas da história militar, surpreendendo as forças espanholas e libertando Bogotá após a <strong>Batalha de Boyacá</strong>.</span></div>
+          <div class="tl-item"><span class="tl-year">1819</span><span class="tl-text">Organiza a <strong>Grã-Colômbia</strong> (união de Venezuela, Colômbia e Equador), sonhando com a integração sul-americana.</span></div>
+        </div>
+        <div class="tip-box">
+          <strong>O apoio decisivo do Haiti</strong>
+          O Haiti recém-independente foi crucial: o presidente <strong>Alexandre Pétion</strong> forneceu armas, navios e apoio logístico a Bolívar em troca do compromisso de abolir a escravidão nos territórios libertados — uma conexão direta com o Cap. 1.
+        </div>
+        <p>Após as independências, muitas das novas nações caíram no <strong>caudilhismo</strong> — regimes liderados por chefes militares autoritários, baseados em clientelismo e violência política. O <strong>Bolivarianismo</strong> surgiu como o ideal de uma América Latina unida, autônoma e justa, inspirado nos projetos de Bolívar, mas reinterpretado por diferentes correntes políticas ao longo do tempo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">San Martín e a Independência do Sul <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>José de San Martín</strong>, militar argentino influenciado pelo liberalismo europeu, liderou a independência da Argentina e do Chile com apoio de elites criollas e da Inglaterra.</p>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1817</span><span class="tl-text">San Martín cruza os Andes e derrota as forças espanholas na <strong>Batalha de Chacabuco</strong>, libertando o Chile.</span></div>
+          <div class="tl-item"><span class="tl-year">1822</span><span class="tl-text">Bolívar e San Martín se encontram na <strong>Conferência de Guayaquil</strong> (Equador) para discutir o futuro do Peru, ainda sob domínio espanhol — o teor da conversa permanece um mistério histórico. Após o encontro, San Martín se retira da vida política, deixando Bolívar à frente do processo.</span></div>
+          <div class="tl-item"><span class="tl-year">9 Dez 1824</span><span class="tl-text"><strong>Batalha de Ayacucho</strong> (Peru) — o exército republicano liderado por <strong>Antônio José de Sucre</strong>, sob comando de Bolívar, derrota definitivamente as forças espanholas. Marca o fim do poder militar espanhol na América do Sul.</span></div>
+          <div class="tl-item"><span class="tl-year">1825</span><span class="tl-text">O Alto Peru declara independência como <strong>República da Bolívia</strong>, em homenagem a Simón Bolívar.</span></div>
+          <div class="tl-item"><span class="tl-year">1826</span><span class="tl-text">Bolívar convoca o <strong>Congresso do Panamá</strong>, reunindo representantes das nações recém-independentes para formar uma liga de nações americanas soberanas. O congresso fracassa por divisões internas e desconfiança regional, encerrando o projeto de união continental.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 5 — PERÍODO JOANINO E INDEPENDÊNCIA DO BRASIL (Capítulo 29)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="periodo-joanino">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 5</span> Período Joanino e Independência do Brasil <span class="pending-badge">⚠️ conferir com o material de aula</span></h2>
+    <p class="meta">Capítulo 29 do livro · 1808–1823</p>
+  </div>
+
+  <div class="warn-box" style="max-width:900px;">
+    <strong>Aviso sobre esta seção</strong>
+    O acordeão "O Período Joanino" abaixo foi escrito com base em conhecimento histórico geral (não veio de um material de aula específico que você enviou) — os links do Genially fornecidos para este tema não continham esse conteúdo. Vale a pena comparar com os slides/apostila antes de estudar por aqui.
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Período Joanino (1808–1821) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1807</span><span class="tl-text">Napoleão invade Portugal (que se recusa a aderir ao Bloqueio Continental — ver Cap. 2). Sob proteção da esquadra britânica, a família real portuguesa foge para o Brasil.</span></div>
+          <div class="tl-item"><span class="tl-year">Jan-Mar 1808</span><span class="tl-text">A corte chega à Bahia (janeiro) e depois ao Rio de Janeiro (março), que se torna sede de fato do império português.</span></div>
+          <div class="tl-item"><span class="tl-year">28 Jan 1808</span><span class="tl-text"><strong>Abertura dos Portos às Nações Amigas</strong>, ainda na Bahia — fim do monopólio comercial português, beneficiando principalmente a Inglaterra (Tratados de 1810 dão tarifas preferenciais aos ingleses).</span></div>
+          <div class="tl-item"><span class="tl-year">1808-15</span><span class="tl-text">Criação de instituições no Rio: Banco do Brasil, Biblioteca Real, Jardim Botânico, Academia Real Militar, Imprensa Régia, Escola de Belas Artes.</span></div>
+          <div class="tl-item"><span class="tl-year">1815</span><span class="tl-text">O Brasil deixa de ser colônia: torna-se <strong>Reino Unido de Portugal, Brasil e Algarves</strong>, com equiparação jurídica a Portugal.</span></div>
+          <div class="tl-item"><span class="tl-year">1820</span><span class="tl-text"><strong>Revolução do Porto</strong> (Portugal) — movimento liberal exige o retorno de D. João VI e uma Constituição, além da recolonização do Brasil (fim dos privilégios comerciais conquistados desde 1808).</span></div>
+          <div class="tl-item"><span class="tl-year">1821</span><span class="tl-text">D. João VI retorna a Portugal, deixando seu filho <strong>D. Pedro</strong> como Príncipe Regente do Brasil.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">As Cortes de Lisboa e a Tendência Recolonizadora (1821–1822) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>As Cortes Constituintes de Lisboa iniciaram um processo centralizador e recolonizador, buscando revogar os ganhos de autonomia do Brasil. Principais medidas:</p>
+        <ul>
+          <li>Determinação do retorno imediato de D. Pedro a Portugal</li>
+          <li>Extinção dos tribunais e órgãos administrativos brasileiros</li>
+          <li>Subordinação direta das províncias brasileiras a Lisboa</li>
+          <li>Reinstauração do monopólio comercial e do pacto colonial</li>
+        </ul>
+        <table class="data-table">
+          <thead><tr><th>Partido Brasileiro</th><th>Partido Português</th></tr></thead>
+          <tbody>
+            <tr><td>Elite nascida no Brasil, defendia a autonomia contra a recolonização (dividida entre liberais radicais e moderados)</td><td>Comerciantes, funcionários e militares portugueses, defendiam a manutenção da estrutura colonial</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Dia do Fico e o Caminho da Independência (1822) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Em dezembro de 1821, as Cortes ordenam o retorno imediato de D. Pedro. A mobilização social pressiona o príncipe a permanecer.</p>
+        <div class="highlight-box">
+          <strong>Dia do Fico — 9 de janeiro de 1822</strong>
+          "Como é para o bem de todos e felicidade geral da Nação, estou pronto! Digam ao povo que fico." — D. Pedro
+        </div>
+        <h4>Medidas do Príncipe Regente</h4>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">Jan 1822</span><span class="tl-text">Reforma ministerial com <strong>José Bonifácio</strong>.</span></div>
+          <div class="tl-item"><span class="tl-year">Mar 1822</span><span class="tl-text">Criação do Conselho dos Procuradores-Gerais das Províncias.</span></div>
+          <div class="tl-item"><span class="tl-year">13 Mai 1822</span><span class="tl-text">Decreto do <strong>"Cumpra-se"</strong> — só teriam validade no Brasil as ordens de Lisboa referendadas por D. Pedro.</span></div>
+          <div class="tl-item"><span class="tl-year">Jun 1822</span><span class="tl-text">Convocação da Assembleia Constituinte.</span></div>
+          <div class="tl-item"><span class="tl-year">Set 1822</span><span class="tl-text">José Bonifácio e D. Leopoldina aconselham o rompimento definitivo com Lisboa.</span></div>
+          <div class="tl-item"><span class="tl-year">7 Set 1822</span><span class="tl-text"><strong>Independência do Brasil</strong>, proclamada às margens do rio Ipiranga.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A Independência Não Foi Só no Rio: Resistências Regionais <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Bahia</strong> — tropas portuguesas sob o general Inácio Luís Madeira de Melo resistem em Salvador contra um exército patriota com milicianos de várias províncias. <strong>Maria Quitéria de Jesus</strong>, heroína da independência. Bahia só se liberta em <strong>2 de julho de 1823</strong> (data celebrada até hoje).</li>
+          <li><strong>Pernambuco</strong> — <strong>Convenção de Beberibe</strong> (6 jul 1822): lideranças locais, com Gervásio Pires, rompem com Lisboa e reconhecem D. Pedro.</li>
+          <li><strong>Grão-Pará (Amazônia)</strong> — resiste à adesão, só é integrado ao Império em agosto de 1823. Em outubro de 1823, a <strong>Revolta do Brigue Palhaço</strong>: cerca de 252 presos políticos morrem sufocados/famintos no porão do navio.</li>
+        </ul>
+        <div class="tip-box">
+          <strong>O que realmente foi a Independência do Brasil?</strong>
+          A narrativa oficial esconde: lutas armadas em várias províncias, diversidade de interesses regionais, manutenção da escravidão, exclusão de escravizados, indígenas, mulheres, pobres e mestiços do processo político. Foi um processo liderado pelas elites, buscando autonomia econômica e política — uma ruptura formal com a metrópole que manteve a estrutura social colonial. Uma independência "de cima para baixo", cheia de contradições.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 6 — PRIMEIRO REINADO (Capítulo 30)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="primeiro-reinado">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 6</span> Primeiro Reinado</h2>
+    <p class="meta">Capítulo 30 do livro · 1822–1831</p>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Consolidação e Reconhecimento da Independência <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Resistência armada portuguesa</strong> (1822-23) em províncias como Bahia, Pará e Cisplatina, derrotada pelas forças brasileiras.</li>
+          <li><strong>Reconhecimento internacional</strong>: o Tratado de 1825 marca o reconhecimento oficial da independência por Portugal, mediante indenização e mediação britânica.</li>
+          <li><strong>Interesses britânicos</strong>: o apoio inglês foi condicionado à manutenção dos tratados de 1810 e ao compromisso brasileiro de extinguir o tráfico de escravizados.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A Constituinte de 1823 e a Constituição Outorgada de 1824 <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>A "Constituição da Mandioca" (1823)</h4>
+        <p>Projeto liberal da Assembleia Constituinte de 1823: limitava o poder do imperador e ligava o voto à renda agrícola (150 alqueires de mandioca) — daí o apelido. Estabelecia superioridade do Legislativo e controle militar, entrando em conflito direto com a autoridade imperial.</p>
+        <div class="warn-box">
+          <strong>Noite da Agonia (12 nov 1823)</strong>
+          D. Pedro I dissolve a Assembleia à força, com prisões e exílios (inclusive de José Bonifácio).
+        </div>
+        <h4>A Constituição Outorgada de 1824</h4>
+        <p>Após dissolver a Constituinte, o imperador outorga (impõe) uma Constituição redigida pelo Conselho de Estado, sem participação popular.</p>
+        <ul>
+          <li><strong>Quatro poderes</strong>: Legislativo, Executivo, Judiciário e o inédito <strong>Poder Moderador</strong>, exclusivo do imperador</li>
+          <li>Imperador declarado <strong>"sagrado e inviolável"</strong> — irresponsabilidade política</li>
+          <li><strong>Voto censitário</strong> (maiores de 25 anos, renda mínima), inspirado na Constituição da Mandioca</li>
+          <li>Catolicismo como religião oficial — Igreja subordinada ao Estado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Política Externa e Interna <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Guerra da Cisplatina</strong> (1825–1828) — tentativa de anexar a região, termina com a independência do Uruguai, frustrando os planos expansionistas e desgastando as finanças do Império.</li>
+          <li><strong>Relações com a Inglaterra</strong> — o Império dependia de empréstimos ingleses, gerando forte influência britânica sobre a política externa e pressão para o fim do tráfico negreiro.</li>
+          <li><strong>Centralização e autoritarismo</strong> via Poder Moderador.</li>
+          <li><strong>Confederação do Equador</strong> (1824) — revolta separatista e republicana no Nordeste, inspirada em ideais liberais radicais; a repressão violenta desgastou a imagem de D. Pedro I entre as elites provinciais.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Crise, Abdicação e o Fim do Primeiro Reinado (1831) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A estrutura econômica seguia colonial (agroexportação, latifúndio, escravidão); a queda nos preços de açúcar e algodão e a crescente dívida externa britânica marcaram o chamado <strong>"vazio econômico"</strong>.</p>
+        <h4>Crise em Portugal</h4>
+        <p><strong>Golpe de D. Miguel</strong> (1828) — irmão de D. Pedro I usurpa o trono de sua sobrinha Maria da Glória, gerando guerra civil entre <em>miguelistas</em> (absolutistas) e <em>pedristas</em> (liberais). Maria da Glória, filha de D. Pedro I, é presa por D. Miguel — aprofundando o conflito familiar e político que influenciou a abdicação.</p>
+        <div class="warn-box">
+          <strong>Noite das Garrafas (1831)</strong>
+          Em meio à impopularidade crescente de D. Pedro I, populares atacam com pedras e garrafas as casas de portugueses ligados à corte no Rio de Janeiro.
+        </div>
+        <div class="highlight-box">
+          <strong>Abdicação — 7 de abril de 1831</strong>
+          "Havendo de partir para a Europa deixo por imperador do Brasil o meu muito amado e prezado filho o Senhor D. Pedro de Alcântara. São as circunstâncias do Brasil tais que me impõem este sacrifício..." D. Pedro I abdica em favor do filho de 5 anos (futuro D. Pedro II) e parte para lutar contra D. Miguel em Portugal, abrindo o <strong>Período Regencial</strong> (ver Cap. 7).
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 7 — PERÍODO REGENCIAL (Capítulo 31)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="periodo-regencial">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 7</span> Período Regencial</h2>
+    <p class="meta">Capítulo 31 do livro · 1831–1840</p>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Crise de Legitimidade e as Regências <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A abdicação de D. Pedro I deixou o trono para um herdeiro de apenas 5 anos, impossibilitado de governar — exigindo um regime de <strong>regência</strong>. Três correntes políticas disputavam o rumo do país:</p>
+        <table class="data-table">
+          <thead><tr><th>Corrente</th><th>Posição</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Liberais Moderados</strong></td><td>Monarquia constitucional, reforma gradual</td></tr>
+            <tr><td><strong>Liberais Exaltados</strong></td><td>Republicanismo e federalismo</td></tr>
+            <tr><td><strong>Restauradores (Caramurus)</strong></td><td>Retorno de D. Pedro I ou poder central forte</td></tr>
+          </tbody>
+        </table>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1831-35</span><span class="tl-text"><strong>Regência Trina Permanente</strong> — Francisco de Lima e Silva, José da Costa Carvalho, João Bráulio Muniz.</span></div>
+          <div class="tl-item"><span class="tl-year">1835-37</span><span class="tl-text"><strong>Regência Una de Feijó</strong> — Diogo Antônio Feijó.</span></div>
+          <div class="tl-item"><span class="tl-year">1837-40</span><span class="tl-text"><strong>Regência Una de Araújo Lima</strong> — Pedro de Araújo Lima.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Reformas Descentralizadoras <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Código de Processo Criminal</strong> (1832) — criou os juízes de paz eleitos localmente.</li>
+          <li><strong>Ato Adicional</strong> (1834) — descentralizou o poder por meio da autonomia provincial (criação das Assembleias Legislativas Provinciais), numa tentativa de responder às pressões regionais — mas que também gerou instabilidade.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">As Cinco Grandes Revoltas Regenciais <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Revolta</th><th>Local</th><th>Período</th><th>Características</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cabanagem</strong></td><td>Pará</td><td>1835–1840</td><td>Levante popular envolvendo indígenas, negros e população pobre</td></tr>
+            <tr><td><strong>Revolta dos Malês</strong></td><td>Salvador (BA)</td><td>1835</td><td>Rebelião de escravizados muçulmanos</td></tr>
+            <tr><td><strong>Revolução Farroupilha</strong></td><td>Rio Grande do Sul</td><td>1835–1845</td><td>Movimento republicano; Bento Gonçalves, Giuseppe e Anita Garibaldi</td></tr>
+            <tr><td><strong>Sabinada</strong></td><td>Bahia</td><td>1837–1838</td><td>Revolta urbana republicana, liderada por João Sabino</td></tr>
+            <tr><td><strong>Balaiada</strong></td><td>Maranhão</td><td>1838–1841</td><td>Levante social de trabalhadores pobres e escravizados</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">
+          <strong>Por que tantas revoltas?</strong>
+          As cinco revoltas revelam a fragilidade do poder central regencial e as tensões sociais e regionais herdadas do período colonial e do Primeiro Reinado — miséria, exclusão política e disputas de poder local explodindo simultaneamente em várias províncias.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O Golpe da Maioridade (1840) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Diante da instabilidade generalizada, um grupo de políticos (o "Clube da Maioridade") articulou a antecipação da maioridade de <strong>D. Pedro II</strong>, então com apenas 14 anos, para encerrar o período regencial. Em 1840, D. Pedro II é declarado maior de idade e assume o trono, dando início ao <strong>Segundo Reinado</strong>.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════════
@@ -507,7 +823,7 @@
 <section id="quiz-section">
   <a id="quiz"></a>
   <h2>Quiz de Revisão</h2>
-  <p>Teste seus conhecimentos sobre Iluminismo, Revolução Americana e Revolução Francesa.</p>
+  <p>Teste seus conhecimentos sobre Revolução Francesa, Napoleão, Congresso de Viena, América Espanhola e o Brasil Império.</p>
 
   <div class="quiz-topbar">
     <div class="score-left">
@@ -520,148 +836,326 @@
         </svg>
         <span id="mini-pct">—</span>
       </div>
-      <div class="score-live" id="score-live">Placar: <strong>0 / 12</strong></div>
+      <div class="score-live" id="score-live">Placar: <strong>0 / 28</strong></div>
     </div>
     <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
   </div>
   <div class="quiz-filter">
-    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
-    <button class="filter-btn" onclick="filterQuiz('cap1',this)">Cap. 1 — Iluminismo</button>
-    <button class="filter-btn" onclick="filterQuiz('cap2',this)">Cap. 2 — Treze Colônias</button>
-    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Cap. 3 — Rev. Francesa</button>
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (28)</button>
+    <button class="filter-btn" onclick="filterQuiz('cap1',this)">Cap. 1 — Rev. Francesa/Haiti</button>
+    <button class="filter-btn" onclick="filterQuiz('cap2',this)">Cap. 2 — Napoleão</button>
+    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Cap. 3 — Congresso de Viena</button>
+    <button class="filter-btn" onclick="filterQuiz('cap4',this)">Cap. 4 — América Espanhola</button>
+    <button class="filter-btn" onclick="filterQuiz('cap5',this)">Cap. 5 — Joanino/Independência</button>
+    <button class="filter-btn" onclick="filterQuiz('cap6',this)">Cap. 6 — 1º Reinado</button>
+    <button class="filter-btn" onclick="filterQuiz('cap7',this)">Cap. 7 — Regencial</button>
   </div>
 
   <!-- Q1 -->
   <div class="question-card" data-chapter="cap1" id="q1">
-    <h4>1. Qual filósofo iluminista defendeu a separação dos poderes em Legislativo, Executivo e Judiciário?</h4>
+    <h4>1. O 3º Estado da sociedade francesa era composto por:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q1','a')">a) John Locke</button>
-      <button class="option-btn" onclick="checkQuiz('q1','b')">b) Rousseau</button>
-      <button class="option-btn" onclick="checkQuiz('q1','c')">c) Montesquieu</button>
-      <button class="option-btn" onclick="checkQuiz('q1','d')">d) Voltaire</button>
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) Clero e nobreza</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) Apenas a burguesia</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) Todos os demais — burgueses, sans-culottes e camponeses (98% da população)</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) Apenas os camponeses e escravos</button>
     </div>
   </div>
 
   <!-- Q2 -->
   <div class="question-card" data-chapter="cap1" id="q2">
-    <h4>2. O lema fisiocrático "Laissez faire, laissez passer" significava:</h4>
+    <h4>2. O período do Terror (1793–1794) foi liderado por:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q2','a')">a) O Estado deve controlar toda a economia</button>
-      <button class="option-btn" onclick="checkQuiz('q2','b')">b) A riqueza vem apenas da agricultura</button>
-      <button class="option-btn" onclick="checkQuiz('q2','c')">c) O Estado não deve interferir na economia — o mercado se regula sozinho</button>
-      <button class="option-btn" onclick="checkQuiz('q2','d')">d) O comércio externo deve ser monopolizado pelo Estado</button>
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) Napoleão Bonaparte</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) Robespierre, pelo Comitê de Salvação Pública</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) Luís XVI</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) Os girondinos</button>
     </div>
   </div>
 
   <!-- Q3 -->
   <div class="question-card" data-chapter="cap1" id="q3">
-    <h4>3. Qual obra de Adam Smith fundamentou o Liberalismo Econômico clássico?</h4>
+    <h4>3. Qual evento marcou simbolicamente o início da Revolução Haitiana, em 1791?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q3','a')">a) O Contrato Social</button>
-      <button class="option-btn" onclick="checkQuiz('q3','b')">b) A Riqueza das Nações (1776)</button>
-      <button class="option-btn" onclick="checkQuiz('q3','c')">c) O Espírito das Leis</button>
-      <button class="option-btn" onclick="checkQuiz('q3','d')">d) A Enciclopédia</button>
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) A cerimônia vodu de Bois Caïman</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) A Batalha de Vertières</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) A prisão de Toussaint L'Ouverture</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) O decreto de Napoleão restaurando a escravidão</button>
     </div>
   </div>
 
   <!-- Q4 -->
-  <div class="question-card" data-chapter="cap2" id="q4">
-    <h4>4. O que foi a "Negligência Salutar" e qual foi sua consequência?</h4>
+  <div class="question-card" data-chapter="cap1" id="q4">
+    <h4>4. Por que a Convenção Jacobina decretou a abolição da escravidão nas colônias francesas em 1794?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q4','a')">a) Política de impostos rígidos que causou a revolta das colônias</button>
-      <button class="option-btn" onclick="checkQuiz('q4','b')">b) Política inglesa de pouca interferência nas colônias, que gerou autonomia e identidade própria</button>
-      <button class="option-btn" onclick="checkQuiz('q4','c')">c) Aliança militar entre as colônias e a França</button>
-      <button class="option-btn" onclick="checkQuiz('q4','d')">d) Lei que proibia o comércio entre as colônias</button>
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) Puramente por convicção moral, sem relação com a guerra</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) Para conter as rebeliões em curso e barrar a influência inglesa e espanhola em Saint-Domingue</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) Por pressão direta da Inglaterra</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) Porque Napoleão havia solicitado a medida</button>
     </div>
   </div>
 
   <!-- Q5 -->
   <div class="question-card" data-chapter="cap2" id="q5">
-    <h4>5. O Boston Tea Party (1773) foi uma resposta a qual medida britânica?</h4>
+    <h4>5. O Golpe de 18 Brumário (1799) resultou em:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q5','a')">a) Às Leis Intoleráveis</button>
-      <button class="option-btn" onclick="checkQuiz('q5','b')">b) Ao fechamento do porto de Boston</button>
-      <button class="option-btn" onclick="checkQuiz('q5','c')">c) À Lei do Chá, que concedeu monopólio à Companhia das Índias Orientais</button>
-      <button class="option-btn" onclick="checkQuiz('q5','d')">d) À Constituição de 1787</button>
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) Restauração da monarquia dos Bourbon</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) Dissolução do Diretório e criação do Consulado, com Napoleão como 1º cônsul</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) Início do período do Terror</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) Proclamação da Primeira República Francesa</button>
     </div>
   </div>
 
   <!-- Q6 -->
   <div class="question-card" data-chapter="cap2" id="q6">
-    <h4>6. A Declaração de Independência dos EUA (1776) foi redigida por:</h4>
+    <h4>6. O Bloqueio Continental (1806), imposto por Napoleão, teve qual consequência direta para o Brasil?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q6','a')">a) George Washington</button>
-      <button class="option-btn" onclick="checkQuiz('q6','b')">b) Benjamin Franklin</button>
-      <button class="option-btn" onclick="checkQuiz('q6','c')">c) Alexander Hamilton</button>
-      <button class="option-btn" onclick="checkQuiz('q6','d')">d) Thomas Jefferson</button>
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) Nenhuma — o Brasil era irrelevante nesse conflito</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) A invasão de Portugal (que não aderiu ao bloqueio) provocou a fuga da família real para o Brasil em 1807-08</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) O Brasil aderiu ao bloqueio e rompeu com a Inglaterra</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) Motivou a independência imediata do Brasil</button>
     </div>
   </div>
 
   <!-- Q7 -->
   <div class="question-card" data-chapter="cap2" id="q7">
-    <h4>7. Qual foi a principal contradição da Revolução Americana?</h4>
+    <h4>7. Qual das alternativas é uma contradição do Código Napoleônico, apesar de seus princípios liberais?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q7','a')">a) Criar uma monarquia em vez de uma república</button>
-      <button class="option-btn" onclick="checkQuiz('q7','b')">b) Pregar igualdade mas manter a escravidão e excluir mulheres e nativos</button>
-      <button class="option-btn" onclick="checkQuiz('q7','c')">c) Recusar a aliança com a França</button>
-      <button class="option-btn" onclick="checkQuiz('q7','d')">d) Não criar uma Constituição escrita</button>
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) Garantia total de direitos políticos às mulheres</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) Restabelecimento da escravidão nas colônias francesas</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) Abolição da propriedade privada</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) Liberdade irrestrita de organização sindical</button>
     </div>
   </div>
 
   <!-- Q8 -->
-  <div class="question-card" data-chapter="cap3" id="q8">
-    <h4>8. O 3º Estado da sociedade francesa era composto por:</h4>
+  <div class="question-card" data-chapter="cap2" id="q8">
+    <h4>8. A derrota final de Napoleão ocorreu em qual batalha, em 1815?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Clero e nobreza</button>
-      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Apenas a burguesia</button>
-      <button class="option-btn" onclick="checkQuiz('q8','c')">c) Todos os demais — burgueses, sans-culottes e camponeses (98% da população)</button>
-      <button class="option-btn" onclick="checkQuiz('q8','d')">d) Apenas os camponeses e escravos</button>
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Austerlitz</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Trafalgar</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) Leipzig</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) Waterloo</button>
     </div>
   </div>
 
   <!-- Q9 -->
-  <div class="question-card ae-off" data-chapter="cap3" id="q9">
-    <span class="ae-off-label">⚠️ Não cai na AE</span>
-    <h4>9. O período do Terror (1793–1794) foi liderado por:</h4>
+  <div class="question-card" data-chapter="cap3" id="q9">
+    <h4>9. O princípio da "Legitimidade" no Congresso de Viena significava:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Napoleão Bonaparte</button>
-      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Robespierre, pelo Comitê de Salvação Pública</button>
-      <button class="option-btn" onclick="checkQuiz('q9','c')">c) Luís XVI</button>
-      <button class="option-btn" onclick="checkQuiz('q9','d')">d) Os girondinos</button>
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Reconhecer os governos criados pela Revolução Francesa</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Restaurar as casas reais que reinavam antes de 1789</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) Legitimar a expansão territorial de Napoleão</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) Criar repúblicas em toda a Europa</button>
     </div>
   </div>
 
   <!-- Q10 -->
-  <div class="question-card ae-off" data-chapter="cap3" id="q10">
-    <span class="ae-off-label">⚠️ Não cai na AE</span>
-    <h4>10. O "Golpe de 18 Brumário" (novembro de 1799) foi dado por:</h4>
+  <div class="question-card" data-chapter="cap3" id="q10">
+    <h4>10. Por que a Inglaterra recusou aderir à Santa Aliança?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q10','a')">a) Robespierre, para iniciar o Terror</button>
-      <button class="option-btn" onclick="checkQuiz('q10','b')">b) Luís XVI, para restaurar a monarquia</button>
-      <button class="option-btn" onclick="checkQuiz('q10','c')">c) Napoleão Bonaparte, encerrando o Diretório e a Revolução Francesa</button>
-      <button class="option-btn" onclick="checkQuiz('q10','d')">d) Os jacobinos, para derrubar os girondinos</button>
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) Porque já havia sido derrotada por Napoleão</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) Porque priorizava o livre comércio, inclusive com as novas nações independentes da América</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) Porque não reconhecia a autoridade do czar russo</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) Porque era uma república, não uma monarquia</button>
     </div>
   </div>
 
   <!-- Q11 -->
-  <div class="question-card" data-chapter="cap3" id="q11">
-    <h4>11. Qual foi o papel dos sans-culottes na Revolução Francesa?</h4>
+  <div class="question-card" data-chapter="cap4" id="q11">
+    <h4>11. As Reformas Bourbônicas nas colônias espanholas tiveram qual efeito?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q11','a')">a) Eram a elite burguesa que redigiu a Constituição</button>
-      <button class="option-btn" onclick="checkQuiz('q11','b')">b) Eram trabalhadores urbanos pobres que formaram a força de choque popular da Revolução</button>
-      <button class="option-btn" onclick="checkQuiz('q11','c')">c) Eram soldados profissionais do exército de Napoleão</button>
-      <button class="option-btn" onclick="checkQuiz('q11','d')">d) Eram nobres que apoiavam a monarquia constitucional</button>
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) Reduziram os impostos e agradaram aos criollos</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) Centralizaram o poder e aumentaram impostos, favorecendo peninsulares e intensificando tensões</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) Deram autonomia total aos cabildos locais</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) Aboliram a escravidão em todas as colônias</button>
     </div>
   </div>
 
   <!-- Q12 -->
-  <div class="question-card" data-chapter="cap1" id="q12">
-    <h4>12. O que diferencia Fisiocracia do Liberalismo de Adam Smith?</h4>
+  <div class="question-card" data-chapter="cap4" id="q12">
+    <h4>12. O que a Carta da Jamaica (1815), de Simón Bolívar, defendia?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q12','a')">a) A fisiocracia defendia o controle estatal; Smith era contra o livre mercado</button>
-      <button class="option-btn" onclick="checkQuiz('q12','b')">b) A fisiocracia via riqueza apenas na agricultura; Smith ampliou para o trabalho e o comércio livre</button>
-      <button class="option-btn" onclick="checkQuiz('q12','c')">c) Ambas defendiam a mesma coisa — intervenção estatal na economia</button>
-      <button class="option-btn" onclick="checkQuiz('q12','d')">d) Smith defendia a fisiocracia como sistema ideal</button>
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) A permanência das colônias sob domínio espanhol</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) A necessidade da independência e a criação de nações latino-americanas autônomas e unidas</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) A anexação da América Espanhola aos Estados Unidos</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) A restauração da monarquia inca</button>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="question-card" data-chapter="cap4" id="q13">
+    <h4>13. Qual foi o apoio decisivo do Haiti à campanha de Bolívar?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q13','a')">a) Enviou tropas para lutar diretamente ao lado de Bolívar</button>
+      <button class="option-btn" onclick="checkQuiz('q13','b')">b) O presidente Alexandre Pétion forneceu armas, navios e apoio logístico, em troca do fim da escravidão nos territórios libertados</button>
+      <button class="option-btn" onclick="checkQuiz('q13','c')">c) Financiou integralmente o Congresso do Panamá</button>
+      <button class="option-btn" onclick="checkQuiz('q13','d')">d) Cedeu o território de Saint-Domingue para a Grã-Colômbia</button>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question-card" data-chapter="cap4" id="q14">
+    <h4>14. A Batalha de Ayacucho (1824) teve qual significado histórico?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) Marcou o início da presença espanhola na América do Sul</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) Foi a vitória decisiva que encerrou o poder militar espanhol na América do Sul</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) Deu início à Guerra da Cisplatina</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) Resultou na criação da Santa Aliança</button>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question-card" data-chapter="cap5" id="q15">
+    <h4>15. A Abertura dos Portos às Nações Amigas (1808) teve como principal beneficiada:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) A França</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) A Espanha</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) A Inglaterra</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) Os Estados Unidos</button>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="question-card" data-chapter="cap5" id="q16">
+    <h4>16. O que mudou juridicamente para o Brasil em 1815?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) Tornou-se uma república independente</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) Deixou de ser colônia, tornando-se Reino Unido de Portugal, Brasil e Algarves</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) Passou a ser administrado diretamente pela Inglaterra</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) Foi dividido em duas colônias distintas</button>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="question-card" data-chapter="cap5" id="q17">
+    <h4>17. O "Dia do Fico" (9 de janeiro de 1822) se refere a:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) D. Pedro decidindo permanecer no Brasil, desafiando as Cortes de Lisboa</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) A proclamação da independência às margens do Ipiranga</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) O retorno de D. João VI a Portugal</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) A assinatura do Tratado de reconhecimento da independência</button>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="question-card" data-chapter="cap5" id="q18">
+    <h4>18. Segundo a visão crítica sobre "o que realmente foi a independência do Brasil", qual grupo NÃO participou do processo político?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q18','a')">a) A elite proprietária nascida no Brasil</button>
+      <button class="option-btn" onclick="checkQuiz('q18','b')">b) José Bonifácio e D. Pedro</button>
+      <button class="option-btn" onclick="checkQuiz('q18','c')">c) Escravizados, indígenas, mulheres e pobres</button>
+      <button class="option-btn" onclick="checkQuiz('q18','d')">d) Os grandes proprietários rurais</button>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="question-card" data-chapter="cap5" id="q19">
+    <h4>19. A Revolta do Brigue Palhaço (1823), no Grão-Pará, ficou marcada por:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q19','a')">a) Uma vitória diplomática sem derramamento de sangue</button>
+      <button class="option-btn" onclick="checkQuiz('q19','b')">b) A morte de cerca de 250 presos políticos sufocados/famintos no porão de um navio</button>
+      <button class="option-btn" onclick="checkQuiz('q19','c')">c) A adesão pacífica e imediata do Pará ao Império</button>
+      <button class="option-btn" onclick="checkQuiz('q19','d')">d) A libertação de todos os escravizados da região</button>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="question-card" data-chapter="cap6" id="q20">
+    <h4>20. A "Constituição da Mandioca" (1823) ganhou esse nome porque:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q20','a')">a) Foi escrita em papel feito de mandioca</button>
+      <button class="option-btn" onclick="checkQuiz('q20','b')">b) Ligava o direito ao voto à renda agrícola, medida em alqueires de mandioca</button>
+      <button class="option-btn" onclick="checkQuiz('q20','c')">c) Proibia o cultivo de outros alimentos</button>
+      <button class="option-btn" onclick="checkQuiz('q20','d')">d) Foi redigida por agricultores de mandioca</button>
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="question-card" data-chapter="cap6" id="q21">
+    <h4>21. O Poder Moderador, criado pela Constituição de 1824, era:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q21','a')">a) Um quarto poder, exclusivo do imperador, além do Legislativo, Executivo e Judiciário</button>
+      <button class="option-btn" onclick="checkQuiz('q21','b')">b) Um tribunal criado para julgar apenas crimes eleitorais</button>
+      <button class="option-btn" onclick="checkQuiz('q21','c')">c) Um cargo eletivo controlado pela Assembleia</button>
+      <button class="option-btn" onclick="checkQuiz('q21','d')">d) Um poder exercido exclusivamente pela Igreja Católica</button>
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="question-card" data-chapter="cap6" id="q22">
+    <h4>22. A Guerra da Cisplatina (1825–1828) terminou com:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q22','a')">a) A anexação definitiva da região ao Brasil</button>
+      <button class="option-btn" onclick="checkQuiz('q22','b')">b) A independência do Uruguai, frustrando os planos expansionistas do Império</button>
+      <button class="option-btn" onclick="checkQuiz('q22','c')">c) A anexação da região à Argentina</button>
+      <button class="option-btn" onclick="checkQuiz('q22','d')">d) Uma vitória militar esmagadora do Brasil sem perdas territoriais</button>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="question-card" data-chapter="cap6" id="q23">
+    <h4>23. O que motivou diretamente a abdicação de D. Pedro I, em 1831?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q23','a')">a) Uma invasão estrangeira ao Rio de Janeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q23','b')">b) A perda de apoio interno (autoritarismo, Noite das Garrafas) somada à crise em Portugal (Golpe de D. Miguel)</button>
+      <button class="option-btn" onclick="checkQuiz('q23','c')">c) A vitória na Guerra da Cisplatina</button>
+      <button class="option-btn" onclick="checkQuiz('q23','d')">d) Uma decisão das Cortes de Lisboa</button>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="question-card" data-chapter="cap7" id="q24">
+    <h4>24. Por que o Brasil precisou de um governo de Regência a partir de 1831?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Porque o Brasil havia se tornado uma república</button>
+      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Porque D. Pedro II, herdeiro do trono, tinha apenas 5 anos e não podia governar</button>
+      <button class="option-btn" onclick="checkQuiz('q24','c')">c) Porque D. Pedro I havia sido deposto pelas Cortes</button>
+      <button class="option-btn" onclick="checkQuiz('q24','d')">d) Porque não havia herdeiro do trono</button>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="question-card" data-chapter="cap7" id="q25">
+    <h4>25. O Ato Adicional de 1834 teve como principal efeito:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q25','a')">a) Centralizar ainda mais o poder no Rio de Janeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q25','b')">b) Descentralizar o poder, criando as Assembleias Legislativas Provinciais</button>
+      <button class="option-btn" onclick="checkQuiz('q25','c')">c) Restaurar a monarquia absoluta</button>
+      <button class="option-btn" onclick="checkQuiz('q25','d')">d) Abolir a escravidão no Brasil</button>
+    </div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="question-card" data-chapter="cap7" id="q26">
+    <h4>26. A Revolução Farroupilha (1835–1845) ocorreu em qual província e teve qual característica?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q26','a')">a) Bahia — revolta de escravizados muçulmanos</button>
+      <button class="option-btn" onclick="checkQuiz('q26','b')">b) Rio Grande do Sul — movimento republicano, com Bento Gonçalves e os Garibaldi</button>
+      <button class="option-btn" onclick="checkQuiz('q26','c')">c) Maranhão — levante de trabalhadores pobres</button>
+      <button class="option-btn" onclick="checkQuiz('q26','d')">d) Pará — levante indígena e popular</button>
+    </div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="question-card" data-chapter="cap7" id="q27">
+    <h4>27. As cinco grandes revoltas do Período Regencial revelam, acima de tudo:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q27','a')">a) Que o Brasil vivia em paz e prosperidade nesse período</button>
+      <button class="option-btn" onclick="checkQuiz('q27','b')">b) A fragilidade do poder central e as tensões sociais e regionais herdadas do período colonial e do Primeiro Reinado</button>
+      <button class="option-btn" onclick="checkQuiz('q27','c')">c) Um plano coordenado para restaurar D. Pedro I</button>
+      <button class="option-btn" onclick="checkQuiz('q27','d')">d) O fortalecimento imediato da economia regencial</button>
+    </div>
+  </div>
+
+  <!-- Q28 -->
+  <div class="question-card" data-chapter="cap7" id="q28">
+    <h4>28. O Golpe da Maioridade (1840) teve como objetivo:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q28','a')">a) Depor D. Pedro II</button>
+      <button class="option-btn" onclick="checkQuiz('q28','b')">b) Antecipar a maioridade de D. Pedro II (14 anos) para encerrar a instabilidade do Período Regencial</button>
+      <button class="option-btn" onclick="checkQuiz('q28','c')">c) Proclamar a República</button>
+      <button class="option-btn" onclick="checkQuiz('q28','d')">d) Reconduzir D. Pedro I ao trono</button>
     </div>
   </div>
 
@@ -675,7 +1169,7 @@
       </svg>
       <div class="donut-center">
         <span class="donut-score" id="donut-score">0</span>
-        <span class="donut-label">/ 12</span>
+        <span class="donut-label">/ 28</span>
       </div>
     </div>
     <div class="result-msg" id="result-msg"></div>
@@ -691,7 +1185,7 @@
     <button id="chat-close" onclick="toggleChat()">✕</button>
   </div>
   <div id="chat-msgs">
-    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre o Iluminismo, a Independência das Treze Colônias ou qualquer fase da Revolução Francesa!</div>
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre a Revolução Francesa, o Haiti, Napoleão, o Congresso de Viena, as independências da América Espanhola ou o Brasil Império!</div>
   </div>
   <form id="chat-form" onsubmit="sendMsg(event)">
     <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
@@ -716,7 +1210,15 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── Quiz ── */
-const ANSWERS = { q1:'c', q2:'c', q3:'b', q4:'b', q5:'c', q6:'d', q7:'b', q8:'c', q9:'b', q10:'c', q11:'b', q12:'b' };
+const ANSWERS = {
+  q1:'c', q2:'b', q3:'a', q4:'b',
+  q5:'b', q6:'b', q7:'b', q8:'d',
+  q9:'b', q10:'b',
+  q11:'b', q12:'b', q13:'b', q14:'b',
+  q15:'c', q16:'b', q17:'a', q18:'c', q19:'b',
+  q20:'b', q21:'a', q22:'b', q23:'b',
+  q24:'b', q25:'b', q26:'b', q27:'b', q28:'b'
+};
 let answered = {}, score = 0, total = 0;
 
 function checkQuiz(qid, choice) {
@@ -758,11 +1260,13 @@ function filterQuiz(chapter, btn) {
 }
 
 function showResult() {
+  const N = Object.keys(ANSWERS).length;
   document.getElementById('quiz-result').style.display = 'block';
   document.getElementById('donut-score').textContent = score;
-  const offset = 345.4 - (score / 12) * 345.4;
+  document.querySelector('.donut-label').textContent = '/ ' + N;
+  const offset = 345.4 - (score / N) * 345.4;
   document.getElementById('donut-arc').style.strokeDashoffset = offset;
-  const pct = Math.round((score / 12) * 100);
+  const pct = Math.round((score / N) * 100);
   let msg, sub;
   if (pct >= 90) { msg = 'Excelente! Dominou o conteúdo!'; sub = 'Resultado impressionante!' }
   else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.' }
