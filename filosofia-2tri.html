@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo de Filosofia — 2º Trimestre 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --primary: #3d2b00;
+    --secondary: #c9953c;
+    --bg: #faf7f0;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8ddc8;
+    --c1: #3d2b00;
+    --c2: #6b4c11;
+    --c3: #8b6914;
+    --c4: #1a2744;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1e1400 0%, #3d2b00 55%, #6b4c11 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: #1e1400; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #fdf8ef; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* NESTED LIST */
+  .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
+  .list-nested li strong { color: var(--text); }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #fef3dc, #fde8b8); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-purple { background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-left: 4px solid #7c3aed; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight-gray { background: #f1f1ef; border-left: 4px solid #999; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; color: var(--text-light); }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-2 > .card,
+  .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+
+  /* QUOTE */
+  .quote { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--primary); border-left: 4px solid var(--secondary); padding: 12px 20px; margin-top: 14px; background: #fdf8ef; border-radius: 0 10px 10px 0; }
+  .quote span { display: block; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-style: normal; color: var(--text-light); margin-top: 6px; font-weight: 600; }
+
+  /* FLOW */
+  .flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .flow-step { background: var(--primary); color: white; padding: 10px 16px; border-radius: 10px; font-size: 0.86rem; font-weight: 600; text-align: center; flex: 1; min-width: 100px; }
+  .flow-arrow { color: var(--secondary); font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf8ef; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #fef9c3; color: #854d0e; }
+  .tag-pending { background: #f1f1ef; color: #666; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CL1RMGB3SN');
+</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="hero">
+  <div class="hero-icon"><img src="pensador.png" alt="O Pensador" style="height:100px;object-fit:contain;filter:brightness(1.3) contrast(0.85) drop-shadow(0 4px 12px rgba(0,0,0,0.4));"/></div>
+  <h1>Filosofia</h1>
+  <p class="subtitle">Filosofia Moral (Ética) · Patrística e Escolástica · Kant · Schopenhauer · Freud · Sartre · Stuart Mill</p>
+  <div class="badge">2º Trimestre · 2026</div>
+  <div><span class="author">Caderno Digital</span></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#estoicismo">1. Estoicismo</a>
+    <a class="nav-link" href="#patristica-escolastica">2. Patrística/Escolástica</a>
+    <a class="nav-link" href="#kant">3. Kant</a>
+    <a class="nav-link" href="#schopenhauer">4. Schopenhauer</a>
+    <a class="nav-link" href="#freud">5. Freud</a>
+    <a class="nav-link" href="#sartre">6. Sartre</a>
+    <a class="nav-link" href="#mill">7. Utilitarismo</a>
+    <a class="nav-link" href="#exercicios">Exercícios</a>
+  </div>
+</nav>
+
+<div class="content">
+
+  <div class="highlight" style="margin-bottom:32px">
+    <strong>Conforme a orientação oficial da Equipe de Filosofia (2º tri — Tema: Filosofia Moral/Ética)</strong>
+    Estoicismo — Epiteto · Patrística e Escolástica — Ética cristã e o Dever · Kant — Imperativo categórico · Schopenhauer · Freud — superego · Sartre — estamos condenados à liberdade · Stuart Mill — utilitarismo. O conteúdo é acumulativo (inclui a Ética de Platão/Aristóteles do 1º tri). Leia também os textos complementares do Moodle e a prova do ano anterior.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       1. ESTOICISMO — EPITETO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="estoicismo">
+    <div class="section-header">
+      <div class="section-num" style="background:#999">1</div>
+      <div>
+        <h2 class="section-title">Estoicismo — Epiteto <span class="tag tag-pending">pendente</span></h2>
+        <p class="section-sub">Ainda sem material de aula sobre este tópico</p>
+      </div>
+    </div>
+
+    <div class="highlight-gray">
+      <strong>Faltando material</strong>
+      Nem as suas anotações nem a "Leitura Obrigatória" citada na orientação de estudos tinham conteúdo sobre Estoicismo/Epiteto — por isso este tópico ainda não está aqui. Assim que você conseguir as anotações de aula, os slides do Moodle ou a leitura obrigatória sobre isso, é só mandar que eu completo esta seção.
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. PATRÍSTICA E ESCOLÁSTICA
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="patristica-escolastica">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">2</div>
+      <div>
+        <h2 class="section-title">Patrística e Escolástica</h2>
+        <p class="section-sub">Ética cristã e o Dever — Santo Agostinho e Tomás de Aquino</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Santo Agostinho — Patrística (séc. IV–V)</div>
+      <p>Santo Agostinho foi um religioso, pensador e o principal filósofo do período da <strong>filosofia patrística</strong>. Antes de se tornar uma das principais vozes do cristianismo católico, ele foi adepto do <strong>maniqueísmo</strong>.</p>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">Maniqueísmo</h4>
+      <ul class="list">
+        <li>Doutrina cujo ideal central era o <strong>dualismo entre o bem e o mal</strong>: dois princípios eternos, conflituosos entre si e <strong>independentes de Deus</strong> (não foram criados por Ele)</li>
+        <li>Esses princípios regulam tanto a vida dos homens quanto o universo como um todo</li>
+      </ul>
+      <div class="highlight">
+        <strong>A dúvida clássica: por que existe o mal se existe Deus?</strong>
+        Para os maniqueístas, o mal é um princípio eterno, intrínseco ao homem e à matéria, e independente de Deus — logo, sua existência não pode ser controlada nem culpabilizada a Ele. Em resumo: Deus não criou o mal e não pode fazer nada em relação a ele.
+      </div>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">A conversão ao Cristianismo</h4>
+      <p>Agostinho contradiz o maniqueísmo em dois pontos: o bem e o mal <strong>não</strong> são princípios eternos independentes de Deus; e Deus, como ser supremo, é <strong>onipotente</strong> em todos os aspectos — tudo existe graças a Ele.</p>
+      <div class="highlight">
+        <strong>O mal como ausência do bem</strong>
+        Para os cristãos, o mal é apenas a <em>ausência</em> do bem — assim como o escuro é só a ausência de luz, ou o silêncio é só a ausência de som.
+      </div>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">O mal e o livre-arbítrio</h4>
+      <p>Misturando com a filosofia grega, Agostinho teoriza que o homem nasce dotado de <strong>racionalidade e livre-arbítrio</strong> para realizar suas próprias escolhas — cabe a ele escolher (ou não) seguir o bem e os princípios bíblicos divinos. Se Deus, onipotente, criou o bem, o livre-arbítrio e o homem, então, para os cristãos, o mal surge a partir da <strong>escolha do homem de não seguir o bem</strong> — o que "livra" Deus da responsabilização pelo mal.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Deus é onipotente?</th><th>A matéria é má?</th><th>De onde vem o mal?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Maniqueísmo</strong></td><td>Não (não controla o mal)</td><td>Sim</td><td>Da matéria</td></tr>
+            <tr><td><strong>Cristianismo</strong></td><td>Sim</td><td>Não</td><td>Da ausência do bem (escolhas)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">Ética e Felicidade para Santo Agostinho</h4>
+      <p>A ética, na sua visão, era uma combinação das verdades reveladas na Bíblia com os princípios da filosofia grega (especialmente Platão e a associação do Mundo Inteligível com o céu, na visão cristã) — criando uma noção moral não baseada em conceitos humanos, mas adequada às leis e intenções divinas, já que Deus, onisciente e onipotente, deve ter suas vontades acima das dos homens.</p>
+      <div class="highlight">
+        <strong>Em resumo</strong>
+        Mal = escolha de não seguir o bem. Bem = escolha de seguir os princípios de Deus — leva à felicidade e à salvação da alma. A felicidade surge da escolha do bem, baseada no livre-arbítrio do homem.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Tomás de Aquino — Escolástica (séc. XIII)</div>
+      <p>Tomás de Aquino também foi um religioso, pensador e o maior representante do período da <strong>filosofia escolástica</strong> — de grande influência da Igreja sobre todas as esferas do mundo, inclusive a filosofia. Assim como Santo Agostinho, ele se inspira na filosofia grega (Aristóteles) e busca uma maior aproximação da religião com a racionalidade/razão.</p>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">Ato e Potência</h4>
+      <p>Aquino relaciona os conceitos aristotélicos de <strong>ato</strong> e <strong>potência</strong> — o movimento de todos os seres e coisas que evidencia suas mudanças e desenvolvimento no mundo.</p>
+      <ul class="list">
+        <li><strong>Potência</strong> — tudo aquilo que algo pode se tornar/ser/virar (uma possibilidade de se transformar em algo novo)</li>
+        <li><strong>Ato</strong> — a realização da potência: o próprio processo de mudança (a transição daquilo que foi para aquilo que vai se tornar)</li>
+      </ul>
+      <div class="highlight">
+        <strong>Exemplo</strong>
+        Quando uma criança nasce, sua forma ainda está em desenvolvimento e tem <strong>potência</strong> para se transformar em algo diferente. A partir do seu desenvolvimento e experiências de vida, sua forma se atualiza e fica em <strong>ato</strong>, evidenciando essa mudança.
+      </div>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">Felicidade para Tomás de Aquino</h4>
+      <p>Aquino se pergunta: para qual verdadeira finalidade realizamos todas as nossas ações? O homem tem como <strong>"último fim"</strong> de todas as suas ações a felicidade, e está sempre em busca dela de modo natural.</p>
+      <p><strong>Felicidade e a fé:</strong> esse sumo objetivo deve sempre ser alcançado através da <strong>contemplação de Deus</strong>, de suas virtudes e de suas criações (como a natureza) — ou seja, a felicidade é alcançada através do respeito a Deus e suas leis divinas.</p>
+      <div class="highlight">
+        <strong>A incompletude da felicidade</strong>
+        Apesar da "fórmula" para o alcance pleno do último fim estar dada, para Tomás de Aquino a felicidade nunca poderá ser completamente alcançada na vida, pois o corpo — como união entre a alma e a matéria — não possui a capacidade de compreender verdadeiramente Deus, sendo limitado racionalmente. Enquanto estivermos vivos no mundo físico, a felicidade absoluta permanece inalcançável e incompleta.
+      </div>
+      <p><em>Relacionando com ato e potência:</em> se um homem busca a felicidade durante sua vida, mesmo que incompleta, ele está <strong>em potência</strong> para alcançá-la plenamente após a sua morte.</p>
+      <p><strong>Mas o que acontece após a morte?</strong> A morte liberta o homem das limitações que o impedem de compreender e contemplar Deus. Apenas na morte o homem consegue se libertar desses limites e pode alcançar o seu "último fim" — portanto, na morte, a felicidade verdadeira se torna <strong>ato</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. IMMANUEL KANT
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="kant">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">3</div>
+      <div>
+        <h2 class="section-title">Immanuel Kant</h2>
+        <p class="section-sub">Iluminista alemão (séc. XVIII) · O Imperativo Categórico</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Esclarecimento, Maioridade e Menoridade</div>
+      <p>Kant é um <strong>iluminista alemão</strong>, inserido no contexto da secularização: a redução da importância da religião e sua saída da esfera pública para a esfera privada dos indivíduos.</p>
+      <p style="margin-top:8px"><strong>Esclarecimento</strong> é o ideal iluminista que utiliza da razão e da autonomia para compreender os eventos do mundo.</p>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Maioridade</h4>
+          <p>A habilidade de compreender ou raciocinar racionalmente sem depender de outro indivíduo — <strong>pensar por si</strong>.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Menoridade</h4>
+          <p>A incapacidade de fazer uso da razão para a compreensão ou raciocínio sem a direção de outro indivíduo.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>"Ouse saber" (Sapere aude)</strong>
+        Todo ser humano nasce na menoridade e deve passar pelo processo de abandono rumo à maioridade — esse é o lema iluminista do "Ouse saber". Caso esse processo não ocorra, para Kant a pessoa é vista como um <strong>covarde preguiçoso</strong>.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> O Imperativo Categórico <span class="tag tag-imp">Imp.</span></div>
+      <div class="quote">
+        "Age de tal modo que o princípio de tua ação se torne regra universal."
+        <span>Immanuel Kant</span>
+      </div>
+      <p style="margin-top:12px">O imperativo categórico é uma regra moral que estabelece que devemos sempre agir de acordo com princípios <strong>universais</strong>, <strong>racionais</strong> e que possam ser aplicados a todos. Devemos nos perguntar: os princípios que guiam minhas ações poderiam se tornar universais e valer para todos? Caso não, a ação é vista por Kant como <strong>eticamente errada</strong>.</p>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">Exemplos</h4>
+      <ul class="list">
+        <li><strong>Mentira</strong> — se todos mentissem, a própria noção de verdade se perderia</li>
+        <li><strong>Cola (trapaça)</strong> — se todos colassem, a avaliação perderia sentido</li>
+      </ul>
+      <div class="highlight">
+        <strong>Coletivismo e racionalidade das ações</strong>
+        Para Kant, as ações não devem ser julgadas isoladas pelo contexto, pois devem estar conectadas por um princípio-guia universal — não existe "mentira do bem", por exemplo: só há mentira. Além disso, no imperativo categórico os princípios morais deixam de ser baseados em um fator bíblico ou externo — devem ser fundamentados unicamente na <strong>racionalidade e autonomia do homem</strong>, uma ruptura importante com a ética cristã de Agostinho e Aquino, cuja base era divina.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. ARTHUR SCHOPENHAUER
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="schopenhauer">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">4</div>
+      <div>
+        <h2 class="section-title">Arthur Schopenhauer</h2>
+        <p class="section-sub">Filósofo alemão pessimista (séc. XIX) · A Vontade</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Contexto: a Crise da Razão</div>
+      <p>A partir do séc. XIX, um novo clima filosófico se instala:</p>
+      <ul class="list">
+        <li>Perda de visão de um <strong>"sentido"</strong> na existência humana — falta de um ideal transcendental como a alma e o céu ("Por que estamos aqui?" → Nada)</li>
+        <li>Visão mais pessimista da realidade e do homem, contrariando o otimismo racionalista grego</li>
+        <li>Questionamento sobre a própria racionalidade do ser humano</li>
+      </ul>
+      <div class="highlight">
+        <strong>Materialismo</strong>
+        Concepção de que tudo o que existe é feito de matéria: não há Deus nem alma (descrença na religião); razão e emoção não são produtos de uma alma, mas sim da matéria (o cérebro).
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Vontade × Razão</div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Visão grega</h4>
+          <p>O homem é um ser racional, e essa racionalidade é capaz de dominar os desejos — virtudes como a <strong>temperança</strong> (Aristóteles).</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Visão de Schopenhauer</h4>
+          <p>A vontade é uma <strong>força cega, irracional e incontrolável</strong>. Diante da vontade, a razão é impotente — o homem, apesar de dotado de razão, no final é controlado pelos seus desejos.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        <strong>O pêndulo humano</strong>
+        Para Schopenhauer, o ser humano é um pêndulo entre a ânsia de ter e o tédio de possuir. O homem sempre busca satisfazer seus desejos; ao satisfazê-los, entra em um estado de tédio e monotonia, até adquirir um novo desejo — repetindo o processo indefinidamente (Desejo → Satisfação → Monotonia → novo Desejo...). O homem é escravo de sua própria vontade, vivendo em uma angústia permanente de insatisfação.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5. SIGMUND FREUD
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="freud">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">5</div>
+      <div>
+        <h2 class="section-title">Sigmund Freud</h2>
+        <p class="section-sub">Corpo e Alma: Descartes × Freud · Id, Ego e Superego</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Descartes: a visão positiva do homem</div>
+      <ul class="list">
+        <li>Visão positiva do homem e de sua razão</li>
+        <li>A <strong>alma</strong>, para Descartes, é o puro pensamento racional e a sede da consciência — esse verdadeiro "eu" possui vontades e desejos</li>
+        <li>A consciência e a alma são <strong>unas e sem divisões</strong></li>
+        <li>Não há parte obscura na consciência: o homem tem pleno controle de suas emoções e paixões</li>
+      </ul>
+      <div class="highlight">
+        <strong>O que muda no mundo filosófico?</strong>
+        A crise da razão inaugura a filosofia contemporânea, trazendo uma visão mais pessimista sobre o ser humano: não há alma nem Deus, o homem é apenas um corpo — a marca dos filósofos materialistas e ateus, entre eles Freud.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Freud e a Psicanálise (séc. XX)</div>
+      <p>Freud, criador da <strong>psicanálise</strong>, propõe que o psíquico do homem é a união do <strong>consciente</strong> e do <strong>inconsciente</strong>.</p>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="mini-card" style="border-top-color:var(--c1)">
+          <h4>Inconsciente — Id</h4>
+          <p>A parte com maior domínio sobre o homem. O <strong>Id</strong> é a parte do inconsciente associada aos instintos, impulsos e desejos inconscientes — relacionado à natureza sexual (também chamado de <strong>princípio do prazer</strong>), mas não só sobre o prazer sexual: qualquer desejo do corpo.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Inconsciente — Superego</h4>
+          <p>Parte que reprime e censura os desejos do Id. "Surge" após o indivíduo conviver com os princípios morais da sociedade, que vão contra a natureza do Id. Há uma disputa constante entre Id e Superego — o <strong>princípio da realidade</strong> é a busca do equilíbrio entre satisfazer as vontades do Id enquanto se respeita o Superego.</p>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:14px">
+        <strong>Consciente — Ego/Eu</strong>
+        Parte consciente da nossa vida psíquica. Sua existência é feita de angústia, pois é resultado de uma disputa constante entre: os desejos do Id, a repressão do Superego, e os perigos e acontecimentos do mundo exterior. Cabe ao ego encontrar saídas para essa angústia, pois: render-se ao Id é ser <strong>imoral e destrutivo</strong>; render-se ao Superego é <strong>viver insatisfeito</strong>; não se render ao mundo é <strong>ser destruído por ele</strong>.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--secondary)"></span> Narcisismo do Ser Humano <span class="tag tag-imp">Extra</span></div>
+      <p>Freud acreditava que o narcisismo dos homens foi ferido três vezes, afetando nossa autoimagem de seres racionais:</p>
+      <div class="flow">
+        <div class="flow-step">Copérnico<br><small style="font-weight:400;font-size:0.75rem">Heliocentrismo</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Darwin<br><small style="font-weight:400;font-size:0.75rem">Homens descendem de primatas</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Freud<br><small style="font-weight:400;font-size:0.75rem">Descobrimento do inconsciente</small></div>
+      </div>
+      <p style="margin-top:10px;font-size:0.86rem;color:var(--text-light)">A consciência é a menor e mais fraca parte do nosso psíquico.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       6. JEAN-PAUL SARTRE
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="sartre">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">6</div>
+      <div>
+        <h2 class="section-title">Jean-Paul Sartre</h2>
+        <p class="section-sub">Filósofo existencialista do séc. XX · Condenados a ser livres</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Essência × Existência</div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Visão grega</h4>
+          <p>A <strong>essência precede a existência</strong>: a essência é fixa e imutável. Cada ser e objeto possui uma essência e um lugar definidos pela natureza. A essência do homem é ser racional, e portanto sua existência deve ser guiada pela razão — seguir a essência = viver eticamente e ser feliz.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Visão de Sartre</h4>
+          <p>A <strong>existência precede a essência</strong>: o homem nasce do nada, com uma essência vazia. Cabe ao homem definir a sua própria essência, independentemente de suas circunstâncias ou da natureza.</p>
+        </div>
+      </div>
+      <div class="quote" style="margin-top:14px">
+        "O homem é condenado a ser livre."
+        <span>Jean-Paul Sartre</span>
+      </div>
+      <div class="highlight">
+        <strong>Não há como terceirizar suas ações</strong>
+        Você é responsável pelas suas escolhas, sua vida e sua essência.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       7. UTILITARISMO — BENTHAM E STUART MILL
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="mill">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">7</div>
+      <div>
+        <h2 class="section-title">Utilitarismo</h2>
+        <p class="section-sub">Jeremy Bentham e John Stuart Mill</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Utilitarismo e Jeremy Bentham</div>
+      <p><strong>Utilitarismo:</strong> uma ação é moralmente correta quando promove a maior felicidade possível para o maior número de pessoas.</p>
+      <p style="margin-top:8px"><strong>Jeremy Bentham</strong>, filósofo inglês utilitarista, defende que a maximização do prazer e a redução da dor são os dois princípios que governam a humanidade.</p>
+      <div class="highlight">
+        <strong>O cálculo da moral</strong>
+        Bentham cria um cálculo quantitativo (um sistema de pontuação) para categorizar as ações morais de acordo com o princípio de maximização do prazer para o maior número de pessoas. Uma ação não é moral por si só — ela possui (ou não) valor moral de acordo com a quantidade de prazer oferecida dentro do contexto em que está inserida.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> A crítica de Stuart Mill a Bentham <span class="tag tag-imp">Imp.</span></div>
+      <p><strong>John Stuart Mill</strong>, filósofo político inglês (séc. XIX), admite que a dor e o prazer são princípios que guiam a humanidade — mas faz uma ressalva: crê que há ações naturalmente superiores a outras, e que possuem maior valor moral por si próprias.</p>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Prazeres "superiores"</h4>
+          <p>Pessoa que obtém prazer estudando filosofia, literatura e matemática.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Prazeres "inferiores"</h4>
+          <p>Pessoa que obtém prazeres imediatos como bebida, comida e prazeres carnais.</p>
+        </div>
+      </div>
+      <p style="margin-top:12px">Note que ambos os casos resultam em prazer. Para <strong>Bentham</strong>, por conta disso, ambas as ações são moralmente equivalentes. Para <strong>Mill</strong>, as ações não são moralmente iguais — existem estilos de vida e ações naturalmente superiores e mais moralmente corretas do que outras.</p>
+      <div class="quote">
+        "É melhor um Sócrates insatisfeito do que um tolo satisfeito."
+        <span>John Stuart Mill — antes insatisfeito com prazeres superiores do que satisfeito com prazeres inferiores</span>
+      </div>
+      <div class="highlight">
+        <strong>E a felicidade, para Mill?</strong>
+        A felicidade é algo <strong>qualitativo</strong>. Devido à hierarquização moral das ações, feliz é aquele que as escolhe (as superiores) em vez das moralmente inferiores.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Filosofia Política — Liberalismo</div>
+      <p>John Stuart Mill foi um forte defensor do <strong>liberalismo</strong> e do direito à liberdade de escolha individual.</p>
+      <ul class="list">
+        <li><strong>Liberdade do indivíduo/de autonomia</strong> — cada indivíduo tem o direito de escolher sobre particularidades de si, como liberdade de associação, criativa, progressiva...</li>
+      </ul>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">Liberdade de Expressão</h4>
+      <p>Mill crê que todos têm direito à liberdade de expressão, pois todos os seres humanos são <strong>falhos</strong> e suas convicções podem ser incorretas/incompletas e contestadas (falibilidade humana). A possibilidade de contestar e refletir sobre as "verdades" existentes permite um avanço constante do homem — ninguém possui a verdade completa e absoluta, portanto devemos, como sociedade, escutar as visões de todos.</p>
+      <div class="highlight">
+        <strong>Um limite tênue</strong>
+        A linha entre os limites da liberdade de expressão pode acabar gerando conflitos entre aqueles com visões diferentes.
+      </div>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">Escravidão</h4>
+      <p>Mill era totalmente contrário à escravidão, pois ela ia diretamente contra seu princípio de liberdade e autonomia. Na escravidão, o indivíduo é visto como propriedade e, por isso, perde os direitos individuais. A <strong>liberdade de propriedade</strong> é o conceito de que cada pessoa tem o direito de propriedade sobre si mesma.</p>
+      <div class="highlight-purple">
+        <strong>Questão: uma pessoa pode voluntariamente se tornar escrava?</strong>
+        Para Mill, não. Se uma pessoa detém liberdade de propriedade sobre si e escolhe voluntariamente se tornar uma escrava, a própria existência dessa escolha anula automaticamente o princípio da escravidão. A liberdade pode ser usada para fazer escolhas — exceto para limitar a si mesma (o fim do ser humano): <em>"O princípio da liberdade não pode exigir que seja livre para não ser livre."</em>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     EXERCÍCIOS
+═══════════════════════════════════════════════ -->
+<div class="content" id="exercicios" style="padding-top:0">
+  <div class="section-header" style="margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:14px">
+    <div class="section-num" style="background:var(--primary)">✏</div>
+    <div>
+      <h2 class="section-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700">Exercícios</h2>
+      <p style="font-size:0.82rem;color:var(--text-light);margin-top:2px">Clique em uma alternativa para ver se acertou (Estoicismo ainda não entra — sem material)</p>
+    </div>
+  </div>
+
+  <style>
+    .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+    .quiz-q { padding: 16px 22px 12px; font-size: 0.93rem; font-weight: 600; display: flex; gap: 12px; align-items: flex-start; }
+    .quiz-num { background: var(--secondary); color: #1e1400; border-radius: 50%; min-width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .quiz-opts { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 7px; }
+    .opt { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--border); cursor: pointer; font-size: 0.88rem; line-height: 1.5; transition: all 0.18s; background: white; }
+    .opt:hover:not(.disabled) { border-color: var(--secondary); background: #fdf8ef; }
+    .opt-letter { font-weight: 700; color: var(--secondary); flex-shrink: 0; min-width: 18px; }
+    .opt.correct { border-color: #166534; background: #f0fdf4; }
+    .opt.correct .opt-letter { color: #166534; }
+    .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
+    .opt.wrong .opt-letter { color: #9c1c1c; }
+    .opt.disabled { cursor: default; pointer-events: none; }
+    .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
+    .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
+    .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+    .score-label { font-size: 0.82rem; color: var(--text-light); }
+    .score-donut-wrap { display:flex; align-items:center; gap:10px; }
+    .score-pct-label { font-size:1.2rem; font-weight:800; color: var(--primary); }
+    .score-pct-sub { font-size:0.75rem; color: var(--text-light); }
+    .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+    .btn-reset:hover { background: var(--c2); }
+  </style>
+
+  <div class="score-bar">
+    <div>
+      <div class="score-val"><span id="score">0</span>/<span id="total">24</span></div>
+      <div class="score-label">acertos · clique nas alternativas para responder</div>
+    </div>
+    <div class="score-donut-wrap">
+      <svg width="60" height="60" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="8"/>
+        <circle id="donut-arc" cx="32" cy="32" r="26" fill="none" stroke="#c9953c" stroke-width="8"
+          stroke-dasharray="0 163.4" stroke-linecap="round"
+          transform="rotate(-90 32 32)"/>
+      </svg>
+      <div>
+        <div id="score-pct-label" class="score-pct-label">0%</div>
+        <div class="score-pct-sub">de acerto</div>
+      </div>
+    </div>
+    <button class="btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
+
+  <script>
+    const ANSWERS = {q1:'c',q2:'b',q3:'d',q4:'b',q5:'a',q6:'c',q7:'b',q8:'a',q9:'c',q10:'b',q11:'c',q12:'b',q13:'b',q14:'b',q15:'c',q16:'b',q17:'d',q18:'b',q19:'c',q20:'b',q21:'b',q22:'b',q23:'b',q24:'b'};
+    let score = 0, answered = 0;
+    function updateDonut() {
+      const pct = answered ? Math.round(score / answered * 100) : 0;
+      const arc = answered ? (score / answered) * 163.4 : 0;
+      const donut = document.getElementById('donut-arc');
+      donut.setAttribute('stroke-dasharray', `${arc} 163.4`);
+      donut.setAttribute('stroke', pct >= 70 ? '#c9953c' : pct >= 40 ? '#f39c12' : '#e74c3c');
+      document.getElementById('score-pct-label').textContent = pct + '%';
+    }
+    function pick(qid, letter, el) {
+      const opts = el.closest('.quiz-opts').querySelectorAll('.opt');
+      opts.forEach(o => o.classList.add('disabled'));
+      const fb = document.getElementById('fb-'+qid);
+      if (letter === ANSWERS[qid]) {
+        el.classList.add('correct'); score++; answered++;
+        document.getElementById('score').textContent = score;
+        fb.className = 'quiz-feedback show ok';
+        fb.innerHTML = '✅ <strong>Correto!</strong> ' + fb.dataset.ok;
+      } else {
+        el.classList.add('wrong'); answered++;
+        opts.forEach(o => { if(o.dataset.l === ANSWERS[qid]) o.classList.add('reveal-correct'); });
+        fb.className = 'quiz-feedback show err';
+        fb.innerHTML = '❌ <strong>Incorreto.</strong> ' + fb.dataset.err;
+      }
+      updateDonut();
+    }
+    function resetQuiz() {
+      score = 0; answered = 0;
+      document.getElementById('score').textContent = 0;
+      document.querySelectorAll('.opt').forEach(o => o.className = 'opt');
+      document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+      document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
+      document.getElementById('score-pct-label').textContent = '0%';
+      document.getElementById('exercicios').scrollIntoView({behavior:'smooth'});
+    }
+  </script>
+
+  <!-- Q1 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">1</span><span>Para o maniqueísmo (crença anterior de Santo Agostinho), de onde vem o mal?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> Da escolha livre do homem</div>
+      <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> Da ausência do bem</div>
+      <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> Da matéria — um princípio eterno e independente de Deus</div>
+      <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> De Deus, que criou o bem e o mal igualmente</div>
+    </div>
+    <div id="fb-q1" class="quiz-feedback" data-ok="Para o maniqueísmo, o mal é um princípio eterno, intrínseco à matéria, independente de Deus — por isso Deus não pode ser responsabilizado por ele." data-err="No maniqueísmo, o mal vem da matéria, um princípio eterno e independente de Deus (Deus não o controla nem o criou)."></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">2</span><span>Para o Cristianismo de Santo Agostinho, o que é o mal?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> Um princípio eterno e independente de Deus</div>
+      <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> A ausência do bem, resultado da escolha humana de não segui-lo</div>
+      <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> Uma força criada por Deus para testar os homens</div>
+      <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> Uma ilusão que não existe de fato</div>
+    </div>
+    <div id="fb-q2" class="quiz-feedback" data-ok="Para os cristãos, o mal é apenas a ausência do bem — surge da escolha do homem (livre-arbítrio) de não seguir os princípios divinos, o que 'livra' Deus da responsabilização." data-err="Para o Cristianismo, o mal é a ausência do bem, decorrente da escolha humana — não um princípio independente de Deus (essa é a visão maniqueísta)."></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">3</span><span>O que são "ato" e "potência" para Tomás de Aquino?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> Ato é a possibilidade futura; potência é o estado presente e definitivo</div>
+      <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> São sinônimos de bem e mal</div>
+      <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> Conceitos exclusivos da física moderna, sem relação com a ética</div>
+      <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> Potência é aquilo que algo pode se tornar; ato é a realização dessa potência — o processo de mudança em si</div>
+    </div>
+    <div id="fb-q3" class="quiz-feedback" data-ok="Potência = possibilidade de se tornar algo novo. Ato = a realização dessa potência, o processo de mudança em si — como uma criança (potência) que se desenvolve (ato)." data-err="Potência é a possibilidade de algo se tornar/ser; ato é a realização dessa potência (o processo de mudança)."></div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">4</span><span>Por que, para Tomás de Aquino, a felicidade nunca pode ser completamente alcançada em vida?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> Porque Deus não deseja que os homens sejam felizes</div>
+      <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> Porque o corpo, união de alma e matéria, é limitado racionalmente e não consegue compreender Deus por completo</div>
+      <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> Porque a felicidade não existe, é uma ilusão</div>
+      <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> Porque só os ricos podem alcançar a felicidade</div>
+    </div>
+    <div id="fb-q4" class="quiz-feedback" data-ok="O corpo (união de alma e matéria) é limitado racionalmente e não compreende Deus por completo — por isso a felicidade absoluta só é alcançada, plenamente em ato, após a morte." data-err="Para Aquino, é a limitação racional do corpo (união de alma e matéria) que impede a contemplação plena de Deus em vida — só a morte liberta o homem dessa limitação."></div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">5</span><span>O que significa "maioridade" para Kant?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> A habilidade de raciocinar racionalmente sem depender de outro indivíduo — pensar por si</div>
+      <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> Ter mais de 18 anos</div>
+      <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> Depender sempre da orientação religiosa</div>
+      <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> Seguir cegamente as leis do Estado</div>
+    </div>
+    <div id="fb-q5" class="quiz-feedback" data-ok="Maioridade é 'pensar por si' — usar a própria razão sem depender de outro indivíduo. É o lema do 'Ouse saber' (Sapere aude)." data-err="Maioridade kantiana é a capacidade de pensar por si mesmo, sem depender de outra pessoa para raciocinar — não é uma idade civil."></div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">6</span><span>O Imperativo Categórico de Kant estabelece que:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> Devemos agir de acordo com as leis religiosas de cada cultura</div>
+      <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> As ações devem ser julgadas apenas pelo contexto e pelas consequências</div>
+      <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> Devemos agir de tal modo que o princípio de nossa ação possa se tornar uma regra universal</div>
+      <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> A moral é definida por cada indivíduo, sem nenhum critério comum</div>
+    </div>
+    <div id="fb-q6" class="quiz-feedback" data-ok="'Age de tal modo que o princípio de tua ação se torne regra universal' — os princípios devem ser universais, racionais e aplicáveis a todos." data-err="O imperativo categórico exige que o princípio da ação possa se tornar uma regra universal, válida para todos — não depende do contexto ou de leis religiosas."></div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">7</span><span>Por que, para Kant, não existe "mentira do bem"?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> Porque mentir nunca tem consequências práticas</div>
+      <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> Porque as ações não devem ser isoladas pelo contexto — se todos mentissem, a própria noção de verdade se perderia</div>
+      <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> Porque Deus proíbe todo tipo de mentira</div>
+      <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> Porque só existe mentira do bem, nunca mentira do mal</div>
+    </div>
+    <div id="fb-q7" class="quiz-feedback" data-ok="Para Kant, as ações devem seguir um princípio universal — se todos mentissem, a noção de verdade se perderia. Por isso só existe 'mentira', nunca 'mentira do bem'." data-err="Kant rejeita julgar ações pelo contexto isolado — universalizada, a mentira destruiria a própria noção de verdade, por isso não há 'mentira do bem'."></div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">8</span><span>Segundo suas anotações, o contexto filosófico da "crise da razão" (que antecede Schopenhauer) envolve:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> A perda de um "sentido" transcendental na existência humana e uma visão mais pessimista do homem</div>
+      <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> O fortalecimento da fé religiosa como resposta às ciências</div>
+      <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> A confirmação do otimismo racionalista grego</div>
+      <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> O retorno ao imperativo categórico de Kant</div>
+    </div>
+    <div id="fb-q8" class="quiz-feedback" data-ok="A crise da razão traz a perda de um sentido transcendental (alma, céu) e uma visão pessimista da realidade e do homem, contrariando o otimismo racionalista grego." data-err="A crise da razão é marcada pela perda de sentido transcendental e por uma visão pessimista do homem — o oposto do otimismo racionalista grego."></div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">9</span><span>Para Schopenhauer, qual é a relação entre vontade e razão?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> A razão domina totalmente a vontade, como pensavam os gregos</div>
+      <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> Vontade e razão são a mesma coisa</div>
+      <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> A vontade é uma força cega e incontrolável diante da qual a razão é impotente</div>
+      <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> A vontade não existe; só a razão governa o homem</div>
+    </div>
+    <div id="fb-q9" class="quiz-feedback" data-ok="Para Schopenhauer, a vontade é uma força cega, irracional e incontrolável — a razão é impotente diante dela, e o homem acaba controlado por seus desejos." data-err="Ao contrário da visão grega (razão domina os desejos), Schopenhauer defende que a vontade é cega e incontrolável, e a razão é impotente diante dela."></div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">10</span><span>O "pêndulo" de Schopenhauer descreve o homem oscilando entre:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> O bem e o mal</div>
+      <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> A ânsia de ter e o tédio de possuir</div>
+      <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> A razão e a fé</div>
+      <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> A maioridade e a menoridade</div>
+    </div>
+    <div id="fb-q10" class="quiz-feedback" data-ok="O homem busca satisfazer desejos; ao satisfazê-los, cai em tédio e monotonia até surgir um novo desejo — um ciclo repetitivo de insatisfação permanente." data-err="O pêndulo de Schopenhauer é entre a ânsia de ter (desejo) e o tédio de possuir (satisfação/monotonia) — um ciclo sem fim."></div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">11</span><span>Para Descartes, a alma e a consciência são:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> Divididas em partes conflitantes, como para Freud</div>
+      <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> Inexistentes — o homem é apenas matéria</div>
+      <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> Unas e sem divisões — o homem tem pleno controle de suas emoções e paixões</div>
+      <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> Determinadas inteiramente pelo inconsciente</div>
+    </div>
+    <div id="fb-q11" class="quiz-feedback" data-ok="Para Descartes, a alma é o puro pensamento racional, sede única da consciência — sem partes obscuras, com pleno controle sobre emoções e paixões." data-err="Descartes vê a alma/consciência como unas, sem divisões — é a visão de Freud, não de Descartes, que introduz o inconsciente dividindo a vida psíquica."></div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">12</span><span>O Id, na teoria de Freud, está associado a:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> Os princípios morais aprendidos da sociedade</div>
+      <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> Instintos, impulsos e desejos inconscientes (o "princípio do prazer")</div>
+      <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> A parte consciente e racional da mente</div>
+      <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> A censura que a sociedade impõe aos desejos</div>
+    </div>
+    <div id="fb-q12" class="quiz-feedback" data-ok="O Id é a parte do inconsciente ligada aos instintos e desejos — o 'princípio do prazer', não restrito ao sexual." data-err="O Id é a parte instintiva/inconsciente ligada ao 'princípio do prazer' — quem reprime esses desejos é o Superego, não o Id."></div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">13</span><span>O Superego "surge" quando:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> O bebê nasce, já formado</div>
+      <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> O indivíduo convive com os princípios morais da sociedade, que vão contra a natureza do Id</div>
+      <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> A pessoa começa a sonhar</div>
+      <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> O Ego se rende completamente ao Id</div>
+    </div>
+    <div id="fb-q13" class="quiz-feedback" data-ok="O Superego surge do contato do indivíduo com as normas morais da sociedade, que reprimem e censuram os desejos do Id." data-err="O Superego se forma a partir do convívio social com princípios morais que se opõem à natureza do Id — não é algo inato."></div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">14</span><span>Por que a existência do Ego, para Freud, é "feita de angústia"?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> Porque o Ego não existe de fato</div>
+      <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> Porque ele é resultado da disputa entre os desejos do Id, a repressão do Superego e os perigos do mundo exterior</div>
+      <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> Porque ele é totalmente controlado pelo Superego</div>
+      <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> Porque ele é a parte mais forte da psique e por isso sofre mais pressão externa</div>
+    </div>
+    <div id="fb-q14" class="quiz-feedback" data-ok="O Ego está espremido entre o Id (desejos), o Superego (repressão) e o mundo exterior (perigos) — sua existência consciente é, por isso, uma disputa constante e angustiante." data-err="A angústia do Ego vem de estar no meio de três forças em disputa: os desejos do Id, a repressão do Superego e as ameaças do mundo exterior."></div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">15</span><span>Segundo Freud, quais foram os três golpes no "narcisismo" humano?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> Platão, Aristóteles e Kant</div>
+      <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> A invenção da imprensa, da máquina a vapor e da eletricidade</div>
+      <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> Copérnico (heliocentrismo), Darwin (origem dos primatas) e o próprio Freud (descoberta do inconsciente)</div>
+      <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> As duas Guerras Mundiais e a Guerra Fria</div>
+    </div>
+    <div id="fb-q15" class="quiz-feedback" data-ok="Copérnico tirou a Terra do centro do universo, Darwin ligou o homem aos primatas, e Freud mostrou que a consciência é a menor parte de nosso psíquico — três golpes na autoimagem racional do homem." data-err="Os três golpes no narcisismo humano, para Freud, foram Copérnico, Darwin e ele mesmo (a descoberta do inconsciente)."></div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">16</span><span>Para a visão grega clássica (contraposta à de Sartre), a relação entre essência e existência é:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> A existência precede a essência</div>
+      <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> A essência precede a existência, e é fixa e imutável</div>
+      <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> Essência e existência não têm relação alguma</div>
+      <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> A essência é definida livremente por cada indivíduo</div>
+    </div>
+    <div id="fb-q16" class="quiz-feedback" data-ok="Na visão grega, a essência precede a existência: cada ser tem uma essência fixa (definida pela natureza), e sua existência deve segui-la." data-err="Na visão grega, a essência (fixa e imutável) vem antes e determina a existência — é justamente o que Sartre inverte."></div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">17</span><span>Para Sartre, "o homem é condenado a ser livre" significa que:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> O homem não tem escolha alguma na vida</div>
+      <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> A liberdade é um castigo divino</div>
+      <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> A liberdade só existe para quem segue a essência racional</div>
+      <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> Não há como terceirizar as próprias ações — o homem é sempre responsável por suas escolhas, vida e essência</div>
+    </div>
+    <div id="fb-q17" class="quiz-feedback" data-ok="Como a existência precede a essência (essência vazia ao nascer), cabe só ao homem definir quem ele é através de suas escolhas — não há como fugir dessa responsabilidade." data-err="A frase significa que o homem não pode terceirizar suas ações: ele é sempre responsável por suas escolhas, sua vida e sua própria essência."></div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">18</span><span>Para Jeremy Bentham, uma ação tem valor moral de acordo com:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> A intenção divina por trás dela</div>
+      <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> A quantidade de prazer que ela oferece no contexto em que está inserida (cálculo quantitativo)</div>
+      <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> Se ela pode se tornar uma regra universal</div>
+      <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> A essência fixa do agente que a pratica</div>
+    </div>
+    <div id="fb-q18" class="quiz-feedback" data-ok="Bentham cria um cálculo quantitativo: uma ação vale moralmente de acordo com a quantidade de prazer que produz para o maior número de pessoas, no contexto em que ocorre." data-err="Para Bentham, o valor moral de uma ação é medido pela quantidade de prazer que ela gera (cálculo quantitativo) — não por regras universais (isso é Kant) nem por essências fixas."></div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">19</span><span>Qual é a principal crítica de Stuart Mill ao utilitarismo de Bentham?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> Mill rejeita totalmente que prazer e dor guiem a humanidade</div>
+      <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> Mill acredita que só o prazer sexual tem valor moral</div>
+      <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> Mill defende que existem ações e prazeres naturalmente superiores a outros, com maior valor moral por si próprios</div>
+      <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> Mill acredita que todas as ações têm exatamente o mesmo valor moral, como Bentham</div>
+    </div>
+    <div id="fb-q19" class="quiz-feedback" data-ok="Mill concorda que prazer e dor guiam a humanidade, mas discorda de Bentham ao afirmar que certos prazeres (intelectuais) são qualitativamente superiores a outros (físicos/imediatos)." data-err="A ressalva de Mill é que nem todo prazer vale o mesmo — há prazeres (e ações) naturalmente superiores, com mais valor moral, ao contrário do cálculo puramente quantitativo de Bentham."></div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">20</span><span>"É melhor um Sócrates insatisfeito do que um tolo satisfeito" resume qual ideia de Mill?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> Que a insatisfação é sempre melhor que a satisfação</div>
+      <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> Que é preferível buscar prazeres superiores (mesmo com insatisfação) a se contentar com prazeres inferiores</div>
+      <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> Que Sócrates era um filósofo inferior a um tolo</div>
+      <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> Que a felicidade é puramente quantitativa</div>
+    </div>
+    <div id="fb-q20" class="quiz-feedback" data-ok="A frase defende a hierarquia qualitativa dos prazeres: melhor buscar os superiores (intelectuais), mesmo com alguma insatisfação, do que se contentar com prazeres inferiores." data-err="A frase de Mill defende que prazeres superiores valem mais mesmo com insatisfação, do que prazeres inferiores plenamente satisfeitos — a felicidade, para ele, é qualitativa, não quantitativa."></div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">21</span><span>Por que, para Mill, todos têm direito à liberdade de expressão?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> Porque as leis do Estado assim exigem</div>
+      <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> Porque todos os seres humanos são falhos e suas convicções podem estar incorretas — a falibilidade humana exige o debate de ideias</div>
+      <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> Porque a verdade não existe</div>
+      <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> Porque apenas os filósofos têm o direito de se expressar</div>
+    </div>
+    <div id="fb-q21" class="quiz-feedback" data-ok="A falibilidade humana — ninguém possui a verdade completa e absoluta — é o que justifica, para Mill, o direito de todos à liberdade de expressão e ao debate constante de ideias." data-err="Mill defende a liberdade de expressão pela falibilidade humana: como ninguém tem a verdade absoluta, o debate constante de ideias é o que permite o avanço do homem."></div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">22</span><span>Por que Mill era totalmente contrário à escravidão?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> Porque ela era economicamente ineficiente</div>
+      <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> Porque ela ia diretamente contra seu princípio de liberdade e autonomia individual</div>
+      <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> Porque a Bíblia a proibia</div>
+      <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> Porque Bentham já havia condenado a escravidão antes dele</div>
+    </div>
+    <div id="fb-q22" class="quiz-feedback" data-ok="Na escravidão, o indivíduo é tratado como propriedade e perde seus direitos individuais — o que fere diretamente o princípio liberal de liberdade e autonomia defendido por Mill." data-err="A objeção central de Mill é filosófica: a escravidão anula a liberdade e autonomia do indivíduo, tratando-o como propriedade."></div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">23</span><span>Para Mill, uma pessoa pode voluntariamente se tornar escrava?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q23','a',this)"><span class="opt-letter">A</span> Sim, pois a liberdade individual permite qualquer escolha</div>
+      <div class="opt" data-l="b" onclick="pick('q23','b',this)"><span class="opt-letter">B</span> Não, pois usar a liberdade para anular a própria liberdade contradiz o princípio da liberdade</div>
+      <div class="opt" data-l="c" onclick="pick('q23','c',this)"><span class="opt-letter">C</span> Sim, desde que seja por contrato assinado</div>
+      <div class="opt" data-l="d" onclick="pick('q23','d',this)"><span class="opt-letter">D</span> A questão não foi discutida por Mill</div>
+    </div>
+    <div id="fb-q23" class="quiz-feedback" data-ok="'O princípio da liberdade não pode exigir que seja livre para não ser livre' — a liberdade serve para fazer escolhas, exceto a de limitar a si mesma (o fim do ser humano)." data-err="Para Mill, não: a liberdade pode ser usada para qualquer escolha, exceto para anular a si mesma — escolher a escravidão contradiz o próprio princípio da liberdade."></div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="quiz">
+    <div class="quiz-q"><span class="quiz-num">24</span><span>Qual filósofo desta lista rompe com a base religiosa da ética (Agostinho/Aquino), fundamentando a moral unicamente na racionalidade e autonomia humanas?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q24','a',this)"><span class="opt-letter">A</span> Tomás de Aquino</div>
+      <div class="opt" data-l="b" onclick="pick('q24','b',this)"><span class="opt-letter">B</span> Immanuel Kant</div>
+      <div class="opt" data-l="c" onclick="pick('q24','c',this)"><span class="opt-letter">C</span> Santo Agostinho</div>
+      <div class="opt" data-l="d" onclick="pick('q24','d',this)"><span class="opt-letter">D</span> Nenhum — todos mantêm a base religiosa</div>
+    </div>
+    <div id="fb-q24" class="quiz-feedback" data-ok="Com o Imperativo Categórico, Kant funda a moral apenas na racionalidade e autonomia humanas — uma ruptura importante com a ética cristã de base divina de Agostinho e Aquino." data-err="É Kant quem rompe com a base bíblica/divina da moral cristã (Agostinho e Aquino), fundamentando a ética apenas na razão e autonomia do homem."></div>
+  </div>
+
+</div>
+
+<footer>
+  Caderno Digital — Filosofia · 2ª série do Ensino Médio · 2026
+</footer>
+
+<!-- ═══ CHATBOT ═══ -->
+<style>
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #3d2b00; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: #3d2b00; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
+  .cmsg.bot { background: #fdf8ef; border: 1px solid #e8ddc8; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.user { background: #3d2b00; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.loading { color: #888; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid #e8ddc8; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: #3d2b00; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: #6b4c11; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+  function toggleChat() {
+    const p = document.getElementById("chat-panel");
+    p.classList.toggle("open");
+    if (p.classList.contains("open")) document.getElementById("chat-input").focus();
+  }
+  function getContext() {
+    const el = document.querySelector(".content") || document.body;
+    return el.innerText.replace(/\s+/g, " ").slice(0, 6000);
+  }
+  async function sendMsg(e) {
+    e.preventDefault();
+    const input = document.getElementById("chat-input");
+    const msgs = document.getElementById("chat-msgs");
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = "";
+    const userMsg = document.createElement("div");
+    userMsg.className = "cmsg user";
+    userMsg.textContent = text;
+    msgs.appendChild(userMsg);
+    const loader = document.createElement("div");
+    loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
+    msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
+    try {
+      const r = await fetch("/api/chat", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ message: text, context: getContext() }) });
+      const d = await r.json();
+      loader.className = "cmsg bot"; loader.textContent = d.reply || d.error;
+    } catch(err) { loader.className = "cmsg bot"; loader.textContent = "Erro de conexão. Tente novamente."; }
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+</script>
+<script src="scripts/progress.js"></script>
+</body>
+</html>
