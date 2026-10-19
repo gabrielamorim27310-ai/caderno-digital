@@ -1,0 +1,530 @@
+/* ═══════════════════════════════════════════════════════════
+   ios.css — Sistema de design do Caderno Digital (estilo iOS)
+
+   ESTE É O LUGAR PARA MUDAR CORES, FONTES E MEDIDAS DO SITE.
+   Guia visual com todos os tokens: docs/design.html
+
+   Como funciona
+   1. TOKENS (este bloco): variáveis CSS. Mude um valor aqui e o
+      site inteiro acompanha.
+   2. Cada página diz qual é a sua matéria com
+        <html data-materia="historia">
+      e ganha a cor dela em --tint (texto/ícones) e --tint-fill
+      (fundo de botões).
+   3. Modo escuro: automático pelo aparelho, ou forçado por
+      <html data-theme="dark|light"> (ver scripts/theme.js).
+
+   Regras de contraste (WCAG AA, 4,5:1 para texto):
+   todas as cores de texto abaixo foram calculadas para passar
+   sobre o fundo do card e sobre o fundo agrupado, no claro e no
+   escuro. Se trocar uma cor, confira o contraste.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────
+   1. TOKENS: claro (padrão)
+   ───────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  /* Fontes do sistema. Nenhum arquivo de fonte é baixado. */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Escala tipográfica do iOS. Em rem: acompanha o zoom do navegador. */
+  --t-large:    700 2.125rem/1.18 var(--font-display);  /* Large Title  34 */
+  --t-title1:   700 1.75rem/1.2   var(--font-display);  /* Title 1      28 */
+  --t-title2:   700 1.375rem/1.25 var(--font-display);  /* Title 2      22 */
+  --t-title3:   600 1.25rem/1.3   var(--font-display);  /* Title 3      20 */
+  --t-headline: 600 1.0625rem/1.35 var(--font);         /* Headline     17 */
+  --t-body:     400 1.0625rem/1.5  var(--font);         /* Body         17 */
+  --t-callout:  400 1rem/1.5       var(--font);         /* Callout      16 */
+  --t-subhead:  400 0.9375rem/1.45 var(--font);         /* Subheadline  15 */
+  --t-footnote: 400 0.8125rem/1.4  var(--font);         /* Footnote     13 */
+  --t-caption:  400 0.75rem/1.35   var(--font);         /* Caption      12 */
+
+  /* Cantos */
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r-md: 12px;     /* listas agrupadas, callouts */
+  --r-lg: 16px;
+  --r-xl: 22px;     /* cards grandes, sheets */
+  --r-pill: 999px;
+
+  /* Espaçamento (múltiplos de 4) */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px;
+
+  /* Área mínima de toque (44pt da Apple) */
+  --tap: 44px;
+
+  /* Larguras */
+  --w-content: 760px;   /* largura máxima do texto: leitura confortável */
+  --w-sidebar: 300px;
+
+  /* Movimento */
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);       /* curva "mola" do iOS */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.18s;
+  --dur: 0.3s;
+  --dur-slow: 0.45s;
+
+  /* Cores do sistema: claro */
+  --bg:        #f2f2f7;   /* fundo agrupado (systemGroupedBackground) */
+  --bg-2:      #ffffff;   /* card / célula de lista */
+  --bg-3:      #f2f2f7;   /* elemento dentro de card */
+  --bg-elev:   #ffffff;   /* sheets e popovers */
+  --fill:      rgba(120, 120, 128, 0.12);  /* campos, botões cinza */
+  --fill-2:    rgba(120, 120, 128, 0.2);
+  --label:     #000000;
+  --label-2:   rgba(60, 60, 67, 0.75);     /* iOS usa 0.6, que reprova no contraste (3,4:1); 0.75 dá 5,2:1 */
+  --label-3:   rgba(60, 60, 67, 0.3);      /* só decorativo: placeholders, setas */
+  --sep:       rgba(60, 60, 67, 0.29);
+  --sep-opaque:#c6c6c8;
+
+  /* Cores semânticas (texto e ícone) e seus fundos suaves */
+  --green:  #207c37;  --green-bg:  rgba(52, 199, 89, 0.14);
+  --orange: #c93400;  --orange-bg: rgba(255, 149, 0, 0.15);
+  --red:    #d70015;  --red-bg:    rgba(255, 59, 48, 0.12);
+  --blue:   #0066cc;  --blue-bg:   rgba(0, 122, 255, 0.1);
+  --yellow-bg: rgba(255, 204, 0, 0.2);   /* marca-texto */
+
+  /* Vidro: só no que flutua (tab bar, botões da barra, sheets) */
+  --bar:          rgba(249, 249, 249, 0.94);
+  --glass:        rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --blur:         saturate(180%) blur(20px);
+
+  /* Sombras */
+  --shadow-card:  0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-float: 0 10px 40px rgba(0, 0, 0, 0.16);
+  --scrim:        rgba(0, 0, 0, 0.35);   /* fundo atrás de sheets */
+
+  /* Cores das matérias: claro.
+     Texto/ícone na cor da matéria passa 4,6:1 sobre branco e #F2F2F7.
+     Texto branco sobre a cor (botões) passa 5:1 ou mais. */
+  --historia:   #4f46e5;
+  --geografia:  #0e7c59;
+  --portugues:  #c2185b;
+  --matematica: #0a6bd4;
+  --biologia:   #297c34;
+  --fisica:     #ae5400;
+  --quimica:    #cf2c2c;
+  --ingles:     #0a778f;
+  --filosofia:  #906400;
+  --sociologia: #7e3fb2;
+
+  /* Destaque da página: por padrão, azul do sistema */
+  --tint: var(--blue);
+  --tint-fill: var(--blue);   /* fundo de botão cheio: sempre com texto branco */
+  --on-tint: #ffffff;
+}
+
+/* ─────────────────────────────────────────────
+   2. TOKENS: escuro
+   O mesmo bloco aparece duas vezes: uma para "seguir o aparelho"
+   e outra para quando o aluno força o escuro. Mude os dois juntos.
+   ───────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #000000; --bg-2: #1c1c1e; --bg-3: #2c2c2e; --bg-elev: #1c1c1e;
+    --fill: rgba(120, 120, 128, 0.24); --fill-2: rgba(120, 120, 128, 0.36);
+    --label: #ffffff; --label-2: rgba(235, 235, 245, 0.6); --label-3: rgba(235, 235, 245, 0.3);
+    --sep: rgba(84, 84, 88, 0.65); --sep-opaque: #38383a;
+    --green: #30d158;  --green-bg: rgba(48, 209, 88, 0.16);
+    --orange: #ff9f0a; --orange-bg: rgba(255, 159, 10, 0.16);
+    --red: #ff6961;    --red-bg: rgba(255, 69, 58, 0.18);
+    --blue: #409cff;   --blue-bg: rgba(10, 132, 255, 0.18);
+    --yellow-bg: rgba(255, 214, 10, 0.22);
+    --bar: rgba(22, 22, 24, 0.92); --glass: rgba(44, 44, 48, 0.62);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    --shadow-card: none; --shadow-float: 0 10px 40px rgba(0, 0, 0, 0.6); --scrim: rgba(0, 0, 0, 0.55);
+    --historia: #8987ff; --geografia: #30d3a0; --portugues: #ff6fa8; --matematica: #4da3ff; --biologia: #5fd86f;
+    --fisica: #ff9f3d; --quimica: #ff6b61; --ingles: #40c8e0; --filosofia: #f5bf3c; --sociologia: #c08bff;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #000000; --bg-2: #1c1c1e; --bg-3: #2c2c2e; --bg-elev: #1c1c1e;
+  --fill: rgba(120, 120, 128, 0.24); --fill-2: rgba(120, 120, 128, 0.36);
+  --label: #ffffff; --label-2: rgba(235, 235, 245, 0.6); --label-3: rgba(235, 235, 245, 0.3);
+  --sep: rgba(84, 84, 88, 0.65); --sep-opaque: #38383a;
+  --green: #30d158;  --green-bg: rgba(48, 209, 88, 0.16);
+  --orange: #ff9f0a; --orange-bg: rgba(255, 159, 10, 0.16);
+  --red: #ff6961;    --red-bg: rgba(255, 69, 58, 0.18);
+  --blue: #409cff;   --blue-bg: rgba(10, 132, 255, 0.18);
+  --yellow-bg: rgba(255, 214, 10, 0.22);
+  --bar: rgba(22, 22, 24, 0.92); --glass: rgba(44, 44, 48, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-card: none; --shadow-float: 0 10px 40px rgba(0, 0, 0, 0.6); --scrim: rgba(0, 0, 0, 0.55);
+  --historia: #8987ff; --geografia: #30d3a0; --portugues: #ff6fa8; --matematica: #4da3ff; --biologia: #5fd86f;
+  --fisica: #ff9f3d; --quimica: #ff6b61; --ingles: #40c8e0; --filosofia: #f5bf3c; --sociologia: #c08bff;
+}
+
+/* ─────────────────────────────────────────────
+   3. COR DA MATÉRIA DA PÁGINA
+   --tint muda com o modo (texto legível no claro e no escuro).
+   --tint-fill usa sempre o tom do modo claro, que aceita texto
+   branco por cima com bom contraste, inclusive no escuro.
+   ───────────────────────────────────────────── */
+[data-materia="historia"]   { --tint: var(--historia);   --tint-fill: #4f46e5; }
+[data-materia="geografia"]  { --tint: var(--geografia);  --tint-fill: #0e7c59; }
+[data-materia="portugues"]  { --tint: var(--portugues);  --tint-fill: #c2185b; }
+[data-materia="matematica"] { --tint: var(--matematica); --tint-fill: #0a6bd4; }
+[data-materia="biologia"]   { --tint: var(--biologia);   --tint-fill: #297c34; }
+[data-materia="fisica"]     { --tint: var(--fisica);     --tint-fill: #ae5400; }
+[data-materia="quimica"]    { --tint: var(--quimica);    --tint-fill: #cf2c2c; }
+[data-materia="ingles"]     { --tint: var(--ingles);     --tint-fill: #0a778f; }
+[data-materia="filosofia"]  { --tint: var(--filosofia);  --tint-fill: #906400; }
+[data-materia="sociologia"] { --tint: var(--sociologia); --tint-fill: #7e3fb2; }
+
+/* Fundo suave na cor da matéria (selos, linhas selecionadas) */
+:root, [data-materia] { --tint-bg: color-mix(in srgb, var(--tint) 14%, transparent); }
+
+/* ═══════════════════════════════════════════════════════════
+   4. BASE
+   Só vale em páginas marcadas com <body class="ios">, para não
+   mexer nas páginas que ainda não foram migradas.
+   ═══════════════════════════════════════════════════════════ */
+.ios, .ios *, .ios *::before, .ios *::after { box-sizing: border-box; }
+html:has(body.ios) { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 64px; }
+body.ios {
+  margin: 0;
+  font: var(--t-body);
+  color: var(--label);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.ios :focus-visible { outline: 3px solid var(--tint); outline-offset: 2px; border-radius: var(--r-xs); }
+.ios a { color: var(--tint); }
+.ios img { max-width: 100%; height: auto; }
+.ios ::selection { background: var(--tint-bg); }
+
+/* Ícone Lucide: <svg class="i" aria-hidden="true"><use href="icons.svg#nome"/></svg> */
+.i { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; vertical-align: middle; }
+.i-sm { width: 18px; height: 18px; }
+.i-lg { width: 28px; height: 28px; }
+
+/* Texto só para leitor de tela */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Pular para o conteúdo (teclado) */
+.skip-link { position: absolute; left: var(--s-4); top: -100px; z-index: 100; padding: var(--s-2) var(--s-4); background: var(--tint-fill); color: var(--on-tint) !important; border-radius: var(--r-sm); font: var(--t-headline); text-decoration: none; }
+.skip-link:focus { top: calc(var(--s-2) + env(safe-area-inset-top)); }
+
+/* ═══════════════════════════════════════════════════════════
+   5. ESTRUTURA DO APP
+   .app-layout
+     .sidebar        (iPad / computador)
+     .app-main
+       .navbar       (barra do topo com large title que encolhe)
+       main.page     (conteúdo)
+   .tabbar           (celular)
+   ═══════════════════════════════════════════════════════════ */
+.app-layout { display: flex; min-height: 100vh; min-height: 100dvh; }
+.app-main { flex: 1; min-width: 0; }
+
+.page {
+  max-width: var(--w-content);
+  margin: 0 auto;
+  padding: 0 calc(var(--s-4) + env(safe-area-inset-right)) calc(110px + env(safe-area-inset-bottom)) calc(var(--s-4) + env(safe-area-inset-left));
+}
+
+/* ── Navigation bar ── */
+.navbar {
+  position: sticky; top: 0; z-index: 40;
+  padding: env(safe-area-inset-top) calc(var(--s-2) + env(safe-area-inset-right)) 0 calc(var(--s-2) + env(safe-area-inset-left));
+  border-bottom: 0.5px solid transparent;
+  transition: background-color var(--dur) ease, border-color var(--dur) ease;
+}
+.navbar.is-scrolled {
+  background: var(--bar);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border-bottom-color: var(--sep);
+}
+.navbar-row {
+  height: var(--tap);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--s-2);
+}
+.navbar-left { justify-self: start; display: flex; align-items: center; }
+.navbar-right { justify-self: end; display: flex; align-items: center; gap: var(--s-1); }
+.navbar-title {
+  font: var(--t-headline); color: var(--label);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 52vw;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.navbar.is-scrolled .navbar-title { opacity: 1; transform: none; }
+
+/* Botões da barra: texto/ícone na cor de destaque; redondos com vidro */
+.bar-btn {
+  min-width: var(--tap); height: var(--tap); padding: 0 var(--s-2);
+  display: inline-flex; align-items: center; justify-content: center; gap: 2px;
+  background: none; border: 0; color: var(--tint); font: var(--t-body);
+  text-decoration: none; cursor: pointer; border-radius: var(--r-pill);
+}
+.bar-btn .i { width: 24px; height: 24px; }
+.bar-btn.glass {
+  min-width: 38px; height: 38px; margin: 3px 0; padding: 0 10px;
+  background: var(--glass); border: 0.5px solid var(--glass-border); box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+}
+.bar-btn.glass .i { width: 20px; height: 20px; }
+.bar-btn:active { opacity: 0.55; }
+
+/* Large title */
+.large-title { font: var(--t-large); letter-spacing: 0.005em; margin: var(--s-1) 0 0; color: var(--label); }
+.large-sub { font: var(--t-subhead); color: var(--label-2); margin: var(--s-1) 0 var(--s-5); }
+
+/* ── Tab bar (celular) ── */
+.tabbar {
+  position: fixed; z-index: 50;
+  left: calc(var(--s-4) + env(safe-area-inset-left));
+  right: calc(var(--s-4) + env(safe-area-inset-right));
+  bottom: calc(var(--s-2) + env(safe-area-inset-bottom));
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  padding: 5px;
+  background: var(--glass); border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-pill); box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+}
+.tab {
+  min-height: 50px; padding: 4px 2px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  color: var(--label); text-decoration: none; background: none; border: 0; border-radius: var(--r-pill);
+  font: 600 0.6875rem/1.1 var(--font); cursor: pointer;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+.tab .i { width: 24px; height: 24px; }
+.tab[aria-current="page"], .tab.is-active { color: var(--tint); background: var(--fill); }
+.tab:active { transform: scale(0.96); }
+
+/* ── Barra lateral (iPad / computador) ── */
+.sidebar {
+  display: none;
+  width: var(--w-sidebar); flex-shrink: 0;
+  position: sticky; top: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+  padding: calc(var(--s-3) + env(safe-area-inset-top)) var(--s-3) var(--s-6) calc(var(--s-3) + env(safe-area-inset-left));
+  background: var(--bg-2);
+  border-right: 0.5px solid var(--sep);
+  overscroll-behavior: contain;
+}
+.sidebar-brand { display: flex; align-items: center; gap: var(--s-2); font: var(--t-title3); color: var(--label); text-decoration: none; padding: var(--s-2) var(--s-3) var(--s-3); }
+.sidebar-section { font: 600 0.8125rem/1.3 var(--font); color: var(--label-2); padding: var(--s-5) var(--s-3) var(--s-2); margin: 0; }
+.sidebar-item {
+  min-height: var(--tap); display: flex; align-items: center; gap: var(--s-3);
+  padding: 6px var(--s-3); border-radius: var(--r-md);
+  color: var(--label); text-decoration: none; font: var(--t-body); font-size: 1rem;
+  background: none; border: 0; width: 100%; text-align: left; cursor: pointer;
+}
+.sidebar-item:hover { background: var(--fill); }
+.sidebar-item[aria-current="page"], .sidebar-item.is-active { background: var(--tint-fill); color: var(--on-tint); }
+.sidebar-item .sidebar-meta { margin-left: auto; font: var(--t-footnote); color: var(--label-2); }
+.sidebar-item[aria-current="page"] .sidebar-meta, .sidebar-item.is-active .sidebar-meta { color: inherit; opacity: 0.85; }
+.sidebar-item .txt { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Ícone quadrado colorido (estilo Ajustes / Lembretes) */
+.app-icon {
+  width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+  display: grid; place-items: center; overflow: hidden;
+  background: var(--icon-bg, var(--tint-fill)); color: #fff; font-size: 1rem; line-height: 1;
+}
+.app-icon img { width: 100%; height: 100%; object-fit: cover; }
+.app-icon.lg { width: 44px; height: 44px; border-radius: 11px; font-size: 1.4rem; }
+
+@media (min-width: 768px) {
+  .sidebar { display: block; }
+  .tabbar { display: none; }
+  .page { padding-bottom: var(--s-12); }
+  .navbar { padding-left: var(--s-4); padding-right: var(--s-4); }
+}
+/* No celular a tab bar ocupa o rodapé: rodapé antigo e botões flutuantes sobem */
+@media (max-width: 767px) {
+  .ios footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   6. LISTAS AGRUPADAS (inset grouped, estilo Ajustes)
+   <h2 class="group-title">…</h2>
+   <div class="group">
+     <a class="cell" href="…">…<svg class="i chev">…</svg></a>
+   </div>
+   <p class="group-footer">…</p>
+   ═══════════════════════════════════════════════════════════ */
+.group-title { font: var(--t-title3); color: var(--label); margin: var(--s-8) 0 var(--s-2); display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; }
+.group-title.small { font: 600 0.8125rem/1.3 var(--font); color: var(--label-2); text-transform: uppercase; letter-spacing: 0.02em; margin: var(--s-6) var(--s-4) var(--s-2); }
+.group-footer { font: var(--t-footnote); color: var(--label-2); margin: var(--s-2) var(--s-4) 0; }
+.group {
+  background: var(--bg-2); border-radius: var(--r-md); overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.group + .group { margin-top: var(--s-4); }
+.cell {
+  position: relative;
+  min-height: var(--tap); display: flex; align-items: center; gap: var(--s-3);
+  padding: 10px var(--s-4); width: 100%;
+  background: none; border: 0; text-align: left; color: var(--label); font: var(--t-body);
+  text-decoration: none; cursor: pointer;
+}
+.cell + .cell::before, .cell-wrap + .cell-wrap > .cell::before {
+  content: ''; position: absolute; top: 0; right: 0; left: var(--sep-inset, var(--s-4));
+  border-top: 0.5px solid var(--sep);
+}
+.cell.has-icon { --sep-inset: 58px; }
+.cell:active { background: var(--fill); }
+@media (hover: hover) { a.cell:hover, button.cell:hover { background: color-mix(in srgb, var(--fill) 50%, transparent); } }
+.cell-body { flex: 1; min-width: 0; }
+.cell-title { font: var(--t-body); color: var(--label); display: block; }
+.cell-sub { font: var(--t-subhead); color: var(--label-2); display: block; margin-top: 1px; }
+.cell-detail { font: var(--t-body); color: var(--label-2); flex-shrink: 0; }
+.chev { width: 18px; height: 18px; color: var(--label-3); flex-shrink: 0; transition: transform var(--dur) var(--ease); }
+
+/* Selo (badge) */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font: 600 0.75rem/1 var(--font); padding: 4px 8px; border-radius: var(--r-pill);
+  color: var(--tint); background: var(--tint-bg); white-space: nowrap;
+}
+.badge.green  { color: var(--green);  background: var(--green-bg); }
+.badge.orange { color: var(--orange); background: var(--orange-bg); }
+.badge.gray   { color: var(--label-2); background: var(--fill); }
+
+/* ═══════════════════════════════════════════════════════════
+   7. CONTROLES
+   ═══════════════════════════════════════════════════════════ */
+
+/* Campo de busca */
+.search-field {
+  display: flex; align-items: center; gap: var(--s-2);
+  height: 40px; padding: 0 var(--s-3); margin: 0 0 var(--s-4);
+  background: var(--fill); border-radius: 10px; color: var(--label-2);
+  cursor: text;
+}
+.search-field .i { width: 18px; height: 18px; }
+.search-field input {
+  flex: 1; min-width: 0; height: 100%; border: 0; background: none; outline: none;
+  font: var(--t-body); color: var(--label);
+}
+.search-field input::placeholder { color: var(--label-2); }
+.search-field kbd { font: 500 0.75rem/1 var(--font); color: var(--label-2); border: 0.5px solid var(--sep); border-radius: 5px; padding: 3px 5px; }
+.search-field:focus-within { box-shadow: 0 0 0 3px var(--tint-bg); }
+
+/* Segmented control */
+.segmented {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px;
+  padding: 2px; margin: 0 0 var(--s-5);
+  background: var(--fill); border-radius: 9px;
+}
+.segmented > button, .segmented > a {
+  min-height: 32px; padding: 4px var(--s-3);
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border: 0; border-radius: 7px; background: none; cursor: pointer;
+  font: 500 0.875rem/1.2 var(--font); color: var(--label); text-decoration: none; white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.segmented > [aria-pressed="true"], .segmented > [aria-selected="true"], .segmented > .is-active {
+  background: var(--bg-2); font-weight: 600;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12), 0 3px 1px rgba(0, 0, 0, 0.04);
+}
+:root[data-theme="dark"] .segmented > [aria-pressed="true"], :root[data-theme="dark"] .segmented > [aria-selected="true"], :root[data-theme="dark"] .segmented > .is-active { background: #636366; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .segmented > [aria-pressed="true"],
+  :root:not([data-theme="light"]) .segmented > [aria-selected="true"],
+  :root:not([data-theme="light"]) .segmented > .is-active { background: #636366; }
+}
+/* Segmented com muitas opções: rola para o lado em vez de espremer */
+.segmented.scroll { grid-auto-columns: max-content; overflow-x: auto; scrollbar-width: none; }
+.segmented.scroll::-webkit-scrollbar { display: none; }
+
+/* Botões */
+.btn {
+  min-height: 50px; padding: 0 var(--s-5);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
+  border: 0; border-radius: var(--r-md); cursor: pointer; text-decoration: none;
+  font: var(--t-headline); background: var(--tint-fill); color: var(--on-tint);
+  transition: opacity var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.btn:active { opacity: 0.75; transform: scale(0.98); }
+.btn.block { width: 100%; }
+.btn.gray { background: var(--fill); color: var(--tint); }
+.btn.plain { background: none; color: var(--tint); min-height: var(--tap); padding: 0 var(--s-2); }
+.btn.small { min-height: 34px; padding: 0 var(--s-3); border-radius: var(--r-pill); font: 600 0.9375rem/1 var(--font); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Toggle (switch) */
+.toggle {
+  position: relative; width: 51px; height: 31px; flex-shrink: 0;
+  border-radius: 16px; background: var(--fill-2);
+  transition: background-color var(--dur) ease;
+}
+.toggle::after {
+  content: ''; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%;
+  background: #fff; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 3px 1px rgba(0, 0, 0, 0.06);
+  transition: transform var(--dur) var(--ease);
+}
+.toggle.is-on, [aria-checked="true"] > .toggle { background: #34c759; }
+.toggle.is-on::after, [aria-checked="true"] > .toggle::after { transform: translateX(20px); }
+
+/* ═══════════════════════════════════════════════════════════
+   8. SHEET (painel que sobe de baixo)
+   <div class="sheet-scrim" data-sheet-close></div>
+   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="…">
+     <div class="sheet-grabber"></div>
+     <div class="sheet-head"><h2>…</h2><button class="bar-btn" data-sheet-close>…</button></div>
+     <div class="sheet-body">…</div>
+   </div>
+   Abrir/fechar: classe .is-open no .sheet e no .sheet-scrim.
+   ═══════════════════════════════════════════════════════════ */
+.sheet-scrim {
+  position: fixed; inset: 0; z-index: 80; background: var(--scrim);
+  opacity: 0; pointer-events: none; transition: opacity var(--dur) ease;
+}
+.sheet-scrim.is-open { opacity: 1; pointer-events: auto; }
+.sheet {
+  position: fixed; z-index: 81; left: 0; right: 0; bottom: 0;
+  max-width: 620px; max-height: calc(100dvh - 48px - env(safe-area-inset-top)); margin: 0 auto;
+  display: flex; flex-direction: column;
+  background: var(--bg); color: var(--label);
+  border-radius: var(--r-xl) var(--r-xl) 0 0; box-shadow: var(--shadow-float);
+  transform: translateY(105%); visibility: hidden;
+  transition: transform var(--dur-slow) var(--ease), visibility 0s linear var(--dur-slow);
+}
+.sheet.is-open { transform: none; visibility: visible; transition: transform var(--dur-slow) var(--ease), visibility 0s; }
+.sheet-grabber { width: 36px; height: 5px; border-radius: 3px; background: var(--label-3); margin: var(--s-2) auto 0; flex-shrink: 0; }
+.sheet-head {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: var(--s-1) var(--s-2) var(--s-2); flex-shrink: 0;
+}
+.sheet-head h2 { grid-column: 2; margin: 0; font: var(--t-headline); text-align: center; }
+.sheet-head .bar-btn { grid-column: 3; justify-self: end; }
+.sheet-body {
+  overflow-y: auto; overscroll-behavior: contain;
+  padding: 0 var(--s-4) calc(var(--s-6) + env(safe-area-inset-bottom));
+}
+/* No iPad/computador a sheet vira um painel centralizado */
+@media (min-width: 768px) {
+  .sheet { bottom: auto; top: 50%; border-radius: var(--r-xl); transform: translateY(-46%) scale(0.98); opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) ease, visibility 0s linear var(--dur); max-height: min(720px, 86vh); }
+  .sheet.is-open { transform: translateY(-50%); opacity: 1; transition: transform var(--dur) var(--ease), opacity var(--dur) ease, visibility 0s; }
+}
+body.sheet-lock { overflow: hidden; }
+
+/* ═══════════════════════════════════════════════════════════
+   9. REDUZIR MOVIMENTO
+   ═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .ios *, .ios *::before, .ios *::after, .sheet, .sheet-scrim {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
