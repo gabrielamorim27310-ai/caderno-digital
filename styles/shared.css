@@ -155,6 +155,9 @@ footer {
 }
 #contrib-form input[type="text"]:focus, #contrib-form textarea:focus { border-color: var(--primary); }
 #contrib-form input[type="file"] { font: 400 0.85rem Inter, sans-serif; }
+#contrib-files { margin: -6px 0 0; padding: 0; list-style: none; font-size: 0.82rem; color: var(--text-light, #6b6b6b); }
+#contrib-files:empty { display: none; }
+#contrib-files li { padding: 2px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .contrib-info { margin: 0; font-size: 0.85rem; color: var(--text-light, #6b6b6b); line-height: 1.5; }
 .contrib-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
