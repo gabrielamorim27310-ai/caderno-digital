@@ -171,16 +171,24 @@
    --tint-fill usa sempre o tom do modo claro, que aceita texto
    branco por cima com bom contraste, inclusive no escuro.
    ───────────────────────────────────────────── */
-[data-materia="historia"]   { --tint: var(--historia);   --tint-fill: #4f46e5; }
-[data-materia="geografia"]  { --tint: var(--geografia);  --tint-fill: #0e7c59; }
-[data-materia="portugues"]  { --tint: var(--portugues);  --tint-fill: #c2185b; }
-[data-materia="matematica"] { --tint: var(--matematica); --tint-fill: #0a6bd4; }
-[data-materia="biologia"]   { --tint: var(--biologia);   --tint-fill: #297c34; }
-[data-materia="fisica"]     { --tint: var(--fisica);     --tint-fill: #ae5400; }
-[data-materia="quimica"]    { --tint: var(--quimica);    --tint-fill: #cf2c2c; }
-[data-materia="ingles"]     { --tint: var(--ingles);     --tint-fill: #0a778f; }
-[data-materia="filosofia"]  { --tint: var(--filosofia);  --tint-fill: #906400; }
-[data-materia="sociologia"] { --tint: var(--sociologia); --tint-fill: #7e3fb2; }
+:root {
+  /* Tom "cheio" de cada matéria: igual no claro e no escuro.
+     Usado em botões e ícones quadrados, sempre com texto branco. */
+  --historia-fill: #4f46e5; --geografia-fill: #0e7c59; --portugues-fill: #c2185b;
+  --matematica-fill: #0a6bd4; --biologia-fill: #297c34; --fisica-fill: #ae5400;
+  --quimica-fill: #cf2c2c; --ingles-fill: #0a778f; --filosofia-fill: #906400;
+  --sociologia-fill: #7e3fb2;
+}
+[data-materia="historia"]   { --tint: var(--historia);   --tint-fill: var(--historia-fill); }
+[data-materia="geografia"]  { --tint: var(--geografia);  --tint-fill: var(--geografia-fill); }
+[data-materia="portugues"]  { --tint: var(--portugues);  --tint-fill: var(--portugues-fill); }
+[data-materia="matematica"] { --tint: var(--matematica); --tint-fill: var(--matematica-fill); }
+[data-materia="biologia"]   { --tint: var(--biologia);   --tint-fill: var(--biologia-fill); }
+[data-materia="fisica"]     { --tint: var(--fisica);     --tint-fill: var(--fisica-fill); }
+[data-materia="quimica"]    { --tint: var(--quimica);    --tint-fill: var(--quimica-fill); }
+[data-materia="ingles"]     { --tint: var(--ingles);     --tint-fill: var(--ingles-fill); }
+[data-materia="filosofia"]  { --tint: var(--filosofia);  --tint-fill: var(--filosofia-fill); }
+[data-materia="sociologia"] { --tint: var(--sociologia); --tint-fill: var(--sociologia-fill); }
 
 /* Fundo suave na cor da matéria (selos, linhas selecionadas) */
 :root, [data-materia] { --tint-bg: color-mix(in srgb, var(--tint) 14%, transparent); }
@@ -204,8 +212,9 @@ body.ios {
   min-height: 100dvh;
 }
 .ios :focus-visible { outline: 3px solid var(--tint); outline-offset: 2px; border-radius: var(--r-xs); }
-.ios a { color: var(--tint); }
-.ios img { max-width: 100%; height: auto; }
+/* :where() deixa estas regras com peso zero: qualquer componente as sobrescreve */
+:where(.ios) a { color: var(--tint); }
+:where(.ios) img { max-width: 100%; height: auto; }
 .ios ::selection { background: var(--tint-bg); }
 
 /* Ícone Lucide: <svg class="i" aria-hidden="true"><use href="icons.svg#nome"/></svg> */
@@ -330,6 +339,8 @@ body.ios {
 .sidebar-item .sidebar-meta { margin-left: auto; font: var(--t-footnote); color: var(--label-2); }
 .sidebar-item[aria-current="page"] .sidebar-meta, .sidebar-item.is-active .sidebar-meta { color: inherit; opacity: 0.85; }
 .sidebar-item .txt { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-item.sub { padding-left: var(--s-6); font-size: 0.9375rem; color: var(--label-2); }
+.sidebar-item.sub[aria-current="page"] { color: var(--on-tint); }
 
 /* Ícone quadrado colorido (estilo Ajustes / Lembretes) */
 .app-icon {
