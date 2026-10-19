@@ -11,9 +11,14 @@
 
   var MAX_ARQUIVO = 20 * 1024 * 1024;
   var MAX_ARQUIVOS = 10;
-  var PEDACO = 2.5 * 1024 * 1024;   // limite de corpo da Vercel é 4,5 MB e base64 infla ~33%
-  var LADO_MAX = 2000;              // px; fotos são reduzidas e viram JPEG antes do envio
-  var EXTENSOES = ['pdf', 'docx', 'odt', 'txt', 'md'];
+  var LADO_MAX = 2000;   // px; fotos são reduzidas e viram JPEG antes do envio
+  var MIME = {             // precisa bater com allowed_mime_types do bucket (supabase/schema.sql)
+    pdf:  'application/pdf',
+    docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    odt:  'application/vnd.oasis.opendocument.text',
+    txt:  'text/plain',
+    md:   'text/markdown',
+  };
 
   var btn = document.createElement('button');
   btn.id = 'contrib-btn';
@@ -58,11 +63,13 @@
   modal.addEventListener('click', function (e) { if (e.target === modal) fechar(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
 
+  function extensao(nome) { return nome.split('.').pop().toLowerCase(); }
+
   function tamanho(b) {
     return b < 1024 * 1024 ? Math.max(1, Math.round(b / 1024)) + ' KB' : (b / 1024 / 1024).toFixed(1).replace('.', ',') + ' MB';
   }
 
-  function ehImagem(file) { return /^image\//.test(file.type); }
+  function ehImagem(file) { return /^image\//.test(file.type) || /\.(jpe?g|png|webp|heic|heif)$/i.test(file.name); }
 
   form.arquivo.addEventListener('change', function () {
     lista.innerHTML = '';
@@ -72,20 +79,6 @@
       lista.appendChild(li);
     });
   });
-
-  function novoId() {
-    var d = new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-');
-    return d + '-' + Math.random().toString(36).slice(2, 8).padEnd(6, '0');
-  }
-
-  function lerBase64(blob) {
-    return new Promise(function (ok, erro) {
-      var r = new FileReader();
-      r.onload = function () { ok(String(r.result).split(',')[1] || ''); };
-      r.onerror = function () { erro(r.error); };
-      r.readAsDataURL(blob);
-    });
-  }
 
   // Reduz a foto para no máximo LADO_MAX px e converte para JPEG.
   async function comprimir(file) {
@@ -116,6 +109,16 @@
     });
     var d = await r.json().catch(function () { return {}; });
     if (!r.ok || !d.ok) throw new Error(d.error || 'Não foi possível enviar.');
+    return d;
+  }
+
+  // Manda o arquivo direto ao Supabase pela URL assinada (mesmo formato do supabase-js).
+  async function subir(url, a) {
+    var corpo = new FormData();
+    corpo.append('cacheControl', '3600');
+    corpo.append('', a.blob, a.nome);
+    var r = await fetch(url, { method: 'PUT', body: corpo });
+    if (!r.ok) throw new Error('Falha ao enviar "' + a.nome + '". Tente de novo.');
   }
 
   form.addEventListener('submit', async function (e) {
@@ -126,50 +129,44 @@
     if (!texto && !files.length) return avisar('Cole um texto ou anexe um arquivo.', 'erro');
     if (files.length > MAX_ARQUIVOS) return avisar('No máximo ' + MAX_ARQUIVOS + ' arquivos por envio.', 'erro');
     for (var i = 0; i < files.length; i++) {
-      var ext = files[i].name.split('.').pop().toLowerCase();
-      if (!ehImagem(files[i]) && EXTENSOES.indexOf(ext) === -1) return avisar('Formato não aceito: "' + files[i].name + '".', 'erro');
+      if (!ehImagem(files[i]) && !MIME[extensao(files[i].name)]) return avisar('Formato não aceito: "' + files[i].name + '".', 'erro');
       if (!ehImagem(files[i]) && files[i].size > MAX_ARQUIVO) return avisar('"' + files[i].name + '" passa de 20 MB.', 'erro');
     }
 
     send.disabled = true;
 
     try {
-      var base = { pagina: pagina, id: novoId(), site: form.site.value };
-
       var prontos = [];
       for (var j = 0; j < files.length; j++) {
         if (ehImagem(files[j])) {
           avisar('Preparando foto ' + (j + 1) + ' de ' + files.length + '...');
           prontos.push(await comprimir(files[j]));
         } else {
-          prontos.push({ nome: files[j].name, blob: files[j] });
+          // Tipo explícito: o navegador às vezes deixa vazio (.md, .odt) e o bucket recusaria.
+          var f = files[j];
+          prontos.push({ nome: f.name, blob: new Blob([f], { type: MIME[extensao(f.name)] }) });
         }
       }
 
-      var partes = [];
-      prontos.forEach(function (a, indice) {
-        var total = Math.max(1, Math.ceil(a.blob.size / PEDACO));
-        for (var p = 0; p < total; p++) {
-          partes.push({ indice: indice, nome: a.nome, parte: p, total: total, blob: a.blob.slice(p * PEDACO, (p + 1) * PEDACO) });
-        }
-      });
-
-      for (var k = 0; k < partes.length; k++) {
-        avisar('Enviando arquivos... ' + Math.round(k / partes.length * 100) + '%');
-        var pt = partes[k];
-        await postar(Object.assign({ tipo: 'parte', arquivo: {
-          indice: pt.indice, nome: pt.nome, parte: pt.parte, total: pt.total, base64: await lerBase64(pt.blob),
-        } }, base));
-      }
-
-      avisar('Finalizando...');
-      await postar(Object.assign({
-        tipo: 'final',
+      avisar('Enviando...');
+      var envio = await postar({
+        acao: 'iniciar',
+        pagina: pagina,
         assunto: form.assunto.value,
         texto: texto,
         nome: form.nome.value,
-        arquivos: prontos.map(function (a) { return a.nome; }),
-      }, base));
+        site: form.site.value,
+        arquivos: prontos.map(function (a) { return { nome: a.nome, tamanho: a.blob.size }; }),
+      });
+
+      if (envio.id) {
+        for (var k = 0; k < envio.uploads.length; k++) {
+          avisar('Enviando arquivo ' + (k + 1) + ' de ' + envio.uploads.length + '...');
+          await subir(envio.uploads[k].url, prontos[k]);
+        }
+        avisar('Finalizando...');
+        await postar({ acao: 'concluir', id: envio.id });
+      }
 
       form.reset();
       lista.innerHTML = '';

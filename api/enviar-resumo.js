@@ -1,24 +1,25 @@
 /* ═══════════════════════════════════════════════════════════
    enviar-resumo.js — Recebe resumos enviados pelos alunos
-   Grava cada envio num repositório GitHub PRIVADO (ENVIOS_REPO)
-   para depois ser revisado e incorporado ao resumo da página.
+   Guarda no Supabase (tabela e bucket privados "envios") para
+   depois serem revisados e incorporados ao resumo da página.
+   Esquema em supabase/schema.sql; acesso em api/_supabase.js.
 
-   Variáveis de ambiente (Vercel):
-     ENVIOS_TOKEN  token fine-grained com Contents: Read and write
-                   APENAS no repositório de envios
-     ENVIOS_REPO   "dono/repositorio", ex.: gabrielamorim27310-ai/caderno-envios
-
-   Protocolo (o corpo de uma função da Vercel tem no máximo 4,5 MB):
-     1. { tipo: 'parte', pagina, id, arquivo: { indice, nome, parte, total, base64 } }
-        uma requisição por pedaço de até 2,5 MB de cada arquivo
-     2. { tipo: 'final', pagina, id, texto, nome, assunto, arquivos: [nomes] }
-        grava resumo.md, que marca o envio como completo
+   Protocolo:
+     1. { acao: 'iniciar', pagina, texto, nome, assunto, arquivos: [{ nome, tamanho }] }
+        cria o envio com status "enviando" e devolve uma URL de upload
+        por arquivo; o navegador manda cada arquivo direto ao Supabase
+     2. { acao: 'concluir', id }
+        confere os arquivos recebidos e muda o status para "pendente"
    ═══════════════════════════════════════════════════════════ */
 
-const MAX_TEXTO = 50000;                 // caracteres
-const MAX_PEDACO = 2.5 * 1024 * 1024;    // bytes por requisição
-const MAX_PARTES = 8;                    // 8 × 2,5 MB = 20 MB por arquivo
+import crypto from 'crypto';
+import * as db from './_supabase.js';
+
+const MAX_TEXTO = 50000;                // caracteres
+const MAX_ARQUIVO = 20 * 1024 * 1024;   // bytes; o bucket também impõe esse limite
 const MAX_ARQUIVOS = 10;
+const LIMITE_IP_HORA = 10;              // uso em casa/4G; no 4G (CGNAT) o IP é dividido com desconhecidos
+const LIMITE_DIA = 300;                 // teto geral contra enxurrada de lixo
 
 const TIPOS = {
   pdf:  'pdf',
@@ -33,7 +34,7 @@ const TIPOS = {
 };
 
 const RE_PAGINA = /^[a-z]+-\dtri(-[a-z]+)?$/;
-const RE_ID = /^\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}-[a-z0-9]{6}$/;
+const RE_UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 
 function limpar(s, max) {
   return String(s || '').replace(/\u0000/g, '').trim().slice(0, max);
@@ -48,120 +49,110 @@ function nomeSeguro(nome) {
     .slice(0, 80) || 'arquivo';
 }
 
-function nomeArquivo(indice, nome) {
-  return `${String(indice + 1).padStart(2, '0')}-${nomeSeguro(nome)}`;
-}
-
 function conteudoConfere(buf, categoria) {
-  if (categoria === 'pdf')  return buf.slice(0, 5).toString('latin1') === '%PDF-';
+  if (categoria === 'pdf')  return buf.subarray(0, 5).toString('latin1') === '%PDF-';
   if (categoria === 'zip')  return buf[0] === 0x50 && buf[1] === 0x4b; // "PK"
   if (categoria === 'jpeg') return buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff;
-  if (categoria === 'png')  return buf.slice(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
-  if (categoria === 'webp') return buf.slice(0, 4).toString('latin1') === 'RIFF' && buf.slice(8, 12).toString('latin1') === 'WEBP';
+  if (categoria === 'png')  return buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
+  if (categoria === 'webp') return buf.subarray(0, 4).toString('latin1') === 'RIFF' && buf.subarray(8, 12).toString('latin1') === 'WEBP';
   return !buf.includes(0); // texto: sem bytes nulos
 }
 
-async function gravar(repo, token, caminho, base64, mensagem) {
-  const url = `https://api.github.com/repos/${repo}/contents/${caminho.split('/').map(encodeURIComponent).join('/')}`;
-  const r = await fetch(url, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      'Content-Type': 'application/json',
-      'User-Agent': 'caderno-digital',
-    },
-    body: JSON.stringify({ message: mensagem, content: base64 }),
-  });
-  if (!r.ok) {
-    const corpo = await r.text();
-    throw new Error(`GitHub ${r.status}: ${corpo.slice(0, 200)}`);
-  }
+function hashIp(req) {
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'desconhecido';
+  return crypto.createHash('sha256').update(process.env.SUPABASE_SECRET_KEY + ip).digest('hex').slice(0, 32);
 }
 
-function validarParte(a) {
-  const indice = Number(a.indice), parte = Number(a.parte), total = Number(a.total);
-  if (!Number.isInteger(indice) || indice < 0 || indice >= MAX_ARQUIVOS) return { erro: `No máximo ${MAX_ARQUIVOS} arquivos por envio.` };
-  if (!Number.isInteger(total) || total < 1 || total > MAX_PARTES) return { erro: 'Arquivo maior que 20 MB.' };
-  if (!Number.isInteger(parte) || parte < 0 || parte >= total) return { erro: 'Parte inválida.' };
+async function iniciar(req, body) {
+  const pagina = limpar(body.pagina, 60);
+  if (!RE_PAGINA.test(pagina)) return [400, { error: 'Página inválida.' }];
 
-  const original = limpar(a.nome, 120);
-  const ext = (original.split('.').pop() || '').toLowerCase();
-  const categoria = TIPOS[ext];
-  if (!categoria) return { erro: 'Formato não aceito. Use foto (JPG, PNG, WEBP), PDF, DOCX, ODT, TXT ou MD.' };
+  const texto = limpar(body.texto, MAX_TEXTO + 1);
+  if (texto.length > MAX_TEXTO) return [400, { error: `O texto passou de ${MAX_TEXTO.toLocaleString('pt-BR')} caracteres.` }];
 
-  const buf = Buffer.from(String(a.base64 || ''), 'base64');
-  if (!buf.length) return { erro: 'Arquivo vazio.' };
-  if (buf.length > MAX_PEDACO) return { erro: 'Parte grande demais.' };
-  if (parte === 0 && !conteudoConfere(buf, categoria)) return { erro: `O conteúdo de "${original}" não confere com a extensão.` };
+  const lista = Array.isArray(body.arquivos) ? body.arquivos : [];
+  if (lista.length > MAX_ARQUIVOS) return [400, { error: `No máximo ${MAX_ARQUIVOS} arquivos por envio.` }];
 
-  let caminho = nomeArquivo(indice, original);
-  if (total > 1) caminho += `.part${String(parte + 1).padStart(3, '0')}`;
-  return { caminho, base64: buf.toString('base64') };
+  const arquivos = [];
+  for (let i = 0; i < lista.length; i++) {
+    const original = limpar(lista[i] && lista[i].nome, 120);
+    const ext = (original.split('.').pop() || '').toLowerCase();
+    if (!TIPOS[ext]) return [400, { error: `Formato não aceito: "${original}". Use foto (JPG, PNG, WEBP), PDF, DOCX, ODT, TXT ou MD.` }];
+    const tamanho = Number(lista[i].tamanho);
+    if (!(tamanho > 0)) return [400, { error: `"${original}" está vazio.` }];
+    if (tamanho > MAX_ARQUIVO) return [400, { error: `"${original}" passa de 20 MB.` }];
+    arquivos.push({ nome: `${String(i + 1).padStart(2, '0')}-${nomeSeguro(original)}`, original, tamanho });
+  }
+
+  if (!texto && !arquivos.length) return [400, { error: 'Cole um texto ou anexe um arquivo.' }];
+
+  const ipHash = hashIp(req);
+  const umaHora = new Date(Date.now() - 3600e3).toISOString();
+  const umDia = new Date(Date.now() - 86400e3).toISOString();
+  if (await db.contar('envios', `ip_hash=eq.${ipHash}&criado_em=gte.${umaHora}`) >= LIMITE_IP_HORA ||
+      await db.contar('envios', `criado_em=gte.${umDia}`) >= LIMITE_DIA) {
+    return [429, { error: 'Muitos envios agora. Tente de novo mais tarde.' }];
+  }
+
+  const envio = await db.inserir('envios', {
+    pagina,
+    texto,
+    nome: limpar(body.nome, 80).replace(/[\r\n]+/g, ' '),
+    assunto: limpar(body.assunto, 120).replace(/[\r\n]+/g, ' '),
+    arquivos,
+    ip_hash: ipHash,
+  });
+
+  const uploads = [];
+  for (const a of arquivos) {
+    uploads.push({ nome: a.nome, url: await db.urlDeEnvio(`${pagina}/${envio.id}/${a.nome}`) });
+  }
+  return [200, { ok: true, id: envio.id, uploads }];
+}
+
+async function concluir(body) {
+  const id = limpar(body.id, 40);
+  if (!RE_UUID.test(id)) return [400, { error: 'Envio inválido.' }];
+
+  const [envio] = await db.selecionar('envios', `id=eq.${id}&status=eq.enviando&select=pagina,arquivos`);
+  if (!envio) return [404, { error: 'Envio não encontrado.' }];
+
+  const pasta = `${envio.pagina}/${id}`;
+  const recebidos = new Map((await db.listar(pasta)).map(o => [o.name, o]));
+
+  for (const a of envio.arquivos) {
+    const obj = recebidos.get(a.nome);
+    if (!obj) return [400, { error: `"${a.original}" não chegou. Tente enviar de novo.` }];
+    const categoria = TIPOS[a.nome.split('.').pop()];
+    if (!conteudoConfere(await db.inicio(`${pasta}/${a.nome}`), categoria)) {
+      await db.remover([...recebidos.keys()].map(n => `${pasta}/${n}`));
+      await db.atualizar('envios', `id=eq.${id}`, { status: 'descartado' });
+      return [400, { error: `O conteúdo de "${a.original}" não confere com a extensão.` }];
+    }
+  }
+
+  const feitos = await db.atualizar('envios', `id=eq.${id}&status=eq.enviando`, { status: 'pendente' });
+  if (!feitos.length) return [409, { error: 'Envio já finalizado.' }];
+  return [200, { ok: true }];
 }
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-
-  const token = process.env.ENVIOS_TOKEN;
-  const repo = process.env.ENVIOS_REPO;
-  if (!token || !repo) return res.status(500).json({ error: 'Envio de resumos ainda não configurado.' });
+  if (!db.configurado()) return res.status(500).json({ error: 'Envio de resumos ainda não configurado.' });
 
   const body = req.body || {};
 
   // Honeypot: campo invisível que só robôs preenchem. Finge sucesso.
-  if (body.site) return res.status(200).json({ ok: true });
-
-  const pagina = limpar(body.pagina, 60);
-  if (!RE_PAGINA.test(pagina)) return res.status(400).json({ error: 'Página inválida.' });
-  const id = limpar(body.id, 40);
-  if (!RE_ID.test(id)) return res.status(400).json({ error: 'Envio inválido.' });
-  const pasta = `envios/${pagina}/${id}`;
+  if (body.site) return res.status(200).json({ ok: true, id: null, uploads: [] });
 
   try {
-    if (body.tipo === 'parte') {
-      const p = validarParte(body.arquivo || {});
-      if (p.erro) return res.status(400).json({ error: p.erro });
-      await gravar(repo, token, `${pasta}/${p.caminho}`, p.base64, `envio ${pagina}: ${p.caminho} (${id})`);
-      return res.status(200).json({ ok: true });
-    }
-
-    if (body.tipo !== 'final') return res.status(400).json({ error: 'Requisição inválida.' });
-
-    const texto = limpar(body.texto, MAX_TEXTO + 1);
-    if (texto.length > MAX_TEXTO) return res.status(400).json({ error: `O texto passou de ${MAX_TEXTO.toLocaleString('pt-BR')} caracteres.` });
-
-    const nome = limpar(body.nome, 80).replace(/[\r\n]+/g, ' ');
-    const assunto = limpar(body.assunto, 120).replace(/[\r\n]+/g, ' ');
-    const arquivos = (Array.isArray(body.arquivos) ? body.arquivos : [])
-      .slice(0, MAX_ARQUIVOS)
-      .map((n, i) => nomeArquivo(i, limpar(n, 120)));
-
-    if (!texto && !arquivos.length) return res.status(400).json({ error: 'Cole um texto ou anexe um arquivo.' });
-
-    const md = [
-      '---',
-      `pagina: ${pagina}`,
-      `enviado_em: ${new Date().toISOString()}`,
-      `nome: ${JSON.stringify(nome || 'anônimo')}`,
-      `assunto: ${JSON.stringify(assunto)}`,
-      `arquivos: ${JSON.stringify(arquivos)}`,
-      'status: pendente',
-      '---',
-      '',
-      texto || '_(sem texto; ver arquivos anexos)_',
-      '',
-    ].join('\n');
-
-    await gravar(repo, token, `${pasta}/resumo.md`, Buffer.from(md, 'utf8').toString('base64'), `envio ${pagina}: ${id}`);
-    res.status(200).json({ ok: true });
+    let resposta;
+    if (body.acao === 'iniciar') resposta = await iniciar(req, body);
+    else if (body.acao === 'concluir') resposta = await concluir(body);
+    else resposta = [400, { error: 'Requisição inválida.' }];
+    res.status(resposta[0]).json(resposta[1]);
   } catch (err) {
     console.error('enviar-resumo:', err.message);
     res.status(502).json({ error: 'Não foi possível salvar o envio agora. Tente de novo mais tarde.' });
   }
 }
-
-export const config = {
-  api: { bodyParser: { sizeLimit: '4.5mb' } },
-};
