@@ -355,7 +355,7 @@ body.ios {
    6. LISTAS AGRUPADAS (inset grouped, estilo Ajustes)
    <h2 class="group-title">…</h2>
    <div class="group">
-     <a class="cell" href="…">…<svg class="i chev">…</svg></a>
+     <a class="cell" href="…">…<svg class="i cell-chev">…</svg></a>
    </div>
    <p class="group-footer">…</p>
    ═══════════════════════════════════════════════════════════ */
@@ -385,17 +385,17 @@ body.ios {
 .cell-title { font: var(--t-body); color: var(--label); display: block; }
 .cell-sub { font: var(--t-subhead); color: var(--label-2); display: block; margin-top: 1px; }
 .cell-detail { font: var(--t-body); color: var(--label-2); flex-shrink: 0; }
-.chev { width: 18px; height: 18px; color: var(--label-3); flex-shrink: 0; transition: transform var(--dur) var(--ease); }
+.cell-chev { width: 18px; height: 18px; color: var(--label-3); flex-shrink: 0; transition: transform var(--dur) var(--ease); }
 
-/* Selo (badge) */
-.badge {
+/* Selo (pill) */
+.pill {
   display: inline-flex; align-items: center; gap: 4px;
   font: 600 0.75rem/1 var(--font); padding: 4px 8px; border-radius: var(--r-pill);
   color: var(--tint); background: var(--tint-bg); white-space: nowrap;
 }
-.badge.green  { color: var(--green);  background: var(--green-bg); }
-.badge.orange { color: var(--orange); background: var(--orange-bg); }
-.badge.gray   { color: var(--label-2); background: var(--fill); }
+.pill.green  { color: var(--green);  background: var(--green-bg); }
+.pill.orange { color: var(--orange); background: var(--orange-bg); }
+.pill.gray   { color: var(--label-2); background: var(--fill); }
 
 /* ═══════════════════════════════════════════════════════════
    7. CONTROLES
