@@ -229,5 +229,162 @@
     criarSheetMais: criarSheetMais,
     sincronizarTema: sincronizarTema,
     ligarNavbar: ligarNavbar,
+    montarResumo: montarResumo,
   };
+
+  /* ═══ Páginas de resumo (<body class="ios resumo">) ═══
+     Monta a moldura a partir do que a página já tem: o título do
+     .hero e os links da <nav> de capítulos (que fica escondida). */
+  function montarResumo() {
+    var body = document.body;
+    var info = null;
+    lista.forEach(function (m) {
+      if (m.id === PAGINA) info = { m: m, nome: m.nome };
+      (m.extras || []).forEach(function (x) { if (x.id === PAGINA) info = { m: m, nome: m.nome + ' · ' + x.nome }; });
+    });
+    var tri = info ? info.m.tri : 2;
+    var voltar = 'index.html#t' + tri;
+
+    // Capítulos: links internos da navegação antiga
+    var navAntiga = null;
+    document.querySelectorAll('nav').forEach(function (n) {
+      if (!navAntiga && n.querySelector('a[href^="#"]') && !n.closest('.sidebar, .tabbar')) navAntiga = n;
+    });
+    var capitulos = [];
+    if (navAntiga) {
+      navAntiga.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        var alvo = a.getAttribute('href');
+        if (alvo.length > 1 && document.getElementById(alvo.slice(1))) {
+          capitulos.push({ href: alvo, nome: a.textContent.replace(/\s+/g, ' ').trim() });
+        }
+      });
+      navAntiga.classList.add('cd-oculto');
+    }
+    var temChat = typeof window.toggleChat === 'function' && document.getElementById('chat-panel');
+
+    // Pular para o conteúdo
+    var pular = document.createElement('a');
+    pular.className = 'skip-link';
+    pular.href = '#conteudo';
+    pular.textContent = 'Pular para o conteúdo';
+    body.insertBefore(pular, body.firstChild);
+    var principal = document.querySelector('main') || document.querySelector('.content');
+    if (principal && !principal.id) principal.id = 'conteudo';
+
+    // Navbar
+    var titulo = document.querySelector('.hero h1');
+    if (titulo) titulo.classList.add('large-title');
+    var nav = document.createElement('header');
+    nav.className = 'navbar';
+    nav.innerHTML =
+      '<div class="navbar-row">' +
+        '<div class="navbar-left"><a class="bar-btn" href="' + voltar + '">' + icone('chevron-left') + 'Início</a></div>' +
+        '<span class="navbar-title" aria-hidden="true">' + esc(info ? info.nome + ' · ' + tri + 'º tri' : document.title) + '</span>' +
+        '<div class="navbar-right">' +
+          (capitulos.length ? '<button class="bar-btn glass so-celular" type="button" data-sheet-open="sheet-capitulos" aria-label="Capítulos">' + icone('list') + '</button>' : '') +
+          '<button class="bar-btn glass" type="button" data-cd-alternar-tema aria-label="Alternar modo claro e escuro">' + icone('moon') + '</button>' +
+        '</div>' +
+      '</div>';
+    body.insertBefore(nav, pular.nextSibling);
+
+    // Barra lateral: capítulos desta página + todas as matérias
+    var capHtml = '';
+    if (capitulos.length) {
+      capHtml = '<h2 class="sidebar-section">Nesta página</h2>' + capitulos.map(function (c, i) {
+        var quiz = /quiz|exerc/i.test(c.href + c.nome);
+        return '<a class="sidebar-item chapter-link" href="' + esc(c.href) + '"><span class="num">' +
+          (quiz ? icone('circle-help', 'i-sm') : (i + 1)) + '</span><span class="txt">' + esc(c.nome) + '</span></a>';
+      }).join('');
+    }
+    var acoes = '';
+    if (temChat) acoes += '<button class="sidebar-item" type="button" data-cd-acao="chat">' + icone('message-circle') + '<span class="txt">Perguntar ao ' + esc((typeof APP !== 'undefined' && APP.aiName) || 'Nêuron') + '</span></button>';
+    acoes += '<button class="sidebar-item" type="button" data-cd-acao="contribuir">' + icone('upload') + '<span class="txt">Enviar meu resumo</span></button>';
+    var aside = document.createElement('aside');
+    aside.className = 'sidebar';
+    aside.setAttribute('aria-label', 'Navegação');
+    body.appendChild(aside);
+    montarSidebar(aside, capHtml + acoes);
+    body.classList.add('has-sidebar');
+
+    // Tab bar
+    var tab = document.createElement('nav');
+    tab.className = 'tabbar';
+    tab.setAttribute('aria-label', 'Navegação principal');
+    body.appendChild(tab);
+    var abas = [{ rotulo: 'Início', icone: 'house', href: voltar }];
+    if (capitulos.length) abas.push({ rotulo: 'Capítulos', icone: 'list', sheet: 'sheet-capitulos' });
+    if (temChat) abas.push({ rotulo: (typeof APP !== 'undefined' && APP.aiName) || 'Nêuron', icone: 'message-circle', acao: 'chat' });
+    abas.push({ rotulo: 'Mais', icone: 'ellipsis', sheet: 'sheet-mais' });
+    montarTabbar(tab, abas);
+
+    // Sheets
+    if (capitulos.length) {
+      var sc = criarSheet('sheet-capitulos', 'Capítulos', '<div class="group">' + capitulos.map(function (c, i) {
+        var quiz = /quiz|exerc/i.test(c.href + c.nome);
+        return '<a class="cell has-icon" href="' + esc(c.href) + '"><span class="app-icon" style="--icon-bg:' + (quiz ? 'var(--fill)' : 'var(--tint-fill)') + ';' + (quiz ? 'color:var(--tint)' : '') + '">' +
+          (quiz ? icone('circle-help', 'i-sm') : (i + 1)) + '</span><span class="cell-body"><span class="cell-title">' + esc(c.nome) + '</span></span>' + icone('chevron-right', 'cell-chev') + '</a>';
+      }).join('') + '</div>');
+      sc.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        e.preventDefault();
+        fecharSheet(true);
+        var alvo = document.getElementById(a.getAttribute('href').slice(1));
+        if (alvo) setTimeout(function () { alvo.scrollIntoView(); history.replaceState(null, '', a.getAttribute('href')); }, 20);
+      });
+    }
+    criarSheetMais(
+      '<div class="group">' +
+        (temChat ? '<button class="cell has-icon" type="button" data-cd-acao="chat"><span class="app-icon" style="--icon-bg:var(--tint-fill)">' + icone('message-circle', 'i-sm') + '</span><span class="cell-body"><span class="cell-title">Perguntar ao ' + esc((typeof APP !== 'undefined' && APP.aiName) || 'Nêuron') + '</span><span class="cell-sub">Tire dúvidas sobre este resumo</span></span>' + icone('chevron-right', 'cell-chev') + '</button>' : '') +
+        '<button class="cell has-icon" type="button" data-cd-acao="contribuir"><span class="app-icon" style="--icon-bg:#34c759">' + icone('upload', 'i-sm') + '</span><span class="cell-body"><span class="cell-title">Enviar meu resumo</span><span class="cell-sub">Texto, fotos do caderno ou arquivos</span></span>' + icone('chevron-right', 'cell-chev') + '</button>' +
+      '</div>'
+    );
+    sincronizarTema();
+    ligarNavbar();
+
+    // Ações: abrir o chat e o envio de resumo que a página já tem
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-cd-acao]');
+      if (!b) return;
+      var acao = b.getAttribute('data-cd-acao');
+      if (acao === 'chat' && temChat) {
+        fecharSheet(true);
+        if (!document.getElementById('chat-panel').classList.contains('open')) window.toggleChat();
+      }
+      if (acao === 'contribuir') {
+        fecharSheet(true);
+        var botao = document.getElementById('contrib-btn');
+        if (botao) botao.click();
+      }
+    });
+
+    // Acordeões: avisa leitores de tela se estão abertos (depois do onclick da página)
+    function marcarAcordeoes() {
+      document.querySelectorAll('.accordion-btn').forEach(function (b) {
+        var ac = b.closest('.accordion');
+        b.setAttribute('aria-expanded', String(!!(ac && ac.classList.contains('open'))));
+      });
+    }
+    marcarAcordeoes();
+    document.addEventListener('click', function (e) { if (e.target.closest('.accordion-btn')) setTimeout(marcarAcordeoes, 0); });
+
+    // Capítulo atual em destaque na barra lateral
+    if ('IntersectionObserver' in window && capitulos.length) {
+      var links = aside.querySelectorAll('.chapter-link');
+      var visiveis = {};
+      var obs = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (en) { visiveis[en.target.id] = en.isIntersecting; });
+        var atual = null;
+        capitulos.forEach(function (c) { if (!atual && visiveis[c.href.slice(1)]) atual = c.href; });
+        links.forEach(function (l) { l.classList.toggle('is-active', l.getAttribute('href') === atual); });
+      }, { rootMargin: '-64px 0px -55% 0px' });
+      capitulos.forEach(function (c) { obs.observe(document.getElementById(c.href.slice(1))); });
+    }
+  }
+
+  function iniciar() {
+    if (document.body.classList.contains('resumo')) montarResumo();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', iniciar);
+  else iniciar();
 })();

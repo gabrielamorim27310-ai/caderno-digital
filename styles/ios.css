@@ -304,7 +304,10 @@ body.ios {
   background: var(--glass); border: 0.5px solid var(--glass-border);
   border-radius: var(--r-pill); box-shadow: var(--glass-shadow);
   -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  /* blindagem: páginas antigas têm regras para toda <nav> (sticky, top:0, fundo branco) */
+  top: auto; height: auto; max-height: none; margin: 0; overflow: visible; border-bottom: 0.5px solid var(--glass-border);
 }
+.tabbar > .tab { border: 0; margin: 0; white-space: nowrap; letter-spacing: 0; text-transform: none; text-decoration: none; opacity: 1; }
 .tab {
   min-height: 50px; padding: 4px 2px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
@@ -354,6 +357,7 @@ body.ios {
 @media (min-width: 768px) {
   .sidebar { display: block; }
   .tabbar { display: none; }
+  .so-celular { display: none !important; }
   .page { padding-bottom: var(--s-12); }
   .navbar { padding-left: var(--s-4); padding-right: var(--s-4); }
 }
@@ -527,6 +531,383 @@ body.ios {
   .sheet.is-open { transform: translateY(-50%); opacity: 1; transition: transform var(--dur) var(--ease), opacity var(--dur) ease, visibility 0s; }
 }
 body.sheet-lock { overflow: hidden; }
+
+/* ═══════════════════════════════════════════════════════════
+   10. CONTEÚDO DOS RESUMOS (camada de compatibilidade)
+   Reestiliza, pelo nome que já têm, os componentes das páginas
+   antigas. Não muda HTML nem JavaScript: as classes e ids que os
+   scripts usam continuam iguais.
+   As páginas de resumo usam <body class="ios resumo">. Tudo começa
+   com .ios ou .resumo, que soma uma classe de peso e vence o <style>
+   de cada página (o ios.css é carregado por último).
+   ═══════════════════════════════════════════════════════════ */
+
+/* Ícones usados como máscara (pintados com background-color) */
+.ios {
+  --mask-chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E");
+  --mask-bulb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5'/%3E%3Cpath d='M9 18h6'/%3E%3Cpath d='M10 22h4'/%3E%3C/svg%3E");
+  --mask-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+  --mask-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E");
+  --mask-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9-5.5 5.5L8 12'/%3E%3C/svg%3E");
+}
+
+/* Tokens antigos das páginas → tokens novos (seguem o claro/escuro) */
+body.ios {
+  --text: var(--label);
+  --text-light: var(--label-2);
+  --text-muted: var(--label-2);
+  --border: var(--sep);
+  --card-bg: var(--bg-2);
+  --card: var(--bg-2);
+  --white: var(--bg-2);
+  --primary: var(--tint-fill);
+  --secondary: var(--tint);
+  --accent: var(--tint);
+  --shadow: var(--shadow-card);
+  --highlight-bg: var(--tint-bg);   --highlight-border: var(--tint);
+  --warning-bg: var(--orange-bg);   --warning-border: var(--orange);
+  --tip-bg: var(--green-bg);        --tip-border: var(--green);
+  /* cores de capítulo: paleta própria, legível no claro e no escuro */
+  --c1: var(--tint);   --ch1: var(--tint);
+  --c2: #0a7ea4;       --ch2: #0a7ea4;
+  --c3: #9a5b00;       --ch3: #9a5b00;
+  --c4: #a8326b;       --ch4: #a8326b;
+  --c5: #2f7d32;       --ch5: #2f7d32;
+  --c6: #6b4fbb;       --ch6: #6b4fbb;
+  --c7: #b03a2e;       --ch7: #b03a2e;
+  --c8: #4b6584;       --ch8: #4b6584;
+  --ch9: #7a6a00;
+  background: var(--bg);
+  color: var(--label);
+  line-height: 1.5;
+}
+:root[data-theme="dark"] body.ios { --c2:#5ac8e8; --ch2:#5ac8e8; --c3:#f0b44c; --ch3:#f0b44c; --c4:#ff8ac1; --ch4:#ff8ac1; --c5:#6fd673; --ch5:#6fd673; --c6:#b4a0ff; --ch6:#b4a0ff; --c7:#ff8a7a; --ch7:#ff8a7a; --c8:#a9bdd6; --ch8:#a9bdd6; --ch9:#e6d35a; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body.ios { --c2:#5ac8e8; --ch2:#5ac8e8; --c3:#f0b44c; --ch3:#f0b44c; --c4:#ff8ac1; --ch4:#ff8ac1; --c5:#6fd673; --ch5:#6fd673; --c6:#b4a0ff; --ch6:#b4a0ff; --c7:#ff8a7a; --ch7:#ff8a7a; --c8:#a9bdd6; --ch8:#a9bdd6; --ch9:#e6d35a; }
+}
+
+/* Fonte do sistema em tudo (o seletor :not(#_) dá peso de id e vence
+   as fontes antigas de cada página), menos código e fórmulas */
+.ios :not(#_):not(code, pre, kbd, samp, svg, svg *, [class*="formula"], [class*="mol-"], .mono) { font-family: var(--font); }
+.ios :is(h1, h2, h3):not(#_) { font-family: var(--font-display); }
+
+/* Largura de leitura */
+.resumo main, .resumo .content { max-width: var(--w-content); margin-left: auto; margin-right: auto; padding: 0 calc(var(--s-4) + env(safe-area-inset-right)) var(--s-8) calc(var(--s-4) + env(safe-area-inset-left)); }
+.resumo main .content { padding-left: 0; padding-right: 0; }
+
+/* Partes antigas substituídas pela moldura nova */
+.ios .cd-oculto, .ios #chat-btn, .ios #contrib-btn { display: none !important; }
+
+/* Barra de progresso: linha fina na cor da matéria, sob a navbar */
+.ios .progress-bar { height: 2px !important; background: var(--tint) !important; background-image: none !important; box-shadow: none !important; top: env(safe-area-inset-top); z-index: 45; }
+
+/* ── Cabeçalho da matéria (hero) → large title ── */
+.ios .hero {
+  background: none !important; color: var(--label); text-align: left; overflow: visible;
+  max-width: var(--w-content); margin: 0 auto; min-height: 0;
+  padding: var(--s-2) calc(var(--s-4) + env(safe-area-inset-right)) var(--s-4) calc(var(--s-4) + env(safe-area-inset-left));
+}
+.ios .hero::before, .ios .hero::after { display: none !important; }
+.ios .hero h1 { font: var(--t-large); color: var(--label); margin: 0 0 var(--s-1); letter-spacing: 0.005em; text-shadow: none; }
+.ios .hero .subtitle, .ios .hero > p { font: var(--t-subhead); color: var(--label-2); opacity: 1; margin: 0 0 var(--s-3); }
+.ios .hero .badge, .ios .hero .author {
+  display: inline-block; margin: var(--s-1) 0 0; padding: 5px 10px; border: 0; border-radius: var(--r-sm);
+  font: var(--t-footnote); font-weight: 600; white-space: normal; background: var(--tint-bg); color: var(--tint); box-shadow: none;
+}
+.ios .hero .author { background: var(--fill); color: var(--label-2); }
+.ios .hero br { display: none; }
+.ios .hero > div { display: inline; }
+.ios .hero-icon img { filter: none !important; height: 56px !important; width: auto !important; }
+
+/* ── Capítulos ── */
+.ios .chapter, .ios .section { margin: var(--s-10) 0 0; scroll-margin-top: 64px; background: none; box-shadow: none; border: 0; padding: 0; }
+.ios .chapter-header, .ios .section-header { margin: 0 0 var(--s-3); padding: 0; border: 0; background: none; }
+.ios .chapter-header h2, .ios .section-title { font: var(--t-title2); color: var(--label); display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--s-2); margin: 0; }
+.ios .chapter-header .meta, .ios .cap-ref, .ios .section-sub { font: var(--t-footnote); color: var(--label-2); margin: var(--s-1) 0 0; }
+.ios .ch-tag, .ios .chapter-num, .ios .section-num {
+  font: 600 0.75rem/1 var(--font) !important; padding: 5px 8px; border-radius: var(--r-pill);
+  background: var(--tint-bg) !important; color: var(--tint) !important; letter-spacing: 0; transform: translateY(-3px);
+}
+.ios .pending-badge { background: var(--orange-bg); color: var(--orange); border: 0; border-radius: var(--r-pill); }
+
+/* ── Acordeões → linhas de lista agrupada com seta (disclosure) ── */
+.ios .accordion { background: var(--bg-2); border: 0; border-radius: 0; margin: 0; box-shadow: none; overflow: hidden; position: relative; }
+.ios .accordion:not(.accordion + .accordion) { border-top-left-radius: var(--r-md); border-top-right-radius: var(--r-md); margin-top: var(--s-3); }
+.ios .accordion:not(:has(+ .accordion)) { border-bottom-left-radius: var(--r-md); border-bottom-right-radius: var(--r-md); margin-bottom: var(--s-4); }
+.ios .accordion + .accordion::before { content: ''; position: absolute; top: 0; left: var(--s-4); right: 0; border-top: 0.5px solid var(--sep); z-index: 1; }
+.ios .accordion-btn {
+  width: 100%; min-height: var(--tap); padding: 12px var(--s-4); gap: var(--s-3);
+  display: flex; align-items: center; justify-content: space-between; text-align: left;
+  background: none !important; border: 0; color: var(--label) !important; cursor: pointer;
+  font: var(--t-body) !important; font-weight: 500 !important;
+}
+.ios .accordion-btn:active { background: var(--fill) !important; }
+@media (hover: hover) { .ios .accordion-btn:hover { background: color-mix(in srgb, var(--fill) 50%, transparent) !important; } }
+/* seta: esconde a antiga (▾, ▼, +) e desenha o chevron do iOS */
+.ios .accordion-btn > .chev, .ios .accordion-btn > .chevron, .ios .accordion-btn > .icon { font-size: 0 !important; color: transparent !important; width: 18px; height: 18px; flex-shrink: 0; transform: none !important; }
+.ios .accordion-btn::after { content: ''; width: 18px; height: 18px; flex-shrink: 0; background: var(--label-3); -webkit-mask: var(--mask-chev) center / contain no-repeat; mask: var(--mask-chev) center / contain no-repeat; transform: none; transition: transform var(--dur) var(--ease); }
+.ios .accordion-btn:has(> .chev, > .chevron, > .icon)::after { display: none; }
+.ios .accordion-btn > .chev::before, .ios .accordion-btn > .chevron::before, .ios .accordion-btn > .icon::before {
+  content: ''; display: block; width: 18px; height: 18px; background: var(--label-3);
+  -webkit-mask: var(--mask-chev) center / contain no-repeat; mask: var(--mask-chev) center / contain no-repeat; transition: transform var(--dur) var(--ease);
+}
+.ios .accordion.open .accordion-btn::after, .ios .accordion.open .accordion-btn > :is(.chev, .chevron, .icon)::before { transform: rotate(90deg); }
+/* conteúdo: sem limite de altura (o antigo max-height cortava textos longos) */
+.ios .accordion-content, .ios .accordion-body { max-height: none !important; display: none; overflow: visible; transition: none; padding: 0; background: none; }
+.ios .accordion.open .accordion-content, .ios .accordion.open .accordion-body { display: block; animation: cd-aparecer var(--dur) var(--ease-out); }
+@keyframes cd-aparecer { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* ── Texto corrido ── */
+.resumo .content-block, .ios .accordion-inner, .ios .accordion-content > :not(.content-block) { padding-left: var(--s-4); padding-right: var(--s-4); }
+.resumo .content-block, .ios .accordion-inner { padding-top: var(--s-1); padding-bottom: var(--s-5); border: 0; }
+.ios .accordion-content > :first-child:not(.content-block) { margin-top: var(--s-2); }
+.ios .accordion-content > :last-child:not(.content-block) { margin-bottom: var(--s-5); }
+.resumo main :is(p, li) { font: var(--t-callout); color: var(--label); }
+.resumo main p { margin: var(--s-2) 0 var(--s-3); }
+.resumo main :is(ul, ol) { margin: var(--s-2) 0 var(--s-3); padding-left: 1.3em; }
+.resumo main li { margin: 0 0 var(--s-2); }
+.resumo main li::marker { color: var(--tint); }
+.resumo main :is(h3, h4) { font: var(--t-headline); color: var(--label); margin: var(--s-5) 0 var(--s-2); }
+.resumo main h5 { font: var(--t-subhead); font-weight: 600; color: var(--label); margin: 0 0 var(--s-2); }
+.resumo main strong, .resumo main b { font-weight: 600; color: inherit; }
+.resumo main em { color: inherit; }
+
+/* ── Caixas de destaque (callouts) ── */
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight, .highlight-purple, .highlight-gray) {
+  position: relative; border: 0 !important; border-radius: var(--r-md); box-shadow: none;
+  padding: var(--s-3) var(--s-4) var(--s-3) calc(var(--s-4) + 28px); margin: var(--s-3) 0;
+  font: var(--t-subhead); color: var(--label) !important; background: var(--tint-bg) !important;
+}
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight, .highlight-purple, .highlight-gray)::before {
+  content: ''; position: absolute; left: var(--s-3); top: calc(var(--s-3) + 1px); width: 20px; height: 20px;
+  background: var(--tint); -webkit-mask: var(--mask-info) center / contain no-repeat; mask: var(--mask-info) center / contain no-repeat;
+}
+.ios :is(.warn-box, .warning-box, .danger-box) { background: var(--orange-bg) !important; }
+.ios :is(.warn-box, .warning-box, .danger-box)::before { background: var(--orange); -webkit-mask-image: var(--mask-alert); mask-image: var(--mask-alert); }
+.ios .danger-box { background: var(--red-bg) !important; }
+.ios .danger-box::before { background: var(--red); }
+.ios :is(.tip-box, .tip, .example-box)::before { background: var(--green); -webkit-mask-image: var(--mask-bulb); mask-image: var(--mask-bulb); }
+.ios :is(.tip-box, .tip, .example-box) { background: var(--green-bg) !important; }
+.ios .highlight-gray { background: var(--fill) !important; }
+.ios .highlight-gray::before { background: var(--label-2); }
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight, .highlight-purple, .highlight-gray) > strong:first-child { display: block; font: var(--t-headline); font-size: 0.9375rem; margin: 0 0 2px; color: var(--label); }
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight) :is(p, li) { font: var(--t-subhead); }
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight) :is(ul, ol) { margin: var(--s-1) 0 0; }
+/* caixa solta logo no início da página (aviso de conteúdo) */
+.resumo main > :is(.tip-box, .highlight-box, .warn-box):first-child { margin-top: 0; }
+
+/* ── Linha do tempo ── */
+.ios .timeline { margin: var(--s-3) 0; padding: 0; border: 0; display: grid; gap: var(--s-3); position: relative; }
+.ios .timeline::before, .ios .timeline::after { display: none; }
+.ios :is(.tl-item, .timeline-item) { display: grid; grid-template-columns: 5.5rem 1fr; gap: var(--s-3); margin: 0; padding: 0; border: 0; background: none; align-items: baseline; }
+.ios :is(.tl-item, .timeline-item)::before, .ios :is(.tl-item, .timeline-item)::after { display: none; }
+.ios :is(.tl-year, .timeline-year, .timeline-item .date) {
+  background: none !important; color: var(--tint) !important; padding: 0; border-radius: 0; margin: 0;
+  font: 600 0.8125rem/1.45 var(--font) !important; white-space: normal; font-variant-numeric: tabular-nums;
+}
+.ios :is(.tl-text, .timeline-text, .timeline-item .desc) { font: var(--t-subhead); color: var(--label); }
+.ios .tl-item > h4 { grid-column: 1; margin: 0; font: 600 0.8125rem/1.45 var(--font); color: var(--tint); }
+.ios .tl-item > p { grid-column: 2; margin: 0; font: var(--t-subhead); }
+
+/* ── Tabelas ── */
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) {
+  width: 100%; border-collapse: collapse; margin: var(--s-3) 0; background: none; box-shadow: none; border-radius: 0;
+  font: var(--t-subhead);
+}
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) th {
+  background: none !important; color: var(--label-2) !important; text-align: left; vertical-align: bottom;
+  font: 600 0.75rem/1.3 var(--font) !important; text-transform: uppercase; letter-spacing: 0.03em;
+  padding: 6px var(--s-2) 6px 0; border: 0; border-bottom: 0.5px solid var(--sep);
+}
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) td {
+  background: none !important; color: var(--label); padding: 9px var(--s-2) 9px 0; vertical-align: top;
+  border: 0; border-bottom: 0.5px solid var(--sep);
+}
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) tr:last-child td { border-bottom: 0; }
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) tr:hover td { background: none !important; }
+.ios .table-wrap { overflow-x: auto; border: 0; border-radius: 0; box-shadow: none; background: none; }
+
+/* ── Cards e grades ── */
+.ios :is(.card, .compare-card, .mini-card, .nox-card) {
+  background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card);
+  color: var(--label);
+}
+.ios .accordion :is(.card, .compare-card, .mini-card) { background: var(--bg-3) !important; box-shadow: none; }
+.ios :is(.compare-grid, .card-grid, .grid-2, .grid-3) { gap: var(--s-3); }
+.ios .card-title { font: var(--t-headline); color: var(--label); }
+
+/* ── Selos ── */
+.ios :is(.tag, .ch-tag, .quiz-chapter-tag, .quiz-tag, .tag-imp, .tag-new) { border: 0; }
+
+/* ── Fórmulas ── */
+.ios .formula-pill { background: var(--fill) !important; color: var(--label) !important; border: 0 !important; border-radius: var(--r-sm) !important; }
+
+/* ── Imagens ── */
+.resumo main img { border-radius: var(--r-md); }
+
+/* ═══ QUIZ ═══ */
+.ios :is(#quiz-section, .quiz-section) {
+  background: none !important; border: 0; box-shadow: none; padding: 0; margin: var(--s-12) 0 0; color: var(--label); border-radius: 0;
+}
+.ios :is(#quiz-section, .quiz-section) > h2, .ios :is(#quiz-section, .quiz-section) > h3 { font: var(--t-title2); color: var(--label) !important; margin: 0 0 var(--s-1); }
+.ios :is(#quiz-section, .quiz-section) > p { font: var(--t-subhead); color: var(--label-2) !important; margin: 0 0 var(--s-4); }
+
+/* placar ao vivo */
+.ios .quiz-topbar {
+  position: sticky; top: calc(44px + env(safe-area-inset-top)); z-index: 30;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); flex-wrap: nowrap;
+  margin: 0 calc(-1 * var(--s-4)) var(--s-3); padding: var(--s-2) var(--s-4);
+  background: var(--bar); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border-bottom: 0.5px solid var(--sep);
+}
+.ios .score-left { display: flex; align-items: center; gap: var(--s-2); }
+.ios .score-live { background: none !important; border: 0 !important; padding: 0 !important; font: var(--t-subhead) !important; color: var(--label) !important; }
+.ios .score-live strong { font-weight: 700; font-variant-numeric: tabular-nums; }
+.ios .mini-donut-wrap circle:first-child, .ios .donut-wrap circle:first-child { stroke: var(--fill-2); }
+.ios #mini-arc:not([style*="stroke:"]) { stroke: var(--fill-2); }
+.ios #mini-pct { color: var(--label-2); font: 700 0.625rem/1 var(--font); }
+.ios :is(.btn-reset-mid, .btn-reset, .reset-btn) {
+  min-height: 34px; padding: 0 var(--s-3); border: 0 !important; border-radius: var(--r-pill);
+  background: var(--fill) !important; color: var(--tint) !important; font: 600 0.875rem/1 var(--font) !important; cursor: pointer;
+}
+.ios .btn-reset { min-height: 44px; padding: 0 var(--s-5); background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+
+/* filtros por capítulo → chips roláveis */
+.ios :is(.quiz-filter, .quiz-filters) { display: flex; flex-wrap: nowrap; gap: var(--s-2); overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--s-4)) var(--s-4); padding: 2px var(--s-4); }
+.ios :is(.quiz-filter, .quiz-filters)::-webkit-scrollbar { display: none; }
+.ios :is(.filter-btn, .qf-btn) {
+  flex-shrink: 0; min-height: 34px; padding: 0 var(--s-3); border: 0 !important; border-radius: var(--r-pill);
+  background: var(--fill) !important; color: var(--label) !important; font: 500 0.875rem/1 var(--font) !important; white-space: nowrap; cursor: pointer;
+}
+.ios :is(.filter-btn, .qf-btn).active { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+
+/* questão (família B: question-card) */
+.ios .question-card {
+  background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card);
+  padding: var(--s-4); margin: 0 0 var(--s-3); scroll-margin-top: 110px;
+}
+.ios .question-card.hidden { display: none; }
+.ios .question-card h4 { font: var(--t-headline) !important; color: var(--label) !important; margin: 0 0 var(--s-3); }
+.ios .q-fonte {
+  font: var(--t-subhead) !important; color: var(--label) !important; margin: 0 0 var(--s-3) !important;
+  padding: var(--s-2) var(--s-3); border-left: 3px solid var(--tint); background: var(--bg-3); border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.ios .options { display: grid; gap: var(--s-2); }
+.ios .option-btn {
+  min-height: var(--tap); padding: 11px var(--s-3); border: 0 !important; border-radius: var(--r-md);
+  background: var(--fill) !important; color: var(--label) !important; font: var(--t-callout) !important; text-align: left; cursor: pointer;
+  transition: background-color var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.ios .option-btn:not(:disabled):active { transform: scale(0.985); }
+@media (hover: hover) { .ios .option-btn:not(:disabled):hover { background: var(--fill-2) !important; } }
+.ios .option-btn:disabled { cursor: default; opacity: 1; }
+.ios .option-btn.correct { background: var(--green-bg) !important; color: var(--label) !important; box-shadow: inset 0 0 0 1.5px var(--green); }
+.ios .option-btn.wrong { background: var(--red-bg) !important; color: var(--label) !important; box-shadow: inset 0 0 0 1.5px var(--red); }
+.ios .answer-exp {
+  gap: var(--s-2); margin-top: var(--s-3); padding: var(--s-3); border: 0 !important; border-radius: var(--r-md);
+  background: var(--bg-3) !important; color: var(--label) !important; font: var(--t-subhead) !important;
+}
+.ios .answer-exp > span:first-child { color: var(--green); font-weight: 700; }
+.ios .answer-exp strong { display: block; margin-bottom: 4px; }
+.ios .answer-exp br { display: none; }
+
+/* resultado final */
+.ios .quiz-result { background: var(--bg-2); border-radius: var(--r-md); box-shadow: var(--shadow-card); padding: var(--s-6) var(--s-4); margin-top: var(--s-4); }
+.ios :is(.donut-score, .result-msg) { color: var(--label) !important; }
+.ios :is(.donut-label, .result-sub) { color: var(--label-2) !important; }
+
+/* questão (família A: rádio) */
+.ios .quiz-q[id] {
+  background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card);
+  padding: var(--s-4); margin: 0 0 var(--s-3); color: var(--label) !important;
+}
+.ios .quiz-q[id] > p { font: var(--t-headline) !important; color: var(--label) !important; margin: var(--s-2) 0 var(--s-3); }
+.ios .quiz-q[id] label {
+  display: flex; align-items: flex-start; gap: var(--s-2); min-height: var(--tap); padding: 11px var(--s-3); margin: 0 0 var(--s-2);
+  border: 0 !important; border-radius: var(--r-md); background: var(--fill) !important; color: var(--label) !important;
+  font: var(--t-callout) !important; cursor: pointer;
+}
+.ios .quiz-q[id] label input { accent-color: var(--tint); margin-top: 0.3em; }
+.ios .quiz-q[id] label:has(input:checked) { box-shadow: inset 0 0 0 1.5px var(--tint); }
+.ios :is(.feedback, .q-feedback) { border: 0 !important; border-radius: var(--r-md); font: var(--t-subhead) !important; color: var(--label) !important; }
+.ios :is(.feedback, .q-feedback).correct { background: var(--green-bg) !important; padding: var(--s-3); }
+.ios :is(.feedback, .q-feedback).wrong { background: var(--red-bg) !important; padding: var(--s-3); }
+.ios :is(.quiz-chapter-tag, .quiz-tag) { background: var(--tint-bg) !important; color: var(--tint) !important; border-radius: var(--r-pill); font: 600 0.75rem/1 var(--font) !important; padding: 5px 8px; }
+
+/* questão (família C: .quiz com .opt) */
+.ios .quiz { background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card); padding: var(--s-4); margin: 0 0 var(--s-3); }
+.ios .quiz .quiz-q { font: var(--t-headline) !important; color: var(--label) !important; display: flex; gap: var(--s-2); margin: 0 0 var(--s-3); }
+.ios .quiz-num { background: var(--tint-bg) !important; color: var(--tint) !important; border-radius: var(--r-pill); min-width: 24px; height: 24px; display: inline-grid; place-items: center; font: 700 0.8125rem/1 var(--font) !important; flex-shrink: 0; }
+.ios .quiz-opts { display: grid; gap: var(--s-2); }
+.ios .opt {
+  display: flex; align-items: flex-start; gap: var(--s-2); min-height: var(--tap); padding: 11px var(--s-3);
+  border: 0 !important; border-radius: var(--r-md); background: var(--fill) !important; color: var(--label) !important;
+  font: var(--t-callout) !important; cursor: pointer;
+}
+.ios .opt-letter { background: var(--bg-2) !important; color: var(--label-2) !important; border: 0 !important; border-radius: 50%; min-width: 24px; height: 24px; display: inline-grid; place-items: center; font: 600 0.8125rem/1 var(--font) !important; }
+.ios .opt.correct, .ios .opt.reveal-correct { background: var(--green-bg) !important; box-shadow: inset 0 0 0 1.5px var(--green); }
+.ios .opt.wrong { background: var(--red-bg) !important; box-shadow: inset 0 0 0 1.5px var(--red); }
+.ios .opt.disabled { cursor: default; opacity: 1; }
+.ios .quiz-feedback.show { border: 0 !important; border-radius: var(--r-md); background: var(--bg-3) !important; color: var(--label) !important; font: var(--t-subhead) !important; padding: var(--s-3); margin-top: var(--s-3); }
+
+/* ═══ CHAT NÊURON → sheet ═══ */
+.ios #chat-panel {
+  position: fixed; z-index: 81; left: 0; right: 0; bottom: 0; top: auto; width: auto; max-width: 620px; margin: 0 auto;
+  height: min(78dvh, 640px); max-height: none; display: none; flex-direction: column;
+  background: var(--bg) !important; border: 0 !important; border-radius: var(--r-xl) var(--r-xl) 0 0; box-shadow: var(--shadow-float); overflow: hidden;
+}
+.ios #chat-panel.open { display: flex; animation: cd-subir var(--dur-slow) var(--ease); }
+@keyframes cd-subir { from { transform: translateY(100%); } to { transform: none; } }
+.ios #chat-head { background: none !important; color: var(--label) !important; padding: var(--s-4) var(--s-4) var(--s-2); border-bottom: 0.5px solid var(--sep); display: flex; align-items: center; justify-content: space-between; }
+.ios #chat-head span { font: var(--t-headline) !important; color: var(--label) !important; }
+.ios #chat-close { width: 30px; height: 30px; border-radius: 50%; background: var(--fill) !important; color: var(--label-2) !important; font-size: 0.9rem !important; display: grid; place-items: center; }
+.ios #chat-msgs { flex: 1; height: auto !important; padding: var(--s-4); gap: var(--s-2); background: none; }
+.ios .cmsg { font: var(--t-callout) !important; border-radius: 18px; padding: 9px 14px; max-width: 85%; }
+.ios .cmsg.user { background: var(--tint-fill) !important; color: var(--on-tint) !important; border-bottom-right-radius: 6px; }
+.ios .cmsg.bot { background: var(--bg-2) !important; color: var(--label) !important; border-bottom-left-radius: 6px; box-shadow: var(--shadow-card); }
+.ios #chat-form { display: flex; gap: var(--s-2); padding: var(--s-2) var(--s-3) calc(var(--s-3) + env(safe-area-inset-bottom)); border-top: 0.5px solid var(--sep); background: var(--bar); }
+.ios #chat-input { flex: 1; height: 38px; border: 0.5px solid var(--sep) !important; border-radius: var(--r-pill); padding: 0 var(--s-4); background: var(--bg-2) !important; color: var(--label) !important; font: var(--t-body) !important; font-size: 16px !important; }
+.ios #chat-send { width: 38px; height: 38px; padding: 0; border-radius: 50%; background: var(--tint-fill) !important; color: var(--on-tint) !important; font-size: 0.95rem; display: grid; place-items: center; }
+@media (min-width: 768px) {
+  .ios #chat-panel { left: auto; right: var(--s-6); bottom: var(--s-6); width: 420px; height: min(620px, 80vh); border-radius: var(--r-xl); }
+}
+
+/* ═══ ENVIAR MEU RESUMO → sheet ═══ */
+.ios #contrib-modal { background: var(--scrim); align-items: flex-end; padding: 0; z-index: 90; }
+.ios #contrib-box { width: 620px; max-width: 100%; max-height: calc(100dvh - 40px); border-radius: var(--r-xl) var(--r-xl) 0 0; background: var(--bg); box-shadow: var(--shadow-float); padding-bottom: env(safe-area-inset-bottom); }
+.ios #contrib-modal.open #contrib-box { animation: cd-subir var(--dur-slow) var(--ease); }
+.ios #contrib-head { background: var(--bg); color: var(--label); border-bottom: 0.5px solid var(--sep); }
+.ios #contrib-head span { font: var(--t-headline); }
+.ios #contrib-close { width: 30px; height: 30px; border-radius: 50%; background: var(--fill); color: var(--label-2); font-size: 0.9rem; }
+.ios #contrib-form label { color: var(--label); font: 600 0.8125rem/1.3 var(--font); }
+.ios #contrib-form :is(input[type="text"], textarea) { background: var(--bg-2); color: var(--label); border: 0.5px solid var(--sep); font: var(--t-body); font-size: 16px; }
+.ios #contrib-form :is(input[type="text"], textarea):focus { border-color: var(--tint); box-shadow: 0 0 0 3px var(--tint-bg); }
+.ios #contrib-send { background: var(--tint-fill); color: var(--on-tint); min-height: 50px; border-radius: var(--r-md); font: var(--t-headline); }
+.ios #contrib-status.ok { color: var(--green); } .ios #contrib-status.erro { color: var(--red); }
+@media (min-width: 768px) { .ios #contrib-modal { align-items: center; } .ios #contrib-box { border-radius: var(--r-xl); } }
+
+/* ── Rodapé ── */
+.resumo footer { background: none; border: 0; color: var(--label-2); font: var(--t-footnote); text-align: center; padding: var(--s-8) var(--s-4) var(--s-10); max-width: var(--w-content); margin: 0 auto; }
+
+@media (max-width: 767px) { .resumo footer { padding-bottom: calc(var(--s-10) + 76px + env(safe-area-inset-bottom)); } }
+
+/* ── Barra lateral fixa nas páginas de resumo (sem mover o HTML) ── */
+@media (min-width: 768px) {
+  body.ios.has-sidebar { padding-left: var(--w-sidebar); }
+  body.ios.has-sidebar > .sidebar { position: fixed; left: 0; top: 0; bottom: 0; z-index: 60; }
+  body.ios.has-sidebar .progress-bar { left: var(--w-sidebar) !important; }
+}
+.sidebar-item.chapter-link { font-size: 0.9375rem; min-height: 38px; padding-top: 4px; padding-bottom: 4px; }
+.sidebar-item.chapter-link .num { width: 30px; text-align: center; font: 600 0.8125rem/1 var(--font); color: var(--label-2); flex-shrink: 0; }
+.sidebar-item.chapter-link.is-active { background: var(--tint-bg); color: var(--tint); }
+.sidebar-item.chapter-link.is-active .num { color: var(--tint); }
+
+/* ── Impressão: só o conteúdo ── */
+@media print {
+  .ios :is(.navbar, .tabbar, .sidebar, .sheet, .sheet-scrim, .progress-bar, #chat-panel, #contrib-modal) { display: none !important; }
+  body.ios.has-sidebar { padding-left: 0; }
+  .ios .accordion-content, .ios .accordion-body { display: block !important; }
+}
 
 /* ═══════════════════════════════════════════════════════════
    9. REDUZIR MOVIMENTO

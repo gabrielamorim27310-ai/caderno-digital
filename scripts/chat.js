@@ -11,8 +11,18 @@ function toggleChat() {
 
 function getContext() {
   var el = document.querySelector('main, .content') || document.body;
-  return el.innerText.replace(/\s+/g, ' ').slice(0, 6000);
+  var texto = el.innerText;
+  // Não manda a própria conversa como se fosse conteúdo do resumo
+  var chat = document.getElementById('chat-panel');
+  if (chat && el.contains(chat)) texto = texto.replace(chat.innerText, '');
+  return texto.replace(/\s+/g, ' ').slice(0, 6000);
 }
+
+// Esc fecha o chat
+document.addEventListener('keydown', function (e) {
+  var p = document.getElementById('chat-panel');
+  if (e.key === 'Escape' && p && p.classList.contains('open')) toggleChat();
+});
 
 async function sendMsg(e) {
   e.preventDefault();
