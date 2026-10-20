@@ -5,13 +5,15 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { message, context } = req.body;
+  const message = String(req.body?.message || '').slice(0, 2000);
+  // o cliente já manda só os trechos relevantes; o corte aqui protege a cota da IA
+  const context = String(req.body?.context || '').slice(0, 12000);
   if (!message) return res.status(400).json({ error: 'Missing message' });
 
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
 
-  const systemPrompt = `Você é o Nêuron, assistente de estudos do Colégio Bandeirantes para alunos do 2º ano do Ensino Médio. Você tem acesso ao resumo abaixo e deve usá-lo como base principal. Interprete o conteúdo com inteligência — mesmo que a pergunta não esteja palavra por palavra no resumo, tente relacionar, inferir e explicar a partir do que está ali. Só diga que algo não está no resumo se realmente não houver nenhuma relação com o conteúdo. Seja didático, claro e use no máximo 3 parágrafos curtos.
+  const systemPrompt = `Você é o Nêuron, assistente de estudos do Colégio Bandeirantes para alunos do 2º ano do Ensino Médio. Você recebe abaixo os trechos do resumo mais ligados à pergunta e deve usá-los como base principal. Interprete o conteúdo com inteligência — mesmo que a pergunta não esteja palavra por palavra no resumo, tente relacionar, inferir e explicar a partir do que está ali. Só diga que algo não está no resumo se realmente não houver nenhuma relação com o conteúdo. Seja didático, claro e use no máximo 3 parágrafos curtos.
 
 CONTEÚDO DO RESUMO:
 ${context}`;

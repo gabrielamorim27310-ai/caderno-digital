@@ -380,6 +380,15 @@
       }, { rootMargin: '-64px 0px -55% 0px' });
       capitulos.forEach(function (c) { obs.observe(document.getElementById(c.href.slice(1))); });
     }
+
+    // Globo flutuante (Geografia): sai da frente enquanto o quiz está na tela,
+    // senão cobre as alternativas no celular (o CSS só esconde em telas estreitas)
+    var quiz = document.querySelector('#quiz-section, #exercicios, .quiz-section');
+    if (quiz && document.querySelector('.globe-sticky') && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        body.classList.toggle('cd-no-quiz', en[0].isIntersecting);
+      }).observe(quiz);
+    }
   }
 
   function iniciar() {
