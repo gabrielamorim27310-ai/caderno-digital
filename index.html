@@ -163,6 +163,7 @@
   CD.montarTabbar(document.querySelector('[data-cd-tabbar]'), [
     { rotulo: 'Início', icone: 'house', href: 'index.html', atual: true },
     { rotulo: 'Buscar', icone: 'search', acao: 'buscar' },
+    { rotulo: 'Enviar', icone: 'upload', href: 'enviar.html' },
     { rotulo: 'Mais', icone: 'ellipsis', sheet: 'sheet-mais' },
   ]);
   CD.criarSheetMais();
@@ -210,7 +211,8 @@
     var el = document.getElementById('painel-t' + n);
     var doTri = M.filter(function (m) { return m.tri === n; });
     if (!doTri.length) {
-      el.innerHTML = '<div class="empty">' + ico('clock') + '<h2>' + n + 'º trimestre</h2><p>Nenhum resumo ainda. Volte quando o trimestre começar!</p></div>';
+      el.innerHTML = '<div class="empty">' + ico('clock') + '<h2>' + n + 'º trimestre</h2><p>Os resumos deste trimestre estão sendo montados. Ajude mandando o seu!</p>' +
+        '<a class="btn small" href="enviar.html">Enviar meu resumo</a></div>';
       return;
     }
     var naProva = doTri.filter(function (m) { return m.status === 'prova'; });
@@ -248,9 +250,10 @@
     });
   });
   var hash = location.hash.replace('#', '');
-  // Sem #, abre o trimestre mais recente que tem resumos
-  var ultimoTri = Math.max.apply(null, M.filter(function (m) { return m.id; }).map(function (m) { return m.tri; }));
-  setTri(['t1', 't2', 't3'].indexOf(hash) >= 0 ? hash : 't' + ultimoTri);
+  // Sem #, abre o trimestre atual (APP.triAtual em config.js)
+  var triPadrao = (typeof APP !== 'undefined' && APP.triAtual) ||
+    Math.max.apply(null, M.filter(function (m) { return m.id; }).map(function (m) { return m.tri; }));
+  setTri(['t1', 't2', 't3'].indexOf(hash) >= 0 ? hash : 't' + triPadrao);
 
   /* ── Continuar: últimas páginas abertas ── */
   var recentes = paginas

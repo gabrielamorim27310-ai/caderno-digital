@@ -9,7 +9,7 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-10-20-quiz2';
+const VERSAO = 'cd-2026-10-20-enviar';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
@@ -22,6 +22,7 @@ const ESSENCIAIS = [
   'historia-1tri.html',
   'historia-2tri.html',
   'index.html',
+  'enviar.html',
   'ingles-2tri.html',
   'ingles-flashcards.html',
   'matematica-2tri.html',

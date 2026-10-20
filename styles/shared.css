@@ -147,12 +147,12 @@ footer {
   display: flex; flex-direction: column; gap: 6px;
   font-size: 0.85rem; font-weight: 600; color: var(--text, #1e1e1e);
 }
-#contrib-form input[type="text"], #contrib-form textarea {
+#contrib-form input[type="text"], #contrib-form select, #contrib-form textarea {
   border: 1px solid var(--border); border-radius: 10px;
   padding: 10px 12px; font: 400 0.93rem Inter, sans-serif;
   resize: vertical; outline: none;
 }
-#contrib-form input[type="text"]:focus, #contrib-form textarea:focus { border-color: var(--primary); }
+#contrib-form input[type="text"]:focus, #contrib-form select:focus, #contrib-form textarea:focus { border-color: var(--primary); }
 #contrib-form input[type="file"] { font: 400 0.85rem Inter, sans-serif; }
 #contrib-files { margin: -6px 0 0; padding: 0; list-style: none; font-size: 0.82rem; color: var(--text-light, #6b6b6b); }
 #contrib-files:empty { display: none; }

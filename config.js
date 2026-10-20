@@ -10,6 +10,7 @@ var APP = {
   aiName:      'Nêuron',
   aiEndpoint:  '/api/chat',
   year:        '2026',
+  triAtual:    3,            // trimestre que o painel e o envio abrem primeiro
   school:      'Colégio Bandeirantes',
   grade:       '2ª série do Ensino Médio',
 };
