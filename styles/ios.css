@@ -842,10 +842,10 @@ body.ios {
 .ios .quiz-q[id] label:has(input:checked) { box-shadow: inset 0 0 0 1.5px var(--tint); }
 /* depois de responder: a marcada fica verde ou vermelha, e a certa aparece em verde
    (a letra certa é o 2º argumento de checkQuiz no onclick de cada rádio) */
-.ios .quiz-q[id]:has(.feedback.correct) label:has(input:checked) { background: var(--green-bg) !important; box-shadow: inset 0 0 0 1.5px var(--green); }
-.ios .quiz-q[id]:has(.feedback.wrong) label:has(input:checked) { background: var(--red-bg) !important; box-shadow: inset 0 0 0 1.5px var(--red); }
-.ios .quiz-q[id]:has(.feedback.wrong) label input:checked { accent-color: var(--red); }
-.ios .quiz-q[id]:has(.feedback.wrong) label:has(:is(input[value="a"][onclick$="'a')"], input[value="b"][onclick$="'b')"], input[value="c"][onclick$="'c')"], input[value="d"][onclick$="'d')"], input[value="e"][onclick$="'e')"])) {
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).correct) label:has(input:checked) { background: var(--green-bg) !important; box-shadow: inset 0 0 0 1.5px var(--green); }
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).wrong) label:has(input:checked) { background: var(--red-bg) !important; box-shadow: inset 0 0 0 1.5px var(--red); }
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).wrong) label input:checked { accent-color: var(--red); }
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).wrong) label:has(:is(input[value="a"][onclick$="'a')"], input[value="b"][onclick$="'b')"], input[value="c"][onclick$="'c')"], input[value="d"][onclick$="'d')"], input[value="e"][onclick$="'e')"])) {
   background: var(--green-bg) !important; box-shadow: inset 0 0 0 1.5px var(--green);
 }
 .ios :is(.feedback, .q-feedback) { border: 0 !important; border-radius: var(--r-md); font: var(--t-subhead) !important; color: var(--label) !important; }
