@@ -48,5 +48,5 @@ var MATERIAS = [
   { tri: 2, id: 'quimica-2tri',           materia: 'quimica',    icone: '🧪', nome: 'Química',    desc: 'Funções Orgânicas · Isomeria Plana · Isomeria Espacial', status: 'fora' },
 
   // 3º trimestre
-  { tri: 3, id: 'sociologia-3tri',        materia: 'sociologia', icone: '🏙️', nome: 'Sociologia', desc: 'História da Antropologia · Cultura Popular, Erudita e Contracultura · Indústria Cultural' },
+  { tri: 3, id: 'sociologia-3tri',        materia: 'sociologia', icone: '🏙️', nome: 'Sociologia', desc: 'História da Antropologia · Cultura Popular, Erudita e Contracultura · Indústria Cultural', status: 'prova' },
 ];
