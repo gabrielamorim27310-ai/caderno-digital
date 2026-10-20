@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-pagina="filosofia-2tri" data-materia="filosofia">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <title>Resumo de Filosofia — 2º Trimestre 2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
     --primary: #3d2b00;
     --secondary: #c9953c;
@@ -139,8 +139,11 @@
 </script>
 <script src="config.js"></script>
 <link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
 </head>
-<body>
+<body class="ios resumo">
 <div class="progress-bar" id="progressBar"></div>
 
 <header class="hero">
@@ -765,7 +768,7 @@
   </div>
 
   <script>
-    const ANSWERS = {q1:'c',q2:'b',q3:'d',q4:'b',q5:'a',q6:'c',q7:'b',q8:'a',q9:'c',q10:'b',q11:'c',q12:'b',q13:'b',q14:'b',q15:'c',q16:'b',q17:'d',q18:'b',q19:'c',q20:'b',q21:'b',q22:'b',q23:'b',q24:'b',q25:'b',q26:'a',q27:'b',q28:'a',q29:'c',q30:'e',q31:'b',q32:'b',q33:'b',q34:'b'};
+    const ANSWERS = {q1:'b',q2:'d',q3:'c',q4:'e',q5:'b',q6:'e',q7:'a',q8:'e',q9:'b',q10:'e',q11:'c',q12:'a',q13:'b',q14:'c',q15:'d',q16:'b',q17:'d',q18:'d',q19:'e',q20:'c',q21:'a',q22:'a',q23:'d',q24:'a',q25:'c',q26:'b',q27:'a',q28:'b',q29:'c',q30:'d',q31:'e',q32:'c',q33:'a',q34:'d'};
     let score = 0, answered = 0;
     function updateDonut() {
       const pct = answered ? Math.round(score / answered * 100) : 0;
@@ -805,412 +808,484 @@
 
   <!-- Q1 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">1</span><span>Para o maniqueísmo (crença anterior de Santo Agostinho), de onde vem o mal?</span></div>
+    <p class="q-fonte">O estoicismo surgiu no período helenístico, depois das conquistas de Alexandre, quando as cidades-estado gregas perderam sua autonomia política.</p>
+    <div class="quiz-q"><span class="quiz-num">1</span><span>Esse contexto ajuda a explicar por que os estoicos</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> Da escolha livre do homem</div>
-      <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> Da ausência do bem</div>
-      <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> Da matéria — um princípio eterno e independente de Deus</div>
-      <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> De Deus, que criou o bem e o mal igualmente</div>
+      <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> defenderam a participação na assembleia como o único caminho possível para a virtude.</div>
+      <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> buscaram a virtude e a felicidade no interior do indivíduo, não na pólis.</div>
+      <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> propuseram restaurar a democracia ateniense para devolver às cidades sua autonomia.</div>
+      <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> consideraram a riqueza e a saúde os bens mais altos que um ser humano pode ter.</div>
+      <div class="opt" data-l="e" onclick="pick('q1','e',this)"><span class="opt-letter">E</span> atraíram só aristocratas, que tinham tempo livre para se dedicar à filosofia.</div>
     </div>
-    <div id="fb-q1" class="quiz-feedback" data-ok="Para o maniqueísmo, o mal é um princípio eterno, intrínseco à matéria, independente de Deus — por isso Deus não pode ser responsabilizado por ele." data-err="No maniqueísmo, o mal vem da matéria, um princípio eterno e independente de Deus (Deus não o controla nem o criou)."></div>
+    <div id="fb-q1" class="quiz-feedback" data-ok="Sem a pólis como centro da vida ética, a filosofia passou a buscar a felicidade dentro de cada um. Por isso o estoicismo atraiu gente de todas as classes, do imperador Marco Aurélio ao escravo Epicteto." data-err="Sem a pólis como centro da vida ética, a filosofia passou a buscar a felicidade dentro de cada um. Por isso o estoicismo atraiu gente de todas as classes, do imperador Marco Aurélio ao escravo Epicteto."></div>
   </div>
 
   <!-- Q2 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">2</span><span>Para o Cristianismo de Santo Agostinho, o que é o mal?</span></div>
+    <p class="q-fonte">Para os estoicos, a riqueza pode ser usada tanto para ajudar os outros quanto para corromper quem a possui.</p>
+    <div class="quiz-q"><span class="quiz-num">2</span><span>Por isso, na ética estoica, a riqueza é classificada como</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> Um princípio eterno e independente de Deus</div>
-      <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> A ausência do bem, resultado da escolha humana de não segui-lo</div>
-      <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> Uma força criada por Deus para testar os homens</div>
-      <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> Uma ilusão que não existe de fato</div>
+      <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> boa, pois contribui para o bem-estar e, portanto, para a felicidade.</div>
+      <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> má, pois todo apego a bens materiais já é, por si só, um vício.</div>
+      <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> virtude, pois quem é rico tem mais meios de praticar a justiça.</div>
+      <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> indiferente: tem valor e pode ser preferida, mas não é um bem em si.</div>
+      <div class="opt" data-l="e" onclick="pick('q2','e',this)"><span class="opt-letter">E</span> paixão, pois nasce de um julgamento equivocado sobre o mundo.</div>
     </div>
-    <div id="fb-q2" class="quiz-feedback" data-ok="Para os cristãos, o mal é apenas a ausência do bem — surge da escolha do homem (livre-arbítrio) de não seguir os princípios divinos, o que 'livra' Deus da responsabilização." data-err="Para o Cristianismo, o mal é a ausência do bem, decorrente da escolha humana — não um princípio independente de Deus (essa é a visão maniqueísta)."></div>
+    <div id="fb-q2" class="quiz-feedback" data-ok="Só a virtude é boa e só o vício é mau. O resto (riqueza, saúde, a própria vida) é indiferente. Entre os indiferentes há os preferidos (saúde, riqueza) e os rejeitados (doença, pobreza), mas nenhum deles garante a felicidade." data-err="Só a virtude é boa e só o vício é mau. O resto (riqueza, saúde, a própria vida) é indiferente. Entre os indiferentes há os preferidos (saúde, riqueza) e os rejeitados (doença, pobreza), mas nenhum deles garante a felicidade."></div>
   </div>
 
   <!-- Q3 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">3</span><span>O que são "ato" e "potência" para Tomás de Aquino?</span></div>
+    <p class="q-fonte">Um atleta perde a final de um campeonato por causa de um erro claro do árbitro.</p>
+    <div class="quiz-q"><span class="quiz-num">3</span><span>Seguindo Epicteto, a atitude mais adequada seria</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> Ato é a possibilidade futura; potência é o estado presente e definitivo</div>
-      <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> São sinônimos de bem e mal</div>
-      <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> Conceitos exclusivos da física moderna, sem relação com a ética</div>
-      <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> Potência é aquilo que algo pode se tornar; ato é a realização dessa potência — o processo de mudança em si</div>
+      <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> exigir que o resultado seja revisto, pois a felicidade depende da vitória.</div>
+      <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> abandonar o esporte, já que a sua reputação ficou comprometida para sempre.</div>
+      <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> aceitar o que não depende dele e cuidar do seu julgamento e da reação.</div>
+      <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> reprimir todo sentimento, pois o sábio deve ser indiferente a tudo e a todos.</div>
+      <div class="opt" data-l="e" onclick="pick('q3','e',this)"><span class="opt-letter">E</span> culpar o árbitro em público, pois a justiça é uma das quatro virtudes.</div>
     </div>
-    <div id="fb-q3" class="quiz-feedback" data-ok="Potência = possibilidade de se tornar algo novo. Ato = a realização dessa potência, o processo de mudança em si — como uma criança (potência) que se desenvolve (ato)." data-err="Potência é a possibilidade de algo se tornar/ser; ato é a realização dessa potência (o processo de mudança)."></div>
+    <div id="fb-q3" class="quiz-feedback" data-ok="Dicotomia do controle: o resultado, a decisão do árbitro e a opinião dos outros não estão sob nosso controle; nossas opiniões, escolhas e reações estão. Isso não é reprimir tudo: apatheia é ausência de paixões desregradas, não apatia." data-err="Dicotomia do controle: o resultado, a decisão do árbitro e a opinião dos outros não estão sob nosso controle; nossas opiniões, escolhas e reações estão. Isso não é reprimir tudo: apatheia é ausência de paixões desregradas, não apatia."></div>
   </div>
 
   <!-- Q4 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">4</span><span>Por que, para Tomás de Aquino, a felicidade nunca pode ser completamente alcançada em vida?</span></div>
+    <p class="q-fonte">Você está num elevador, sente-o tremer e tem um frio na barriga.</p>
+    <div class="quiz-q"><span class="quiz-num">4</span><span>Para os estoicos, esse susto inicial</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> Porque Deus não deseja que os homens sejam felizes</div>
-      <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> Porque o corpo, união de alma e matéria, é limitado racionalmente e não consegue compreender Deus por completo</div>
-      <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> Porque a felicidade não existe, é uma ilusão</div>
-      <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> Porque só os ricos podem alcançar a felicidade</div>
+      <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> já é uma emoção genuína, pois surgiu antes de qualquer reflexão sobre o fato.</div>
+      <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> prova que as emoções estão fora do nosso controle e não podem ser trabalhadas.</div>
+      <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> deve ser eliminado pela apatia, entendida como indiferença total aos fatos.</div>
+      <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> é um vício, pois revela medo, o oposto exato da virtude da coragem.</div>
+      <div class="opt" data-l="e" onclick="pick('q4','e',this)"><span class="opt-letter">E</span> é só um primeiro movimento, que vira pânico apenas se você assentir a ele.</div>
     </div>
-    <div id="fb-q4" class="quiz-feedback" data-ok="O corpo (união de alma e matéria) é limitado racionalmente e não compreende Deus por completo — por isso a felicidade absoluta só é alcançada, plenamente em ato, após a morte." data-err="Para Aquino, é a limitação racional do corpo (união de alma e matéria) que impede a contemplação plena de Deus em vida — só a morte liberta o homem dessa limitação."></div>
+    <div id="fb-q4" class="quiz-feedback" data-ok="As emoções vêm de julgamentos em quatro passos: impressão, primeiro movimento, avaliação e assentimento. O frio na barriga é automático. Ele só vira pânico se você assentir sem avaliar. Como o assentimento depende de nós, as emoções podem ser trabalhadas." data-err="As emoções vêm de julgamentos em quatro passos: impressão, primeiro movimento, avaliação e assentimento. O frio na barriga é automático. Ele só vira pânico se você assentir sem avaliar. Como o assentimento depende de nós, as emoções podem ser trabalhadas."></div>
   </div>
 
   <!-- Q5 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">5</span><span>O que significa "maioridade" para Kant?</span></div>
+    <p class="q-fonte">I. Ataraxia é a tranquilidade interior, a ausência de agitação na alma.
+II. Apatheia é a indiferença emocional completa, no sentido moderno de apatia.
+III. O pathos surge de julgamentos equivocados sobre coisas indiferentes.
+IV. Para os estoicos, só a virtude é verdadeiramente boa.</p>
+    <div class="quiz-q"><span class="quiz-num">5</span><span>Estão corretas as afirmações</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> A habilidade de raciocinar racionalmente sem depender de outro indivíduo — pensar por si</div>
-      <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> Ter mais de 18 anos</div>
-      <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> Depender sempre da orientação religiosa</div>
-      <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> Seguir cegamente as leis do Estado</div>
+      <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> I e II, apenas.</div>
+      <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> I, III e IV, apenas.</div>
+      <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> II, III e IV, apenas.</div>
+      <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> III e IV, apenas.</div>
+      <div class="opt" data-l="e" onclick="pick('q5','e',this)"><span class="opt-letter">E</span> I, II, III e IV.</div>
     </div>
-    <div id="fb-q5" class="quiz-feedback" data-ok="Maioridade é 'pensar por si' — usar a própria razão sem depender de outro indivíduo. É o lema do 'Ouse saber' (Sapere aude)." data-err="Maioridade kantiana é a capacidade de pensar por si mesmo, sem depender de outra pessoa para raciocinar — não é uma idade civil."></div>
+    <div id="fb-q5" class="quiz-feedback" data-ok="A II é a pegadinha: apatheia é &quot;sem pathos&quot;, sem paixões desregradas, e não a apatia moderna. O estoico sente, mas não se deixa dominar por julgamentos errados." data-err="A II é a pegadinha: apatheia é &quot;sem pathos&quot;, sem paixões desregradas, e não a apatia moderna. O estoico sente, mas não se deixa dominar por julgamentos errados."></div>
   </div>
 
   <!-- Q6 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">6</span><span>O Imperativo Categórico de Kant estabelece que:</span></div>
+    <p class="q-fonte">"Nunca diga sobre nada: 'Eu o perdi', mas 'Eu o restituí'." (Epicteto, Enchirídion, §11)</p>
+    <div class="quiz-q"><span class="quiz-num">6</span><span>O trecho expressa a ideia de que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> Devemos agir de acordo com as leis religiosas de cada cultura</div>
-      <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> As ações devem ser julgadas apenas pelo contexto e pelas consequências</div>
-      <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> Devemos agir de tal modo que o princípio de nossa ação possa se tornar uma regra universal</div>
-      <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> A moral é definida por cada indivíduo, sem nenhum critério comum</div>
+      <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> devemos devolver aos pobres tudo o que acumulamos ao longo da nossa vida.</div>
+      <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> perder alguém querido é um mal, e por isso o luto é a mais alta das virtudes.</div>
+      <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> devemos lutar para recuperar o que perdemos, como prova de coragem.</div>
+      <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> nada existe de verdade, e tudo o que temos é ilusão dos sentidos.</div>
+      <div class="opt" data-l="e" onclick="pick('q6','e',this)"><span class="opt-letter">E</span> o externo nunca foi de fato nosso, e aceitar isso traz tranquilidade.</div>
     </div>
-    <div id="fb-q6" class="quiz-feedback" data-ok="'Age de tal modo que o princípio de tua ação se torne regra universal' — os princípios devem ser universais, racionais e aplicáveis a todos." data-err="O imperativo categórico exige que o princípio da ação possa se tornar uma regra universal, válida para todos — não depende do contexto ou de leis religiosas."></div>
+    <div id="fb-q6" class="quiz-feedback" data-ok="Pessoas e coisas externas não estão sob nosso controle: são como algo emprestado, &quot;como fazem os viajantes em uma estalagem&quot;. Tratá-las assim é a resignação estoica, que evita o sofrimento causado por exigir o que não depende de nós." data-err="Pessoas e coisas externas não estão sob nosso controle: são como algo emprestado, &quot;como fazem os viajantes em uma estalagem&quot;. Tratá-las assim é a resignação estoica, que evita o sofrimento causado por exigir o que não depende de nós."></div>
   </div>
 
   <!-- Q7 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">7</span><span>Por que, para Kant, não existe "mentira do bem"?</span></div>
+    <p class="q-fonte">"Não nascemos apenas para nós. [...] Devemos seguir a natureza como um guia, para contribuir com nossa parte para o bem comum." (Cícero, Sobre os deveres)</p>
+    <div class="quiz-q"><span class="quiz-num">7</span><span>O trecho mostra que a ética estoica</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> Porque mentir nunca tem consequências práticas</div>
-      <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> Porque as ações não devem ser isoladas pelo contexto — se todos mentissem, a própria noção de verdade se perderia</div>
-      <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> Porque Deus proíbe todo tipo de mentira</div>
-      <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> Porque só existe mentira do bem, nunca mentira do mal</div>
+      <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> não se limita ao indivíduo: inclui a justiça e a ajuda ao bem comum.</div>
+      <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> defende que o sábio deve se afastar da sociedade para viver sozinho, longe de todos.</div>
+      <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> trata o próximo como um indiferente, que não merece nossa atenção.</div>
+      <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> submete a virtude individual à obediência total às leis da pólis.</div>
+      <div class="opt" data-l="e" onclick="pick('q7','e',this)"><span class="opt-letter">E</span> vê a natureza como uma inimiga que a razão humana precisa dominar.</div>
     </div>
-    <div id="fb-q7" class="quiz-feedback" data-ok="Para Kant, as ações devem seguir um princípio universal — se todos mentissem, a noção de verdade se perderia. Por isso só existe 'mentira', nunca 'mentira do bem'." data-err="Kant rejeita julgar ações pelo contexto isolado — universalizada, a mentira destruiria a própria noção de verdade, por isso não há 'mentira do bem'."></div>
+    <div id="fb-q7" class="quiz-feedback" data-ok="A felicidade é interior, mas a justiça é uma das quatro virtudes: não fazer mal ao outro e usar os bens comuns como comuns. Viver de acordo com a natureza inclui viver em harmonia com os outros seres humanos." data-err="A felicidade é interior, mas a justiça é uma das quatro virtudes: não fazer mal ao outro e usar os bens comuns como comuns. Viver de acordo com a natureza inclui viver em harmonia com os outros seres humanos."></div>
   </div>
 
   <!-- Q8 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">8</span><span>Segundo suas anotações, o contexto filosófico da "crise da razão" (que antecede Schopenhauer) envolve:</span></div>
+    <p class="q-fonte">"Se Deus é bom e todo-poderoso, por que existe o mal?"</p>
+    <div class="quiz-q"><span class="quiz-num">8</span><span>Depois de se converter ao cristianismo, Santo Agostinho responde que o mal</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> A perda de um "sentido" transcendental na existência humana e uma visão mais pessimista do homem</div>
-      <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> O fortalecimento da fé religiosa como resposta às ciências</div>
-      <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> A confirmação do otimismo racionalista grego</div>
-      <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> O retorno ao imperativo categórico de Kant</div>
+      <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> é um princípio eterno e independente de Deus, ligado à matéria e às trevas.</div>
+      <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> foi criado por Deus como castigo, para pôr à prova a fé de todos os homens.</div>
+      <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> é uma força da natureza que nem mesmo Deus consegue controlar.</div>
+      <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> é uma ilusão dos sentidos, sem nenhuma relação com a vontade.</div>
+      <div class="opt" data-l="e" onclick="pick('q8','e',this)"><span class="opt-letter">E</span> é ausência do bem, nascida da escolha humana de não segui-lo.</div>
     </div>
-    <div id="fb-q8" class="quiz-feedback" data-ok="A crise da razão traz a perda de um sentido transcendental (alma, céu) e uma visão pessimista da realidade e do homem, contrariando o otimismo racionalista grego." data-err="A crise da razão é marcada pela perda de sentido transcendental e por uma visão pessimista do homem — o oposto do otimismo racionalista grego."></div>
+    <div id="fb-q8" class="quiz-feedback" data-ok="Assim como o escuro é ausência de luz, o mal é ausência do bem. Deus criou o homem com livre-arbítrio, e o mal surge quando o homem escolhe não seguir o bem. A ideia de um mal eterno ligado à matéria é do maniqueísmo, que Agostinho abandonou." data-err="Assim como o escuro é ausência de luz, o mal é ausência do bem. Deus criou o homem com livre-arbítrio, e o mal surge quando o homem escolhe não seguir o bem. A ideia de um mal eterno ligado à matéria é do maniqueísmo, que Agostinho abandonou."></div>
   </div>
 
   <!-- Q9 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">9</span><span>Para Schopenhauer, qual é a relação entre vontade e razão?</span></div>
+    <p class="q-fonte">Para Agostinho, Deus criou o ser humano dotado de razão e de livre-arbítrio.</p>
+    <div class="quiz-q"><span class="quiz-num">9</span><span>Ao atribuir o mal ao livre-arbítrio, Agostinho consegue</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> A razão domina totalmente a vontade, como pensavam os gregos</div>
-      <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> Vontade e razão são a mesma coisa</div>
-      <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> A vontade é uma força cega e incontrolável diante da qual a razão é impotente</div>
-      <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> A vontade não existe; só a razão governa o homem</div>
+      <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> explicar por que a matéria é má por natureza, como diziam os maniqueístas.</div>
+      <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> conciliar a bondade e a onipotência de Deus com a existência do mal.</div>
+      <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> provar que Deus não é onipotente, já que não controla as escolhas humanas.</div>
+      <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> mostrar que a razão humana basta para a salvação e dispensa a fé.</div>
+      <div class="opt" data-l="e" onclick="pick('q9','e',this)"><span class="opt-letter">E</span> demonstrar que o bem e o mal são princípios eternos de igual força.</div>
     </div>
-    <div id="fb-q9" class="quiz-feedback" data-ok="Para Schopenhauer, a vontade é uma força cega, irracional e incontrolável — a razão é impotente diante dela, e o homem acaba controlado por seus desejos." data-err="Ao contrário da visão grega (razão domina os desejos), Schopenhauer defende que a vontade é cega e incontrolável, e a razão é impotente diante dela."></div>
+    <div id="fb-q9" class="quiz-feedback" data-ok="Se o mal vem da escolha humana, Deus continua bom (não o criou) e onipotente (tudo existe graças a Ele). O livre-arbítrio &quot;livra&quot; Deus da responsabilidade pelo mal." data-err="Se o mal vem da escolha humana, Deus continua bom (não o criou) e onipotente (tudo existe graças a Ele). O livre-arbítrio &quot;livra&quot; Deus da responsabilidade pelo mal."></div>
   </div>
 
   <!-- Q10 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">10</span><span>O "pêndulo" de Schopenhauer descreve o homem oscilando entre:</span></div>
+    <p class="q-fonte">Para Platão, conhecer é recordar o que a alma contemplou no Mundo das Ideias.</p>
+    <div class="quiz-q"><span class="quiz-num">10</span><span>Agostinho se afasta dessa explicação ao afirmar que conhecemos as verdades eternas porque</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> O bem e o mal</div>
-      <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> A ânsia de ter e o tédio de possuir</div>
-      <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> A razão e a fé</div>
-      <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> A maioridade e a menoridade</div>
+      <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> a alma se lembra do que viu no Mundo das Ideias antes de nascer.</div>
+      <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> a essência está nas próprias coisas e é captada pelos sentidos.</div>
+      <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> a experiência acumulada substitui todo conhecimento inato.</div>
+      <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> a dúvida metódica conduz às ideias claras e distintas.</div>
+      <div class="opt" data-l="e" onclick="pick('q10','e',this)"><span class="opt-letter">E</span> nosso intelecto é iluminado diretamente pela luz de Deus.</div>
     </div>
-    <div id="fb-q10" class="quiz-feedback" data-ok="O homem busca satisfazer desejos; ao satisfazê-los, cai em tédio e monotonia até surgir um novo desejo — um ciclo repetitivo de insatisfação permanente." data-err="O pêndulo de Schopenhauer é entre a ânsia de ter (desejo) e o tédio de possuir (satisfação/monotonia) — um ciclo sem fim."></div>
+    <div id="fb-q10" class="quiz-feedback" data-ok="É a doutrina da iluminação: a luz divina permite ao intelecto conhecer as verdades eternas, sem precisar &quot;recordá-las&quot; sozinho. A essência nas próprias coisas é a visão aristotélica, seguida por Tomás de Aquino." data-err="É a doutrina da iluminação: a luz divina permite ao intelecto conhecer as verdades eternas, sem precisar &quot;recordá-las&quot; sozinho. A essência nas próprias coisas é a visão aristotélica, seguida por Tomás de Aquino."></div>
   </div>
 
   <!-- Q11 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">11</span><span>Para Descartes, a alma e a consciência são:</span></div>
+    <p class="q-fonte">"Fizeste-nos para ti, e inquieto está o nosso coração enquanto não repousa em ti." (Santo Agostinho, Confissões)</p>
+    <div class="quiz-q"><span class="quiz-num">11</span><span>O trecho expressa a ideia de que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> Divididas em partes conflitantes, como para Freud</div>
-      <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> Inexistentes — o homem é apenas matéria</div>
-      <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> Unas e sem divisões — o homem tem pleno controle de suas emoções e paixões</div>
-      <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> Determinadas inteiramente pelo inconsciente</div>
+      <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> a felicidade está na moderação dos prazeres, como ensinava Epicuro.</div>
+      <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> a inquietação é um vício que a razão deve eliminar sem a ajuda da fé.</div>
+      <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> bens materiais e finitos nunca saciam o desejo humano de felicidade.</div>
+      <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> o coração humano é guiado por uma Vontade cega, sem sentido racional.</div>
+      <div class="opt" data-l="e" onclick="pick('q11','e',this)"><span class="opt-letter">E</span> a felicidade é alcançada pela participação na vida política da cidade.</div>
     </div>
-    <div id="fb-q11" class="quiz-feedback" data-ok="Para Descartes, a alma é o puro pensamento racional, sede única da consciência — sem partes obscuras, com pleno controle sobre emoções e paixões." data-err="Descartes vê a alma/consciência como unas, sem divisões — é a visão de Freud, não de Descartes, que introduz o inconsciente dividindo a vida psíquica."></div>
+    <div id="fb-q11" class="quiz-feedback" data-ok="É o &quot;cor inquietum&quot;: o coração busca a felicidade sem parar, mas só descansa em Deus, porque foi feito para uma felicidade que o finito não oferece. A &quot;Vontade cega&quot; é de Schopenhauer, que não vê sentido transcendente nenhum." data-err="É o &quot;cor inquietum&quot;: o coração busca a felicidade sem parar, mas só descansa em Deus, porque foi feito para uma felicidade que o finito não oferece. A &quot;Vontade cega&quot; é de Schopenhauer, que não vê sentido transcendente nenhum."></div>
   </div>
 
   <!-- Q12 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">12</span><span>O Id, na teoria de Freud, está associado a:</span></div>
+    <p class="q-fonte">Uma semente de carvalho ainda não é uma árvore, mas pode vir a ser.</p>
+    <div class="quiz-q"><span class="quiz-num">12</span><span>Nos termos aristotélicos retomados por Tomás de Aquino, a semente e o carvalho adulto estão, respectivamente,</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> Os princípios morais aprendidos da sociedade</div>
-      <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> Instintos, impulsos e desejos inconscientes (o "princípio do prazer")</div>
-      <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> A parte consciente e racional da mente</div>
-      <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> A censura que a sociedade impõe aos desejos</div>
+      <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> em potência e em ato.</div>
+      <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> em ato e em potência.</div>
+      <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> em essência e em existência.</div>
+      <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> em ato e em ato.</div>
+      <div class="opt" data-l="e" onclick="pick('q12','e',this)"><span class="opt-letter">E</span> em matéria e em vontade.</div>
     </div>
-    <div id="fb-q12" class="quiz-feedback" data-ok="O Id é a parte do inconsciente ligada aos instintos e desejos — o 'princípio do prazer', não restrito ao sexual." data-err="O Id é a parte instintiva/inconsciente ligada ao 'princípio do prazer' — quem reprime esses desejos é o Superego, não o Id."></div>
+    <div id="fb-q12" class="quiz-feedback" data-ok="Potência é aquilo que algo pode vir a ser; ato é a realização dessa potência. A semente tem potência para ser árvore; a árvore crescida é essa potência atualizada." data-err="Potência é aquilo que algo pode vir a ser; ato é a realização dessa potência. A semente tem potência para ser árvore; a árvore crescida é essa potência atualizada."></div>
   </div>
 
   <!-- Q13 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">13</span><span>O Superego "surge" quando:</span></div>
+    <p class="q-fonte">Para Tomás de Aquino, a felicidade é o "último fim" de todas as ações humanas.</p>
+    <div class="quiz-q"><span class="quiz-num">13</span><span>Ainda assim, ele afirma que nesta vida a felicidade é incompleta, porque</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> O bebê nasce, já formado</div>
-      <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> O indivíduo convive com os princípios morais da sociedade, que vão contra a natureza do Id</div>
-      <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> A pessoa começa a sonhar</div>
-      <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> O Ego se rende completamente ao Id</div>
+      <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> o prazer dos sentidos é o único bem que o corpo humano é capaz de sentir.</div>
+      <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> o corpo limita a razão, que não consegue compreender Deus plenamente.</div>
+      <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> todas as escolhas humanas já estão determinadas pelo destino.</div>
+      <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> a fé proíbe o uso da razão enquanto o homem estiver vivo.</div>
+      <div class="opt" data-l="e" onclick="pick('q13','e',this)"><span class="opt-letter">E</span> a felicidade é um indiferente, como a saúde e a riqueza.</div>
     </div>
-    <div id="fb-q13" class="quiz-feedback" data-ok="O Superego surge do contato do indivíduo com as normas morais da sociedade, que reprimem e censuram os desejos do Id." data-err="O Superego se forma a partir do convívio social com princípios morais que se opõem à natureza do Id — não é algo inato."></div>
+    <div id="fb-q13" class="quiz-feedback" data-ok="A felicidade plena é contemplar Deus, mas, enquanto vivos, alma e matéria unidas não compreendem Deus por inteiro. Buscando-a em vida, o homem está em potência; só após a morte a felicidade verdadeira se torna ato." data-err="A felicidade plena é contemplar Deus, mas, enquanto vivos, alma e matéria unidas não compreendem Deus por inteiro. Buscando-a em vida, o homem está em potência; só após a morte a felicidade verdadeira se torna ato."></div>
   </div>
 
   <!-- Q14 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">14</span><span>Por que a existência do Ego, para Freud, é "feita de angústia"?</span></div>
+    <p class="q-fonte">I. Aquino se inspira principalmente em Aristóteles; Agostinho, em Platão.
+II. Para Aquino, fé e razão têm esferas próprias e podem atuar juntas.
+III. Para Agostinho, o conhecimento vem do contato empírico com o mundo.
+IV. Para os dois, a felicidade plena está ligada a Deus.</p>
+    <div class="quiz-q"><span class="quiz-num">14</span><span>Estão corretas as afirmações</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> Porque o Ego não existe de fato</div>
-      <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> Porque ele é resultado da disputa entre os desejos do Id, a repressão do Superego e os perigos do mundo exterior</div>
-      <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> Porque ele é totalmente controlado pelo Superego</div>
-      <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> Porque ele é a parte mais forte da psique e por isso sofre mais pressão externa</div>
+      <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> I, III e IV, apenas.</div>
+      <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> II e III, apenas.</div>
+      <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> I, II e IV, apenas.</div>
+      <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> I, II, III e IV.</div>
+      <div class="opt" data-l="e" onclick="pick('q14','e',this)"><span class="opt-letter">E</span> III e IV, apenas.</div>
     </div>
-    <div id="fb-q14" class="quiz-feedback" data-ok="O Ego está espremido entre o Id (desejos), o Superego (repressão) e o mundo exterior (perigos) — sua existência consciente é, por isso, uma disputa constante e angustiante." data-err="A angústia do Ego vem de estar no meio de três forças em disputa: os desejos do Id, a repressão do Superego e as ameaças do mundo exterior."></div>
+    <div id="fb-q14" class="quiz-feedback" data-ok="A III troca os autores: para Agostinho, o conhecimento vem da iluminação divina; quem valoriza o contato racional e empírico com o mundo, seguindo Aristóteles, é Aquino." data-err="A III troca os autores: para Agostinho, o conhecimento vem da iluminação divina; quem valoriza o contato racional e empírico com o mundo, seguindo Aristóteles, é Aquino."></div>
   </div>
 
   <!-- Q15 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">15</span><span>Segundo Freud, quais foram os três golpes no "narcisismo" humano?</span></div>
+    <p class="q-fonte">"Esclarecimento é a saída do homem de sua menoridade, da qual ele próprio é culpado." (Kant)</p>
+    <div class="quiz-q"><span class="quiz-num">15</span><span>Para Kant, a menoridade é</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> Platão, Aristóteles e Kant</div>
-      <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> A invenção da imprensa, da máquina a vapor e da eletricidade</div>
-      <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> Copérnico (heliocentrismo), Darwin (origem dos primatas) e o próprio Freud (descoberta do inconsciente)</div>
-      <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> As duas Guerras Mundiais e a Guerra Fria</div>
+      <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> a idade em que a lei ainda não permite votar nem assinar contratos.</div>
+      <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> a condição de quem nunca teve acesso a escolas e a livros.</div>
+      <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> a submissão obrigatória da razão à fé revelada nas Escrituras.</div>
+      <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> não usar o próprio entendimento sem a direção de outro.</div>
+      <div class="opt" data-l="e" onclick="pick('q15','e',this)"><span class="opt-letter">E</span> a fase da vida em que a pessoa age só pelo princípio do prazer.</div>
     </div>
-    <div id="fb-q15" class="quiz-feedback" data-ok="Copérnico tirou a Terra do centro do universo, Darwin ligou o homem aos primatas, e Freud mostrou que a consciência é a menor parte de nosso psíquico — três golpes na autoimagem racional do homem." data-err="Os três golpes no narcisismo humano, para Freud, foram Copérnico, Darwin e ele mesmo (a descoberta do inconsciente)."></div>
+    <div id="fb-q15" class="quiz-feedback" data-ok="Menoridade não é idade nem falta de estudo: é não ousar pensar por si. Por isso a pessoa é &quot;culpada&quot; dela, e Kant fala em covardia e preguiça. O lema do esclarecimento é &quot;Sapere aude&quot;, ouse saber." data-err="Menoridade não é idade nem falta de estudo: é não ousar pensar por si. Por isso a pessoa é &quot;culpada&quot; dela, e Kant fala em covardia e preguiça. O lema do esclarecimento é &quot;Sapere aude&quot;, ouse saber."></div>
   </div>
 
   <!-- Q16 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">16</span><span>Para a visão grega clássica (contraposta à de Sartre), a relação entre essência e existência é:</span></div>
+    <p class="q-fonte">Uma pessoa pede dinheiro emprestado prometendo devolvê-lo, mas sabe que não vai pagar.</p>
+    <div class="quiz-q"><span class="quiz-num">16</span><span>Pelo imperativo categórico, essa ação é imoral porque</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> A existência precede a essência</div>
-      <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> A essência precede a existência, e é fixa e imutável</div>
-      <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> Essência e existência não têm relação alguma</div>
-      <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> A essência é definida livremente por cada indivíduo</div>
+      <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> causa prejuízo financeiro e sofrimento à pessoa que emprestou o dinheiro.</div>
+      <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> se todos prometessem em falso, ninguém mais acreditaria em promessas.</div>
+      <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> produz mais dor do que prazer para o maior número de pessoas envolvidas.</div>
+      <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> contraria um mandamento das Escrituras, que proíbe mentir ao próximo.</div>
+      <div class="opt" data-l="e" onclick="pick('q16','e',this)"><span class="opt-letter">E</span> a pessoa pode ser descoberta e punida pela lei, o que lhe traria dor.</div>
     </div>
-    <div id="fb-q16" class="quiz-feedback" data-ok="Na visão grega, a essência precede a existência: cada ser tem uma essência fixa (definida pela natureza), e sua existência deve segui-la." data-err="Na visão grega, a essência (fixa e imutável) vem antes e determina a existência — é justamente o que Sartre inverte."></div>
+    <div id="fb-q16" class="quiz-feedback" data-ok="O teste é universalizar a máxima: &quot;posso prometer falsamente quando me convier&quot;. Se todos fizessem isso, a própria promessa perderia sentido, e a máxima se destrói. Avaliar dor e prazer é o critério utilitarista; mandamento bíblico, o da ética cristã." data-err="O teste é universalizar a máxima: &quot;posso prometer falsamente quando me convier&quot;. Se todos fizessem isso, a própria promessa perderia sentido, e a máxima se destrói. Avaliar dor e prazer é o critério utilitarista; mandamento bíblico, o da ética cristã."></div>
   </div>
 
   <!-- Q17 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">17</span><span>Para Sartre, "o homem é condenado a ser livre" significa que:</span></div>
+    <p class="q-fonte">"Se você quer passar no vestibular, estude todos os dias."</p>
+    <div class="quiz-q"><span class="quiz-num">17</span><span>Na terminologia de Kant, essa frase é um</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> O homem não tem escolha alguma na vida</div>
-      <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> A liberdade é um castigo divino</div>
-      <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> A liberdade só existe para quem segue a essência racional</div>
-      <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> Não há como terceirizar as próprias ações — o homem é sempre responsável por suas escolhas, vida e essência</div>
+      <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> imperativo categórico, pois é uma ordem dada na segunda pessoa.</div>
+      <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> imperativo categórico, pois vale para todos os estudantes.</div>
+      <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> imperativo hipotético, pois toda regra moral é sempre incerta.</div>
+      <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> imperativo hipotético, pois depende de um objetivo pessoal.</div>
+      <div class="opt" data-l="e" onclick="pick('q17','e',this)"><span class="opt-letter">E</span> princípio de utilidade, pois busca o maior prazer possível.</div>
     </div>
-    <div id="fb-q17" class="quiz-feedback" data-ok="Como a existência precede a essência (essência vazia ao nascer), cabe só ao homem definir quem ele é através de suas escolhas — não há como fugir dessa responsabilidade." data-err="A frase significa que o homem não pode terceirizar suas ações: ele é sempre responsável por suas escolhas, sua vida e sua própria essência."></div>
+    <div id="fb-q17" class="quiz-feedback" data-ok="O hipotético é condicional: &quot;se você quer X, faça Y&quot;. O categórico vale por si mesmo, sem depender de nenhum desejo, e só ele é verdadeiramente moral para Kant." data-err="O hipotético é condicional: &quot;se você quer X, faça Y&quot;. O categórico vale por si mesmo, sem depender de nenhum desejo, e só ele é verdadeiramente moral para Kant."></div>
   </div>
 
   <!-- Q18 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">18</span><span>Para Jeremy Bentham, uma ação tem valor moral de acordo com:</span></div>
+    <p class="q-fonte">Um amigo se esconde na sua casa. Alguém que quer machucá-lo bate à porta e pergunta onde ele está.</p>
+    <div class="quiz-q"><span class="quiz-num">18</span><span>Segundo a ética kantiana, mentir nessa situação seria</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> A intenção divina por trás dela</div>
-      <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> A quantidade de prazer que ela oferece no contexto em que está inserida (cálculo quantitativo)</div>
-      <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> Se ela pode se tornar uma regra universal</div>
-      <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> A essência fixa do agente que a pratica</div>
+      <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> correto, pois salvar uma vida gera mais felicidade para mais pessoas.</div>
+      <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> correto, pois as ações devem ser julgadas de acordo com cada contexto.</div>
+      <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> indiferente, pois o que importa é a tranquilidade interior de quem mente.</div>
+      <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> errado, pois não existe "mentira do bem": o dever vale sempre.</div>
+      <div class="opt" data-l="e" onclick="pick('q18','e',this)"><span class="opt-letter">E</span> certo ou errado conforme o que a Igreja ensina sobre aquele caso.</div>
     </div>
-    <div id="fb-q18" class="quiz-feedback" data-ok="Bentham cria um cálculo quantitativo: uma ação vale moralmente de acordo com a quantidade de prazer que produz para o maior número de pessoas, no contexto em que ocorre." data-err="Para Bentham, o valor moral de uma ação é medido pela quantidade de prazer que ela gera (cálculo quantitativo) — não por regras universais (isso é Kant) nem por essências fixas."></div>
+    <div id="fb-q18" class="quiz-feedback" data-ok="Para Kant, as ações não se julgam isoladas pelo contexto: estão ligadas a um princípio universal, e só há mentira. Por isso o exemplo é tão discutido. Pesar a felicidade gerada é o caminho utilitarista; a tranquilidade interior, o estoico." data-err="Para Kant, as ações não se julgam isoladas pelo contexto: estão ligadas a um princípio universal, e só há mentira. Por isso o exemplo é tão discutido. Pesar a felicidade gerada é o caminho utilitarista; a tranquilidade interior, o estoico."></div>
   </div>
 
   <!-- Q19 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">19</span><span>Qual é a principal crítica de Stuart Mill ao utilitarismo de Bentham?</span></div>
+    <p class="q-fonte">Kant viveu o contexto da secularização, em que a religião sai da esfera pública para a vida privada.</p>
+    <div class="quiz-q"><span class="quiz-num">19</span><span>Nesse sentido, a ética de Kant rompe com a de Agostinho e Aquino porque</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> Mill rejeita totalmente que prazer e dor guiem a humanidade</div>
-      <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> Mill acredita que só o prazer sexual tem valor moral</div>
-      <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> Mill defende que existem ações e prazeres naturalmente superiores a outros, com maior valor moral por si próprios</div>
-      <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> Mill acredita que todas as ações têm exatamente o mesmo valor moral, como Bentham</div>
+      <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> nega que exista qualquer regra moral válida para todas as pessoas.</div>
+      <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> baseia a moral nas consequências prazerosas que as ações produzem.</div>
+      <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> afirma que a moral nasce dos desejos inconscientes reprimidos.</div>
+      <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> coloca a felicidade na contemplação de Deus após a morte.</div>
+      <div class="opt" data-l="e" onclick="pick('q19','e',this)"><span class="opt-letter">E</span> fundamenta a moral na razão autônoma, e não numa lei divina.</div>
     </div>
-    <div id="fb-q19" class="quiz-feedback" data-ok="Mill concorda que prazer e dor guiam a humanidade, mas discorda de Bentham ao afirmar que certos prazeres (intelectuais) são qualitativamente superiores a outros (físicos/imediatos)." data-err="A ressalva de Mill é que nem todo prazer vale o mesmo — há prazeres (e ações) naturalmente superiores, com mais valor moral, ao contrário do cálculo puramente quantitativo de Bentham."></div>
+    <div id="fb-q19" class="quiz-feedback" data-ok="No imperativo categórico, os princípios morais não vêm da Bíblia nem de algo externo: vêm da razão de cada um (autonomia). A ética cristã de Agostinho e Aquino tinha base divina." data-err="No imperativo categórico, os princípios morais não vêm da Bíblia nem de algo externo: vêm da razão de cada um (autonomia). A ética cristã de Agostinho e Aquino tinha base divina."></div>
   </div>
 
   <!-- Q20 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">20</span><span>"É melhor um Sócrates insatisfeito do que um tolo satisfeito" resume qual ideia de Mill?</span></div>
+    <p class="q-fonte">Para Schopenhauer, o mundo tem duas faces: Representação e Vontade.</p>
+    <div class="quiz-q"><span class="quiz-num">20</span><span>A Vontade, nesse sentido, é</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> Que a insatisfação é sempre melhor que a satisfação</div>
-      <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> Que é preferível buscar prazeres superiores (mesmo com insatisfação) a se contentar com prazeres inferiores</div>
-      <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> Que Sócrates era um filósofo inferior a um tolo</div>
-      <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> Que a felicidade é puramente quantitativa</div>
+      <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> a faculdade racional pela qual escolhemos livremente, a cada momento, entre o bem e o mal.</div>
+      <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> o mundo tal como aparece para nós por meio dos sentidos e da razão.</div>
+      <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> a essência por trás das aparências: uma força cega e irracional.</div>
+      <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> a lei moral que a razão dá a si mesma, válida para todos os seres racionais.</div>
+      <div class="opt" data-l="e" onclick="pick('q20','e',this)"><span class="opt-letter">E</span> a vontade de Deus revelada nas Escrituras e seguida pelos fiéis.</div>
     </div>
-    <div id="fb-q20" class="quiz-feedback" data-ok="A frase defende a hierarquia qualitativa dos prazeres: melhor buscar os superiores (intelectuais), mesmo com alguma insatisfação, do que se contentar com prazeres inferiores." data-err="A frase de Mill defende que prazeres superiores valem mais mesmo com insatisfação, do que prazeres inferiores plenamente satisfeitos — a felicidade, para ele, é qualitativa, não quantitativa."></div>
+    <div id="fb-q20" class="quiz-feedback" data-ok="A Representação é o mundo como aparece aos sentidos. A Vontade é a &quot;coisa em si&quot; por trás dele: força cega e sem sentido racional, que sentimos no próprio corpo, nos impulsos e desejos." data-err="A Representação é o mundo como aparece aos sentidos. A Vontade é a &quot;coisa em si&quot; por trás dele: força cega e sem sentido racional, que sentimos no próprio corpo, nos impulsos e desejos."></div>
   </div>
 
   <!-- Q21 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">21</span><span>Por que, para Mill, todos têm direito à liberdade de expressão?</span></div>
+    <p class="q-fonte">"A vida oscila como um pêndulo, entre a dor e o tédio." (Schopenhauer)</p>
+    <div class="quiz-q"><span class="quiz-num">21</span><span>Um exemplo que ilustra essa ideia é alguém que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> Porque as leis do Estado assim exigem</div>
-      <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> Porque todos os seres humanos são falhos e suas convicções podem estar incorretas — a falibilidade humana exige o debate de ideias</div>
-      <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> Porque a verdade não existe</div>
-      <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> Porque apenas os filósofos têm o direito de se expressar</div>
+      <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> deseja um celular novo e, semanas após comprá-lo, já quer outro.</div>
+      <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> aprende a controlar os desejos pela temperança e, assim, passa a viver em paz.</div>
+      <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> cumpre um dever moral mesmo quando isso contraria os próprios desejos.</div>
+      <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> escolhe sozinho a própria essência, sem se apoiar em nenhuma regra.</div>
+      <div class="opt" data-l="e" onclick="pick('q21','e',this)"><span class="opt-letter">E</span> prefere estudar filosofia a passar a noite em festas e banquetes.</div>
     </div>
-    <div id="fb-q21" class="quiz-feedback" data-ok="A falibilidade humana — ninguém possui a verdade completa e absoluta — é o que justifica, para Mill, o direito de todos à liberdade de expressão e ao debate constante de ideias." data-err="Mill defende a liberdade de expressão pela falibilidade humana: como ninguém tem a verdade absoluta, o debate constante de ideias é o que permite o avanço do homem."></div>
+    <div id="fb-q21" class="quiz-feedback" data-ok="O pêndulo vai da ânsia de ter ao tédio de possuir: desejo, satisfação, monotonia, novo desejo. O homem é escravo da Vontade. A temperança, que doma os desejos pela razão, é justamente o que Schopenhauer considera impossível." data-err="O pêndulo vai da ânsia de ter ao tédio de possuir: desejo, satisfação, monotonia, novo desejo. O homem é escravo da Vontade. A temperança, que doma os desejos pela razão, é justamente o que Schopenhauer considera impossível."></div>
   </div>
 
   <!-- Q22 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">22</span><span>Por que Mill era totalmente contrário à escravidão?</span></div>
+    <p class="q-fonte">Para Aristóteles, a razão humana é capaz de dominar os desejos, como na virtude da temperança.</p>
+    <div class="quiz-q"><span class="quiz-num">22</span><span>Schopenhauer se opõe a essa visão ao afirmar que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> Porque ela era economicamente ineficiente</div>
-      <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> Porque ela ia diretamente contra seu princípio de liberdade e autonomia individual</div>
-      <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> Porque a Bíblia a proibia</div>
-      <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> Porque Bentham já havia condenado a escravidão antes dele</div>
+      <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> diante da Vontade a razão é impotente: os desejos estão no comando.</div>
+      <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> o homem é um animal racional, livre e autônomo, capaz de se autogovernar.</div>
+      <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> a temperança é o único caminho para a felicidade plena na vida terrena.</div>
+      <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> o mundo tem um sentido racional, dado por Deus no momento da criação.</div>
+      <div class="opt" data-l="e" onclick="pick('q22','e',this)"><span class="opt-letter">E</span> os desejos são ilusões que desaparecem quando conhecemos a verdade.</div>
     </div>
-    <div id="fb-q22" class="quiz-feedback" data-ok="Na escravidão, o indivíduo é tratado como propriedade e perde seus direitos individuais — o que fere diretamente o princípio liberal de liberdade e autonomia defendido por Mill." data-err="A objeção central de Mill é filosófica: a escravidão anula a liberdade e autonomia do indivíduo, tratando-o como propriedade."></div>
+    <div id="fb-q22" class="quiz-feedback" data-ok="É a quebra do paradigma clássico: a visão grega do homem racional e senhor de si é, para Schopenhauer, uma ilusão. O que move o homem é a Vontade cega, e a razão não a domina." data-err="É a quebra do paradigma clássico: a visão grega do homem racional e senhor de si é, para Schopenhauer, uma ilusão. O que move o homem é a Vontade cega, e a razão não a domina."></div>
   </div>
 
   <!-- Q23 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">23</span><span>Para Mill, uma pessoa pode voluntariamente se tornar escrava?</span></div>
+    <p class="q-fonte">A partir do século XIX, instala-se na filosofia o que se chama de "crise da razão".</p>
+    <div class="quiz-q"><span class="quiz-num">23</span><span>Esse novo clima filosófico se caracteriza por</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q23','a',this)"><span class="opt-letter">A</span> Sim, pois a liberdade individual permite qualquer escolha</div>
-      <div class="opt" data-l="b" onclick="pick('q23','b',this)"><span class="opt-letter">B</span> Não, pois usar a liberdade para anular a própria liberdade contradiz o princípio da liberdade</div>
-      <div class="opt" data-l="c" onclick="pick('q23','c',this)"><span class="opt-letter">C</span> Sim, desde que seja por contrato assinado</div>
-      <div class="opt" data-l="d" onclick="pick('q23','d',this)"><span class="opt-letter">D</span> A questão não foi discutida por Mill</div>
+      <div class="opt" data-l="a" onclick="pick('q23','a',this)"><span class="opt-letter">A</span> confiança no progresso humano garantido pela razão, herdada do Iluminismo.</div>
+      <div class="opt" data-l="b" onclick="pick('q23','b',this)"><span class="opt-letter">B</span> retorno à ética cristã medieval como fundamento seguro para a moral.</div>
+      <div class="opt" data-l="c" onclick="pick('q23','c',this)"><span class="opt-letter">C</span> defesa da alma como sede da consciência, livre de qualquer parte obscura.</div>
+      <div class="opt" data-l="d" onclick="pick('q23','d',this)"><span class="opt-letter">D</span> pessimismo, perda do sentido transcendente e dúvida sobre a razão.</div>
+      <div class="opt" data-l="e" onclick="pick('q23','e',this)"><span class="opt-letter">E</span> otimismo sobre a capacidade humana de ser feliz pelo uso da razão.</div>
     </div>
-    <div id="fb-q23" class="quiz-feedback" data-ok="'O princípio da liberdade não pode exigir que seja livre para não ser livre' — a liberdade serve para fazer escolhas, exceto a de limitar a si mesma (o fim do ser humano)." data-err="Para Mill, não: a liberdade pode ser usada para qualquer escolha, exceto para anular a si mesma — escolher a escravidão contradiz o próprio princípio da liberdade."></div>
+    <div id="fb-q23" class="quiz-feedback" data-ok="A crise da razão traz uma visão pessimista do homem, a perda de um ideal transcendente (alma, céu) e o materialismo: razão e emoção vêm do cérebro, não de uma alma. Schopenhauer e Freud fazem parte desse clima." data-err="A crise da razão traz uma visão pessimista do homem, a perda de um ideal transcendente (alma, céu) e o materialismo: razão e emoção vêm do cérebro, não de uma alma. Schopenhauer e Freud fazem parte desse clima."></div>
   </div>
 
   <!-- Q24 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">24</span><span>Qual filósofo desta lista rompe com a base religiosa da ética (Agostinho/Aquino), fundamentando a moral unicamente na racionalidade e autonomia humanas?</span></div>
+    <p class="q-fonte">Com fome, um estudante vê o lanche de um colega na mesa. Sente vontade de pegá-lo (I), sente que isso seria errado (II) e decide comprar o próprio lanche no intervalo (III).</p>
+    <div class="quiz-q"><span class="quiz-num">24</span><span>Na teoria de Freud, I, II e III correspondem, respectivamente, a</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q24','a',this)"><span class="opt-letter">A</span> Tomás de Aquino</div>
-      <div class="opt" data-l="b" onclick="pick('q24','b',this)"><span class="opt-letter">B</span> Immanuel Kant</div>
-      <div class="opt" data-l="c" onclick="pick('q24','c',this)"><span class="opt-letter">C</span> Santo Agostinho</div>
-      <div class="opt" data-l="d" onclick="pick('q24','d',this)"><span class="opt-letter">D</span> Nenhum — todos mantêm a base religiosa</div>
+      <div class="opt" data-l="a" onclick="pick('q24','a',this)"><span class="opt-letter">A</span> id, superego e ego.</div>
+      <div class="opt" data-l="b" onclick="pick('q24','b',this)"><span class="opt-letter">B</span> ego, superego e id.</div>
+      <div class="opt" data-l="c" onclick="pick('q24','c',this)"><span class="opt-letter">C</span> superego, id e ego.</div>
+      <div class="opt" data-l="d" onclick="pick('q24','d',this)"><span class="opt-letter">D</span> id, ego e superego.</div>
+      <div class="opt" data-l="e" onclick="pick('q24','e',this)"><span class="opt-letter">E</span> ego, id e superego.</div>
     </div>
-    <div id="fb-q24" class="quiz-feedback" data-ok="Com o Imperativo Categórico, Kant funda a moral apenas na racionalidade e autonomia humanas — uma ruptura importante com a ética cristã de base divina de Agostinho e Aquino." data-err="É Kant quem rompe com a base bíblica/divina da moral cristã (Agostinho e Aquino), fundamentando a ética apenas na razão e autonomia do homem."></div>
+    <div id="fb-q24" class="quiz-feedback" data-ok="O id é a fonte dos impulsos e desejos (princípio do prazer). O superego reprime e censura, com base nas normas morais da sociedade. O ego busca uma saída que satisfaça o desejo sem violar a moral nem ignorar o mundo real." data-err="O id é a fonte dos impulsos e desejos (princípio do prazer). O superego reprime e censura, com base nas normas morais da sociedade. O ego busca uma saída que satisfaça o desejo sem violar a moral nem ignorar o mundo real."></div>
   </div>
 
   <!-- Q25 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">25</span><span>Para Epicteto, o que está totalmente sob nosso controle?</span></div>
+    <p class="q-fonte">"O homem não é senhor da própria casa." (Freud)</p>
+    <div class="quiz-q"><span class="quiz-num">25</span><span>Com essa frase, Freud quer dizer que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q25','a',this)"><span class="opt-letter">A</span> Nosso corpo e nossa saúde</div>
-      <div class="opt" data-l="b" onclick="pick('q25','b',this)"><span class="opt-letter">B</span> Nossas opiniões, escolhas, desejos e reações — nossa vida interior</div>
-      <div class="opt" data-l="c" onclick="pick('q25','c',this)"><span class="opt-letter">C</span> A forma como os outros nos veem</div>
-      <div class="opt" data-l="d" onclick="pick('q25','d',this)"><span class="opt-letter">D</span> Nossa posição social e nossa riqueza</div>
+      <div class="opt" data-l="a" onclick="pick('q25','a',this)"><span class="opt-letter">A</span> o ser humano não tem, por natureza, direito à propriedade privada.</div>
+      <div class="opt" data-l="b" onclick="pick('q25','b',this)"><span class="opt-letter">B</span> a razão consciente governa totalmente os impulsos e as paixões.</div>
+      <div class="opt" data-l="c" onclick="pick('q25','c',this)"><span class="opt-letter">C</span> o eu consciente não controla nem conhece todo o psiquismo.</div>
+      <div class="opt" data-l="d" onclick="pick('q25','d',this)"><span class="opt-letter">D</span> a alma é imortal e, por isso, independente do corpo que habita.</div>
+      <div class="opt" data-l="e" onclick="pick('q25','e',this)"><span class="opt-letter">E</span> o homem é escravo das leis que a sociedade lhe impõe desde cedo.</div>
     </div>
-    <div id="fb-q25" class="quiz-feedback" data-ok="A dicotomia do controle de Epicteto: só nossas opiniões, escolhas, desejos e reações (vida interior) estão totalmente sob nosso controle — o resto (corpo, reputação, riqueza) é externo." data-err="Corpo, reputação e riqueza são externos, fora do nosso controle total. Só nossa vida interior (opiniões, escolhas, reações) está sob nosso domínio."></div>
+    <div id="fb-q25" class="quiz-feedback" data-ok="A consciência é a menor e mais fraca parte do psiquismo. Boa parte do que pensamos e fazemos é movida pelo inconsciente, que o eu não domina. A ideia de razão no comando total é a de Descartes." data-err="A consciência é a menor e mais fraca parte do psiquismo. Boa parte do que pensamos e fazemos é movida pelo inconsciente, que o eu não domina. A ideia de razão no comando total é a de Descartes."></div>
   </div>
 
   <!-- Q26 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">26</span><span>Para os estoicos, riqueza e saúde são classificadas como:</span></div>
+    <p class="q-fonte">Freud afirma que o narcisismo humano sofreu três grandes golpes.</p>
+    <div class="quiz-q"><span class="quiz-num">26</span><span>Esses golpes, com seus autores, foram:</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q26','a',this)"><span class="opt-letter">A</span> Indiferentes (preferidos, mas não "bens" em si)</div>
-      <div class="opt" data-l="b" onclick="pick('q26','b',this)"><span class="opt-letter">B</span> Males, pois distraem da virtude</div>
-      <div class="opt" data-l="c" onclick="pick('q26','c',this)"><span class="opt-letter">C</span> Os únicos bens verdadeiros</div>
-      <div class="opt" data-l="d" onclick="pick('q26','d',this)"><span class="opt-letter">D</span> Irrelevantes para a filosofia estoica</div>
+      <div class="opt" data-l="a" onclick="pick('q26','a',this)"><span class="opt-letter">A</span> Darwin tirou a Terra do centro; Copérnico, o homem do topo da criação; Freud, a razão do comando.</div>
+      <div class="opt" data-l="b" onclick="pick('q26','b',this)"><span class="opt-letter">B</span> Copérnico tirou a Terra do centro; Darwin, o homem do topo da criação; Freud, a razão do comando.</div>
+      <div class="opt" data-l="c" onclick="pick('q26','c',this)"><span class="opt-letter">C</span> Copérnico tirou a razão do comando; Darwin, a Terra do centro; Freud, o homem do topo da criação.</div>
+      <div class="opt" data-l="d" onclick="pick('q26','d',this)"><span class="opt-letter">D</span> Descartes tirou a Terra do centro; Darwin, o homem do topo da criação; Freud, a alma do corpo.</div>
+      <div class="opt" data-l="e" onclick="pick('q26','e',this)"><span class="opt-letter">E</span> Copérnico tirou a Terra do centro; Kant, Deus da moral; Freud, o homem do topo da criação.</div>
     </div>
-    <div id="fb-q26" class="quiz-feedback" data-ok="Só a virtude é 'boa' para os estoicos. Riqueza e saúde são indiferentes preferidos — têm valor prático, mas não garantem a felicidade por si só." data-err="Apenas a virtude é considerada um bem verdadeiro. Riqueza e saúde são 'indiferentes preferidos': têm valor, mas podem ser usadas tanto para o bem quanto para o mal."></div>
+    <div id="fb-q26" class="quiz-feedback" data-ok="Copérnico (heliocentrismo): a Terra não é o centro. Darwin: o homem descende de primatas. Freud: a consciência não governa o psiquismo, por causa do inconsciente. Cada golpe feriu a autoimagem de ser racional e especial." data-err="Copérnico (heliocentrismo): a Terra não é o centro. Darwin: o homem descende de primatas. Freud: a consciência não governa o psiquismo, por causa do inconsciente. Cada golpe feriu a autoimagem de ser racional e especial."></div>
   </div>
 
   <!-- Q27 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">27</span><span>No exemplo do elevador (lógica estoica das emoções), o "frio na barriga" inicial representa:</span></div>
+    <p class="q-fonte">Descartes e Freud têm visões opostas sobre a consciência humana.</p>
+    <div class="quiz-q"><span class="quiz-num">27</span><span>Para Descartes e para Freud, respectivamente, a consciência</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q27','a',this)"><span class="opt-letter">A</span> Uma emoção genuína e incontrolável</div>
-      <div class="opt" data-l="b" onclick="pick('q27','b',this)"><span class="opt-letter">B</span> O "primeiro movimento" — um julgamento automático que ainda não é uma emoção genuína</div>
-      <div class="opt" data-l="c" onclick="pick('q27','c',this)"><span class="opt-letter">C</span> Um exemplo de apatheia perfeita</div>
-      <div class="opt" data-l="d" onclick="pick('q27','d',this)"><span class="opt-letter">D</span> Uma virtude estoica</div>
+      <div class="opt" data-l="a" onclick="pick('q27','a',this)"><span class="opt-letter">A</span> é transparente e domina as paixões / é a menor parte do psiquismo.</div>
+      <div class="opt" data-l="b" onclick="pick('q27','b',this)"><span class="opt-letter">B</span> é a menor parte do psiquismo / é transparente e domina todas as paixões.</div>
+      <div class="opt" data-l="c" onclick="pick('q27','c',this)"><span class="opt-letter">C</span> é governada pelo id / é governada pelo superego e pela moral social.</div>
+      <div class="opt" data-l="d" onclick="pick('q27','d',this)"><span class="opt-letter">D</span> é uma ilusão dos sentidos / é a sede da alma imortal criada por Deus.</div>
+      <div class="opt" data-l="e" onclick="pick('q27','e',this)"><span class="opt-letter">E</span> depende da Vontade cega / depende da iluminação divina do intelecto.</div>
     </div>
-    <div id="fb-q27" class="quiz-feedback" data-ok="O susto inicial é só o 'primeiro movimento' — um reflexo automático. Ele só vira emoção genuína (pânico) se você 'assentir' ao julgamento sem avaliar a impressão com calma." data-err="É o 'primeiro movimento': um julgamento automático e reflexo, que ainda não é uma emoção genuína até que você 'assinta' a ele."></div>
+    <div id="fb-q27" class="quiz-feedback" data-ok="Para Descartes, a alma é puro pensamento, una e sem parte obscura: o homem controla suas paixões. Freud, materialista, inverte isso: o inconsciente (id e superego) domina, e o ego consciente vive em conflito." data-err="Para Descartes, a alma é puro pensamento, una e sem parte obscura: o homem controla suas paixões. Freud, materialista, inverte isso: o inconsciente (id e superego) domina, e o ego consciente vive em conflito."></div>
   </div>
 
   <!-- Q28 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">28</span><span>Qual das alternativas NÃO é uma das quatro virtudes estoicas clássicas?</span></div>
+    <p class="q-fonte">"A existência precede a essência." (Sartre)</p>
+    <div class="quiz-q"><span class="quiz-num">28</span><span>A frase significa que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q28','a',this)"><span class="opt-letter">A</span> Fé</div>
-      <div class="opt" data-l="b" onclick="pick('q28','b',this)"><span class="opt-letter">B</span> Sabedoria</div>
-      <div class="opt" data-l="c" onclick="pick('q28','c',this)"><span class="opt-letter">C</span> Coragem</div>
-      <div class="opt" data-l="d" onclick="pick('q28','d',this)"><span class="opt-letter">D</span> Justiça</div>
+      <div class="opt" data-l="a" onclick="pick('q28','a',this)"><span class="opt-letter">A</span> cada ser tem uma essência fixa, definida pela natureza antes de existir.</div>
+      <div class="opt" data-l="b" onclick="pick('q28','b',this)"><span class="opt-letter">B</span> o homem primeiro existe e só depois se define pelas próprias escolhas.</div>
+      <div class="opt" data-l="c" onclick="pick('q28','c',this)"><span class="opt-letter">C</span> a essência humana é a razão, dada pela natureza, que deve guiar toda a existência do homem.</div>
+      <div class="opt" data-l="d" onclick="pick('q28','d',this)"><span class="opt-letter">D</span> Deus define a essência de cada pessoa antes mesmo do seu nascimento, como um artesão.</div>
+      <div class="opt" data-l="e" onclick="pick('q28','e',this)"><span class="opt-letter">E</span> a existência é uma ilusão passageira, e só a essência é verdadeira.</div>
     </div>
-    <div id="fb-q28" class="quiz-feedback" data-ok="As quatro virtudes estoicas são Sabedoria, Moderação (Temperança), Coragem e Justiça — 'Fé' não é uma delas (é uma virtude cristã, associada à Patrística/Escolástica)." data-err="'Fé' não é uma virtude estoica. As quatro são: Sabedoria, Moderação (Temperança), Coragem e Justiça."></div>
+    <div id="fb-q28" class="quiz-feedback" data-ok="Na visão grega, a essência vem antes e é fixa (o homem é racional e deve seguir a razão). Para Sartre, o homem nasce com uma essência vazia e a constrói com suas escolhas, independentemente das circunstâncias." data-err="Na visão grega, a essência vem antes e é fixa (o homem é racional e deve seguir a razão). Para Sartre, o homem nasce com uma essência vazia e a constrói com suas escolhas, independentemente das circunstâncias."></div>
   </div>
 
-  <!-- Q29 (ENEM) -->
+  <!-- Q29 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">29</span><span>(Enem) "Jamais, a respeito de coisa alguma, digas: 'Eu a perdi', mas sim: 'eu a restituí'. O filho morreu? Foi restituído. [...]" (EPICTETO, Encheirídion). A característica do estoicismo presente nessa citação é:</span></div>
+    <p class="q-fonte">"O homem está condenado a ser livre." (Sartre)</p>
+    <div class="quiz-q"><span class="quiz-num">29</span><span>A palavra "condenado" indica que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q29','a',this)"><span class="opt-letter">A</span> explicar o mundo com números</div>
-      <div class="opt" data-l="b" onclick="pick('q29','b',this)"><span class="opt-letter">B</span> identificar a felicidade com o prazer</div>
-      <div class="opt" data-l="c" onclick="pick('q29','c',this)"><span class="opt-letter">C</span> aceitar os sofrimentos com serenidade</div>
-      <div class="opt" data-l="d" onclick="pick('q29','d',this)"><span class="opt-letter">D</span> questionar o saber científico com veemência</div>
-      <div class="opt" data-l="e" onclick="pick('q29','e',this)"><span class="opt-letter">E</span> considerar as convenções sociais com desprezo</div>
+      <div class="opt" data-l="a" onclick="pick('q29','a',this)"><span class="opt-letter">A</span> a liberdade é um castigo divino imposto a todos pelo pecado original.</div>
+      <div class="opt" data-l="b" onclick="pick('q29','b',this)"><span class="opt-letter">B</span> nossas escolhas são, no fundo, determinadas pelo inconsciente.</div>
+      <div class="opt" data-l="c" onclick="pick('q29','c',this)"><span class="opt-letter">C</span> não escolhemos ser livres nem podemos fugir da responsabilidade.</div>
+      <div class="opt" data-l="d" onclick="pick('q29','d',this)"><span class="opt-letter">D</span> a sociedade impõe as regras que somos obrigados a seguir, sem chance de escolha.</div>
+      <div class="opt" data-l="e" onclick="pick('q29','e',this)"><span class="opt-letter">E</span> só é livre de verdade quem não depende de ninguém para viver.</div>
     </div>
-    <div id="fb-q29" class="quiz-feedback" data-ok="Tratar perdas (até a morte de um filho) como uma 'restituição', sem revolta, é a serenidade estoica diante do sofrimento — a resignação diante do que está fora do nosso controle." data-err="A citação ilustra a serenidade estoica diante do sofrimento e da perda — não tem relação com números, prazer, ciência ou desprezo pelas convenções."></div>
+    <div id="fb-q29" class="quiz-feedback" data-ok="Ninguém pediu para ser livre, mas não há como deixar de escolher: até não escolher é uma escolha. Por isso não dá para terceirizar as ações. Somos responsáveis pela própria vida e pela própria essência." data-err="Ninguém pediu para ser livre, mas não há como deixar de escolher: até não escolher é uma escolha. Por isso não dá para terceirizar as ações. Somos responsáveis pela própria vida e pela própria essência."></div>
   </div>
 
-  <!-- Q30 (ENEM) -->
+  <!-- Q30 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">30</span><span>(Enem) "Nosso amigo Basso tem o ânimo alegre [...] estar alegre diante da morte, forte e contente qualquer que seja o estado do corpo [...]" (SÊNECA, Cartas morais). O excerto apresenta como bem fundamental da filosofia promover a:</span></div>
+    <p class="q-fonte">Um aluno se justifica: "Eu colei porque todo mundo cola. Foi o ambiente que me obrigou."</p>
+    <div class="quiz-q"><span class="quiz-num">30</span><span>Do ponto de vista de Sartre, essa justificativa</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q30','a',this)"><span class="opt-letter">A</span> valorização de disputas dialógicas</div>
-      <div class="opt" data-l="b" onclick="pick('q30','b',this)"><span class="opt-letter">B</span> rejeição das convenções sociais</div>
-      <div class="opt" data-l="c" onclick="pick('q30','c',this)"><span class="opt-letter">C</span> inspiração de natureza religiosa</div>
-      <div class="opt" data-l="d" onclick="pick('q30','d',this)"><span class="opt-letter">D</span> exaltação do sofrimento</div>
-      <div class="opt" data-l="e" onclick="pick('q30','e',this)"><span class="opt-letter">E</span> moderação das paixões</div>
+      <div class="opt" data-l="a" onclick="pick('q30','a',this)"><span class="opt-letter">A</span> é válida, pois as circunstâncias definem a essência de cada pessoa.</div>
+      <div class="opt" data-l="b" onclick="pick('q30','b',this)"><span class="opt-letter">B</span> é válida, pois só existe liberdade quando ninguém está observando.</div>
+      <div class="opt" data-l="c" onclick="pick('q30','c',this)"><span class="opt-letter">C</span> mostra que o id do aluno venceu o superego num conflito inconsciente.</div>
+      <div class="opt" data-l="d" onclick="pick('q30','d',this)"><span class="opt-letter">D</span> tenta terceirizar uma escolha pela qual só ele é responsável.</div>
+      <div class="opt" data-l="e" onclick="pick('q30','e',this)"><span class="opt-letter">E</span> prova que a ação passaria no teste do imperativo categórico.</div>
     </div>
-    <div id="fb-q30" class="quiz-feedback" data-ok="Manter o ânimo alegre e forte diante da morte e da dor do corpo é a moderação estoica das paixões — não se deixar dominar pelo sofrimento nem exaltá-lo." data-err="O trecho de Sêneca ilustra a moderação das paixões — a serenidade diante da dor e da morte, sem se deixar dominar por elas."></div>
+    <div id="fb-q30" class="quiz-feedback" data-ok="Para Sartre, o ambiente não decide por nós: a essência é definida pelas escolhas, não pelas circunstâncias. Culpar &quot;todo mundo&quot; é fugir da responsabilidade. (E a cola, universalizada, também falha no teste de Kant.)" data-err="Para Sartre, o ambiente não decide por nós: a essência é definida pelas escolhas, não pelas circunstâncias. Culpar &quot;todo mundo&quot; é fugir da responsabilidade. (E a cola, universalizada, também falha no teste de Kant.)"></div>
   </div>
 
   <!-- Q31 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">31</span><span>Qual é a diferença entre imperativo hipotético e imperativo categórico, em Kant?</span></div>
+    <p class="q-fonte">Ana passa a tarde lendo filosofia. Beto passa a tarde comendo e bebendo. Os dois sentem a mesma quantidade de prazer.</p>
+    <div class="quiz-q"><span class="quiz-num">31</span><span>Bentham e Mill avaliariam essas duas ações, respectivamente, como</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q31','a',this)"><span class="opt-letter">A</span> São sinônimos, sem diferença real</div>
-      <div class="opt" data-l="b" onclick="pick('q31','b',this)"><span class="opt-letter">B</span> O hipotético é condicional (depende de um objetivo pessoal); o categórico é incondicional e vale por si mesmo</div>
-      <div class="opt" data-l="c" onclick="pick('q31','c',this)"><span class="opt-letter">C</span> O categórico depende de um objetivo pessoal; o hipotético é incondicional</div>
-      <div class="opt" data-l="d" onclick="pick('q31','d',this)"><span class="opt-letter">D</span> Ambos dependem da aprovação da Igreja</div>
+      <div class="opt" data-l="a" onclick="pick('q31','a',this)"><span class="opt-letter">A</span> diferentes, pois há prazeres superiores / moralmente equivalentes.</div>
+      <div class="opt" data-l="b" onclick="pick('q31','b',this)"><span class="opt-letter">B</span> imorais, pois buscam o prazer / morais, pois geram felicidade.</div>
+      <div class="opt" data-l="c" onclick="pick('q31','c',this)"><span class="opt-letter">C</span> moralmente equivalentes / igualmente imorais, pois são egoístas.</div>
+      <div class="opt" data-l="d" onclick="pick('q31','d',this)"><span class="opt-letter">D</span> indiferentes, como a riqueza / boas, pois expressam a Vontade.</div>
+      <div class="opt" data-l="e" onclick="pick('q31','e',this)"><span class="opt-letter">E</span> moralmente equivalentes / diferentes, pois há prazeres superiores.</div>
     </div>
-    <div id="fb-q31" class="quiz-feedback" data-ok="O imperativo hipotético é condicional ('se você quer X, faça Y'); o categórico é incondicional, válido em si mesmo, independentemente de qualquer desejo pessoal — só ele é verdadeiramente moral para Kant." data-err="É o hipotético que é condicional (depende de um objetivo pessoal); o categórico é incondicional e vale por si só, independente de qualquer desejo."></div>
+    <div id="fb-q31" class="quiz-feedback" data-ok="Bentham faz um cálculo quantitativo: mesmo prazer, mesmo valor moral. Mill aceita que prazer e dor guiam a humanidade, mas distingue qualidade: prazeres intelectuais são superiores aos imediatos." data-err="Bentham faz um cálculo quantitativo: mesmo prazer, mesmo valor moral. Mill aceita que prazer e dor guiam a humanidade, mas distingue qualidade: prazeres intelectuais são superiores aos imediatos."></div>
   </div>
 
   <!-- Q32 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">32</span><span>Na obra "O Mundo como Vontade e Representação", o que é a "Representação" para Schopenhauer?</span></div>
+    <p class="q-fonte">"É melhor ser um Sócrates insatisfeito do que um tolo satisfeito." (John Stuart Mill)</p>
+    <div class="quiz-q"><span class="quiz-num">32</span><span>A frase defende que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q32','a',this)"><span class="opt-letter">A</span> A essência cega e irracional por trás das coisas</div>
-      <div class="opt" data-l="b" onclick="pick('q32','b',this)"><span class="opt-letter">B</span> O mundo como aparência: como ele se manifesta para nossa razão e percepção</div>
-      <div class="opt" data-l="c" onclick="pick('q32','c',this)"><span class="opt-letter">C</span> Um sinônimo de Vontade</div>
-      <div class="opt" data-l="d" onclick="pick('q32','d',this)"><span class="opt-letter">D</span> A parte consciente do psiquismo humano, segundo Freud</div>
+      <div class="opt" data-l="a" onclick="pick('q32','a',this)"><span class="opt-letter">A</span> a felicidade se mede somando a quantidade total de prazer de cada ação.</div>
+      <div class="opt" data-l="b" onclick="pick('q32','b',this)"><span class="opt-letter">B</span> só a virtude é boa, e o prazer é sempre um indiferente para o sábio.</div>
+      <div class="opt" data-l="c" onclick="pick('q32','c',this)"><span class="opt-letter">C</span> a qualidade dos prazeres importa: os do intelecto valem mais.</div>
+      <div class="opt" data-l="d" onclick="pick('q32','d',this)"><span class="opt-letter">D</span> a insatisfação é o estado natural do homem, pois o desejo nunca se sacia.</div>
+      <div class="opt" data-l="e" onclick="pick('q32','e',this)"><span class="opt-letter">E</span> a ignorância traz tranquilidade e, por isso, é preferível ao saber.</div>
     </div>
-    <div id="fb-q32" class="quiz-feedback" data-ok="A Representação é o mundo como aparência — como ele se manifesta para nossa razão e sentidos. Por trás dela está a Vontade: a essência cega e irracional que a Representação apenas expressa." data-err="Representação é a aparência do mundo, captada pela razão/sentidos. A essência cega e irracional por trás dela é a Vontade — os dois são opostos, não sinônimos."></div>
+    <div id="fb-q32" class="quiz-feedback" data-ok="Para Mill, a felicidade é qualitativa: é melhor escolher os prazeres superiores, mesmo insatisfeito, do que se satisfazer com os inferiores. Somar quantidades é Bentham; a insatisfação permanente é Schopenhauer." data-err="Para Mill, a felicidade é qualitativa: é melhor escolher os prazeres superiores, mesmo insatisfeito, do que se satisfazer com os inferiores. Somar quantidades é Bentham; a insatisfação permanente é Schopenhauer."></div>
   </div>
 
   <!-- Q33 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">33</span><span>A "Doutrina da Iluminação" de Santo Agostinho propõe que:</span></div>
+    <p class="q-fonte">Mill defende a liberdade de expressão até para opiniões que a maioria considera erradas.</p>
+    <div class="quiz-q"><span class="quiz-num">33</span><span>O principal argumento dele é</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q33','a',this)"><span class="opt-letter">A</span> O conhecimento vem exclusivamente da experiência sensorial</div>
-      <div class="opt" data-l="b" onclick="pick('q33','b',this)"><span class="opt-letter">B</span> O intelecto humano é iluminado diretamente pela luz de Deus, que permite conhecer as verdades eternas</div>
-      <div class="opt" data-l="c" onclick="pick('q33','c',this)"><span class="opt-letter">C</span> É idêntica à teoria da reminiscência de Platão</div>
-      <div class="opt" data-l="d" onclick="pick('q33','d',this)"><span class="opt-letter">D</span> O conhecimento é impossível para os seres humanos</div>
+      <div class="opt" data-l="a" onclick="pick('q33','a',this)"><span class="opt-letter">A</span> a falibilidade: ninguém tem a verdade inteira, e o debate faz avançar.</div>
+      <div class="opt" data-l="b" onclick="pick('q33','b',this)"><span class="opt-letter">B</span> que toda opinião é igualmente verdadeira, já que a verdade objetiva não existe.</div>
+      <div class="opt" data-l="c" onclick="pick('q33','c',this)"><span class="opt-letter">C</span> que cabe ao Estado decidir quais opiniões são verdadeiras e podem circular.</div>
+      <div class="opt" data-l="d" onclick="pick('q33','d',this)"><span class="opt-letter">D</span> que falar gera prazer, e o prazer de quem fala é o único critério moral.</div>
+      <div class="opt" data-l="e" onclick="pick('q33','e',this)"><span class="opt-letter">E</span> que a censura protege a maioria das ideias que a fariam sofrer.</div>
     </div>
-    <div id="fb-q33" class="quiz-feedback" data-ok="Diferente da reminiscência platônica (lembrar verdades já vistas pela alma), a Doutrina da Iluminação de Agostinho propõe que Deus ilumina diretamente o intelecto humano, permitindo-lhe conhecer verdades eternas." data-err="A Doutrina da Iluminação é diferente da reminiscência de Platão: para Agostinho, é a luz direta de Deus que ilumina o intelecto humano e permite o conhecimento das verdades eternas."></div>
+    <div id="fb-q33" class="quiz-feedback" data-ok="Todos os seres humanos podem errar, e nossas convicções podem estar incompletas. Contestar as &quot;verdades&quot; existentes permite avançar. Mill não diz que tudo é verdadeiro: diz que ninguém tem a verdade inteira." data-err="Todos os seres humanos podem errar, e nossas convicções podem estar incompletas. Contestar as &quot;verdades&quot; existentes permite avançar. Mill não diz que tudo é verdadeiro: diz que ninguém tem a verdade inteira."></div>
   </div>
 
   <!-- Q34 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">34</span><span>O que Freud quer dizer com a frase "o homem não é senhor da própria casa"?</span></div>
+    <p class="q-fonte">"O princípio da liberdade não pode exigir que [alguém] seja livre para não ser livre." (Mill)</p>
+    <div class="quiz-q"><span class="quiz-num">34</span><span>Com esse argumento, Mill conclui que ninguém pode se vender como escravo, porque</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q34','a',this)"><span class="opt-letter">A</span> Que os seres humanos não deveriam ter propriedades</div>
-      <div class="opt" data-l="b" onclick="pick('q34','b',this)"><span class="opt-letter">B</span> Que o Eu consciente não controla nem conhece por completo o próprio psiquismo, dominado em grande parte pelo inconsciente</div>
-      <div class="opt" data-l="c" onclick="pick('q34','c',this)"><span class="opt-letter">C</span> Que a família não deveria interferir nas escolhas do indivíduo</div>
-      <div class="opt" data-l="d" onclick="pick('q34','d',this)"><span class="opt-letter">D</span> Que só os ricos têm controle sobre suas próprias vidas</div>
+      <div class="opt" data-l="a" onclick="pick('q34','a',this)"><span class="opt-letter">A</span> a lei inglesa da época proibia todo contrato de trabalho.</div>
+      <div class="opt" data-l="b" onclick="pick('q34','b',this)"><span class="opt-letter">B</span> a decisão viria do id, e não do ego, e por isso não valeria.</div>
+      <div class="opt" data-l="c" onclick="pick('q34','c',this)"><span class="opt-letter">C</span> a Bíblia proíbe que uma pessoa seja dona de outra pessoa.</div>
+      <div class="opt" data-l="d" onclick="pick('q34','d',this)"><span class="opt-letter">D</span> estaria usando a liberdade para destruir a própria liberdade.</div>
+      <div class="opt" data-l="e" onclick="pick('q34','e',this)"><span class="opt-letter">E</span> ninguém consegue calcular o prazer que essa escolha traria.</div>
     </div>
-    <div id="fb-q34" class="quiz-feedback" data-ok="A frase resume a descoberta do inconsciente: o Eu consciente é só a menor e mais fraca parte do psiquismo, que é, na maior parte, dominado por forças inconscientes que escapam ao nosso controle." data-err="A frase de Freud resume seu terceiro 'golpe no narcisismo humano': o Eu consciente não é o verdadeiro senhor do psiquismo, que é majoritariamente inconsciente."></div>
+    <div id="fb-q34" class="quiz-feedback" data-ok="Cada pessoa tem propriedade sobre si mesma. A liberdade pode ser usada para todas as escolhas, menos para anular a si mesma: escolher a escravidão acaba com o próprio princípio que permitiu a escolha." data-err="Cada pessoa tem propriedade sobre si mesma. A liberdade pode ser usada para todas as escolhas, menos para anular a si mesma: escolher a escravidão acaba com o próprio princípio que permitiu a escolha."></div>
   </div>
 
 </div>
@@ -1255,37 +1330,13 @@
 </div>
 
 <script>
-  function toggleChat() {
-    const p = document.getElementById("chat-panel");
-    p.classList.toggle("open");
-    if (p.classList.contains("open")) document.getElementById("chat-input").focus();
-  }
-  function getContext() {
-    const el = document.querySelector(".content") || document.body;
-    return el.innerText.replace(/\s+/g, " ").slice(0, 6000);
-  }
-  async function sendMsg(e) {
-    e.preventDefault();
-    const input = document.getElementById("chat-input");
-    const msgs = document.getElementById("chat-msgs");
-    const text = input.value.trim();
-    if (!text) return;
-    input.value = "";
-    const userMsg = document.createElement("div");
-    userMsg.className = "cmsg user";
-    userMsg.textContent = text;
-    msgs.appendChild(userMsg);
-    const loader = document.createElement("div");
-    loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
-    msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
-    try {
-      const r = await fetch("/api/chat", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ message: text, context: getContext() }) });
-      const d = await r.json();
-      loader.className = "cmsg bot"; loader.textContent = d.reply || d.error;
-    } catch(err) { loader.className = "cmsg bot"; loader.textContent = "Erro de conexão. Tente novamente."; }
-    msgs.scrollTop = msgs.scrollHeight;
-  }
+  
+  
+  
 </script>
 <script src="scripts/progress.js"></script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/contribuir.js" defer></script>
 </body>
 </html>

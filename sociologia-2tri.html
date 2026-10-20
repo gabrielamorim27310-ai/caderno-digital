@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-pagina="sociologia-2tri" data-materia="sociologia">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <title>Sociologia 2º Tri — Poder, Governo e Democracia 2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
     --primary:   #3b1f5e;
     --secondary: #9b6dbd;
@@ -231,8 +231,11 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
 <script src="config.js"></script>
 <link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
 </head>
-<body>
+<body class="ios resumo">
 <div class="progress-bar" id="progressBar"></div>
 
 <div class="hero">
@@ -742,8 +745,9 @@
         <div class="tip-box">
           <strong>A exceção do voto direto</strong>
           Ocorre em casos de <strong>dupla vacância</strong> de presidente e vice (os dois saem do
-          cargo antes do fim do mandato) — quem escolhe o novo líder provisório, nesse caso, é o
-          Congresso Nacional, não o povo diretamente.
+          cargo antes do fim do mandato) <strong>nos dois últimos anos do mandato</strong> — quem escolhe quem
+          completa o mandato, nesse caso, é o Congresso Nacional, não o povo diretamente. Se a dupla
+          vacância acontecer nos dois primeiros anos, há uma nova eleição direta.
         </div>
       </div>
     </div>
@@ -761,12 +765,12 @@
             <tr>
               <td><strong>Majoritário Simples</strong><br>(1 turno só)</td>
               <td>Vence quem tiver o maior percentual de votos, <strong>independente do número</strong>. Nunca tem 2º turno.</td>
-              <td>Senadores e prefeitos de municípios com <strong>menos de 200 mil habitantes</strong></td>
+              <td>Senadores e prefeitos de municípios com <strong>menos de 200 mil eleitores</strong></td>
             </tr>
             <tr>
               <td><strong>Majoritário Absoluto</strong><br>(pode ter 2º turno)</td>
               <td>Vence quem tiver <strong>mais da metade dos votos válidos</strong> (brancos e nulos não contam). Sem maioria absoluta no 1º turno, vai para o 2º turno.</td>
-              <td>Presidente, Governadores e prefeitos de cidades com <strong>+200 mil habitantes</strong></td>
+              <td>Presidente, Governadores e prefeitos de cidades com <strong>+200 mil eleitores</strong></td>
             </tr>
           </tbody>
         </table>
@@ -803,7 +807,7 @@
         </div>
         <div class="highlight-box">
           <strong>Como se calcula o Quociente Eleitoral</strong>
-          <span class="formula-pill" style="display:inline-block;background:#f3e8ff;border:1.5px solid var(--primary);border-radius:8px;padding:3px 10px;font-family:'Courier New',monospace;font-size:0.85rem;color:var(--primary);font-weight:700;">nº de deputados (vagas) na eleição ÷ nº de eleitores</span>
+          <span class="formula-pill" style="display:inline-block;background:var(--tint-bg);border:1.5px solid var(--primary);border-radius:8px;padding:3px 10px;font-family:'Courier New',monospace;font-size:0.85rem;color:var(--primary);font-weight:700;">nº de votos válidos ÷ nº de vagas (deputados) em disputa</span> <span style="font-size:0.85rem">(votos brancos e nulos não entram na conta)</span>
         </div>
         <p><strong>Dois jeitos de votar no sistema proporcional:</strong></p>
         <div class="compare-grid">
@@ -928,311 +932,363 @@
     <button class="filter-btn" onclick="filterQuiz('cap6',this)">Cap. 6 — Democracia</button>
   </div>
 
-  <!-- Q1 -->
+    <!-- Q1 -->
   <div class="question-card" data-chapter="cap1" id="q1">
-    <h4>1. Para Weber, "Poder" é:</h4>
+    <p class="q-fonte">Um assaltante armado consegue que a vítima entregue a carteira. Um professor consegue que a turma entregue o trabalho no prazo.</p>
+    <h4>1. Segundo Weber, a diferença entre as duas situações está no fato de que</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q1','a')">a) A capacidade de convencer alguém a agir por razões racionais</button>
-      <button class="option-btn" onclick="checkQuiz('q1','b')">b) A capacidade de fazer alguém agir conforme sua vontade, mesmo que contrário à vontade dessa pessoa</button>
-      <button class="option-btn" onclick="checkQuiz('q1','c')">c) O direito exclusivo do Estado de usar a violência física</button>
-      <button class="option-btn" onclick="checkQuiz('q1','d')">d) O conjunto de leis que regulam a convivência social</button>
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) no primeiro há coerção, obediência por medo; no segundo, autoridade aceita como legítima.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) só o professor exerce poder, já que o assaltante não tem cargo nem regras que autorizem suas ordens.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) nos dois casos há dominação legítima, porque ambos conseguem obediência imediata das outras pessoas.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) o assaltante exerce dominação carismática, e o professor, dominação do tipo tradicional ou hereditária.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','e')">e) a legitimidade é definida por quem dá a ordem, e o professor tem mais formação do que o assaltante.</button>
     </div>
   </div>
 
   <!-- Q2 -->
   <div class="question-card" data-chapter="cap1" id="q2">
-    <h4>2. Quem decide se um determinado poder é legítimo?</h4>
+    <p class="q-fonte">Um governo proclama que é legítimo e obriga as escolas a ensinarem isso, mas a maior parte da população o rejeita e resiste.</p>
+    <h4>2. Pela teoria de Weber, esse governo</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q2','a')">a) O próprio governante, por suas qualidades pessoais</button>
-      <button class="option-btn" onclick="checkQuiz('q2','b')">b) A Constituição e as leis escritas</button>
-      <button class="option-btn" onclick="checkQuiz('q2','c')">c) Os próprios dominados — são eles que aceitam ou rejeitam o poder como válido</button>
-      <button class="option-btn" onclick="checkQuiz('q2','d')">d) A comunidade internacional e os tratados diplomáticos</button>
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) exerce coerção, pois a legitimidade depende do reconhecimento dos dominados.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) é legítimo, porque quem detém o poder tem o direito de definir a sua própria legitimidade política.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) exerce dominação legal-racional, já que impôs a sua versão por meio de leis escritas e impessoais.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) exerce dominação tradicional, pois tenta transformar a sua versão dos fatos em costume escolar.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','e')">e) torna-se carismático, já que passa a depender da admiração que consegue despertar nos estudantes.</button>
     </div>
   </div>
 
   <!-- Q3 -->
   <div class="question-card" data-chapter="cap1" id="q3">
-    <h4>3. Um rei que governa por direito hereditário e tradição histórica exerce que tipo de dominação?</h4>
+    <p class="q-fonte">Em uma repartição pública, o fiscal é obedecido não por quem ele é, mas pelo cargo que ocupa e pelas normas que aplica.</p>
+    <h4>3. Esse exemplo corresponde à dominação</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q3','a')">a) Tradicional</button>
-      <button class="option-btn" onclick="checkQuiz('q3','b')">b) Carismática</button>
-      <button class="option-btn" onclick="checkQuiz('q3','c')">c) Legal-Racional</button>
-      <button class="option-btn" onclick="checkQuiz('q3','d')">d) Coercitiva</button>
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) tradicional, baseada no costume e na herança, como a autoridade do chefe de uma tribo.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) legal-racional, baseada em regras impessoais e escritas, típica da burocracia moderna.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) carismática, baseada em qualidades extraordinárias que os cidadãos atribuem pessoalmente ao fiscal.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) coercitiva, baseada no medo das punições que o fiscal pode aplicar a quem desobedecer.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','e')">e) hereditária, baseada na linhagem familiar que transmite o cargo de pai para filho dentro da repartição.</button>
     </div>
   </div>
 
   <!-- Q4 -->
   <div class="question-card" data-chapter="cap1" id="q4">
-    <h4>4. A dominação carismática é considerada instável porque:</h4>
+    <p class="q-fonte">Após a morte de seu fundador, um movimento religioso cria hierarquia, estatuto e regras de sucessão.</p>
+    <h4>4. Para Weber, esse processo é uma resposta à</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q4','a')">a) Depende de leis escritas que podem ser revogadas</button>
-      <button class="option-btn" onclick="checkQuiz('q4','b')">b) Depende das qualidades pessoais do líder — quando ele desaparece, o grupo precisa se reorganizar em outra base</button>
-      <button class="option-btn" onclick="checkQuiz('q4','c')">c) É baseada em costumes que mudam lentamente</button>
-      <button class="option-btn" onclick="checkQuiz('q4','d')">d) Só funciona em sistemas monarchicos</button>
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) rigidez da dominação legal-racional, que impede o surgimento de novos líderes com carisma pessoal.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) fraqueza da dominação tradicional, que não sobrevive sem um Estado que a reconheça por meio da lei.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) instabilidade da dominação carismática, que precisa se rotinizar em formas tradicionais ou legais.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) falta de legitimidade da coerção, que precisa ser substituída por eleições periódicas e regulares.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','e')">e) crise do monopólio da violência, que deixa de ser do Estado e passa às organizações religiosas.</button>
     </div>
   </div>
 
   <!-- Q5 -->
   <div class="question-card" data-chapter="cap1" id="q5">
-    <h4>5. Segundo Weber, o Estado é:</h4>
+    <p class="q-fonte">Um presidente eleito segundo a Constituição é também admirado por milhões de eleitores pelo seu carisma pessoal.</p>
+    <h4>5. Esse caso mostra que, para Weber,</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q5','a')">a) A organização que distribui bens e serviços para a população</button>
-      <button class="option-btn" onclick="checkQuiz('q5','b')">b) O conjunto de partidos políticos que disputam o poder</button>
-      <button class="option-btn" onclick="checkQuiz('q5','c')">c) A comunidade que reivindica com êxito o monopólio do uso legítimo da violência física dentro de um território</button>
-      <button class="option-btn" onclick="checkQuiz('q5','d')">d) A reunião de cidadãos que elaboram as leis democraticamente</button>
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) a dominação carismática anula a legal-racional sempre que um líder se torna mais popular que a própria Constituição.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) só existe dominação legítima quando o líder reúne os três tipos de dominação ao mesmo tempo.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) a eleição transforma o carisma em dominação tradicional depois do primeiro mandato completo.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) os três tipos de dominação são tipos ideais, que na realidade costumam aparecer combinados.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','e')">e) o carisma é ilegítimo nas repúblicas, pois só as monarquias hereditárias admitem esse tipo de autoridade pessoal.</button>
     </div>
   </div>
 
   <!-- Q6 -->
   <div class="question-card" data-chapter="cap1" id="q6">
-    <h4>6. Um presidente eleito que age conforme a lei e pode ser substituído ao fim do mandato exerce dominação:</h4>
+    <p class="q-fonte">"O Estado é a comunidade humana que reivindica, com êxito, o monopólio do uso legítimo da violência física dentro de um determinado território." (Max Weber)</p>
+    <h4>6. De acordo com essa definição, uma milícia que cobra "taxas" de moradores sob ameaça</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q6','a')">a) Tradicional</button>
-      <button class="option-btn" onclick="checkQuiz('q6','b')">b) Carismática</button>
-      <button class="option-btn" onclick="checkQuiz('q6','c')">c) Coercitiva</button>
-      <button class="option-btn" onclick="checkQuiz('q6','d')">d) Legal-Racional</button>
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) passa a fazer parte do Estado, pois exerce violência física organizada naquele território.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) exerce dominação legal-racional, já que segue regras próprias conhecidas pelos moradores.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) usa violência sem legitimidade e, por isso, desafia o monopólio que caracteriza o Estado.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) torna-se legítima quando os moradores pagam, pois o pagamento comprova a aceitação deles.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','e')">e) não usa violência física, porque a cobrança é feita apenas por meio de ameaças verbais.</button>
     </div>
   </div>
 
   <!-- Q7 -->
   <div class="question-card" data-chapter="cap2" id="q7">
-    <h4>7. Na Monarquia Parlamentarista, quem governa de fato?</h4>
+    <p class="q-fonte">No Japão, o imperador participa de cerimônias e representa o país, mas quem conduz o governo é o primeiro-ministro, escolhido pelo Parlamento.</p>
+    <h4>7. Esse arranjo caracteriza uma</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q7','a')">a) O rei, que concentra todos os poderes</button>
-      <button class="option-btn" onclick="checkQuiz('q7','b')">b) O Presidente da República, eleito diretamente</button>
-      <button class="option-btn" onclick="checkQuiz('q7','c')">c) O Primeiro-Ministro, eleito pelo Parlamento — o rei tem função simbólica</button>
-      <button class="option-btn" onclick="checkQuiz('q7','d')">d) O Supremo Tribunal, que valida as decisões reais</button>
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) monarquia absoluta, em que o imperador concentra as funções de legislar, executar e julgar sozinho.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) monarquia parlamentarista: o monarca é chefe de Estado, e o premiê, chefe de governo.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) república presidencialista, em que o imperador é eleito diretamente pelo povo para um mandato fixo.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) república parlamentarista, já que o primeiro-ministro é escolhido pelos membros do Parlamento.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','e')">e) monarquia constitucional sem Parlamento, em que o rei governa limitado apenas pela Constituição.</button>
     </div>
   </div>
 
   <!-- Q8 -->
   <div class="question-card" data-chapter="cap2" id="q8">
-    <h4>8. No sistema presidencialista, o Presidente é ao mesmo tempo:</h4>
+    <p class="q-fonte">Monarquia e república são formas de governo; presidencialismo e parlamentarismo são sistemas de governo.</p>
+    <h4>8. Qual combinação está corretamente classificada?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Chefe de Estado e Chefe de Governo</button>
-      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Chefe de Estado apenas — o Primeiro-Ministro chefia o governo</button>
-      <button class="option-btn" onclick="checkQuiz('q8','c')">c) Líder do Parlamento e do Executivo</button>
-      <button class="option-btn" onclick="checkQuiz('q8','d')">d) Presidente do Supremo e do Executivo</button>
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Reino Unido: república (forma de governo) com presidencialismo (sistema de governo).</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Alemanha: república (forma de governo) com parlamentarismo (sistema de governo).</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) Brasil: monarquia (forma de governo) com parlamentarismo (sistema de governo).</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) Estados Unidos: república (forma de governo) com parlamentarismo (sistema de governo).</button>
+      <button class="option-btn" onclick="checkQuiz('q8','e')">e) Japão: república (forma de governo) com presidencialismo (sistema de governo).</button>
     </div>
   </div>
 
   <!-- Q9 -->
   <div class="question-card" data-chapter="cap2" id="q9">
-    <h4>9. O conceito de "Presidencialismo de Coalizão" foi criado por:</h4>
+    <p class="q-fonte">Sem maioria no Congresso, um presidente oferece ministérios a partidos que se comprometem a votar com o governo.</p>
+    <h4>9. O cientista político Sérgio Abranches chamou essa dinâmica brasileira de</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Max Weber</button>
-      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Karl Marx</button>
-      <button class="option-btn" onclick="checkQuiz('q9','c')">c) Sérgio Abranches (1988)</button>
-      <button class="option-btn" onclick="checkQuiz('q9','d')">d) Adam Smith</button>
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) parlamentarismo de fato, pois o presidente passa a depender de um voto de confiança do Senado.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) dominação carismática, já que o apoio dos partidos depende da popularidade pessoal do presidente.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) judicialização da política, porque as alianças partidárias precisam ser aprovadas pelo STF.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) presidencialismo de coalizão, típico de um cenário com muitos partidos e nenhum majoritário.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','e')">e) poliarquia, pois o poder fica dividido entre muitos partidos que têm exatamente o mesmo peso.</button>
     </div>
   </div>
 
   <!-- Q10 -->
   <div class="question-card" data-chapter="cap2" id="q10">
-    <h4>10. Uma crise de governabilidade no presidencialismo ocorre principalmente quando:</h4>
+    <h4>10. O resumo afirma que a crise de governabilidade é mais grave no presidencialismo do que no parlamentarismo. Isso ocorre porque, no presidencialismo,</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q10','a')">a) O presidente é acusado de corrupção por qualquer cidadão</button>
-      <button class="option-btn" onclick="checkQuiz('q10','b')">b) O presidente perde a maioria parlamentar e não consegue aprovar sua agenda — gerando paralisia do governo</button>
-      <button class="option-btn" onclick="checkQuiz('q10','c')">c) O Judiciário derruba uma lei aprovada pelo Congresso</button>
-      <button class="option-btn" onclick="checkQuiz('q10','d')">d) O partido do presidente perde uma eleição municipal</button>
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) o presidente pode dissolver o Congresso e convocar eleições sempre que perde a maioria.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) o Parlamento escolhe o presidente e pode derrubá-lo com um simples voto de desconfiança.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) o chefe de Estado é um monarca hereditário, que não responde ao Congresso eleito pelo povo.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) não há partidos políticos, então o presidente governa sem nenhuma base de apoio no Congresso.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','e')">e) o mandato é fixo: sem maioria, o presidente segue no cargo e a paralisia pode durar anos.</button>
     </div>
   </div>
 
   <!-- Q11 -->
   <div class="question-card" data-chapter="cap2" id="q11">
-    <h4>11. Uma vantagem do parlamentarismo sobre o presidencialismo em situações de crise política é:</h4>
+    <p class="q-fonte">Em março de 2016, o PMDB deixou a base do governo. Meses depois, a Câmara aprovou a abertura do impeachment por 367 votos.</p>
+    <h4>11. Segundo o resumo, esse caso ilustra que</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q11','a')">a) O Primeiro-Ministro tem mandato fixo e não pode ser derrubado</button>
-      <button class="option-btn" onclick="checkQuiz('q11','b')">b) O povo vota diretamente no Primeiro-Ministro a cada crise</button>
-      <button class="option-btn" onclick="checkQuiz('q11','c')">c) O sistema pode se reconfigurar rapidamente — nova eleição ou novo governo sem esperar o fim do mandato</button>
-      <button class="option-btn" onclick="checkQuiz('q11','d')">d) O rei resolve os conflitos sem necessidade de eleição</button>
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) o impeachment é um instrumento do parlamentarismo, usado quando o premiê perde a confiança.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) o Judiciário pode destituir o presidente da República sem a participação do Congresso Nacional.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) a coalizão garante estabilidade, pois os partidos aliados não podem sair durante o mandato.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) a perda da coalizão gerou uma crise de governabilidade que acelerou o processo jurídico.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','e')">e) a crise econômica é sempre a causa direta e suficiente para a abertura de um impeachment.</button>
     </div>
   </div>
 
   <!-- Q12 -->
   <div class="question-card" data-chapter="cap2" id="q12">
-    <h4>12. O que fundamentalmente diferencia República de Monarquia?</h4>
+    <p class="q-fonte">Em 1961, após a renúncia de Jânio Quadros, o Brasil adotou o parlamentarismo; em 1963, um plebiscito restaurou o presidencialismo.</p>
+    <h4>12. A adoção do parlamentarismo em 1961 foi uma forma de</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q12','a')">a) Na República, o cargo de chefe de Estado é eletivo e temporário; na Monarquia, é hereditário e vitalício</button>
-      <button class="option-btn" onclick="checkQuiz('q12','b')">b) A República sempre é democrática; a Monarquia sempre é autoritária</button>
-      <button class="option-btn" onclick="checkQuiz('q12','c')">c) Na República não existe Constituição; na Monarquia sim</button>
-      <button class="option-btn" onclick="checkQuiz('q12','d')">d) A República tem Primeiro-Ministro; a Monarquia não</button>
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) cumprir o plebiscito de 1993, que escolheu o parlamentarismo por ampla margem de votos.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) fortalecer o presidente, que passou a acumular as chefias de Estado e de governo sem depender do Congresso.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) permitir a posse do vice João Goulart, vetado pelos militares, com poderes reduzidos.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) transformar o Brasil em monarquia parlamentarista, com o retorno da família Orléans e Bragança ao trono.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','e')">e) encerrar uma crise de coalizão, já que Jânio havia perdido o apoio do Senado.</button>
     </div>
   </div>
 
   <!-- Q13 -->
   <div class="question-card" data-chapter="cap3" id="q13">
-    <h4>13. No Estado Federal, diferente do Unitário:</h4>
+    <p class="q-fonte">Em São Paulo vale um rodízio de carros definido localmente. No Reino Unido, as leis são feitas pelo Parlamento nacional e os condados apenas as executam.</p>
+    <h4>13. As situações exemplificam, respectivamente,</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q13','a')">a) As unidades internas têm autonomia para decisões políticas, financeiras e culturais próprias — nunca em âmbito nacional</button>
-      <button class="option-btn" onclick="checkQuiz('q13','b')">b) Não existem unidades internas</button>
-      <button class="option-btn" onclick="checkQuiz('q13','c')">c) Todas as decisões são centralizadas no governo nacional</button>
-      <button class="option-btn" onclick="checkQuiz('q13','d')">d) Não há Constituição</button>
+      <button class="option-btn" onclick="checkQuiz('q13','a')">a) a autonomia das unidades num Estado federal e a centralização num Estado unitário.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','b')">b) a monarquia no Brasil e a república no Reino Unido, que são formas de governo opostas.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','c')">c) o presidencialismo brasileiro e o parlamentarismo britânico, que são sistemas de governo.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','d')">d) a centralização num Estado federal e a autonomia das unidades num Estado unitário.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','e')">e) a judicialização da política no Brasil e a separação de poderes no Reino Unido.</button>
     </div>
   </div>
 
   <!-- Q14 -->
   <div class="question-card" data-chapter="cap3" id="q14">
-    <h4>14. O Reino Unido é o exemplo clássico de Estado:</h4>
+    <p class="q-fonte">O nome oficial do Brasil inclui a expressão "República Federativa", e o país adota o presidencialismo.</p>
+    <h4>14. "República", "Federativa" e "presidencialismo" indicam, nessa ordem,</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q14','a')">a) Federal</button>
-      <button class="option-btn" onclick="checkQuiz('q14','b')">b) Unitário</button>
-      <button class="option-btn" onclick="checkQuiz('q14','c')">c) Confederado</button>
-      <button class="option-btn" onclick="checkQuiz('q14','d')">d) Absolutista</button>
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) sistema de governo, forma de governo e forma de Estado.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) forma de Estado, sistema de governo e forma de governo.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) forma de governo, forma de Estado e sistema de governo.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) forma de governo, sistema de governo e forma de Estado.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','e')">e) tipo de dominação, forma de Estado e sistema eleitoral.</button>
     </div>
   </div>
 
   <!-- Q15 -->
   <div class="question-card" data-chapter="cap3" id="q15">
-    <h4>15. Para Montesquieu, a razão para dividir o poder em três funções é:</h4>
+    <p class="q-fonte">Montesquieu observava as monarquias absolutistas e concluía que o poder corrompe quem o exerce.</p>
+    <h4>15. Sua proposta de separar os poderes buscava</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q15','a')">a) Aumentar a eficiência administrativa</button>
-      <button class="option-btn" onclick="checkQuiz('q15','b')">b) Reduzir o número de funcionários públicos</button>
-      <button class="option-btn" onclick="checkQuiz('q15','c')">c) O poder corrompe quem o exerce — menos poder concentrado significa menos dano em caso de corrupção</button>
-      <button class="option-btn" onclick="checkQuiz('q15','d')">d) Facilitar a comunicação entre os poderes</button>
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) fortalecer o rei, que passaria a nomear livremente os juízes e todos os membros do Parlamento.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) dividir as funções do Estado para que nenhum grupo concentre poder e cada um limite os outros.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) eliminar o Executivo, transferindo todas as decisões políticas para assembleias populares diretas.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) garantir que os juízes fossem eleitos, para que o Judiciário passasse a representar a maioria.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','e')">e) acabar de forma definitiva com a corrupção, tornando dispensável qualquer tipo de fiscalização.</button>
     </div>
   </div>
 
   <!-- Q16 -->
   <div class="question-card" data-chapter="cap3" id="q16">
-    <h4>16. O "sistema de freios e contrapesos" (checks and balances) significa que:</h4>
+    <h4>16. Qual situação exemplifica o sistema de freios e contrapesos?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q16','a')">a) Cada poder atua isoladamente, sem contato com os outros</button>
-      <button class="option-btn" onclick="checkQuiz('q16','b')">b) O Judiciário sempre tem a palavra final sem ser questionado</button>
-      <button class="option-btn" onclick="checkQuiz('q16','c')">c) O Executivo controla os outros dois poderes</button>
-      <button class="option-btn" onclick="checkQuiz('q16','d')">d) Os três poderes se fiscalizam e se limitam mutuamente, evitando que um se torne hegemônico</button>
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) O presidente escolhe sozinho os senadores que vão representar cada estado.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) O STF age por conta própria para investigar qualquer problema que encontre.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) Os vereadores aprovam leis federais que passam a valer em todos os municípios.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) O governador nomeia os deputados estaduais que vão formar a Assembleia.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','e')">e) O Senado precisa aprovar quem o presidente indica para ministro do STF.</button>
     </div>
   </div>
 
   <!-- Q17 -->
   <div class="question-card" data-chapter="cap4" id="q17">
-    <h4>17. No Legislativo federal brasileiro, o Senado garante:</h4>
+    <p class="q-fonte">O estado mais populoso do país elege 70 deputados federais; o menos populoso, 8. No Senado, os dois têm 3 senadores cada.</p>
+    <h4>17. Essa diferença revela que</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q17','a')">a) Representação igualitária entre os estados — 3 senadores por estado, independente do tamanho</button>
-      <button class="option-btn" onclick="checkQuiz('q17','b')">b) Representação proporcional à população de cada estado</button>
-      <button class="option-btn" onclick="checkQuiz('q17','c')">c) Representação apenas dos estados mais populosos</button>
-      <button class="option-btn" onclick="checkQuiz('q17','d')">d) Representação direta dos municípios</button>
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) a Câmara representa a população proporcionalmente, e o Senado, os estados de forma igual.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) a Câmara representa os estados de forma igual, e o Senado, a população de forma proporcional.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) o Senado é uma casa do Poder Judiciário, enquanto a Câmara pertence ao Poder Executivo federal.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) só a Câmara participa da aprovação das leis nacionais, pois o Senado apenas as executa.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','e')">e) os estados menos populosos têm mais deputados federais, por isso não precisam de senadores.</button>
     </div>
   </div>
 
   <!-- Q18 -->
   <div class="question-card" data-chapter="cap4" id="q18">
-    <h4>18. O "Princípio da Inércia" do Judiciário significa que:</h4>
+    <p class="q-fonte">Um juiz lê no jornal sobre um conflito entre vizinhos e decide, por conta própria, abrir um processo para resolvê-lo.</p>
+    <h4>18. Essa atitude contraria</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q18','a')">a) O Judiciário atua constantemente monitorando a sociedade</button>
-      <button class="option-btn" onclick="checkQuiz('q18','b')">b) As decisões judiciais nunca podem ser recorridas</button>
-      <button class="option-btn" onclick="checkQuiz('q18','c')">c) O Judiciário só age quando é formalmente provocado — não sai "caçando" problemas</button>
-      <button class="option-btn" onclick="checkQuiz('q18','d')">d) O Judiciário nunca pode ser acionado</button>
+      <button class="option-btn" onclick="checkQuiz('q18','a')">a) o princípio da legitimidade: só o Executivo pode resolver conflitos entre os cidadãos.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','b')">b) a separação dos poderes, pois conflitos entre vizinhos são competência do Legislativo.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','c')">c) o bicameralismo, que exige aprovação da Câmara e do Senado antes de cada processo.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','d')">d) a judicialização da política, que proíbe juízes de tratar de temas do cotidiano.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','e')">e) o princípio da inércia: o Judiciário só age quando provocado formalmente.</button>
     </div>
   </div>
 
   <!-- Q19 -->
   <div class="question-card" data-chapter="cap4" id="q19">
-    <h4>19. Um crime de tráfico internacional de drogas é julgado por qual esfera do Judiciário?</h4>
+    <p class="q-fonte">Uma pessoa processa o INSS por um benefício negado. Outra entra com uma ação contra uma loja por um produto com defeito.</p>
+    <h4>19. Os casos devem ir, respectivamente, para</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q19','a')">a) Justiça Federal — envolve a União em um crime que abrange mais países</button>
-      <button class="option-btn" onclick="checkQuiz('q19','b')">b) Justiça Estadual</button>
-      <button class="option-btn" onclick="checkQuiz('q19','c')">c) Justiça do Trabalho</button>
-      <button class="option-btn" onclick="checkQuiz('q19','d')">d) Justiça Militar</button>
+      <button class="option-btn" onclick="checkQuiz('q19','a')">a) a Justiça Federal e a Justiça Estadual.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','b')">b) a Justiça Estadual e a Justiça Federal.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','c')">c) a Justiça do Trabalho e a Justiça Militar.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','d')">d) a Justiça Eleitoral e a Justiça Estadual.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','e')">e) a Justiça Federal e a Justiça do Trabalho.</button>
     </div>
   </div>
 
   <!-- Q20 -->
   <div class="question-card" data-chapter="cap4" id="q20">
-    <h4>20. "Judicialização da política" ocorre quando:</h4>
+    <p class="q-fonte">O STF reconheceu o casamento homoafetivo diante da ausência de uma lei aprovada pelo Congresso sobre o tema.</p>
+    <h4>20. Segundo o resumo, esse fenômeno ocorre principalmente porque</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q20','a')">a) O Congresso aprova rapidamente todas as pautas polêmicas</button>
-      <button class="option-btn" onclick="checkQuiz('q20','b')">b) O Executivo assume funções do Judiciário</button>
-      <button class="option-btn" onclick="checkQuiz('q20','c')">c) Ministros do STF são eleitos diretamente pelo povo</button>
-      <button class="option-btn" onclick="checkQuiz('q20','d')">d) O STF decide sobre temas morais/sociais que, em tese, caberiam ao Legislativo — muitas vezes por omissão do Congresso</button>
+      <button class="option-btn" onclick="checkQuiz('q20','a')">a) os ministros do STF têm mandato fixo e precisam agradar o eleitorado para serem reconduzidos.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','b')">b) o STF pode propor e votar leis no lugar do Congresso sempre que considerar o tema necessário.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','c')">c) o princípio da inércia obriga o STF a buscar sozinho os temas que o Congresso não discute.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','d')">d) o presidente transfere ao STF, por decreto, os temas que não quer submeter ao Congresso.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','e')">e) o Congresso evita votar temas polêmicos, e essa omissão faz o STF ser acionado.</button>
     </div>
   </div>
 
   <!-- Q21 -->
   <div class="question-card" data-chapter="cap5" id="q21">
-    <h4>21. O sistema Majoritário Simples (1 turno) se aplica a:</h4>
+    <p class="q-fonte">No 1º turno de uma eleição para governador, o candidato A teve 46% dos votos válidos; B, 38%; e C, 16%.</p>
+    <h4>21. Nesse caso,</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q21','a')">a) Deputados federais e estaduais</button>
-      <button class="option-btn" onclick="checkQuiz('q21','b')">b) Vereadores</button>
-      <button class="option-btn" onclick="checkQuiz('q21','c')">c) Senadores e prefeitos de municípios com menos de 200 mil habitantes</button>
-      <button class="option-btn" onclick="checkQuiz('q21','d')">d) Presidente e governadores</button>
+      <button class="option-btn" onclick="checkQuiz('q21','a')">a) A vence no 1º turno, pois governadores são eleitos pelo sistema majoritário simples.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','b')">b) haverá 2º turno entre A e B, pois ninguém teve mais da metade dos votos válidos.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','c')">c) A vence no 1º turno, pois os votos brancos e nulos completam a maioria absoluta.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','d')">d) haverá 2º turno entre os três, pois todos passaram de 15% dos votos válidos.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','e')">e) a vaga é dividida entre A e B, pois governadores são eleitos pelo sistema proporcional.</button>
     </div>
   </div>
 
   <!-- Q22 -->
   <div class="question-card" data-chapter="cap5" id="q22">
-    <h4>22. No sistema Majoritário Absoluto, o candidato precisa de:</h4>
+    <h4>22. No sistema proporcional, o voto de legenda</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q22','a')">a) Mais da metade dos votos válidos (sem contar brancos e nulos)</button>
-      <button class="option-btn" onclick="checkQuiz('q22','b')">b) Qualquer maioria simples de votos</button>
-      <button class="option-btn" onclick="checkQuiz('q22','c')">c) Exatamente 50% dos votos totais, incluindo brancos e nulos</button>
-      <button class="option-btn" onclick="checkQuiz('q22','d')">d) Apenas o maior número de votos, não importa o percentual</button>
+      <button class="option-btn" onclick="checkQuiz('q22','a')">a) vai para o partido e o ajuda a atingir o quociente, favorecendo os mais votados.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','b')">b) é anulado, pois o eleitor não indicou o número de nenhum candidato específico na urna.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','c')">c) conta como voto em branco e, por isso, fica fora do cálculo do quociente eleitoral.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','d')">d) vai sempre para o candidato menos votado do partido, para equilibrar a bancada eleita.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','e')">e) só é permitido nas eleições para presidente, governador e prefeito do município.</button>
     </div>
   </div>
 
   <!-- Q23 -->
   <div class="question-card" data-chapter="cap5" id="q23">
-    <h4>23. No sistema Proporcional, os votos:</h4>
+    <p class="q-fonte">Em uma cidade, 300 mil votos válidos foram dados para preencher 30 vagas de vereador.</p>
+    <h4>23. O quociente eleitoral dessa eleição é de</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q23','a')">a) Vão diretamente e apenas para o candidato escolhido, sem relação com o partido</button>
-      <button class="option-btn" onclick="checkQuiz('q23','b')">b) Tecnicamente vão para o partido, que atinge o quociente eleitoral e distribui as cadeiras aos candidatos mais votados dentro dele</button>
-      <button class="option-btn" onclick="checkQuiz('q23','c')">c) São sempre anulados se o candidato não vencer</button>
-      <button class="option-btn" onclick="checkQuiz('q23','d')">d) Determinam diretamente quem será o presidente</button>
+      <button class="option-btn" onclick="checkQuiz('q23','a')">a) 0,0001 voto, pois se divide o número de vagas pelo total de votos válidos.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','b')">b) 15 mil votos, pois só metade das vagas é preenchida no sistema proporcional.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','c')">c) 300 mil votos, pois cada partido precisa alcançar todos os votos válidos.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','d')">d) 10 mil votos, pois se divide o total de votos válidos pelo número de vagas.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','e')">e) 9 mil votos, pois os brancos e nulos são somados antes de fazer a divisão.</button>
     </div>
   </div>
 
   <!-- Q24 -->
   <div class="question-card" data-chapter="cap5" id="q24">
-    <h4>24. O Quociente Eleitoral é calculado por:</h4>
+    <p class="q-fonte">Lia tem 17 anos, Pedro tem 35 e Dona Rosa tem 74.</p>
+    <h4>24. Pelas regras do voto no Brasil,</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Número de candidatos ÷ número de partidos</button>
-      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Número de votos válidos ÷ número de candidatos</button>
-      <button class="option-btn" onclick="checkQuiz('q24','c')">c) População total ÷ número de vagas no executivo</button>
-      <button class="option-btn" onclick="checkQuiz('q24','d')">d) Número de vagas (deputados) na eleição ÷ número de eleitores</button>
+      <button class="option-btn" onclick="checkQuiz('q24','a')">a) os três são obrigados a votar, pois o voto é universal para todos os cidadãos.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','b')">b) só Lia e Pedro podem votar; Dona Rosa perdeu o direito por ter mais de 70 anos.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','c')">c) só Dona Rosa é obrigada a votar, pois idosos têm prioridade no alistamento.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','d')">d) só Pedro é obrigado a votar; para Lia e Dona Rosa, o voto é facultativo.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','e')">e) Lia é obrigada a votar, e Pedro e Dona Rosa podem escolher se vão participar.</button>
     </div>
   </div>
 
   <!-- Q25 -->
   <div class="question-card" data-chapter="cap6" id="q25">
-    <h4>25. O conceito de "Poliarquia", criado por Robert Dahl, serve para:</h4>
+    <h4>25. Robert Dahl criou o conceito de poliarquia para</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q25','a')">a) Descrever sistemas políticos numa escala de proximidade com a democracia, evitando o binarismo</button>
-      <button class="option-btn" onclick="checkQuiz('q25','b')">b) Classificar países apenas como "democracia" ou "ditadura"</button>
-      <button class="option-btn" onclick="checkQuiz('q25','c')">c) Definir o número ideal de partidos políticos</button>
-      <button class="option-btn" onclick="checkQuiz('q25','d')">d) Medir apenas o PIB de um país</button>
+      <button class="option-btn" onclick="checkQuiz('q25','a')">a) defender que todo país sem Constituição escrita deve ser classificado como uma ditadura.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','b')">b) provar que democracia e ditadura são opostos absolutos, sem nenhuma posição intermediária.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','c')">c) medir os regimes numa escala, em vez de dividi-los só entre ditadura e democracia.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','d')">d) descrever o governo de um único líder carismático apoiado por muitos seguidores fiéis.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','e')">e) classificar os países pelo tamanho da população e pela quantidade de partidos políticos.</button>
     </div>
   </div>
 
   <!-- Q26 -->
   <div class="question-card" data-chapter="cap6" id="q26">
-    <h4>26. NÃO é um dos pilares de uma democracia plena:</h4>
+    <p class="q-fonte">Em um país, a Constituição garante eleições, mas o governo controla a única emissora de TV e nomeia juízes alinhados ao partido no poder.</p>
+    <h4>26. Segundo os pilares de uma democracia plena, esse país</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q26','a')">a) Judiciário independente</button>
-      <button class="option-btn" onclick="checkQuiz('q26','b')">b) Mídia diversificada e livre</button>
-      <button class="option-btn" onclick="checkQuiz('q26','c')">c) Um único partido com maioria absoluta permanente</button>
-      <button class="option-btn" onclick="checkQuiz('q26','d')">d) Liberdades civis e políticas garantidas</button>
+      <button class="option-btn" onclick="checkQuiz('q26','a')">a) é uma democracia plena, pois a sua Constituição prevê eleições periódicas para o Executivo e o Legislativo.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','b')">b) é uma democracia plena, desde que a emissora estatal tenha boa audiência na população.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','c')">c) falha em pilares como Judiciário independente e mídia diversa, apesar da Constituição.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','d')">d) falha apenas no processo eleitoral, já que juízes e mídia não pesam na democracia real.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','e')">e) deixa de ter Estado, pois o controle da TV e dos juízes significa a perda do monopólio da violência física.</button>
     </div>
   </div>
 
   <!-- Q27 -->
   <div class="question-card" data-chapter="cap6" id="q27">
-    <h4>27. No Índice de Democracia da The Economist, a nota 0,00 representa:</h4>
+    <p class="q-fonte">Em um país, as eleições são irregulares, a oposição sofre assédio, o Judiciário está parcialmente cooptado e a imprensa é censurada.</p>
+    <h4>27. Pelo Índice de Democracia da revista The Economist, esse quadro corresponde a um regime</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q27','a')">a) Democracia perfeita</button>
-      <button class="option-btn" onclick="checkQuiz('q27','b')">b) Democracia híbrida</button>
-      <button class="option-btn" onclick="checkQuiz('q27','c')">c) Estado federal</button>
-      <button class="option-btn" onclick="checkQuiz('q27','d')">d) Autoritarismo absoluto</button>
+      <button class="option-btn" onclick="checkQuiz('q27','a')">a) autoritário, com oposição ilegalizada e mídia só estatal.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','b')">b) pleno, com eleições livres e Judiciário independente.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','c')">c) imperfeito, com eleições livres e pressões só menores.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','d')">d) parlamentarista, com governo que nasce do Parlamento.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','e')">e) híbrido, com eleições irregulares e oposição sob pressão.</button>
     </div>
   </div>
 
   <!-- Q28 -->
   <div class="question-card" data-chapter="cap6" id="q28">
-    <h4>28. Um país classificado como "democracia híbrida" no Índice de Democracia tipicamente apresenta:</h4>
+    <p class="q-fonte">Um estudante afirma: "Dizer que um país é uma democracia imperfeita é contraditório: ou ele é democracia, ou não é."</p>
+    <h4>28. Com base na ideia de poliarquia, a afirmação está</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q28','a')">a) Processo eleitoral totalmente livre e justo, sem nenhuma irregularidade</button>
-      <button class="option-btn" onclick="checkQuiz('q28','b')">b) Oposição política atuando com total liberdade</button>
-      <button class="option-btn" onclick="checkQuiz('q28','c')">c) Processo eleitoral fraudulento/irregular e oposição sofrendo pressão ou assédio</button>
-      <button class="option-btn" onclick="checkQuiz('q28','d')">d) Mídia totalmente controlada pelo Estado, sem qualquer diversidade</button>
+      <button class="option-btn" onclick="checkQuiz('q28','a')">a) certa, pois só existem dois regimes possíveis: democracia total e ditadura total.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','b')">b) errada, pois a maioria dos países fica em pontos intermediários de um espectro.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','c')">c) certa, pois uma democracia com qualquer falha passa a ser classificada como ditadura.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','d')">d) errada, pois todo país com Constituição escrita é automaticamente uma democracia.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','e')">e) errada, pois o índice mede só o tamanho da economia, e não o regime político.</button>
     </div>
   </div>
 
@@ -1359,12 +1415,37 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── Quiz ── */
-const ANSWERS = {
-  q1:'b', q2:'c', q3:'a', q4:'b', q5:'c', q6:'d', q7:'c', q8:'a', q9:'c', q10:'b', q11:'c', q12:'a',
-  q13:'a', q14:'b', q15:'c', q16:'d',
-  q17:'a', q18:'c', q19:'a', q20:'d',
-  q21:'c', q22:'a', q23:'b', q24:'d',
-  q25:'a', q26:'c', q27:'d', q28:'c'
+const ANSWERS = {q1:'a', q2:'a', q3:'b', q4:'c', q5:'d', q6:'c', q7:'b', q8:'b', q9:'d', q10:'e', q11:'d', q12:'c', q13:'a', q14:'c', q15:'b', q16:'e', q17:'a', q18:'e', q19:'a', q20:'e', q21:'b', q22:'a', q23:'d', q24:'d', q25:'c', q26:'c', q27:'e', q28:'b'};
+/* Explicação mostrada depois de responder */
+const EXPLICA = {
+  q1: "Para Weber, poder é conseguir obediência mesmo contra a vontade do outro. Quando não há legitimidade (obediência por medo), é coerção; quando os dominados aceitam o poder como válido, é autoridade (dominação).",
+  q2: "Quem define a legitimidade são os dominados, não quem exerce o poder. Se a população não aceita o poder como válido, o que existe é coerção, por mais que o governo se declare legítimo.",
+  q3: "Obedece-se ao cargo e à lei, não à pessoa: é a dominação legal-racional. \"Coercitiva\" não é um dos três tipos de dominação legítima; coerção é justamente o poder sem legitimidade.",
+  q4: "A dominação carismática depende da pessoa do líder. Quando ele morre, o grupo precisa \"rotinizar\" o carisma em tradição ou regras para sobreviver, como a Igreja Católica e partidos após seus fundadores.",
+  q5: "Weber chamava os tipos de dominação de \"tipos ideais\": ferramentas de análise. Na prática eles se misturam, como um presidente eleito (legal-racional) com muito carisma.",
+  q6: "Só o Estado tem o direito (aceito como legítimo) de usar a força em último recurso. Um grupo armado também usa violência, mas sem legitimidade: pagar sob ameaça não é aceitação voluntária.",
+  q7: "O chefe de Estado é um monarca hereditário (por isso é monarquia, e não república), com função simbólica; o governo real é do primeiro-ministro, que nasce do Parlamento.",
+  q8: "A Alemanha é república parlamentarista. O Reino Unido e o Japão são monarquias parlamentaristas; Brasil e EUA são repúblicas presidencialistas.",
+  q9: "Com dezenas de partidos e nenhum com maioria, o presidente monta uma coalizão distribuindo ministérios e cargos (loteamento) em troca de apoio. Essa coalizão é frágil.",
+  q10: "No parlamentarismo, um governo sem maioria cai e o sistema se reconfigura (novo governo ou nova eleição). No presidencialismo, o mandato fixo mantém o presidente até o fim ou até um impeachment.",
+  q11: "Sem a base aliada, o governo Dilma ficou paralisado; a crise de governabilidade antecedeu e acelerou o impeachment. O impeachment é um mecanismo do presidencialismo, conduzido pelo Congresso.",
+  q12: "O parlamentarismo foi a saída para dar posse a Jango, vetado pelos militares, tirando dele a chefia de governo. O plebiscito de 1993 confirmou o presidencialismo (55% contra 25%).",
+  q13: "Forma de Estado trata da organização territorial do poder: no federal, as unidades têm autonomia (leis locais); no unitário, as decisões são nacionais e as unidades só executam. A alternativa sobre presidencialismo traz fatos verdadeiros, mas não é o que os exemplos mostram.",
+  q14: "República é forma de governo; federação (União, 26 estados, DF e municípios) é forma de Estado; presidencialismo é sistema de governo. As três classificações são independentes.",
+  q15: "Legislativo, Executivo e Judiciário separados, fiscalizando-se mutuamente (freios e contrapesos). O resumo lembra que isso não é garantia automática: exige vigilância constante.",
+  q16: "Um poder (Executivo) indica e outro (Legislativo) aprova: cada um limita o outro. As demais alternativas descrevem situações que não existem ou violam princípios, como a inércia do Judiciário.",
+  q17: "Bicameralismo: a Câmara (513 deputados) é proporcional à população; o Senado (81 senadores, 3 por estado e DF) garante representação igual. Uma lei nacional passa pelas duas casas.",
+  q18: "Pelo princípio da inércia, o Judiciário não sai \"caçando\" problemas: só se move em casos concretos levados formalmente pelos interessados.",
+  q19: "Conflitos com a União e órgãos federais (INSS, Caixa) vão à Justiça Federal (~10% dos casos). O dia a dia, como direito do consumidor, vai à Justiça Estadual (~90%).",
+  q20: "É a judicialização da política: diante da omissão legislativa em temas polêmicos, o STF é acionado. Os ministros não têm mandato (ficam até os 75 anos), justamente para não dependerem de agradar grupos.",
+  q21: "Governador usa o majoritário absoluto: é preciso mais da metade dos votos válidos (brancos e nulos não contam). Sem isso, os dois mais votados vão ao 2º turno.",
+  q22: "No proporcional, os votos tecnicamente vão para os partidos. O voto de legenda soma para o partido atingir o quociente; as cadeiras ficam com os candidatos mais votados dele.",
+  q23: "Quociente eleitoral = votos válidos ÷ vagas = 300.000 ÷ 30 = 10.000. Cada vez que um partido atinge esse número, conquista uma cadeira.",
+  q24: "O voto é obrigatório dos 18 aos 70 anos e facultativo para quem tem 16 ou 17 anos e para quem tem mais de 70. Universal significa que todos podem votar, não que todos sejam obrigados.",
+  q25: "Poliarquia (\"governo de muitos\") é uma escala de proximidade com a democracia, contra o binarismo \"ou é ditadura total, ou democracia total\".",
+  q26: "A democracia não é garantida só pela Constituição no papel: dependem dela, na prática, Judiciário independente, liberdades, governo equilibrado e mídia diversificada.",
+  q27: "No regime híbrido, eleições são fraudulentas ou irregulares, a oposição é pressionada, o Judiciário é parcialmente cooptado e a mídia, assediada. No autoritário, a oposição é presa e a mídia, controlada pelo Estado.",
+  q28: "Classificações como \"imperfeita\" ou \"híbrida\" não são contraditórias: esse é o ponto da poliarquia. A maioria dos países reais está em algum ponto do espectro, não nos extremos."
 };
 let answered = {}, score = 0, total = 0;
 
@@ -1384,7 +1465,7 @@ function checkQuiz(qid, choice) {
   if (choice === correct) score++;
   let exp = card.querySelector('.answer-exp');
   if (!exp) { exp = document.createElement('div'); exp.className = 'answer-exp'; card.querySelector('.options').after(exp); }
-  exp.innerHTML = '<span>✔</span><span>' + correctText + '</span>';
+  exp.innerHTML = '<span>✔</span><span><strong>' + correctText + '</strong>' + (EXPLICA[qid] ? '<br>' + EXPLICA[qid] : '') + '</span>';
   exp.style.display = 'flex';
   const N = Object.keys(ANSWERS).length;
   document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
@@ -1436,33 +1517,14 @@ function resetQuiz() {
   pctEl.textContent = '—'; pctEl.style.color = '#aaa';
 }
 
-/* ── Chat ── */
-function toggleChat() {
-  const p = document.getElementById('chat-panel');
-  p.classList.toggle('open');
-  if (p.classList.contains('open')) document.getElementById('chat-input').focus();
-}
 
-function getContext() {
-  return (document.querySelector('main') || document.body).innerText.replace(/\s+/g,' ').slice(0,6000);
-}
 
-async function sendMsg(e) {
-  e.preventDefault();
-  const input = document.getElementById('chat-input');
-  const msgs = document.getElementById('chat-msgs');
-  const text = input.value.trim();
-  if (!text) return;
-  input.value = '';
-  const u = document.createElement('div'); u.className = 'cmsg user'; u.textContent = text; msgs.appendChild(u);
-  const l = document.createElement('div'); l.className = 'cmsg bot loading'; l.textContent = 'Pensando...'; msgs.appendChild(l); msgs.scrollTop = msgs.scrollHeight;
-  try {
-    const r = await fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:text, context:getContext() }) });
-    const d = await r.json();
-    l.className = 'cmsg bot'; l.textContent = d.reply || d.error;
-  } catch { l.className = 'cmsg bot'; l.textContent = 'Erro de conexão. Tente novamente.'; }
-  msgs.scrollTop = msgs.scrollHeight;
-}
+
+
+
 </script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/contribuir.js" defer></script>
 </body>
 </html>

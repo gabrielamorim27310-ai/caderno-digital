@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-pagina="historia-2tri" data-materia="historia">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <title>História 2º Tri — Revolução Francesa ao Período Regencial 2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
     --primary:   #1a2744;
     --secondary: #c9953c;
@@ -165,8 +165,11 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
 <script src="config.js"></script>
 <link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
 </head>
-<body>
+<body class="ios resumo">
 <div class="progress-bar" id="progressBar"></div>
 
 <div class="hero">
@@ -957,314 +960,366 @@
     <button class="filter-btn" onclick="filterQuiz('cap7',this)">Cap. 7 — Regencial</button>
   </div>
 
-  <!-- Q1 -->
+    <!-- Q1 -->
   <div class="question-card" data-chapter="cap1" id="q1">
-    <h4>1. O 3º Estado da sociedade francesa era composto por:</h4>
+    <p class="q-fonte">Em maio de 1789, Luís XVI convocou os Estados Gerais para resolver a crise fiscal. O Terceiro Estado exigiu que a votação fosse "por cabeça", e não "por estado". Diante do impasse, seus deputados se proclamaram Assembleia Nacional.</p>
+    <h4>1. A exigência do voto por cabeça era estratégica para o Terceiro Estado porque</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q1','a')">a) Clero e nobreza</button>
-      <button class="option-btn" onclick="checkQuiz('q1','b')">b) Apenas a burguesia</button>
-      <button class="option-btn" onclick="checkQuiz('q1','c')">c) Todos os demais — burgueses, sans-culottes e camponeses (98% da população)</button>
-      <button class="option-btn" onclick="checkQuiz('q1','d')">d) Apenas os camponeses e escravos</button>
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) dava aos sans-culottes e camponeses o direito de escolher diretamente os ministros do rei.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) reduzia a bancada do clero, que tinha mais deputados que as outras duas ordens somadas.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) permitia ao rei dissolver a assembleia sempre que as três ordens chegassem a um empate.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) transferia ao Terceiro Estado a cobrança dos impostos que antes cabia à própria nobreza.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','e')">e) acabava com a vantagem do clero e da nobreza, que no voto por ordem venciam por 2 a 1.</button>
     </div>
   </div>
 
   <!-- Q2 -->
   <div class="question-card" data-chapter="cap1" id="q2">
-    <h4>2. O período do Terror (1793–1794) foi liderado por:</h4>
+    <p class="q-fonte">A Declaração dos Direitos do Homem e do Cidadão (1789) proclamou liberdade, igualdade e propriedade. Dois anos depois, a Constituição de 1791 adotou o voto censitário.</p>
+    <h4>2. A convivência dessas duas medidas na primeira fase da Revolução revela que</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q2','a')">a) Napoleão Bonaparte</button>
-      <button class="option-btn" onclick="checkQuiz('q2','b')">b) Robespierre, pelo Comitê de Salvação Pública</button>
-      <button class="option-btn" onclick="checkQuiz('q2','c')">c) Luís XVI</button>
-      <button class="option-btn" onclick="checkQuiz('q2','d')">d) Os girondinos</button>
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) os sans-culottes controlavam a Assembleia e usaram o voto para excluir o clero e a nobreza do poder.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) a igualdade proclamada em 1789 valia apenas para os nobres que haviam renunciado aos seus títulos.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) Luís XVI impôs o voto censitário como condição para aceitar a Declaração e permanecer no trono.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) a Constituição de 1791 aboliu a monarquia e entregou o governo aos camponeses alfabetizados.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','e')">e) a burguesia no poder defendia a igualdade perante a lei, mas reservava o voto aos ricos.</button>
     </div>
   </div>
 
   <!-- Q3 -->
   <div class="question-card" data-chapter="cap1" id="q3">
-    <h4>3. Qual evento marcou simbolicamente o início da Revolução Haitiana, em 1791?</h4>
+    <p class="q-fonte">Entre 1792 e 1794, com a guerra contra Áustria e Prússia e a pressão popular, os jacobinos derrubaram os girondinos, proclamaram a República e instauraram o Terror.</p>
+    <h4>3. Considerando a base social dos grupos da Convenção, a ascensão jacobina se explica pela</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q3','a')">a) A cerimônia vodu de Bois Caïman</button>
-      <button class="option-btn" onclick="checkQuiz('q3','b')">b) A Batalha de Vertières</button>
-      <button class="option-btn" onclick="checkQuiz('q3','c')">c) A prisão de Toussaint L'Ouverture</button>
-      <button class="option-btn" onclick="checkQuiz('q3','d')">d) O decreto de Napoleão restaurando a escravidão</button>
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) união entre girondinos e nobres emigrados para restaurar a monarquia constitucional de 1791.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) vitória do Pântano, que entregou o governo a Napoleão para encerrar a guerra contra a Áustria.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) aliança da média burguesia com os sans-culottes, pela República e pelo sufrágio universal.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) adesão da alta burguesia, que via no Terror o caminho para restabelecer o voto censitário.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','e')">e) intervenção da Inglaterra, interessada numa França republicana e aberta ao livre comércio.</button>
     </div>
   </div>
 
   <!-- Q4 -->
   <div class="question-card" data-chapter="cap1" id="q4">
-    <h4>4. Por que a Convenção Jacobina decretou a abolição da escravidão nas colônias francesas em 1794?</h4>
+    <p class="q-fonte">"Tremei, tiranos, usurpadores, flagelos do Novo Mundo! [...] Liberdade e Independência! Esse é o nosso grito de união." (Jean-Jacques Dessalines, 1804)</p>
+    <h4>4. A independência do Haiti repercutiu nas sociedades escravistas das Américas porque</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q4','a')">a) Puramente por convicção moral, sem relação com a guerra</button>
-      <button class="option-btn" onclick="checkQuiz('q4','b')">b) Para conter as rebeliões em curso e barrar a influência inglesa e espanhola em Saint-Domingue</button>
-      <button class="option-btn" onclick="checkQuiz('q4','c')">c) Por pressão direta da Inglaterra</button>
-      <button class="option-btn" onclick="checkQuiz('q4','d')">d) Porque Napoleão havia solicitado a medida</button>
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) foi conduzida por proprietários que mantiveram a escravidão, servindo de modelo às elites do Brasil.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) foi uma revolta escrava vitoriosa, que espalhou entre as elites o medo do "haitianismo".</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) contou com o apoio de Napoleão, que via na abolição uma forma de enfraquecer a economia inglesa.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) resultou de um acordo diplomático pelo qual a França recebeu indenização para liberar a colônia.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','e')">e) transformou o Haiti em protetorado inglês, o que ampliou o livre comércio em todo o Caribe.</button>
     </div>
   </div>
 
   <!-- Q5 -->
   <div class="question-card" data-chapter="cap2" id="q5">
-    <h4>5. O Golpe de 18 Brumário (1799) resultou em:</h4>
+    <h4>5. O Código Napoleônico é visto como herança da Revolução, mas também revela seus limites. Uma contradição presente nele é</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q5','a')">a) Restauração da monarquia dos Bourbon</button>
-      <button class="option-btn" onclick="checkQuiz('q5','b')">b) Dissolução do Diretório e criação do Consulado, com Napoleão como 1º cônsul</button>
-      <button class="option-btn" onclick="checkQuiz('q5','c')">c) Início do período do Terror</button>
-      <button class="option-btn" onclick="checkQuiz('q5','d')">d) Proclamação da Primeira República Francesa</button>
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) afirmar a igualdade perante a lei e manter mulheres e trabalhadores juridicamente subordinados.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) abolir a propriedade privada e, ao mesmo tempo, preservar os privilégios fiscais do clero católico.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) proibir a escravidão nas colônias e, ao mesmo tempo, legalizar a servidão dos camponeses franceses.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) instituir o voto feminino e, ao mesmo tempo, proibir os sindicatos e as associações de operários.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','e')">e) restaurar o absolutismo e, ao mesmo tempo, adotar a separação completa entre o Estado e a Igreja.</button>
     </div>
   </div>
 
   <!-- Q6 -->
   <div class="question-card" data-chapter="cap2" id="q6">
-    <h4>6. O Bloqueio Continental (1806), imposto por Napoleão, teve qual consequência direta para o Brasil?</h4>
+    <p class="q-fonte">Derrotada em Trafalgar (1805), a França não conseguia vencer a Inglaterra no mar. Em 1806, Napoleão decretou o Bloqueio Continental.</p>
+    <h4>6. O Bloqueio Continental se liga diretamente à história do Brasil porque</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q6','a')">a) Nenhuma — o Brasil era irrelevante nesse conflito</button>
-      <button class="option-btn" onclick="checkQuiz('q6','b')">b) A invasão de Portugal (que não aderiu ao bloqueio) provocou a fuga da família real para o Brasil em 1807-08</button>
-      <button class="option-btn" onclick="checkQuiz('q6','c')">c) O Brasil aderiu ao bloqueio e rompeu com a Inglaterra</button>
-      <button class="option-btn" onclick="checkQuiz('q6','d')">d) Motivou a independência imediata do Brasil</button>
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) a recusa de Portugal em aderir levou à invasão francesa e à vinda da Corte para o Brasil.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) obrigou o Brasil a vender açúcar apenas à França, rompendo o monopólio comercial português.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) fez a Inglaterra ocupar Salvador, o que forçou D. João a abrir os portos ao comércio inglês.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) levou D. João a declarar guerra à Inglaterra e a fechar os portos brasileiros aos britânicos.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','e')">e) motivou a Revolução Pernambucana, financiada por Napoleão para enfraquecer o reino de Portugal.</button>
     </div>
   </div>
 
   <!-- Q7 -->
   <div class="question-card" data-chapter="cap2" id="q7">
-    <h4>7. Qual das alternativas é uma contradição do Código Napoleônico, apesar de seus princípios liberais?</h4>
+    <p class="q-fonte">Thomas Jefferson acusou Napoleão de "perverter os poderes" que lhe foram confiados e de instituir um "despotismo militar".</p>
+    <h4>7. Considerando a trajetória de Napoleão entre 1799 e 1804, essa crítica se apoia no fato de que ele</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q7','a')">a) Garantia total de direitos políticos às mulheres</button>
-      <button class="option-btn" onclick="checkQuiz('q7','b')">b) Restabelecimento da escravidão nas colônias francesas</button>
-      <button class="option-btn" onclick="checkQuiz('q7','c')">c) Abolição da propriedade privada</button>
-      <button class="option-btn" onclick="checkQuiz('q7','d')">d) Liberdade irrestrita de organização sindical</button>
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) restaurou a dinastia Bourbon e devolveu à nobreza as terras confiscadas durante a Revolução.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) aboliu o Código Civil e passou a governar por decretos do Comitê de Salvação Pública francês.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) aliou-se à Santa Aliança para reprimir as revoltas liberais que surgiam na Espanha e na Itália.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) chegou ao poder por golpe, virou cônsul vitalício e depois imperador, concentrando o poder.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','e')">e) renunciou ao comando do exército e entregou o governo a um Diretório formado por cinco membros.</button>
     </div>
   </div>
 
   <!-- Q8 -->
   <div class="question-card" data-chapter="cap2" id="q8">
-    <h4>8. A derrota final de Napoleão ocorreu em qual batalha, em 1815?</h4>
+    <p class="q-fonte">I. Fuga de Elba e início dos Cem Dias.
+II. Batalha de Leipzig, a "Batalha das Nações".
+III. Derrota em Waterloo e exílio em Santa Helena.
+IV. Invasão de Paris pelos aliados e primeira abdicação.</p>
+    <h4>8. A sequência cronológica correta da queda de Napoleão é</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Austerlitz</button>
-      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Trafalgar</button>
-      <button class="option-btn" onclick="checkQuiz('q8','c')">c) Leipzig</button>
-      <button class="option-btn" onclick="checkQuiz('q8','d')">d) Waterloo</button>
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) IV, II, I, III.</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) II, I, IV, III.</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) I, II, IV, III.</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) II, IV, III, I.</button>
+      <button class="option-btn" onclick="checkQuiz('q8','e')">e) II, IV, I, III.</button>
     </div>
   </div>
 
   <!-- Q9 -->
   <div class="question-card" data-chapter="cap3" id="q9">
-    <h4>9. O princípio da "Legitimidade" no Congresso de Viena significava:</h4>
+    <h4>9. No Congresso de Viena, o princípio da legitimidade expressava a intenção de</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Reconhecer os governos criados pela Revolução Francesa</button>
-      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Restaurar as casas reais que reinavam antes de 1789</button>
-      <button class="option-btn" onclick="checkQuiz('q9','c')">c) Legitimar a expansão territorial de Napoleão</button>
-      <button class="option-btn" onclick="checkQuiz('q9','d')">d) Criar repúblicas em toda a Europa</button>
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) reconhecer como legítimos os governos formados durante a Revolução e o Império de Napoleão.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) devolver o trono às dinastias anteriores a 1789 e anular as mudanças impostas pela França.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) garantir que cada povo europeu escolhesse sua forma de governo por meio de um plebiscito.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) dividir o território francês entre os vencedores, extinguindo de vez a monarquia na França.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','e')">e) impedir que as potências mantivessem colônias, devolvendo-as às suas populações nativas.</button>
     </div>
   </div>
 
   <!-- Q10 -->
   <div class="question-card" data-chapter="cap3" id="q10">
-    <h4>10. Por que a Inglaterra recusou aderir à Santa Aliança?</h4>
+    <p class="q-fonte">A Inglaterra esteve entre as potências vencedoras de Napoleão, mas não aderiu à Santa Aliança, criada pelo czar Alexandre I.</p>
+    <h4>10. Essa recusa se explica porque a Inglaterra</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q10','a')">a) Porque já havia sido derrotada por Napoleão</button>
-      <button class="option-btn" onclick="checkQuiz('q10','b')">b) Porque priorizava o livre comércio, inclusive com as novas nações independentes da América</button>
-      <button class="option-btn" onclick="checkQuiz('q10','c')">c) Porque não reconhecia a autoridade do czar russo</button>
-      <button class="option-btn" onclick="checkQuiz('q10','d')">d) Porque era uma república, não uma monarquia</button>
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) priorizava o livre comércio e queria mercados abertos, inclusive na América Latina.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) defendia o absolutismo, mas não aceitava a liderança do czar russo sobre a nova aliança cristã.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) pretendia recolonizar a América Espanhola e temia a concorrência da Rússia nos mares.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) tinha sido derrotada em Waterloo e por isso perdeu o direito de participar dos acordos.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','e')">e) era aliada de Napoleão e se opunha à restauração das monarquias que ele havia deposto.</button>
     </div>
   </div>
 
   <!-- Q11 -->
-  <div class="question-card" data-chapter="cap4" id="q11">
-    <h4>11. As Reformas Bourbônicas nas colônias espanholas tiveram qual efeito?</h4>
+  <div class="question-card" data-chapter="cap3" id="q11">
+    <p class="q-fonte">"A América para os americanos." (Doutrina Monroe, Estados Unidos, 1823)</p>
+    <h4>11. Essa doutrina pode ser entendida como reação</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q11','a')">a) Reduziram os impostos e agradaram aos criollos</button>
-      <button class="option-btn" onclick="checkQuiz('q11','b')">b) Centralizaram o poder e aumentaram impostos, favorecendo peninsulares e intensificando tensões</button>
-      <button class="option-btn" onclick="checkQuiz('q11','c')">c) Deram autonomia total aos cabildos locais</button>
-      <button class="option-btn" onclick="checkQuiz('q11','d')">d) Aboliram a escravidão em todas as colônias</button>
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) ao Bloqueio Continental, que impedia os EUA de vender algodão aos portos da Grã-Bretanha.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) à expansão do Haiti, que ameaçava ocupar as ilhas do Caribe controladas pelos americanos.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) ao Congresso do Panamá, que pretendia incluir os EUA numa liga de nações sul-americanas.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) à ameaça de a Santa Aliança intervir para devolver à Espanha suas antigas colônias.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','e')">e) à independência do Brasil, que transformou o novo Império em rival comercial dos EUA.</button>
     </div>
   </div>
 
   <!-- Q12 -->
-  <div class="question-card" data-chapter="cap4" id="q12">
-    <h4>12. O que a Carta da Jamaica (1815), de Simón Bolívar, defendia?</h4>
+  <div class="question-card" data-chapter="cap3" id="q12">
+    <h4>12. O Congresso de Viena costuma ser associado à ideia de "Restauração". Qual medida NÃO corresponde aos seus objetivos e princípios?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q12','a')">a) A permanência das colônias sob domínio espanhol</button>
-      <button class="option-btn" onclick="checkQuiz('q12','b')">b) A necessidade da independência e a criação de nações latino-americanas autônomas e unidas</button>
-      <button class="option-btn" onclick="checkQuiz('q12','c')">c) A anexação da América Espanhola aos Estados Unidos</button>
-      <button class="option-btn" onclick="checkQuiz('q12','d')">d) A restauração da monarquia inca</button>
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) Restabelecer os privilégios do clero e da nobreza nos reinos que foram restaurados.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) Difundir o Código Civil napoleônico como base legal das monarquias restauradas.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) Redesenhar as fronteiras para impedir o predomínio de uma única potência europeia.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) Impor à França perdas de território, ocupação militar e pagamento de indenizações.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','e')">e) Reprimir os movimentos liberais inspirados nos ideais da Revolução Francesa.</button>
     </div>
   </div>
 
   <!-- Q13 -->
   <div class="question-card" data-chapter="cap4" id="q13">
-    <h4>13. Qual foi o apoio decisivo do Haiti à campanha de Bolívar?</h4>
+    <p class="q-fonte">As Reformas Bourbônicas centralizaram o poder, enfraqueceram os cabildos e aumentaram impostos, favorecendo os peninsulares em detrimento dos criollos.</p>
+    <h4>13. Esse quadro ajuda a entender</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q13','a')">a) Enviou tropas para lutar diretamente ao lado de Bolívar</button>
-      <button class="option-btn" onclick="checkQuiz('q13','b')">b) O presidente Alexandre Pétion forneceu armas, navios e apoio logístico, em troca do fim da escravidão nos territórios libertados</button>
-      <button class="option-btn" onclick="checkQuiz('q13','c')">c) Financiou integralmente o Congresso do Panamá</button>
-      <button class="option-btn" onclick="checkQuiz('q13','d')">d) Cedeu o território de Saint-Domingue para a Grã-Colômbia</button>
+      <button class="option-btn" onclick="checkQuiz('q13','a')">a) por que os peninsulares, nascidos na Espanha, lideraram a luta pela independência contra os Bourbon.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','b')">b) por que os cabildos se fortaleceram e passaram a ser controlados pelos peninsulares nomeados pela Coroa.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','c')">c) por que a mineração de prata foi abandonada e substituída pelo cultivo de café no México e no Peru.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','d')">d) por que os criollos, embora ricos, lideraram a independência em busca do poder que lhes faltava.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','e')">e) por que os mestiços conquistaram os altos cargos e excluíram os criollos da economia colonial.</button>
     </div>
   </div>
 
   <!-- Q14 -->
   <div class="question-card" data-chapter="cap4" id="q14">
-    <h4>14. A Batalha de Ayacucho (1824) teve qual significado histórico?</h4>
+    <h4>14. Os criollos defendiam uma "independência conservadora". No contexto hispano-americano, isso significava</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q14','a')">a) Marcou o início da presença espanhola na América do Sul</button>
-      <button class="option-btn" onclick="checkQuiz('q14','b')">b) Foi a vitória decisiva que encerrou o poder militar espanhol na América do Sul</button>
-      <button class="option-btn" onclick="checkQuiz('q14','c')">c) Deu início à Guerra da Cisplatina</button>
-      <button class="option-btn" onclick="checkQuiz('q14','d')">d) Resultou na criação da Santa Aliança</button>
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) manter os laços com a Espanha, aceitando a Constituição de Cádiz como lei definitiva da América.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) restaurar o Império Inca sob o comando indígena, como havia proposto Túpac Amaru II em 1780.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) romper com a Espanha mantendo o latifúndio, a escravidão e a hierarquia social da colônia.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) abolir a escravidão sem indenização e redistribuir as terras dos latifúndios entre os indígenas.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','e')">e) unificar toda a América Espanhola num único Estado governado a partir da cidade de Lima.</button>
     </div>
   </div>
 
   <!-- Q15 -->
-  <div class="question-card" data-chapter="cap5" id="q15">
-    <h4>15. A Abertura dos Portos às Nações Amigas (1808) teve como principal beneficiada:</h4>
+  <div class="question-card" data-chapter="cap4" id="q15">
+    <p class="q-fonte">Em 1808, Napoleão invadiu a Espanha, forçou a abdicação de Fernando VII e pôs seu irmão José Bonaparte no trono.</p>
+    <h4>15. Na América Espanhola, esse episódio</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q15','a')">a) A França</button>
-      <button class="option-btn" onclick="checkQuiz('q15','b')">b) A Espanha</button>
-      <button class="option-btn" onclick="checkQuiz('q15','c')">c) A Inglaterra</button>
-      <button class="option-btn" onclick="checkQuiz('q15','d')">d) Os Estados Unidos</button>
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) levou as colônias a aceitar José Bonaparte como rei legítimo, sem nenhum tipo de resistência local.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) pôs fim às Juntas de Governo, pois a nova Coroa francesa centralizou toda a administração em Madri.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) fez Fernando VII transferir a Corte para a América, como D. João havia feito no Brasil naquele ano.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) provocou a abolição da escravidão nas colônias, decretada por José Bonaparte logo após a posse.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','e')">e) abriu um vácuo de poder: Juntas governavam "em nome de Fernando VII", mas com autonomia de fato.</button>
     </div>
   </div>
 
   <!-- Q16 -->
-  <div class="question-card" data-chapter="cap5" id="q16">
-    <h4>16. O que mudou juridicamente para o Brasil em 1815?</h4>
+  <div class="question-card" data-chapter="cap4" id="q16">
+    <p class="q-fonte">"A Europa não diz que somos incapazes de nos governar? Por que não seríamos capazes?" (Simón Bolívar, Carta da Jamaica, 1815)</p>
+    <h4>16. O projeto expresso por Bolívar nessa carta, e retomado no Congresso do Panamá (1826), propunha</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q16','a')">a) Tornou-se uma república independente</button>
-      <button class="option-btn" onclick="checkQuiz('q16','b')">b) Deixou de ser colônia, tornando-se Reino Unido de Portugal, Brasil e Algarves</button>
-      <button class="option-btn" onclick="checkQuiz('q16','c')">c) Passou a ser administrado diretamente pela Inglaterra</button>
-      <button class="option-btn" onclick="checkQuiz('q16','d')">d) Foi dividido em duas colônias distintas</button>
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) a manutenção do vínculo com a Espanha, desde que a Coroa adotasse uma Constituição liberal e moderna.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) a anexação da América do Sul pelos Estados Unidos, como garantia contra a ameaça da Santa Aliança.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) nações latino-americanas autônomas, unidas contra o domínio europeu e o isolamento entre elas.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) a divisão do continente em monarquias governadas por príncipes europeus aliados da Inglaterra.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','e')">e) a união das antigas colônias sob o comando de San Martín, a partir de Buenos Aires e Santiago.</button>
     </div>
   </div>
 
   <!-- Q17 -->
   <div class="question-card" data-chapter="cap5" id="q17">
-    <h4>17. O "Dia do Fico" (9 de janeiro de 1822) se refere a:</h4>
+    <p class="q-fonte">Em 28 de janeiro de 1808, ainda em Salvador, D. João decretou a Abertura dos Portos às Nações Amigas.</p>
+    <h4>17. Essa medida é considerada um marco no enfraquecimento do sistema colonial porque</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q17','a')">a) D. Pedro decidindo permanecer no Brasil, desafiando as Cortes de Lisboa</button>
-      <button class="option-btn" onclick="checkQuiz('q17','b')">b) A proclamação da independência às margens do Ipiranga</button>
-      <button class="option-btn" onclick="checkQuiz('q17','c')">c) O retorno de D. João VI a Portugal</button>
-      <button class="option-btn" onclick="checkQuiz('q17','d')">d) A assinatura do Tratado de reconhecimento da independência</button>
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) proibiu o comércio com a Inglaterra, cumprindo as exigências que Napoleão fazia aos portugueses.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) criou o Banco do Brasil e entregou a ele o controle exclusivo das exportações de açúcar e algodão.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) concedeu a independência às capitanias que aceitassem negociar diretamente com a França.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) rompeu o Pacto Colonial, que prendia o comércio do Brasil a Portugal.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','e')">e) extinguiu o tráfico de escravizados, como exigiam os tratados que Portugal assinou com a Espanha.</button>
     </div>
   </div>
 
   <!-- Q18 -->
   <div class="question-card" data-chapter="cap5" id="q18">
-    <h4>18. Segundo a visão crítica sobre "o que realmente foi a independência do Brasil", qual grupo NÃO participou do processo político?</h4>
+    <p class="q-fonte">"Essas medidas ampliavam a autonomia econômica do Brasil ao mesmo tempo em que aumentavam sua dependência em relação à Inglaterra."</p>
+    <h4>18. Qual par de medidas de D. João exemplifica essa contradição?</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q18','a')">a) A elite proprietária nascida no Brasil</button>
-      <button class="option-btn" onclick="checkQuiz('q18','b')">b) José Bonifácio e D. Pedro</button>
-      <button class="option-btn" onclick="checkQuiz('q18','c')">c) Escravizados, indígenas, mulheres e pobres</button>
-      <button class="option-btn" onclick="checkQuiz('q18','d')">d) Os grandes proprietários rurais</button>
+      <button class="option-btn" onclick="checkQuiz('q18','a')">a) Criar a Biblioteca Real e proibir a entrada de livros estrangeiros em todo o território da colônia.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','b')">b) Fundar o Jardim Botânico e entregar as terras do Rio de Janeiro a colonos ingleses.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','c')">c) Elevar o Brasil a Reino Unido e devolver a Província Cisplatina à Coroa espanhola.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','d')">d) Criar a Imprensa Régia e proibir a publicação de jornais escritos em língua portuguesa.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','e')">e) Liberar as manufaturas e conceder aos produtos ingleses tarifas menores que aos portugueses.</button>
     </div>
   </div>
 
   <!-- Q19 -->
   <div class="question-card" data-chapter="cap5" id="q19">
-    <h4>19. A Revolta do Brigue Palhaço (1823), no Grão-Pará, ficou marcada por:</h4>
+    <p class="q-fonte">Em 1820, a Revolução Liberal do Porto exigiu uma Constituição para acabar com o absolutismo em Portugal.</p>
+    <h4>19. Em relação ao Brasil, porém, as Cortes de Lisboa</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q19','a')">a) Uma vitória diplomática sem derramamento de sangue</button>
-      <button class="option-btn" onclick="checkQuiz('q19','b')">b) A morte de cerca de 250 presos políticos sufocados/famintos no porão de um navio</button>
-      <button class="option-btn" onclick="checkQuiz('q19','c')">c) A adesão pacífica e imediata do Pará ao Império</button>
-      <button class="option-btn" onclick="checkQuiz('q19','d')">d) A libertação de todos os escravizados da região</button>
+      <button class="option-btn" onclick="checkQuiz('q19','a')">a) adotaram política recolonizadora, exigindo a volta de D. Pedro e submetendo o Brasil a Lisboa.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','b')">b) reconheceram a independência do Brasil em troca de uma indenização paga com a mediação da Inglaterra.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','c')">c) estenderam ao Brasil o voto universal masculino e decretaram a abolição imediata da escravidão.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','d')">d) transferiram a capital do Império para o Rio de Janeiro, atendendo ao pedido do Partido Brasileiro.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','e')">e) aprovaram o Dia do Fico e nomearam José Bonifácio chefe do novo governo constitucional português.</button>
     </div>
   </div>
 
   <!-- Q20 -->
-  <div class="question-card" data-chapter="cap6" id="q20">
-    <h4>20. A "Constituição da Mandioca" (1823) ganhou esse nome porque:</h4>
+  <div class="question-card" data-chapter="cap5" id="q20">
+    <p class="q-fonte">Na Bahia, tropas portuguesas resistiram até 2 de julho de 1823. O Grão-Pará só aderiu ao Império em agosto de 1823, e, em outubro, cerca de 252 presos morreram no porão do Brigue Palhaço.</p>
+    <h4>20. Esses episódios reforçam uma interpretação crítica da Independência, segundo a qual</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q20','a')">a) Foi escrita em papel feito de mandioca</button>
-      <button class="option-btn" onclick="checkQuiz('q20','b')">b) Ligava o direito ao voto à renda agrícola, medida em alqueires de mandioca</button>
-      <button class="option-btn" onclick="checkQuiz('q20','c')">c) Proibia o cultivo de outros alimentos</button>
-      <button class="option-btn" onclick="checkQuiz('q20','d')">d) Foi redigida por agricultores de mandioca</button>
+      <button class="option-btn" onclick="checkQuiz('q20','a')">a) a separação ocorreu sem conflitos, pois todas as províncias aderiram no mesmo dia ao novo Império.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','b')">b) o processo foi liderado por escravizados e indígenas, que conquistaram direitos políticos plenos.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','c')">c) a ruptura foi conduzida pelas elites, que mantiveram a escravidão e a exclusão da maioria.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','d')">d) a separação foi imposta pelos ingleses, que governaram o Brasil até a abdicação de D. Pedro I.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','e')">e) a independência transformou o Brasil numa república federativa inspirada nos Estados Unidos.</button>
     </div>
   </div>
 
   <!-- Q21 -->
   <div class="question-card" data-chapter="cap6" id="q21">
-    <h4>21. O Poder Moderador, criado pela Constituição de 1824, era:</h4>
+    <p class="q-fonte">A Constituição outorgada de 1824 criou um "quarto poder", o Poder Moderador, exclusivo do imperador, declarado "sagrado e inviolável".</p>
+    <h4>21. A criação do Poder Moderador está relacionada</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q21','a')">a) Um quarto poder, exclusivo do imperador, além do Legislativo, Executivo e Judiciário</button>
-      <button class="option-btn" onclick="checkQuiz('q21','b')">b) Um tribunal criado para julgar apenas crimes eleitorais</button>
-      <button class="option-btn" onclick="checkQuiz('q21','c')">c) Um cargo eletivo controlado pela Assembleia</button>
-      <button class="option-btn" onclick="checkQuiz('q21','d')">d) Um poder exercido exclusivamente pela Igreja Católica</button>
+      <button class="option-btn" onclick="checkQuiz('q21','a')">a) à exigência das Cortes de Lisboa de manter o Brasil subordinado diretamente ao rei de Portugal.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','b')">b) ao conflito de D. Pedro I com a Constituinte de 1823, que quis limitar o poder imperial.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','c')">c) à pressão dos liberais exaltados, que desejavam um governo republicano e de caráter federalista.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','d')">d) à influência da Revolução Farroupilha, que defendia um imperador com plenos poderes no Sul.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','e')">e) ao Tratado de 1825, pelo qual Portugal exigiu um poder de veto sobre as decisões do Império.</button>
     </div>
   </div>
 
   <!-- Q22 -->
   <div class="question-card" data-chapter="cap6" id="q22">
-    <h4>22. A Guerra da Cisplatina (1825–1828) terminou com:</h4>
+    <h4>22. O apelido "Constituição da Mandioca", dado ao projeto de 1823, revela que ele</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q22','a')">a) A anexação definitiva da região ao Brasil</button>
-      <button class="option-btn" onclick="checkQuiz('q22','b')">b) A independência do Uruguai, frustrando os planos expansionistas do Império</button>
-      <button class="option-btn" onclick="checkQuiz('q22','c')">c) A anexação da região à Argentina</button>
-      <button class="option-btn" onclick="checkQuiz('q22','d')">d) Uma vitória militar esmagadora do Brasil sem perdas territoriais</button>
+      <button class="option-btn" onclick="checkQuiz('q22','a')">a) ligava o voto a uma renda medida pela produção agrícola, restringindo a participação política.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','b')">b) garantia o direito de voto a todos os trabalhadores rurais, inclusive aos escravizados das grandes fazendas.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','c')">c) foi redigido por pequenos agricultores do Nordeste, excluídos dos debates da Assembleia Constituinte.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','d')">d) propunha uma reforma agrária, distribuindo terras para a produção de alimentos básicos à população.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','e')">e) tornava a mandioca o principal produto de exportação do Brasil, no lugar do açúcar e do algodão.</button>
     </div>
   </div>
 
   <!-- Q23 -->
   <div class="question-card" data-chapter="cap6" id="q23">
-    <h4>23. O que motivou diretamente a abdicação de D. Pedro I, em 1831?</h4>
+    <p class="q-fonte">O reconhecimento da Independência por Portugal, em 1825, contou com a mediação britânica.</p>
+    <h4>23. Em troca do apoio, a Inglaterra exigiu do Brasil</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q23','a')">a) Uma invasão estrangeira ao Rio de Janeiro</button>
-      <button class="option-btn" onclick="checkQuiz('q23','b')">b) A perda de apoio interno (autoritarismo, Noite das Garrafas) somada à crise em Portugal (Golpe de D. Miguel)</button>
-      <button class="option-btn" onclick="checkQuiz('q23','c')">c) A vitória na Guerra da Cisplatina</button>
-      <button class="option-btn" onclick="checkQuiz('q23','d')">d) Uma decisão das Cortes de Lisboa</button>
+      <button class="option-btn" onclick="checkQuiz('q23','a')">a) a entrega da Província Cisplatina ao governo inglês, para servir de base naval no Prata.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','b')">b) a manutenção dos tratados de 1810 e a promessa de extinguir o tráfico negreiro.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','c')">c) a adesão à Santa Aliança e o envio de tropas contra as revoltas liberais na Europa.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','d')">d) a abdicação imediata de D. Pedro I em favor de sua filha, a princesa Maria da Glória.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','e')">e) a abolição imediata da escravidão e a eleição do Parlamento por voto universal.</button>
     </div>
   </div>
 
   <!-- Q24 -->
-  <div class="question-card" data-chapter="cap7" id="q24">
-    <h4>24. Por que o Brasil precisou de um governo de Regência a partir de 1831?</h4>
+  <div class="question-card" data-chapter="cap6" id="q24">
+    <h4>24. Contribuíram para a abdicação de D. Pedro I, em 1831, EXCETO:</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Porque o Brasil havia se tornado uma república</button>
-      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Porque D. Pedro II, herdeiro do trono, tinha apenas 5 anos e não podia governar</button>
-      <button class="option-btn" onclick="checkQuiz('q24','c')">c) Porque D. Pedro I havia sido deposto pelas Cortes</button>
-      <button class="option-btn" onclick="checkQuiz('q24','d')">d) Porque não havia herdeiro do trono</button>
+      <button class="option-btn" onclick="checkQuiz('q24','a')">a) o desgaste com as elites provinciais após a repressão violenta à Confederação do Equador.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','b')">b) a crise sucessória em Portugal, com o golpe de D. Miguel contra Maria da Glória.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','c')">c) a vitória na Guerra da Cisplatina, que endividou o Império ao anexar o Uruguai.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','d')">d) a queda nos preços do açúcar e do algodão, somada à dívida externa com a Inglaterra.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','e')">e) os conflitos entre brasileiros e portugueses no Rio, como na Noite das Garrafas.</button>
     </div>
   </div>
 
   <!-- Q25 -->
   <div class="question-card" data-chapter="cap7" id="q25">
-    <h4>25. O Ato Adicional de 1834 teve como principal efeito:</h4>
+    <p class="q-fonte">Código de Processo Criminal (1832): juízes de paz eleitos localmente. Ato Adicional (1834): criação das Assembleias Legislativas Provinciais.</p>
+    <h4>25. Essas duas medidas tinham em comum</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q25','a')">a) Centralizar ainda mais o poder no Rio de Janeiro</button>
-      <button class="option-btn" onclick="checkQuiz('q25','b')">b) Descentralizar o poder, criando as Assembleias Legislativas Provinciais</button>
-      <button class="option-btn" onclick="checkQuiz('q25','c')">c) Restaurar a monarquia absoluta</button>
-      <button class="option-btn" onclick="checkQuiz('q25','d')">d) Abolir a escravidão no Brasil</button>
+      <button class="option-btn" onclick="checkQuiz('q25','a')">a) o reforço do Poder Moderador, exercido diretamente pelos regentes a partir do Rio de Janeiro.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','b')">b) a proibição das revoltas provinciais, punidas com pena de morte pelos juízes do imperador.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','c')">c) a restauração de D. Pedro I, defendida pelos caramurus como saída para a crise da Regência.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','d')">d) a ampliação do poder local e provincial, numa tentativa de responder às pressões regionais.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','e')">e) a extinção das províncias, substituídas por municípios subordinados diretamente à Corte.</button>
     </div>
   </div>
 
   <!-- Q26 -->
   <div class="question-card" data-chapter="cap7" id="q26">
-    <h4>26. A Revolução Farroupilha (1835–1845) ocorreu em qual província e teve qual característica?</h4>
+    <p class="q-fonte">Em janeiro de 1835, em Salvador, africanos escravizados e libertos, muitos deles muçulmanos, organizaram um levante contra a escravidão e a repressão religiosa.</p>
+    <h4>26. O texto descreve a</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q26','a')">a) Bahia — revolta de escravizados muçulmanos</button>
-      <button class="option-btn" onclick="checkQuiz('q26','b')">b) Rio Grande do Sul — movimento republicano, com Bento Gonçalves e os Garibaldi</button>
-      <button class="option-btn" onclick="checkQuiz('q26','c')">c) Maranhão — levante de trabalhadores pobres</button>
-      <button class="option-btn" onclick="checkQuiz('q26','d')">d) Pará — levante indígena e popular</button>
+      <button class="option-btn" onclick="checkQuiz('q26','a')">a) Sabinada.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','b')">b) Balaiada.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','c')">c) Revolta dos Malês.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','d')">d) Cabanagem.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','e')">e) Revolução Farroupilha.</button>
     </div>
   </div>
 
   <!-- Q27 -->
   <div class="question-card" data-chapter="cap7" id="q27">
-    <h4>27. As cinco grandes revoltas do Período Regencial revelam, acima de tudo:</h4>
+    <p class="q-fonte">Cabanagem (PA), Malês (BA), Farroupilha (RS), Sabinada (BA) e Balaiada (MA) explodiram entre 1835 e 1841.</p>
+    <h4>27. A ocorrência simultânea dessas revoltas revela</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q27','a')">a) Que o Brasil vivia em paz e prosperidade nesse período</button>
-      <button class="option-btn" onclick="checkQuiz('q27','b')">b) A fragilidade do poder central e as tensões sociais e regionais herdadas do período colonial e do Primeiro Reinado</button>
-      <button class="option-btn" onclick="checkQuiz('q27','c')">c) Um plano coordenado para restaurar D. Pedro I</button>
-      <button class="option-btn" onclick="checkQuiz('q27','d')">d) O fortalecimento imediato da economia regencial</button>
+      <button class="option-btn" onclick="checkQuiz('q27','a')">a) a força do governo regencial, que reprimiu todas as revoltas em poucos meses e sem negociação.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','b')">b) a fragilidade do poder central e tensões sociais e regionais herdadas do passado colonial.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','c')">c) a união das províncias em torno do retorno de D. Pedro I ao trono, defendido pelos rebeldes.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','d')">d) a influência da Santa Aliança, que financiou os rebeldes para recolonizar o território brasileiro.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','e')">e) o fim da escravidão, decretado pelos regentes em resposta às rebeliões escravas de 1835.</button>
     </div>
   </div>
 
   <!-- Q28 -->
   <div class="question-card" data-chapter="cap7" id="q28">
-    <h4>28. O Golpe da Maioridade (1840) teve como objetivo:</h4>
+    <p class="q-fonte">Em 1840, o "Clube da Maioridade" articulou a declaração de maioridade de D. Pedro II, então com 14 anos.</p>
+    <h4>28. Para esses políticos, a antecipação da maioridade</h4>
     <div class="options">
-      <button class="option-btn" onclick="checkQuiz('q28','a')">a) Depor D. Pedro II</button>
-      <button class="option-btn" onclick="checkQuiz('q28','b')">b) Antecipar a maioridade de D. Pedro II (14 anos) para encerrar a instabilidade do Período Regencial</button>
-      <button class="option-btn" onclick="checkQuiz('q28','c')">c) Proclamar a República</button>
-      <button class="option-btn" onclick="checkQuiz('q28','d')">d) Reconduzir D. Pedro I ao trono</button>
+      <button class="option-btn" onclick="checkQuiz('q28','a')">a) restauraria a autoridade central e encerraria a instabilidade regencial.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','b')">b) permitiria a volta de D. Pedro I como regente até o filho completar 18 anos de idade.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','c')">c) abriria caminho para a República, já que um rei de 14 anos não seria aceito pelo povo.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','d')">d) atenderia aos farroupilhas, que exigiam um imperador escolhido pelas elites gaúchas.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','e')">e) extinguiria o Poder Moderador, como prometiam os liberais exaltados desde 1831.</button>
     </div>
   </div>
-
   <!-- Result -->
   <div class="quiz-result" id="quiz-result">
     <div class="donut-wrap">
@@ -1316,14 +1371,37 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── Quiz ── */
-const ANSWERS = {
-  q1:'c', q2:'b', q3:'a', q4:'b',
-  q5:'b', q6:'b', q7:'b', q8:'d',
-  q9:'b', q10:'b',
-  q11:'b', q12:'b', q13:'b', q14:'b',
-  q15:'c', q16:'b', q17:'a', q18:'c', q19:'b',
-  q20:'b', q21:'a', q22:'b', q23:'b',
-  q24:'b', q25:'b', q26:'b', q27:'b', q28:'b'
+const ANSWERS = {q1:'e', q2:'e', q3:'c', q4:'b', q5:'a', q6:'a', q7:'d', q8:'e', q9:'b', q10:'a', q11:'d', q12:'b', q13:'d', q14:'c', q15:'e', q16:'c', q17:'d', q18:'e', q19:'a', q20:'c', q21:'b', q22:'a', q23:'b', q24:'c', q25:'d', q26:'c', q27:'b', q28:'a'};
+/* Explicação mostrada depois de responder */
+const EXPLICA = {
+  q1: "No voto por estado, cada ordem tinha um único voto, e clero e nobreza, interessados em manter seus privilégios, venciam por 2 a 1. No voto por cabeça contava cada deputado, e o Terceiro Estado tinha a maior bancada.",
+  q2: "Na fase da monarquia constitucional, a burguesia moderada queria limitar o rei, não radicalizar. A igualdade era perante a lei, mas o voto censitário excluía os pobres, inclusive os sans-culottes que lutaram nas ruas.",
+  q3: "Os jacobinos (montanheses) reuniam a média burguesia e os sans-culottes e defendiam República e sufrágio universal. Os girondinos representavam a alta burguesia moderada; o Pântano só acompanhava quem dominava.",
+  q4: "O Haiti foi a primeira república negra do mundo, fruto de uma revolta escrava vitoriosa contra a França de Napoleão (que tentou restaurar a escravidão). O \"haitianismo\" levou elites dos EUA, de Cuba e do Brasil a endurecer a repressão.",
+  q5: "O Código defendia liberdade individual, igualdade perante a lei e propriedade privada, mas submetia juridicamente mulheres e trabalhadores, suprimia organizações operárias e conviveu com o restabelecimento da escravidão nas colônias.",
+  q6: "Portugal, aliado da Inglaterra, não aderiu ao Bloqueio. França e Espanha decidiram ocupá-lo (Fontainebleau, 1807), e a Corte se transferiu para o Brasil sob escolta britânica.",
+  q7: "Napoleão deu o Golpe de 18 Brumário (1799), virou 1º cônsul, cônsul vitalício (1802) e imperador (1804). Para um liberal como Jefferson, isso traía os ideais da Revolução.",
+  q8: "Leipzig (1813) → invasão de Paris e exílio em Elba (1814) → fuga e Cem Dias (fevereiro de 1815) → Waterloo (junho de 1815) e exílio em Santa Helena.",
+  q9: "Legitimidade significava restaurar as casas reais que reinavam antes da Revolução. Junto com o restabelecimento de privilégios e o equilíbrio de poder, era a base da Restauração.",
+  q10: "A Santa Aliança queria intervir contra revoltas liberais e independentistas. Para a Inglaterra, industrial e comercial, interessava ter novos mercados, como as nações recém-independentes da América.",
+  q11: "A possibilidade de a Santa Aliança ajudar a Espanha a recolonizar a América motivou a Doutrina Monroe. Repare na cronologia: o Congresso do Panamá é de 1826, depois de 1823.",
+  q12: "O Código Civil era um legado napoleônico, o oposto do que Viena queria. Os objetivos eram restaurar dinastias e privilégios, reprimir o liberalismo, equilibrar o poder e punir a França.",
+  q13: "Os criollos eram ricos, mas ficavam fora dos altos cargos, reservados aos peninsulares. As Reformas Bourbônicas aprofundaram essa exclusão e alimentaram o desejo de autonomia.",
+  q14: "Os criollos queriam o poder político, mas sem mudar a estrutura social: latifúndio, escravidão e exclusão de mestiços, indígenas e negros. Por isso muitos rejeitaram a igualdade jurídica proposta em Cádiz.",
+  q15: "Sem o rei legítimo, surgiram Juntas na Espanha e na América que diziam governar em nome de Fernando VII, mas exerciam autonomia. Quando ele voltou (1814) e restaurou o absolutismo, as lutas se intensificaram.",
+  q16: "Bolívar defendia nações autônomas e integradas, rejeitando tanto o domínio europeu quanto o isolamento entre elas. A Grã-Colômbia e o Congresso do Panamá foram tentativas desse projeto, que fracassou.",
+  q17: "O Pacto Colonial obrigava o Brasil a negociar apenas com a metrópole. A abertura permitiu o comércio direto com outros países, sobretudo a Inglaterra, e atendeu a uma antiga reivindicação das elites coloniais.",
+  q18: "Liberar as manufaturas ampliava a autonomia; os Tratados de 1810 davam tarifas mais baixas aos ingleses do que aos próprios portugueses (além do direito de extraterritorialidade), aumentando a dependência.",
+  q19: "Liberais em Portugal, as Cortes eram recolonizadoras no Brasil: queriam a volta de D. Pedro, extinguir órgãos brasileiros, subordinar as províncias a Lisboa e restaurar o monopólio comercial.",
+  q20: "A Independência envolveu guerras em várias províncias e foi conduzida \"de cima para baixo\": as elites romperam com Portugal mas mantiveram a escravidão e excluíram escravizados, indígenas, mulheres e pobres.",
+  q21: "A Constituinte de 1823 quis um Legislativo superior ao imperador. D. Pedro I a dissolveu (Noite da Agonia) e outorgou uma Constituição com o Poder Moderador, que concentrava a autoridade nele. A Farroupilha é de 1835.",
+  q22: "O voto dependia de renda equivalente a 150 alqueires de mandioca: era um voto censitário. A Constituição de 1824 manteve o critério de renda, inspirada nesse projeto.",
+  q23: "A Inglaterra queria preservar as vantagens dos tratados de 1810 e pressionava pelo fim do TRÁFICO de escravizados (não da escravidão em si). Portugal ainda recebeu uma indenização.",
+  q24: "A Guerra da Cisplatina (1825-1828) foi uma derrota: terminou com a independência do Uruguai e desgastou as finanças. As outras alternativas são de fato causas da crise que levou à abdicação.",
+  q25: "As reformas regenciais foram descentralizadoras: juízes de paz eleitos e Assembleias Provinciais. Respondiam às pressões regionais, mas também geraram instabilidade.",
+  q26: "A Revolta dos Malês (Salvador, 1835) foi uma rebelião de escravizados muçulmanos. A Sabinada também foi na Bahia, mas era urbana e republicana (1837-38); a Cabanagem foi no Pará; a Balaiada, no Maranhão; a Farroupilha, no Rio Grande do Sul.",
+  q27: "Miséria, exclusão política e disputas de poder local explodiram ao mesmo tempo porque o governo central era frágil. Várias revoltas duraram anos (a Farroupilha, até 1845).",
+  q28: "Diante das revoltas e da instabilidade, a figura do imperador era vista como fator de unidade e ordem. O Golpe da Maioridade iniciou o Segundo Reinado. (D. Pedro I morrera em 1834.)"
 };
 let answered = {}, score = 0, total = 0;
 
@@ -1343,7 +1421,7 @@ function checkQuiz(qid, choice) {
   if (choice === correct) score++;
   let exp = card.querySelector('.answer-exp');
   if (!exp) { exp = document.createElement('div'); exp.className = 'answer-exp'; card.querySelector('.options').after(exp); }
-  exp.innerHTML = '<span>✔</span><span>' + correctText + '</span>';
+  exp.innerHTML = '<span>✔</span><span><strong>' + correctText + '</strong>' + (EXPLICA[qid] ? '<br>' + EXPLICA[qid] : '') + '</span>';
   exp.style.display = 'flex';
   const N = Object.keys(ANSWERS).length;
   document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
@@ -1395,34 +1473,9 @@ function resetQuiz() {
   const pctEl = document.getElementById('mini-pct');
   pctEl.textContent = '—'; pctEl.style.color = '#aaa';
 }
-
-/* ── Chat ── */
-function toggleChat() {
-  const p = document.getElementById('chat-panel');
-  p.classList.toggle('open');
-  if (p.classList.contains('open')) document.getElementById('chat-input').focus();
-}
-
-function getContext() {
-  return (document.querySelector('main') || document.body).innerText.replace(/\s+/g,' ').slice(0,6000);
-}
-
-async function sendMsg(e) {
-  e.preventDefault();
-  const input = document.getElementById('chat-input');
-  const msgs = document.getElementById('chat-msgs');
-  const text = input.value.trim();
-  if (!text) return;
-  input.value = '';
-  const u = document.createElement('div'); u.className = 'cmsg user'; u.textContent = text; msgs.appendChild(u);
-  const l = document.createElement('div'); l.className = 'cmsg bot loading'; l.textContent = 'Pensando...'; msgs.appendChild(l); msgs.scrollTop = msgs.scrollHeight;
-  try {
-    const r = await fetch('/api/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:text, context:getContext() }) });
-    const d = await r.json();
-    l.className = 'cmsg bot'; l.textContent = d.reply || d.error;
-  } catch { l.className = 'cmsg bot'; l.textContent = 'Erro de conexão. Tente novamente.'; }
-  msgs.scrollTop = msgs.scrollHeight;
-}
 </script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/contribuir.js" defer></script>
 </body>
 </html>
