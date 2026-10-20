@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /* ═══════════════════════════════════════════════════════════
    envios.mjs — Lê os resumos enviados pelos alunos (Supabase)
-   Usado nas sessões de junção. Precisa de SUPABASE_URL e
-   SUPABASE_SECRET_KEY no ambiente. Não é publicado no site.
+   Usado nas sessões de junção. A chave vem de SUPABASE_SECRET_KEY ou
+   de um network secret do ambiente da nuvem. Não é publicado no site.
 
      node ferramentas/envios.mjs listar [pagina]
      node ferramentas/envios.mjs topicos [pagina]
@@ -19,14 +19,11 @@
 import fs from 'fs';
 import path from 'path';
 
-const URL_BASE = (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
+const URL_BASE = (process.env.SUPABASE_URL || 'https://xkwbektxxmonqlpkewcq.supabase.co').replace(/\/+$/, '');
+// Sem SUPABASE_SECRET_KEY, a chave vem de um "network secret" do ambiente
+// da nuvem do Claude, que acrescenta os cabeçalhos apikey/Authorization.
 const KEY = process.env.SUPABASE_SECRET_KEY;
-if (!URL_BASE || !KEY) {
-  console.error('Defina SUPABASE_URL e SUPABASE_SECRET_KEY no ambiente.');
-  process.exit(1);
-}
-
-const H = { apikey: KEY, Authorization: `Bearer ${KEY}` };
+const H = KEY ? { apikey: KEY, Authorization: `Bearer ${KEY}` } : {};
 const RAIZ = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'envios-baixados');
 
 async function pedir(url, opcoes = {}) {
