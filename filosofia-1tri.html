@@ -502,7 +502,7 @@
       <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Contexto: Período Helenístico</div>
       <p>O <strong>período helenístico</strong> situa-se entre a Filosofia Antiga (período clássico/antropológico, séc. V a.C.) e a Filosofia Medieval (séc. IV d.C.). Surge com a <strong>queda de Atenas</strong> para Alexandre, o Grande.</p>
       <ul class="list" style="margin-top:12px">
-        <li>A fusão de valores gregos e romanos = <strong>Helenismo</strong></li>
+        <li>A fusão da cultura grega com as culturas orientais (egípcia, persa, mesopotâmica) = <strong>Helenismo</strong></li>
         <li><strong>Visão universalista:</strong> o mundo deveria viver sob valores e culturas em comum</li>
         <li>Transformação da <strong>pólis</strong> (visão de superioridade grega, liberdade, razão) em <strong>cosmópolis</strong> (visão universalista)</li>
         <li>A filosofia muda: deixa de falar sobre <strong>política</strong> e foca na <strong>ética</strong></li>
@@ -581,7 +581,7 @@
         </div>
         <div class="mini-card" style="border-top-color:var(--c2)">
           <h4>3. É possível suportar a dor</h4>
-          <p>A dor é inevitável, porém é possível suportá-la. <strong>"Dor é inevitável, sofrimento é opcional."</strong></p>
+          <p>A dor é inevitável, porém é possível suportá-la. Um ditado moderno (não é de Epicuro) resume a ideia: <strong>"Dor é inevitável, sofrimento é opcional."</strong></p>
         </div>
         <div class="mini-card" style="border-top-color:#166534">
           <h4>4. É possível ser feliz</h4>
@@ -708,7 +708,7 @@
   </div>
 
   <script>
-    const ANSWERS = {q1:'b',q2:'c',q3:'b',q4:'b',q5:'c',q6:'b',q7:'b',q8:'c',q9:'c',q10:'b',q11:'c',q12:'c',q13:'c',q14:'c',q15:'b',q16:'c',q17:'c',q18:'b',q19:'a',q20:'c',q21:'b',q22:'d'};
+    const ANSWERS = {q1:'c',q2:'a',q3:'e',q4:'a',q5:'d',q6:'a',q7:'d',q8:'e',q9:'b',q10:'c',q11:'d',q12:'b',q13:'a',q14:'d',q15:'a',q16:'c',q17:'b',q18:'c',q19:'e',q20:'e',q21:'b',q22:'b'};
     let score = 0, answered = 0;
     function updateDonut() {
       const pct = answered ? Math.round(score / answered * 100) : 0;
@@ -748,266 +748,315 @@
 
   <!-- Q1 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">1</span><span>O que a Ética estuda?</span></div>
+    <p class="q-fonte">Numa aula, a turma debate se mentir é sempre errado. À tarde, um dos alunos devolve ao caixa um troco que recebeu a mais.</p>
+    <div class="quiz-q"><span class="quiz-num">1</span><span>O debate em sala e a atitude do aluno correspondem, respectivamente, a</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> As leis naturais e científicas do universo</div>
-      <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> Os valores que guiam uma sociedade ou indivíduo — o que é certo/errado, justo/injusto, bem/mal</div>
-      <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> As normas jurídicas e leis do Estado</div>
-      <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> O comportamento instintivo dos animais</div>
+      <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> moral, a prática dos valores, e ética, a reflexão teórica sobre eles.</div>
+      <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> ética, a reflexão sobre os valores, e amoralidade, a ação sem consciência.</div>
+      <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> ética, a reflexão sobre os valores, e moral, a prática desses valores.</div>
+      <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> moral, a prática dos valores, e imoralidade, a transgressão consciente.</div>
+      <div class="opt" data-l="e" onclick="pick('q1','e',this)"><span class="opt-letter">E</span> deliberação, a escolha entre opções, e reminiscência, a lembrança das ideias.</div>
     </div>
-    <div id="fb-q1" class="quiz-feedback" data-ok="Ética é o estudo filosófico dos valores que guiam uma sociedade ou indivíduo." data-err="A Ética é o estudo filosófico dos valores (certo/errado, justo/injusto, bem/mal) — não das leis naturais ou jurídicas."></div>
+    <div id="fb-q1" class="quiz-feedback" data-ok="Ética é o estudo dos valores (o que é certo, justo, bom). Moral é a aplicação desses valores nas ações do dia a dia. O debate é ética; devolver o troco é moral em ação." data-err="Ética é o estudo dos valores (o que é certo, justo, bom). Moral é a aplicação desses valores nas ações do dia a dia. O debate é ética; devolver o troco é moral em ação."></div>
   </div>
 
   <!-- Q2 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">2</span><span>Para Platão, como são os valores éticos?</span></div>
+    <p class="q-fonte">Em algumas sociedades antigas, abandonar recém-nascidos era uma prática aceita. Hoje, é crime em quase todo o mundo.</p>
+    <div class="quiz-q"><span class="quiz-num">2</span><span>Esse fato costuma ser usado como argumento a favor da tese de</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> Relativos e variam conforme a cultura e o tempo</div>
-      <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> Construídos ao longo da vida pela experiência (empirismo)</div>
-      <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> Imutáveis e universais — existem verdades morais absolutas válidas para todos</div>
-      <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> Determinados pelo Estado e suas leis</div>
+      <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> Nietzsche: os valores morais variam conforme a cultura e o tempo.</div>
+      <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> Platão: os valores morais são universais, absolutos e imutáveis.</div>
+      <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> Aristóteles: a virtude é sempre o meio-termo entre dois vícios.</div>
+      <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> Epicuro: o prazer é o início e o fim de toda vida feliz.</div>
+      <div class="opt" data-l="e" onclick="pick('q2','e',this)"><span class="opt-letter">E</span> Milgram: as pessoas obedecem à autoridade contra seus valores.</div>
     </div>
-    <div id="fb-q2" class="quiz-feedback" data-ok="Para Platão, os valores éticos são imutáveis e universais — residem no Mundo Inteligível." data-err="Quem defende valores relativos é Nietzsche. Platão acredita em verdades morais absolutas e universais."></div>
+    <div id="fb-q2" class="quiz-feedback" data-ok="Se o que é certo muda de uma época ou cultura para outra, parece não haver verdade moral absoluta: é a posição relativista, associada a Nietzsche. Platão defenderia que o bem é objetivo e que algumas sociedades simplesmente erravam." data-err="Se o que é certo muda de uma época ou cultura para outra, parece não haver verdade moral absoluta: é a posição relativista, associada a Nietzsche. Platão defenderia que o bem é objetivo e que algumas sociedades simplesmente erravam."></div>
   </div>
 
   <!-- Q3 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">3</span><span>Qual é a diferença entre Ética e Moral?</span></div>
+    <p class="q-fonte">Um cachorro morde quem pisou no seu rabo. Um adulto, ofendido numa discussão, para e pensa antes de responder.</p>
+    <div class="quiz-q"><span class="quiz-num">3</span><span>Só o adulto é considerado agente moral porque</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> São sinônimos — significam a mesma coisa</div>
-      <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> Ética é a teoria (estudo dos valores); Moral é a prática desses valores nas ações do cotidiano</div>
-      <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> Moral é a teoria; Ética é a prática</div>
-      <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> Ética estuda o comportamento; Moral estuda os valores</div>
+      <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> tem mais força física para controlar seus próprios impulsos.</div>
+      <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> conhece as leis do Estado, que o cachorro não tem como conhecer.</div>
+      <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> foi ofendido moralmente, enquanto o cachorro sentiu só dor física.</div>
+      <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> lembra os conceitos que sua alma viu no Mundo Inteligível.</div>
+      <div class="opt" data-l="e" onclick="pick('q3','e',this)"><span class="opt-letter">E</span> tem logos, razão e discurso, e por isso é capaz de deliberar.</div>
     </div>
-    <div id="fb-q3" class="quiz-feedback" data-ok="Ética → teoria (estudo dos valores). Moral → prática (aplicação dos valores nas ações)." data-err="Ética é a teoria e Moral é a prática — não o contrário, e não são sinônimos."></div>
+    <div id="fb-q3" class="quiz-feedback" data-ok="O que nos torna agentes morais é o logos (razão, discurso, linguagem). Com ele, deliberamos: refletimos e escolhemos de forma consciente e voluntária. O cachorro reage por instinto." data-err="O que nos torna agentes morais é o logos (razão, discurso, linguagem). Com ele, deliberamos: refletimos e escolhemos de forma consciente e voluntária. O cachorro reage por instinto."></div>
   </div>
 
   <!-- Q4 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">4</span><span>O que torna o ser humano um "agente moral"?</span></div>
+    <p class="q-fonte">Um motorista atropela um pedestre porque o freio do carro, revisado no dia anterior, falhou de forma totalmente imprevisível.</p>
+    <div class="quiz-q"><span class="quiz-num">4</span><span>Pelo critério de responsabilização moral estudado,</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> A capacidade de sentir emoções e dor</div>
-      <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> Possuir razão e discurso (logos) — a capacidade de deliberar e agir conscientemente</div>
-      <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> Fazer parte de uma sociedade organizada</div>
-      <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> Ter mais de 18 anos e plena consciência civil</div>
+      <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> sua culpa moral diminui, pois só respondemos pelo que escolhemos.</div>
+      <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> o motorista é totalmente culpado, já que toda ação tem um responsável.</div>
+      <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> o motorista agiu de forma imoral, pois conhecia os valores e os violou.</div>
+      <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> a culpa é do pedestre, que deveria ter calculado o risco de atravessar.</div>
+      <div class="opt" data-l="e" onclick="pick('q4','e',this)"><span class="opt-letter">E</span> o caso não envolve ética, já que acidentes não têm relação com valores.</div>
     </div>
-    <div id="fb-q4" class="quiz-feedback" data-ok="O logos (razão e discurso) é o que nos diferencia e nos torna agentes morais capazes de deliberar." data-err="O que nos torna agentes morais é o logos — a razão e o discurso — que nos permite deliberar conscientemente."></div>
+    <div id="fb-q4" class="quiz-feedback" data-ok="Razão → deliberação → escolha voluntária → responsabilização. Se o motorista não escolheu o resultado e fez o que estava ao seu alcance (revisou o carro), a responsabilidade moral é menor. Só somos responsabilizados pelo que escolhemos livremente." data-err="Razão → deliberação → escolha voluntária → responsabilização. Se o motorista não escolheu o resultado e fez o que estava ao seu alcance (revisou o carro), a responsabilidade moral é menor. Só somos responsabilizados pelo que escolhemos livremente."></div>
   </div>
 
   <!-- Q5 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">5</span><span>O que significa "deliberar"?</span></div>
+    <p class="q-fonte">Uma empresária defende a honestidade em palestras, mas sonega impostos sabendo que isso é errado.</p>
+    <div class="quiz-q"><span class="quiz-num">5</span><span>A conduta dela, ao sonegar, é</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> Obedecer ordens sem questionar</div>
-      <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> Agir por instinto e impulso</div>
-      <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> Refletir racionalmente e tomar escolhas conscientes e voluntárias dentre opções</div>
-      <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> Seguir as regras da sociedade sem reflexão</div>
+      <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> amoral: age fora do campo moral, sem consciência dos valores.</div>
+      <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> moral: segue os valores que a sociedade de fato estabelece.</div>
+      <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> amoral: a sonegação é uma situação neutra, sem valor ético.</div>
+      <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> imoral: conhece o valor e o transgride conscientemente.</div>
+      <div class="opt" data-l="e" onclick="pick('q5','e',this)"><span class="opt-letter">E</span> moral: defender a honestidade em público compensa o ato.</div>
     </div>
-    <div id="fb-q5" class="quiz-feedback" data-ok="Deliberar é refletir e escolher conscientemente — por isso gera responsabilização." data-err="Deliberar é exatamente o oposto de agir por instinto ou obedecer cegamente: é refletir e escolher voluntariamente."></div>
+    <div id="fb-q5" class="quiz-feedback" data-ok="Imoral é quem age contra os valores sabendo que os transgride. Amoral é quem não tem consciência moral (crianças pequenas, animais) ou age em situação neutra. Há consciência aqui, logo há responsabilização negativa." data-err="Imoral é quem age contra os valores sabendo que os transgride. Amoral é quem não tem consciência moral (crianças pequenas, animais) ou age em situação neutra. Há consciência aqui, logo há responsabilização negativa."></div>
   </div>
 
   <!-- Q6 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">6</span><span>Por que crianças pequenas e animais são <em>amorais</em> e não <em>imorais</em>?</span></div>
+    <p class="q-fonte">Uma criança de dois anos pega um giz de cera e rabisca a parede da casa do vizinho.</p>
+    <div class="quiz-q"><span class="quiz-num">6</span><span>Do ponto de vista da classificação das ações, o ato é</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> Porque praticam ações consideradas erradas pela sociedade</div>
-      <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> Porque não possuem logos desenvolvido e não são capazes de deliberar conscientemente</div>
-      <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> Porque são naturalmente imorais por natureza biológica</div>
-      <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> Porque não conhecem as leis e normas sociais</div>
+      <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> amoral, pois a criança ainda não desenvolveu consciência moral.</div>
+      <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> imoral, pois rabiscar a parede alheia contraria os valores sociais.</div>
+      <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> moral, pois a criança expressou livremente sua criatividade.</div>
+      <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> imoral, pois toda ação que causa prejuízo a outro é imoral.</div>
+      <div class="opt" data-l="e" onclick="pick('q6','e',this)"><span class="opt-letter">E</span> moral, pois a criança deliberou antes de escolher o que fazer.</div>
     </div>
-    <div id="fb-q6" class="quiz-feedback" data-ok="Sem logos desenvolvido, não há deliberação → não há campo moral → não há responsabilização → são amorais." data-err="Sem logos (razão) desenvolvido, não há deliberação consciente. Quem não pode deliberar age fora do campo moral — é amoral, não imoral."></div>
+    <div id="fb-q6" class="quiz-feedback" data-ok="O ato causa prejuízo, mas a criança não tem consciência moral formada: está fora do campo moral. Por isso é amoral, e não há responsabilização dela. Imoral exige saber que se está transgredindo." data-err="O ato causa prejuízo, mas a criança não tem consciência moral formada: está fora do campo moral. Por isso é amoral, e não há responsabilização dela. Imoral exige saber que se está transgredindo."></div>
   </div>
 
   <!-- Q7 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">7</span><span>O que caracteriza uma ação <em>imoral</em>?</span></div>
+    <p class="q-fonte">I. Imoral e amoral são sinônimos: ambos indicam ações contra os valores.
+II. Na ação moral há consciência e responsabilização positiva.
+III. Ações de animais são classificadas como amorais.
+IV. O agente imoral não tem consciência moral.</p>
+    <div class="quiz-q"><span class="quiz-num">7</span><span>Estão corretas as afirmações</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> Ação praticada por quem não tem consciência moral</div>
-      <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> Ação contrária aos valores éticos, praticada conscientemente por quem os conhece</div>
-      <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> Ação praticada por impulso ou instinto</div>
-      <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> Ação neutra que está fora do julgamento moral</div>
+      <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> I e II, apenas.</div>
+      <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> II, III e IV, apenas.</div>
+      <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> I, II e III, apenas.</div>
+      <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> II e III, apenas.</div>
+      <div class="opt" data-l="e" onclick="pick('q7','e',this)"><span class="opt-letter">E</span> III e IV, apenas.</div>
     </div>
-    <div id="fb-q7" class="quiz-feedback" data-ok="Imoral = conhece os valores + escolhe conscientemente transgredi-los → gera responsabilização negativa." data-err="Ação imoral exige consciência: o agente conhece os valores e deliberadamente os transgride. Sem consciência, a ação é amoral."></div>
+    <div id="fb-q7" class="quiz-feedback" data-ok="I e IV estão erradas e se confundem: o imoral tem consciência moral e transgride os valores; o amoral não tem consciência moral. Por isso imoral ≠ amoral." data-err="I e IV estão erradas e se confundem: o imoral tem consciência moral e transgride os valores; o amoral não tem consciência moral. Por isso imoral ≠ amoral."></div>
   </div>
 
   <!-- Q8 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">8</span><span>Qual é a principal diferença entre ação <em>imoral</em> e <em>amoral</em>?</span></div>
+    <p class="q-fonte">Todo círculo desenhado no papel tem alguma imperfeição. Mesmo assim, sabemos exatamente o que é um círculo perfeito.</p>
+    <div class="quiz-q"><span class="quiz-num">8</span><span>Para Platão, isso acontece porque</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> São a mesma coisa — ambas violam os valores éticos</div>
-      <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> O agente imoral não tem consciência; o amoral age contra os valores</div>
-      <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> O imoral conhece os valores e os transgride (há responsabilização); o amoral age fora do campo moral (sem responsabilização)</div>
-      <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> Amoral é sempre pior do que imoral</div>
+      <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> aprendemos o conceito somando, ao longo da vida, a experiência de ver círculos.</div>
+      <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> o círculo perfeito é formado por átomos indivisíveis, eternos e invisíveis.</div>
+      <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> o conceito de círculo é uma convenção cultural que muda de época para época.</div>
+      <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> os sentidos, quando bem treinados, conseguem perceber o círculo perfeito.</div>
+      <div class="opt" data-l="e" onclick="pick('q8','e',this)"><span class="opt-letter">E</span> a ideia do círculo perfeito existe no Mundo Inteligível; aqui há só cópias.</div>
     </div>
-    <div id="fb-q8" class="quiz-feedback" data-ok="Imoral: tem consciência, transgride voluntariamente → responsabilizado. Amoral: age fora do campo moral → sem responsabilização." data-err="Imoral ≠ Amoral. O imoral tem consciência moral e transgride. O amoral age fora do campo moral por não ter consciência desenvolvida."></div>
+    <div id="fb-q8" class="quiz-feedback" data-ok="No dualismo platônico, o Mundo Sensível é cópia imperfeita e mutável; as ideias perfeitas e universais estão no Mundo Inteligível, acessível só pela razão. Construir o conceito pela experiência seria uma visão empirista, mais próxima de Aristóteles." data-err="No dualismo platônico, o Mundo Sensível é cópia imperfeita e mutável; as ideias perfeitas e universais estão no Mundo Inteligível, acessível só pela razão. Construir o conceito pela experiência seria uma visão empirista, mais próxima de Aristóteles."></div>
   </div>
 
   <!-- Q9 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">9</span><span>Para Platão, onde residem os conceitos universais de justiça, bem, beleza e verdade?</span></div>
+    <p class="q-fonte">Para Platão, ninguém precisa "inventar" o que é justiça: ela pode ser descoberta pela razão.</p>
+    <div class="quiz-q"><span class="quiz-num">9</span><span>Pela teoria da reminiscência, aprender o que é justiça é</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> No Mundo Sensível, percebido pelos sentidos</div>
-      <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> Na mente dos filósofos que os inventam</div>
-      <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> No Mundo Inteligível — dimensão imaterial e universal, além da percepção física</div>
-      <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> Na tradição cultural de cada povo</div>
+      <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> observar as leis de várias cidades e tirar delas o que têm em comum.</div>
+      <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> lembrar um conceito que a alma já contemplou no Mundo Inteligível.</div>
+      <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> aceitar a definição que os governantes da cidade estabelecem.</div>
+      <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> criar um valor novo, adequado à cultura e à época em que se vive.</div>
+      <div class="opt" data-l="e" onclick="pick('q9','e',this)"><span class="opt-letter">E</span> calcular quais ações trazem mais prazer e menos dor ao maior número.</div>
     </div>
-    <div id="fb-q9" class="quiz-feedback" data-ok="O Mundo Inteligível é a dimensão imaterial onde residem os conceitos universais e absolutos de Platão." data-err="Para Platão, os conceitos universais (bem, justiça, verdade) existem no Mundo Inteligível — imaterial, além dos sentidos."></div>
+    <div id="fb-q9" class="quiz-feedback" data-ok="A alma conhece a episteme (conceitos universais e verdadeiros) no Mundo Inteligível. Quando volta a um corpo, esses conceitos já estão nela, e conhecer é recordar, com a ajuda da filosofia e da razão." data-err="A alma conhece a episteme (conceitos universais e verdadeiros) no Mundo Inteligível. Quando volta a um corpo, esses conceitos já estão nela, e conhecer é recordar, com a ajuda da filosofia e da razão."></div>
   </div>
 
   <!-- Q10 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">10</span><span>O que é a teoria da Reminiscência de Platão?</span></div>
+    <p class="q-fonte">Para Platão, existem conceitos absolutos de bem, justiça e beleza.</p>
+    <div class="quiz-q"><span class="quiz-num">10</span><span>Por isso, quem mais se aproxima da verdade ética e da felicidade é</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> O esquecimento dos valores éticos com o passar do tempo</div>
-      <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> A alma contata os conceitos universais no mundo inteligível após a morte e os "lembra" na vida, pela razão e filosofia</div>
-      <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> A aprendizagem gradual dos valores através da experiência vivida</div>
-      <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> A transmissão dos valores de pais para filhos</div>
+      <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> o comerciante, que acumula bens e conforto no Mundo Sensível.</div>
+      <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> o soldado, que obedece às ordens sem questionar seus superiores.</div>
+      <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> o filósofo, que usa a razão para se aproximar das ideias universais.</div>
+      <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> quem segue os costumes da própria cidade, sejam eles quais forem.</div>
+      <div class="opt" data-l="e" onclick="pick('q10','e',this)"><span class="opt-letter">E</span> quem busca os prazeres do corpo com moderação e sem medo da morte.</div>
     </div>
-    <div id="fb-q10" class="quiz-feedback" data-ok="Morte → alma contata episteme no mundo inteligível → reencarna com os conceitos instalados → os 'lembra' pela razão." data-err="Reminiscência é o processo pelo qual a alma, após morrer e contatar o mundo inteligível, reencarna com os conceitos éticos e os 'lembra' pela filosofia e razão."></div>
+    <div id="fb-q10" class="quiz-feedback" data-ok="Para Platão, a felicidade está ligada ao bem absoluto do Mundo Inteligível. Quanto mais o ser humano se aproxima dele pela razão e pela filosofia, mais se aproxima da verdade ética. Moderar prazeres e não temer a morte é o caminho de Epicuro." data-err="Para Platão, a felicidade está ligada ao bem absoluto do Mundo Inteligível. Quanto mais o ser humano se aproxima dele pela razão e pela filosofia, mais se aproxima da verdade ética. Moderar prazeres e não temer a morte é o caminho de Epicuro."></div>
   </div>
 
   <!-- Q11 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">11</span><span>O que é Eudaimonia para Aristóteles?</span></div>
+    <p class="q-fonte">Para Aristóteles, a virtude é o equilíbrio entre dois vícios, um por falta e outro por excesso.</p>
+    <div class="quiz-q"><span class="quiz-num">11</span><span>Pela regra do meio-termo, a generosidade fica entre</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> O prazer imediato dos sentidos e do corpo</div>
-      <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> A obediência às leis divinas e à autoridade</div>
-      <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> O bem maior de todos (sumo bem) — a plena realização e felicidade, atingida pelo desenvolvimento de virtudes</div>
-      <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> A riqueza material e o sucesso social</div>
+      <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> o esbanjamento, por falta, e a avareza, por excesso.</div>
+      <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> a covardia, por falta, e a imprudência, por excesso.</div>
+      <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> a pobreza, por falta, e a riqueza, por excesso.</div>
+      <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> a avareza, por falta, e o esbanjamento, por excesso.</div>
+      <div class="opt" data-l="e" onclick="pick('q11','e',this)"><span class="opt-letter">E</span> a coragem, por falta, e a temperança, por excesso.</div>
     </div>
-    <div id="fb-q11" class="quiz-feedback" data-ok="Eudaimonia = sumo bem = plena realização. Só é atingida pelo desenvolvimento prático das virtudes." data-err="Eudaimonia não é prazer imediato nem riqueza. É o sumo bem — a plena realização humana, alcançada pela prática das virtudes."></div>
+    <div id="fb-q11" class="quiz-feedback" data-ok="Dar de menos é avareza (falta); dar sem medida, sem critério, é esbanjamento (excesso). A generosidade é a justa medida entre os dois. Covardia e imprudência são os vícios em torno da coragem." data-err="Dar de menos é avareza (falta); dar sem medida, sem critério, é esbanjamento (excesso). A generosidade é a justa medida entre os dois. Covardia e imprudência são os vícios em torno da coragem."></div>
   </div>
 
   <!-- Q12 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">12</span><span>Como Aristóteles via a origem dos valores éticos (diferente de Platão)?</span></div>
+    <p class="q-fonte">Para impressionar os amigos, um rapaz sem treinamento entra num prédio em chamas sem equipamento e sem avaliar o risco.</p>
+    <div class="quiz-q"><span class="quiz-num">12</span><span>Para Aristóteles, essa atitude é</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> São inatos — vêm do mundo inteligível e são lembrados pela alma</div>
-      <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> São revelados pelos deuses através da razão divina</div>
-      <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> São construídos ao longo da vida pela prática e experiência (empirismo)</div>
-      <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> São impostos pela sociedade e pelo Estado</div>
+      <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> coragem, a virtude de enfrentar o perigo sem medo.</div>
+      <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> imprudência, um vício por excesso, e não coragem.</div>
+      <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> covardia, um vício por falta de enfrentamento.</div>
+      <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> temperança, o equilíbrio dos prazeres do corpo.</div>
+      <div class="opt" data-l="e" onclick="pick('q12','e',this)"><span class="opt-letter">E</span> prudência, pois o rapaz agiu de forma decidida.</div>
     </div>
-    <div id="fb-q12" class="quiz-feedback" data-ok="Aristóteles (empirismo): valores são construídos na prática. Platão (inatismo): valores são lembrados pela alma." data-err="Aristóteles se opõe a Platão: os valores éticos não são inatos — são construídos ao longo da vida pela experiência prática (empirismo)."></div>
+    <div id="fb-q12" class="quiz-feedback" data-ok="Coragem é o meio-termo: enfrentar o perigo com medida. Faltando enfrentamento, há covardia; sobrando, sem avaliar riscos, há imprudência (temeridade), que é outro vício." data-err="Coragem é o meio-termo: enfrentar o perigo com medida. Faltando enfrentamento, há covardia; sobrando, sem avaliar riscos, há imprudência (temeridade), que é outro vício."></div>
   </div>
 
   <!-- Q13 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">13</span><span>O que a Regra de Ouro (Meio-termo) de Aristóteles afirma?</span></div>
+    <p class="q-fonte">Platão e Aristóteles divergem sobre a origem dos valores éticos.</p>
+    <div class="quiz-q"><span class="quiz-num">13</span><span>Para Platão e para Aristóteles, respectivamente, os valores éticos</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> A virtude está no extremo máximo de uma qualidade</div>
-      <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> A virtude é a total ausência de vícios na vida do indivíduo</div>
-      <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> A virtude é o equilíbrio (meio-termo) entre dois vícios — um por falta e outro por excesso</div>
-      <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> A virtude é definida pela maioria da sociedade</div>
+      <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> já estão na alma, por reminiscência / são construídos na vida, pela prática.</div>
+      <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> são construídos pela prática / já estão na alma, por reminiscência das ideias.</div>
+      <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> são relativos a cada cultura / são universais e estão no Mundo Inteligível.</div>
+      <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> dependem do prazer do corpo / dependem do medo da autoridade e das punições.</div>
+      <div class="opt" data-l="e" onclick="pick('q13','e',this)"><span class="opt-letter">E</span> são impostos pelos deuses / são inventados pelos governantes de cada cidade.</div>
     </div>
-    <div id="fb-q13" class="quiz-feedback" data-ok="Vício (falta) ——— Virtude (equilíbrio) ——— Vício (excesso). Ex: Covardia — Coragem — Imprudência." data-err="A virtude não está nos extremos. Pela Regra de Ouro, ela é o meio-termo entre o vício por falta e o vício por excesso."></div>
+    <div id="fb-q13" class="quiz-feedback" data-ok="Para Platão, os conceitos éticos são universais e a alma os traz consigo (reminiscência). Aristóteles é mais empirista: as virtudes se formam com a prática e o hábito, buscando a eudaimonia." data-err="Para Platão, os conceitos éticos são universais e a alma os traz consigo (reminiscência). Aristóteles é mais empirista: as virtudes se formam com a prática e o hábito, buscando a eudaimonia."></div>
   </div>
 
   <!-- Q14 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">14</span><span>Na sequência Covardia — ___ — Imprudência, o que representa o termo do meio?</span></div>
+    <p class="q-fonte">Um físico premiado por suas teorias é conhecido por tratar a equipe com injustiça e tomar decisões ruins no dia a dia.</p>
+    <div class="quiz-q"><span class="quiz-num">14</span><span>Para Aristóteles, essa combinação é possível porque</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> Um vício por excesso</div>
-      <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> Um vício por falta</div>
-      <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> A virtude da Coragem — o meio-termo/equilíbrio entre os dois vícios</div>
-      <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> Uma ação amoral sem julgamento ético</div>
+      <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> o saber teórico depende do prático, e o físico ainda não aprendeu a ciência.</div>
+      <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> quem tem logos sempre age bem, e por isso o físico não deve ter razão.</div>
+      <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> a ética é relativa, e cada pessoa decide o que é justo para si mesma.</div>
+      <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> saber teórico e saber prático são distintos: dominar um não garante o outro.</div>
+      <div class="opt" data-l="e" onclick="pick('q14','e',this)"><span class="opt-letter">E</span> a felicidade vem do prazer, e o físico prefere o trabalho à convivência.</div>
     </div>
-    <div id="fb-q14" class="quiz-feedback" data-ok="Covardia (falta) ——— Coragem (virtude/equilíbrio) ——— Imprudência (excesso). A virtude está no meio." data-err="O termo do meio é sempre a virtude na Regra de Ouro. Aqui: Coragem = virtude = equilíbrio entre covardia (falta) e imprudência (excesso)."></div>
+    <div id="fb-q14" class="quiz-feedback" data-ok="Aristóteles separa o saber teórico (ciências, leis da natureza) do saber prático (ética, prudência, decisões morais). Eles não dependem diretamente um do outro: é possível ser excelente cientista e mau agente moral." data-err="Aristóteles separa o saber teórico (ciências, leis da natureza) do saber prático (ética, prudência, decisões morais). Eles não dependem diretamente um do outro: é possível ser excelente cientista e mau agente moral."></div>
   </div>
 
   <!-- Q15 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">15</span><span>O que o experimento de Milgram buscava entender?</span></div>
+    <p class="q-fonte">Com o domínio macedônio e as conquistas de Alexandre, as cidades gregas perdem sua autonomia política, e a pólis dá lugar à ideia de cosmópolis.</p>
+    <div class="quiz-q"><span class="quiz-num">15</span><span>Nesse contexto, a filosofia helenística, como a de Epicuro,</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> A capacidade intelectual e de memória dos participantes</div>
-      <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> Até que ponto o ser humano obedece à autoridade mesmo que contrarie seus próprios valores morais</div>
-      <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> O desenvolvimento moral de crianças em diferentes culturas</div>
-      <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> A influência da mídia no comportamento coletivo</div>
+      <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> deixa a política de lado e se volta para a ética e a felicidade individual.</div>
+      <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> passa a se dedicar sobretudo à organização política das cidades gregas.</div>
+      <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> defende a superioridade dos gregos sobre os demais povos conquistados.</div>
+      <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> abandona a ética e se concentra apenas no estudo da física dos átomos.</div>
+      <div class="opt" data-l="e" onclick="pick('q15','e',this)"><span class="opt-letter">E</span> adota a teoria das ideias de Platão como base de todo o conhecimento.</div>
     </div>
-    <div id="fb-q15" class="quiz-feedback" data-ok="Milgram queria entender a obediência do povo alemão ao nazismo — e o experimento mostrou que a maioria obedece à autoridade mesmo contra seus valores." data-err="Milgram queria entender a obediência humana à autoridade — motivado pela submissão do povo alemão ao nazismo na 2ª Guerra Mundial."></div>
+    <div id="fb-q15" class="quiz-feedback" data-ok="O período helenístico funde a cultura grega com as orientais e troca a pólis pela visão universalista da cosmópolis. Sem a vida política da cidade como centro, a filosofia passa a tratar da ética: como ser feliz." data-err="O período helenístico funde a cultura grega com as orientais e troca a pólis pela visão universalista da cosmópolis. Sem a vida política da cidade como centro, a filosofia passa a tratar da ética: como ser feliz."></div>
   </div>
 
   <!-- Q16 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">16</span><span>O que é a "Transferência da Culpa" observada por Milgram?</span></div>
+    <p class="q-fonte">I. Beber água quando se tem sede
+II. Jantar todas as noites num restaurante caro
+III. Ganhar fama nas redes sociais</p>
+    <div class="quiz-q"><span class="quiz-num">16</span><span>Segundo Epicuro, os desejos I, II e III são, respectivamente,</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> Punir o responsável por dar a ordem injusta</div>
-      <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> Aceitar totalmente a responsabilidade pelas próprias ações</div>
-      <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> O indivíduo deixa de se ver como agente moral e transfere a responsabilidade para quem deu a ordem — deixando de deliberar</div>
-      <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> Dividir igualmente a responsabilidade entre todos os envolvidos</div>
+      <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> naturais e não necessários; naturais e necessários; não naturais e não necessários.</div>
+      <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> naturais e necessários; não naturais e não necessários; naturais e não necessários.</div>
+      <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> naturais e necessários; naturais e não necessários; não naturais e não necessários.</div>
+      <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> não naturais e não necessários; naturais e não necessários; naturais e necessários.</div>
+      <div class="opt" data-l="e" onclick="pick('q16','e',this)"><span class="opt-letter">E</span> naturais e necessários; naturais e necessários; não naturais e não necessários.</div>
     </div>
-    <div id="fb-q16" class="quiz-feedback" data-ok="Tanto no experimento de Milgram quanto no caso Eichmann/Holocausto: o indivíduo se vê apenas como executor, não como agente moral." data-err="Transferência da culpa = deslocamento da responsabilidade para quem deu a ordem. O indivíduo para de se ver como agente moral consciente."></div>
+    <div id="fb-q16" class="quiz-feedback" data-ok="Matar a sede é natural e necessário: leva à felicidade. Comer é natural, mas sofisticação e luxo não são necessários. Fama, honra e glória são criações da sociedade: nem naturais nem necessárias. As duas últimas afastam da felicidade." data-err="Matar a sede é natural e necessário: leva à felicidade. Comer é natural, mas sofisticação e luxo não são necessários. Fama, honra e glória são criações da sociedade: nem naturais nem necessárias. As duas últimas afastam da felicidade."></div>
   </div>
 
   <!-- Q17 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">17</span><span>O que caracteriza o período helenístico na filosofia?</span></div>
+    <p class="q-fonte">Para Demócrito, o movimento dos átomos segue leis mecânicas, e tudo já está determinado.</p>
+    <div class="quiz-q"><span class="quiz-num">17</span><span>Epicuro modificou essa teoria ao afirmar que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> A filosofia se volta para a política e a organização da pólis grega</div>
-      <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> O fim de toda produção filosófica até o período medieval</div>
-      <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> Visão universalista (cosmópolis), fusão de valores gregos e romanos, filosofia focada na ética</div>
-      <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> A valorização da superioridade grega sobre os demais povos</div>
+      <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> existe uma realidade imaterial, o Mundo Inteligível, onde ficam as ideias perfeitas.</div>
+      <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> os átomos às vezes desviam sem previsão (clinâmen), abrindo espaço à liberdade.</div>
+      <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> os átomos podem ser divididos em partes menores e por isso mudam de direção.</div>
+      <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> o movimento dos átomos é totalmente determinado, e o livre-arbítrio é uma ilusão.</div>
+      <div class="opt" data-l="e" onclick="pick('q17','e',this)"><span class="opt-letter">E</span> os deuses controlam o movimento dos átomos de acordo com o destino de cada um.</div>
     </div>
-    <div id="fb-q17" class="quiz-feedback" data-ok="No helenismo, a pólis dá lugar à cosmópolis (visão universalista) e a filosofia deixa de focar em política para se voltar à ética." data-err="O período helenístico transformou a pólis em cosmópolis, com visão universalista e foco na ética, não mais na política."></div>
+    <div id="fb-q17" class="quiz-feedback" data-ok="Epicuro mantém o materialismo atomista, mas inclui o clinâmen, um desvio espontâneo dos átomos. Sem determinismo total, há livre-arbítrio, e nossa felicidade depende dos prazeres e dores do corpo." data-err="Epicuro mantém o materialismo atomista, mas inclui o clinâmen, um desvio espontâneo dos átomos. Sem determinismo total, há livre-arbítrio, e nossa felicidade depende dos prazeres e dores do corpo."></div>
   </div>
 
   <!-- Q18 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">18</span><span>O que é o Hedonismo epicurista?</span></div>
+    <p class="q-fonte">"A morte não é nada para nós: enquanto existimos, ela não está presente; quando ela chega, nós já não existimos." (Epicuro, Carta a Meneceu)</p>
+    <div class="quiz-q"><span class="quiz-num">18</span><span>Com esse argumento, Epicuro busca</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> A busca descontrolada por qualquer tipo de prazer</div>
-      <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> A felicidade é fundamentalmente prazer, mas deve-se priorizar os prazeres necessários e moderar os desnecessários</div>
-      <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> A rejeição total de prazeres para atingir a sabedoria</div>
-      <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> A busca da felicidade pelo acúmulo de bens materiais e fama</div>
+      <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> provar que a alma é imortal e volta ao Mundo Inteligível.</div>
+      <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> mostrar que a morte é o maior de todos os males humanos.</div>
+      <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> eliminar o medo da morte, que perturba a tranquilidade da alma.</div>
+      <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> justificar a busca de todos os prazeres antes do fim da vida.</div>
+      <div class="opt" data-l="e" onclick="pick('q18','e',this)"><span class="opt-letter">E</span> convencer as pessoas a temer os deuses e a punição após a morte.</div>
     </div>
-    <div id="fb-q18" class="quiz-feedback" data-ok="Epicuro defende que o prazer é base da felicidade, mas não qualquer prazer — só os naturais e necessários. Desejos desnecessários devem ser moderados." data-err="O hedonismo de Epicuro não é busca descontrolada: deve-se priorizar prazeres naturais e necessários e eliminar/moderar desejos desnecessários."></div>
+    <div id="fb-q18" class="quiz-feedback" data-ok="É um dos quatro remédios do tetrapharmakon: não temer a morte, assim como não temer os deuses. O objetivo é a ataraxia, a tranquilidade da alma, base da felicidade epicurista." data-err="É um dos quatro remédios do tetrapharmakon: não temer a morte, assim como não temer os deuses. O objetivo é a ataraxia, a tranquilidade da alma, base da felicidade epicurista."></div>
   </div>
 
   <!-- Q19 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">19</span><span>Qual tipo de prazer, segundo Epicuro, é caminho para a felicidade?</span></div>
+    <p class="q-fonte">"O prazer é o início e o fim de toda vida feliz." (Epicuro)</p>
+    <div class="quiz-q"><span class="quiz-num">19</span><span>Apesar dessa frase, seria um erro dizer que Epicuro defendia</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> Naturais e necessários (alimentação simples, sono)</div>
-      <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> Naturais e não necessários (luxo, alimentação sofisticada)</div>
-      <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> Não naturais e não necessários (honra, fama, glória)</div>
-      <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> Todos os prazeres igualmente</div>
+      <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> que uma alimentação simples já basta para uma vida feliz e tranquila.</div>
+      <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> que a tranquilidade da alma é a forma mais elevada de prazer.</div>
+      <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> que não se deve temer os deuses, pois eles não se importam conosco.</div>
+      <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> que os desejos desnecessários devem ser moderados ou eliminados.</div>
+      <div class="opt" data-l="e" onclick="pick('q19','e',this)"><span class="opt-letter">E</span> buscar todos os prazeres possíveis, inclusive luxo e fama, sem moderação.</div>
     </div>
-    <div id="fb-q19" class="quiz-feedback" data-ok="Apenas prazeres naturais e necessários (manutenção do corpo: alimentação simples, sono) levam à felicidade. Os demais te afastam dela." data-err="Os prazeres naturais e não necessários (luxo) e os não naturais (honra, fama) te afastam da felicidade. Apenas os naturais e necessários são o caminho."></div>
+    <div id="fb-q19" class="quiz-feedback" data-ok="O hedonismo de Epicuro não é &quot;aproveitar tudo&quot;: é priorizar os prazeres naturais e necessários e moderar ou eliminar os desnecessários (luxo, fama, glória), que trazem dor. A meta é a ataraxia." data-err="O hedonismo de Epicuro não é &quot;aproveitar tudo&quot;: é priorizar os prazeres naturais e necessários e moderar ou eliminar os desnecessários (luxo, fama, glória), que trazem dor. A meta é a ataraxia."></div>
   </div>
 
   <!-- Q20 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">20</span><span>Qual a principal diferença entre o atomismo de Demócrito e o clinâmen de Epicuro?</span></div>
+    <p class="q-fonte">No experimento de Milgram, participantes aplicavam "choques" cada vez mais fortes em outra pessoa (um ator) porque um pesquisador mandava continuar. Cerca de dois terços foram até o choque máximo.</p>
+    <div class="quiz-q"><span class="quiz-num">20</span><span>O experimento investigava</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> Demócrito acreditava em realidade imaterial; Epicuro não</div>
-      <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> Epicuro rejeitou a composição atômica da matéria</div>
-      <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> Ambos acreditam na matéria atômica, mas Epicuro nega o determinismo total ao introduzir desvios imprevisíveis (clinâmen), possibilitando o livre-arbítrio</div>
-      <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> Não há diferença — ambos são deterministas</div>
+      <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> qual é a maior intensidade de dor que um ser humano consegue suportar.</div>
+      <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> se as pessoas sentem prazer em causar dor a desconhecidos sem motivo.</div>
+      <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> se os choques elétricos melhoram a memória e o aprendizado das pessoas.</div>
+      <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> como a alma se lembra dos conceitos éticos que viu antes de nascer.</div>
+      <div class="opt" data-l="e" onclick="pick('q20','e',this)"><span class="opt-letter">E</span> até onde alguém obedece à autoridade mesmo contra os próprios valores.</div>
     </div>
-    <div id="fb-q20" class="quiz-feedback" data-ok="Ambos: matéria feita de átomos. Diferença: Demócrito = determinismo total (sem livre-arbítrio). Epicuro = clinâmen (desvios imprevisíveis) → livre-arbítrio existe." data-err="Ambos acreditam em átomos, mas Demócrito é determinista (tudo pré-definido), enquanto Epicuro introduz o clinâmen (desvios espontâneos) que permite o livre-arbítrio."></div>
+    <div id="fb-q20" class="quiz-feedback" data-ok="Milgram queria entender a obediência e a submissão sob o nazismo. A maioria obedeceu ao pesquisador de jaleco mesmo vendo o &quot;sofrimento&quot; do outro: a autoridade pesou mais que os valores pessoais." data-err="Milgram queria entender a obediência e a submissão sob o nazismo. A maioria obedeceu ao pesquisador de jaleco mesmo vendo o &quot;sofrimento&quot; do outro: a autoridade pesou mais que os valores pessoais."></div>
   </div>
 
   <!-- Q21 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">21</span><span>O que é a ataraxia para os epicuristas?</span></div>
+    <p class="q-fonte">Ao ser julgado, Eichmann, um dos responsáveis pela logística do Holocausto, afirmou: "Eu só obedecia a ordens."</p>
+    <div class="quiz-q"><span class="quiz-num">21</span><span>Esse argumento é um exemplo de</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> O estado de obediência total às leis da pólis</div>
-      <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> A tranquilidade da alma alcançada ao evitar a dor e satisfazer prazeres necessários</div>
-      <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> O conhecimento absoluto do mundo inteligível</div>
-      <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> A busca pela fama e reconhecimento social</div>
+      <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> deliberação racional, já que ele refletiu bem sobre as opções antes de agir.</div>
+      <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> transferência da culpa para quem mandou, o que anula a responsabilidade.</div>
+      <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> ação amoral, pois ele não tinha nenhuma consciência do que estava fazendo.</div>
+      <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> meio-termo aristotélico entre a obediência total e a desobediência.</div>
+      <div class="opt" data-l="e" onclick="pick('q21','e',this)"><span class="opt-letter">E</span> reminiscência, pois ele lembrava de valores aprendidos antes de nascer.</div>
     </div>
-    <div id="fb-q21" class="quiz-feedback" data-ok="Ataraxia = tranquilidade da alma. Os epicuristas buscam alcançá-la pelos 4 ensinamentos do Tetrapharmakon." data-err="Ataraxia é a tranquilidade da alma — estado de paz interior atingido ao satisfazer prazeres necessários e evitar a dor, não ao buscar fama ou poder."></div>
+    <div id="fb-q21" class="quiz-feedback" data-ok="Eichmann se apresenta como &quot;peça da engrenagem&quot; e joga a culpa para quem mandou. É a mesma transferência de responsabilidade vista no experimento de Milgram: a pessoa se vê como executora, não como agente moral." data-err="Eichmann se apresenta como &quot;peça da engrenagem&quot; e joga a culpa para quem mandou. É a mesma transferência de responsabilidade vista no experimento de Milgram: a pessoa se vê como executora, não como agente moral."></div>
   </div>
 
   <!-- Q22 -->
   <div class="quiz">
-    <div class="quiz-q"><span class="quiz-num">22</span><span>Qual NÃO é um dos ensinamentos do Tetrapharmakon?</span></div>
+    <p class="q-fonte">Eichmann alegou que não conhecia todo o processo e que, se não fizesse sua parte, outro faria.</p>
+    <div class="quiz-q"><span class="quiz-num">22</span><span>Do ponto de vista do agente moral estudado no trimestre, a principal objeção a essa defesa é que</span></div>
     <div class="quiz-opts">
-      <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> Não se deve temer os Deuses</div>
-      <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> Não se deve temer a morte</div>
-      <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> É possível suportar a dor</div>
-      <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> Deve-se buscar glória e reconhecimento para ser feliz</div>
+      <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> ele agiu de forma amoral, já que não tinha consciência de nenhum valor.</div>
+      <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> ele tinha razão e podia deliberar, então responde pelas escolhas que fez.</div>
+      <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> quem obedece a ordens nunca pode ser responsabilizado pelo que faz.</div>
+      <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> a culpa era só de Hitler, pois só quem manda é agente moral de fato.</div>
+      <div class="opt" data-l="e" onclick="pick('q22','e',this)"><span class="opt-letter">E</span> a obediência é sempre uma virtude, como a coragem e a temperança.</div>
     </div>
-    <div id="fb-q22" class="quiz-feedback" data-ok="Glória e reconhecimento são prazeres NÃO naturais e NÃO necessários — te afastam da felicidade. Os 4 ensinamentos são: não temer deuses, não temer morte, suportar a dor, é possível ser feliz." data-err="Buscar glória é o oposto do epicurismo. O 4º ensinamento é 'É possível ser feliz' — satisfazendo prazeres naturais necessários, não buscando fama."></div>
+    <div id="fb-q22" class="quiz-feedback" data-ok="Ter logos é o que nos torna agentes morais: podemos deliberar e escolher. Por isso a obediência não apaga a responsabilidade. Os limites da obediência dependem da gravidade do que é ordenado." data-err="Ter logos é o que nos torna agentes morais: podemos deliberar e escolher. Por isso a obediência não apaga a responsabilidade. Os limites da obediência dependem da gravidade do que é ordenado."></div>
   </div>
 
 </div>
