@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-pagina="filosofia-2tri" data-materia="filosofia">
 <head>
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <title>Resumo de Filosofia — 2º Trimestre 2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
   :root {
     --primary: #3d2b00;
     --secondary: #c9953c;
@@ -139,8 +139,10 @@
 </script>
 <script src="config.js"></script>
 <link rel="stylesheet" href="styles/shared.css">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
 </head>
-<body>
+<body class="ios resumo">
 <div class="progress-bar" id="progressBar"></div>
 
 <header class="hero">
@@ -1255,38 +1257,13 @@
 </div>
 
 <script>
-  function toggleChat() {
-    const p = document.getElementById("chat-panel");
-    p.classList.toggle("open");
-    if (p.classList.contains("open")) document.getElementById("chat-input").focus();
-  }
-  function getContext() {
-    const el = document.querySelector(".content") || document.body;
-    return el.innerText.replace(/\s+/g, " ").slice(0, 6000);
-  }
-  async function sendMsg(e) {
-    e.preventDefault();
-    const input = document.getElementById("chat-input");
-    const msgs = document.getElementById("chat-msgs");
-    const text = input.value.trim();
-    if (!text) return;
-    input.value = "";
-    const userMsg = document.createElement("div");
-    userMsg.className = "cmsg user";
-    userMsg.textContent = text;
-    msgs.appendChild(userMsg);
-    const loader = document.createElement("div");
-    loader.className = "cmsg bot loading"; loader.textContent = "Pensando...";
-    msgs.appendChild(loader); msgs.scrollTop = msgs.scrollHeight;
-    try {
-      const r = await fetch("/api/chat", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({ message: text, context: getContext() }) });
-      const d = await r.json();
-      loader.className = "cmsg bot"; loader.textContent = d.reply || d.error;
-    } catch(err) { loader.className = "cmsg bot"; loader.textContent = "Erro de conexão. Tente novamente."; }
-    msgs.scrollTop = msgs.scrollHeight;
-  }
+  
+  
+  
 </script>
 <script src="scripts/progress.js"></script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
 <script src="scripts/contribuir.js" defer></script>
 </body>
 </html>

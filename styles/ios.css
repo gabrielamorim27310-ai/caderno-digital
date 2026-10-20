@@ -117,7 +117,7 @@
 
   /* Destaque da página: por padrão, azul do sistema */
   --tint: var(--blue);
-  --tint-fill: var(--blue);   /* fundo de botão cheio: sempre com texto branco */
+  --tint-fill: #0066cc;       /* fundo de botão cheio: tom fixo, aceita texto branco no claro e no escuro */
   --on-tint: #ffffff;
 }
 
@@ -191,7 +191,14 @@
 [data-materia="sociologia"] { --tint: var(--sociologia); --tint-fill: var(--sociologia-fill); }
 
 /* Fundo suave na cor da matéria (selos, linhas selecionadas) */
-:root, [data-materia] { --tint-bg: color-mix(in srgb, var(--tint) 14%, transparent); }
+:root, [data-materia] {
+  --tint-bg: color-mix(in srgb, var(--tint) 14%, transparent);
+  /* "tinta": cor da matéria para TEXTO sobre fundo colorido (selos, etiquetas),
+     um pouco mais escura no claro / mais clara no escuro para passar 4,5:1 */
+  --tint-ink: color-mix(in srgb, var(--tint) 72%, #000);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]), :root:not([data-theme="light"]) [data-materia] { --tint-ink: color-mix(in srgb, var(--tint) 70%, #fff); } }
+:root[data-theme="dark"], :root[data-theme="dark"] [data-materia] { --tint-ink: color-mix(in srgb, var(--tint) 70%, #fff); }
 
 /* ═══════════════════════════════════════════════════════════
    4. BASE
@@ -560,7 +567,10 @@ body.ios {
   --card-bg: var(--bg-2);
   --card: var(--bg-2);
   --white: var(--bg-2);
-  --primary: var(--tint-fill);
+  /* nas páginas antigas --primary é usado como cor de TEXTO (182×) mais
+     do que como fundo (130×, quase todos em componentes reestilizados
+     abaixo com --tint-fill): por isso aponta para a cor legível */
+  --primary: var(--tint);
   --secondary: var(--tint);
   --accent: var(--tint);
   --shadow: var(--shadow-card);
@@ -616,7 +626,7 @@ body.ios {
 }
 .ios .hero .author { background: var(--fill); color: var(--label-2); }
 .ios .hero br { display: none; }
-.ios .hero > div { display: inline; }
+.ios .hero > div:has(> .badge, > .author) { display: inline; }
 .ios .hero-icon img { filter: none !important; height: 56px !important; width: auto !important; }
 
 /* ── Capítulos ── */
@@ -885,6 +895,166 @@ body.ios {
 .ios #contrib-send { background: var(--tint-fill); color: var(--on-tint); min-height: 50px; border-radius: var(--r-md); font: var(--t-headline); }
 .ios #contrib-status.ok { color: var(--green); } .ios #contrib-status.erro { color: var(--red); }
 @media (min-width: 768px) { .ios #contrib-modal { align-items: center; } .ios #contrib-box { border-radius: var(--r-xl); } }
+
+/* ── Ajustes encontrados pelo detector de contraste ── */
+
+/* Etiquetas coloridas de capítulo: fundo suave + texto na cor (legível nos dois modos) */
+.ios .tag-ch1, .ios .tag.tag-ch1 { background: color-mix(in srgb, var(--ch1) 16%, transparent) !important; color: var(--ch1) !important; }
+.ios .tag-ch2, .ios .tag.tag-ch2 { background: color-mix(in srgb, var(--ch2) 16%, transparent) !important; color: var(--ch2) !important; }
+.ios .tag-ch3, .ios .tag.tag-ch3 { background: color-mix(in srgb, var(--ch3) 16%, transparent) !important; color: var(--ch3) !important; }
+.ios .tag-ch4, .ios .tag.tag-ch4 { background: color-mix(in srgb, var(--ch4) 16%, transparent) !important; color: var(--ch4) !important; }
+.ios .tag-ch5, .ios .tag.tag-ch5 { background: color-mix(in srgb, var(--ch5) 16%, transparent) !important; color: var(--ch5) !important; }
+.ios .tag-ch6, .ios .tag.tag-ch6 { background: color-mix(in srgb, var(--ch6) 16%, transparent) !important; color: var(--ch6) !important; }
+.ios .tag-ch7, .ios .tag.tag-ch7 { background: color-mix(in srgb, var(--ch7) 16%, transparent) !important; color: var(--ch7) !important; }
+.ios .tag-ch8, .ios .tag.tag-ch8 { background: color-mix(in srgb, var(--ch8) 16%, transparent) !important; color: var(--ch8) !important; }
+.ios .tag-ch9, .ios .tag.tag-ch9 { background: color-mix(in srgb, var(--ch9) 16%, transparent) !important; color: var(--ch9) !important; }
+.ios .tag-imp { background: var(--yellow-bg) !important; color: var(--label) !important; }
+.ios .tag-new { background: var(--green-bg) !important; color: var(--green) !important; }
+
+/* Botões de refazer/reiniciar com cor escrita no HTML (feitos para fundo escuro) */
+.ios button[onclick^="reset"]:not(.btn-reset-mid):not(.btn-reset) {
+  background: var(--tint-fill) !important; color: var(--on-tint) !important; border: 0 !important;
+  border-radius: var(--r-pill) !important; min-height: 40px; font: 600 0.9375rem/1 var(--font) !important;
+}
+
+/* Elementos com fundo na cor da matéria e texto branco: usam o tom cheio */
+.ios :is(.flow-step, .step-num, .nox-val, .deck-btn.active, .fc-unit-tag) { background-color: var(--tint-fill) !important; color: var(--on-tint) !important; }
+.ios [style*="background:var(--primary)"], .ios [style*="background: var(--primary)"],
+.ios [style*="background:var(--secondary)"], .ios [style*="background: var(--secondary)"],
+.ios [style*="background:var(--accent)"], .ios [style*="background: var(--accent)"] { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+
+/* Listas em caixinhas e citações (Filosofia, Português, Geografia 1º tri) */
+.resumo .list li { background: var(--bg-3) !important; border: 0 !important; color: var(--label) !important; }
+.resumo .list li::before { color: var(--tint) !important; }
+.resumo .list-nested { border-left-color: var(--sep) !important; }
+.resumo .list-nested li { color: var(--label-2) !important; }
+.resumo :is(.quote, .exemplo) {
+  background: var(--bg-3) !important; color: var(--label) !important; border: 0 !important; border-left: 3px solid var(--tint) !important;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0 !important; font-style: italic;
+}
+.resumo :is(.quote, .exemplo) span { color: var(--label-2) !important; font-style: normal; }
+.ios .highlight-red { background: var(--red-bg) !important; color: var(--label) !important; border: 0 !important; border-radius: var(--r-md); }
+.ios .highlight-blue { background: var(--blue-bg) !important; color: var(--label) !important; border: 0 !important; border-radius: var(--r-md); }
+
+/* Faixa antiga "← Caderno Digital" (História e Química 1º tri) e seta de círculo da Matemática */
+.ios div:has(> a[href^="index.html"][onmouseover]) { display: none !important; }
+.ios .accordion-btn > :is(.chev, .chevron, .icon) { background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
+.resumo .chapter-body { padding: 0 !important; background: none !important; border: 0 !important; }
+
+/* Quiz antigo feito para fundo escuro: texto branco escrito no HTML */
+.resumo .quiz-section :is([style*="color:white"], [style*="color: white"], [style*="color:#fff"], [style*="color:rgba(255,255,255"], [style*="color: rgba(255,255,255"]) { color: var(--label) !important; }
+.resumo .quiz-section p[style*="opacity"] { color: var(--label-2) !important; opacity: 1 !important; }
+.resumo circle[stroke^="rgba(255,255,255"], .resumo circle[stroke="#e0e0e0"] { stroke: var(--fill-2); }
+.resumo .author { color: var(--label) !important; }
+
+/* Geografia (América): o globo foi desenhado para fundo escuro → cartão "planetário" */
+.resumo .hero .globe-wrap:not(.is-mini) {
+  background: radial-gradient(120% 90% at 50% 30%, #1b2a4a 0%, #0b1220 70%); border-radius: var(--r-xl);
+  padding: var(--s-4) var(--s-4) var(--s-3); max-width: 480px; box-shadow: var(--shadow-card);
+}
+.resumo .hero .globe-wrap:not(.is-mini) .globe-caption { color: rgba(255, 255, 255, 0.82) !important; opacity: 1 !important; text-align: center; }
+
+/* Matemática: blocos de fórmula e gráfico de sinais */
+.resumo .formula-block { background: var(--bg-3) !important; color: var(--label) !important; border-color: var(--sep) !important; }
+.resumo .sign-chart .seg.pos { color: var(--green) !important; border-color: var(--green) !important; background: var(--green-bg) !important; }
+.resumo .sign-chart .seg.neg { color: var(--red) !important; border-color: var(--red) !important; background: var(--red-bg) !important; }
+.resumo .sign-chart .seg { color: var(--label-2); }
+
+/* Química 1º tri: diagramas de moléculas, proporções e redox */
+.resumo .mol-equation, .resumo .solved-problem { background: var(--bg-3) !important; border-color: var(--sep) !important; color: var(--label); }
+.resumo .mol-substance { background: var(--bg-2) !important; border-color: var(--sep) !important; }
+.resumo .mol-substance.highlight { background: var(--tint-bg) !important; border-color: var(--tint) !important; }
+.resumo .mol-mass-label { background: var(--fill) !important; color: var(--label-2) !important; }
+.resumo :is(.mol-op, .mol-formula-label) { color: var(--label) !important; }
+.resumo :is(.mol-coeff, .mol-arrow-op) { color: var(--tint) !important; }
+.resumo .prop-col-head { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+.resumo .prop-col:last-child .prop-col-head { background: #0a6c8c !important; }
+.resumo .prop-col-mass { background: var(--bg-3) !important; color: var(--tint) !important; border-color: var(--sep) !important; }
+.resumo .prop-col-val { background: var(--bg-2) !important; color: var(--label) !important; }
+.resumo .redox-oxidacao { background: var(--orange-bg) !important; border-color: var(--orange) !important; }
+.resumo .redox-reducao { background: var(--green-bg) !important; border-color: var(--green) !important; }
+.resumo .redox-oxidacao h5 { color: var(--orange) !important; }
+.resumo .redox-reducao h5 { color: var(--green) !important; }
+.resumo .redox-box p { color: var(--label) !important; }
+
+/* Sociologia 2º tri: botão das fotos */
+.resumo .photos-cta { background: var(--tint-fill) !important; color: var(--on-tint) !important; border: 0 !important; }
+
+/* Flashcards */
+.resumo .hero-nav a { background: var(--fill) !important; color: var(--tint) !important; border: 0 !important; }
+.resumo :is(.deck-btn, .fc-nav-btn, .fc-flip-hint) { background: var(--bg-2) !important; color: var(--label) !important; border: 0.5px solid var(--sep) !important; box-shadow: var(--shadow-card); }
+.resumo .deck-btn.active { background: var(--tint-fill) !important; color: var(--on-tint) !important; border-color: transparent !important; }
+.resumo .fc-front { background: linear-gradient(135deg, var(--tint-fill), color-mix(in srgb, var(--tint-fill) 70%, #000)) !important; color: #fff !important; }
+.resumo .fc-back { background: var(--bg-2) !important; border-color: var(--sep) !important; color: var(--label) !important; }
+.resumo .fc-back :is(.fc-pt, .fc-ex, .fc-term) { color: var(--label) !important; }
+.resumo .fc-back .fc-unit-tag { background: var(--tint-bg) !important; color: var(--tint) !important; }
+.resumo .fc-btn-review { background: linear-gradient(135deg, #b8501a, #8f3d12) !important; color: #fff !important; }
+.resumo .fc-btn-know { background: linear-gradient(135deg, #187a47, #12603a) !important; color: #fff !important; }
+.resumo :is(.fc-progress-bar) { background: var(--fill) !important; }
+.resumo :is(.fc-progress-fill) { background: var(--tint) !important; }
+.resumo :is(.fc-progress-label, #fcCounter, #fcDeckLabel) { color: var(--label-2) !important; }
+
+/* Texto sobre fundo colorido usa a "tinta" (contraste ≥ 4,5) */
+.pill, .ios .hero .badge, .ios :is(.ch-tag, .chapter-num, .section-num, .quiz-num, .quiz-chapter-tag, .quiz-tag),
+.sidebar-item.chapter-link.is-active, .sidebar-item.chapter-link.is-active .num, .ios :is(.btn-reset-mid, .btn-reset-mid *) { color: var(--tint-ink) !important; }
+.ios :is(.tag-ch1, .tag-ch2, .tag-ch3, .tag-ch4, .tag-ch5, .tag-ch6, .tag-ch7, .tag-ch8, .tag-ch9) { filter: none; }
+.ios :is(.tag-ch1, .tag.tag-ch1) { color: color-mix(in srgb, var(--ch1) 68%, #000) !important; }
+.ios :is(.tag-ch2, .tag.tag-ch2) { color: color-mix(in srgb, var(--ch2) 68%, #000) !important; }
+.ios :is(.tag-ch3, .tag.tag-ch3) { color: color-mix(in srgb, var(--ch3) 68%, #000) !important; }
+.ios :is(.tag-ch4, .tag.tag-ch4) { color: color-mix(in srgb, var(--ch4) 68%, #000) !important; }
+.ios :is(.tag-ch5, .tag.tag-ch5) { color: color-mix(in srgb, var(--ch5) 68%, #000) !important; }
+.ios :is(.tag-ch6, .tag.tag-ch6) { color: color-mix(in srgb, var(--ch6) 68%, #000) !important; }
+.ios :is(.tag-ch7, .tag.tag-ch7) { color: color-mix(in srgb, var(--ch7) 68%, #000) !important; }
+.ios :is(.tag-ch8, .tag.tag-ch8) { color: color-mix(in srgb, var(--ch8) 68%, #000) !important; }
+.ios :is(.tag-ch9, .tag.tag-ch9) { color: color-mix(in srgb, var(--ch9) 68%, #000) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is([class*="tag-ch"]) { filter: brightness(1.12); } }
+:root[data-theme="dark"] .ios :is([class*="tag-ch"]) { filter: brightness(1.12); }
+:root[data-theme="dark"] .ios :is(.tag-ch1, .tag.tag-ch1) { color: var(--ch1) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch1, .tag.tag-ch1) { color: var(--ch1) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch2, .tag.tag-ch2) { color: var(--ch2) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch2, .tag.tag-ch2) { color: var(--ch2) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch3, .tag.tag-ch3) { color: var(--ch3) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch3, .tag.tag-ch3) { color: var(--ch3) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch4, .tag.tag-ch4) { color: var(--ch4) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch4, .tag.tag-ch4) { color: var(--ch4) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch5, .tag.tag-ch5) { color: var(--ch5) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch5, .tag.tag-ch5) { color: var(--ch5) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch6, .tag.tag-ch6) { color: var(--ch6) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch6, .tag.tag-ch6) { color: var(--ch6) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch7, .tag.tag-ch7) { color: var(--ch7) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch7, .tag.tag-ch7) { color: var(--ch7) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch8, .tag.tag-ch8) { color: var(--ch8) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch8, .tag.tag-ch8) { color: var(--ch8) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch9, .tag.tag-ch9) { color: var(--ch9) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch9, .tag.tag-ch9) { color: var(--ch9) !important; } }
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight, .highlight-purple, .highlight-gray, .highlight-red, .highlight-blue) strong { color: var(--label) !important; }
+.ios .search-field kbd { color: var(--label); }
+.resumo .mol-mass-label { color: var(--label) !important; }
+.resumo .sign-chart .seg.pos, .resumo .sign-chart .seg.neg { color: var(--label) !important; }
+.ios :is(.chapter-number) { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+
+.resumo .quiz-section, .resumo .quiz-section :is(#score-box, #score-nums, #score-pct-label, #score-pct-sub, #score-chart-wrap) { color: var(--label) !important; }
+.resumo #score-box { background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card); }
+.ios .section-num:is([style*="var(--primary)"], [style*="var(--secondary)"], [style*="var(--accent)"]) { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+.resumo .hero-nav a, .resumo .root { color: var(--tint-ink) !important; }
+:root[data-theme="dark"] .ios :is(.tag-ch1, .tag.tag-ch1) { color: color-mix(in srgb, var(--ch1) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch1, .tag.tag-ch1) { color: color-mix(in srgb, var(--ch1) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch2, .tag.tag-ch2) { color: color-mix(in srgb, var(--ch2) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch2, .tag.tag-ch2) { color: color-mix(in srgb, var(--ch2) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch3, .tag.tag-ch3) { color: color-mix(in srgb, var(--ch3) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch3, .tag.tag-ch3) { color: color-mix(in srgb, var(--ch3) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch4, .tag.tag-ch4) { color: color-mix(in srgb, var(--ch4) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch4, .tag.tag-ch4) { color: color-mix(in srgb, var(--ch4) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch5, .tag.tag-ch5) { color: color-mix(in srgb, var(--ch5) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch5, .tag.tag-ch5) { color: color-mix(in srgb, var(--ch5) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch6, .tag.tag-ch6) { color: color-mix(in srgb, var(--ch6) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch6, .tag.tag-ch6) { color: color-mix(in srgb, var(--ch6) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch7, .tag.tag-ch7) { color: color-mix(in srgb, var(--ch7) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch7, .tag.tag-ch7) { color: color-mix(in srgb, var(--ch7) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch8, .tag.tag-ch8) { color: color-mix(in srgb, var(--ch8) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch8, .tag.tag-ch8) { color: color-mix(in srgb, var(--ch8) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch9, .tag.tag-ch9) { color: color-mix(in srgb, var(--ch9) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch9, .tag.tag-ch9) { color: color-mix(in srgb, var(--ch9) 72%, #fff) !important; } }
 
 /* ── Rodapé ── */
 .resumo footer { background: none; border: 0; color: var(--label-2); font: var(--t-footnote); text-align: center; padding: var(--s-8) var(--s-4) var(--s-10); max-width: var(--w-content); margin: 0 auto; }
