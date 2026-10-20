@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    contribuir.js — formulário "Enviar meu resumo" (página /enviar)
-   O aluno escolhe matéria e tópico e manda texto, fotos do caderno
+   O aluno escolhe trimestre, matéria e tópico e manda texto, fotos do caderno
    ou arquivos. Os envios ficam privados e são juntados por tópico
    antes de entrar no resumo (ferramentas/COMO-JUNTAR.md).
    Backend: api/enviar-resumo.js
@@ -31,6 +31,9 @@
     '<form id="contrib-form" novalidate>' +
       '<h2 class="group-title">Sobre o quê</h2>' +
       '<div class="group form-group">' +
+        '<label class="form-row">Trimestre<select name="tri" required>' +
+          '<option value="1">1º trimestre</option><option value="2">2º trimestre</option><option value="3">3º trimestre</option>' +
+        '</select></label>' +
         '<label class="form-row">Matéria<select name="materia" required><option value="">Escolha a matéria...</option></select></label>' +
         '<label class="form-row">Tópico<select name="topico" required disabled><option value="">Escolha a matéria primeiro</option></select></label>' +
         '<label class="form-row">Detalhe (opcional)<input name="assunto" type="text" maxlength="80" placeholder="Ex.: Tratados de 1810"></label>' +
@@ -63,27 +66,45 @@
 
   function avisar(msg, tipo) { status.textContent = msg; status.className = tipo || ''; }
 
-  /* ── Matérias (config.js) ── */
-  // Páginas existentes + as matérias do trimestre atual que ainda não têm página
-  // (o aluno já pode mandar; o tópico é digitado). Trimestre atual primeiro.
+  /* ── Trimestre e matéria (config.js) ── */
+  // Primeiro o trimestre, depois só as matérias dele. Entram as páginas que
+  // existem e as matérias ainda sem página (o aluno já pode mandar; o tópico
+  // é digitado).
   var LISTA = typeof MATERIAS !== 'undefined' ? MATERIAS : [];
-  var ATUAL = (typeof APP !== 'undefined' && APP.triAtual) || 0;
-  var opcoes = [], usados = {};
-  LISTA.forEach(function (m) {
-    if (!m.id || !PAGINA_OK.test(m.id) || usados[m.id]) return;
-    usados[m.id] = true;
-    opcoes.push({ id: m.id, rotulo: m.nome + ' · ' + m.tri + 'º tri', tri: m.tri });
-  });
-  if (ATUAL) {
-    var nomes = {};
-    LISTA.forEach(function (m) { if (m.materia && !nomes[m.materia]) nomes[m.materia] = m.nome.split(' · ')[0]; });
-    Object.keys(nomes).forEach(function (chave) {
-      var id = chave + '-' + ATUAL + 'tri';
-      if (!usados[id]) { usados[id] = true; opcoes.push({ id: id, rotulo: nomes[chave] + ' · ' + ATUAL + 'º tri', tri: ATUAL }); }
+  var ATUAL = (typeof APP !== 'undefined' && APP.triAtual) || 3;
+  var porTri = {}, nomes = {};
+  LISTA.forEach(function (m) { if (m.materia && !nomes[m.materia]) nomes[m.materia] = m.nome.split(' · ')[0]; });
+  [1, 2, 3].forEach(function (t) {
+    var opcoes = [], usados = {}, temPagina = {};
+    LISTA.forEach(function (m) {
+      if (m.tri !== t || !m.id || !PAGINA_OK.test(m.id) || usados[m.id]) return;
+      usados[m.id] = temPagina[m.materia] = true;
+      opcoes.push({ id: m.id, rotulo: m.nome });
     });
+    Object.keys(nomes).forEach(function (chave) {
+      var id = chave + '-' + t + 'tri';
+      if (!temPagina[chave] && !usados[id]) { usados[id] = true; opcoes.push({ id: id, rotulo: nomes[chave] }); }
+    });
+    opcoes.sort(function (a, b) { return a.rotulo.localeCompare(b.rotulo); });
+    porTri[t] = opcoes;
+  });
+  function triDe(id) { var m = /-(\d)tri/.exec(id || ''); return m ? +m[1] : 0; }
+
+  function preencherMaterias() {
+    var sel = form.materia;
+    sel.innerHTML = '';
+    sel.add(new Option('Escolha a matéria...', ''));
+    (porTri[form.tri.value] || []).forEach(function (o) { sel.add(new Option(o.rotulo, o.id)); });
   }
-  opcoes.sort(function (a, b) { return (b.tri === ATUAL) - (a.tri === ATUAL) || b.tri - a.tri || a.rotulo.localeCompare(b.rotulo); });
-  opcoes.forEach(function (o) { form.materia.add(new Option(o.rotulo, o.id)); });
+
+  // o endereço acompanha a escolha, para o link poder ser compartilhado
+  function atualizarUrl() {
+    var url = new URL(location.href);
+    url.searchParams.set('tri', form.tri.value);
+    if (form.materia.value) url.searchParams.set('materia', form.materia.value); else url.searchParams.delete('materia');
+    url.searchParams.delete('topico');
+    history.replaceState(null, '', url);
+  }
 
   /* ── Tópicos = capítulos do menu da página da matéria ── */
   var cacheTopicos = {};
@@ -130,17 +151,15 @@
     if (escolher && nomes.concat(VARIOS).indexOf(escolher) >= 0) sel.value = escolher;
   }
 
-  form.materia.addEventListener('change', function () {
-    carregarTopicos();
-    // o endereço acompanha a escolha, para o link poder ser compartilhado
-    var url = new URL(location.href);
-    if (form.materia.value) url.searchParams.set('materia', form.materia.value); else url.searchParams.delete('materia');
-    url.searchParams.delete('topico');
-    history.replaceState(null, '', url);
-  });
+  form.tri.addEventListener('change', function () { preencherMaterias(); carregarTopicos(); atualizarUrl(); });
+  form.materia.addEventListener('change', function () { carregarTopicos(); atualizarUrl(); });
 
-  if (params.get('materia')) {
-    form.materia.value = params.get('materia');
+  var pedida = params.get('materia');
+  form.tri.value = String(triDe(pedida) || +params.get('tri') || ATUAL);
+  if (!form.tri.value) form.tri.value = String(ATUAL);
+  preencherMaterias();
+  if (pedida) {
+    form.materia.value = pedida;
     if (form.materia.value) carregarTopicos(params.get('topico'));
   }
 
