@@ -15,13 +15,16 @@
     { "src": "qui-imgs/**",  "use": "@vercel/static" },
     { "src": "socio-imgs/**", "use": "@vercel/static" },
     { "src": "*.png",       "use": "@vercel/static" },
-    { "src": "*.svg",       "use": "@vercel/static" }
+    { "src": "*.svg",       "use": "@vercel/static" },
+    { "src": "*.webmanifest", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/chat", "dest": "/api/chat.js" },
     { "src": "/api/debug", "dest": "/api/debug.js" },
     { "src": "/api/enviar-resumo", "dest": "/api/enviar-resumo.js" },
     { "src": "/api/manter-ativo", "dest": "/api/manter-ativo.js" },
+    { "src": "/sw.js", "headers": { "cache-control": "no-cache" }, "continue": true },
+    { "src": "/manifest.webmanifest", "headers": { "content-type": "application/manifest+json" }, "continue": true },
     { "src": "/",         "dest": "/index.html" },
     { "handle": "filesystem" }
   ],
