@@ -801,6 +801,7 @@ body.ios {
 .ios .q-fonte {
   font: var(--t-subhead) !important; color: var(--label) !important; margin: 0 0 var(--s-3) !important;
   padding: var(--s-2) var(--s-3); border-left: 3px solid var(--tint); background: var(--bg-3); border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  white-space: pre-line; /* afirmações I, II, III em linhas separadas */
 }
 .ios .options { display: grid; gap: var(--s-2); }
 .ios .option-btn {
