@@ -9,7 +9,7 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-10-20-enviar-tri';
+const VERSAO = 'cd-2026-10-20-socio3';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
@@ -31,6 +31,7 @@ const ESSENCIAIS = [
   'quimica-2tri.html',
   'sociologia-1tri.html',
   'sociologia-2tri.html',
+  'sociologia-3tri.html',
   'config.js',
   'manifest.webmanifest',
   'icons.svg',
