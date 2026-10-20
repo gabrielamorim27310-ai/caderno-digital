@@ -9,7 +9,7 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-10-20-socio3';
+const VERSAO = 'cd-2026-10-20-socio3b';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
