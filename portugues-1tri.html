@@ -400,7 +400,7 @@
             <tr><td><strong>Oposição / Adversidade</strong></td><td>mas, porém, contudo, todavia, entretanto, no entanto</td></tr>
             <tr><td><strong>Conclusão</strong></td><td>logo, portanto, então, assim, por isso</td></tr>
             <tr><td><strong>Explicação / Causa</strong></td><td>porque, pois, já que, uma vez que, visto que</td></tr>
-            <tr><td><strong>Consequência</strong></td><td>tanto que, de modo que, de forma que, assim que</td></tr>
+            <tr><td><strong>Consequência</strong></td><td>tão… que, tanto que, de modo que, de forma que, de sorte que</td></tr>
             <tr><td><strong>Concessão</strong></td><td>embora, ainda que, mesmo que, apesar de, por mais que</td></tr>
             <tr><td><strong>Comparação</strong></td><td>como, assim como, tal como, mais…do que, tanto…quanto</td></tr>
             <tr><td><strong>Condição</strong></td><td>se, caso, desde que, contanto que, a menos que</td></tr>
@@ -638,7 +638,7 @@
     </div>
 
     <script>
-      const ANSWERS = {q1:'c',q2:'b',q3:'b',q4:'c',q5:'b',q6:'b',q7:'c',q8:'b',q9:'d',q10:'b',q11:'c',q12:'b',q13:'b',q14:'c',q15:'a',q16:'c',q17:'b',q18:'d'};
+      const ANSWERS = {q1:'e',q2:'d',q3:'a',q4:'b',q5:'e',q6:'a',q7:'c',q8:'a',q9:'b',q10:'b',q11:'d',q12:'b',q13:'c',q14:'e',q15:'c',q16:'a',q17:'d',q18:'c'};
       let score = 0, answered = 0;
       function pick(qid, letter, el) {
         const opts = el.closest('.quiz-opts').querySelectorAll('.opt');
@@ -666,218 +666,256 @@
 
     <!-- Q1 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">1</span><span>O que é o vocativo em uma oração?</span></div>
+      <p class="q-fonte">"Senhores deputados, nós, professores da rede pública, vimos a público denunciar a falta de merenda em 40% das escolas do estado. Exigimos, portanto, que o orçamento de 2026 garanta alimentação a todos os alunos."</p>
+      <div class="quiz-q"><span class="quiz-num">1</span><span>São marcas do gênero carta aberta presentes no trecho:</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> O sujeito da oração — quem realiza a ação verbal</div>
-        <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> O predicado da oração — o que se diz do sujeito</div>
-        <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> O termo que coloca em evidência o interlocutor, isolado por vírgulas</div>
-        <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> O objeto direto — o ser que sofre a ação</div>
+        <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> narrador em 3ª pessoa, diálogo entre personagens e linguagem informal.</div>
+        <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> versos rimados, métrica regular e uso intenso de linguagem figurada.</div>
+        <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> manchete, lide e relato imparcial dos fatos, sem tomar posição.</div>
+        <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> passos numerados e verbos no imperativo para orientar o leitor.</div>
+        <div class="opt" data-l="e" onclick="pick('q1','e',this)"><span class="opt-letter">E</span> vocativo, 1ª pessoa do plural, dado estatístico e verbo de reivindicação.</div>
       </div>
-      <div id="fb-q1" class="quiz-feedback" data-ok="O vocativo é o interlocutor da mensagem, isolado por vírgulas — não se confunde com o sujeito da oração." data-err="O vocativo não é o sujeito. É o termo que indica a quem a fala é dirigida, isolado por vírgulas. O sujeito é quem realiza/sofre a ação."></div>
+      <div id="fb-q1" class="quiz-feedback" data-ok="&quot;Senhores deputados&quot; é o vocativo; &quot;nós, professores&quot; mostra a 1ª pessoa do plural de um coletivo; &quot;40%&quot; é argumento com dado; &quot;Exigimos&quot; é verbo performativo de reivindicação. Imparcialidade é da notícia; a carta aberta toma posição." data-err="&quot;Senhores deputados&quot; é o vocativo; &quot;nós, professores&quot; mostra a 1ª pessoa do plural de um coletivo; &quot;40%&quot; é argumento com dado; &quot;Exigimos&quot; é verbo performativo de reivindicação. Imparcialidade é da notícia; a carta aberta toma posição."></div>
     </div>
 
     <!-- Q2 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">2</span><span>Em "O amor, meu querido, às vezes nos confunde!", qual é o vocativo?</span></div>
+      <p class="q-fonte">Uma carta pessoal e uma carta aberta podem ter destinatários definidos.</p>
+      <div class="quiz-q"><span class="quiz-num">2</span><span>A principal diferença da carta aberta é que ela</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> O amor</div>
-        <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> meu querido</div>
-        <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> às vezes</div>
-        <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> nos confunde</div>
+        <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> é sempre anônima, para proteger quem denuncia o problema.</div>
+        <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> dispensa argumentos, pois o destinatário já conhece o assunto.</div>
+        <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> usa linguagem íntima e informal, típica da conversa entre amigos.</div>
+        <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> circula em público, o que pressiona o destinatário a agir.</div>
+        <div class="opt" data-l="e" onclick="pick('q2','e',this)"><span class="opt-letter">E</span> só pode ser dirigida a um único cidadão, nunca a uma instituição.</div>
       </div>
-      <div id="fb-q2" class="quiz-feedback" data-ok="'Meu querido' é o interlocutor (vocativo), isolado por vírgulas. 'O amor' é o sujeito simples da oração." data-err="'O amor' é o sujeito (assunto da oração). 'Meu querido' é o vocativo — é a quem a frase é dirigida, isolado por vírgulas."></div>
+      <div id="fb-q2" class="quiz-feedback" data-ok="A carta aberta é endereçada a uma autoridade ou grupo, mas qualquer pessoa pode ler: a circulação pública é justamente o que pressiona o destinatário. Ela é argumentativa, formal e costuma ter assinatura coletiva." data-err="A carta aberta é endereçada a uma autoridade ou grupo, mas qualquer pessoa pode ler: a circulação pública é justamente o que pressiona o destinatário. Ela é argumentativa, formal e costuma ter assinatura coletiva."></div>
     </div>
 
     <!-- Q3 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">3</span><span>Qual é o núcleo de um sintagma verbal?</span></div>
+      <p class="q-fonte">"Senhor prefeito, a cidade precisa de mais creches."</p>
+      <div class="quiz-q"><span class="quiz-num">3</span><span>Nessa frase, "Senhor prefeito" e "a cidade" são, respectivamente,</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> Um substantivo</div>
-        <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> Um verbo</div>
-        <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> Um adjetivo</div>
-        <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> Um advérbio</div>
+        <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> vocativo e sujeito.</div>
+        <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> sujeito e vocativo.</div>
+        <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> vocativo e objeto direto.</div>
+        <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> aposto e sujeito.</div>
+        <div class="opt" data-l="e" onclick="pick('q3','e',this)"><span class="opt-letter">E</span> sujeito e objeto direto.</div>
       </div>
-      <div id="fb-q3" class="quiz-feedback" data-ok="Sintagma Verbal (SV): núcleo = verbo. Ex.: 'trabalhei como enfermeira', 'milhões de crianças morrem'." data-err="O sintagma recebe o nome do tipo do seu núcleo. Sintagma verbal → núcleo verbo. Nominal → substantivo. Adjetivo → adjetivo. Advérbio → advérbio."></div>
+      <div id="fb-q3" class="quiz-feedback" data-ok="&quot;Senhor prefeito&quot; chama o interlocutor e vem isolado por vírgula: vocativo. Quem &quot;precisa&quot; é &quot;a cidade&quot;, com quem o verbo concorda: sujeito. Vocativo é quem recebe a mensagem; sujeito é quem pratica ou sofre a ação." data-err="&quot;Senhor prefeito&quot; chama o interlocutor e vem isolado por vírgula: vocativo. Quem &quot;precisa&quot; é &quot;a cidade&quot;, com quem o verbo concorda: sujeito. Vocativo é quem recebe a mensagem; sujeito é quem pratica ou sofre a ação."></div>
     </div>
 
     <!-- Q4 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">4</span><span>Em "de uma doença evitável", o sintagma sublinhado tem núcleo do tipo:</span></div>
+      <p class="q-fonte">"Vi o assaltante da janela."</p>
+      <div class="quiz-q"><span class="quiz-num">4</span><span>A frase é ambígua porque</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> Verbal</div>
-        <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> Nominal</div>
-        <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> Adjetivo</div>
-        <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> Advérbio</div>
+        <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> o verbo "vi" pode estar no presente ou no passado, conforme o contexto.</div>
+        <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> "da janela" pode se subordinar ao nome "assaltante" ou ao verbo "vi".</div>
+        <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> "o assaltante" pode ser sujeito ou objeto direto do verbo "vi".</div>
+        <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> falta o sujeito da oração, que poderia ser "eu" ou "ele".</div>
+        <div class="opt" data-l="e" onclick="pick('q4','e',this)"><span class="opt-letter">E</span> "janela" pode ser entendida como substantivo ou como verbo.</div>
       </div>
-      <div id="fb-q4" class="quiz-feedback" data-ok="O núcleo é 'evitável' (adjetivo) → Sintagma de Núcleo Adjetivo." data-err="'Evitável' é um adjetivo e é o núcleo desse sintagma → Sintagma de Núcleo Adjetivo (SA). Não confunda com nominal (cujo núcleo seria um substantivo)."></div>
+      <div id="fb-q4" class="quiz-feedback" data-ok="A posição do sintagma pode mudar o sentido. Se &quot;da janela&quot; se liga a &quot;assaltante&quot;, o assaltante estava na janela; se se liga a &quot;vi&quot;, quem estava na janela era eu. É uma questão de relação de subordinação." data-err="A posição do sintagma pode mudar o sentido. Se &quot;da janela&quot; se liga a &quot;assaltante&quot;, o assaltante estava na janela; se se liga a &quot;vi&quot;, quem estava na janela era eu. É uma questão de relação de subordinação."></div>
     </div>
 
     <!-- Q5 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">5</span><span>O que é paralelismo sintático?</span></div>
+      <p class="q-fonte">I. morrem de fome
+II. crianças pequenas
+III. muito rapidamente
+IV. bastante evitável</p>
+      <div class="quiz-q"><span class="quiz-num">5</span><span>Pelo tipo de núcleo, os sintagmas I, II, III e IV são, respectivamente,</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> O uso de sinônimos para evitar repetição de palavras no texto</div>
-        <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> A construção em que sintagmas relacionados em enumeração apresentam a mesma estrutura gramatical</div>
-        <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> A repetição intencional de sons no início de palavras</div>
-        <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> A separação de uma oração em dois períodos distintos</div>
+        <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> nominal, verbal, adverbial e adjetival.</div>
+        <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> verbal, adjetival, adverbial e nominal.</div>
+        <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> verbal, nominal, adjetival e adverbial.</div>
+        <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> adverbial, nominal, verbal e adjetival.</div>
+        <div class="opt" data-l="e" onclick="pick('q5','e',this)"><span class="opt-letter">E</span> verbal, nominal, adverbial e adjetival.</div>
       </div>
-      <div id="fb-q5" class="quiz-feedback" data-ok="Paralelismo sintático = sintagmas coordenados com mesma estrutura gramatical (ambos nominais ou ambos verbais)." data-err="Paralelismo sintático é sobre estrutura gramatical equivalente em elementos coordenados — não tem relação com sinônimos ou sons."></div>
+      <div id="fb-q5" class="quiz-feedback" data-ok="O sintagma recebe o nome do seu núcleo: &quot;morrem&quot; é verbo (SV); &quot;crianças&quot; é substantivo (SN); &quot;rapidamente&quot; é advérbio (SAdv); &quot;evitável&quot; é adjetivo (SA). &quot;Pequenas&quot;, &quot;muito&quot; e &quot;bastante&quot; são termos que dependem do núcleo." data-err="O sintagma recebe o nome do seu núcleo: &quot;morrem&quot; é verbo (SV); &quot;crianças&quot; é substantivo (SN); &quot;rapidamente&quot; é advérbio (SAdv); &quot;evitável&quot; é adjetivo (SA). &quot;Pequenas&quot;, &quot;muito&quot; e &quot;bastante&quot; são termos que dependem do núcleo."></div>
     </div>
 
     <!-- Q6 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">6</span><span>Qual das frases apresenta paralelismo sintático correto?</span></div>
+      <div class="quiz-q"><span class="quiz-num">6</span><span>A frase que apresenta quebra de paralelismo sintático é:</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> "Eu gosto de livros de ficção e de assistir a filmes europeus."</div>
-        <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> "Eu gosto de ler livros de ficção e de assistir a filmes europeus."</div>
-        <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> "Eu gosto de ficção e assistindo filmes europeus."</div>
-        <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> "Eu gosto livros e de assistir filmes."</div>
+        <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> O projeto prevê a reforma das escolas e contratar mais professores.</div>
+        <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> O projeto prevê reformar as escolas e contratar mais professores.</div>
+        <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> O projeto prevê a reforma das escolas e a contratação de docentes.</div>
+        <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> Tanto os alunos quanto os pais aprovaram o novo projeto.</div>
+        <div class="opt" data-l="e" onclick="pick('q6','e',this)"><span class="opt-letter">E</span> Não só reformaram as escolas como também contrataram docentes.</div>
       </div>
-      <div id="fb-q6" class="quiz-feedback" data-ok="'de ler livros' e 'de assistir a filmes' são ambos sintagmas verbais → paralelismo correto." data-err="Na alternativa A, 'livros de ficção' é SN e 'assistir a filmes europeus' é SV → não há paralelismo. A correta usa dois sintagmas verbais."></div>
+      <div id="fb-q6" class="quiz-feedback" data-ok="&quot;A reforma das escolas&quot; é sintagma nominal e &quot;contratar mais professores&quot; é sintagma verbal: elementos coordenados de naturezas diferentes. O certo é usar dois nominais ou dois verbais, como nas outras opções." data-err="&quot;A reforma das escolas&quot; é sintagma nominal e &quot;contratar mais professores&quot; é sintagma verbal: elementos coordenados de naturezas diferentes. O certo é usar dois nominais ou dois verbais, como nas outras opções."></div>
     </div>
 
     <!-- Q7 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">7</span><span>Qual conector estabelece relação de CONCESSÃO?</span></div>
+      <p class="q-fonte">"O candidato prometeu não só mais empregos, mas também que reduziria os impostos."</p>
+      <div class="quiz-q"><span class="quiz-num">7</span><span>A reescrita que corrige a falta de paralelismo, mantendo o sentido, é:</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> para</div>
-        <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> caso</div>
-        <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> apesar de</div>
-        <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> assim que</div>
+        <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> O candidato prometeu não só mais empregos, mas também reduzir os impostos.</div>
+        <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> O candidato prometeu não só mais empregos, mas também que os impostos baixariam.</div>
+        <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> O candidato prometeu não só mais empregos, mas também a redução dos impostos.</div>
+        <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> O candidato prometeu não só que haveria empregos, mas também a redução de impostos.</div>
+        <div class="opt" data-l="e" onclick="pick('q7','e',this)"><span class="opt-letter">E</span> O candidato prometeu mais empregos, não só, mas também reduziria os impostos.</div>
       </div>
-      <div id="fb-q7" class="quiz-feedback" data-ok="'Apesar de' indica concessão — admite um fato contrário sem anular a ideia principal." data-err="'para' = finalidade · 'caso' = condição · 'assim que' = tempo. Concessão é expressa por: apesar de, embora, ainda que, mesmo que."></div>
+      <div id="fb-q7" class="quiz-feedback" data-ok="&quot;Não só… mas também&quot; exige termos da mesma natureza. &quot;Mais empregos&quot; é um sintagma nominal, então o segundo termo também precisa ser nominal: &quot;a redução dos impostos&quot;. As outras opções misturam nome com verbo ou com oração." data-err="&quot;Não só… mas também&quot; exige termos da mesma natureza. &quot;Mais empregos&quot; é um sintagma nominal, então o segundo termo também precisa ser nominal: &quot;a redução dos impostos&quot;. As outras opções misturam nome com verbo ou com oração."></div>
     </div>
 
     <!-- Q8 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">8</span><span>Em "unimos nossas vozes para escrever esta carta", o conector "para" indica:</span></div>
+      <p class="q-fonte">"___ chovia, ___ fazia sol: o tempo mudou o dia inteiro."</p>
+      <div class="quiz-q"><span class="quiz-num">8</span><span>O par de conectores que completa corretamente a frase é</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> Causa</div>
-        <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> Finalidade</div>
-        <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> Consequência</div>
-        <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> Concessão</div>
+        <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> ora / ora</div>
+        <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> desde / até</div>
+        <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> nem / nem</div>
+        <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> quer / quer</div>
+        <div class="opt" data-l="e" onclick="pick('q8','e',this)"><span class="opt-letter">E</span> por um lado / por outro</div>
       </div>
-      <div id="fb-q8" class="quiz-feedback" data-ok="'Para' indica finalidade — o objetivo da ação realizada (unimos nossas vozes com o objetivo de escrever)." data-err="'Para' indica finalidade (objetivo), não causa. Causa seria respondida por 'por quê?' — finalidade, por 'para quê?'."></div>
+      <div id="fb-q8" class="quiz-feedback" data-ok="&quot;Ora… ora&quot; indica alternância, que é o sentido de &quot;o tempo mudou o dia inteiro&quot;. &quot;Nem… nem&quot; negaria as duas coisas; &quot;quer… quer&quot; exigiria o subjuntivo (&quot;quer chovesse, quer fizesse sol&quot;); &quot;desde… até&quot; marca limites." data-err="&quot;Ora… ora&quot; indica alternância, que é o sentido de &quot;o tempo mudou o dia inteiro&quot;. &quot;Nem… nem&quot; negaria as duas coisas; &quot;quer… quer&quot; exigiria o subjuntivo (&quot;quer chovesse, quer fizesse sol&quot;); &quot;desde… até&quot; marca limites."></div>
     </div>
 
     <!-- Q9 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">9</span><span>Em "Caso os líderes não ajam, haverá um colapso ambiental", o conector indica:</span></div>
+      <div class="quiz-q"><span class="quiz-num">9</span><span>A frase em que o pronome relativo está empregado de acordo com a norma-padrão é:</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> Tempo</div>
-        <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> Concessão</div>
-        <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> Causa</div>
-        <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> Condição</div>
+        <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> Visitamos a cidade cujo o prefeito assinou a carta.</div>
+        <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> Visitamos a cidade cujo prefeito assinou a carta.</div>
+        <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> Visitamos a cidade que o prefeito dela assinou a carta.</div>
+        <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> Este é o livro onde eu te falei na semana passada.</div>
+        <div class="opt" data-l="e" onclick="pick('q9','e',this)"><span class="opt-letter">E</span> O jogo que fomos no domingo acabou empatado.</div>
       </div>
-      <div id="fb-q9" class="quiz-feedback" data-ok="'Caso' indica condição — o colapso só ocorrerá se (sob a condição de que) os líderes não ajam." data-err="'Caso' equivale a 'se' e indica condição. Não confunda com concessão (apesar de) nem com tempo (quando, assim que)."></div>
+      <div id="fb-q9" class="quiz-feedback" data-ok="&quot;Cujo&quot; indica posse e nunca vem seguido de artigo (&quot;cujo o&quot; está errado). &quot;Onde&quot; só se usa para lugar (&quot;o livro de que te falei&quot;). E o verbo &quot;ir&quot; pede preposição: &quot;o jogo a que fomos&quot;." data-err="&quot;Cujo&quot; indica posse e nunca vem seguido de artigo (&quot;cujo o&quot; está errado). &quot;Onde&quot; só se usa para lugar (&quot;o livro de que te falei&quot;). E o verbo &quot;ir&quot; pede preposição: &quot;o jogo a que fomos&quot;."></div>
     </div>
 
     <!-- Q10 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">10</span><span>Qual conector indica relação de PROPORÇÃO?</span></div>
+      <p class="q-fonte">"A ONU publicou um relatório sobre a fome no mundo. O documento aponta que ela atinge cerca de 700 milhões de pessoas."</p>
+      <div class="quiz-q"><span class="quiz-num">10</span><span>As expressões "O documento" e "ela" retomam, respectivamente,</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> assim que</div>
-        <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> à medida que</div>
-        <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> de acordo com</div>
-        <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> embora</div>
+        <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> a ONU e a fome.</div>
+        <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> o relatório e a fome.</div>
+        <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> o relatório e a ONU.</div>
+        <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> a fome e o relatório.</div>
+        <div class="opt" data-l="e" onclick="pick('q10','e',this)"><span class="opt-letter">E</span> a ONU e o relatório.</div>
       </div>
-      <div id="fb-q10" class="quiz-feedback" data-ok="'À medida que' indica proporção — duas situações evoluem simultaneamente e de forma proporcional." data-err="'Assim que' = tempo · 'de acordo com' = conformidade · 'embora' = concessão. Proporção: à medida que, à proporção que, quanto mais…mais."></div>
+      <div id="fb-q10" class="quiz-feedback" data-ok="&quot;O documento&quot; substitui &quot;relatório&quot; (sinônimo, evita repetição) e &quot;ela&quot; retoma &quot;a fome&quot;, que é o que atinge as pessoas. É coesão referencial: retomar termos já mencionados." data-err="&quot;O documento&quot; substitui &quot;relatório&quot; (sinônimo, evita repetição) e &quot;ela&quot; retoma &quot;a fome&quot;, que é o que atinge as pessoas. É coesão referencial: retomar termos já mencionados."></div>
     </div>
 
     <!-- Q11 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">11</span><span>Qual das frases tem erro de paralelismo com o conectivo "não só… mas também"?</span></div>
+      <p class="q-fonte">"Embora o prazo seja curto, entregaremos o projeto."</p>
+      <div class="quiz-q"><span class="quiz-num">11</span><span>Para substituir "Embora" sem alterar o sentido nem a correção da frase, pode-se usar</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> "Ele não só estudou como também trabalhou muito."</div>
-        <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> "O plano serve não só para erradicar a pobreza, mas também para superar desigualdades."</div>
-        <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> "Ela não só é inteligente, mas também de muita dedicação."</div>
-        <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> "O professor não só explicou o conteúdo como também deu exemplos práticos."</div>
+        <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> "Porque".</div>
+        <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> "Caso".</div>
+        <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> "Portanto".</div>
+        <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> "Ainda que".</div>
+        <div class="opt" data-l="e" onclick="pick('q11','e',this)"><span class="opt-letter">E</span> "À medida que".</div>
       </div>
-      <div id="fb-q11" class="quiz-feedback" data-ok="Em C: 'é inteligente' (SV) ≠ 'de muita dedicação' (SN) → quebra do paralelismo. Correção: 'não só é inteligente, mas também dedicada'." data-err="A alternativa C tem erro: 'é inteligente' é sintagma verbal, mas 'de muita dedicação' é sintagma nominal — não há paralelismo."></div>
+      <div id="fb-q11" class="quiz-feedback" data-ok="&quot;Embora&quot; introduz concessão: um obstáculo que não impede a ação. &quot;Ainda que&quot; tem o mesmo valor e também pede subjuntivo. &quot;Porque&quot; seria causa; &quot;caso&quot;, condição; &quot;portanto&quot;, conclusão; &quot;à medida que&quot;, proporção." data-err="&quot;Embora&quot; introduz concessão: um obstáculo que não impede a ação. &quot;Ainda que&quot; tem o mesmo valor e também pede subjuntivo. &quot;Porque&quot; seria causa; &quot;caso&quot;, condição; &quot;portanto&quot;, conclusão; &quot;à medida que&quot;, proporção."></div>
     </div>
 
     <!-- Q12 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">12</span><span>O que é a relação de subordinação entre sintagmas?</span></div>
+      <p class="q-fonte">"Os rios estão cada vez mais poluídos, de modo que os peixes começaram a desaparecer."</p>
+      <div class="quiz-q"><span class="quiz-num">12</span><span>A relação que "de modo que" estabelece entre as orações é de</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> Dois sintagmas com o mesmo valor sintático e independentes entre si</div>
-        <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> Relação de dependência sintática em que um sintagma (subordinado) depende de outro (subordinante)</div>
-        <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> Dois sintagmas coordenados com núcleos do mesmo tipo gramatical</div>
-        <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> A relação entre sujeito e predicado em uma oração</div>
+        <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> causa.</div>
+        <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> consequência.</div>
+        <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> concessão.</div>
+        <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> finalidade.</div>
+        <div class="opt" data-l="e" onclick="pick('q12','e',this)"><span class="opt-letter">E</span> proporção.</div>
       </div>
-      <div id="fb-q12" class="quiz-feedback" data-ok="Subordinação = dependência: o subordinado completa ou especifica o subordinante. Ex.: 'flores' depende de 'comprou'; 'de meus tios' depende de 'casa'." data-err="Subordinação é dependência entre dois sintagmas — um subordinante e um subordinado. Não confunda com coordenação (independência) nem com paralelismo."></div>
+      <div id="fb-q12" class="quiz-feedback" data-ok="O desaparecimento dos peixes é resultado da poluição: consequência. A causa é a poluição, que está na outra oração. &quot;De modo que&quot;, &quot;de forma que&quot; e &quot;tão… que&quot; são conectores de consequência." data-err="O desaparecimento dos peixes é resultado da poluição: consequência. A causa é a poluição, que está na outra oração. &quot;De modo que&quot;, &quot;de forma que&quot; e &quot;tão… que&quot; são conectores de consequência."></div>
     </div>
 
     <!-- Q13 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">13</span><span>Qual é a principal característica do gênero textual Carta Aberta?</span></div>
+      <div class="quiz-q"><span class="quiz-num">13</span><span>Em qual frase o conector expressa relação de proporção?</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> É um texto literário que conta uma história fictícia para entretenimento</div>
-        <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> É um texto argumentativo e reivindicativo endereçado a uma autoridade, mas com circulação pública</div>
-        <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> É uma correspondência privada trocada entre duas pessoas</div>
-        <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> É um texto científico que apresenta resultados de pesquisa</div>
+        <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> Assim que a cidade cresceu, o trânsito piorou.</div>
+        <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> Como a cidade cresceu, o trânsito piorou bastante.</div>
+        <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> À medida que a cidade cresce, o trânsito piora.</div>
+        <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> Se a cidade crescer, o trânsito vai piorar.</div>
+        <div class="opt" data-l="e" onclick="pick('q13','e',this)"><span class="opt-letter">E</span> Embora a cidade cresça, o trânsito tem melhorado.</div>
       </div>
-      <div id="fb-q13" class="quiz-feedback" data-ok="A carta aberta é pública, argumentativa e reivindicativa — denuncia, cobra ou propõe ações de interesse coletivo a uma autoridade ou grupo." data-err="A carta aberta não é privada nem literária — é um gênero público, com circulação em jornais, sites ou redes, que defende uma causa coletiva."></div>
+      <div id="fb-q13" class="quiz-feedback" data-ok="Proporção liga duas coisas que variam juntas: &quot;à medida que&quot;, &quot;à proporção que&quot;, &quot;quanto mais… mais&quot;. &quot;Assim que&quot; é tempo; &quot;como&quot; (no início), causa; &quot;se&quot;, condição; &quot;embora&quot;, concessão." data-err="Proporção liga duas coisas que variam juntas: &quot;à medida que&quot;, &quot;à proporção que&quot;, &quot;quanto mais… mais&quot;. &quot;Assim que&quot; é tempo; &quot;como&quot; (no início), causa; &quot;se&quot;, condição; &quot;embora&quot;, concessão."></div>
     </div>
 
     <!-- Q14 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">14</span><span>Em "A janela foi aberta por Pedro", qual é o sujeito sintático e qual é o sujeito semântico?</span></div>
+      <p class="q-fonte">"As provas foram corrigidas pela professora."</p>
+      <div class="quiz-q"><span class="quiz-num">14</span><span>Nessa oração, o sujeito sintático e o sujeito semântico são, respectivamente,</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> Sintático: Pedro · Semântico: a janela</div>
-        <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> Sintático: Pedro · Semântico: Pedro</div>
-        <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> Sintático: a janela · Semântico: Pedro</div>
-        <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> Sintático: a janela · Semântico: a janela</div>
+        <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> "a professora" e "as provas".</div>
+        <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> "as provas" nos dois casos.</div>
+        <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> "a professora" nos dois casos.</div>
+        <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> inexistente e "a professora".</div>
+        <div class="opt" data-l="e" onclick="pick('q14','e',this)"><span class="opt-letter">E</span> "as provas" e "a professora".</div>
       </div>
-      <div id="fb-q14" class="quiz-feedback" data-ok="Na voz passiva: sujeito sintático = 'a janela' (concorda com o verbo); sujeito semântico = 'Pedro' (quem efetivamente abriu)." data-err="Na voz passiva, o sujeito sintático (gramatical) é o paciente da ação — 'a janela'. O semântico é o agente real — 'Pedro' (agente da passiva)."></div>
+      <div id="fb-q14" class="quiz-feedback" data-ok="O verbo concorda com &quot;as provas&quot; (foram corrigidas): sujeito sintático. Quem de fato pratica a ação é a professora, o agente da passiva: sujeito semântico. Na voz passiva, os dois não coincidem." data-err="O verbo concorda com &quot;as provas&quot; (foram corrigidas): sujeito sintático. Quem de fato pratica a ação é a professora, o agente da passiva: sujeito semântico. Na voz passiva, os dois não coincidem."></div>
     </div>
 
     <!-- Q15 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">15</span><span>Em "Choveu muito ontem", como se classifica o sujeito da oração?</span></div>
+      <p class="q-fonte">I. Roubaram a bicicleta da escola.
+II. Vendem-se casas.
+III. Choveu a noite toda.
+IV. Precisa-se de voluntários.</p>
+      <div class="quiz-q"><span class="quiz-num">15</span><span>Os sujeitos de I, II, III e IV são classificados, respectivamente, como</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> Oração sem sujeito (verbo impessoal)</div>
-        <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> Sujeito indeterminado</div>
-        <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> Sujeito oculto</div>
-        <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> Sujeito simples</div>
+        <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> indeterminado, indeterminado, inexistente e simples.</div>
+        <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> oculto, simples, indeterminado e indeterminado.</div>
+        <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> indeterminado, simples, inexistente e indeterminado.</div>
+        <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> indeterminado, simples, oculto e inexistente.</div>
+        <div class="opt" data-l="e" onclick="pick('q15','e',this)"><span class="opt-letter">E</span> simples, indeterminado, inexistente e indeterminado.</div>
       </div>
-      <div id="fb-q15" class="quiz-feedback" data-ok="Verbos de fenômenos naturais (chover, nevar, ventar…) são impessoais — não admitem sujeito. A oração não tem sujeito." data-err="'Choveu' é verbo impessoal (fenômeno da natureza) — a oração não tem sujeito. Diferente do sujeito indeterminado, em que o sujeito existe mas não é identificado."></div>
+      <div id="fb-q15" class="quiz-feedback" data-ok="I: 3ª pessoa do plural sem referente = indeterminado. II: voz passiva sintética, &quot;casas são vendidas&quot; = sujeito simples (casas). III: fenômeno da natureza = sem sujeito. IV: verbo com preposição + &quot;se&quot; de indeterminação = indeterminado." data-err="I: 3ª pessoa do plural sem referente = indeterminado. II: voz passiva sintética, &quot;casas são vendidas&quot; = sujeito simples (casas). III: fenômeno da natureza = sem sujeito. IV: verbo com preposição + &quot;se&quot; de indeterminação = indeterminado."></div>
     </div>
 
     <!-- Q16 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">16</span><span>Em "Ela comprou flores para a mãe", como se classifica "flores" e "para a mãe"?</span></div>
+      <div class="quiz-q"><span class="quiz-num">16</span><span>A frase que está de acordo com a norma-padrão é:</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> flores = objeto indireto · para a mãe = objeto direto</div>
-        <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> flores = adjunto adverbial · para a mãe = objeto indireto</div>
-        <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> flores = objeto direto · para a mãe = objeto indireto</div>
-        <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> flores = predicativo · para a mãe = adjunto adverbial</div>
+        <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> Havia muitas pessoas na fila do posto.</div>
+        <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> Haviam muitas pessoas na fila do posto.</div>
+        <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> Fazem três anos que não o vejo por aqui.</div>
+        <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> Devem haver soluções para esse problema.</div>
+        <div class="opt" data-l="e" onclick="pick('q16','e',this)"><span class="opt-letter">E</span> Houveram muitos protestos no centro ontem.</div>
       </div>
-      <div id="fb-q16" class="quiz-feedback" data-ok="'flores' = OD (sem preposição obrigatória; pode ser substituído por 'as': ela as comprou). 'para a mãe' = OI (com preposição, indica destinatário)." data-err="OD não tem preposição obrigatória ('comprou o quê?' → flores). OI tem preposição obrigatória ('comprou para quem?' → para a mãe)."></div>
+      <div id="fb-q16" class="quiz-feedback" data-ok="&quot;Haver&quot; no sentido de existir e &quot;fazer&quot; indicando tempo são impessoais: a oração não tem sujeito, e o verbo fica no singular, inclusive o auxiliar (&quot;deve haver&quot;). Por isso: havia, faz, deve haver, houve." data-err="&quot;Haver&quot; no sentido de existir e &quot;fazer&quot; indicando tempo são impessoais: a oração não tem sujeito, e o verbo fica no singular, inclusive o auxiliar (&quot;deve haver&quot;). Por isso: havia, faz, deve haver, houve."></div>
     </div>
 
     <!-- Q17 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">17</span><span>Em "Roubaram meu celular", o sujeito é classificado como:</span></div>
+      <p class="q-fonte">"O diretor informou aos pais a nova regra."</p>
+      <div class="quiz-q"><span class="quiz-num">17</span><span>Os termos "aos pais" e "a nova regra" são, respectivamente,</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> Sujeito simples</div>
-        <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> Sujeito indeterminado</div>
-        <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> Sujeito oculto</div>
-        <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> Oração sem sujeito</div>
+        <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> objeto direto e objeto indireto.</div>
+        <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> objeto indireto e predicativo do objeto.</div>
+        <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> adjunto adverbial e objeto direto.</div>
+        <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> objeto indireto e objeto direto.</div>
+        <div class="opt" data-l="e" onclick="pick('q17','e',this)"><span class="opt-letter">E</span> complemento nominal e objeto direto.</div>
       </div>
-      <div id="fb-q17" class="quiz-feedback" data-ok="3ª pessoa do plural sem referente identificado = sujeito indeterminado. Sabe-se que alguém roubou, mas não se sabe (ou não se quer dizer) quem." data-err="O sujeito oculto é identificável pela desinência verbal (ex.: '[Eu] Saí cedo'). Aqui, o 3ª pessoa do plural sem referente indica indeterminação — não se sabe quem roubou."></div>
+      <div id="fb-q17" class="quiz-feedback" data-ok="&quot;Aos pais&quot; se liga ao verbo com preposição obrigatória e vira &quot;lhes&quot;: objeto indireto. &quot;A nova regra&quot; se liga sem preposição e vira &quot;a&quot;: objeto direto (&quot;informou-lhes a regra&quot;, &quot;informou-a aos pais&quot;)." data-err="&quot;Aos pais&quot; se liga ao verbo com preposição obrigatória e vira &quot;lhes&quot;: objeto indireto. &quot;A nova regra&quot; se liga sem preposição e vira &quot;a&quot;: objeto direto (&quot;informou-lhes a regra&quot;, &quot;informou-a aos pais&quot;)."></div>
     </div>
 
     <!-- Q18 -->
     <div class="quiz">
-      <div class="quiz-q"><span class="quiz-num">18</span><span>Em "O livro foi lido pelos alunos", o termo "pelos alunos" exerce a função de:</span></div>
+      <p class="q-fonte">"Os jurados consideraram o réu inocente."</p>
+      <div class="quiz-q"><span class="quiz-num">18</span><span>O termo "inocente" exerce a função de</span></div>
       <div class="quiz-opts">
-        <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> Objeto indireto</div>
-        <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> Adjunto adverbial</div>
-        <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> Predicativo do sujeito</div>
-        <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> Agente da passiva</div>
+        <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> adjunto adnominal, pois acompanha e determina o substantivo "réu".</div>
+        <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> predicativo do sujeito, pois qualifica "os jurados".</div>
+        <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> predicativo do objeto, pois atribui uma qualidade a "o réu".</div>
+        <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> adjunto adverbial de modo, pois indica como julgaram.</div>
+        <div class="opt" data-l="e" onclick="pick('q18','e',this)"><span class="opt-letter">E</span> complemento nominal, pois completa o sentido de "réu".</div>
       </div>
-      <div id="fb-q18" class="quiz-feedback" data-ok="Na voz passiva analítica, o agente da passiva indica quem praticou a ação, introduzido por 'por/pelo/pela'. Aqui: 'pelos alunos' = agente da passiva." data-err="'Pelos alunos' não é adjunto adverbial (não indica circunstância) nem OI (não completa o sentido do verbo diretamente). É o agente da passiva — quem efetivamente leu o livro."></div>
+      <div id="fb-q18" class="quiz-feedback" data-ok="&quot;Inocente&quot; atribui uma qualidade ao objeto direto &quot;o réu&quot; por meio do verbo &quot;consideraram&quot;: predicativo do objeto. Se fosse adjunto adnominal, faria parte do próprio objeto (&quot;o réu inocente&quot; como um bloco)." data-err="&quot;Inocente&quot; atribui uma qualidade ao objeto direto &quot;o réu&quot; por meio do verbo &quot;consideraram&quot;: predicativo do objeto. Se fosse adjunto adnominal, faria parte do próprio objeto (&quot;o réu inocente&quot; como um bloco)."></div>
     </div>
 
   </section>
