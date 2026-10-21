@@ -10,6 +10,7 @@ var APP = {
   aiName:      'Nêuron',
   aiEndpoint:  '/api/chat',
   year:        '2026',
+  triAtual:    3,            // trimestre que o painel e o envio abrem primeiro
   school:      'Colégio Bandeirantes',
   grade:       '2ª série do Ensino Médio',
 };
@@ -45,4 +46,7 @@ var MATERIAS = [
   { tri: 2, id: 'historia-2tri',          materia: 'historia',   icone: '🏛️', nome: 'História',   desc: 'Rev. Francesa/Haiti · Napoleão · Viena · América Espanhola · Brasil Império', status: 'prova' },
   { tri: 2, id: 'geografia-2tri',         materia: 'geografia',  icone: '🌍', nome: 'Geografia · extra', desc: 'UE, Brexit, Relevo, Clima & Hidrografia', status: 'fora' },
   { tri: 2, id: 'quimica-2tri',           materia: 'quimica',    icone: '🧪', nome: 'Química',    desc: 'Funções Orgânicas · Isomeria Plana · Isomeria Espacial', status: 'fora' },
+
+  // 3º trimestre
+  { tri: 3, id: 'sociologia-3tri',        materia: 'sociologia', icone: '🏙️', nome: 'Sociologia', desc: 'História da Antropologia · Cultura Popular, Erudita e Contracultura · Indústria Cultural', status: 'prova' },
 ];

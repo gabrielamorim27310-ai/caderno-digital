@@ -1,0 +1,9 @@
+{
+  "name": "caderno-digital-video",
+  "private": true,
+  "type": "module",
+  "description": "Gera vídeos dos resumos (Playwright desenha as cenas, ffmpeg monta)",
+  "dependencies": {
+    "playwright": "1.48.2"
+  }
+}
