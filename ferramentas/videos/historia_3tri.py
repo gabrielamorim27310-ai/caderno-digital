@@ -5,8 +5,8 @@ historia_3tri.py — Roteiros dos vídeos de História do 3º trimestre.
     python ferramentas/videos/historia_3tri.py italia     # só um
     python ferramentas/videos/historia_3tri.py --capas    # só os pôsteres
 
-Saída: hist-videos/*.mp4 e hist-videos/*.jpg (pôster).
-Precisa de pycairo, shapely e ffmpeg. Os mapas históricos vêm do projeto
+Saída: hist-videos/*.mp4 (com narração, ver narracao.py) e hist-videos/*.jpg (pôster).
+Precisa de pycairo, shapely, pillow, piper-tts e ffmpeg. Os mapas históricos vêm do projeto
 aourednik/historical-basemaps e o relevo/rios do Natural Earth.
 """
 

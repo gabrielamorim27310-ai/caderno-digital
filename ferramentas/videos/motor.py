@@ -526,8 +526,9 @@ class Cena:
     """
 
     def __init__(self, mapa=None, estado=None, legenda=None, ano='', itens=(), dur=None,
-                 legenda_mapa=(), fundo=None, herdar=True):
+                 legenda_mapa=(), fundo=None, herdar=True, narracao=None):
         self.mapa, self.estado, self.legenda, self.ano = mapa, estado, legenda, ano
+        self.narracao = narracao if narracao is not None else (legenda[1] if legenda else '')
         self.itens, self.legenda_mapa, self.fundo, self.herdar = list(itens), list(legenda_mapa), fundo, herdar
         self.legenda_lado = 'e'
         if dur is None:
@@ -656,7 +657,7 @@ def cartao_titulo(titulo, subtitulo='', topo='CADERNO DIGITAL · HISTÓRIA · 3�
             ctx.set_source_rgba(1, 1, 1, 0.55 * b)
             ctx.move_to(W / 2 - e.x_advance / 2, H - 60)
             ctx.show_text(extra)
-    return Cena(itens=[Desenho(f)], dur=dur, fundo='titulo')
+    return Cena(itens=[Desenho(f)], dur=dur, fundo='titulo', narracao=f'{titulo}. {subtitulo}.' if subtitulo else titulo)
 
 
 def fundo_papel(ctx):
@@ -718,12 +719,19 @@ class Video:
             estado_ant, mapa_ant = estado, cena.mapa
 
 
-def renderizar(videos, saida, crf=30):
-    """Concatena um ou mais vídeos num .mp4 (H.264, sem áudio)."""
+def renderizar(videos, saida, crf=30, narrar=True):
+    """Concatena um ou mais vídeos num .mp4 (H.264 + narração em AAC)."""
     os.makedirs(os.path.dirname(saida), exist_ok=True)
+    audio = None
+    if narrar:
+        import narracao
+        audio = saida[:-4] + '.narracao.wav'
+        narracao.trilha(videos, audio)
+    entrada_audio = ['-i', audio] if audio else []
+    saida_audio = ['-map', '0:v', '-map', '1:a', '-c:a', 'aac', '-b:a', '64k', '-ar', '44100', '-ac', '1'] if audio else []
     cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'bgra', '-s', f'{W}x{H}',
-           '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-preset', 'slow', '-tune', 'animation',
-           '-crf', str(crf), '-pix_fmt', 'yuv420p', '-movflags', '+faststart', saida]
+           '-r', str(FPS), '-i', '-'] + entrada_audio + ['-c:v', 'libx264', '-preset', 'slow', '-tune', 'animation',
+           '-crf', str(crf), '-pix_fmt', 'yuv420p'] + saida_audio + ['-movflags', '+faststart', saida]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     total = 0
     for v in videos:
@@ -732,6 +740,8 @@ def renderizar(videos, saida, crf=30):
             total += 1
     proc.stdin.close()
     proc.wait()
+    if audio:
+        os.remove(audio)
     return total / FPS
 
 
