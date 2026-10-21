@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-pagina="historia-3tri" data-materia="historia">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>História 3º Tri — Revoluções de 1830/1848, Ideologias, Unificações e EUA 2026</title>
+<style>
+  :root {
+    --primary:   #1a2744;
+    --secondary: #c9953c;
+    --accent:    #8b2e2e;
+    --bg:        #faf7f2;
+    --card-bg:   #ffffff;
+    --text:      #1e1e1e;
+    --text-light:#6b6b6b;
+    --border:    #e8ddd0;
+    --shadow:    0 4px 24px rgba(0,0,0,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; scroll-behavior:smooth; }
+
+  .progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--secondary); z-index:999; width:0%; transition:width 0.1s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d1626 0%, #1a2744 50%, #0a0f1a 100%);
+    color:white; padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; margin-bottom:12px; position:relative; }
+  .hero .subtitle { font-size:1.1rem; opacity:0.85; font-weight:300; position:relative; }
+  .hero .badge { display:inline-block; background:var(--secondary); color:white; padding:6px 18px; border-radius:20px; font-weight:700; font-size:0.85rem; margin-top:16px; position:relative; }
+  .hero .author { display:inline-block; background:rgba(255,255,255,0.15); color:white; padding:8px 22px; border-radius:20px; font-size:1.05rem; font-weight:600; margin-top:12px; position:relative; border:1px solid rgba(255,255,255,0.4); letter-spacing:0.02em; }
+
+  /* NAV */
+  nav { background:white; border-bottom:2px solid var(--border); padding:0 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width:1100px; margin:0 auto; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+  nav .nav-inner::-webkit-scrollbar { display:none; }
+  nav a { text-decoration:none; padding:14px 20px; font-weight:600; font-size:0.85rem; white-space:nowrap; color:var(--text-light); border-bottom:3px solid transparent; transition:all 0.3s; }
+  nav a:hover, nav a.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* MAIN */
+  main { max-width:900px; margin:0 auto; padding:40px 20px 80px; }
+
+  /* CHAPTER */
+  .chapter { margin-bottom:56px; }
+  .chapter-header { margin-bottom:24px; padding-bottom:14px; border-bottom:3px solid var(--secondary); }
+  .chapter-header h2 { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--primary); font-weight:900; display:flex; align-items:center; gap:12px; }
+  .ch-tag { display:inline-block; background:var(--primary); color:white; padding:3px 12px; border-radius:6px; font-size:0.78rem; font-weight:700; letter-spacing:.5px; font-family:'Inter',sans-serif; flex-shrink:0; }
+  .chapter-header .meta { color:var(--text-light); font-size:0.9rem; margin-top:6px; }
+
+  .pending-badge { display:inline-flex; align-items:center; background:#fff3cd; color:#856404; border:1px solid #ffc107; border-radius:6px; font-size:0.68rem; font-weight:700; padding:2px 7px; margin-left:8px; white-space:nowrap; flex-shrink:0; }
+
+  /* ACCORDION */
+  .accordion { background:white; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .accordion-btn { width:100%; background:none; border:none; padding:17px 20px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:0.97rem; font-weight:600; color:var(--primary); transition:background .2s; }
+  .accordion-btn:hover { background:#f5f0e8; }
+  .accordion-btn .chev { transition:transform .3s; color:var(--secondary); font-size:1.1rem; }
+  .accordion.open .chev { transform:rotate(180deg); }
+  .accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .accordion.open .accordion-content { max-height:6000px; }
+  .content-block { padding:0 20px 20px; border-top:1px solid var(--border); }
+  .content-block p { margin:12px 0; font-size:0.95rem; }
+  .content-block ul, .content-block ol { margin:8px 0 12px 22px; }
+  .content-block li { margin-bottom:6px; font-size:0.93rem; }
+  .content-block h4 { font-family:'Playfair Display',serif; color:var(--primary); margin:16px 0 8px; font-size:1.05rem; }
+
+  /* INFO BOXES */
+  .highlight-box, .warn-box, .tip-box {
+    border-left:4px solid; border-radius:0 10px 10px 0; padding:13px 16px; margin:14px 0; font-size:0.93rem;
+  }
+  .highlight-box { background:#eef2f8; border-color:var(--primary); }
+  .warn-box      { background:#fdf3e3; border-color:var(--secondary); }
+  .tip-box       { background:#fdecea; border-color:var(--accent); }
+  .highlight-box strong:first-child, .warn-box strong:first-child, .tip-box strong:first-child { display:block; margin-bottom:4px; }
+
+  /* TIMELINE */
+  .timeline { margin:14px 0; }
+  .tl-item { display:flex; gap:14px; margin-bottom:13px; align-items:flex-start; }
+  .tl-year { background:var(--primary); color:white; padding:4px 10px; border-radius:20px; font-size:0.78rem; font-weight:700; white-space:nowrap; flex-shrink:0; margin-top:2px; }
+  .tl-text { font-size:0.92rem; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem; }
+  .data-table th { background:var(--primary); color:white; padding:10px 12px; text-align:left; font-weight:600; }
+  .data-table td { padding:9px 12px; border-bottom:1px solid var(--border); }
+  .data-table tr:nth-child(even) td { background:#f5f0e8; }
+
+  /* QUIZ */
+  #quiz-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+  #quiz-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
+  #quiz-section > p { color:var(--text-light); margin-bottom:20px; }
+
+  .quiz-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .filter-btn { padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); background:white; color:var(--text-light); font-size:0.82rem; font-weight:600; cursor:pointer; transition:all .2s; }
+  .filter-btn.active, .filter-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
+
+  .question-card { background:var(--bg); border:1.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; }
+  .question-card.hidden { display:none; }
+  .question-card h4 { font-size:0.95rem; font-weight:600; color:var(--primary); margin-bottom:14px; }
+  .options { display:flex; flex-direction:column; gap:8px; }
+  .option-btn { background:white; border:1.5px solid var(--border); border-radius:8px; padding:10px 14px; text-align:left; font-size:0.9rem; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .option-btn:hover { border-color:var(--secondary); background:#fdf6ea; }
+  .option-btn.correct { background:#d4edda; border-color:#27ae60; color:#155724; }
+  .option-btn.wrong   { background:#f8d7da; border-color:#e74c3c; color:#721c24; }
+
+  .quiz-result { display:none; text-align:center; padding:24px; }
+  .donut-wrap { position:relative; width:130px; height:130px; margin:0 auto 16px; }
+  .donut-wrap svg { transform:rotate(-90deg); }
+  .donut-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-score { font-size:1.8rem; font-weight:700; color:var(--primary); }
+  .donut-label { font-size:0.75rem; color:var(--text-light); }
+  .result-msg { font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:6px; }
+  .result-sub { font-size:0.9rem; color:var(--text-light); margin-bottom:20px; }
+  .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
+  .btn-reset:hover { background:#263a6e; }
+
+  .quiz-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+  .score-left { display:flex; align-items:center; gap:12px; }
+  .mini-donut-wrap { position:relative; width:44px; height:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .mini-donut-wrap svg { position:absolute; top:0; left:0; }
+  #mini-pct { position:relative; font-size:0.65rem; font-weight:800; color:#aaa; line-height:1; }
+  .score-live { font-size:0.9rem; font-weight:600; color:var(--primary); background:var(--bg); padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); }
+  .btn-reset-mid { background:none; border:1.5px solid var(--border); color:var(--text-light); padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all .2s; }
+  .btn-reset-mid:hover { border-color:var(--primary); color:var(--primary); }
+  .answer-exp { display:none; align-items:flex-start; gap:8px; margin-top:10px; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px; padding:10px 14px; font-size:0.87rem; color:#1b5e20; line-height:1.5; }
+
+  /* CHAT flutuante */
+  #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+  #chat-btn:hover { transform:scale(1.08); }
+  #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+  #chat-panel.open { display:flex; }
+  #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  #chat-head span { font-weight:600; font-size:0.92rem; }
+  #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+  #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+  .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+  .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+  .cmsg.loading { opacity:0.6; font-style:italic; }
+  #chat-form { display:flex; border-top:1px solid var(--border); }
+  #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+  #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+  #chat-send:hover { background:var(--secondary); }
+
+  /* VÍDEOS */
+  .video-box { margin:6px 0 18px; border-radius:14px; overflow:hidden; background:#0d1626; box-shadow:var(--shadow); }
+  .video-box video { display:block; width:100%; height:auto; aspect-ratio:16/9; background:#0d1626; }
+  .video-box figcaption { padding:10px 14px; font-size:0.85rem; color:#d6dceb; }
+  .video-links { display:flex; flex-wrap:wrap; gap:8px; }
+  .video-links a { text-decoration:none; font-size:0.85rem; font-weight:600; padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); color:var(--primary); background:var(--card-bg); }
+  .video-links a:hover { border-color:var(--secondary); }
+
+  footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
+
+  @media(max-width:600px) {
+    .hero { padding:56px 16px 44px; }
+    main { padding:24px 14px 60px; }
+  }
+</style>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
+</head>
+<body class="ios resumo">
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>História — 3º Trimestre</h1>
+  <p class="subtitle">2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">1830/1848 · Ideologias · Itália · Alemanha · Comuna · EUA</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t3" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#videos">Vídeos</a>
+    <a href="#revolucoes">1830 e 1848</a>
+    <a href="#ideologias">Ideologias</a>
+    <a href="#italia">Itália</a>
+    <a href="#alemanha">Alemanha</a>
+    <a href="#comuna">Comuna</a>
+    <a href="#eua">EUA</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="tip-box" style="max-width:900px;margin:0 auto 20px;">
+  <strong>Avaliação Intermediária · 3º tri (orientação oficial da Equipe de História)</strong>
+  Revoluções de 1830 e 1848 (Cap. 34, p. 472–476) · Ideologias do século XIX: Liberalismo, Anarquismo e Socialismo (Cap. 36, p. 499–503) ·
+  Unificação da Itália, Comuna de Paris e Unificação da Alemanha (Cap. 34, p. 477–481) · Expansão para o Oeste e Guerra Civil nos EUA (Cap. 35).
+  <br><strong style="display:inline">Formato:</strong> 12 testes de 0,5 ponto (6 pontos). Estude pelo livro <em>Teias da História</em>, os slides do Moodle, as anotações de aula e a apostila ESSIA.
+</div>
+
+<!-- ══════════════════════════════════════════════
+     VÍDEOS
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="videos">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Vídeos</span> Revisão em mapas animados</h2>
+    <p class="meta">Um vídeo completo (~13 min) e um curto por capítulo, sem áudio: dá para assistir no ônibus</p>
+  </div>
+  <figure class="video-box">
+    <video controls preload="none" playsinline poster="hist-videos/historia-3tri-completo.jpg" src="hist-videos/historia-3tri-completo.mp4"></video>
+    <figcaption>🎬 <strong>Revisão completa</strong> · 1830/1848, Ideologias, Itália, Alemanha e Comuna, EUA</figcaption>
+  </figure>
+  <div class="video-links">
+    <a href="#revolucoes">🗺️ 1830 e 1848</a>
+    <a href="#ideologias">📊 Ideologias</a>
+    <a href="#italia">🇮🇹 Itália</a>
+    <a href="#alemanha">🇩🇪 Alemanha e Comuna</a>
+    <a href="#eua">🇺🇸 EUA</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 1 — REVOLUÇÕES DE 1830 E 1848 (Capítulo 34)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="revolucoes">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 1</span> As Revoluções de 1830 e 1848</h2>
+    <p class="meta">Capítulo 34 do livro, p. 472–476 · 1815–1852</p>
+  </div>
+
+  <figure class="video-box">
+    <video controls preload="none" playsinline poster="hist-videos/revolucoes-1830-1848.jpg" src="hist-videos/revolucoes-1830-1848.mp4"></video>
+    <figcaption>🗺️ Da Restauração à Primavera dos Povos (2 min)</figcaption>
+  </figure>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Restauração: Luís XVIII e Carlos X (1815–1830) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>O ponto de partida</h4>
+        <ul>
+          <li><strong>Waterloo (1815)</strong> encerra o império de Napoleão e o ciclo revolucionário iniciado em 1789.</li>
+          <li>O <strong>Congresso de Viena (1814–1815)</strong> reorganiza a Europa pela <strong>legitimidade monárquica</strong> e pelo <strong>equilíbrio de poder</strong>.</li>
+          <li><strong>Restauração e repressão:</strong> o Antigo Regime volta em parte, e ideias liberais e nacionalistas são perseguidas.</li>
+        </ul>
+        <h4>Luís XVIII (1814–1824)</h4>
+        <ul>
+          <li>Volta dos <strong>Bourbons</strong>; governa como rei constitucional, tentando conciliar o legado napoleônico com a tradição monárquica.</li>
+          <li>A <strong>Carta Constitucional de 1814</strong> mantém alguns direitos civis da Revolução, mas preserva privilégios aristocráticos e o poder do rei.</li>
+          <li>Pressão dos dois lados: <strong>liberais</strong> querem mais participação; <strong>ultrarrealistas</strong> querem mais absolutismo e punição aos revolucionários.</li>
+        </ul>
+        <h4>Carlos X (1824–1830): o endurecimento</h4>
+        <p>Perfil <strong>absolutista</strong>: reforça privilégios da aristocracia, censura a imprensa e enfrenta oposição crescente. Em julho de 1830, as <strong>Ordenações de Julho</strong> dissolvem a Câmara, restringem ainda mais o voto e censuram a imprensa. É o estopim.</p>
+        <div class="highlight-box">
+          <strong>Obra para reconhecer</strong>
+          <em>A França entre a Liberdade e o Trono</em> (Louis Hersent, c. 1824) é uma alegoria da Restauração Bourbon: a França implora ao rei o retorno da liberdade.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Revolução de Julho de 1830 e a Monarquia de Julho <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Os "Três Dias Gloriosos" (27 a 29 de julho de 1830)</h4>
+        <ul>
+          <li><strong>Barricadas</strong> e combate urbano nas ruas de Paris.</li>
+          <li><strong>Aliança entre operários, estudantes e burguesia</strong> contra o autoritarismo real.</li>
+          <li>Carlos X abdica em favor do neto e foge; a Câmara ignora o gesto e chama <strong>Luís Filipe de Orléans</strong>.</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>A Liberdade guiando o povo (Delacroix, 1830)</strong>
+          Obra-prima do romantismo político, no Louvre. A mulher que ergue a bandeira tricolor é <strong>Marianne</strong>, alegoria da República e da Liberdade, unindo os ideais de 1789 à insurreição de 1830. Também cai em prova a tela de <strong>Meissonier</strong> (<em>A Revolução de Julho de 1830 em Paris</em>, 1833), com a tricolor sobre a barricada.
+        </div>
+        <h4>O efeito dominó de 1830</h4>
+        <ul>
+          <li><strong>Bélgica</strong>: se separa dos Países Baixos e vira monarquia liberal independente.</li>
+          <li><strong>Polônia</strong>: levante contra o domínio russo, esmagado em 1831.</li>
+          <li><strong>Itália</strong> (Modena, Bolonha): revoltas contra a influência austríaca, reprimidas.</li>
+        </ul>
+        <h4>A Monarquia de Julho (1830–1848)</h4>
+        <ul>
+          <li><strong>Luís Filipe</strong>, o "rei dos franceses" ou "<strong>rei burguês</strong>": monarca constitucional apoiado pela burguesia liberal.</li>
+          <li>Crescimento econômico e expansão bancária, mas <strong>voto censitário</strong>: só cerca de <strong>1% da população</strong> votava.</li>
+          <li>Repressão a protestos e oposição crescente de <strong>republicanos, socialistas e legitimistas</strong> contra o "reino dos ricos".</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">1848: Revolução de Fevereiro e Primavera dos Povos <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <h4>Causas</h4>
+        <ul>
+          <li><strong>Crise econômica:</strong> más colheitas, carestia, falência de oficinas, desemprego operário.</li>
+          <li><strong>Exclusão política:</strong> o sufrágio censitário barra os pobres e Luís Filipe recusa reformas.</li>
+          <li><strong>Velho × novo mundo social:</strong> estruturas do Antigo Regime (economia agrária, relações senhoriais, artesanato) convivem com o <strong>capitalismo industrial</strong> e o novo <strong>proletariado</strong>. Essa tensão gera conflitos de classe.</li>
+        </ul>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">Fev 1848</span><span class="tl-text">A proibição dos <strong>banquetes republicanos</strong> leva às barricadas. Luís Filipe abdica: nasce a <strong>2ª República</strong>, com sufrágio universal masculino.</span></div>
+          <div class="tl-item"><span class="tl-year">Mar–Jun</span><span class="tl-text"><strong>Primavera dos Povos:</strong> revoltas em Viena (Metternich foge), Berlim, Milão, Veneza, Budapeste, Praga; parlamento em Frankfurt.</span></div>
+          <div class="tl-item"><span class="tl-year">Jun 1848</span><span class="tl-text"><strong>Jornadas de Junho</strong>: o levante operário de Paris é esmagado pela própria República.</span></div>
+          <div class="tl-item"><span class="tl-year">Dez 1848</span><span class="tl-text"><strong>Luís Bonaparte</strong>, sobrinho de Napoleão, é eleito presidente.</span></div>
+          <div class="tl-item"><span class="tl-year">1851–52</span><span class="tl-text">Golpe de Estado (1851) e plebiscito (1852): nasce o <strong>Segundo Império</strong>, e ele vira <strong>Napoleão III</strong>.</span></div>
+        </div>
+        <h4>A Primavera dos Povos</h4>
+        <ul>
+          <li>Revoltas quase simultâneas que pedem <strong>constituições</strong> (liberalismo), <strong>unificação ou independência nacional</strong> (nacionalismo) e melhores condições de vida (questão social).</li>
+          <li>Itália, Alemanha e Império Austríaco: demandas por unificação, constituição e fim da dominação estrangeira.</li>
+          <li>Quase todas são <strong>reprimidas</strong> pelos exércitos conservadores, mas espalham o nacionalismo que levará às unificações.</li>
+        </ul>
+        <div class="warn-box">
+          <strong>Por que "Primavera"?</strong>
+          O nome evoca renascimento político, como a primavera depois do inverno. A metáfora voltou na <strong>Primavera de Praga (1968)</strong> e na <strong>Primavera Árabe (2010)</strong>.
+        </div>
+        <div class="tip-box">
+          <strong>Para a prova: 1830 × 1848</strong>
+          <strong style="display:inline">1830</strong> é uma revolução <em>liberal</em>: a alta burguesia chega ao poder e mantém o voto censitário.
+          <strong style="display:inline">1848</strong> é liberal + <em>nacional</em> + <em>social</em>: os operários entram em cena como força própria, mas são derrotados.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 2 — IDEOLOGIAS DO SÉCULO XIX (Capítulo 36)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="ideologias">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 2</span> Ideologias do Século XIX</h2>
+    <p class="meta">Capítulo 36 do livro, p. 499–503 · Liberalismo, Nacionalismo, Socialismo e Anarquismo</p>
+  </div>
+
+  <figure class="video-box">
+    <video controls preload="none" playsinline poster="hist-videos/ideologias-seculo-xix.jpg" src="hist-videos/ideologias-seculo-xix.mp4"></video>
+    <figcaption>📊 Liberalismo, mais-valia, socialismo e anarquismo em diagramas (3 min)</figcaption>
+  </figure>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Liberalismo clássico e liberalismo econômico <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Depois da Revolução Francesa e das independências na América, o liberalismo vira a base da nova <strong>ordem burguesa</strong>: <strong>propriedade privada</strong>, <strong>liberdades civis</strong> e <strong>igualdade jurídica</strong>.</p>
+        <table class="data-table">
+          <thead><tr><th></th><th>Liberalismo clássico (político)</th><th>Liberalismo econômico</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Política</strong></td><td>Estado garante vida, liberdade e propriedade, sem interferir nas escolhas individuais. Constituição e divisão dos poderes.</td><td>Estado mínimo: só ordem, justiça e proteção à propriedade.</td></tr>
+            <tr><td><strong>Economia</strong></td><td>Livre iniciativa e concorrência; o mercado se autorregula.</td><td>Oferta e demanda sem o Estado; lucro e acumulação como motores do progresso.</td></tr>
+            <tr><td><strong>Sociedade</strong></td><td>Todos iguais perante a lei; ascensão pelo mérito.</td><td>Cada um é responsável pela própria ascensão; a pobreza seria incapacidade individual.</td></tr>
+            <tr><td><strong>Mentalidades</strong></td><td>Ser humano racional, que busca o próprio bem-estar.</td><td>A "<strong>mão invisível</strong>" do mercado transforma interesse individual em bem coletivo.</td></tr>
+          </tbody>
+        </table>
+        <div class="warn-box">
+          <strong>A contradição: liberdade para quem?</strong>
+          Na <strong>Monarquia de Julho</strong> (França, 1830–1848), o voto era <strong>censitário</strong>: cerca de 1% da população votava. A igualdade era <em>formal</em> (perante a lei), não política nem econômica.
+        </div>
+        <div class="highlight-box">
+          <strong>Revogação das Corn Laws (Inglaterra, 1846)</strong>
+          As Corn Laws taxavam o trigo importado para proteger a <strong>aristocracia fundiária</strong>. Pressionado por industriais e pela população urbana, o primeiro-ministro <strong>Robert Peel</strong> as revogou: livre-comércio e pão mais barato. Mas os trabalhadores do campo ficaram mais expostos e o país mais dependente do mercado externo. O livre-comércio beneficia sempre a maioria?
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Nacionalismo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Política:</strong> Estados nacionais baseados na soberania popular; <strong>unificação ou independência</strong> de povos com identidade comum é um direito.</li>
+          <li><strong>Economia:</strong> economias autossuficientes, <strong>protecionismo</strong> e indústria nacional.</li>
+          <li><strong>Sociedade:</strong> a nação como comunidade de <strong>cultura, língua, história e tradições</strong>.</li>
+          <li><strong>Mentalidades:</strong> exaltação do passado heroico, <strong>bandeiras, hinos e heróis</strong>; emoção e pertencimento.</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>Plebiscito de 1852 (França)</strong>
+          Após o golpe de 1851, Luís Napoleão convoca um plebiscito com forte propaganda nacionalista e a memória do tio, Napoleão I. Mais de <strong>90%</strong> aprovam o Segundo Império. A nação aparece como unidade orgânica, em que obedecer ao imperador é servir à pátria. Quando a nação é "unânime", sobra espaço para divergir?
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Movimentos operários: Ludismo, Cartismo e Trade Unions <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Movimento</th><th>Quando</th><th>O que fazia</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ludismo</strong></td><td>1811–1816</td><td>Operários ingleses <strong>destruíam máquinas</strong>, vistas como causa do desemprego e da exploração. Revolta contra a desumanização do trabalho industrial.</td></tr>
+            <tr><td><strong>Trade Unions</strong></td><td>legais desde 1824; fortes a partir de 1840</td><td>Primeiras associações permanentes de trabalhadores: <strong>salários, condições de trabalho, greves, negociação e ajuda mútua</strong>.</td></tr>
+            <tr><td><strong>Cartismo</strong></td><td>1838–1848</td><td>Movimento político britânico: a <strong>Carta do Povo</strong> exigia <strong>sufrágio universal masculino</strong> e eleições justas.</td></tr>
+          </tbody>
+        </table>
+        <div class="warn-box">
+          <strong>Atenção às datas dos slides</strong>
+          Um slide traz "Cartismo (1820–1830)", mas o próprio texto fala da década de 1830: a Carta do Povo é de 1838 e o movimento vai até 1848. O Ludismo é dos anos 1810.
+        </div>
+        <h4>O que é capitalismo?</h4>
+        <ul>
+          <li><strong>Marx</strong> (<em>O Capital</em>, 1867): modo de produção que nasce da <strong>separação entre o trabalhador e os meios de produção</strong>; terra, trabalho e capital viram mercadorias.</li>
+          <li><strong>Fernand Braudel</strong>: o capitalismo não é o comércio em si, mas sua organização em larga escala por uma <strong>minoria que controla os circuitos financeiros e produtivos</strong>; no século XIX ganha feições industriais, bancárias e coloniais.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Socialismo utópico e socialismo científico <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>O liberalismo venceu o Antigo Regime, mas o <strong>proletariado urbano</strong> ficou fora da prosperidade prometida: liberdade formal, desigualdade real. O <strong>socialismo</strong> critica o capitalismo e propõe a <strong>socialização dos meios de produção</strong>. É um campo diverso, de reformistas a revolucionários.</p>
+        <h4>Socialismo utópico (1ª metade do séc. XIX)</h4>
+        <ul>
+          <li><strong>Saint-Simon:</strong> sociedade sem ociosos (militares, clero, nobreza, magistrados) e sem exploração, governada por sábios (<em>savants</em>).</li>
+          <li><strong>Charles Fourier:</strong> herdeiro de Rousseau ("o homem é bom, a sociedade o corrompe"); propõe os <strong>falanstérios</strong>, comunidades agroindustriais coletivas.</li>
+          <li><strong>Robert Owen:</strong> administrador de fábrica em Manchester; cria a comunidade-modelo de <strong>New Lanark</strong> (Escócia), com escola e jornada de 10 horas, e depois <strong>New Harmony</strong> (Indiana, EUA). No fim da vida apoia as trade unions.</li>
+        </ul>
+        <h4>Socialismo científico (2ª metade do séc. XIX)</h4>
+        <ul>
+          <li><strong>Karl Marx</strong> (1818–1883), alemão, filósofo e jornalista, exilado em Paris, Bruxelas e Londres. Parceria com <strong>Friedrich Engels</strong>, filho de industrial.</li>
+          <li>"Científico" porque analisa a sociedade <strong>como ela é</strong>, com história e economia, em vez de imaginar sociedades ideais.</li>
+          <li><strong>Manifesto do Partido Comunista (1848):</strong> a história é a <strong>luta de classes</strong>; a burguesia explora o proletariado; os trabalhadores devem tomar o poder e abolir a propriedade privada. "<strong>Trabalhadores do mundo, uni-vos!</strong>"</li>
+        </ul>
+        <h4>Mais-valia (exemplo dos slides)</h4>
+        <table class="data-table">
+          <thead><tr><th>Item</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td>Matéria-prima, energia, máquinas</td><td>$ 3.000</td></tr>
+            <tr><td>Salários (10 operários × $ 500)</td><td>$ 5.000</td></tr>
+            <tr><td>Venda das roupas</td><td>$ 30.000</td></tr>
+            <tr><td><strong>Diferença apropriada pelo dono</strong></td><td><strong>$ 22.000</strong></td></tr>
+          </tbody>
+        </table>
+        <ul>
+          <li><strong>Visão liberal:</strong> o lucro é legítimo, porque o dono tem a propriedade, assume riscos, investe e reinveste, e é recompensado pelo mérito da iniciativa.</li>
+          <li><strong>Visão marxista:</strong> a matéria-prima só transfere seu valor; quem cria valor novo ($ 27.000) é o trabalho. Os operários recebem $ 5.000; os <strong>$ 22.000 são mais-valia</strong>, trabalho não pago.</li>
+          <li><strong>Proposta socialista:</strong> com os meios de produção coletivos, os $ 27.000 seriam divididos: <strong>$ 2.700 por operário</strong>.</li>
+        </ul>
+        <h4>Capitalismo → socialismo → comunismo</h4>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">Capitalismo</span><span class="tl-text">Propriedade privada dos meios de produção, busca do lucro, burguesia × proletariado.</span></div>
+          <div class="tl-item"><span class="tl-year">Socialismo</span><span class="tl-text">Transição: <strong>ditadura do proletariado</strong>, socialização dos meios de produção, <strong>economia planificada</strong>. Ainda há Estado.</span></div>
+          <div class="tl-item"><span class="tl-year">Comunismo</span><span class="tl-text">Estágio final: <strong>sem classes, sem Estado e sem propriedade privada</strong>; distribuição conforme as necessidades.</span></div>
+        </div>
+        <h4>Cronologia</h4>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1848</span><span class="tl-text">Manifesto Comunista, às vésperas das revoluções. As iniciativas socialistas são esmagadas pelos próprios revolucionários burgueses; Marx se exila em Londres.</span></div>
+          <div class="tl-item"><span class="tl-year">1850–55</span><span class="tl-text">A industrialização avança, as condições continuam degradantes e cresce a solidariedade entre trabalhadores de países diferentes.</span></div>
+          <div class="tl-item"><span class="tl-year">1864</span><span class="tl-text"><strong>Primeira Internacional</strong> (Associação Internacional dos Trabalhadores), em Londres, após o apoio de operários ingleses e franceses aos poloneses reprimidos pela Rússia. Reúne marxistas, anarquistas e sindicalistas.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Anarquismo e quadro comparativo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Origem:</strong> resposta à industrialização e à centralização do poder, entre operários e intelectuais que rejeitavam o Estado burguês e também o autoritarismo de projetos socialistas. Nomes: <strong>Proudhon</strong> e <strong>Bakunin</strong>.</li>
+          <li><strong>Princípios:</strong> liberdade, igualdade e <strong>autogestão sem Estado</strong>; rejeita toda dominação (estatal, religiosa, econômica); sociedade de associações livres e cooperativas. A liberdade plena só existe se for coletiva.</li>
+          <li><strong>Métodos:</strong> recusa a via parlamentar e aposta na <strong>ação direta</strong>: greves, boicotes, sabotagens, propaganda e educação popular. A transformação vem "de baixo para cima".</li>
+        </ul>
+        <table class="data-table">
+          <thead><tr><th></th><th>Liberalismo</th><th>Socialismo (Marx)</th><th>Anarquismo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Estado</strong></td><td>Mínimo, garante a propriedade</td><td>Estado operário de transição</td><td>Abolição imediata</td></tr>
+            <tr><td><strong>Propriedade</strong></td><td>Privada, direito natural</td><td>Coletiva (meios de produção)</td><td>Coletiva, autogerida</td></tr>
+            <tr><td><strong>Caminho</strong></td><td>Leis, Constituição, mercado</td><td>Revolução do proletariado</td><td>Ação direta, sem partidos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 3 — UNIFICAÇÃO DA ITÁLIA (Capítulo 34)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="italia">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 3</span> A Unificação da Itália</h2>
+    <p class="meta">Capítulo 34 do livro, p. 477–481 · Risorgimento · 1831–1870</p>
+  </div>
+
+  <figure class="video-box">
+    <video controls preload="none" playsinline poster="hist-videos/unificacao-italia.jpg" src="hist-videos/unificacao-italia.mp4"></video>
+    <figcaption>🇮🇹 O mapa da península muda de 1815 a 1870 (2 min)</figcaption>
+  </figure>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A Itália antes da unificação e o nacionalismo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>As revoluções de 1830 e 1848 espalharam o liberalismo e também a <strong>consciência nacionalista</strong>, com identidades, símbolos e projetos de nação.</p>
+        <ul>
+          <li><strong>Fragmentação:</strong> por séculos a península esteve dividida em pequenos Estados, sem unidade política duradoura.</li>
+          <li><strong>Domínio austríaco:</strong> depois de Viena (1815), a Áustria controla diretamente <strong>Lombardia e Vêneto</strong> e influencia os ducados, bloqueando a unificação.</li>
+          <li><strong>Mapa de 1815:</strong> Reino de Piemonte-Sardenha, Lombardo-Vêneto (Áustria), ducados de Parma, Modena e Toscana, Estados Pontifícios e Reino das Duas Sicílias.</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>"A Itália é uma mera expressão geográfica."</strong>
+          Frase do chanceler austríaco <strong>Metternich</strong>: para ele, a Itália não era uma nação, só um nome no mapa.
+        </div>
+        <h4>Os projetos nacionalistas</h4>
+        <ul>
+          <li><strong>Carbonários</strong> (início do séc. XIX): sociedade secreta por uma república unificada, duramente reprimida.</li>
+          <li><strong>Giuseppe Mazzini</strong> funda a <strong>Jovem Itália (1831)</strong>: Itália <strong>republicana e democrática</strong>, por levantes populares. A <strong>República Romana (1849)</strong> fracassa pela repressão militar e pela falta de apoio das elites.</li>
+          <li><strong>Cultura:</strong> a ópera <em>Nabucco</em> (Verdi, 1842) e o coro dos escravos hebreus, "<em>Va, pensiero</em>", viram hino patriótico contra os austríacos.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Cavour, Garibaldi e as etapas (1859–1870) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Depois de 1848, as <strong>elites burguesas</strong> preferem uma solução menos radical: unificar sob o <strong>Reino de Piemonte-Sardenha</strong> (rei <strong>Vítor Emanuel II</strong>). O <strong>Conde de Cavour</strong>, aristocrata piemontês, moderniza a economia, as ferrovias, a indústria e o exército.</p>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1858–59</span><span class="tl-text">Acordo secreto de <strong>Plombières</strong> entre Cavour e <strong>Napoleão III</strong>. Guerra contra a Áustria (Magenta, Solferino): o Piemonte ganha a <strong>Lombardia</strong>; o Vêneto continua austríaco. Em troca, a França recebe <strong>Saboia e Nice</strong> (1860).</span></div>
+          <div class="tl-item"><span class="tl-year">Mar 1860</span><span class="tl-text"><strong>Plebiscitos</strong> anexam Parma, Modena, Toscana e a Romanha (norte dos Estados Pontifícios).</span></div>
+          <div class="tl-item"><span class="tl-year">Mai–Set 1860</span><span class="tl-text"><strong>Expedição dos Mil</strong>: os <strong>camisas vermelhas</strong> de <strong>Garibaldi</strong> (republicano) saem de Gênova, conquistam a Sicília e o sul até Nápoles: cai o Reino das Duas Sicílias.</span></div>
+          <div class="tl-item"><span class="tl-year">Out 1860</span><span class="tl-text">O Piemonte ocupa Marche e Úmbria. Em <strong>Teano</strong>, Garibaldi entrega o sul a Vítor Emanuel II, <strong>priorizando a unificação sobre a república</strong>.</span></div>
+          <div class="tl-item"><span class="tl-year">1861</span><span class="tl-text">Proclamado o <strong>Reino da Itália</strong>, no modelo monárquico piemontês, com profundas desigualdades sociais e econômicas.</span></div>
+          <div class="tl-item"><span class="tl-year">1866</span><span class="tl-text"><strong>Vêneto</strong> incorporado, graças à aliança com a Prússia na guerra contra a Áustria.</span></div>
+          <div class="tl-item"><span class="tl-year">1870</span><span class="tl-text">As tropas francesas saem (guerra franco-prussiana) e <strong>Roma</strong> é anexada; vira capital em 1871.</span></div>
+        </div>
+        <div class="warn-box">
+          <strong>Cuidado com um slide</strong>
+          Um slide diz que os camisas vermelhas de Garibaldi "já haviam conquistado Parma, Módena, Toscana e parte dos Estados Pontifícios". Esses territórios do centro foram anexados por <strong>plebiscitos</strong> (março de 1860), não pela expedição de Garibaldi, que atuou no <strong>sul</strong> (Sicília e Nápoles).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Consequências da unificação <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>País dividido e ressentido:</strong> o <strong>Norte industrializado</strong> se impõe ao <strong>Sul rural</strong>, gerando pobreza, banditismo social e resistência violenta.</li>
+          <li><strong>Imigração em massa:</strong> milhões fogem da miséria para a América, principalmente <strong>Brasil, Argentina e Estados Unidos</strong>.</li>
+          <li><strong>Questão Romana:</strong> o Papa <strong>Pio IX</strong> não reconhece o Reino da Itália e se declara "prisioneiro no Vaticano". Só em <strong>1929</strong>, com o <strong>Tratado de Latrão</strong>, Mussolini reconhece o Vaticano como Estado independente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 4 — UNIFICAÇÃO DA ALEMANHA (Capítulo 34)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="alemanha">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 4</span> A Unificação da Alemanha</h2>
+    <p class="meta">Capítulo 34 do livro, p. 477–481 · 1834–1871</p>
+  </div>
+
+  <figure class="video-box">
+    <video controls preload="none" playsinline poster="hist-videos/unificacao-alemanha-comuna.jpg" src="hist-videos/unificacao-alemanha-comuna.mp4"></video>
+    <figcaption>🇩🇪 Do Zollverein ao II Reich, e a Comuna de Paris (2 min)</figcaption>
+  </figure>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A Alemanha antes da unificação <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Confederação Germânica (1815–1866):</strong> união política fraca e fragmentada de 39 Estados, dominada pela rivalidade entre <strong>Áustria e Prússia</strong>.</li>
+          <li><strong>Zollverein (1834):</strong> <strong>união alfandegária</strong> liderada pela Prússia, <strong>sem a Áustria</strong>. Integra o comércio interno e dá à Prússia a liderança econômica.</li>
+          <li><strong>1848:</strong> o <strong>Parlamento de Frankfurt</strong> tenta criar um Estado alemão democrático. Sem apoio das elites, fracassa e é reprimido pelos conservadores.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Bismarck e as três guerras <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>Otto von Bismarck</strong> (1815–1898), primeiro-ministro prussiano a partir de 1862: articulador pragmático da unificação, adepto da <strong>Realpolitik</strong> (força militar e diplomacia fria, sem idealismos liberais ou republicanos). Aliado dos <strong>junkers</strong>, a aristocracia rural prussiana, que queria uma unificação forte, autoritária e sem participação popular.</p>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1864</span><span class="tl-text"><strong>Guerra dos Ducados:</strong> Prússia e Áustria derrotam a <strong>Dinamarca</strong> e dividem Schleswig e Holstein.</span></div>
+          <div class="tl-item"><span class="tl-year">1866</span><span class="tl-text"><strong>Guerra Austro-Prussiana</strong> ("Guerra das Sete Semanas"): vitória prussiana (Sadowa). A Prússia domina o norte e forma a <strong>Confederação Germânica do Norte</strong>.</span></div>
+          <div class="tl-item"><span class="tl-year">1870–71</span><span class="tl-text"><strong>Guerra Franco-Prussiana:</strong> os Estados do sul se unem ao norte; a França é derrotada em <strong>Sedan</strong> e Napoleão III é capturado.</span></div>
+        </div>
+        <h4>A Guerra Franco-Prussiana</h4>
+        <ul>
+          <li><strong>Napoleão III</strong> se opunha à unificação completa: ela criaria uma grande potência na fronteira leste da França.</li>
+          <li>Em 1869 o trono espanhol fica vago e caberia a um primo do rei Guilherme I, o que Napoleão III vetou.</li>
+          <li>Bismarck <strong>altera o texto de um despacho de Guilherme I</strong> (o <strong>Despacho de Ems</strong>), que soa como insulto à França: é a causa imediata da guerra. No fundo estava a disputa pela <strong>Alsácia e Lorena</strong>.</li>
+          <li>Como Bismarck previa, a guerra gerou nacionalismo e uniu o sul ao norte.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Consequências: II Reich e revanchismo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Império Alemão (II Reich):</strong> proclamado em <strong>18 de janeiro de 1871</strong> no <strong>Salão dos Espelhos de Versalhes</strong>, com Guilherme I coroado <strong>Kaiser</strong>: gesto de humilhação à França (pintura de Anton von Werner, 1885).</li>
+          <li><strong>Revanchismo francês:</strong> a perda da <strong>Alsácia-Lorena</strong> desperta o desejo de "revanche" (vingança), alimentando nacionalismo e militarismo: uma das raízes da Primeira Guerra.</li>
+          <li><strong>Fim do Segundo Império Francês:</strong> a captura de Napoleão III em Sedan leva à sua deposição. Em 1º de março de 1871 o exército prussiano desfila sob o Arco do Triunfo, em Paris.</li>
+        </ul>
+        <div class="tip-box">
+          <strong>Itália × Alemanha: compare</strong>
+          As duas unificações foram conduzidas "de cima" por um reino forte (Piemonte e Prússia), por um estadista pragmático (Cavour e Bismarck), com guerras e diplomacia, e terminaram em <strong>monarquias</strong>. A diferença: na Itália houve um braço popular e republicano (Mazzini, Garibaldi) que acabou subordinado; na Alemanha a unificação foi autoritária, militar e apoiada nos junkers.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 5 — COMUNA DE PARIS (Capítulo 34)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="comuna">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 5</span> A Comuna de Paris</h2>
+    <p class="meta">Capítulo 34 do livro · 18 de março a 28 de maio de 1871 · 🎬 está no fim do <a href="#alemanha">vídeo da Alemanha</a></p>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">72 dias de governo popular <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Após a derrota na Guerra Franco-Prussiana, Paris é sitiada e depois ocupada. O novo governo da <strong>Terceira República</strong>, instalado em <strong>Versalhes</strong> (chefiado por Adolphe Thiers), é visto como traidor. <strong>Trabalhadores, republicanos radicais, socialistas e a Guarda Nacional</strong> tomam o poder em Paris e criam um governo <strong>autogerido, popular e anticlerical</strong>.</p>
+        <h4>Medidas</h4>
+        <ul>
+          <li>Separação entre <strong>Igreja e Estado</strong>; <strong>educação gratuita e laica</strong>.</li>
+          <li>Abolição do <strong>trabalho noturno</strong> (nas padarias) e <strong>autogestão das fábricas abandonadas</strong>.</li>
+          <li>Fim da censura; salários justos para funcionários públicos.</li>
+          <li><strong>Igualdade civil</strong> entre homens e mulheres; <strong>pensões para viúvas e órfãos</strong>.</li>
+        </ul>
+        <h4>A repressão: Semana Sangrenta (21 a 28 de maio)</h4>
+        <p>O governo de Versalhes reúne tropas, consegue de <strong>Bismarck</strong> a libertação de prisioneiros de guerra e, com isso, cerca e bombardeia Paris. Milhares morrem em combate ou executados depois; dezenas de milhares são presos e milhares são deportados.</p>
+        <div class="warn-box">
+          <strong>Dois números dos slides para conferir</strong>
+          O slide fala em "mais de 20 mil mortos" e "70 mil exilados e deportados para a Guiana Francesa". Os 20 mil mortos são uma estimativa clássica (pesquisas recentes falam em algo entre 10 e 20 mil). Já o destino dos deportados foi sobretudo a <strong>Nova Caledônia</strong> (Pacífico), para onde foram cerca de 4 mil communards; a soma de presos, condenados e exilados chegou a dezenas de milhares. Na prova, siga o livro.
+        </div>
+        <div class="tip-box">
+          <strong>Por que a Comuna importa</strong>
+          Foi a primeira experiência de <strong>governo dos trabalhadores</strong> e virou referência para socialistas e anarquistas. Marx a analisou em <em>A Guerra Civil na França</em> (1871).
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 6 — ESTADOS UNIDOS NO SÉCULO XIX (Capítulo 35)
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="eua">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 6</span> Os Estados Unidos no Século XIX</h2>
+    <p class="meta">Capítulo 35 do livro · Expansão para o Oeste, Guerra Civil e Imperialismo</p>
+  </div>
+
+  <figure class="video-box">
+    <video controls preload="none" playsinline poster="hist-videos/eua-seculo-xix.jpg" src="hist-videos/eua-seculo-xix.mp4"></video>
+    <figcaption>🇺🇸 O território cresce de 1783 a 1853; Secessão e Caribe (3 min)</figcaption>
+  </figure>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Um país contraditório e a Doutrina Monroe <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li>A independência (<strong>1783</strong>) trouxe o desafio de construir uma nação num território diverso e desigual.</li>
+          <li><strong>Contradição:</strong> a república pregava liberdade, mas mantinha a <strong>escravidão</strong> e expulsava os <strong>indígenas</strong>.</li>
+          <li>Dois projetos: <strong>Thomas Jefferson</strong> (república agrária e descentralizada, base do futuro Partido Democrata) × <strong>Alexander Hamilton</strong> (Estado forte e industrial, base do futuro Partido Republicano).</li>
+          <li>Por trás: campo × cidade, sul escravista × norte industrial, autonomia local × poder federal.</li>
+        </ul>
+        <h4>Doutrina Monroe (1823)</h4>
+        <p>Proclamada pelo presidente <strong>James Monroe</strong>: "<strong>a América para os americanos</strong>". Três pontos: não criação de novas colônias europeias, não intervenção europeia nos assuntos americanos e não intervenção dos EUA na Europa. Inaugura o <strong>nacionalismo expansionista</strong>, ligando a política externa à ideia de "proteger a liberdade" no continente.</p>
+        <h4>Guerra de 1812: a "Segunda Independência"</h4>
+        <p>Guerra contra o Reino Unido (1812–1815), acusado de restringir o comércio e instigar indígenas contra colonos. O <strong>Tratado de Ghent</strong> (1814) não mudou fronteiras, mas a guerra consolidou o orgulho nacional.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Expansão para o Oeste e Destino Manifesto <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Motivos: crescimento populacional, busca de terras agrícolas e de rotas para o Pacífico (China e Japão), fraqueza das potências coloniais na América e a ideologia do <strong>Destino Manifesto</strong>.</p>
+        <table class="data-table">
+          <thead><tr><th>Ano</th><th>Território</th><th>Como</th></tr></thead>
+          <tbody>
+            <tr><td>1803</td><td>Luisiana</td><td><strong>Comprada da França</strong> (Napoleão): dobra o território. Explorada pela expedição de <strong>Lewis e Clark</strong> (1804–1806), com a guia shoshone <strong>Sacagawea</strong>.</td></tr>
+            <tr><td>1819</td><td>Flórida</td><td><strong>Comprada da Espanha</strong>: controle do sudeste e do Golfo do México.</td></tr>
+            <tr><td>1845</td><td>Texas</td><td>Colonos americanos no Texas mexicano se rebelam; <strong>Álamo (1836)</strong> vira símbolo; o Texas se declara independente e é <strong>anexado</strong>.</td></tr>
+            <tr><td>1846</td><td>Oregon</td><td><strong>Acordo com o Reino Unido</strong> (fronteira no paralelo 49°).</td></tr>
+            <tr><td>1848</td><td>Califórnia, Nevada, Utah, Arizona, Novo México</td><td><strong>Guerra contra o México</strong> (1846–48): Tratado de <strong>Guadalupe-Hidalgo</strong>, quase metade do território mexicano. <strong>Corrida do ouro</strong> na Califórnia.</td></tr>
+            <tr><td>1853</td><td>Faixa de Gadsden</td><td><strong>Comprada do México</strong>.</td></tr>
+          </tbody>
+        </table>
+        <h4>Destino Manifesto</h4>
+        <ul>
+          <li>Crença de que os americanos tinham um <strong>direito moral e divino</strong> de se expandir do Atlântico ao Pacífico.</li>
+          <li>Junta o <strong>excepcionalismo</strong> (nação eleita por Deus) a valores puritanos: o dever de "iluminar" outros povos com liberdade, fé e progresso.</li>
+          <li>Ligado ao nacionalismo romântico: idealiza o pioneiro como herói e trata a conquista como <strong>missão civilizatória</strong>, mesmo com guerras, expulsões e genocídio.</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>American Progress (John Gast, 1872)</strong>
+          A "América", figura feminina civilizadora, leva educação, telégrafo, ferrovia e religião ao Oeste, enquanto indígenas e animais são empurrados para a sombra. É a alegoria visual do Destino Manifesto.
+        </div>
+        <div class="warn-box">
+          <strong>Trilha das Lágrimas</strong>
+          Com o <strong>Indian Removal Act (1830)</strong>, povos do sudeste, sobretudo os <strong>Cherokee</strong>, foram obrigados a marchar para o oeste do Mississippi. Milhares morreram no caminho: o "progresso" se apoiou na violência contra os indígenas.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Guerra de Secessão (1861–1865) <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Cláusula Wilmot (1846):</strong> propunha proibir a escravidão nos territórios tomados do México. Rejeitada, mas acirrou o embate entre <strong>Norte</strong> (industrial, abolicionista) e <strong>Sul</strong> (agrário, escravista). A expansão reabria a ferida da escravidão.</li>
+          <li><strong>1860:</strong> <strong>Abraham Lincoln</strong> (Partido Republicano) é eleito com apoio do Norte, prometendo conter a expansão da escravidão.</li>
+          <li>A <strong>Carolina do Sul</strong> se separa e é seguida por outros estados: os <strong>Estados Confederados da América</strong>, capital em <strong>Richmond</strong> (Virgínia).</li>
+          <li>A guerra (1861–1865) usa <strong>ferrovias, telégrafo, produção naval e trincheiras</strong>. O Norte vence pela superioridade industrial e logística.</li>
+          <li><strong>13ª Emenda (1865)</strong> abole a escravidão: cerca de 4 milhões de pessoas libertas (os slides falam em 4,5 milhões), mas <strong>sem terra, educação ou integração</strong>.</li>
+          <li>Lincoln é <strong>assassinado</strong> em 14 de abril de 1865 por John Wilkes Booth, simpatizante confederado, no Teatro Ford, cinco dias depois da rendição.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Reconstrução, Jim Crow e capitalismo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <ul>
+          <li><strong>Reconstrução (1865–1877):</strong> o Norte ocupa o Sul para reconstruir o país e integrar os ex-escravizados. Leis e instituições de direitos civis são sabotadas pelo racismo e pela resistência sulista.</li>
+          <li>Surgem organizações supremacistas como a <strong>Ku Klux Klan</strong> e os Cavaleiros da Camélia Branca.</li>
+          <li>O <strong>Acordo de 1877</strong> (eleição de Hayes) retira as tropas federais: fim da Reconstrução e começo da <strong>segregação legal</strong> (Leis de <strong>Jim Crow</strong>), que durou até o século XX.</li>
+        </ul>
+        <div class="warn-box">
+          <strong>Datas da Reconstrução</strong>
+          Um slide traz "Reconstrução (1865–1896)", mas o próprio texto diz que ela acabou com o acordo de 1877. A data usual é <strong>1865–1877</strong>; 1896 é o caso <em>Plessy v. Ferguson</em>, que validou a segregação ("separados, mas iguais").
+        </div>
+        <div class="highlight-box">
+          <strong>Por que "Jim Crow"?</strong>
+          Personagem criado nos anos 1830 pelo ator branco Thomas D. Rice nos <em>minstrel shows</em>, com <strong>blackface</strong> e estereótipos racistas. O nome passou a designar o sistema de leis segregacionistas do Sul: escolas, transportes e espaços públicos separados e direitos civis limitados.
+        </div>
+        <h4>Capitalismo, ferrovias e o Oeste</h4>
+        <ul>
+          <li>O pós-guerra impulsiona o <strong>capitalismo industrial e financeiro</strong>.</li>
+          <li>A malha ferroviária liga as duas costas (<strong>ferrovia transcontinental, 1869</strong>) e integra o mercado nacional.</li>
+          <li>O <strong>Homestead Act (1862)</strong> dá terras a colonos que as ocupem e cultivem: uma "reforma agrária capitalista".</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Intervenções e imperialismo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A Doutrina Monroe, somada ao Destino Manifesto, ganha novo sentido no fim do século: os EUA se veem como <strong>protetores (e polícia) do continente</strong>.</p>
+        <div class="timeline">
+          <div class="tl-item"><span class="tl-year">1898</span><span class="tl-text"><strong>Guerra Hispano-Americana:</strong> início do imperialismo direto; Cuba vira protetorado.</span></div>
+          <div class="tl-item"><span class="tl-year">1901</span><span class="tl-text"><strong>Emenda Platt:</strong> presença militar dos EUA em Cuba e a base de <strong>Guantánamo</strong>.</span></div>
+          <div class="tl-item"><span class="tl-year">1903</span><span class="tl-text">Os EUA incentivam a <strong>independência do Panamá</strong> (separado da Colômbia) e assumem a construção do canal.</span></div>
+          <div class="tl-item"><span class="tl-year">1904</span><span class="tl-text"><strong>Corolário Roosevelt:</strong> direito de intervir em países latino-americanos instáveis ou endividados. Política do <strong>Big Stick</strong>: "fale com suavidade e carregue um grande porrete".</span></div>
+        </div>
+        <div class="tip-box">
+          <strong>Para a prova: Monroe × Roosevelt</strong>
+          Em 1823, a Doutrina Monroe dizia "a Europa não intervém na América". Em 1904, o Corolário Roosevelt diz "os EUA intervêm na América". Do anticolonialismo defensivo ao intervencionismo.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ
+     ══════════════════════════════════════════════ -->
+<section id="quiz-section">
+  <a id="quiz"></a>
+  <h2>Quiz de Revisão</h2>
+  <p>27 questões no estilo da prova (testes de vestibular) sobre as Revoluções de 1830 e 1848, as ideologias do século XIX, as unificações, a Comuna de Paris e os EUA.</p>
+
+  <div class="quiz-topbar">
+    <div class="score-left">
+      <div class="mini-donut-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44">
+          <circle cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"/>
+          <circle id="mini-arc" cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"
+                  stroke-dasharray="106.8" stroke-dashoffset="106.8" stroke-linecap="round"
+                  transform="rotate(-90 22 22)"/>
+        </svg>
+        <span id="mini-pct">—</span>
+      </div>
+      <div class="score-live" id="score-live">Placar: <strong>0 / 27</strong></div>
+    </div>
+    <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
+  <div class="quiz-filter">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (27)</button>
+    <button class="filter-btn" onclick="filterQuiz('cap1',this)">Cap. 1 — 1830 e 1848</button>
+    <button class="filter-btn" onclick="filterQuiz('cap2',this)">Cap. 2 — Ideologias</button>
+    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Cap. 3 — Itália</button>
+    <button class="filter-btn" onclick="filterQuiz('cap4',this)">Cap. 4 — Alemanha</button>
+    <button class="filter-btn" onclick="filterQuiz('cap5',this)">Cap. 5 — Comuna</button>
+    <button class="filter-btn" onclick="filterQuiz('cap6',this)">Cap. 6 — EUA</button>
+  </div>
+
+  <!-- Q1 -->
+  <div class="question-card" data-chapter="cap1" id="q1">
+    <p class="q-fonte">Em julho de 1830, Carlos X publicou ordenações que dissolviam a Câmara, restringiam o voto e censuravam a imprensa. Após três dias de barricadas em Paris, o rei abdicou e fugiu.</p>
+    <h4>1. O desfecho imediato dessa revolução na França foi</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) a restauração do absolutismo bourbônico, com o apoio militar da Santa Aliança e dos nobres emigrados.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) a proclamação de uma república democrática com sufrágio universal masculino e direitos sociais.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) a tomada do governo pelos operários parisienses, que passaram a administrar as fábricas abandonadas.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) uma monarquia constitucional liberal que favoreceu a alta burguesia e manteve o voto censitário.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','e')">e) a anexação da França ao Império Austríaco, conforme o equilíbrio de poder definido em Viena.</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-chapter="cap1" id="q2">
+    <p class="q-fonte">Em poucos meses de 1848, levantes atingiram Paris, Viena, Berlim, Milão, Veneza, Budapeste e Praga, e um parlamento se reuniu em Frankfurt.</p>
+    <h4>2. Sobre essa "Primavera dos Povos", é correto afirmar que</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) foi um movimento só operário, coordenado pela Associação Internacional dos Trabalhadores.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) combinou demandas liberais, nacionais e sociais e foi, em sua maioria, derrotada pela reação.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) levou de imediato à unificação da Itália e da Alemanha sob governos republicanos e laicos.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) ficou restrita à França, pois Áustria e Prússia já tinham constituições liberais desde 1815.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','e')">e) foi liderada pela aristocracia rural, que buscava recuperar privilégios perdidos em Viena.</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-chapter="cap1" id="q3">
+    <p class="q-fonte">Em dezembro de 1848, Luís Bonaparte foi eleito presidente da Segunda República pelo sufrágio universal masculino. Em 1851 deu um golpe e, em 1852, um plebiscito aprovou o Segundo Império.</p>
+    <h4>3. A trajetória francesa entre 1848 e 1852 mostra que</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) o voto universal masculino podia ser usado para legitimar um projeto autoritário e personalista.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) os socialistas chegaram ao poder pelo voto e implantaram a economia planificada na França.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) a monarquia de Luís Filipe sobreviveu às barricadas graças ao apoio dos operários de Paris.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) a Segunda República aboliu as eleições e passou a governar por meio de um comitê revolucionário.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','e')">e) Napoleão III foi imposto à França pelas potências vencedoras do Congresso de Viena.</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-chapter="cap1" id="q4">
+    <p class="q-fonte">Na tela de Delacroix, uma mulher de seios à mostra ergue a bandeira tricolor e avança sobre uma barricada à frente de burgueses, operários e estudantes.</p>
+    <h4>4. A obra "A Liberdade guiando o povo" representa</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) a tomada da Bastilha, em 1789, início da Revolução Francesa contra Luís XVI.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) a Comuna de Paris, de 1871, governo operário derrotado pelas tropas de Versalhes.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) as Jornadas de Junho de 1848, em que os operários derrubaram a Segunda República.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) a resistência dos parisienses ao cerco prussiano durante a guerra de 1870.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','e')">e) os Três Dias Gloriosos de julho de 1830, que derrubaram o rei Carlos X.</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-chapter="cap2" id="q5">
+    <p class="q-fonte">Na Monarquia de Julho (1830-1848), só votava quem pagava impostos elevados: cerca de 1% da população francesa.</p>
+    <h4>5. Essa situação revela que o liberalismo do século XIX</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) seguia as ideias do socialismo científico, que reservava o voto aos trabalhadores organizados.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) mantinha o absolutismo, já que Luís Filipe concentrava os três poderes do Estado.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) defendia a igualdade perante a lei, mas restringia a participação política aos proprietários.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) era influenciado pelo anarquismo, contrário a qualquer forma de eleição e de representação.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','e')">e) exigia que só os nascidos em Paris tivessem direitos políticos, por razões nacionalistas.</button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-chapter="cap2" id="q6">
+    <p class="q-fonte">Em 1846, o primeiro-ministro britânico Robert Peel revogou as Corn Laws, tarifas que encareciam os grãos importados.</p>
+    <h4>6. A revogação atendia sobretudo aos interesses</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) dos industriais, defensores do livre-comércio e de alimentos mais baratos nas cidades.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) da aristocracia fundiária, que passaria a vender grãos sem a concorrência estrangeira.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) dos cartistas, que exigiam o protecionismo como condição para o sufrágio universal.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) dos socialistas utópicos, que planejavam financiar os falanstérios com a venda de trigo.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','e')">e) da Coroa britânica, que queria aumentar a arrecadação com impostos de importação.</button>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-chapter="cap2" id="q7">
+    <p class="q-fonte">Associe os movimentos operários britânicos: I. Ludismo · II. Cartismo · III. Trade Unions. ( ) "Carta do Povo", com sufrágio universal masculino · ( ) destruição de máquinas, vistas como causa do desemprego · ( ) associações permanentes que negociam salários, fazem greves e dão ajuda mútua.</p>
+    <h4>7. A sequência correta, de cima para baixo, é</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) I, II, III.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) II, III, I.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) III, I, II.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) I, III, II.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','e')">e) II, I, III.</button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-chapter="cap2" id="q8">
+    <p class="q-fonte">Saint-Simon imaginou uma sociedade governada por sábios; Fourier, os falanstérios; Owen criou a comunidade-modelo de New Lanark. Marx e Engels chamaram essas propostas de "utópicas".</p>
+    <h4>8. Diferentemente desses autores, Marx e Engels</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) defendiam comunidades-modelo para convencer os patrões pelo exemplo e pela persuasão.</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) analisavam o capitalismo pela história e pela economia e viam a luta de classes como motor.</button>
+      <button class="option-btn" onclick="checkQuiz('q8','c')">c) consideravam o capitalismo uma ordem natural, que precisaria apenas de reformas morais.</button>
+      <button class="option-btn" onclick="checkQuiz('q8','d')">d) propunham que sábios e industriais governassem uma sociedade sem ociosos nem conflitos.</button>
+      <button class="option-btn" onclick="checkQuiz('q8','e')">e) rejeitavam qualquer forma de Estado, inclusive durante a transição para o comunismo.</button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-chapter="cap2" id="q9">
+    <p class="q-fonte">Uma fábrica gasta $ 3.000 em matéria-prima e paga $ 500 a cada um de seus 10 operários. As roupas produzidas são vendidas por $ 30.000.</p>
+    <h4>9. Segundo a teoria de Marx, a mais-valia nesse exemplo é de</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) $ 27.000, valor criado pelo trabalho, que pertence de direito ao dono da fábrica.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) $ 8.000, soma dos custos com matéria-prima e salários adiantados pelo capitalista.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','c')">c) $ 5.000, total dos salários, que representa a parte explorada do operário.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','d')">d) $ 22.000, valor criado pelo trabalho que não é pago aos operários e fica com o burguês.</button>
+      <button class="option-btn" onclick="checkQuiz('q9','e')">e) $ 2.700, parte que caberia a cada operário numa economia socialista.</button>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-chapter="cap2" id="q10">
+    <p class="q-fonte">Proudhon e Bakunin, assim como Marx, criticavam o capitalismo, mas entraram em choque com os marxistas na Primeira Internacional.</p>
+    <h4>10. A principal divergência entre anarquistas e marxistas era que os anarquistas</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) defendiam a propriedade privada dos meios de produção como garantia da liberdade individual.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) apoiavam o voto censitário e a via parlamentar como caminho para as reformas sociais.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','c')">c) recusavam qualquer Estado, inclusive um Estado operário de transição, e defendiam a ação direta.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','d')">d) viam a nação como base da solidariedade operária e defendiam o protecionismo econômico.</button>
+      <button class="option-btn" onclick="checkQuiz('q10','e')">e) negavam a existência de classes sociais e de exploração do trabalho no capitalismo.</button>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card" data-chapter="cap2" id="q11">
+    <p class="q-fonte">Em 1852, após o golpe de Luís Napoleão, um plebiscito aprovou o Segundo Império com mais de 90% dos votos, embalado por propaganda que exaltava a glória de Napoleão I e tratava obedecer ao imperador como servir à pátria.</p>
+    <h4>11. O episódio exemplifica</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) o uso do nacionalismo, com símbolos e memória heroica, para legitimar um poder autoritário.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) a vitória do socialismo científico, que via no imperador o representante do proletariado.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','c')">c) a aplicação rigorosa do voto censitário defendido pelos liberais da Monarquia de Julho.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','d')">d) a influência anarquista, que defendia consultas populares diretas sem governo central.</button>
+      <button class="option-btn" onclick="checkQuiz('q11','e')">e) o fim do nacionalismo francês, substituído pela solidariedade internacional operária.</button>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card" data-chapter="cap2" id="q12">
+    <p class="q-fonte">Em 1864, operários ingleses e franceses que apoiavam os poloneses reprimidos pela Rússia fundaram, em Londres, a Associação Internacional dos Trabalhadores.</p>
+    <h4>12. Sobre essa Primeira Internacional, é correto afirmar que</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) foi criada por Robert Owen para espalhar comunidades cooperativas como New Harmony.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) reunia apenas partidos marxistas, já que os anarquistas rejeitavam qualquer organização.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','c')">c) tinha como objetivo central defender o livre-comércio e a revogação das Corn Laws.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','d')">d) reuniu marxistas, anarquistas e sindicalistas contra o capitalismo, apesar das divergências.</button>
+      <button class="option-btn" onclick="checkQuiz('q12','e')">e) surgiu em 1848, junto com o Manifesto Comunista, e liderou a Primavera dos Povos.</button>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="question-card" data-chapter="cap3" id="q13">
+    <p class="q-fonte">Para o chanceler austríaco Metternich, "a Itália é uma mera expressão geográfica".</p>
+    <h4>13. A frase se refere ao fato de que, após o Congresso de Viena,</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q13','a')">a) a Itália já era um reino unificado, mas sem constituição nem parlamento.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','b')">b) a península estava dividida em vários Estados, sob forte influência austríaca.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','c')">c) toda a península era colônia francesa, governada diretamente por Napoleão III.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','d')">d) o Papa governava toda a península, de Turim à Sicília, como um único Estado.</button>
+      <button class="option-btn" onclick="checkQuiz('q13','e')">e) a Itália era uma república federativa, com capital em Roma e moeda única.</button>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question-card" data-chapter="cap3" id="q14">
+    <p class="q-fonte">Giuseppe Mazzini, fundador da Jovem Itália (1831), e o Conde de Cavour, ministro do Piemonte, queriam unificar a Itália.</p>
+    <h4>14. Os projetos dos dois se diferenciavam porque</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) Mazzini queria uma federação de Estados liderada pelo Papa, e Cavour, uma república laica e democrática.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) Mazzini aceitava a tutela austríaca sobre o norte, e Cavour buscava o apoio da Rússia contra a França.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) Mazzini contava com as elites agrárias do Sul, e Cavour, com os carbonários e os camponeses do Norte.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) Mazzini defendia a monarquia de Turim, e Cavour, o retorno dos ducados independentes sob proteção francesa.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','e')">e) Mazzini propunha uma república democrática feita pela ação popular, e Cavour, uma monarquia pela diplomacia e guerra.</button>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question-card" data-chapter="cap3" id="q15">
+    <p class="q-fonte">Em 1860, após conquistar a Sicília e o sul com seus "camisas vermelhas", o republicano Giuseppe Garibaldi encontrou o rei Vítor Emanuel II em Teano.</p>
+    <h4>15. O encontro de Teano é significativo porque Garibaldi</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) proclamou a República Romana e obrigou o rei a abdicar em favor de Mazzini.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) declarou guerra ao Piemonte, que havia cedido Saboia e Nice à França.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) entregou suas conquistas ao rei, priorizando a unificação em vez da república.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) aliou-se à Áustria para impedir que o Papa perdesse os Estados Pontifícios.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','e')">e) devolveu o Reino das Duas Sicílias aos Bourbon em troca de uma constituição.</button>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="question-card" data-chapter="cap3" id="q16">
+    <p class="q-fonte">Considere os acontecimentos: I. anexação de Roma · II. proclamação do Reino da Itália · III. incorporação do Vêneto · IV. conquista da Lombardia com apoio francês.</p>
+    <h4>16. A ordem cronológica correta é</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) IV, II, III, I.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) II, IV, I, III.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) IV, III, II, I.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) II, IV, III, I.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','e')">e) IV, II, I, III.</button>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="question-card" data-chapter="cap3" id="q17">
+    <p class="q-fonte">Depois de 1870, o Papa Pio IX se declarou "prisioneiro no Vaticano" e não reconheceu o Reino da Itália; ao mesmo tempo, milhões de italianos do Sul emigraram para a América.</p>
+    <h4>17. Essas duas situações se ligam, respectivamente,</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) ao Concílio de Trento e à abertura dos portos brasileiros às nações amigas.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) ao Tratado de Viena e à corrida do ouro na Califórnia, que atraiu os camponeses.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) à Comuna de Paris e à crise do café, que expulsou trabalhadores do Brasil.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) à Questão Romana, encerrada em 1929 em Latrão, e à desigualdade entre Norte e Sul.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','e')">e) à vitória de Mazzini, que aboliu a Igreja, e à guerra contra a Áustria em 1866.</button>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="question-card" data-chapter="cap4" id="q18">
+    <p class="q-fonte">Em 1834, a Prússia organizou o Zollverein, do qual a Áustria ficou de fora.</p>
+    <h4>18. O Zollverein foi importante para a unificação alemã porque</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q18','a')">a) criou um exército comum, comandado pelo Parlamento de Frankfurt.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','b')">b) integrou economicamente os Estados alemães e deu à Prússia a liderança sobre eles.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','c')">c) proclamou o II Reich e coroou Guilherme I como Kaiser em Versalhes.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','d')">d) transferiu a capital da Confederação Germânica de Viena para Berlim.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','e')">e) garantiu à Áustria o controle das alfândegas e do comércio do norte da Alemanha.</button>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="question-card" data-chapter="cap4" id="q19">
+    <p class="q-fonte">Bismarck, adepto da Realpolitik, conduziu a unificação por meio de três guerras.</p>
+    <h4>19. A sequência correta dessas guerras e dos adversários da Prússia é</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q19','a')">a) 1864, contra a Áustria · 1866, contra a Dinamarca · 1870, contra a França.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','b')">b) 1864, contra a França · 1866, contra a Áustria · 1870, contra a Dinamarca.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','c')">c) 1866, contra a Dinamarca · 1868, contra a Rússia · 1870, contra a França.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','d')">d) 1864, contra a Dinamarca · 1866, contra a Itália · 1871, contra a Áustria.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','e')">e) 1864, contra a Dinamarca · 1866, contra a Áustria · 1870, contra a França.</button>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="question-card" data-chapter="cap4" id="q20">
+    <p class="q-fonte">Em 18 de janeiro de 1871, Guilherme I foi coroado Kaiser no Salão dos Espelhos do Palácio de Versalhes.</p>
+    <h4>20. Entre as consequências dessa vitória alemã está</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q20','a')">a) a anexação da Lombardia e do Vêneto pela Prússia e a criação da Confederação do Reno.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','b')">b) a restauração de Napoleão III no trono francês com o apoio do exército de Bismarck.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','c')">c) o revanchismo francês, alimentado pela perda da Alsácia-Lorena e pela humilhação em Versalhes.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','d')">d) a criação de uma república socialista na Alemanha, governada pela Primeira Internacional.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','e')">e) a reaproximação entre França e Alemanha, que assinaram uma aliança militar permanente.</button>
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="question-card" data-chapter="cap5" id="q21">
+    <p class="q-fonte">Entre março e maio de 1871, Paris foi governada pela Comuna, formada por trabalhadores, socialistas, anarquistas e membros da Guarda Nacional.</p>
+    <h4>21. Foi uma medida adotada pela Comuna de Paris:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q21','a')">a) a restauração dos privilégios do clero e do ensino religioso obrigatório.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','b')">b) a separação entre Igreja e Estado e a criação de ensino gratuito e laico.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','c')">c) a adoção do voto censitário para afastar os operários das decisões políticas.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','d')">d) a entrega das fábricas abandonadas aos antigos donos, com indenização do Estado.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','e')">e) a anexação da Alsácia-Lorena ao Império Alemão, em troca da paz com Bismarck.</button>
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="question-card" data-chapter="cap5" id="q22">
+    <p class="q-fonte">O governo da Terceira República, instalado em Versalhes, retomou Paris em maio de 1871, com prisioneiros de guerra libertados por Bismarck. Milhares de communards foram mortos, presos ou deportados.</p>
+    <h4>22. A Comuna se tornou uma referência histórica porque</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q22','a')">a) foi a primeira experiência de governo dos trabalhadores, reprimida pela burguesia republicana.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','b')">b) restaurou a monarquia dos Bourbon com o apoio dos operários parisienses.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','c')">c) garantiu a vitória da França na guerra contra a Prússia e a recuperação da Alsácia.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','d')">d) foi o modelo do Corolário Roosevelt para as intervenções dos EUA no Caribe.</button>
+      <button class="option-btn" onclick="checkQuiz('q22','e')">e) deu início à Primavera dos Povos, que se espalhou de Paris para Viena e Berlim.</button>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="question-card" data-chapter="cap6" id="q23">
+    <p class="q-fonte">Na tela "American Progress" (John Gast, 1872), uma figura feminina flutua para o Oeste levando um livro e o fio do telégrafo, seguida por ferrovias e colonos, enquanto indígenas e bisões fogem para a sombra.</p>
+    <h4>23. A pintura é uma alegoria</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q23','a')">a) da Doutrina Monroe, que proibia os EUA de intervir nos assuntos da Europa.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','b')">b) da Guerra de Secessão, vencida pelo Sul graças à sua superioridade industrial.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','c')">c) do Corolário Roosevelt, que justificava intervenções no Caribe e na América Central.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','d')">d) do Destino Manifesto, que apresentava a expansão como missão civilizatória e divina.</button>
+      <button class="option-btn" onclick="checkQuiz('q23','e')">e) do Homestead Act, que devolveu as terras do Oeste aos povos indígenas.</button>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="question-card" data-chapter="cap6" id="q24">
+    <p class="q-fonte">Considere: I. Compra da Luisiana · II. Guerra contra o México · III. Compra da Flórida · IV. Anexação do Texas.</p>
+    <h4>24. Associando cada aquisição a quem cedeu o território, temos, respectivamente:</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Espanha · França · Reino Unido · México.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Reino Unido · México · França · Espanha.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','c')">c) França · Espanha · México · Reino Unido.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','d')">d) México · França · Espanha · Reino Unido.</button>
+      <button class="option-btn" onclick="checkQuiz('q24','e')">e) França · México · Espanha · Texas independente.</button>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="question-card" data-chapter="cap6" id="q25">
+    <p class="q-fonte">A Cláusula Wilmot (1846) propunha proibir a escravidão nos territórios conquistados do México. Em 1860, Abraham Lincoln foi eleito prometendo conter a expansão da escravidão, e a Carolina do Sul deixou a União.</p>
+    <h4>25. Esses fatos indicam que a Guerra de Secessão</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q25','a')">a) foi causada pela disputa com o Reino Unido pelo território do Oregon.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','b')">b) teve origem na decisão do Norte de retomar o comércio com a Espanha.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','c')">c) ligou-se à expansão territorial, que reabriu o conflito entre Norte e Sul sobre a escravidão.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','d')">d) começou quando o Sul industrial tentou impor tarifas protecionistas ao Norte agrário.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','e')">e) resultou da Doutrina Monroe, que proibia a escravidão em todo o continente americano.</button>
+    </div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="question-card" data-chapter="cap6" id="q26">
+    <p class="q-fonte">Após a Guerra Civil, a 13ª Emenda aboliu a escravidão. Na Reconstrução (1865-1877), o Norte ocupou o Sul; com a retirada das tropas, em 1877, vieram as leis de "Jim Crow".</p>
+    <h4>26. Sobre o período pós-abolição nos EUA, é correto afirmar que</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q26','a')">a) os libertos receberam terras e educação, o que garantiu sua plena integração.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','b')">b) a libertação veio sem integração, e o racismo deu origem à Ku Klux Klan e à segregação legal.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','c')">c) as leis de Jim Crow garantiram a igualdade de direitos civis entre brancos e negros no Sul.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','d')">d) a Reconstrução terminou com a vitória da Confederação e a volta da escravidão no Sul.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','e')">e) o personagem Jim Crow foi criado por abolicionistas para celebrar a liberdade dos negros.</button>
+    </div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="question-card" data-chapter="cap6" id="q27">
+    <p class="q-fonte">Em 1823: "os continentes americanos não devem ser considerados sujeitos a futuras colonizações por qualquer potência europeia" (James Monroe). Em 1904, Theodore Roosevelt afirmou o direito dos EUA de intervir em países latino-americanos instáveis ou endividados.</p>
+    <h4>27. A comparação entre os dois textos revela</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q27','a')">a) a passagem da rejeição à intervenção europeia para a intervenção dos próprios EUA na América Latina.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','b')">b) o abandono do expansionismo pelos EUA, que passaram a apoiar a independência de Cuba e do Panamá sem interferir.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','c')">c) a aliança entre EUA e Espanha para manter Cuba e Porto Rico como colônias europeias até o século XX.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','d')">d) a adoção, pelos EUA, das ideias da Santa Aliança, que defendia a recolonização da América pela Europa.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','e')">e) a continuidade de uma política de isolamento total, sem relações comerciais com os vizinhos do continente.</button>
+    </div>
+  </div>
+  <!-- Result -->
+  <div class="quiz-result" id="quiz-result">
+    <div class="donut-wrap">
+      <svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+        <circle cx="65" cy="65" r="55" fill="none" stroke="var(--secondary)" stroke-width="14"
+                stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+      </svg>
+      <div class="donut-center">
+        <span class="donut-score" id="donut-score">0</span>
+        <span class="donut-label">/ 27</span>
+      </div>
+    </div>
+    <div class="result-msg" id="result-msg"></div>
+    <div class="result-sub" id="result-sub"></div>
+    <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+  </div>
+</section>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre as Revoluções de 1830 e 1848, liberalismo, socialismo e anarquismo, as unificações da Itália e da Alemanha, a Comuna de Paris ou os EUA no século XIX!</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+</main>
+
+<footer>
+  &copy; 2026 Caderno Digital · História 3º Trimestre
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+/* ── Quiz ── */
+const ANSWERS = {q1:'d', q2:'b', q3:'a', q4:'e', q5:'c', q6:'a', q7:'e', q8:'b', q9:'d', q10:'c', q11:'a', q12:'d', q13:'b', q14:'e', q15:'c', q16:'a', q17:'d', q18:'b', q19:'e', q20:'c', q21:'b', q22:'a', q23:'d', q24:'e', q25:'c', q26:'b', q27:'a'};
+/* Explicação mostrada depois de responder */
+const EXPLICA = {
+  q1: "Luís Filipe de Orléans, o \"rei burguês\", assumiu uma monarquia constitucional (Monarquia de Julho). O voto continuou censitário: cerca de 1% votava. República com sufrágio universal masculino só em 1848; governo operário, na Comuna de 1871.",
+  q2: "As revoltas de 1848 pediam constituições (liberalismo), unificação ou independência (nacionalismo) e melhores condições de vida (questão social). Quase todas foram reprimidas. A Primeira Internacional é de 1864.",
+  q3: "Luís Bonaparte usou o sufrágio universal masculino e o prestígio do tio, Napoleão I, para chegar ao poder e depois legitimar o golpe por plebiscito. O voto amplo não garantiu democracia.",
+  q4: "A tela é de 1830 e retrata a Revolução de Julho. A figura é Marianne, alegoria da República e da Liberdade, unindo os ideais de 1789 à insurreição de 1830. Nas Jornadas de Junho de 1848 os operários foram derrotados, não vitoriosos.",
+  q5: "É a contradição central do liberalismo da época: igualdade jurídica (formal) para todos, mas poder político só para quem tinha renda. Luís Filipe era um monarca constitucional, não absoluto.",
+  q6: "As Corn Laws protegiam os grandes proprietários de terra. Sua revogação, bandeira do liberalismo econômico, interessava aos industriais (pão barato permite salários mais baixos) e à população urbana. Os trabalhadores do campo perderam.",
+  q7: "Cartismo (1838-1848): Carta do Povo e direitos políticos. Ludismo (anos 1810): quebra de máquinas. Trade Unions: sindicatos, legais desde 1824.",
+  q8: "O socialismo \"científico\" analisa a sociedade como ela é, com história e economia, e vê a luta de classes como motor da história. Rejeitar todo Estado na transição é posição anarquista; as demais alternativas descrevem os utópicos ou os liberais.",
+  q9: "A matéria-prima só transfere seu valor ($ 3.000). O trabalho cria $ 27.000 de valor novo, mas os operários recebem $ 5.000. A diferença, $ 22.000, é a mais-valia. $ 2.700 seria a divisão socialista dos $ 27.000.",
+  q10: "Para Marx, haveria uma fase de transição com Estado (ditadura do proletariado). Para os anarquistas, o Estado deveria ser abolido imediatamente, por greves, boicotes e autogestão, sem partidos nem eleições.",
+  q11: "O nacionalismo exalta passado heroico, símbolos e unidade da nação. Apresentar a nação como unânime serviu para legitimar o regime de Napoleão III e silenciar a divergência.",
+  q12: "A Primeira Internacional unificou correntes diferentes (marxistas, anarquistas, sindicalistas) na luta contra o capitalismo. As divergências entre Marx e Bakunin acabaram por rachá-la (1872).",
+  q13: "Em 1815 havia Piemonte-Sardenha, Lombardo-Vêneto (Áustria), ducados, Estados Pontifícios e Duas Sicílias. A Áustria dominava o norte e influenciava os ducados. Para Metternich, não existia uma nação italiana.",
+  q14: "Mazzini representava o projeto republicano e popular, que fracassou (República Romana, 1849). Cavour conduziu a via moderada: monarquia piemontesa, modernização, alianças (Napoleão III) e guerras.",
+  q15: "Garibaldi era republicano, mas entregou o sul a Vítor Emanuel II para não dividir o movimento. Em 1861 foi proclamado o Reino da Itália, no modelo monárquico piemontês.",
+  q16: "Lombardia (1859) → Reino da Itália (1861) → Vêneto (1866, aliança com a Prússia) → Roma (1870, com a saída das tropas francesas).",
+  q17: "A anexação de Roma abriu a Questão Romana, encerrada só em 1929 (Tratado de Latrão, Mussolini). A unificação \"de cima\" impôs o Norte industrial ao Sul rural, gerando pobreza e emigração para Brasil, Argentina e EUA.",
+  q18: "O Zollverein era uma união alfandegária: acabou com tarifas internas, integrou o mercado e a industrialização e isolou a Áustria. A liderança econômica prussiana preparou a política.",
+  q19: "Guerra dos Ducados (1864, Dinamarca, com a Áustria como aliada) → Guerra Austro-Prussiana ou das Sete Semanas (1866) → Guerra Franco-Prussiana (1870-71). A Itália foi aliada da Prússia em 1866.",
+  q20: "A escolha de Versalhes humilhou a França, que também perdeu a Alsácia-Lorena. O desejo de \"revanche\" alimentou nacionalismo e militarismo, uma das raízes da Primeira Guerra. Napoleão III foi deposto após Sedan.",
+  q21: "A Comuna foi anticlerical e popular: Estado laico, ensino gratuito e laico, fim do trabalho noturno nas padarias, autogestão de fábricas abandonadas, fim da censura, pensões para viúvas e órfãos.",
+  q22: "A Comuna durou 72 dias e foi vista por socialistas e anarquistas como o primeiro governo operário. A Semana Sangrenta mostrou a disposição do governo de Versalhes, aliado de fato a Bismarck, de esmagá-la.",
+  q23: "O Destino Manifesto dizia que os americanos tinham o direito moral e divino de se expandir até o Pacífico. A pintura transforma a conquista, com guerras e expulsões (como a Trilha das Lágrimas), em \"progresso\".",
+  q24: "Luisiana: comprada da França de Napoleão (1803). Guerra contra o México: Tratado de Guadalupe-Hidalgo (1848). Flórida: comprada da Espanha (1819). Texas: república independente desde 1836, anexada em 1845.",
+  q25: "A cada novo território, a pergunta era se ele seria livre ou escravista. A eleição de Lincoln fez o Sul agrário e escravista temer pelo seu modelo e se separar. O Norte era o industrial.",
+  q26: "Cerca de 4 milhões de pessoas foram libertadas sem terra nem educação. Grupos como a Ku Klux Klan e, depois de 1877, as leis de Jim Crow (segregação em escolas, transportes e espaços públicos) mantiveram a exclusão. O nome vem de um personagem racista dos shows de blackface.",
+  q27: "A Doutrina Monroe dizia \"a Europa não intervém na América\"; o Corolário Roosevelt (Big Stick) dizia \"os EUA intervêm\". Exemplos: guerra de 1898, Emenda Platt (1901, Guantánamo) e o Panamá (1903)."
+};
+let answered = {}, score = 0, total = 0;
+
+function checkQuiz(qid, choice) {
+  if (answered[qid]) return;
+  answered[qid] = true; total++;
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+  const correct = ANSWERS[qid];
+  let correctText = '';
+  btns.forEach(b => {
+    const letter = b.textContent.trim()[0];
+    if (letter === correct) { b.classList.add('correct'); correctText = b.textContent.trim(); }
+    else if (letter === choice && choice !== correct) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  if (choice === correct) score++;
+  let exp = card.querySelector('.answer-exp');
+  if (!exp) { exp = document.createElement('div'); exp.className = 'answer-exp'; card.querySelector('.options').after(exp); }
+  exp.innerHTML = '<span>✔</span><span><strong>' + correctText + '</strong>' + (EXPLICA[qid] ? '<br>' + EXPLICA[qid] : '') + '</span>';
+  exp.style.display = 'flex';
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
+  const pct = Math.round((score / total) * 100);
+  const arc = document.getElementById('mini-arc');
+  arc.style.strokeDashoffset = 106.8 - (pct / 100) * 106.8;
+  arc.style.stroke = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  const pctEl = document.getElementById('mini-pct');
+  pctEl.textContent = pct + '%';
+  pctEl.style.color = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  if (total === N) showResult();
+}
+
+function filterQuiz(chapter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+  });
+}
+
+function showResult() {
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('donut-score').textContent = score;
+  document.querySelector('.donut-label').textContent = '/ ' + N;
+  const offset = 345.4 - (score / N) * 345.4;
+  document.getElementById('donut-arc').style.strokeDashoffset = offset;
+  const pct = Math.round((score / N) * 100);
+  let msg, sub;
+  if (pct >= 90) { msg = 'Excelente! Dominou o conteúdo!'; sub = 'Resultado impressionante!' }
+  else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.' }
+  else if (pct >= 50) { msg = 'Bom esforço! Dá para melhorar.'; sub = 'Volte aos capítulos com dificuldade.' }
+  else { msg = 'Continue estudando!'; sub = 'Releia os acordeons e tente novamente.' }
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('result-sub').textContent = sub;
+}
+
+function resetQuiz() {
+  answered = {}; score = 0; total = 0;
+  document.querySelectorAll('.option-btn').forEach(b => { b.classList.remove('correct','wrong'); b.disabled = false; });
+  document.querySelectorAll('.answer-exp').forEach(e => e.style.display = 'none');
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / ' + N + '</strong>';
+  const arc = document.getElementById('mini-arc');
+  arc.style.strokeDashoffset = '106.8'; arc.style.stroke = '#e0e0e0';
+  const pctEl = document.getElementById('mini-pct');
+  pctEl.textContent = '—'; pctEl.style.color = '#aaa';
+}
+</script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/contribuir.js" defer></script>
+</body>
+</html>
