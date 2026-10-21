@@ -2,3 +2,7 @@
 .env*.local
 node_modules
 envios-baixados/
+
+# Mapas baixados pelo gerador de vídeos
+ferramentas/videos/.geo-cache/
+__pycache__/

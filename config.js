@@ -45,4 +45,7 @@ var MATERIAS = [
   { tri: 2, id: 'historia-2tri',          materia: 'historia',   icone: '🏛️', nome: 'História',   desc: 'Rev. Francesa/Haiti · Napoleão · Viena · América Espanhola · Brasil Império', status: 'prova' },
   { tri: 2, id: 'geografia-2tri',         materia: 'geografia',  icone: '🌍', nome: 'Geografia · extra', desc: 'UE, Brexit, Relevo, Clima & Hidrografia', status: 'fora' },
   { tri: 2, id: 'quimica-2tri',           materia: 'quimica',    icone: '🧪', nome: 'Química',    desc: 'Funções Orgânicas · Isomeria Plana · Isomeria Espacial', status: 'fora' },
+
+  // 3º trimestre
+  { tri: 3, id: 'historia-3tri',          materia: 'historia',   icone: '🏛️', nome: 'História',   desc: '1830/1848 · Ideologias · Itália · Alemanha · Comuna · EUA · com vídeos', status: 'prova' },
 ];

@@ -5,11 +5,12 @@
    - Páginas, CSS e JS: rede primeiro (sempre a versão mais nova com
      internet); a cópia guardada só é usada offline.
    - Imagens: cópia guardada primeiro, atualizada em segundo plano.
-   - /api/ (Nêuron, envio de resumos) e outros sites: nunca guardados.
+   - /api/ (Nêuron, envio de resumos), vídeos e outros sites: nunca
+     guardados (vídeo vem em pedaços e lotaria o armazenamento).
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-10-20-quiz2';
+const VERSAO = 'cd-2026-10-21-hist3';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
@@ -21,6 +22,7 @@ const ESSENCIAIS = [
   'geografia-2tri.html',
   'historia-1tri.html',
   'historia-2tri.html',
+  'historia-3tri.html',
   'index.html',
   'ingles-2tri.html',
   'ingles-flashcards.html',
@@ -79,6 +81,7 @@ self.addEventListener('fetch', (e) => {
   const req = e.request;
   const url = new URL(req.url);
   if (req.method !== 'GET' || url.origin !== self.location.origin || url.pathname.startsWith('/api/')) return;
+  if (req.destination === 'video' || req.headers.has('range')) return;
 
   // Imagens: cópia primeiro, atualiza em segundo plano
   if (req.destination === 'image') {
