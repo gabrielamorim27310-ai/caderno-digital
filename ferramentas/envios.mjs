@@ -22,7 +22,7 @@ import path from 'path';
 const URL_BASE = (process.env.SUPABASE_URL || 'https://xkwbektxxmonqlpkewcq.supabase.co').replace(/\/+$/, '');
 // Sem SUPABASE_SECRET_KEY, a chave vem de um "network secret" do ambiente
 // da nuvem do Claude, que acrescenta os cabeçalhos apikey/Authorization.
-const KEY = process.env.SUPABASE_SECRET_KEY;
+const KEY = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SECRET;
 const H = KEY ? { apikey: KEY, Authorization: `Bearer ${KEY}` } : {};
 const RAIZ = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'envios-baixados');
 
