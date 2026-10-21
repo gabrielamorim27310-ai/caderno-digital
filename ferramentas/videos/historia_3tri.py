@@ -73,6 +73,7 @@ CIDADES = {
     'Solferino': (10.57, 45.37), 'Sedan': (4.94, 49.70), 'Versalhes': (2.13, 48.80), 'Sadowa': (15.67, 50.37),
     'Ems': (7.71, 50.33), 'Copenhague': (12.57, 55.68), 'Munique': (11.58, 48.14), 'Estrasburgo': (7.75, 48.58),
     'Metz': (6.18, 49.12), 'Nice': (7.27, 43.70), 'Chambéry': (5.92, 45.57), 'Calatafimi': (12.86, 37.92),
+    'Custoza': (10.80, 45.38), 'Novara': (8.62, 45.45), 'Aspromonte': (15.92, 38.17), 'Montmartre': (2.34, 48.89),
     'Reggio': (15.65, 38.11), 'Mentana': (12.64, 42.03),
 }
 
@@ -159,12 +160,40 @@ def video_revolucoes():
                   ('Liberais × operários já em fevereiro', 'O poeta **Lamartine**, do governo provisório da 2ª República, '
                    'recusa a **bandeira vermelha** dos socialistas e mantém a tricolor. A disputa pelos rumos da revolução '
                    'já começava.')),
+        Cena(m, {'franca': C_REVOLTA}, ('2ª República: conquistas e limites', 'O governo provisório adota o **sufrágio '
+             'universal masculino**, **abole a escravidão nas colônias francesas** (abril de 1848) e cria as **Oficinas '
+             'Nacionais**, inspiradas no socialista **Louis Blanc**, para garantir o "direito ao trabalho". Mas o voto do '
+             'campo elege uma Assembleia conservadora, que fecha as Oficinas em junho.'), ano='1848',
+             itens=[Marcador(*cidade('Paris'), 'Paris', tipo='capital', cor=NAVY, lado='e')]),
         Cena(m, {'franca': C_REVOLTA, 'austria': hexcor('#b8322a', 0.30), 'alemanha': hexcor('#b8322a', 0.30),
                  'prussia': hexcor('#b8322a', 0.25), 'italia': hexcor('#b8322a', 0.30)},
              ('A Primavera dos Povos', 'Revoltas quase simultâneas pedem **constituições** (liberalismo), **unificação ou '
               'independência nacional** (nacionalismo) e direitos para os trabalhadores. Metternich foge de Viena; '
               '**Frankfurt** reúne um parlamento para unificar a Alemanha.'), ano='1848',
              dur=13, itens=marcadores_1848()),
+        Cena(m, {'austria': hexcor('#b8322a', 0.45), 'russia': C_RUSSIA}, ('1848 no Império Austríaco', 'Em Viena, '
+             '**Metternich** cai e foge. Os **húngaros** de **Lajos Kossuth** chegam a proclamar a independência (1849), '
+             'esmagada com a ajuda do **exército russo**. Em Praga, o Congresso Pan-eslavo é dissolvido a tiros. O que '
+             'fica: o **fim da servidão camponesa** no Império.'), ano='1848–49',
+             itens=[Marcador(*cidade('Viena'), 'Viena', lado='b', em=0.3, sub='Metternich foge'),
+                    Marcador(*cidade('Budapeste'), 'Budapeste', lado='d', em=0.9, sub='Kossuth'),
+                    Marcador(*cidade('Praga'), 'Praga', lado='a', em=1.5),
+                    Seta([(25.5, 49.5), (22.5, 48.6), (19.6, 47.7)], em=2.4, dur=1.6, cor=hexcor('#4f6b3a'), larg=5),
+                    Rotulo(26.0, 50.3, 'exército russo', 2.6, 15, hexcor('#3d5530'))]),
+        Cena(m, {'prussia': hexcor('#b8322a', 0.40), 'alemanha': hexcor('#b8322a', 0.30)}, ('1848 na Alemanha', 'O rei da '
+             'Prússia, **Frederico Guilherme IV**, concede uma constituição. O **Parlamento de Frankfurt** debate quem faz '
+             'parte da nação: **Grande Alemanha** (com a Áustria) ou **Pequena Alemanha** (sem ela, sob a Prússia). Vence a '
+             'segunda, mas em 1849 o rei recusa a coroa "vinda da rua" e o parlamento é dissolvido.'), ano='1848–49',
+             itens=[Marcador(*cidade('Berlim'), 'Berlim', lado='d', em=0.3),
+                    Marcador(*cidade('Frankfurt'), 'Frankfurt', lado='e', em=0.8, sub='parlamento')]),
+        Cena(m, {'italia': hexcor('#b8322a', 0.40), 'austria': C_AUSTRIA}, ('1848 na Itália', '**Carlos Alberto**, rei do '
+             'Piemonte, concede o **Estatuto Albertino** e declara guerra à Áustria, mas perde em **Custoza (1848)** e '
+             '**Novara (1849)** e abdica em favor de **Vítor Emanuel II**. A **República Romana** de Mazzini e Garibaldi e a '
+             '**República de São Marcos**, em Veneza, também caem. O Estatuto sobrevive: será a constituição da Itália unida.'),
+             ano='1848–49', itens=[Marcador(*cidade('Custoza'), 'Custoza', tipo='batalha', lado='d', em=0.5),
+                                   Marcador(*cidade('Novara'), 'Novara', tipo='batalha', lado='e', em=1.0),
+                                   Marcador(*cidade('Roma'), 'Roma', lado='d', em=1.6, sub='República Romana'),
+                                   Marcador(*cidade('Veneza'), 'Veneza', lado='d', em=2.0, sub='República de São Marcos')]),
         Cena(m, {'franca': C_REPRIME, 'austria': C_AUSTRIA, 'prussia': C_PRUSSIA, 'russia': C_RUSSIA,
                  'italia': hexcor('#6b6b6b', 0.25), 'alemanha': hexcor('#6b6b6b', 0.25)},
              ('Por que "Primavera"? E por que ela acaba?', 'O nome evoca **renascimento político**, como a primavera depois do inverno '
@@ -174,11 +203,34 @@ def video_revolucoes():
         cena_obra(img('barricada1848'), 'Barricada na rua Soufflot, Paris, 25 de junho de 1848 · Horace Vernet',
                   ('As Jornadas de Junho de 1848', 'O fechamento das **Oficinas Nacionais** leva os operários de Paris às '
                    'barricadas. A própria **República** os esmaga: milhares de mortos e presos.')),
+        Cena(None, None, ('Por que 1848 fracassou?', 'Em pouco mais de um ano, quase tudo voltou ao lugar. Mas a Europa '
+             'de depois não é a de antes: a burguesia e os operários seguem caminhos separados, e o nacionalismo passa a '
+             'ser usado também por governos conservadores.'), dur=13,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('Medo da burguesia', 'Depois das **Jornadas de Junho**, os liberais preferem a **ordem** e se aliam aos '
+                  'conservadores contra os operários.', C_REVOLTA),
+                 ('Nacionalismos rivais', 'Os revoltosos se dividem: **alemães × tchecos**, **húngaros × croatas**. As '
+                  'dinastias jogam um povo contra o outro.', C_LIBERAL),
+                 ('Exércitos fiéis', 'Exércitos e aristocracia rural continuam leais aos reis; o **campesinato** quase '
+                  'não adere.', C_PRUSSIA),
+                 ('O que fica', '**Sufrágio universal masculino** na França, **fim da servidão** na Áustria, o **Estatuto '
+                  'Albertino** e o operariado como força política própria.', C_PIEMONTE)]))]),
         Cena(m, {'franca': hexcor('#5b3f8a', 0.6)}, ('E depois?', '**Dez/1848**: Luís Bonaparte, sobrinho de Napoleão, é eleito '
              'presidente pelo **sufrágio universal masculino**. **1851**: dá um golpe de Estado. **1852**: plebiscito com mais de 90% '
              'de "sim" cria o **Segundo Império** e ele vira **Napoleão III**.'), ano='1852',
              itens=[Marcador(*cidade('Paris'), 'Paris', tipo='capital', cor=(0.36, 0.25, 0.54), lado='e'),
                     retrato(img('napoleao3'), 'Napoleão III (Winterhalter)', em=0.8)]),
+        cena_retratos([(img('marx'), 'Karl Marx'), (img('napoleao3'), 'Napoleão III')],
+                      ('Tragédia e farsa', 'Em **O 18 de Brumário de Luís Bonaparte** (1852), Marx compara o golpe do sobrinho '
+                       'ao do tio: a história se repete, "a primeira vez como **tragédia**, a segunda como **farsa**". Para '
+                       'ele, Napoleão III se apoiou nos **camponeses** e no medo que a burguesia tinha dos operários.')),
+        Cena(None, None, ('O nacionalismo muda de lado', 'Antes de 1848, o nacionalismo era bandeira de revolucionários. '
+             'Depois, governos conservadores aprendem a usá-lo: as unificações da Itália e da Alemanha serão feitas **de '
+             'cima para baixo**, por reis, ministros e exércitos.'), dur=12,
+             itens=[Desenho(lambda c, t: quadro_comparativo(c, t, [
+                 ('Antes de 1848', ['Liberal e revolucionário', 'Feito pelo povo nas ruas', 'Mazzini, Kossuth, Frankfurt'], C_REVOLTA),
+                 ('Depois de 1848', ['Conservador e autoritário', 'Feito por Estados e exércitos', 'Cavour, Bismarck, Napoleão III'], C_PRUSSIA),
+             ], topo=110))]),
         Cena(None, None, ('Para a prova', '**1830** = revolução liberal: a **burguesia** toma o poder e mantém o voto censitário. '
              '**1848** = liberal + **nacional** + **social**: os **operários** entram em cena, mas são derrotados. As duas espalham '
              'o nacionalismo que levará às **unificações da Itália e da Alemanha**.'), dur=11,
@@ -434,6 +486,16 @@ def video_ideologias():
                  ('Economia', '**Livre iniciativa** e **concorrência**. O mercado se autorregula; o Estado não intervém.', C_LIB),
                  ('Sociedade', 'Todos são **iguais perante a lei** e sobem na vida pelo **mérito**.', C_LIB),
                  ('Mentalidades', 'O ser humano é **racional** e decide para maximizar o próprio bem-estar.', C_LIB)]))),
+        Cena(None, None, ('Os pensadores do liberalismo', 'O liberalismo tem várias faces: dos **direitos naturais** de Locke '
+             'à **economia de mercado** de Smith e Ricardo, do pessimismo de Malthus ao liberalismo mais **social** de '
+             'Stuart Mill, que defendia até o voto feminino.'), dur=14,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('John Locke', 'Séc. XVII. **Direitos naturais**: vida, liberdade e propriedade. Governo por consentimento.', hexcor('#2f5d9e')),
+                 ('Adam Smith', '**A Riqueza das Nações** (1776): divisão do trabalho e a "mão invisível" do mercado.', hexcor('#2f5d9e')),
+                 ('Thomas Malthus', 'A população cresce mais rápido que os alimentos; era **contra a ajuda aos pobres**.', hexcor('#2f5d9e')),
+                 ('David Ricardo', 'Livre-comércio e **vantagens comparativas**; salários tendem ao mínimo de subsistência.', hexcor('#2f5d9e')),
+                 ('John Stuart Mill', 'Liberdade individual, mas com **reformas sociais**; defende o **voto feminino** (1869).', hexcor('#2f5d9e')),
+                 ('Em comum', '**Propriedade privada**, Estado limitado e confiança no indivíduo e no mercado.', GOLD)], cols=3))]),
         Cena(None, None, ('A contradição', 'Se o liberalismo defendia liberdade e igualdade, por que limitava o voto? Na '
              '**Monarquia de Julho** (França, 1830–48), o **voto censitário** só deixava votar quem pagava altos impostos: '
              'cerca de **1% da população**. A igualdade era **formal** (perante a lei), não econômica nem política.'),
@@ -455,6 +517,14 @@ def video_ideologias():
                  ('Economia', '**Protecionismo** e **indústria nacional** para não depender do exterior.', C_NAC),
                  ('Sociedade', 'A nação é uma comunidade de **língua, cultura, história e tradições**.', C_NAC),
                  ('Mentalidades', 'Passado heroico, **bandeiras, hinos e heróis**: emoção e pertencimento.', C_NAC)]))),
+        Cena(None, None, ('A questão social', 'Nas cidades industriais, jornadas de **14 a 16 horas**, **trabalho infantil**, '
+             'salários de fome e bairros sem esgoto. Engels descreveu Manchester em **A situação da classe trabalhadora na '
+             'Inglaterra** (1845). É dessa realidade que nascem os movimentos operários e as críticas ao capitalismo.'),
+             itens=[Desenho(lambda c, t: (titulo_diagrama(c, t, 'A vida operária na Revolução Industrial'), cartoes(c, t, [
+                 ('Jornada', '**14 a 16 horas** por dia, sem descanso semanal garantido.', C_REVOLTA),
+                 ('Crianças e mulheres', 'Trabalho infantil nas minas e tecelagens; mulheres e crianças **ganham menos**.', C_REVOLTA),
+                 ('Moradia', 'Cortiços superlotados, sem esgoto: **cólera** e tuberculose.', C_REVOLTA),
+                 ('Sem direitos', 'Sem voto, sem sindicato legal (até 1824), sem aposentadoria nem seguro.', C_REVOLTA)], topo=100)))]),
         Cena(None, None, ('Movimentos operários na Inglaterra', 'Com a Revolução Industrial, os trabalhadores passam de '
              'destruir máquinas a exigir **direitos políticos** e formar **sindicatos**. Atenção às datas: o Cartismo é dos '
              'anos **1838–1848**.'),
@@ -491,6 +561,15 @@ def video_ideologias():
                   'dos movimentos operários.', C_SOC),
                  ('Friedrich Engels (1820–1895)', 'Filho de industrial, crítico do capitalismo. Parceiro de Marx na teoria '
                   'voltada à **emancipação do proletariado**.', C_SOC)], cols=2, base=300))),
+        Cena(None, None, ('Os conceitos de Marx', 'Para Marx, não são as ideias que movem a história, mas as **condições '
+             'materiais**: quem é dono dos meios de produção domina também o Estado e as ideias. Por isso a transformação '
+             'exige mudar a **base econômica**.'), dur=14,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('Materialismo histórico', 'A **base econômica** (forças e relações de produção) condiciona a '
+                  '**superestrutura**: leis, Estado, religião, ideias.', C_SOC),
+                 ('Luta de classes', '"A história de todas as sociedades até hoje é a história da **luta de classes**."', C_SOC),
+                 ('Alienação', 'O operário não controla nem se reconhece no que produz: o trabalho vira **mercadoria**.', C_SOC),
+                 ('Ideologia', '"As ideias dominantes de uma época são as **ideias da classe dominante**."', C_SOC)]))]),
         Cena(None, None, ('Visão liberal', 'O dono gastou **$ 8.000** (matéria-prima + salários) e vendeu por **$ 30.000**. '
              'Para o liberal, os **$ 22.000** de lucro são legítimos: ele é dono dos meios de produção, **assume os riscos**, '
              'investe e reinveste, e é recompensado pelo **mérito** da iniciativa.'), dur=13,
@@ -524,6 +603,14 @@ def video_ideologias():
                   'aposta na **revolta das bases**.', C_ANA),
                  ('Princípios', '**Liberdade, igualdade e autogestão**: associações livres, cooperativas, sem hierarquias fixas.', C_ANA),
                  ('Métodos', 'Recusa a via parlamentar: **greves, boicotes, sabotagens**, propaganda e educação popular.', C_ANA)]))),
+        Cena(None, None, ('Correntes do anarquismo e o Brasil', 'O anarquismo chega ao Brasil com **imigrantes italianos e '
+             'espanhóis** no fim do século XIX: jornais operários, ligas e a **Greve Geral de 1917** em São Paulo. É uma ponte '
+             'entre este tema, a imigração italiana e a História do Brasil.'), dur=13,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('Mutualismo', '**Proudhon**: troca justa entre produtores, crédito gratuito e cooperativas.', C_ANA),
+                 ('Coletivismo', '**Bakunin**: meios de produção coletivos; cada um recebe pelo que trabalha.', C_ANA),
+                 ('Anarcocomunismo', '**Kropotkin**: tudo em comum; distribuição segundo as **necessidades**.', C_ANA),
+                 ('Anarcossindicalismo', 'O **sindicato** como arma e a **greve geral** como revolução.', C_ANA)]))]),
         Cena(mapa_int, {'reino_unido': hexcor('#b8322a', 0.35)}, ('1864 · Primeira Internacional', 'O apoio de operários ingleses e '
              'franceses aos poloneses reprimidos pela Rússia leva à fundação, em **Londres**, da **Associação Internacional dos '
              'Trabalhadores**. Ela reúne **marxistas, anarquistas e sindicalistas** contra o capitalismo (e racha em 1872, Marx × Bakunin).'),
@@ -534,6 +621,31 @@ def video_ideologias():
                                 Marcador(*CIDADES['Varsóvia'], 'Varsóvia', tipo='ponto', cor=NAVY, lado='b', em=0.4),
                                 Marcador(*CIDADES['Paris'], 'Paris', tipo='ponto', cor=NAVY, lado='b', em=0.4),
                                 Marcador(*CIDADES['Berlim'], 'Berlim', tipo='ponto', cor=NAVY, lado='b', em=0.4)]),
+        Cena(None, None, ('Depois da Primeira Internacional', 'O movimento operário cresce e se divide. Os **social-democratas** '
+             'apostam em eleições e reformas; os **revolucionários** mantêm a ruptura; os anarquistas seguem fora dos partidos. '
+             'O **1º de Maio** nasce da luta pela jornada de 8 horas em Chicago.'), dur=14,
+             itens=[Desenho(lambda c, t: linha_do_tempo(c, t, [
+                 ('1871', 'Comuna', 'Primeiro **governo operário**, em Paris.', C_REVOLTA),
+                 ('1872', 'Racha', '**Marx × Bakunin** divide a Internacional.', C_ANA),
+                 ('1886', 'Chicago', 'Greve pelas **8 horas**: origem do 1º de Maio.', C_LIBERAL),
+                 ('1889', '2ª Internacional', '**Reformistas** (Bernstein) × **revolucionários**.', C_SOC),
+                 ('1891', 'Rerum Novarum', 'A **Igreja** responde à questão social.', C_FRANCA)]))]),
+        Cena(None, None, ('A resposta da Igreja', 'Na encíclica **Rerum Novarum** (1891), o papa **Leão XIII** condena o '
+             '**socialismo**, por atacar a propriedade privada, mas também critica a **exploração** do liberalismo: defende '
+             'salário justo, limites à jornada e associações operárias católicas. Nasce a **Doutrina Social da Igreja**, uma '
+             '"terceira via".'), dur=14,
+             itens=[Desenho(lambda c, t: quadro_comparativo(c, t, [
+                 ('Contra o socialismo', ['Propriedade privada é direito natural', 'Recusa a luta de classes', 'Patrões e operários devem colaborar'], C_REVOLTA),
+                 ('Contra o liberalismo', ['Salário justo, não só o de mercado', 'Limite à jornada e ao trabalho infantil', 'Direito de associação'], C_FRANCA),
+             ], topo=110))]),
+        Cena(None, None, ('E as mulheres?', 'Liberdade e igualdade também foram reivindicadas pelas mulheres, excluídas do voto '
+             'tanto por liberais quanto por muitos socialistas. O livro trata dos **feminismos** no mesmo capítulo das '
+             'ideologias.'), dur=12,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('Seneca Falls (1848)', 'Nos EUA, a primeira convenção pelos **direitos das mulheres**, incluindo o voto.', hexcor('#8b6bb0')),
+                 ('Flora Tristan', 'Franco-peruana que uniu **socialismo e feminismo**: "a mulher é a proletária do proletário".', hexcor('#8b6bb0')),
+                 ('Stuart Mill (1869)', '**A sujeição das mulheres**: um liberal defendendo a igualdade e o voto feminino.', hexcor('#8b6bb0')),
+                 ('Sufragistas', 'Fim do século: campanhas pelo voto. A **Nova Zelândia** é a primeira a concedê-lo (1893).', hexcor('#8b6bb0'))]))]),
         Cena(None, None, ('Para a prova', 'Saiba comparar: **o que fazer com o Estado** e **com a propriedade** é a pergunta que '
              'separa as três correntes. Liberais e socialistas aceitam algum Estado; anarquistas, nenhum.'), dur=12,
              itens=D(lambda c, t: quadro_comparativo(c, t, [
@@ -624,12 +736,24 @@ def video_italia():
                                    Marcador(*CIDADES['Gênova'], 'Gênova', tipo='ponto', cor=NAVY, em=0.3, lado='e',
                                             sub='terra de Mazzini'),
                                    retrato(img('mazzini'), 'Giuseppe Mazzini', em=0.9)]),
+        Cena(m, dict(inicio, piemonte=hexcor('#2e7d4f', 0.75)), ('1848–1849 · a primeira tentativa', 'Na Primavera dos Povos, '
+             'o rei **Carlos Alberto** declara guerra à Áustria e perde em **Custoza** e **Novara**. Abdica em favor de '
+             '**Vítor Emanuel II**, que mantém o **Estatuto Albertino**: o Piemonte vira o único Estado italiano com '
+             'constituição e parlamento, polo de atração dos liberais de toda a península.'), ano='1848–49',
+             itens=[Marcador(*CIDADES['Custoza'], 'Custoza', tipo='batalha', lado='a', em=0.5),
+                    Marcador(*CIDADES['Novara'], 'Novara', tipo='batalha', lado='e', em=1.0)]),
         Cena(m, inicio, ('A saída moderada: Piemonte e Cavour', 'Depois de 1848, as elites burguesas preferem unificar sob a '
              '**monarquia** liberal do **Piemonte-Sardenha** (rei **Vítor Emanuel II**). O ministro **Conde de Cavour** moderniza a '
              'economia, as **ferrovias**, a indústria e o **exército**.'), ano='1850',
              legenda_mapa=[(C_PIEMONTE, 'Piemonte-Sardenha')],
              itens=[Marcador(*CIDADES['Turim'], 'Turim', tipo='capital', cor=hexcor('#1d5a37'), lado='e'),
                     retrato(img('cavour'), 'Conde de Cavour', em=0.8)]),
+        Cena(m, inicio, ('A diplomacia de Cavour', 'Em **1855**, o Piemonte manda tropas à **Guerra da Crimeia**, ao lado de '
+             'França e Reino Unido, sem ter nenhum interesse direto nela: queria um lugar no **Congresso de Paris (1856)** para '
+             'expor a "questão italiana". Dali sai a aliança com **Napoleão III**.'), ano='1855',
+             itens=[Seta([CIDADES['Gênova'], (11.0, 41.0), (16.5, 38.5), (20.5, 38.8), (23.5, 40.0)], em=0.6, dur=3.0,
+                         cor=hexcor('#1d5a37'), larg=5, tracejada=True),
+                    Rotulo(22.0, 41.4, 'rumo à Crimeia', 2.8, 15, hexcor('#1d5a37'))]),
         Cena(m, s1859, ('1859 · Guerra contra a Áustria', 'Pelo acordo secreto de **Plombières (1858)**, **Napoleão III** apoia o '
              'Piemonte. Vitórias em **Magenta e Solferino** dão a **Lombardia** ao Piemonte; o **Vêneto** continua austríaco. '
              'O preço: a França recebe **Saboia e Nice** (1860).'), ano='1859',
@@ -637,10 +761,17 @@ def video_italia():
              itens=[Marcador(*CIDADES['Magenta'], 'Magenta', tipo='batalha', em=0.5, lado='a'),
                     Marcador(*CIDADES['Solferino'], 'Solferino', tipo='batalha', em=1.0, lado='a'),
                     Rotulo(6.4, 44.6, 'Saboia e Nice\n→ França', 1.6, 13, NAVY)]),
+        Cena(m, s1859, ('Julho de 1859 · Armistício de Villafranca', '**Napoleão III** faz a paz com a Áustria sem consultar '
+             'Cavour: temia uma Itália forte demais e a reação dos **católicos franceses** em defesa do Papa. Cavour se '
+             'demite em protesto. O que reabre o caminho são os levantes e plebiscitos no centro da península.'), ano='1859'),
         Cena(m, s1860a, ('Março de 1860 · plebiscitos', 'Votações populares anexam ao Piemonte os ducados de **Parma, Modena e '
              'Toscana** e a **Romanha**, parte norte dos Estados Pontifícios.'), ano='1860',
              itens=[Marcador(*CIDADES['Florença'], 'Florença', tipo='ponto', cor=hexcor('#1d5a37'), lado='d'),
                     Marcador(*CIDADES['Bolonha'], 'Bolonha', tipo='ponto', cor=hexcor('#1d5a37'), lado='d')]),
+        cena_retratos([(img('garibaldi'), 'Giuseppe Garibaldi')],
+                      ('O herói de dois mundos', 'Antes da Itália, **Garibaldi** lutou na América do Sul. Na **Revolução '
+                       'Farroupilha** ajudou a proclamar a **República Juliana**, em Laguna (1839), e conheceu **Anita '
+                       'Garibaldi**. No Uruguai comandou a Legião Italiana, que já usava **camisas vermelhas**.')),
         cena_obra(img('mil'), 'A partida dos Mil de Quarto, perto de Gênova, 5 de maio de 1860',
                   ('Os camisas vermelhas', 'Cerca de **mil voluntários** embarcam com **Garibaldi** rumo à Sicília, '
                    'onde uma revolta contra os Bourbon tinha começado.'), dur=7),
@@ -665,6 +796,12 @@ def video_italia():
              'francesas).'), ano='1861',
              legenda_mapa=[(C_ITALIA, 'Reino da Itália'), (C_AUSTRIA, 'Vêneto (Áustria)'), (C_PAPA, 'Roma (Papa)')],
              itens=[Marcador(*CIDADES['Turim'], 'Turim', tipo='capital', cor=hexcor('#1d5a37'), lado='e')]),
+        Cena(m, s1861, ('"Roma ou morte!"', '**Garibaldi** tenta tomar Roma duas vezes por conta própria: em **Aspromonte '
+             '(1862)** é ferido pelo próprio exército italiano, que não queria guerra com a França; em **Mentana (1867)** é '
+             'derrotado por tropas francesas e papais.'), ano='1862–67',
+             itens=[Marcador(*CIDADES['Aspromonte'], 'Aspromonte', tipo='batalha', lado='e', em=0.5, sub='1862'),
+                    Marcador(*CIDADES['Mentana'], 'Mentana', tipo='batalha', lado='d', em=1.2, sub='1867'),
+                    retrato(img('garibaldi'), 'Garibaldi', em=0.8)]),
         Cena(m, s1866, ('1866 · Vêneto', 'Aliada da **Prússia** na guerra contra a Áustria, a Itália recebe o **Vêneto**.'),
              ano='1866', itens=[Marcador(*CIDADES['Veneza'], 'Veneza', tipo='ponto', cor=hexcor('#1d5a37'), lado='d', em=0.6)]),
         Cena(m, s1870, ('1870 · Roma capital', 'Com a **guerra franco-prussiana**, as tropas francesas deixam Roma, que é '
@@ -681,6 +818,21 @@ def video_italia():
              itens=[Seta([CIDADES['Gênova'], (6.5, 42.0), (2.0, 39.0)], em=0.8, dur=1.6, tracejada=True),
                     Seta([CIDADES['Nápoles'], (11.5, 39.0), (4.0, 37.6)], em=1.2, dur=1.8, tracejada=True),
                     Rotulo(2.5, 38.2, 'rumo à América', 2.6, 15, RED)]),
+        Cena(None, None, ('"Fizemos a Itália; agora é preciso fazer os italianos"', 'A frase, atribuída a **Massimo '
+             'd\'Azeglio**, resume o problema: a unificação foi política, não social nem cultural. O novo reino precisou '
+             'inventar uma identidade comum.'), dur=12,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('Língua', 'Cada região falava seu **dialeto**; o italiano padrão era de uma pequena minoria.', C_PIEMONTE),
+                 ('Voto', 'Censitário: só cerca de **2%** da população votava em 1861.', C_PIEMONTE),
+                 ('Sul', 'O **brigantaggio**: guerrilha camponesa contra impostos e serviço militar, reprimida pelo exército.', C_SICILIAS),
+                 ('Igreja', 'O Papa proíbe os católicos de participar da política do novo reino (**non expedit**).', C_PAPA)]))]),
+        Cena(None, None, ('Os italianos no Brasil', 'Entre **1880 e 1920**, mais de **1 milhão** de italianos chegam ao Brasil, '
+             'a maioria para as **fazendas de café** de São Paulo, com passagem paga pelo governo, para substituir a mão de '
+             'obra escravizada. Muitos trazem ideias **socialistas e anarquistas**.'), dur=11,
+             itens=[Desenho(lambda c, t: quadro_comparativo(c, t, [
+                 ('Na Itália', ['Miséria no Sul e no campo', 'Terra concentrada', 'Unificação sem reforma social'], C_SICILIAS),
+                 ('No Brasil', ['Colonos nas fazendas de café', 'Operários em São Paulo', 'Greves e anarquismo (1917)'], C_PIEMONTE),
+             ], topo=110))]),
     ]
     return Video(nome, cenas)
 
@@ -756,11 +908,21 @@ def video_alemanha():
              'democrática**. Sem apoio das elites, o projeto fracassa: o rei da Prússia recusa a coroa oferecida pelo parlamento '
              '(1849) e os conservadores reprimem o movimento.'), ano='1848',
              itens=[Marcador(*CIDADES['Frankfurt'], 'Frankfurt', em=0.4, lado='e')]),
+        Cena(m, {'prussia': C_PRUSSIA, 'norte': hexcor('#5d6f96', 0.5), 'sul': hexcor('#5d6f96', 0.5),
+                 'anexados': hexcor('#5d6f96', 0.5), 'ducados': hexcor('#5d6f96', 0.5), 'austria': hexcor('#d9b44a', 0.35)},
+             ('Grande ou Pequena Alemanha?', 'Em Frankfurt, a dúvida era quem fazia parte da nação. A **Grande Alemanha** '
+              'incluiria a Áustria, mas também seus povos não alemães; a **Pequena Alemanha** deixaria a Áustria de fora, sob '
+              'a liderança da **Prússia**. Foi esse o modelo que Bismarck realizou.'), ano='1848',
+             legenda_mapa=[(hexcor('#5d6f96', 0.5), 'Pequena Alemanha'), (hexcor('#d9b44a', 0.35), '+ Áustria = Grande Alemanha')]),
         Cena(m, {'prussia': C_PRUSSIA}, ('Otto von Bismarck', 'Primeiro-ministro prussiano a partir de **1862**, apoiado pelos '
              '**junkers** (aristocracia rural). Pratica a **Realpolitik**: força militar e diplomacia fria, sem idealismos liberais '
              'ou republicanos. Unificar "a **ferro e sangue**", com três guerras.'), ano='1862',
              itens=[Marcador(*CIDADES['Berlim'], 'Berlim', tipo='capital', cor=NAVY, lado='d'),
                     retrato(img('bismarck'), 'Otto von Bismarck', em=0.8)]),
+        Cena(m, {'prussia': C_PRUSSIA}, ('1862 · "Ferro e sangue"', 'O parlamento prussiano, de maioria liberal, recusa o '
+             'dinheiro da reforma do exército. **Bismarck** governa sem orçamento aprovado e declara: "As grandes questões '
+             'da época não se decidem por discursos e votos da maioria, mas pelo **ferro e pelo sangue**".'), ano='1862',
+             itens=[retrato(img('bismarck'), 'Otto von Bismarck', em=0.5)]),
         Cena(m, s1864, ('1864 · Guerra dos Ducados', '**Prússia e Áustria** derrotam a **Dinamarca** e tomam os ducados de '
              '**Schleswig e Holstein**. A disputa sobre como dividi-los vira pretexto para a próxima guerra.'), ano='1864',
              itens=[Marcador(*CIDADES['Copenhague'], 'Copenhague', tipo='capital', cor=RED, lado='d'),
@@ -770,6 +932,10 @@ def video_alemanha():
              'do Norte**. (A Itália, aliada, ganha o Vêneto.)'), ano='1866',
              legenda_mapa=[(C_PRUSSIA, 'Prússia ampliada'), (C_IMP2, 'Confederação do Norte'), (C_REPRIME, 'Áustria derrotada')],
              itens=[Marcador(*CIDADES['Sadowa'], 'Sadowa', tipo='batalha', em=0.5, lado='d')]),
+        Cena(m, s1866, ('Depois de 1866', 'Excluída da Alemanha, a Áustria se reorganiza como **Império Austro-Húngaro** '
+             '(1867). A Confederação do Norte já tem constituição, parlamento eleito por **sufrágio universal masculino** e o '
+             'rei da Prússia como presidente. Faltavam os **Estados católicos do sul**, que desconfiavam da Prússia protestante.'),
+             ano='1867'),
         Cena(m, s1870, ('1870 · Guerra Franco-Prussiana', '**Napoleão III** não quer uma grande potência na fronteira. Na crise '
              'pelo trono da Espanha, Bismarck **edita o Despacho de Ems** para soar ofensivo e a França declara guerra. Os Estados '
              'do sul se unem à Prússia. Em **Sedan**, Napoleão III é **capturado**.'), ano='1870',
@@ -790,10 +956,32 @@ def video_alemanha():
         cena_obra(img('werner'), 'A Proclamação do Império Alemão · Anton von Werner, 1885',
                   ('Versalhes, 18 de janeiro de 1871', '**Guilherme I** é aclamado Kaiser no Salão dos Espelhos. De branco, '
                    'no centro, **Bismarck**. Só há militares e príncipes: a unificação foi feita "de cima", sem o povo.'), dur=9),
+        Cena(m, s1871, ('Tratado de Frankfurt (maio de 1871)', 'A França cede a **Alsácia-Lorena**, rica em **ferro e '
+             'carvão**, e paga **5 bilhões de francos** de indenização, com tropas alemãs ocupando o norte do país até o '
+             'pagamento. A nova Alemanha vira a maior potência industrial do continente.'), ano='1871',
+             legenda_mapa=[(C_IMP, 'Império Alemão'), (C_REVOLTA, 'Alsácia-Lorena')]),
+        Cena(None, None, ('Como funcionava o II Reich', 'Uma fachada parlamentar sobre um Estado **autoritário e militarista**, '
+             'dominado pela Prússia e pelos junkers. O chanceler não dependia do parlamento, só do Kaiser.'), dur=11,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('Kaiser', 'O **rei da Prússia**. Comanda o exército e a política externa e nomeia o chanceler.', C_PRUSSIA),
+                 ('Chanceler', 'Chefe do governo. Responde **ao Kaiser**, não ao parlamento.', C_PRUSSIA),
+                 ('Reichstag', 'Eleito por **sufrágio universal masculino**, mas com pouco poder: vota leis e orçamento.', C_FRANCA),
+                 ('Bundesrat', 'Conselho dos Estados; a **Prússia** tem votos suficientes para vetar mudanças.', C_FRANCA)]))]),
+        Cena(None, None, ('Bismarck: o porrete e a cenoura', 'Bismarck **reprime** os socialistas e, ao mesmo tempo, cria '
+             '**direitos sociais** para tirar deles o apoio operário. É a origem do **Estado de bem-estar social**.'), dur=12,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('Kulturkampf', '1871–1878: ofensiva contra a **Igreja Católica** e o partido católico do Centro.', C_PRUSSIA),
+                 ('Leis antissocialistas', '1878: proíbe o partido **social-democrata**, seus jornais e reuniões.', C_REVOLTA),
+                 ('Leis sociais', 'Seguro-doença (1883), acidentes (1884) e **aposentadoria** (1889): o primeiro sistema estatal.', C_PIEMONTE),
+                 ('Potência', 'Aço, química e ferrovias; na **Conferência de Berlim** (1884–85) a Europa partilha a África.', GOLD)]))]),
         Cena(m, comuna, ('A Comuna de Paris (18/mar – 28/mai/1871)', 'Com Paris sitiada e o governo da **3ª República** instalado '
              'em **Versalhes**, visto como traidor, **trabalhadores, socialistas, anarquistas e a Guarda Nacional** tomam a '
              'cidade e criam um governo **autogerido, popular e anticlerical**.'), ano='1871',
              itens=[Marcador(*CIDADES['Paris'], 'Paris', em=0.3, lado='d', sub='Comuna × Versalhes (Thiers)')]),
+        Cena(m, comuna, ('Como a Comuna começou', 'Em **18 de março de 1871**, o governo de **Thiers** manda retirar os '
+             '**canhões da Guarda Nacional** em **Montmartre**. A população impede, soldados se recusam a atirar e o governo '
+             'foge para Versalhes. Em 26 de março, eleições criam o **Conselho da Comuna**.'), ano='1871',
+             itens=[Marcador(*CIDADES['Paris'], 'Montmartre', em=0.4, lado='d', sub='18 de março')]),
         cena_obra(img('comuna'), 'Barricada da Comuna de Paris, 1871 · fotografia',
                   ('A Comuna nas ruas', 'Guardas nacionais e moradores de Paris posam numa barricada. A Comuna foi uma das '
                    'primeiras revoluções **fotografadas**.'), dur=7),
@@ -805,6 +993,13 @@ def video_alemanha():
                  ('Direitos', 'Fim da **censura**; salário de funcionário limitado ao de um operário qualificado.', C_REVOLTA),
                  ('Proteção social', '**Pensões para viúvas e órfãos**; igualdade civil entre homens e mulheres.', C_REVOLTA)],
                  topo=100)))]),
+        Cena(None, None, ('Mulheres e memória da Comuna', 'Marx analisou a Comuna em **A Guerra Civil na França** (1871) como o '
+             'primeiro "governo da classe operária". Ela virou mito fundador do socialismo e do anarquismo.'), dur=11,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('Louise Michel', 'Professora anarquista que lutou nas barricadas; deportada para a **Nova Caledônia**.', C_REVOLTA),
+                 ('União das Mulheres', 'Organizou **enfermarias, cooperativas** de trabalho e a defesa dos bairros.', C_REVOLTA),
+                 ('Muro dos Federados', 'No cemitério **Père-Lachaise**, onde communards foram fuzilados: lugar de memória.', C_REPRIME),
+                 ('A Internacional', 'Canção escrita por **Eugène Pottier** em 1871; virou o hino do movimento operário.', C_REVOLTA)]))]),
         Cena(m, {'franca': hexcor('#6b6b6b', 0.4), 'alsacia': hexcor('#3b4a6b', 0.5)}, ('Semana Sangrenta (21–28/mai/1871)',
              'O governo de Versalhes, com **prisioneiros libertados por Bismarck**, cerca e bombardeia Paris. Estimativas de **10 a '
              '20 mil mortos** em combate e execuções; dezenas de milhares de presos e milhares **deportados para a Nova Caledônia**.'),
@@ -891,6 +1086,10 @@ def video_eua():
         Cena(m, ate('eua1783', 'luisiana', 'florida'), ('1823 · Doutrina Monroe', '"**A América para os americanos**": nada de novas '
              'colônias europeias nem de intervenção europeia no continente (e os EUA ficam fora dos assuntos da Europa). Inaugura '
              'o **nacionalismo expansionista**.'), ano='1823', itens=[retrato(img('monroe'), 'James Monroe', em=0.6, lado='e')]),
+        Cena(m, ate('eua1783', 'luisiana', 'florida'), ('Por que Monroe?', 'Em 1823 as colônias espanholas tinham acabado de '
+             'se tornar independentes, e a **Santa Aliança** ameaçava ajudar a Espanha a recolonizá-las. O **Reino Unido**, '
+             'interessado nesses mercados, apoiava a doutrina com sua marinha: na prática, os EUA ainda não tinham força para '
+             'impô-la sozinhos.'), ano='1823'),
         Cena(m, ate('eua1783', 'luisiana', 'florida'), ('1830 · Trilha das Lágrimas', 'O **Indian Removal Act** força os povos do '
              'sudeste, como os **Cherokee**, a marchar para o oeste do Mississippi (atual Oklahoma). Milhares morrem: o "progresso" '
              'se apoiou na violência contra os indígenas.'), ano='1830',
@@ -916,11 +1115,30 @@ def video_eua():
         cena_obra(img('gast'), 'American Progress · John Gast, 1872',
                   ('A imagem do Destino Manifesto', 'A "América" flutua para o Oeste levando um **livro** e o **fio do '
                    'telégrafo**; atrás vêm ferrovias e colonos. Indígenas e bisões fogem para a sombra.'), dur=9),
+        Cena(m, ate(*todos), ('Quem inventou o Destino Manifesto', 'A expressão é do jornalista **John O\'Sullivan** (1845), '
+             'defendendo a anexação do Texas. Também houve oposição: o escritor **Henry Thoreau** foi preso por se recusar a '
+             'pagar impostos que financiavam a guerra contra o México e escreveu **A Desobediência Civil** (1849).'), ano='1845'),
+        Cena(m, escravidao, ('1820 · Compromisso do Missouri', 'Para manter o equilíbrio no Senado, o **Missouri** entra como '
+             'estado escravista e o **Maine** como livre. No resto da antiga Luisiana, a escravidão fica proibida ao norte da '
+             'linha **36°30\'**. Cada novo território passa a reabrir a disputa.'), ano='1820', herdar=False,
+             legenda_mapa=[(hexcor('#2f5d9e', 0.6), 'Estados livres (1860)'), (hexcor('#a3352b', 0.6), 'Estados escravistas (1860)')],
+             itens=[Seta([(-89.6, 36.5), (-95.0, 36.5), (-100.0, 36.5)], em=0.8, dur=2.0, cor=(0.1, 0.1, 0.1), larg=4,
+                         tracejada=True, ponta=False),
+                    Rotulo(-97.5, 37.6, "linha 36°30'", 2.4, 16, (0.1, 0.1, 0.1))]),
         Cena(m, escravidao, ('Expansão reabre a ferida da escravidão', 'A **Cláusula Wilmot (1846)** propunha proibir a escravidão '
              'nas terras tomadas do México. Foi rejeitada, mas polarizou o **Norte** (industrial, abolicionista) e o **Sul** '
              '(agrário, escravista, algodão para exportação).'), ano='1846–60', herdar=False,
              legenda_mapa=[(hexcor('#2f5d9e', 0.6), 'Estados livres'), (hexcor('#a3352b', 0.6), 'Estados escravistas'),
                            (hexcor('#bfb8a6', 0.45), 'Territórios')]),
+        Cena(None, None, ('O caminho até a guerra', 'Cada acordo durava pouco. Nos anos 1850, a disputa saiu do Congresso e foi '
+             'para as ruas, os jornais e a Suprema Corte, até que, em 1860, o Sul não aceitou a vitória de um presidente '
+             'contrário à expansão da escravidão.'), dur=15,
+             itens=[Desenho(lambda c, t: linha_do_tempo(c, t, [
+                 ('1850', 'Compromisso', 'Califórnia livre + **Lei do Escravo Fugitivo**.', C_FRONT),
+                 ('1852', 'Pai Tomás', 'Romance **abolicionista** de Harriet Beecher Stowe.', C_UNIAO),
+                 ('1854', 'Kansas-Nebraska', '**Soberania popular**: o "Kansas sangrento".', C_CONFED),
+                 ('1857', 'Dred Scott', 'Suprema Corte: negros **não são cidadãos**.', C_CONFED),
+                 ('1859', 'John Brown', 'Ataque a **Harpers Ferry** para armar escravizados.', C_UNIAO)]))]),
         Cena(m, guerra, ('1860–1861 · Secessão', '**Abraham Lincoln** (Partido Republicano) é eleito prometendo conter a expansão '
              'da escravidão. A **Carolina do Sul** se separa e outros dez estados a seguem: os **Estados Confederados da América**, '
              'capital em **Richmond**.'), ano='1861',
@@ -935,10 +1153,24 @@ def video_eua():
              itens=[Marcador(*cidades_eua['Fort Sumter'], 'Fort Sumter', tipo='batalha', lado='d', em=0.4, sub='abr/1861'),
                     Marcador(*cidades_eua['Gettysburg'], 'Gettysburg', tipo='batalha', lado='a', em=1.2, sub='1863'),
                     Marcador(*cidades_eua['Appomattox'], 'Appomattox', tipo='pulso', cor=NAVY, lado='e', em=2.0, sub='rendição, 1865')]),
+        Cena(m, guerra, ('1863 · Emancipação e Gettysburg', 'A **Proclamação de Emancipação** liberta os escravizados dos '
+             '**estados rebeldes** (não os das fronteiras, aliados da União) e permite o alistamento de negros: cerca de '
+             '**180 mil** lutam pelo Norte. Em Gettysburg, Lincoln define a guerra como luta por um "governo **do povo, pelo '
+             'povo, para o povo**".'), ano='1863',
+             itens=[Marcador(*cidades_eua['Gettysburg'], 'Gettysburg', tipo='batalha', lado='a', em=0.4),
+                    retrato(img('lincoln'), 'Abraham Lincoln', em=0.8, lado='e')]),
         Cena(m, {'confederados': hexcor('#6b6b6b', 0.5), 'fronteira': hexcor('#6b6b6b', 0.3)},
              ('Reconstrução (1865–1877) e Jim Crow', 'O Norte ocupa o Sul e cria leis de direitos civis, sabotadas pelo racismo e por '
               'grupos como a **Ku Klux Klan**. O **Acordo de 1877** retira as tropas federais: começam as **Leis de Jim Crow** '
               '(segregação legal), nome tirado de um personagem racista dos shows de **blackface**.'), ano='1877', herdar=False),
+        Cena(None, None, ('As emendas da Reconstrução', 'No papel, os libertos ganham **cidadania e voto**. Na prática, os '
+             'estados do Sul inventam barreiras e a Suprema Corte legaliza a segregação em **1896** (Plessy contra Ferguson: '
+             '"separados, mas iguais").'), dur=13,
+             itens=[Desenho(lambda c, t: cartoes(c, t, [
+                 ('13ª Emenda (1865)', '**Abole** a escravidão em todo o país.', C_UNIAO),
+                 ('14ª Emenda (1868)', '**Cidadania** a quem nasce nos EUA e igualdade perante a lei.', C_UNIAO),
+                 ('15ª Emenda (1870)', 'O voto não pode ser negado por **raça** (só homens).', C_UNIAO),
+                 ('Como burlaram', 'Imposto para votar, teste de alfabetização, "cláusula do avô" e o terror da **KKK**.', C_CONFED)]))]),
         Cena(m, {'livres': hexcor('#c9953c', 0.25), 'fronteira': hexcor('#c9953c', 0.25), 'confederados': hexcor('#c9953c', 0.25),
                  'territorios': hexcor('#c9953c', 0.45)}, ('Ferrovias e ocupação do Oeste', 'O **Homestead Act (1862)** dá terras '
              'a colonos que as cultivem. A **ferrovia transcontinental (1869)** liga as costas e integra o mercado nacional. O '
@@ -950,6 +1182,21 @@ def video_eua():
         cena_obra(img('golden_spike'), 'Promontory (Utah), 10 de maio de 1869 · fotografia de Andrew J. Russell',
                   ('O último trilho', 'Os trabalhadores da **Union Pacific** e da **Central Pacific** se encontram: a ferrovia '
                    'liga o Atlântico ao Pacífico. Boa parte dos trilhos foi assentada por **imigrantes chineses e irlandeses**.'), dur=9),
+        Cena(m, {'territorios': hexcor('#c26b3a', 0.45)}, ('As guerras indígenas no Oeste', 'Ferrovias, colonos e o '
+             '**extermínio dos bisões**, base da vida nas planícies, empurram os povos indígenas para **reservas**. Os **lakota '
+             'e cheyenne** derrotam o general Custer em **Little Bighorn** (1876), mas o massacre de **Wounded Knee** (1890) '
+             'marca o fim da resistência armada.'), ano='1876–90', herdar=False,
+             itens=[Marcador(-107.43, 45.57, 'Little Bighorn', tipo='batalha', lado='d', em=0.6, sub='1876'),
+                    Marcador(-102.16, 43.14, 'Wounded Knee', em=1.4, lado='d', sub='massacre, 1890')]),
+        Cena(None, None, ('Comparação que cai em prova: EUA × Brasil', 'A **Lei de Terras** (1850) fechou o acesso à terra para '
+             'pobres, libertos e imigrantes; o **Homestead Act** (1862) abriu o Oeste a pequenos proprietários. Curiosidade: '
+             'depois da guerra, milhares de **confederados** emigraram para o Brasil, ainda escravista, e ajudaram a fundar a '
+             'cidade de **Americana** (SP).'), dur=15,
+             itens=[Desenho(lambda c, t: quadro_comparativo(c, t, [
+                 ('EUA', ['Homestead Act (1862): terra para quem cultiva', 'Abolição pela guerra (1865) e emendas',
+                          'Pequena propriedade no Oeste'], C_UNIAO),
+                 ('Brasil', ['Lei de Terras (1850): terra só por compra', 'Abolição gradual: Lei Áurea (1888), sem integração',
+                             'Latifúndio; imigrantes como colonos'], C_PIEMONTE)], topo=110))]),
         Cena(m2, {'eua': hexcor('#2f5d9e', 0.5)}, ('Imperialismo no Caribe', 'A Doutrina Monroe ganha novo sentido: os EUA se veem '
              'como "polícia" do continente. **1898**: guerra contra a Espanha (Cuba, Porto Rico, Filipinas). **1901**: **Emenda '
              'Platt** (base de Guantánamo). **1903**: apoiam a separação do **Panamá** e ficam com o canal.'), ano='1898–1903',
@@ -967,6 +1214,14 @@ def video_eua():
         cena_obra(img('bigstick'), '"The Big Stick in the Caribbean Sea" · charge de W. A. Rogers, 1904',
                   ('Big Stick', '**Theodore Roosevelt** com o porrete passeia pelo Caribe puxando navios de guerra: a charge '
                    'resume o **Corolário Roosevelt**.'), dur=8),
+        Cena(None, None, ('Além do Caribe', 'Em **1898** os EUA também anexam o **Havaí** e, depois da guerra com a Espanha, ficam '
+             'com as **Filipinas**, onde enfrentam uma guerra de independência (1899–1902). O país que nasceu de uma revolta '
+             'anticolonial termina o século como **potência imperialista**.'), dur=11,
+             itens=[Desenho(lambda c, t: linha_do_tempo(c, t, [
+                 ('1823', 'Monroe', 'A Europa **não** intervém na América.', C_UNIAO),
+                 ('1845', 'Destino Manifesto', 'Expansão **continental**.', C_FRONT),
+                 ('1898', 'Guerra hispano-americana', 'Cuba, Porto Rico, **Filipinas**, Havaí.', C_CONFED),
+                 ('1904', 'Roosevelt', 'Os EUA **intervêm** na América Latina.', C_CONFED)]))]),
     ]
     for c in cenas:
         c.legenda_lado = 'd'
