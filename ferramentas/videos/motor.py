@@ -528,7 +528,7 @@ class Cena:
     def __init__(self, mapa=None, estado=None, legenda=None, ano='', itens=(), dur=None,
                  legenda_mapa=(), fundo=None, herdar=True, narracao=None):
         self.mapa, self.estado, self.legenda, self.ano = mapa, estado, legenda, ano
-        self.narracao = narracao if narracao is not None else (legenda[1] if legenda else '')
+        self.narracao = narracao if narracao is not None else (f'{legenda[0]}. {legenda[1]}' if legenda else '')
         self.itens, self.legenda_mapa, self.fundo, self.herdar = list(itens), list(legenda_mapa), fundo, herdar
         self.legenda_lado = 'e'
         if dur is None:
@@ -728,7 +728,8 @@ def renderizar(videos, saida, crf=30, narrar=True):
         audio = saida[:-4] + '.narracao.wav'
         narracao.trilha(videos, audio)
     entrada_audio = ['-i', audio] if audio else []
-    saida_audio = ['-map', '0:v', '-map', '1:a', '-c:a', 'aac', '-b:a', '64k', '-ar', '44100', '-ac', '1'] if audio else []
+    saida_audio = ['-map', '0:v', '-map', '1:a', '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-c:a', 'aac', '-b:a', '64k',
+                   '-ar', '44100', '-ac', '1'] if audio else []
     cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'bgra', '-s', f'{W}x{H}',
            '-r', str(FPS), '-i', '-'] + entrada_audio + ['-c:v', 'libx264', '-preset', 'slow', '-tune', 'animation',
            '-crf', str(crf), '-pix_fmt', 'yuv420p'] + saida_audio + ['-movflags', '+faststart', saida]
