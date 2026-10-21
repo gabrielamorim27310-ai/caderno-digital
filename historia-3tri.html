@@ -161,6 +161,12 @@
   .video-links a { text-decoration:none; font-size:0.85rem; font-weight:600; padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); color:var(--primary); background:var(--card-bg); }
   .video-links a:hover { border-color:var(--secondary); }
 
+  .obra { margin:14px 0; }
+  .obra img { display:block; width:100%; height:auto; border-radius:10px; }
+  .obra figcaption { font-size:0.8rem; color:var(--text-light); margin-top:6px; line-height:1.4; }
+  .obras-par { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; align-items:start; }
+  .obras-par .obra { margin:0; }
+
   footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
 
   @media(max-width:600px) {
@@ -216,7 +222,7 @@
 <section class="chapter" id="videos">
   <div class="chapter-header">
     <h2><span class="ch-tag">Vídeos</span> Revisão em mapas animados</h2>
-    <p class="meta">Um vídeo completo (~13 min) e um curto por capítulo, sem áudio: dá para assistir no ônibus</p>
+    <p class="meta">Um vídeo completo (~15 min) e um curto por capítulo, sem áudio: dá para assistir no ônibus</p>
   </div>
   <figure class="video-box">
     <video controls preload="none" playsinline poster="hist-videos/historia-3tri-completo.jpg" src="hist-videos/historia-3tri-completo.mp4"></video>
@@ -242,7 +248,7 @@
 
   <figure class="video-box">
     <video controls preload="none" playsinline poster="hist-videos/revolucoes-1830-1848.jpg" src="hist-videos/revolucoes-1830-1848.mp4"></video>
-    <figcaption>🗺️ Da Restauração à Primavera dos Povos (2 min)</figcaption>
+    <figcaption>🗺️ Da Restauração à Primavera dos Povos (3 min)</figcaption>
   </figure>
 
   <div class="accordion">
@@ -285,6 +291,7 @@
           <strong>A Liberdade guiando o povo (Delacroix, 1830)</strong>
           Obra-prima do romantismo político, no Louvre. A mulher que ergue a bandeira tricolor é <strong>Marianne</strong>, alegoria da República e da Liberdade, unindo os ideais de 1789 à insurreição de 1830. Também cai em prova a tela de <strong>Meissonier</strong> (<em>A Revolução de Julho de 1830 em Paris</em>, 1833), com a tricolor sobre a barricada.
         </div>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/delacroix.jpg" alt="Pintura de Delacroix: mulher com a bandeira francesa sobre uma barricada"><figcaption><em>A Liberdade guiando o povo</em>, Eugène Delacroix, 1830. Museu do Louvre.</figcaption></figure>
         <h4>O efeito dominó de 1830</h4>
         <ul>
           <li><strong>Bélgica</strong>: se separa dos Países Baixos e vira monarquia liberal independente.</li>
@@ -297,6 +304,7 @@
           <li>Crescimento econômico e expansão bancária, mas <strong>voto censitário</strong>: só cerca de <strong>1% da população</strong> votava.</li>
           <li>Repressão a protestos e oposição crescente de <strong>republicanos, socialistas e legitimistas</strong> contra o "reino dos ricos".</li>
         </ul>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/luisfilipe.jpg" alt="Retrato de Luís Filipe I"><figcaption>Luís Filipe I, o "rei burguês" (1830–1848).</figcaption></figure>
       </div>
     </div>
   </div>
@@ -317,6 +325,11 @@
           <div class="tl-item"><span class="tl-year">Jun 1848</span><span class="tl-text"><strong>Jornadas de Junho</strong>: o levante operário de Paris é esmagado pela própria República.</span></div>
           <div class="tl-item"><span class="tl-year">Dez 1848</span><span class="tl-text"><strong>Luís Bonaparte</strong>, sobrinho de Napoleão, é eleito presidente.</span></div>
           <div class="tl-item"><span class="tl-year">1851–52</span><span class="tl-text">Golpe de Estado (1851) e plebiscito (1852): nasce o <strong>Segundo Império</strong>, e ele vira <strong>Napoleão III</strong>.</span></div>
+        </div>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/napoleao3.jpg" alt="Retrato de Napoleão III"><figcaption>Napoleão III, imperador dos franceses (1852–1870). Franz Xaver Winterhalter.</figcaption></figure>
+        <div class="obras-par">
+          <figure class="obra"><img loading="lazy" src="hist-imgs/lamartine.jpg" alt="Pintura de Lamartine diante da multidão"><figcaption>Lamartine recusa a bandeira vermelha diante da Prefeitura de Paris (fev/1848). Félix Philippoteaux.</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/barricada1848.jpg" alt="Pintura de barricada em Paris em 1848"><figcaption>Barricada na rua Soufflot, 25 de junho de 1848: as Jornadas de Junho. Horace Vernet.</figcaption></figure>
         </div>
         <h4>A Primavera dos Povos</h4>
         <ul>
@@ -349,7 +362,7 @@
 
   <figure class="video-box">
     <video controls preload="none" playsinline poster="hist-videos/ideologias-seculo-xix.jpg" src="hist-videos/ideologias-seculo-xix.mp4"></video>
-    <figcaption>📊 Liberalismo, mais-valia, socialismo e anarquismo em diagramas (3 min)</figcaption>
+    <figcaption>📊 Liberalismo, mais-valia, socialismo e anarquismo em diagramas (4 min)</figcaption>
   </figure>
 
   <div class="accordion">
@@ -412,6 +425,10 @@
           <strong>Atenção às datas dos slides</strong>
           Um slide traz "Cartismo (1820–1830)", mas o próprio texto fala da década de 1830: a Carta do Povo é de 1838 e o movimento vai até 1848. O Ludismo é dos anos 1810.
         </div>
+        <div class="obras-par">
+          <figure class="obra"><img loading="lazy" src="hist-imgs/ludismo.jpg" alt="Gravura satírica de um ludita"><figcaption>"O líder dos luditas", gravura de 1812.</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/cartismo.jpg" alt="Fotografia de uma multidão em 1848"><figcaption>Comício cartista em Kennington Common, Londres, 10 de abril de 1848: uma das primeiras fotos de uma multidão.</figcaption></figure>
+        </div>
         <h4>O que é capitalismo?</h4>
         <ul>
           <li><strong>Marx</strong> (<em>O Capital</em>, 1867): modo de produção que nasce da <strong>separação entre o trabalhador e os meios de produção</strong>; terra, trabalho e capital viram mercadorias.</li>
@@ -432,12 +449,21 @@
           <li><strong>Charles Fourier:</strong> herdeiro de Rousseau ("o homem é bom, a sociedade o corrompe"); propõe os <strong>falanstérios</strong>, comunidades agroindustriais coletivas.</li>
           <li><strong>Robert Owen:</strong> administrador de fábrica em Manchester; cria a comunidade-modelo de <strong>New Lanark</strong> (Escócia), com escola e jornada de 10 horas, e depois <strong>New Harmony</strong> (Indiana, EUA). No fim da vida apoia as trade unions.</li>
         </ul>
+        <div class="obras-par">
+          <figure class="obra"><img loading="lazy" src="hist-imgs/owen.jpg" alt="Retrato de Robert Owen"><figcaption>Robert Owen (1771–1858).</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/newlanark.jpg" alt="Vila de New Lanark"><figcaption>New Lanark, Escócia: a vila operária de Owen, hoje patrimônio da UNESCO.</figcaption></figure>
+        </div>
         <h4>Socialismo científico (2ª metade do séc. XIX)</h4>
         <ul>
           <li><strong>Karl Marx</strong> (1818–1883), alemão, filósofo e jornalista, exilado em Paris, Bruxelas e Londres. Parceria com <strong>Friedrich Engels</strong>, filho de industrial.</li>
           <li>"Científico" porque analisa a sociedade <strong>como ela é</strong>, com história e economia, em vez de imaginar sociedades ideais.</li>
           <li><strong>Manifesto do Partido Comunista (1848):</strong> a história é a <strong>luta de classes</strong>; a burguesia explora o proletariado; os trabalhadores devem tomar o poder e abolir a propriedade privada. "<strong>Trabalhadores do mundo, uni-vos!</strong>"</li>
         </ul>
+        <div class="obras-par">
+          <figure class="obra"><img loading="lazy" src="hist-imgs/marx.jpg" alt="Retrato de Karl Marx"><figcaption>Karl Marx.</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/engels.jpg" alt="Retrato de Friedrich Engels"><figcaption>Friedrich Engels.</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/manifesto.jpg" alt="Capa do Manifesto Comunista em alemão"><figcaption>Capa da 1ª edição do Manifesto (Londres, 1848).</figcaption></figure>
+        </div>
         <h4>Mais-valia (exemplo dos slides)</h4>
         <table class="data-table">
           <thead><tr><th>Item</th><th>Valor</th></tr></thead>
@@ -478,6 +504,10 @@
           <li><strong>Princípios:</strong> liberdade, igualdade e <strong>autogestão sem Estado</strong>; rejeita toda dominação (estatal, religiosa, econômica); sociedade de associações livres e cooperativas. A liberdade plena só existe se for coletiva.</li>
           <li><strong>Métodos:</strong> recusa a via parlamentar e aposta na <strong>ação direta</strong>: greves, boicotes, sabotagens, propaganda e educação popular. A transformação vem "de baixo para cima".</li>
         </ul>
+        <div class="obras-par">
+          <figure class="obra"><img loading="lazy" src="hist-imgs/proudhon.jpg" alt="Retrato de Proudhon"><figcaption>Pierre-Joseph Proudhon (Gustave Courbet, 1865).</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/bakunin.jpg" alt="Fotografia de Bakunin"><figcaption>Mikhail Bakunin, fotografado por Nadar.</figcaption></figure>
+        </div>
         <table class="data-table">
           <thead><tr><th></th><th>Liberalismo</th><th>Socialismo (Marx)</th><th>Anarquismo</th></tr></thead>
           <tbody>
@@ -525,6 +555,10 @@
           <li><strong>Giuseppe Mazzini</strong> funda a <strong>Jovem Itália (1831)</strong>: Itália <strong>republicana e democrática</strong>, por levantes populares. A <strong>República Romana (1849)</strong> fracassa pela repressão militar e pela falta de apoio das elites.</li>
           <li><strong>Cultura:</strong> a ópera <em>Nabucco</em> (Verdi, 1842) e o coro dos escravos hebreus, "<em>Va, pensiero</em>", viram hino patriótico contra os austríacos.</li>
         </ul>
+        <div class="obras-par">
+          <figure class="obra"><img loading="lazy" src="hist-imgs/mazzini.jpg" alt="Retrato de Mazzini"><figcaption>Giuseppe Mazzini, da Jovem Itália.</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/cavour.jpg" alt="Retrato de Cavour"><figcaption>Conde de Cavour, ministro do Piemonte.</figcaption></figure>
+        </div>
       </div>
     </div>
   </div>
@@ -542,6 +576,10 @@
           <div class="tl-item"><span class="tl-year">1861</span><span class="tl-text">Proclamado o <strong>Reino da Itália</strong>, no modelo monárquico piemontês, com profundas desigualdades sociais e econômicas.</span></div>
           <div class="tl-item"><span class="tl-year">1866</span><span class="tl-text"><strong>Vêneto</strong> incorporado, graças à aliança com a Prússia na guerra contra a Áustria.</span></div>
           <div class="tl-item"><span class="tl-year">1870</span><span class="tl-text">As tropas francesas saem (guerra franco-prussiana) e <strong>Roma</strong> é anexada; vira capital em 1871.</span></div>
+        </div>
+        <div class="obras-par">
+          <figure class="obra"><img loading="lazy" src="hist-imgs/mil.jpg" alt="Pintura de voluntários embarcando"><figcaption>A partida dos Mil de Quarto, perto de Gênova (5 de maio de 1860).</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/garibaldi.jpg" alt="Fotografia de Garibaldi"><figcaption>Giuseppe Garibaldi.</figcaption></figure>
         </div>
         <div class="warn-box">
           <strong>Cuidado com um slide</strong>
@@ -576,7 +614,7 @@
 
   <figure class="video-box">
     <video controls preload="none" playsinline poster="hist-videos/unificacao-alemanha-comuna.jpg" src="hist-videos/unificacao-alemanha-comuna.mp4"></video>
-    <figcaption>🇩🇪 Do Zollverein ao II Reich, e a Comuna de Paris (2 min)</figcaption>
+    <figcaption>🇩🇪 Do Zollverein ao II Reich, e a Comuna de Paris (3 min)</figcaption>
   </figure>
 
   <div class="accordion">
@@ -597,6 +635,7 @@
     <div class="accordion-content">
       <div class="content-block">
         <p><strong>Otto von Bismarck</strong> (1815–1898), primeiro-ministro prussiano a partir de 1862: articulador pragmático da unificação, adepto da <strong>Realpolitik</strong> (força militar e diplomacia fria, sem idealismos liberais ou republicanos). Aliado dos <strong>junkers</strong>, a aristocracia rural prussiana, que queria uma unificação forte, autoritária e sem participação popular.</p>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/bismarck.jpg" alt="Fotografia de Bismarck"><figcaption>Otto von Bismarck, o "chanceler de ferro".</figcaption></figure>
         <div class="timeline">
           <div class="tl-item"><span class="tl-year">1864</span><span class="tl-text"><strong>Guerra dos Ducados:</strong> Prússia e Áustria derrotam a <strong>Dinamarca</strong> e dividem Schleswig e Holstein.</span></div>
           <div class="tl-item"><span class="tl-year">1866</span><span class="tl-text"><strong>Guerra Austro-Prussiana</strong> ("Guerra das Sete Semanas"): vitória prussiana (Sadowa). A Prússia domina o norte e forma a <strong>Confederação Germânica do Norte</strong>.</span></div>
@@ -609,6 +648,7 @@
           <li>Bismarck <strong>altera o texto de um despacho de Guilherme I</strong> (o <strong>Despacho de Ems</strong>), que soa como insulto à França: é a causa imediata da guerra. No fundo estava a disputa pela <strong>Alsácia e Lorena</strong>.</li>
           <li>Como Bismarck previa, a guerra gerou nacionalismo e uniu o sul ao norte.</li>
         </ul>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/sedan.jpg" alt="Pintura da batalha de Sedan"><figcaption>A Batalha de Sedan (setembro de 1870), em que Napoleão III foi capturado.</figcaption></figure>
       </div>
     </div>
   </div>
@@ -622,6 +662,7 @@
           <li><strong>Revanchismo francês:</strong> a perda da <strong>Alsácia-Lorena</strong> desperta o desejo de "revanche" (vingança), alimentando nacionalismo e militarismo: uma das raízes da Primeira Guerra.</li>
           <li><strong>Fim do Segundo Império Francês:</strong> a captura de Napoleão III em Sedan leva à sua deposição. Em 1º de março de 1871 o exército prussiano desfila sob o Arco do Triunfo, em Paris.</li>
         </ul>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/werner.jpg" alt="Pintura da proclamação do Império Alemão em Versalhes"><figcaption><em>A Proclamação do Império Alemão</em>, Anton von Werner (1885). Bismarck, de branco, no centro; Guilherme I no estrado.</figcaption></figure>
         <div class="tip-box">
           <strong>Itália × Alemanha: compare</strong>
           As duas unificações foram conduzidas "de cima" por um reino forte (Piemonte e Prússia), por um estadista pragmático (Cavour e Bismarck), com guerras e diplomacia, e terminaram em <strong>monarquias</strong>. A diferença: na Itália houve um braço popular e republicano (Mazzini, Garibaldi) que acabou subordinado; na Alemanha a unificação foi autoritária, militar e apoiada nos junkers.
@@ -645,6 +686,7 @@
     <div class="accordion-content">
       <div class="content-block">
         <p>Após a derrota na Guerra Franco-Prussiana, Paris é sitiada e depois ocupada. O novo governo da <strong>Terceira República</strong>, instalado em <strong>Versalhes</strong> (chefiado por Adolphe Thiers), é visto como traidor. <strong>Trabalhadores, republicanos radicais, socialistas e a Guarda Nacional</strong> tomam o poder em Paris e criam um governo <strong>autogerido, popular e anticlerical</strong>.</p>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/comuna.jpg" alt="Fotografia de uma barricada em Paris em 1871"><figcaption>Barricada da Comuna de Paris, 1871 (fotografia).</figcaption></figure>
         <h4>Medidas</h4>
         <ul>
           <li>Separação entre <strong>Igreja e Estado</strong>; <strong>educação gratuita e laica</strong>.</li>
@@ -678,7 +720,7 @@
 
   <figure class="video-box">
     <video controls preload="none" playsinline poster="hist-videos/eua-seculo-xix.jpg" src="hist-videos/eua-seculo-xix.mp4"></video>
-    <figcaption>🇺🇸 O território cresce de 1783 a 1853; Secessão e Caribe (3 min)</figcaption>
+    <figcaption>🇺🇸 O território cresce de 1783 a 1853; Secessão e Caribe (4 min)</figcaption>
   </figure>
 
   <div class="accordion">
@@ -693,6 +735,7 @@
         </ul>
         <h4>Doutrina Monroe (1823)</h4>
         <p>Proclamada pelo presidente <strong>James Monroe</strong>: "<strong>a América para os americanos</strong>". Três pontos: não criação de novas colônias europeias, não intervenção europeia nos assuntos americanos e não intervenção dos EUA na Europa. Inaugura o <strong>nacionalismo expansionista</strong>, ligando a política externa à ideia de "proteger a liberdade" no continente.</p>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/monroe.jpg" alt="Retrato de James Monroe"><figcaption>James Monroe, presidente dos EUA (1817–1825).</figcaption></figure>
         <h4>Guerra de 1812: a "Segunda Independência"</h4>
         <p>Guerra contra o Reino Unido (1812–1815), acusado de restringir o comércio e instigar indígenas contra colonos. O <strong>Tratado de Ghent</strong> (1814) não mudou fronteiras, mas a guerra consolidou o orgulho nacional.</p>
       </div>
@@ -715,6 +758,10 @@
             <tr><td>1853</td><td>Faixa de Gadsden</td><td><strong>Comprada do México</strong>.</td></tr>
           </tbody>
         </table>
+        <div class="obras-par">
+          <figure class="obra"><img loading="lazy" src="hist-imgs/lewis.jpg" alt="Retratos de Lewis e Clark"><figcaption>Meriwether Lewis e William Clark.</figcaption></figure>
+          <figure class="obra"><img loading="lazy" src="hist-imgs/alamo.jpg" alt="Gravura do Álamo"><figcaption>A missão do Álamo, em San Antonio (gravura do séc. XIX).</figcaption></figure>
+        </div>
         <h4>Destino Manifesto</h4>
         <ul>
           <li>Crença de que os americanos tinham um <strong>direito moral e divino</strong> de se expandir do Atlântico ao Pacífico.</li>
@@ -725,6 +772,7 @@
           <strong>American Progress (John Gast, 1872)</strong>
           A "América", figura feminina civilizadora, leva educação, telégrafo, ferrovia e religião ao Oeste, enquanto indígenas e animais são empurrados para a sombra. É a alegoria visual do Destino Manifesto.
         </div>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/gast.jpg" alt="Pintura American Progress"><figcaption><em>American Progress</em>, John Gast, 1872.</figcaption></figure>
         <div class="warn-box">
           <strong>Trilha das Lágrimas</strong>
           Com o <strong>Indian Removal Act (1830)</strong>, povos do sudeste, sobretudo os <strong>Cherokee</strong>, foram obrigados a marchar para o oeste do Mississippi. Milhares morreram no caminho: o "progresso" se apoiou na violência contra os indígenas.
@@ -737,6 +785,7 @@
     <button class="accordion-btn" onclick="toggleAccordion(this)">Guerra de Secessão (1861–1865) <span class="chev">▾</span></button>
     <div class="accordion-content">
       <div class="content-block">
+        <figure class="obra"><img loading="lazy" src="hist-imgs/lincoln.jpg" alt="Fotografia de Abraham Lincoln"><figcaption>Abraham Lincoln em 1863.</figcaption></figure>
         <ul>
           <li><strong>Cláusula Wilmot (1846):</strong> propunha proibir a escravidão nos territórios tomados do México. Rejeitada, mas acirrou o embate entre <strong>Norte</strong> (industrial, abolicionista) e <strong>Sul</strong> (agrário, escravista). A expansão reabria a ferida da escravidão.</li>
           <li><strong>1860:</strong> <strong>Abraham Lincoln</strong> (Partido Republicano) é eleito com apoio do Norte, prometendo conter a expansão da escravidão.</li>
@@ -772,6 +821,7 @@
           <li>A malha ferroviária liga as duas costas (<strong>ferrovia transcontinental, 1869</strong>) e integra o mercado nacional.</li>
           <li>O <strong>Homestead Act (1862)</strong> dá terras a colonos que as ocupem e cultivem: uma "reforma agrária capitalista".</li>
         </ul>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/golden_spike.jpg" alt="Fotografia de trabalhadores e locomotivas"><figcaption>Promontory (Utah), 10 de maio de 1869: o encontro dos trilhos da ferrovia transcontinental. Foto de Andrew J. Russell.</figcaption></figure>
       </div>
     </div>
   </div>
@@ -791,6 +841,7 @@
           <strong>Para a prova: Monroe × Roosevelt</strong>
           Em 1823, a Doutrina Monroe dizia "a Europa não intervém na América". Em 1904, o Corolário Roosevelt diz "os EUA intervêm na América". Do anticolonialismo defensivo ao intervencionismo.
         </div>
+        <figure class="obra"><img loading="lazy" src="hist-imgs/bigstick.jpg" alt="Charge de Theodore Roosevelt com um porrete no Caribe"><figcaption>"The Big Stick in the Caribbean Sea", charge de W. A. Rogers (1904).</figcaption></figure>
       </div>
     </div>
   </div>

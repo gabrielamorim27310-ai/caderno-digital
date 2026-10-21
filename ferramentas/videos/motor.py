@@ -703,8 +703,8 @@ class Video:
                 ctx.restore()
                 # transição: escurece levemente ao trocar de mapa/cartão
                 prox = self.cenas[i + 1] if i + 1 < len(self.cenas) else None
-                troca_fim = prox is None or prox.mapa is not cena.mapa or prox.fundo != cena.fundo
-                troca_ini = i == 0 or self.cenas[i - 1].mapa is not cena.mapa or self.cenas[i - 1].fundo != cena.fundo
+                troca_fim = prox is None or prox.mapa is not cena.mapa or prox.fundo != cena.fundo or cena.fundo == 'obra'
+                troca_ini = i == 0 or self.cenas[i - 1].mapa is not cena.mapa or self.cenas[i - 1].fundo != cena.fundo or cena.fundo == 'obra'
                 esc = 0.0
                 if troca_ini:
                     esc = max(esc, 1 - janela(t, 0, 0.35))
@@ -754,3 +754,119 @@ def quadros_em(video, tempos, prefixo):
             sup.write_to_png(f'{prefixo}-{alvos[i]:05.1f}.png')
         if i > max(alvos):
             return
+
+
+# ── Imagens (pinturas, retratos, fotos) ─────────────────────
+
+_imgs = {}
+
+
+def carregar_imagem(caminho, larg=None):
+    """JPEG/PNG → superfície Cairo (via Pillow), com cache. Com 'larg', já sai
+    reduzida para essa largura (desenhar uma foto grande a cada quadro é lento)."""
+    chave = (caminho, larg)
+    if chave not in _imgs:
+        from PIL import Image
+        im = Image.open(caminho).convert('RGBA')
+        if larg and larg < im.width:
+            im = im.resize((int(larg), max(1, round(im.height * larg / im.width))), Image.LANCZOS)
+        r, g, b, a = im.split()
+        dados = bytearray(Image.merge('RGBA', (b, g, r, a)).tobytes())
+        sup = cairo.ImageSurface.create_for_data(dados, cairo.FORMAT_ARGB32, im.width, im.height, im.width * 4)
+        _imgs[chave] = (sup, dados)
+    return _imgs[chave][0]
+
+
+class Imagem:
+    """Quadro com moldura que entra deslizando e faz um zoom lento (efeito Ken Burns).
+    caixa = (x, y, largura, altura) em pixels; a imagem cabe inteira dentro dela."""
+
+    def __init__(self, caminho, caixa, em=0.0, credito='', zoom=0.06, foco=(0.5, 0.4)):
+        self.caminho, self.caixa, self.em, self.credito, self.zoom, self.foco = caminho, caixa, em, credito, zoom, foco
+
+    def desenhar(self, ctx, proj, t):
+        a = janela(t, self.em, 0.7)
+        if a <= 0:
+            return
+        orig = carregar_imagem(self.caminho)
+        bx, by, bw, bh = self.caixa
+        alt_cred = 30 if self.credito else 0
+        esc0 = min(bw / orig.get_width(), (bh - alt_cred) / orig.get_height())
+        sup = carregar_imagem(self.caminho, round(orig.get_width() * esc0 * (1 + self.zoom * 1.5)))
+        iw, ih = sup.get_width(), sup.get_height()
+        esc = esc0 * orig.get_width() / iw
+        w, h = iw * esc, ih * esc
+        x = bx + (bw - w) / 2
+        y = by + (bh - alt_cred - h) / 2 + (1 - a) * 24
+        m = 8
+        # sombra e moldura
+        retangulo_arredondado(ctx, x - m + 4, y - m + 8, w + 2 * m, h + 2 * m + alt_cred, 12)
+        ctx.set_source_rgba(0, 0, 0, 0.28 * a)
+        ctx.fill()
+        retangulo_arredondado(ctx, x - m, y - m, w + 2 * m, h + 2 * m + alt_cred, 12)
+        ctx.set_source_rgba(1, 1, 1, a)
+        ctx.fill()
+        # foto com zoom lento, recortada no próprio retângulo
+        ctx.save()
+        ctx.rectangle(x, y, w, h)
+        ctx.clip()
+        z = 1 + self.zoom * max(t - self.em, 0) / 8
+        fx, fy = self.foco
+        ctx.translate(x + w * fx, y + h * fy)
+        ctx.scale(esc * z, esc * z)
+        ctx.translate(-iw * fx, -ih * fy)
+        ctx.set_source_surface(sup, 0, 0)
+        ctx.get_source().set_filter(cairo.FILTER_BILINEAR)
+        ctx.paint_with_alpha(a)
+        ctx.restore()
+        if self.credito:
+            fonte(ctx, 14)
+            linha = self.credito
+            while ctx.text_extents(linha).x_advance > w and len(linha) > 4:
+                linha = linha[:-2]
+            if linha != self.credito:
+                linha = linha.rstrip() + '…'
+            e = ctx.text_extents(linha)
+            ctx.set_source_rgba(0.25, 0.25, 0.25, a)
+            ctx.move_to(x + w / 2 - e.x_advance / 2, y + h + 22)
+            ctx.show_text(linha)
+        ctx.new_path()
+
+
+def cena_obra(caminho, credito, legenda, dur=None, foco=(0.5, 0.4)):
+    """Cena só com a imagem grande sobre fundo escuro (pintura, fotografia, charge)."""
+    def fundo(ctx, t):
+        g = cairo.LinearGradient(0, 0, 0, H)
+        g.add_color_stop_rgb(0, 0.07, 0.10, 0.17)
+        g.add_color_stop_rgb(1, 0.03, 0.05, 0.09)
+        ctx.set_source(g)
+        ctx.paint()
+    alt_leg = (medir_texto_rico(legenda[1], 23, 1040 - 56) + 48 + 26) if legenda else 0
+    caixa = (60, 70, W - 120, H - 70 - alt_leg - 22)
+    return Cena(itens=[Desenho(fundo), Imagem(caminho, caixa, em=0.1, credito=credito, foco=foco, zoom=0.08)],
+                legenda=legenda, dur=dur, fundo='obra')
+
+
+def retrato(caminho, nome, em=0.4, lado='d'):
+    """Retrato pequeno num canto do mapa (personagem da cena)."""
+    w, h = 210, 270
+    x = W - w - 30 if lado == 'd' else 30
+    return Imagem(caminho, (x, 100, w, h), em=em, credito=nome, zoom=0.04, foco=(0.5, 0.3))
+
+
+def cena_retratos(pessoas, legenda, dur=None):
+    """Dois ou três retratos lado a lado (ex.: Marx e Engels)."""
+    def fundo(ctx, t):
+        g = cairo.LinearGradient(0, 0, 0, H)
+        g.add_color_stop_rgb(0, 0.07, 0.10, 0.17)
+        g.add_color_stop_rgb(1, 0.03, 0.05, 0.09)
+        ctx.set_source(g)
+        ctx.paint()
+    alt_leg = (medir_texto_rico(legenda[1], 23, 1040 - 56) + 48 + 26) if legenda else 0
+    n = len(pessoas)
+    larg = min(340, (W - 120 - (n - 1) * 40) / n)
+    x0 = (W - (n * larg + (n - 1) * 40)) / 2
+    alt = H - 70 - alt_leg - 22
+    itens = [Desenho(fundo)] + [Imagem(c, (x0 + i * (larg + 40), 70, larg, alt), em=0.2 + 0.4 * i, credito=nome,
+                                       zoom=0.05, foco=(0.5, 0.3)) for i, (c, nome) in enumerate(pessoas)]
+    return Cena(itens=itens, legenda=legenda, dur=dur, fundo='obra')
