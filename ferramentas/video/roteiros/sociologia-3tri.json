@@ -1,0 +1,188 @@
+{
+  "pagina": "sociologia-3tri",
+  "materia": "sociologia",
+  "titulo": "Sociologia · 3º tri",
+  "cenas": [
+    {
+      "tipo": "capa",
+      "selo": "Sociologia · 3º trimestre",
+      "titulo": "Antropologia, Cultura e Indústria Cultural",
+      "subtitulo": "Revisão em poucos minutos",
+      "imagem": "socio-imgs/3tri/iceberg-cultural.jpg",
+      "fala": "Oi! Bora revisar Sociologia do terceiro trimestre: história da antropologia, cultura popular, erudita e contracultura, e a Indústria Cultural."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Capítulo 1",
+      "titulo": "História da Antropologia",
+      "subtitulo": "Evolucionismo · Culturalismo · Funcionalismo · Estruturalismo",
+      "fala": "Capítulo um: história da antropologia, e as quatro escolas que mais caem na prova."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Origem",
+      "titulo": "Uma ciência nascida na colonização",
+      "itens": [
+        "Surge no **século XIX**, mas se forma desde o **período colonial**",
+        "Relatos de viajantes enviados à Europa",
+        "Objetivo: **dominar territórios**, abrir mercados e controlar os povos locais"
+      ],
+      "fala": "A antropologia é uma ciência recente, do século dezenove, mas começou a se formar no período colonial. Os relatos de viajantes não eram neutros: serviam para entrar nos territórios, abrir mercados e dominar os povos locais."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Século XIX",
+      "titulo": "Evolucionismo",
+      "imagem": "socio-imgs/3tri/morgan-estagios.jpg",
+      "itens": [
+        "Tylor, Morgan e Frazer",
+        "Caminho único: **selvagens → bárbaros → civilizados**",
+        "**Antropologia de gabinete**: sem contato com os povos"
+      ],
+      "fala": "O evolucionismo, de Tylor, Morgan e Frazer, dizia que toda a humanidade segue um caminho único: de selvagens a bárbaros e, por fim, civilizados. E eles faziam antropologia de gabinete, lendo relatos de outras pessoas, sem nunca conviver com os povos que estudavam."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Etnocentrismo",
+      "texto": "Julgar outras culturas pelos **próprios valores**, como se fossem inferiores. Pode ser **inconsciente** e **não desaparece** com a globalização.",
+      "fala": "Daí vem o etnocentrismo: julgar outras culturas pelos próprios valores, como se fossem inferiores. Atenção, porque o professor cobra isso: ele pode ser inconsciente, e não desaparece só porque o mundo está globalizado."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "1888 aos anos 1940",
+      "titulo": "Culturalismo",
+      "imagem": "socio-imgs/3tri/boas.jpg",
+      "retrato": true,
+      "itens": [
+        "Franz Boas, Ruth Benedict e Margaret Mead",
+        "**Raça ≠ cultura**",
+        "**Relativismo**: cada cultura em seu próprio contexto",
+        "Trabalho de campo: viver com o grupo"
+      ],
+      "fala": "O culturalismo, de Franz Boas, Ruth Benedict e Margaret Mead, separou raça de cultura e criou o relativismo cultural: cada cultura deve ser entendida no seu próprio contexto. E o pesquisador passa a ir a campo e viver com o grupo."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Malinowski",
+      "titulo": "Funcionalismo e o Kula",
+      "imagem": "socio-imgs/3tri/kula-mapa.jpg",
+      "itens": [
+        "Todo costume cumpre uma **função**",
+        "Analisa o **presente**, não a história",
+        "Kula: **dar, receber e retribuir** cria alianças"
+      ],
+      "fala": "Para o funcionalismo de Malinowski, todo costume cumpre uma função, e a análise olha para o presente, não para a história. O exemplo clássico é o Kula, nas Ilhas Trobriand: um sistema de trocas baseado em dar, receber e retribuir, que cria alianças entre as ilhas. Não é comércio para lucrar."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Lévi-Strauss",
+      "titulo": "Estruturalismo",
+      "imagem": "socio-imgs/3tri/papai-noel.jpg",
+      "itens": [
+        "**Estruturas inconscientes** comuns a todas as culturas",
+        "Oposições: bem e mal, masculino e feminino",
+        "**Tabu do incesto**: passagem da natureza à cultura"
+      ],
+      "fala": "Por fim, o estruturalismo de Lévi-Strauss procura estruturas inconscientes que todas as culturas compartilham, como o Papai Noel e os katchina dos povos Pueblo. O ponto chave é o tabu do incesto: ao obrigar casamentos fora da família, ele cria alianças e funda a sociedade."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Frazer escreveu O Ramo de Ouro sem visitar os povos que estudava. Isso é:",
+      "alternativas": ["Antropologia de campo", "Antropologia de gabinete", "Método histórico"],
+      "certa": "b",
+      "explicacao": "Os evolucionistas trabalhavam com **relatos de terceiros**.",
+      "fala": "Teste rápido. Frazer escreveu O Ramo de Ouro sem nunca visitar os povos que estudava. Isso é antropologia de campo, de gabinete, ou método histórico?",
+      "falaResposta": "Antropologia de gabinete! Os evolucionistas trabalhavam com relatos de terceiros."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Capítulo 2",
+      "titulo": "Cultura Popular, Erudita e Contracultura",
+      "fala": "Capítulo dois: cultura popular, cultura erudita e contracultura."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Popular × Erudita",
+      "colunas": [
+        { "titulo": "Popular", "itens": ["Nasce nas comunidades", "Tradição oral", "Dinâmica", "Ex.: samba, cordel"] },
+        { "titulo": "Erudita", "itens": ["Instituições formais", "Exige formação técnica", "Acesso restrito", "Ex.: ópera, balé"] }
+      ],
+      "fala": "A cultura popular nasce nas comunidades, passa de geração em geração pela tradição oral e está sempre mudando, como o samba e o cordel. A erudita nasce em instituições, exige formação técnica e tem acesso restrito, como a ópera e o balé. E cuidado: uma não é superior à outra."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Anos 1950 e 1960",
+      "titulo": "Contracultura",
+      "imagem": "socio-imgs/3tri/hippies-1.jpg",
+      "itens": [
+        "Jovens rejeitam os valores do **pós-guerra**",
+        "Guerra Fria e **Vietnã**: \"faça amor, não faça a guerra\"",
+        "**1968**: Maio francês, luta antirracista, feminismo"
+      ],
+      "fala": "A contracultura foi a revolta de uma nova juventude contra os valores do pós-guerra. Com a Guerra Fria e a Guerra do Vietnã, surgiu o lema faça amor, não faça a guerra. E mil novecentos e sessenta e oito foi o ano das revoltas: o Maio francês, a luta antirracista nos Estados Unidos e a segunda onda do feminismo."
+    },
+    {
+      "tipo": "topicos",
+      "titulo": "Os quatro movimentos",
+      "itens": [
+        "**Beatniks** (EUA, anos 1950): literatura, jazz, On the Road",
+        "**Hippies** (EUA, anos 1960): pacifismo, Flower Power",
+        "**Rastafáris** (Jamaica, anos 1930): fé em Jah, reggae",
+        "**Punks** (anos 1970): Faça Você Mesmo, No Future"
+      ],
+      "fala": "Os quatro movimentos: os beatniks, poetas do jazz dos anos cinquenta. Os hippies, pacifistas dos anos sessenta. Os rastafáris, movimento de fé que nasceu na Jamaica e se espalhou com o reggae. E os punks, dos anos setenta, com a ética do faça você mesmo."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Capítulo 3",
+      "titulo": "Escola de Frankfurt e Indústria Cultural",
+      "fala": "Capítulo três: a Escola de Frankfurt e a Indústria Cultural."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Adorno e Horkheimer",
+      "titulo": "Indústria Cultural",
+      "imagem": "socio-imgs/3tri/hollywood.jpg",
+      "itens": [
+        "A arte vira **mercadoria padronizada**",
+        "Fórmulas previsíveis, voltadas ao **lucro**",
+        "Efeito: **alienação** e falsa sensação de liberdade"
+      ],
+      "fala": "Para Adorno e Horkheimer, na Indústria Cultural a arte vira mercadoria padronizada: fórmulas previsíveis, feitas para vender. O efeito é a alienação, e uma falsa sensação de liberdade de escolha."
+    },
+    {
+      "tipo": "topicos",
+      "titulo": "Lazer, catarse e ideologia",
+      "itens": [
+        "Lazer = **prolongamento do trabalho**",
+        "Entretenimento **distrai**, não emancipa",
+        "Catarse vira **descarga emocional sem reflexão**",
+        "Ideologia **naturaliza** a dominação"
+      ],
+      "fala": "Quatro ideias que caem no questionário. O lazer vira prolongamento do trabalho. O entretenimento distrai, em vez de emancipar. A catarse de Aristóteles vira descarga emocional sem reflexão. E a ideologia faz a dominação parecer natural."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Walter Benjamin",
+      "imagem": "socio-imgs/3tri/benjamin.jpg",
+      "retrato": true,
+      "texto": "A reprodução técnica **democratiza** a arte, mas o excesso de cópias faz a obra perder a **aura**.",
+      "fala": "Walter Benjamin via os dois lados: a reprodução técnica democratiza a arte, mas o excesso de cópias faz a obra perder a sua aura, a sua singularidade."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Verdadeiro ou falso: com a internet, a cultura erudita ficou totalmente acessível.",
+      "alternativas": ["Verdadeiro", "Falso"],
+      "certa": "b",
+      "explicacao": "As desigualdades de acesso continuam. Desconfie de **\"totalmente\"**.",
+      "fala": "Última pergunta. Verdadeiro ou falso: com a internet, a cultura erudita ficou totalmente acessível.",
+      "falaResposta": "Falso! As desigualdades de acesso continuam. Na prova, desconfie de palavras como totalmente, garante e elimina."
+    },
+    {
+      "tipo": "fim",
+      "titulo": "Bons estudos!",
+      "texto": "Resumo completo e quiz com 38 questões no **Caderno Digital**",
+      "fala": "É isso! O resumo completo e o quiz com trinta e oito questões estão no Caderno Digital. Bons estudos!"
+    }
+  ]
+}

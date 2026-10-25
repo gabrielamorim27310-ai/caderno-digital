@@ -39,6 +39,8 @@
   /* Estante "Continuar" no estilo do Livros */
   .shelf { display: grid; grid-auto-flow: column; grid-auto-columns: 148px; gap: var(--s-3); overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px var(--s-2); margin: 0 -2px; scrollbar-width: none; }
   .shelf::-webkit-scrollbar { display: none; }
+  /* no computador cabem todos (no máximo 6): grade sem rolagem, nada cortado */
+  @media (min-width: 768px) { .shelf { grid-auto-flow: row; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); grid-auto-columns: auto; overflow: visible; scroll-snap-type: none; } }
   .book { scroll-snap-align: start; text-decoration: none; color: var(--label); display: grid; gap: var(--s-2); }
   .book .cover { aspect-ratio: 3 / 4; border-radius: var(--r-sm) var(--r-md) var(--r-md) var(--r-sm); display: grid; place-items: center; font-size: 2.6rem; color: #fff; position: relative; overflow: hidden;
     background: linear-gradient(160deg, color-mix(in srgb, var(--c) 78%, #fff) 0%, var(--c) 55%, color-mix(in srgb, var(--c) 70%, #000) 100%);
@@ -136,6 +138,7 @@
       <noscript>
         <div class="group">
           <a class="cell" href="historia-3tri.html">História · 3º tri</a>
+          <a class="cell" href="sociologia-3tri.html">Sociologia · 3º tri</a>
           <a class="cell" href="historia-2tri.html">História · 2º tri</a>
           <a class="cell" href="biologia-2tri.html">Biologia · 2º tri</a>
           <a class="cell" href="geografia-2tri-america.html">Geografia · 2º tri</a>
@@ -164,6 +167,7 @@
   CD.montarTabbar(document.querySelector('[data-cd-tabbar]'), [
     { rotulo: 'Início', icone: 'house', href: 'index.html', atual: true },
     { rotulo: 'Buscar', icone: 'search', acao: 'buscar' },
+    { rotulo: 'Enviar', icone: 'upload', href: 'enviar.html' },
     { rotulo: 'Mais', icone: 'ellipsis', sheet: 'sheet-mais' },
   ]);
   CD.criarSheetMais();
@@ -211,7 +215,8 @@
     var el = document.getElementById('painel-t' + n);
     var doTri = M.filter(function (m) { return m.tri === n; });
     if (!doTri.length) {
-      el.innerHTML = '<div class="empty">' + ico('clock') + '<h2>' + n + 'º trimestre</h2><p>Nenhum resumo ainda. Volte quando o trimestre começar!</p></div>';
+      el.innerHTML = '<div class="empty">' + ico('clock') + '<h2>' + n + 'º trimestre</h2><p>Os resumos deste trimestre estão sendo montados. Ajude mandando o seu!</p>' +
+        '<a class="btn small" href="enviar.html">Enviar meu resumo</a></div>';
       return;
     }
     var naProva = doTri.filter(function (m) { return m.status === 'prova'; });
@@ -249,9 +254,10 @@
     });
   });
   var hash = location.hash.replace('#', '');
-  // Sem #, abre o trimestre mais recente que tem resumos
-  var ultimoTri = Math.max.apply(null, M.filter(function (m) { return m.id; }).map(function (m) { return m.tri; }));
-  setTri(['t1', 't2', 't3'].indexOf(hash) >= 0 ? hash : 't' + ultimoTri);
+  // Sem #, abre o trimestre atual (APP.triAtual em config.js)
+  var triPadrao = (typeof APP !== 'undefined' && APP.triAtual) ||
+    Math.max.apply(null, M.filter(function (m) { return m.id; }).map(function (m) { return m.tri; }));
+  setTri(['t1', 't2', 't3'].indexOf(hash) >= 0 ? hash : 't' + triPadrao);
 
   /* ── Continuar: últimas páginas abertas ── */
   var recentes = paginas

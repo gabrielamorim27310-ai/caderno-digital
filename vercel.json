@@ -27,6 +27,7 @@
     { "src": "/sw.js", "headers": { "cache-control": "no-cache" }, "continue": true },
     { "src": "/manifest.webmanifest", "headers": { "content-type": "application/manifest+json" }, "continue": true },
     { "src": "/",         "dest": "/index.html" },
+    { "src": "/enviar",   "dest": "/enviar.html" },
     { "handle": "filesystem" }
   ],
   "crons": [

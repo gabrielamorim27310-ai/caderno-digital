@@ -899,8 +899,8 @@ body.ios {
 .ios #contrib-head span { font: var(--t-headline); }
 .ios #contrib-close { width: 30px; height: 30px; border-radius: 50%; background: var(--fill); color: var(--label-2); font-size: 0.9rem; }
 .ios #contrib-form label { color: var(--label); font: 600 0.8125rem/1.3 var(--font); }
-.ios #contrib-form :is(input[type="text"], textarea) { background: var(--bg-2); color: var(--label); border: 0.5px solid var(--sep); font: var(--t-body); font-size: 16px; }
-.ios #contrib-form :is(input[type="text"], textarea):focus { border-color: var(--tint); box-shadow: 0 0 0 3px var(--tint-bg); }
+.ios #contrib-form :is(input[type="text"], select, textarea) { background: var(--bg-2); color: var(--label); border: 0.5px solid var(--sep); font: var(--t-body); font-size: 16px; }
+.ios #contrib-form :is(input[type="text"], select, textarea):focus { border-color: var(--tint); box-shadow: 0 0 0 3px var(--tint-bg); }
 .ios #contrib-send { background: var(--tint-fill); color: var(--on-tint); min-height: 50px; border-radius: var(--r-md); font: var(--t-headline); }
 .ios #contrib-status.ok { color: var(--green); } .ios #contrib-status.erro { color: var(--red); }
 @media (min-width: 768px) { .ios #contrib-modal { align-items: center; } .ios #contrib-box { border-radius: var(--r-xl); } }

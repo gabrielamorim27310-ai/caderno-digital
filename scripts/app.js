@@ -159,9 +159,14 @@
         '<div class="cell"><span class="cell-body"><span class="cell-title">' + esc((typeof APP !== 'undefined' && APP.name) || 'Caderno Digital') + '</span>' +
         '<span class="cell-sub">' + esc((typeof APP !== 'undefined' && (APP.grade + ' · ' + APP.school + ' · ' + ano)) || '') + '</span></span></div>' +
         '<div class="cell"><span class="cell-body"><span class="cell-title">Feito por ' + esc((typeof APP !== 'undefined' && APP.author) || '') + '</span>' +
-        '<span class="cell-sub">Achou um erro ou quer ajudar? Use "Enviar meu resumo" em qualquer matéria.</span></span></div>' +
+        '<span class="cell-sub">Achou um erro ou quer ajudar? Mande o seu resumo pela aba Enviar.</span></span></div>' +
       '</div>';
     criarSheet('sheet-mais', 'Mais', corpo);
+  }
+
+  /* Página de envio de resumos; num resumo, já abre com a matéria escolhida */
+  function linkEnviar() {
+    return 'enviar.html' + (/^[a-z]+-\dtri(-[a-z]+)?$/.test(PAGINA) ? '?materia=' + PAGINA : '');
   }
 
   /* ── Barra lateral ── */
@@ -171,6 +176,7 @@
     var h = '<a class="sidebar-brand" href="index.html">' +
       '<span class="app-icon" style="--icon-bg:var(--tint-fill)">📚</span>' + esc((typeof APP !== 'undefined' && APP.name) || 'Caderno Digital') + '</a>';
     h += '<a class="sidebar-item" href="index.html"' + (PAGINA === 'index' ? ' aria-current="page"' : '') + '>' + icone('house') + '<span class="txt">Início</span></a>';
+    h += '<a class="sidebar-item" href="' + linkEnviar() + '"' + (PAGINA === 'enviar' ? ' aria-current="page"' : '') + '>' + icone('upload') + '<span class="txt">Enviar resumo</span></a>';
     if (capitulosHtml) h += capitulosHtml;
     Object.keys(porTri).sort().forEach(function (tri) {
       h += '<h2 class="sidebar-section">' + tri + 'º trimestre</h2>';
@@ -298,7 +304,6 @@
     }
     var acoes = '';
     if (temChat) acoes += '<button class="sidebar-item" type="button" data-cd-acao="chat">' + icone('message-circle') + '<span class="txt">Perguntar ao ' + esc((typeof APP !== 'undefined' && APP.aiName) || 'Nêuron') + '</span></button>';
-    acoes += '<button class="sidebar-item" type="button" data-cd-acao="contribuir">' + icone('upload') + '<span class="txt">Enviar meu resumo</span></button>';
     var aside = document.createElement('aside');
     aside.className = 'sidebar';
     aside.setAttribute('aria-label', 'Navegação');
@@ -314,6 +319,7 @@
     var abas = [{ rotulo: 'Início', icone: 'house', href: voltar }];
     if (capitulos.length) abas.push({ rotulo: 'Capítulos', icone: 'list', sheet: 'sheet-capitulos' });
     if (temChat) abas.push({ rotulo: (typeof APP !== 'undefined' && APP.aiName) || 'Nêuron', icone: 'message-circle', acao: 'chat' });
+    abas.push({ rotulo: 'Enviar', icone: 'upload', href: linkEnviar() });
     abas.push({ rotulo: 'Mais', icone: 'ellipsis', sheet: 'sheet-mais' });
     montarTabbar(tab, abas);
 
@@ -336,7 +342,7 @@
     criarSheetMais(
       '<div class="group">' +
         (temChat ? '<button class="cell has-icon" type="button" data-cd-acao="chat"><span class="app-icon" style="--icon-bg:var(--tint-fill)">' + icone('message-circle', 'i-sm') + '</span><span class="cell-body"><span class="cell-title">Perguntar ao ' + esc((typeof APP !== 'undefined' && APP.aiName) || 'Nêuron') + '</span><span class="cell-sub">Tire dúvidas sobre este resumo</span></span>' + icone('chevron-right', 'cell-chev') + '</button>' : '') +
-        '<button class="cell has-icon" type="button" data-cd-acao="contribuir"><span class="app-icon" style="--icon-bg:#34c759">' + icone('upload', 'i-sm') + '</span><span class="cell-body"><span class="cell-title">Enviar meu resumo</span><span class="cell-sub">Texto, fotos do caderno ou arquivos</span></span>' + icone('chevron-right', 'cell-chev') + '</button>' +
+        '<a class="cell has-icon" href="' + linkEnviar() + '"><span class="app-icon" style="--icon-bg:#34c759">' + icone('upload', 'i-sm') + '</span><span class="cell-body"><span class="cell-title">Enviar meu resumo</span><span class="cell-sub">Texto, fotos do caderno ou arquivos</span></span>' + icone('chevron-right', 'cell-chev') + '</a>' +
       '</div>'
     );
     sincronizarTema();
