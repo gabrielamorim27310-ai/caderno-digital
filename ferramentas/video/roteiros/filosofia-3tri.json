@@ -8,9 +8,9 @@
       "tipo": "capa",
       "selo": "Filosofia · 3º trimestre",
       "titulo": "Ser, Movimento e Conhecimento",
-      "subtitulo": "Demócrito · Platão · Aristóteles · Byung-Chul Han",
+      "subtitulo": "Demócrito · Platão · Aristóteles · Byung-Chul Han · Hegel",
       "imagem": "pensador.png",
-      "fala": "Bora revisar Filosofia do terceiro trimestre: Demócrito, Platão, Aristóteles e, no fim, Biung Tchul Ran e a infocracia."
+      "fala": "Bora revisar Filosofia do terceiro trimestre: Demócrito, Platão, Aristóteles Biung Tchul Ran e a infocracia, e, no fim, Hêguel e a dialética."
     },
     {
       "tipo": "comparacao",
@@ -277,9 +277,83 @@
       "fala": "E os algoritmos? Eles funcionam como uma bolha isolante. Direcionam a informação para cada usuário de acordo com o seu nicho e o seu perfil. Existem muitas fontes, mas cada grupo só vê o que confirma o que já pensa. O resultado é a polarização."
     },
     {
+      "tipo": "capitulo",
+      "capitulo": "Parte 5",
+      "titulo": "Hegel",
+      "subtitulo": "Dialética e Espírito Absoluto",
+      "fala": "Parte cinco, a última: Hêguel, filósofo idealista alemão."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Aceitação do contraditório",
+      "colunas": [
+        {
+          "titulo": "Lógica grega",
+          "itens": [
+            "Princípio da **não contradição**",
+            "Algo não pode ser e não ser ao mesmo tempo"
+          ]
+        },
+        {
+          "titulo": "Hegel",
+          "itens": [
+            "A contradição **rege a realidade**",
+            "**Pares de opostos**: quente x frio"
+          ]
+        }
+      ],
+      "fala": "Até então, a base da filosofia era a lógica grega da não contradição: algo não pode ser e não ser ao mesmo tempo. Hêguel aceita a contradição. Para ele, é ela que rege a realidade. Todo elemento já traz em si o seu oposto: não dá para pensar o quente sem o frio. E essa oposição é o que move a realidade e a história."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "O que muda a história?",
+      "colunas": [
+        {
+          "titulo": "Hegel · idealismo",
+          "itens": [
+            "As **ideias**: produção cultural",
+            "Artes, leis, tecnologia"
+          ]
+        },
+        {
+          "titulo": "Marx · materialismo",
+          "itens": [
+            "A **economia**",
+            "Transformações econômicas"
+          ]
+        }
+      ],
+      "fala": "A dialética de Hêguel tenta explicar como a humanidade avança, por contradições e superações. E o que muda a história são as ideias, a produção cultural: artes, leis, tecnologia, tudo que o ser humano cria contra a natureza. Marx discorda: para ele, quem move a história é a economia. Idealismo contra materialismo."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Espírito Absoluto",
+      "titulo": "Tese, antítese e síntese",
+      "itens": [
+        "**Espírito Absoluto**: a razão que guia e aperfeiçoa a história",
+        "Progresso **acumulativo**, por estágios",
+        "**Não linear**: avança pelo choque de etapas",
+        "Antigo Regime + Revolução Francesa → **Napoleão**"
+      ],
+      "fala": "O Espírito Absoluto é o processo racional que guia e aperfeiçoa a história da humanidade. Ela avança de forma acumulativa, mas não linear, pelo choque entre etapas: tese, antítese e síntese. O Antigo Regime é a tese. A Revolução Francesa, a antítese. Napoleão é a síntese, que junta os dois. Depois, a síntese vira nova tese, e tudo se repete."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Para Hegel, o que move as mudanças da história?",
+      "alternativas": [
+        "As transformações econômicas",
+        "As ideias e a produção cultural",
+        "O acaso dos acontecimentos"
+      ],
+      "certa": "b",
+      "explicacao": "Hegel é idealista: as ideias movem a história. A economia é a resposta de Marx.",
+      "fala": "Última pergunta. Para Hêguel, o que move as mudanças da história?",
+      "falaResposta": "Letra B: as ideias e a produção cultural. As transformações econômicas são a resposta de Marx, que é materialista."
+    },
+    {
       "tipo": "fim",
       "titulo": "Bons estudos!",
-      "texto": "Faça o quiz de 24 questões no Caderno Digital.",
+      "texto": "Faça o quiz de 29 questões no Caderno Digital.",
       "fala": "É isso! Agora faça o quiz no Caderno Digital para fixar. Bons estudos!"
     }
   ]
