@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-pagina="sociologia-3tri" data-materia="sociologia">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Sociologia 3º Tri — Antropologia, Cultura e Indústria Cultural 2026</title>
+<style>
+  :root {
+    --primary:   #3b1f5e;
+    --secondary: #9b6dbd;
+    --accent:    #6c3483;
+    --bg:        #f8f5fc;
+    --card-bg:   #ffffff;
+    --text:      #1e1e1e;
+    --text-light:#6b6b6b;
+    --border:    #e4d9f0;
+    --shadow:    0 4px 24px rgba(60,0,80,0.09);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; scroll-behavior:smooth; }
+
+  .progress-bar { position:fixed; top:0; left:0; height:3px; background:var(--secondary); z-index:999; width:0%; transition:width 0.1s; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a0a2e 0%, #3b1f5e 50%, #5c2d8e 100%);
+    color:white; padding:80px 20px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; margin-bottom:12px; position:relative; }
+  .hero .subtitle { font-size:1.1rem; opacity:0.85; font-weight:300; position:relative; }
+  .hero .badge { display:inline-block; background:var(--secondary); color:white; padding:6px 18px; border-radius:20px; font-weight:700; font-size:0.85rem; margin-top:16px; position:relative; }
+  .hero .author { display:inline-block; background:rgba(255,255,255,0.15); color:white; padding:8px 22px; border-radius:20px; font-size:1.05rem; font-weight:600; margin-top:12px; position:relative; border:1px solid rgba(255,255,255,0.4); letter-spacing:0.02em; }
+
+  /* NAV */
+  nav { background:white; border-bottom:2px solid var(--border); padding:0 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  nav .nav-inner { max-width:1100px; margin:0 auto; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+  nav .nav-inner::-webkit-scrollbar { display:none; }
+  nav a { text-decoration:none; padding:14px 20px; font-weight:600; font-size:0.85rem; white-space:nowrap; color:var(--text-light); border-bottom:3px solid transparent; transition:all 0.3s; }
+  nav a:hover, nav a.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* MAIN */
+  main { max-width:900px; margin:0 auto; padding:40px 20px 80px; }
+
+  /* CHAPTER */
+  .chapter { margin-bottom:56px; }
+  .chapter-header { margin-bottom:24px; padding-bottom:14px; border-bottom:3px solid var(--secondary); }
+  .chapter-header h2 { font-family:'Playfair Display',serif; font-size:1.7rem; color:var(--primary); font-weight:900; display:flex; align-items:center; gap:12px; }
+  .ch-tag { display:inline-block; background:var(--primary); color:white; padding:3px 12px; border-radius:6px; font-size:0.78rem; font-weight:700; letter-spacing:.5px; font-family:'Inter',sans-serif; flex-shrink:0; }
+  .chapter-header .meta { color:var(--text-light); font-size:0.9rem; margin-top:6px; }
+
+  /* ACCORDION */
+  .accordion { background:white; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .accordion-btn { width:100%; background:none; border:none; padding:17px 20px; text-align:left; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-family:'Inter',sans-serif; font-size:0.97rem; font-weight:600; color:var(--primary); transition:background .2s; }
+  .accordion-btn:hover { background:#f3eefa; }
+  .accordion-btn .chev { transition:transform .3s; color:var(--secondary); font-size:1.1rem; }
+  .accordion.open .chev { transform:rotate(180deg); }
+  .accordion-content { max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .accordion.open .accordion-content { max-height:5000px; }
+  .content-block { padding:0 20px 20px; border-top:1px solid var(--border); }
+  .content-block p { margin:12px 0; font-size:0.95rem; }
+  .content-block ul, .content-block ol { margin:8px 0 12px 22px; }
+  .content-block li { margin-bottom:6px; font-size:0.93rem; }
+  .content-block h4 { font-family:'Playfair Display',serif; color:var(--primary); margin:16px 0 8px; font-size:1.05rem; }
+
+  /* INFO BOXES */
+  .highlight-box, .warn-box, .tip-box {
+    border-left:4px solid; border-radius:0 10px 10px 0; padding:13px 16px; margin:14px 0; font-size:0.93rem;
+  }
+  .highlight-box { background:#f3e8ff; border-color:var(--primary); }
+  .warn-box      { background:#fdf3e3; border-color:#e07b00; }
+  .tip-box       { background:#eaf4fb; border-color:#2980b9; }
+  .highlight-box strong:first-child, .warn-box strong:first-child, .tip-box strong:first-child { display:block; margin-bottom:4px; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem; }
+  .data-table th { background:var(--primary); color:white; padding:10px 12px; text-align:left; font-weight:600; }
+  .data-table td { padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .data-table tr:nth-child(even) td { background:#f3eefa; }
+
+  /* COMPARE GRID */
+  .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0; }
+  .compare-card { background:var(--bg); border-radius:10px; padding:14px 16px; border:1px solid var(--border); }
+  .compare-card h5 { font-size:0.88rem; font-weight:700; color:var(--accent); margin-bottom:8px; }
+  .compare-card ul { margin:0 0 0 16px; }
+  .compare-card li { font-size:0.87rem; margin-bottom:4px; }
+  @media(max-width:600px) { .compare-grid { grid-template-columns:1fr; } }
+
+  /* QUIZ */
+  #quiz-section { background:white; border-radius:16px; padding:32px 24px; margin:40px 0; border:1px solid var(--border); box-shadow:var(--shadow); }
+  #quiz-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--primary); margin-bottom:6px; }
+  #quiz-section > p { color:var(--text-light); margin-bottom:20px; }
+
+  .quiz-filter { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .filter-btn { padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); background:white; color:var(--text-light); font-size:0.82rem; font-weight:600; cursor:pointer; transition:all .2s; }
+  .filter-btn.active, .filter-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
+
+  .question-card { background:var(--bg); border:1.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; }
+  .question-card.hidden { display:none; }
+  .question-card h4 { font-size:0.95rem; font-weight:600; color:var(--primary); margin-bottom:14px; }
+  .options { display:flex; flex-direction:column; gap:8px; }
+  .option-btn { background:white; border:1.5px solid var(--border); border-radius:8px; padding:10px 14px; text-align:left; font-size:0.9rem; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .option-btn:hover { border-color:var(--secondary); background:#f3eefa; }
+  .option-btn.correct { background:#d4edda; border-color:#27ae60; color:#155724; }
+  .option-btn.wrong   { background:#f8d7da; border-color:#e74c3c; color:#721c24; }
+
+  .quiz-result { display:none; text-align:center; padding:24px; }
+  .donut-wrap { position:relative; width:130px; height:130px; margin:0 auto 16px; }
+  .donut-wrap svg { transform:rotate(-90deg); }
+  .donut-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-score { font-size:1.8rem; font-weight:700; color:var(--primary); }
+  .donut-label { font-size:0.75rem; color:var(--text-light); }
+  .result-msg { font-size:1.05rem; font-weight:600; color:var(--primary); margin-bottom:6px; }
+  .result-sub { font-size:0.9rem; color:var(--text-light); margin-bottom:20px; }
+  .btn-reset { background:var(--primary); color:white; border:none; padding:10px 28px; border-radius:8px; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:background .2s; }
+  .btn-reset:hover { background:var(--accent); }
+
+  .quiz-topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+  .score-left { display:flex; align-items:center; gap:12px; }
+  .mini-donut-wrap { position:relative; width:44px; height:44px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .mini-donut-wrap svg { position:absolute; top:0; left:0; }
+  #mini-pct { position:relative; font-size:0.65rem; font-weight:800; color:#aaa; line-height:1; }
+  .score-live { font-size:0.9rem; font-weight:600; color:var(--primary); background:var(--bg); padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); }
+  .btn-reset-mid { background:none; border:1.5px solid var(--border); color:var(--text-light); padding:6px 16px; border-radius:20px; font-size:0.82rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all .2s; }
+  .btn-reset-mid:hover { border-color:var(--primary); color:var(--primary); }
+  .answer-exp { display:none; align-items:flex-start; gap:8px; margin-top:10px; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px; padding:10px 14px; font-size:0.87rem; color:#1b5e20; line-height:1.5; }
+
+  /* CHAT flutuante */
+  #chat-btn { position:fixed; bottom:24px; right:24px; width:52px; height:52px; border-radius:50%; background:var(--primary); color:white; border:none; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 16px rgba(0,0,0,0.22); z-index:999; transition:transform 0.2s; display:flex; align-items:center; justify-content:center; }
+  #chat-btn:hover { transform:scale(1.08); }
+  #chat-panel { position:fixed; bottom:86px; right:24px; width:420px; max-width:calc(100vw - 32px); background:white; border:1px solid var(--border); border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.14); z-index:998; display:none; flex-direction:column; overflow:hidden; font-family:'Inter',sans-serif; }
+  #chat-panel.open { display:flex; }
+  #chat-head { background:var(--primary); color:white; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  #chat-head span { font-weight:600; font-size:0.92rem; }
+  #chat-close { background:none; border:none; color:white; cursor:pointer; font-size:1.1rem; line-height:1; padding:0; }
+  #chat-msgs { height:360px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .cmsg { max-width:88%; padding:10px 14px; border-radius:14px; font-size:0.93rem; line-height:1.5; }
+  .cmsg.user { background:var(--primary); color:white; align-self:flex-end; border-bottom-right-radius:4px; }
+  .cmsg.bot { background:#f0f0f0; color:#222; align-self:flex-start; border-bottom-left-radius:4px; }
+  .cmsg.loading { opacity:0.6; font-style:italic; }
+  #chat-form { display:flex; border-top:1px solid var(--border); }
+  #chat-input { flex:1; border:none; padding:12px 14px; font-size:0.95rem; font-family:'Inter',sans-serif; outline:none; resize:none; height:44px; }
+  #chat-send { background:var(--primary); color:white; border:none; padding:0 16px; cursor:pointer; font-size:1rem; }
+  #chat-send:hover { background:var(--secondary); }
+
+  footer { text-align:center; padding:24px; color:var(--text-light); font-size:0.82rem; border-top:1px solid var(--border); }
+
+  @media(max-width:600px) {
+    .hero { padding:56px 16px 44px; }
+    main { padding:24px 14px 60px; }
+  }
+
+
+    /* figuras dos slides */
+  .fig-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin:16px 0; }
+  .fig-grid.largo { grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
+  .fig-grid.retratos { grid-template-columns:repeat(auto-fill,minmax(110px,150px)); }
+  .fig-grid figure, .fig-unica { margin:0; }
+  .fig-grid img { width:100%; height:160px; object-fit:cover; border-radius:10px; display:block; background:var(--bg); }
+  .fig-grid.largo img { height:220px; object-fit:contain; }
+  .fig-grid.retratos img { height:170px; object-position:top; }
+  .fig-unica { margin:16px auto; max-width:520px; }
+  .fig-unica img { width:100%; border-radius:10px; display:block; }
+  .fig-grid figcaption, .fig-unica figcaption, .fig-legenda { font-size:.8rem; color:var(--text-light); text-align:center; margin-top:6px; line-height:1.35; }
+  .fig-titulo { margin:22px 0 4px; font-size:.95rem; padding-left:10px; border-left:4px solid var(--secondary); }
+  .fig-titulo.erudita { border-left-color:#c9a227; }
+</style>
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CL1RMGB3SN');</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
+</head>
+<body class="ios resumo">
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="hero">
+  <h1>Sociologia — 3º Trimestre</h1>
+  <p class="subtitle">2ª série do Ensino Médio · 2026</p>
+  <div><span class="badge">História da Antropologia · Cultura Popular, Erudita e Contracultura · Indústria Cultural</span></div>
+  <div><span class="author">Caderno Digital</span></div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#t3" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#antropologia">História da Antropologia</a>
+    <a href="#culturas">Cultura Popular, Erudita e Contracultura</a>
+    <a href="#industria-cultural">Indústria Cultural</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="tip-box" style="margin-bottom:32px">
+  <strong>O que cai na prova</strong>
+  História da antropologia: origem colonial, evolucionismo, culturalismo, funcionalismo e estruturalismo ·
+  cultura popular e cultura erudita · contracultura: contexto e movimentos (beatniks, hippies, rastafáris e punks) ·
+  Escola de Frankfurt e Indústria Cultural de Adorno e Horkheimer · Walter Benjamin e a aura · cultura de massa e cultura pop.
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 1 — HISTÓRIA DA ANTROPOLOGIA
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="antropologia">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 1</span> História da Antropologia</h2>
+    <p class="meta">Período Colonial · Evolucionismo · Culturalismo · Funcionalismo · Estruturalismo</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Origem colonial e linha do tempo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A antropologia é uma ciência recente: surgiu no <strong>século XIX</strong>, mas vinha se formando desde o
+        <strong>período colonial</strong>, no contato europeu com os povos originários das Américas, da África e da Oceania.</p>
+        <figure class="fig-unica"><img src="socio-imgs/3tri/iceberg-cultural.jpg" alt="Ilustração do iceberg cultural" loading="lazy"><figcaption>O "iceberg cultural": a maior parte de uma cultura (valores, crenças, regras) fica abaixo da superfície, longe do que se vê.</figcaption></figure>
+        <div class="warn-box">
+          <strong>Relatos de viajantes a serviço da colonização</strong>
+          Os primeiros relatos eram enviados à Europa com um objetivo prático: extrair informações para entrar nos
+          territórios, conhecer alianças e conflitos entre os grupos, criar novos mercados e exterminar a população local.
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Escola</th><th>Período</th><th>Nomes</th><th>Ideia central</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Evolucionismo</strong></td><td>Século XIX</td><td>Tylor, Morgan, Frazer</td><td>Progresso único: selvagens → bárbaros → civilizados</td></tr>
+            <tr><td><strong>Culturalismo</strong></td><td>1888 até os anos 1940</td><td>Boas, Benedict, Mead</td><td>Relativismo; raça ≠ cultura</td></tr>
+            <tr><td><strong>Funcionalismo</strong></td><td>Fim da 1ª Guerra até os anos 1940</td><td>Malinowski</td><td>Todo costume cumpre uma função</td></tr>
+            <tr><td><strong>Estruturalismo</strong></td><td>1940 até 1970</td><td>Lévi-Strauss</td><td>Estruturas inconscientes comuns a todas as culturas</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Evolucionismo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>Século XIX.</strong> Nomes e obras: <strong>Edward Tylor</strong> (<em>Cultura Primitiva</em>, 1871),
+        <strong>Lewis Morgan</strong> (<em>Sociedade Antiga</em>, 1877) e <strong>James Frazer</strong> (<em>O Ramo de Ouro</em>, 1890).</p>
+        <div class="fig-grid retratos">
+          <figure><img src="socio-imgs/3tri/tylor.jpg" alt="Edward Tylor" loading="lazy"><figcaption>Edward Tylor</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/morgan.jpg" alt="Lewis Morgan" loading="lazy"><figcaption>Lewis Morgan</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/frazer.jpg" alt="James Frazer" loading="lazy"><figcaption>James Frazer</figcaption></figure>
+        </div>
+        <ul>
+          <li>Aplicavam as ideias de <strong>Charles Darwin</strong> (biologia) e de <strong>Herbert Spencer</strong> (filosofia) para explicar a diversidade cultural.</li>
+          <li><strong>Progresso unilinear</strong>: toda a humanidade seguiria um único caminho, em etapas: <strong>selvagens → bárbaros → civilizados</strong>.</li>
+          <li>Os povos chamados de "selvagens" eram vistos como um <strong>"museu vivo"</strong> do passado humano.</li>
+        </ul>
+        <figure class="fig-unica"><img src="socio-imgs/3tri/morgan-estagios.jpg" alt="Quadro com os estágios de Morgan" loading="lazy"><figcaption>Quadro de Morgan (Sociedade Antiga, 1877): os períodos da selvageria e da barbárie até a civilização, cada um marcado por uma invenção (fogo, arco e flecha, cerâmica, ferro, alfabeto).</figcaption></figure>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Método comparativo</h5>
+            <ul><li>Buscava semelhanças e padrões entre as sociedades para encaixá-las nas etapas</li></ul>
+          </div>
+          <div class="compare-card">
+            <h5>Antropologia de gabinete</h5>
+            <ul><li>Baseada em relatos de terceiros (viajantes, missionários); <strong>sem contato</strong> com os povos estudados</li></ul>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <strong>Etnocentrismo</strong>
+          Visão de um indivíduo ou grupo que julga outras culturas pelos próprios valores, tradições e crenças,
+          considerando-as inferiores ou erradas por não serem parecidas com a sua.
+        </div>
+        <div class="tip-box">
+          <strong>Etnocentrismo hoje (cai no questionário)</strong>
+          Pode ser <strong>inconsciente</strong>: aparece quando alguém acha outra cultura "estranha" ou "inferior" sem perceber que
+          está usando a sua como régua. E <strong>não desaparece com a globalização</strong>: o contato entre culturas, sozinho, não elimina
+          preconceitos, e a globalização também pode padronizar culturas. Por isso ela não fortalece automaticamente o relativismo.
+        </div>
+        <div class="warn-box">
+          <strong>Heranças do evolucionismo</strong>
+          Termos como "povos primitivos", "tribo" e "índios" continuam no senso comum. E o <strong>darwinismo social</strong>
+          (ideologia da "sobrevivência do mais apto") serviu para justificar o <strong>racismo</strong>, a <strong>eugenia</strong> e o <strong>imperialismo</strong>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Culturalismo <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>De 1888 até os anos 1940.</strong> Nomes e obras: <strong>Franz Boas</strong> (<em>Os objetivos da etnologia</em>, 1888),
+        <strong>Ruth Benedict</strong> (<em>Padrões de Cultura</em>, 1934) e <strong>Margaret Mead</strong> (<em>Sexo e Temperamento</em>, 1935).</p>
+        <div class="fig-grid retratos">
+          <figure><img src="socio-imgs/3tri/boas.jpg" alt="Franz Boas" loading="lazy"><figcaption>Franz Boas</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/benedict.jpg" alt="Ruth Benedict" loading="lazy"><figcaption>Ruth Benedict</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/mead.jpg" alt="Margaret Mead" loading="lazy"><figcaption>Margaret Mead</figcaption></figure>
+        </div>
+        <ul>
+          <li><strong>Separaram raça de cultura</strong>: as diferenças culturais não são explicadas pela biologia.</li>
+          <li>Rejeitaram a hierarquia entre povos "com cultura" e "sem cultura": toda sociedade tem cultura.</li>
+          <li><strong>Relativismo cultural</strong>: cada cultura deve ser compreendida dentro do seu próprio contexto e valores, sem impor padrões universais de moral ou superioridade.</li>
+          <li>Deram centralidade à <strong>etnografia</strong>.</li>
+          <li><strong>Margaret Mead</strong> (estudos em Samoa e na Nova Guiné) mostrou que o comportamento de homens e mulheres e a forma de viver a adolescência são <strong>moldados pela cultura</strong>, e não determinados pela biologia ou pela genética.</li>
+        </ul>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Etnografia / antropologia de campo</h5>
+            <ul>
+              <li>Coleta detalhada de costumes, línguas, comportamentos e visões de mundo</li>
+              <li>O pesquisador <strong>vive junto ao grupo</strong> estudado</li>
+            </ul>
+          </div>
+          <div class="compare-card">
+            <h5>"Método histórico"</h5>
+            <ul>
+              <li>Comparação apenas dentro de um <strong>território restrito</strong>, olhando a história própria de cada povo</li>
+              <li>Oposto às grandes comparações universais dos evolucionistas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="fig-grid">
+          <figure><img src="socio-imgs/3tri/campo-1.jpg" alt="Foto de pesquisa de campo" loading="lazy"></figure>
+          <figure><img src="socio-imgs/3tri/campo-2.jpg" alt="Foto de pesquisa de campo" loading="lazy"></figure>
+          <figure><img src="socio-imgs/3tri/campo-3.jpg" alt="Foto de pesquisa de campo" loading="lazy"></figure>
+          <figure><img src="socio-imgs/3tri/campo-4.jpg" alt="Foto de pesquisa de campo" loading="lazy"></figure>
+        </div>
+        <p class="fig-legenda">Fotos de pesquisas de campo usadas nos slides: o antropólogo passa a conviver com o grupo estudado.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Funcionalismo e o Kula <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>Do fim da Primeira Guerra Mundial até os anos 1940.</strong> Nome: <strong>Bronislaw Malinowski</strong>
+        (<em>Argonautas do Pacífico Ocidental</em>, 1922; <em>Magia, Ciência e Religião</em>, 1925).</p>
+        <div class="fig-grid retratos">
+          <figure><img src="socio-imgs/3tri/malinowski.jpg" alt="Bronislaw Malinowski" loading="lazy"><figcaption>Bronislaw Malinowski</figcaption></figure>
+        </div>
+        <ul>
+          <li>Toda instituição e todo costume existem para <strong>satisfazer necessidades biológicas e psicológicas</strong>: essa é a sua <strong>função</strong>.</li>
+          <li>A sociedade é um <strong>todo coerente</strong> de partes interdependentes, cada uma cumprindo funções para o equilíbrio do conjunto. O antropólogo precisa entender a <strong>"totalidade do real"</strong>.</li>
+          <li>Para descrever um grupo: <strong>esqueleto</strong> (organização e anatomia do grupo), <strong>sangue</strong> (cotidiano e atitudes) e <strong>espírito</strong> (modo de pensar).</li>
+          <li><strong>Método</strong>: trabalho de campo vivendo com o grupo, entendendo as funções <strong>do ponto de vista nativo</strong>.</li>
+          <li><strong>Sincronia, não diacronia</strong>: analisar a sociedade no momento presente, sem recorrer à sua história.</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>O Kula (Ilhas Trobriand)</strong>
+          Sistema complexo de <strong>trocas de objetos e alianças</strong> entre ilhas, com funções sociais e políticas: não é
+          presente altruísta nem busca de lucro imediato. Na cerimônia, todas as instituições do grupo são ativadas. A base é a
+          <strong>reciprocidade: dar, receber e retribuir</strong>.
+        </div>
+        <div class="fig-grid largo">
+          <figure><img src="socio-imgs/3tri/kula-mapa.jpg" alt="Mapa do circuito do Kula" loading="lazy"><figcaption>O circuito do Kula entre as ilhas</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/kula-foto.jpg" alt="Trabalho de campo nas Ilhas Trobriand" loading="lazy"><figcaption>Trabalho de campo nas Ilhas Trobriand</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Estruturalismo: Lévi-Strauss <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>De 1940 até 1970.</strong> Nome: <strong>Claude Lévi-Strauss</strong> (<em>As Estruturas Elementares do
+        Parentesco</em>, 1949; <em>Antropologia Estrutural</em>, 1958).</p>
+        <div class="fig-grid retratos">
+          <figure><img src="socio-imgs/3tri/levi-strauss.jpg" alt="Claude Lévi-Strauss" loading="lazy"><figcaption>Claude Lévi-Strauss</figcaption></figure>
+        </div>
+        <ul>
+          <li>Em todas as culturas há <strong>estruturas comuns</strong>.</li>
+          <li>A estrutura <strong>não é visível</strong>: é um modelo <strong>inconsciente</strong>, no campo das representações mentais, que o pesquisador precisa construir intelectualmente.</li>
+          <li>As culturas se organizam em <strong>sistemas simbólicos de oposição</strong>: iniciado/não iniciado, bem/mal, feminino/masculino.</li>
+          <li>Mitos, costumes e papéis de gênero são <strong>reflexos da estrutura da mente humana</strong>.</li>
+        </ul>
+        <div class="tip-box">
+          <strong>Papai Noel e os katchina</strong>
+          Lévi-Strauss compara o Papai Noel aos <strong>katchina</strong> dos povos Pueblo (sudoeste dos EUA): personagens mascarados
+          que encarnam deuses e ancestrais, voltam periodicamente à aldeia para punir ou recompensar as crianças, e os adultos
+          fazem de tudo para que elas não reconheçam os parentes sob o disfarce. Nos dois casos há um <strong>rito de iniciação</strong>
+          das crianças: a mesma estrutura em culturas muito diferentes.
+        </div>
+        <div class="fig-grid largo">
+          <figure><img src="socio-imgs/3tri/katchina.jpg" alt="Boneco katchina dos povos Pueblo" loading="lazy"><figcaption>Katchina (povos Pueblo)</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/papai-noel.jpg" alt="Papai Noel" loading="lazy"><figcaption>Papai Noel (Ocidente)</figcaption></figure>
+        </div>
+        <div class="highlight-box">
+          <strong>O tabu do incesto: ponto-chave da teoria</strong>
+          É o ponto de articulação entre <strong>natureza e cultura</strong>. Ao proibir o casamento dentro da família, obrigou os
+          grupos a buscar casamentos fora dela, criando <strong>redes de aliança, obrigação e cooperação</strong>: é isso que funda a
+          sociedade. É cultural porque é uma regra social e uma convenção (as formas variam de cultura para cultura), mas aparece em todas.
+        </div>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Etnologia</h5>
+            <ul><li>Comparação de várias etnografias para perceber as estruturas que as culturas compartilham</li></ul>
+          </div>
+          <div class="compare-card">
+            <h5>Binarismo</h5>
+            <ul><li>Pensamento que classifica o mundo em duas categorias opostas e mutuamente exclusivas</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 2 — CULTURA POPULAR, ERUDITA E CONTRACULTURA
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="culturas">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 2</span> Cultura Popular, Erudita e Contracultura</h2>
+    <p class="meta">Oralidade · Instituições · Capital cultural · Beatniks · Hippies · Rastafáris · Punks</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Cultura popular x cultura erudita <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="highlight-box">
+          <strong>Pergunta de partida</strong>
+          Por que classificamos uma manifestação como "erudita" e outra como "popular"? O que define o valor cultural?
+        </div>
+        <div class="fig-grid largo">
+          <figure><img src="socio-imgs/3tri/mona-lisa.jpg" alt="Mona Lisa" loading="lazy"><figcaption>Mona Lisa, de Leonardo da Vinci</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/mascara.jpg" alt="Máscara de madeira" loading="lazy"><figcaption>Máscara esculpida em madeira</figcaption></figure>
+        </div>
+        <p class="fig-legenda">As duas imagens do slide: por que uma vai para o museu como "arte" e a outra costuma ser chamada de "artesanato"?</p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Cultura popular</h5>
+            <ul>
+              <li>Expressa a sabedoria, o cotidiano e a identidade de um povo</li>
+              <li>Nasce <strong>espontaneamente</strong> nas comunidades</li>
+              <li><strong>Oralidade e tradição</strong>: passa de geração em geração, sem manuais nem diplomas</li>
+              <li><strong>Identidade comunitária</strong>: fortalece o pertencimento a um grupo ou região</li>
+              <li><strong>Dinamismo</strong>: não é estática; ganha novos significados e elementos com o tempo</li>
+              <li>Exemplos brasileiros: <strong>samba</strong>, <strong>cordel</strong>, bumba meu boi, capoeira</li>
+            </ul>
+          </div>
+          <div class="compare-card">
+            <h5>Cultura erudita</h5>
+            <ul>
+              <li>Associada às <strong>elites econômicas e intelectuais</strong></li>
+              <li>Surge em <strong>instituições formais</strong>: academia, escolas, museus, teatros de ópera, conservatórios</li>
+              <li>Exige <strong>aprendizado formal/técnico</strong> para ser criada e, muitas vezes, apreciada</li>
+              <li>Historicamente financiada pelo <strong>Estado ou por mecenas</strong></li>
+              <li>Acesso restrito por barreiras econômicas ou pelo <strong>capital cultural</strong> prévio</li>
+              <li>Busca complexidade técnica, rigor estético, durabilidade e preservação em acervos</li>
+            </ul>
+          </div>
+        </div>
+        <h4 class="fig-titulo popular">Exemplos de cultura popular</h4>
+        <div class="fig-grid">
+          <figure><img src="socio-imgs/3tri/popular-1.jpg" alt="Filtros de barro" loading="lazy"><figcaption>Filtros de barro</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/popular-2.jpg" alt="Bumba meu boi" loading="lazy"><figcaption>Bumba meu boi</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/popular-3.jpg" alt="Literatura de cordel" loading="lazy"><figcaption>Literatura de cordel</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/popular-4.jpg" alt="Capoeira (gravura de Rugendas)" loading="lazy"><figcaption>Capoeira (gravura de Rugendas)</figcaption></figure>
+        </div>
+        <h4 class="fig-titulo erudita">Exemplos de cultura erudita</h4>
+        <div class="fig-grid">
+          <figure><img src="socio-imgs/3tri/erudita-1.jpg" alt="Orquestra sinfônica" loading="lazy"><figcaption>Orquestra sinfônica</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/erudita-2.jpg" alt="Balé clássico" loading="lazy"><figcaption>Balé clássico</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/erudita-3.jpg" alt="Pintura religiosa clássica" loading="lazy"><figcaption>Pintura religiosa clássica (museus)</figcaption></figure>
+        </div>
+        <div class="tip-box">
+          <strong>Erro comum</strong>
+          Cultura popular não é "cultura parada no tempo": o resumo destaca justamente o seu <strong>dinamismo</strong>.
+          E a diferença entre as duas está na <strong>origem, na transmissão e no acesso</strong>, não em uma ser "melhor" que a outra.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Contracultura: o que foi e por que surgiu <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A contracultura surgiu entre o <strong>fim dos anos 1950</strong> e, principalmente, a <strong>década de 1960</strong>.
+        O termo foi popularizado pelo historiador <strong>Theodore Roszak</strong> (livro de 1969) para descrever um movimento
+        social, cultural e político de uma nova juventude que <strong>rejeitava os valores, o modo de vida e as instituições</strong>
+        da sociedade ocidental do pós-guerra. Esses valores se expressaram no <strong>rock</strong>, na <strong>moda hippie</strong> e nos <strong>movimentos estudantis</strong>.</p>
+        <div class="fig-grid retratos">
+          <figure><img src="socio-imgs/3tri/roszak.jpg" alt="Theodore Roszak" loading="lazy"><figcaption>Theodore Roszak</figcaption></figure>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Momento</th><th>O que aconteceu</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Anos 1950</strong></td><td>Crescimento econômico e ascensão da classe média no Ocidente. Pela primeira vez, os jovens são vistos como um <strong>grupo social e consumidor próprio</strong>, longe das responsabilidades adultas imediatas.</td></tr>
+            <tr><td><strong>Anos 1960</strong></td><td>A tensão EUA × URSS (Guerra Fria) gera incerteza sobre o futuro. A juventude questiona o <strong>pragmatismo e o autoritarismo</strong> das gerações anteriores, que pareciam levar o mundo à destruição.</td></tr>
+            <tr><td><strong>Guerra do Vietnã</strong><br>(EUA no conflito, 1964-1973)</td><td>O envio obrigatório de jovens americanos ao Vietnã gera indignação. Surge o lema <strong>"Faça amor, não faça a guerra"</strong>, rejeição direta ao militarismo do Estado.</td></tr>
+            <tr><td><strong>1968</strong></td><td>Ano de revoltas pelo mundo. Na França, o <strong>Maio de 1968</strong> reuniu greves estudantis e operárias. Nos EUA, ganhavam força a luta contra o racismo (Martin Luther King Jr., assassinado em abril de 1968, e os Panteras Negras), a segunda onda do feminismo e a revolução sexual, favorecida pela pílula anticoncepcional.</td></tr>
+          </tbody>
+        </table>
+        <div class="fig-grid">
+          <figure><img src="socio-imgs/3tri/vietna.jpg" alt="Soldados americanos no Vietnã" loading="lazy"><figcaption>Soldados americanos no Vietnã</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/mlk.jpg" alt="Martin Luther King Jr." loading="lazy"><figcaption>Martin Luther King Jr.</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/panteras.jpg" alt="Panteras Negras" loading="lazy"><figcaption>Panteras Negras</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/feminismo.jpg" alt="Segunda onda do feminismo" loading="lazy"><figcaption>Segunda onda do feminismo</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/maio-68.jpg" alt="Maio de 1968, Paris" loading="lazy"><figcaption>Maio de 1968, Paris</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Beatniks <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Surgiram no fim dos anos 1940 e se consolidaram nos <strong>anos 1950 nos EUA</strong>. Expoentes:
+        <strong>Jack Kerouac</strong>, <strong>Allen Ginsberg</strong> e <strong>William S. Burroughs</strong>.</p>
+        <div class="fig-grid largo">
+          <figure><img src="socio-imgs/3tri/beatniks-1.jpg" alt="Beatniks" loading="lazy"></figure>
+          <figure><img src="socio-imgs/3tri/beatniks-2.jpg" alt="Beatniks" loading="lazy"></figure>
+        </div>
+        <ul>
+          <li><strong>Ruptura com o "Sonho Americano"</strong>: rejeição ao consumismo, ao puritanismo e à vida suburbana padronizada do pós-guerra.</li>
+          <li>Busca por estados alterados de consciência, <strong>viagens sem rumo</strong> como busca existencial (<em>On the Road</em>, de Kerouac) e interesse pelas filosofias orientais (<strong>Budismo Zen</strong>).</li>
+          <li>Literatura com <strong>fluxo de consciência</strong>, linguagem de rua, ritmo do <strong>jazz (bebop)</strong> e versos livres sobre sexo, drogas e angústia existencial.</li>
+          <li>Vida boêmia em cafés, clubes de jazz e comunidades urbanas marginalizadas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Hippies <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>O <strong>ápice da contracultura dos anos 1960</strong>, com centros em San Francisco e Nova York, movido pela
+        juventude contra a Guerra do Vietnã e o estilo de vida corporativo.</p>
+        <div class="fig-grid largo">
+          <figure><img src="socio-imgs/3tri/hippies-1.jpg" alt="Hippies" loading="lazy"></figure>
+          <figure><img src="socio-imgs/3tri/hippies-2.jpg" alt="Ônibus hippie pintado" loading="lazy"></figure>
+        </div>
+        <ul>
+          <li><strong>Pacifismo e antimilitarismo</strong>: lema <em>"Make Love, Not War"</em> e resistência ao alistamento militar.</li>
+          <li><strong>Revolução sexual</strong>: questionamento do casamento tradicional, amor livre, emancipação do corpo e uso da pílula.</li>
+          <li><strong>Vida em comunidades rurais coletivas</strong>, retorno à natureza, alimentação natural/vegetariana e exploração sensorial.</li>
+          <li><strong>Estética</strong>: roupas artesanais, tie-dye, cabelos compridos e flores como símbolo de não violência (<em>Flower Power</em>).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Rastafáris <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Surgiu na <strong>Jamaica nos anos 1930</strong>, nas classes populares urbanas e rurais, e ganhou projeção
+        mundial nos <strong>anos 1970</strong> com o <strong>reggae</strong> de <strong>Bob Marley</strong>.</p>
+        <div class="fig-grid largo">
+          <figure><img src="socio-imgs/3tri/selassie.jpg" alt="Haile Selassie I" loading="lazy"><figcaption>Haile Selassie I</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/rastas.jpg" alt="Rastafáris" loading="lazy"><figcaption>Rastafáris</figcaption></figure>
+        </div>
+        <ul>
+          <li><strong>Movimento messiânico e de fé</strong>: reverenciam <strong>Jah</strong> (Deus) e veem o imperador etíope <strong>Haile Selassie I</strong> como a encarnação divina. A Bíblia é lida de forma afrocentrada, pela libertação do povo negro.</li>
+          <li><strong>"Babilônia"</strong>: nome dado ao sistema ocidental capitalista e colonialista, que corrompe a alma e a conexão com a natureza.</li>
+          <li><strong>Orgulho e identidade negra</strong>: rejeição à assimilação da cultura branca europeia e valorização das raízes africanas; a Etiópia é a terra prometida (<strong>Zion</strong>).</li>
+          <li><strong>Práticas</strong>: alimentação <em>Ital</em> (natural e orgânica), uso ritual da cannabis (<em>ganja</em>) como sacramento e os <strong>dreadlocks</strong> como voto de fé, símbolo do Leão de Judá e recusa do padrão estético ocidental.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Punks <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Surgiu em meados dos <strong>anos 1970</strong>, em <strong>Londres e Nova York</strong>, em meio à crise econômica,
+        ao desemprego jovem e ao fim das utopias dos anos 1960.</p>
+        <div class="fig-grid largo">
+          <figure><img src="socio-imgs/3tri/punks-1.jpg" alt="Punks" loading="lazy"></figure>
+          <figure><img src="socio-imgs/3tri/punks-2.jpg" alt="Punks" loading="lazy"></figure>
+        </div>
+        <ul>
+          <li><strong>Movimento político</strong>: muitos punks assumiram o <strong>anarquismo</strong> (anarcopunk), defendendo a abolição do Estado e criticando o capitalismo, o fascismo, o militarismo e qualquer hierarquia opressora; no Reino Unido, o alvo foi o governo de <strong>Margaret Thatcher</strong> (1979-1990).</li>
+          <li><strong>Ética DIY (Do It Yourself / Faça Você Mesmo)</strong>: produção cultural independente e autogestionária, com fanzines xerocados, selos comunitários, shows sem intermediação do mercado e roupas customizadas.</li>
+          <li>Lema <strong>"No Future"</strong> (Sem Futuro): denúncia da falta de perspectiva da juventude trabalhadora e rejeição à moral burguesa.</li>
+          <li><strong>Estética de choque</strong>: ruptura com a beleza clássica e com o visual hippie; jaquetas de couro rasgadas, coturnos, alfinetes e moicanos coloridos para expor a decadência do sistema.</li>
+        </ul>
+        <table class="data-table">
+          <thead><tr><th>Movimento</th><th>Onde e quando</th><th>Marca registrada</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Beatniks</strong></td><td>EUA, anos 1950</td><td>Literatura, jazz, <em>On the Road</em></td></tr>
+            <tr><td><strong>Hippies</strong></td><td>EUA, anos 1960</td><td>Pacifismo, <em>Flower Power</em>, comunidades</td></tr>
+            <tr><td><strong>Rastafáris</strong></td><td>Jamaica, anos 1930 (global nos anos 1970)</td><td>Fé em Jah, "Babilônia", reggae</td></tr>
+            <tr><td><strong>Punks</strong></td><td>Londres e Nova York, anos 1970</td><td>DIY, anarquismo, "No Future"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CAP. 3 — ESCOLA DE FRANKFURT E INDÚSTRIA CULTURAL
+     ══════════════════════════════════════════════ -->
+<section class="chapter" id="industria-cultural">
+  <div class="chapter-header">
+    <h2><span class="ch-tag">Cap. 3</span> Escola de Frankfurt e Indústria Cultural</h2>
+    <p class="meta">Teoria Crítica · Razão Instrumental · Adorno e Horkheimer · Walter Benjamin · Cultura Pop</p>
+  </div>
+
+  <div class="accordion open">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A Escola de Frankfurt <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>Corrente de teoria social e filosofia fundada na <strong>Alemanha nos anos 1920</strong>, em torno do
+        <strong>Instituto para a Pesquisa Social</strong> da Universidade de Frankfurt.</p>
+        <div class="fig-grid largo">
+          <figure><img src="socio-imgs/3tri/frankfurt-instituto.jpg" alt="Instituto para a Pesquisa Social, Frankfurt" loading="lazy"><figcaption>Instituto para a Pesquisa Social, Frankfurt</figcaption></figure>
+        </div>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Teoria Crítica</h5>
+            <ul>
+              <li>Oposição à <strong>teoria tradicional</strong> e ao <strong>positivismo</strong></li>
+              <li>O conhecimento <strong>não é neutro</strong></li>
+              <li>Deve servir para <strong>emancipar</strong> o ser humano, e não só descrever ou justificar a sociedade</li>
+            </ul>
+          </div>
+          <div class="compare-card">
+            <h5>Crítica à Razão Instrumental</h5>
+            <ul>
+              <li>Razão usada só como ferramenta de <strong>cálculo e eficiência técnica</strong></li>
+              <li>Serve à <strong>dominação</strong> da natureza e das pessoas</li>
+              <li>Para eles, abriu caminho para tragédias como o <strong>nazismo</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">O que é Indústria Cultural <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <div class="highlight-box">
+          <strong>Origem do termo</strong>
+          Criado por <strong>Theodor Adorno</strong> (1903-1969) e <strong>Max Horkheimer</strong> (1895-1973) na década
+          de 1940, no livro <em>Dialética do Esclarecimento: Fragmentos Filosóficos</em>.
+        </div>
+        <div class="fig-grid retratos">
+          <figure><img src="socio-imgs/3tri/adorno-horkheimer-1.jpg" alt="Theodor Adorno ou Max Horkheimer" loading="lazy"></figure>
+          <figure><img src="socio-imgs/3tri/adorno-horkheimer-2.jpg" alt="Theodor Adorno ou Max Horkheimer" loading="lazy"></figure>
+        </div>
+        <p class="fig-legenda">Theodor Adorno e Max Horkheimer.</p>
+        <p>Indústria Cultural é o processo pelo qual a produção cultural e artística passa a seguir a
+        <strong>mesma lógica do sistema capitalista</strong>: a criação vira um <strong>produto padronizado</strong>,
+        feito para o <strong>consumo em massa</strong> e voltado ao <strong>lucro</strong>.</p>
+        <ul>
+          <li>Os produtos culturais são <strong>fabricados em série</strong>, seguindo fórmulas que garantem aceitação do público.</li>
+          <li>O resultado é uma experiência <strong>previsível e repetitiva</strong>, que deixa de lado a criatividade e a originalidade.</li>
+        </ul>
+        <div class="warn-box">
+          <strong>Ela não só diverte: molda mentalidades</strong>
+          A Indústria Cultural impede que os indivíduos questionem o sistema, reforça o <strong>conformismo</strong> e
+          cria uma <strong>falsa sensação de liberdade</strong>. Manipula os desejos e torna as pessoas
+          <strong>passivas</strong> diante do mercado, reproduzindo padrões que reforçam as estruturas de dominação.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Efeitos: alienação, ideologia e decadência <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Efeito</th><th>O que significa</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Alienação</strong></td><td>O consumo de produtos padronizados <strong>despersonaliza</strong> o indivíduo (torna-o alheio a si mesmo): ele perde autonomia e capacidade de pensamento crítico.</td></tr>
+            <tr><td><strong>Reprodução de ideologias</strong></td><td>Legitima os interesses das <strong>classes dominantes</strong>, perpetua as desigualdades e reforça a ideologia capitalista.</td></tr>
+            <tr><td><strong>Decadência da cultura</strong></td><td>A cultura popular e a erudita são <strong>simplificadas e descontextualizadas</strong>, perdendo autenticidade e valor crítico.</td></tr>
+          </tbody>
+        </table>
+        <h4>Exemplos</h4>
+        <table class="data-table">
+          <thead><tr><th>Exemplo</th><th>Como funciona</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cinema de Hollywood</strong></td><td>Filmes com fórmulas de sucesso: histórias previsíveis de heróis e finais felizes.</td></tr>
+            <tr><td><strong>Música pop</strong></td><td>Canções fáceis de assimilar, com padrões de ritmo, letra e melodia que garantem sucesso comercial.</td></tr>
+            <tr><td><strong>TV e streaming</strong></td><td>Séries e programas feitos para prender a atenção e manter o consumo contínuo.</td></tr>
+            <tr><td><strong>Publicidade</strong></td><td>Vende estilos de vida, não só produtos: a ilusão de que felicidade e sucesso dependem do consumo.</td></tr>
+            <tr><td><strong>Fast fashion</strong></td><td>Moda rápida e barata que transforma roupas em bens descartáveis, com tendências de curta duração.</td></tr>
+          </tbody>
+        </table>
+        <div class="fig-grid">
+          <figure><img src="socio-imgs/3tri/hollywood.jpg" alt="Pôsteres de filmes de super-heróis" loading="lazy"><figcaption>Hollywood: fórmulas de herói</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/musica-pop.jpg" alt="Vídeo comparando músicas pop parecidas" loading="lazy"><figcaption>Música pop: "músicas muito parecidas"</figcaption></figure>
+          <figure><img src="socio-imgs/3tri/series.jpg" alt="Elenco de série de TV" loading="lazy"><figcaption>Séries que prendem a atenção</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Lazer, catarse e ideologia <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <table class="data-table">
+          <thead><tr><th>Ideia</th><th>O que significa</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Lazer como prolongamento do trabalho</strong></td><td>Para Adorno, a diversão padronizada repete o ritmo e a lógica da fábrica: o tempo livre serve para descansar e voltar a trabalhar, não para pensar.</td></tr>
+            <tr><td><strong>Entretenimento como distração</strong></td><td>O entretenimento padronizado <strong>distrai</strong>, não emancipa. Ele desvia a atenção dos problemas reais em vez de ajudar a questioná-los.</td></tr>
+            <tr><td><strong>Catarse</strong></td><td>Para Aristóteles, a catarse era a purificação das emoções pela arte (como na tragédia grega). A crítica frankfurtiana a reinterpreta como <strong>descarga emocional sem reflexão</strong>: a pessoa chora ou se empolga e sai igual.</td></tr>
+            <tr><td><strong>Ideologia</strong></td><td>Conceito de <strong>Marx</strong> retomado pela Escola de Frankfurt: um mecanismo que faz as relações de dominação parecerem <strong>naturais</strong>, como se sempre tivessem sido assim.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Indústria Cultural hoje: internet e streaming <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>As ideias de Adorno e Horkheimer continuam sendo usadas para pensar a cultura digital:</p>
+        <ul>
+          <li>As <strong>plataformas de streaming</strong> funcionam como novas formas de <strong>padronização cultural</strong> (algoritmos que recomendam mais do mesmo, séries feitas para maratonar).</li>
+          <li>Ter <strong>acesso à internet não garante</strong> que todos se tornem produtores culturais autônomos.</li>
+          <li>A <strong>produção colaborativa</strong> na internet <strong>não substituiu</strong> a dominação econômica: as grandes empresas continuam controlando as plataformas.</li>
+          <li>O <strong>excesso de informação</strong> pode reforçar a alienação, em vez de ampliar a consciência crítica.</li>
+          <li>A cultura erudita <strong>não ficou totalmente acessível</strong> com a internet: as desigualdades de acesso (econômicas e de capital cultural) continuam.</li>
+        </ul>
+        <div class="warn-box">
+          <strong>Pegadinha comum</strong>
+          Frases com "garante", "totalmente", "elimina" ou "sempre" sobre a internet costumam ser <strong>falsas</strong> no questionário:
+          a tecnologia amplia possibilidades, mas não acaba com a desigualdade nem com a dominação.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Cultura de massa e a falsa liberdade <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>A Indústria Cultural cria uma nova forma de cultura, voltada ao consumo e ao lucro: a <strong>cultura de massa</strong>.</p>
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h5>Cultura popular e erudita</h5>
+            <ul>
+              <li>Os bens culturais se sustentam por uma <strong>tradição histórica</strong></li>
+              <li>E por <strong>valores compartilhados</strong></li>
+            </ul>
+          </div>
+          <div class="compare-card">
+            <h5>Cultura de massa</h5>
+            <ul>
+              <li><strong>Readapta</strong> esses bens para o consumo do maior número de pessoas</li>
+              <li>Independe da classe social do consumidor</li>
+            </ul>
+          </div>
+        </div>
+        <p>Para atingir as pessoas, a indústria usa os <strong>meios de comunicação de massa</strong> (TV, rádio,
+        internet) e a <strong>publicidade e o marketing</strong>. Eles dão uma <strong>falsa sensação de poder e de
+        liberdade</strong>, oferecendo produtos que parecem feitos sob medida para cada consumidor.</p>
+        <div class="highlight-box">
+          <strong>Por que a liberdade é ilusória?</strong>
+          Os produtos muitas vezes não entregam o que prometem (felicidade, sucesso, juventude). Isso gera um
+          <strong>ciclo de consumo</strong> que reforça a passividade do sujeito e mantém o sistema que o domina.
+          Quem não se alinha às exigências do consumo é tratado como "anormal" pela sociedade.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">A Indústria Cultural pode ser boa? Walter Benjamin <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p><strong>Walter Benjamin</strong> (1892-1940), também ligado à Escola de Frankfurt, via outro lado: o mesmo
+        sistema que aliena poderia <strong>democratizar a arte</strong>, ampliando seu alcance. A tecnologia poderia
+        difundir a cultura de forma acessível e transformadora.</p>
+        <div class="fig-grid retratos">
+          <figure><img src="socio-imgs/3tri/benjamin.jpg" alt="Walter Benjamin" loading="lazy"><figcaption>Walter Benjamin</figcaption></figure>
+        </div>
+        <div class="warn-box">
+          <strong>A perda da aura</strong>
+          Mesmo assim, Benjamin notava que o excesso de reprodução de uma obra elimina a sua <strong>aura</strong>:
+          cada vez que a obra é copiada, ela perde parte da sua <strong>singularidade</strong>.
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Potencial positivo</th><th>Ideia</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Democratização da arte</strong></td><td>A produção em massa permite que mais pessoas tenham acesso à cultura.</td></tr>
+            <tr><td><strong>Ressignificação da arte</strong></td><td>A arte pode ser transformada e difundida para promover mudanças sociais.</td></tr>
+            <tr><td><strong>Acesso à produção cultural</strong></td><td>Ferramentas tecnológicas permitem criar cultura mesmo fora do sistema comercial.</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">
+          <strong>Para não confundir</strong>
+          Apesar desses potenciais, a Indústria Cultural geralmente <strong>prioriza o lucro</strong> e deixa de lado
+          o seu papel transformador. Adorno e Horkheimer = visão pessimista; Benjamin = vê riscos (perda da aura) e
+          também possibilidades (democratização).
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)">Cultura pop <span class="chev">▾</span></button>
+    <div class="accordion-content">
+      <div class="content-block">
+        <p>É o conjunto de ideias, práticas, imagens e objetos que se tornaram <strong>amplamente populares</strong>,
+        adotados e ressignificados pelas pessoas em determinado período. Envolve linguagem compartilhada, estética e
+        pertencimento social.</p>
+        <ul>
+          <li><strong>Origem híbrida</strong>: pode nascer da indústria de massa, mas ganha vida própria no engajamento das pessoas e comunidades.</li>
+          <li><strong>Apropriação pelo público</strong>: o público não é só passivo; cria memes, teorias, roupas e eventos (cosplay, convenções) e dá novos sentidos às obras.</li>
+          <li><strong>Identidade</strong>: funciona como um "código cultural" que une gerações ou grupos urbanos.</li>
+          <li>O que é "pop" <strong>muda com frequência</strong>, conforme o interesse da sociedade.</li>
+          <li>Se caracteriza pela <strong>repetição</strong> e pela <strong>fácil assimilação</strong> de símbolos e narrativas.</li>
+          <li><strong>Tem impacto político</strong>: não é "só entretenimento"; pode reforçar ou contestar valores, padrões e identidades.</li>
+        </ul>
+        <div class="highlight-box">
+          <strong>Exemplo: Star Wars e Marvel</strong>
+          Foram criados por grandes estúdios (indústria de massa), mas viraram cultura pop porque os fãs adotaram essa
+          linguagem no dia a dia: convenções, fanfics, memes e identidades de grupo.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ
+     ══════════════════════════════════════════════ -->
+<section id="quiz-section">
+  <a id="quiz"></a>
+  <h2>Quiz de Revisão</h2>
+  <p>38 questões (múltipla escolha e verdadeiro ou falso) sobre história da antropologia, cultura popular e erudita, contracultura e Indústria Cultural.</p>
+
+  <div class="quiz-topbar">
+    <div class="score-left">
+      <div class="mini-donut-wrap">
+        <svg width="44" height="44" viewBox="0 0 44 44">
+          <circle cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"/>
+          <circle id="mini-arc" cx="22" cy="22" r="17" fill="none" stroke="#e0e0e0" stroke-width="5"
+                  stroke-dasharray="106.8" stroke-dashoffset="106.8" stroke-linecap="round"
+                  transform="rotate(-90 22 22)"/>
+        </svg>
+        <span id="mini-pct">—</span>
+      </div>
+      <div class="score-live" id="score-live">Placar: <strong>0 / 38</strong></div>
+    </div>
+    <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
+  <div class="quiz-filter">
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas</button>
+    <button class="filter-btn" onclick="filterQuiz('cap1',this)">Cap. 1 — Antropologia</button>
+    <button class="filter-btn" onclick="filterQuiz('cap2',this)">Cap. 2 — Culturas e Contracultura</button>
+    <button class="filter-btn" onclick="filterQuiz('cap3',this)">Cap. 3 — Indústria Cultural</button>
+  </div>
+
+
+  <!-- Q1 -->
+  <div class="question-card" data-chapter="cap1" id="q1">
+    <p class="q-fonte">Os primeiros relatos sobre os povos das Américas, da África e da Oceania eram enviados à Europa por viajantes e administradores coloniais.</p>
+    <h4>1. A origem da antropologia está ligada a esses relatos porque eles</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q1','a')">a) registravam as culturas locais com neutralidade científica, sem nenhum interesse político ou econômico.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','b')">b) eram produzidos por antropólogos que viviam anos com os grupos estudados, como na etnografia.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','c')">c) defendiam o relativismo, avaliando cada cultura segundo os seus próprios valores e contextos.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','d')">d) serviam para entrar nos territórios, conhecer alianças, abrir mercados e dominar os povos locais.</button>
+      <button class="option-btn" onclick="checkQuiz('q1','e')">e) comprovavam que todas as culturas compartilham as mesmas estruturas inconscientes da mente.</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="question-card" data-chapter="cap1" id="q2">
+    <p class="q-fonte">No século XIX, Lewis Morgan classificou as sociedades em estágios: selvageria, barbárie e civilização. Os povos "selvagens" seriam um retrato vivo do passado da humanidade.</p>
+    <h4>2. Essa visão é típica do</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q2','a')">a) evolucionismo, que supunha um progresso unilinear e servia de base ao etnocentrismo.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','b')">b) culturalismo, que separava raça e cultura e defendia o relativismo cultural entre os povos.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','c')">c) funcionalismo, que explicava cada costume pela necessidade biológica ou psicológica que satisfaz.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','d')">d) estruturalismo, que buscava oposições binárias inconscientes presentes em todas as culturas.</button>
+      <button class="option-btn" onclick="checkQuiz('q2','e')">e) culturalismo, que comparava as culturas apenas dentro de um território restrito e delimitado.</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="question-card" data-chapter="cap1" id="q3">
+    <p class="q-fonte">James Frazer escreveu O Ramo de Ouro (1890) sem nunca ter visitado os povos sobre os quais escrevia, usando relatos de missionários e viajantes.</p>
+    <h4>3. Esse modo de trabalhar ficou conhecido como</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q3','a')">a) antropologia de campo, típica dos culturalistas e de Malinowski, que viviam junto ao grupo.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','b')">b) etnologia estrutural, que compara várias etnografias em busca de estruturas compartilhadas.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','c')">c) antropologia de gabinete, feita com relatos de terceiros, sem contato com os povos.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','d')">d) método histórico, que limita a comparação a um território restrito e à sua história própria.</button>
+      <button class="option-btn" onclick="checkQuiz('q3','e')">e) sincronia funcionalista, que analisa apenas o presente e evita qualquer explicação histórica.</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="question-card" data-chapter="cap1" id="q4">
+    <p class="q-fonte">Franz Boas mostrou que as diferenças entre os povos não são explicadas pela biologia, e que cada cultura deve ser entendida segundo os seus próprios valores.</p>
+    <h4>4. Essas ideias correspondem, respectivamente,</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q4','a')">a) ao darwinismo social e ao método comparativo dos evolucionistas.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','b')">b) à separação entre raça e cultura e ao relativismo cultural.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','c')">c) ao tabu do incesto e ao binarismo de Lévi-Strauss.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','d')">d) à função das instituições e à sincronia de Malinowski.</button>
+      <button class="option-btn" onclick="checkQuiz('q4','e')">e) à aura da obra de arte e à democratização da cultura.</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="question-card" data-chapter="cap1" id="q5">
+    <p class="q-fonte">Nas Ilhas Trobriand, Malinowski observou o Kula: colares e braceletes circulam entre ilhas, são dados, recebidos e retribuídos, criando alianças políticas e sociais.</p>
+    <h4>5. Pela ótica funcionalista, o Kula deve ser entendido</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q5','a')">a) como etapa do caminho rumo à civilização, comparável ao passado dos europeus.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','b')">b) como troca de presentes altruísta, sem relação com a política entre as ilhas.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','c')">c) como negócio voltado ao lucro imediato de cada participante da troca.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','d')">d) como resto de uma tradição antiga, que só a história das ilhas pode explicar.</button>
+      <button class="option-btn" onclick="checkQuiz('q5','e')">e) pela função que cumpre no todo social, ativando as instituições do grupo.</button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="question-card" data-chapter="cap1" id="q6">
+    <p class="q-fonte">Para Lévi-Strauss, a proibição do incesto existe em todas as sociedades, embora as regras sobre quem é parente proibido mudem de uma para outra.</p>
+    <h4>6. Por isso, o tabu do incesto é considerado</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q6','a')">a) uma prova de que as culturas evoluem por etapas fixas, da selvageria à civilização.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','b')">b) um fato puramente biológico, que não depende de nenhuma regra ou convenção social.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','c')">c) a passagem da natureza à cultura, pois força alianças entre famílias e funda a sociedade.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','d')">d) um costume sem função, que sobrevive só por tradição e tende a desaparecer.</button>
+      <button class="option-btn" onclick="checkQuiz('q6','e')">e) um produto da Indústria Cultural, difundido pelos meios de comunicação de massa.</button>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="question-card" data-chapter="cap1" id="q7">
+    <p class="q-fonte">Lévi-Strauss comparou o Papai Noel aos katchina dos povos Pueblo: figuras mascaradas que encarnam ancestrais, visitam as aldeias, punem ou recompensam as crianças e escondem a identidade dos adultos.</p>
+    <h4>7. Com essa comparação, ele procurava mostrar que</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q7','a')">a) os povos Pueblo copiaram o Papai Noel a partir do contato com os colonizadores europeus.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','b')">b) culturas muito diferentes podem compartilhar a mesma estrutura inconsciente, como um rito de iniciação.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','c')">c) o Papai Noel é um produto da Indústria Cultural, feito para estimular o consumo no fim do ano.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','d')">d) as culturas indígenas estão em um estágio anterior ao da civilização ocidental.</button>
+      <button class="option-btn" onclick="checkQuiz('q7','e')">e) cada cultura é única e nada pode ser comparado entre sociedades diferentes.</button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="question-card" data-chapter="cap1" id="q8">
+    <p class="q-fonte">Tylor, Morgan e Frazer faziam longas permanências em campo, observando diretamente as culturas que estudavam.</p>
+    <h4>8. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q8','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q8','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="question-card" data-chapter="cap1" id="q9">
+    <p class="q-fonte">O culturalismo de Franz Boas afirmava que todas as culturas seguem a mesma trajetória evolutiva rumo à civilização.</p>
+    <h4>9. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q9','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q9','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="question-card" data-chapter="cap1" id="q10">
+    <p class="q-fonte">Margaret Mead concluiu que o comportamento das mulheres samoanas era determinado pela genética.</p>
+    <h4>10. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q10','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q10','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="question-card" data-chapter="cap1" id="q11">
+    <p class="q-fonte">Para Malinowski, cada instituição social cumpre uma função, e a análise deve focar o presente, não a origem histórica.</p>
+    <h4>11. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q11','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q11','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="question-card" data-chapter="cap1" id="q12">
+    <p class="q-fonte">O etnocentrismo pode ser inconsciente, como quando alguém acha outra cultura "estranha" sem perceber que usa a própria como régua.</p>
+    <h4>12. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q12','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q12','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="question-card" data-chapter="cap1" id="q13">
+    <p class="q-fonte">A globalização elimina o etnocentrismo, porque o contato entre culturas acaba com os preconceitos.</p>
+    <h4>13. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q13','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q13','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="question-card" data-chapter="cap2" id="q14">
+    <p class="q-fonte">O bumba meu boi do Maranhão é aprendido nas festas, com os mais velhos, e ganha elementos novos a cada geração sem deixar de ser reconhecido pela comunidade.</p>
+    <h4>14. Esse exemplo reúne características da cultura popular, como</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q14','a')">a) aprendizado formal, financiamento de mecenas e preservação em acervos de grandes museus.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','b')">b) produção em série, fórmulas de sucesso e foco exclusivo no lucro das empresas.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','c')">c) rejeição dos valores da sociedade e busca de estados alterados de consciência.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','d')">d) oralidade, identidade comunitária e dinamismo, ganhando significados com o tempo.</button>
+      <button class="option-btn" onclick="checkQuiz('q14','e')">e) imutabilidade, já que qualquer elemento novo descaracteriza a tradição original.</button>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="question-card" data-chapter="cap2" id="q15">
+    <p class="q-fonte">Para compor uma ópera, um músico estuda anos em um conservatório; para apreciá-la plenamente, o público costuma precisar de conhecimento prévio, além de pagar ingressos caros.</p>
+    <h4>15. As características descritas são típicas da cultura</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q15','a')">a) popular, por expressar o cotidiano, a sabedoria e a identidade de um povo.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','b')">b) erudita, pela formação técnica exigida e pelo acesso restrito.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','c')">c) de massa, por depender dos meios de comunicação e da propaganda.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','d')">d) pop, por ser adotada e ressignificada pelos fãs no dia a dia.</button>
+      <button class="option-btn" onclick="checkQuiz('q15','e')">e) contracultural, por contestar as instituições do pós-guerra.</button>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="question-card" data-chapter="cap2" id="q16">
+    <p class="q-fonte">Nos anos 1950, com o crescimento econômico do pós-guerra, os jovens passaram a ser vistos pela primeira vez como um grupo social e consumidor próprio.</p>
+    <h4>16. Na década seguinte, essa juventude passou a questionar as gerações anteriores principalmente por</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q16','a')">a) rejeitar o consumo de massa e defender a volta das monarquias tradicionais europeias.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','b')">b) apoiar o envio de tropas ao Vietnã como forma de conter o socialismo na Ásia.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','c')">c) ver no pragmatismo e autoritarismo dos mais velhos um rumo à destruição.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','d')">d) defender a cultura erudita como única forma legítima de expressão artística.</button>
+      <button class="option-btn" onclick="checkQuiz('q16','e')">e) exigir mais rigor das instituições e o fortalecimento do militarismo nos Estados.</button>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="question-card" data-chapter="cap2" id="q17">
+    <p class="q-fonte">1968 ficou marcado como um ano de revoltas em vários países.</p>
+    <h4>17. Qual alternativa associa corretamente um acontecimento a esse contexto?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q17','a')">a) Na França, o Maio de 1968 reuniu greves estudantis e operárias contra a ordem vigente.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','b')">b) Nos EUA, o movimento negro acabou depois que Martin Luther King foi eleito presidente do país.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','c')">c) Na Inglaterra, os punks protestaram naquele ano contra o governo de Margaret Thatcher.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','d')">d) Na Jamaica, Bob Marley fundou o movimento rastafári e coroou Haile Selassie imperador.</button>
+      <button class="option-btn" onclick="checkQuiz('q17','e')">e) Na Alemanha, a Escola de Frankfurt foi fundada para apoiar a revolta dos estudantes daquele ano.</button>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="question-card" data-chapter="cap2" id="q18">
+    <p class="q-fonte">Jack Kerouac cruza os EUA sem destino em On the Road; Allen Ginsberg escreve versos livres sobre sexo, drogas e angústia, no ritmo do jazz bebop.</p>
+    <h4>18. Esses autores pertencem ao movimento</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q18','a')">a) hippie, centrado em San Francisco e no lema "Faça amor, não faça a guerra".</button>
+      <button class="option-btn" onclick="checkQuiz('q18','b')">b) punk, marcado pela ética do Faça Você Mesmo e pelo lema "No Future".</button>
+      <button class="option-btn" onclick="checkQuiz('q18','c')">c) rastafári, que chamava o Ocidente capitalista de "Babilônia".</button>
+      <button class="option-btn" onclick="checkQuiz('q18','d')">d) beatnik, que rompia com o "Sonho Americano" e o consumismo.</button>
+      <button class="option-btn" onclick="checkQuiz('q18','e')">e) da Escola de Frankfurt, que criticava a razão instrumental e o positivismo.</button>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="question-card" data-chapter="cap2" id="q19">
+    <p class="q-fonte">Comunidades rurais coletivas, roupas tie-dye, flores como símbolo de não violência e resistência ao alistamento militar.</p>
+    <h4>19. Esses elementos identificam os</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q19','a')">a) punks, surgidos em Londres e Nova York em meio à crise econômica dos anos 1970.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','b')">b) hippies, ápice da contracultura dos anos 1960 e contra a Guerra do Vietnã.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','c')">c) beatniks, poetas boêmios dos clubes de jazz das cidades americanas dos anos 1950.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','d')">d) rastafáris, movimento religioso jamaicano projetado pelo reggae de Bob Marley.</button>
+      <button class="option-btn" onclick="checkQuiz('q19','e')">e) culturalistas, antropólogos que viviam junto aos povos que estudavam no campo.</button>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="question-card" data-chapter="cap2" id="q20">
+    <p class="q-fonte">Para esse movimento, Haile Selassie I é a encarnação divina, a Etiópia é Zion e os dreadlocks são um voto de fé.</p>
+    <h4>20. Sobre o movimento descrito, é correto afirmar que</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q20','a')">a) surgiu nos EUA nos anos 1960, como reação estudantil contra o alistamento militar.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','b')">b) é uma corrente artística europeia que valoriza a cultura erudita e a herança clássica.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','c')">c) rejeita qualquer religião e tem o anarquismo e o fim do Estado como bandeiras.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','d')">d) nasceu entre jovens de classe média dos subúrbios americanos e se difundiu pelo jazz.</button>
+      <button class="option-btn" onclick="checkQuiz('q20','e')">e) surgiu na Jamaica nos anos 1930 e chama de "Babilônia" o Ocidente capitalista e colonial.</button>
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="question-card" data-chapter="cap2" id="q21">
+    <p class="q-fonte">Fanzines xerocados, selos musicais comunitários, shows sem intermediação do mercado e roupas customizadas pelo próprio jovem.</p>
+    <h4>21. Essas práticas expressam</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q21','a')">a) a lógica da Indústria Cultural, que padroniza a produção para o consumo em massa.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','b')">b) a cultura erudita, produzida em instituições formais e financiada por mecenas.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','c')">c) a ética punk do Faça Você Mesmo (DIY), produção cultural autogestionária.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','d')">d) o pacifismo hippie, que buscava a vida em comunidades rurais e a volta à natureza.</button>
+      <button class="option-btn" onclick="checkQuiz('q21','e')">e) a fé rastafári, que usa o reggae como forma de comunhão espiritual com Jah.</button>
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="question-card" data-chapter="cap2" id="q22">
+    <p class="q-fonte">Samba e cordel são exemplos de cultura popular brasileira.</p>
+    <h4>22. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q22','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q22','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="question-card" data-chapter="cap2" id="q23">
+    <p class="q-fonte">A cultura erudita é superior à popular, pois busca a "arte pura".</p>
+    <h4>23. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q23','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q23','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="question-card" data-chapter="cap2" id="q24">
+    <p class="q-fonte">O rock, a moda hippie e os movimentos estudantis expressaram valores da contracultura.</p>
+    <h4>24. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q24','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q24','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="question-card" data-chapter="cap3" id="q25">
+    <p class="q-fonte">Para os pensadores da Escola de Frankfurt, o conhecimento não é neutro: ele deve servir para emancipar o ser humano, e não só para descrever ou justificar a sociedade como ela é.</p>
+    <h4>25. Essa postura caracteriza a</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q25','a')">a) razão instrumental, que usa o pensamento como ferramenta de cálculo e eficiência técnica.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','b')">b) teoria tradicional, que descreve os fatos sociais com a neutralidade das ciências naturais.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','c')">c) teoria crítica, que se opõe ao positivismo e vê no conhecimento um meio de emancipação.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','d')">d) cultura de massa, que adapta os bens culturais para o consumo do maior número de pessoas.</button>
+      <button class="option-btn" onclick="checkQuiz('q25','e')">e) antropologia de gabinete, que estuda os povos a partir de relatos de terceiros.</button>
+    </div>
+  </div>
+
+  <!-- Q26 -->
+  <div class="question-card" data-chapter="cap3" id="q26">
+    <p class="q-fonte">Um estúdio lança todo ano filmes com a mesma estrutura: herói em perigo, reviravolta no meio e final feliz, porque pesquisas mostram que essa fórmula vende mais ingressos.</p>
+    <h4>26. Segundo Adorno e Horkheimer, esse caso ilustra a Indústria Cultural porque</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q26','a')">a) democratiza a arte, já que a reprodução técnica leva o cinema a quem antes não tinha acesso.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','b')">b) mostra a apropriação pelo público, que transforma as obras em memes, fanfics e convenções.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','c')">c) preserva a cultura erudita, pois mantém o rigor técnico exigido pelas grandes instituições.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','d')">d) padroniza a criação em fórmulas previsíveis, voltadas ao consumo em massa e ao lucro.</button>
+      <button class="option-btn" onclick="checkQuiz('q26','e')">e) expressa a cultura popular, nascida espontaneamente da vivência coletiva das comunidades.</button>
+    </div>
+  </div>
+
+  <!-- Q27 -->
+  <div class="question-card" data-chapter="cap3" id="q27">
+    <p class="q-fonte">Uma campanha publicitária mostra jovens bonitos, felizes e bem-sucedidos usando um tênis. O produto quase não aparece; o que se vende é um estilo de vida.</p>
+    <h4>27. Para a Escola de Frankfurt, a liberdade que o consumidor sente ao escolher esse tênis é</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q27','a')">a) real, porque o mercado oferece produtos personalizados para cada necessidade individual.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','b')">b) ilusória, pois o produto não entrega o que promete e alimenta o consumo passivo.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','c')">c) real, porque a publicidade é só informação neutra e não influencia os desejos de ninguém.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','d')">d) ilusória, pois só a cultura erudita oferece liberdade, já que exige formação técnica.</button>
+      <button class="option-btn" onclick="checkQuiz('q27','e')">e) real, porque o consumo de massa elimina as diferenças entre as classes sociais.</button>
+    </div>
+  </div>
+
+  <!-- Q28 -->
+  <div class="question-card" data-chapter="cap3" id="q28">
+    <p class="q-fonte">Assistir a uma série atrás da outra, sem tempo para refletir, e passar a desejar o que todos desejam, sem perceber de onde vem esse desejo.</p>
+    <h4>28. Os frankfurtianos chamam esse efeito de alienação porque o consumo padronizado</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q28','a')">a) amplia o acesso à arte e permite que o indivíduo produza cultura fora do mercado.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','b')">b) fortalece o pertencimento comunitário e a transmissão oral das tradições de um povo.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','c')">c) recupera a aura das obras ao torná-las presentes no cotidiano de milhões de pessoas.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','d')">d) cria um código cultural compartilhado que une gerações e grupos urbanos diferentes.</button>
+      <button class="option-btn" onclick="checkQuiz('q28','e')">e) despersonaliza o indivíduo, que perde autonomia e pensamento crítico.</button>
+    </div>
+  </div>
+
+  <!-- Q29 -->
+  <div class="question-card" data-chapter="cap3" id="q29">
+    <p class="q-fonte">Milhões de pessoas conhecem a Mona Lisa por fotos, pôsteres e camisetas, sem nunca terem ido ao Louvre.</p>
+    <h4>29. Para Walter Benjamin, esse fenômeno</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q29','a')">a) democratiza o acesso à arte, mas o excesso de cópias faz a obra perder a aura.</button>
+      <button class="option-btn" onclick="checkQuiz('q29','b')">b) é só alienação, pois toda reprodução técnica destrói o valor crítico de qualquer obra.</button>
+      <button class="option-btn" onclick="checkQuiz('q29','c')">c) aumenta a aura da obra, já que cada cópia reforça a sua singularidade e autenticidade.</button>
+      <button class="option-btn" onclick="checkQuiz('q29','d')">d) não tem relação com a técnica, pois a arte só circula pela tradição oral das comunidades.</button>
+      <button class="option-btn" onclick="checkQuiz('q29','e')">e) transforma a obra em cultura erudita, pois exige aprendizado formal para ser apreciada.</button>
+    </div>
+  </div>
+
+  <!-- Q30 -->
+  <div class="question-card" data-chapter="cap3" id="q30">
+    <p class="q-fonte">Os filmes da Marvel foram criados por um grande estúdio, mas os fãs fazem cosplay, escrevem fanfics, criam memes e organizam convenções.</p>
+    <h4>30. Por que esse universo é considerado cultura pop, e não só produto da Indústria Cultural?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q30','a')">a) Porque nasceu fora do mercado, em comunidades que transmitem suas histórias oralmente.</button>
+      <button class="option-btn" onclick="checkQuiz('q30','b')">b) Porque foi criado em instituições de prestígio e exige formação técnica para ser entendido.</button>
+      <button class="option-btn" onclick="checkQuiz('q30','c')">c) Porque permanece igual ao longo do tempo, sem mudar conforme o interesse da sociedade.</button>
+      <button class="option-btn" onclick="checkQuiz('q30','d')">d) Porque o público só consome as obras de forma passiva, sem lhes dar novos sentidos.</button>
+      <button class="option-btn" onclick="checkQuiz('q30','e')">e) Porque o público se apropria das obras e cria sentidos e identidades próprias.</button>
+    </div>
+  </div>
+
+  <!-- Q31 -->
+  <div class="question-card" data-chapter="cap3" id="q31">
+    <p class="q-fonte">Depois de um filme de super-herói, o espectador sai emocionado e aliviado, mas sem ter refletido sobre nada do que viu.</p>
+    <h4>31. A crítica frankfurtiana interpreta essa experiência como</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q31','a')">a) emancipação, pois a emoção desperta o pensamento crítico sobre a sociedade.</button>
+      <button class="option-btn" onclick="checkQuiz('q31','b')">b) catarse no sentido de Aristóteles, que purifica as emoções e forma cidadãos críticos.</button>
+      <button class="option-btn" onclick="checkQuiz('q31','c')">c) descarga emocional sem reflexão, uma releitura da catarse de Aristóteles.</button>
+      <button class="option-btn" onclick="checkQuiz('q31','d')">d) perda da aura, pois o filme é exibido em milhares de salas ao mesmo tempo.</button>
+      <button class="option-btn" onclick="checkQuiz('q31','e')">e) cultura popular, pois o cinema nasce da tradição oral e da vida comunitária.</button>
+    </div>
+  </div>
+
+  <!-- Q32 -->
+  <div class="question-card" data-chapter="cap3" id="q32">
+    <p class="q-fonte">"Sempre houve ricos e pobres; é assim que o mundo funciona."</p>
+    <h4>32. Para Marx e para a Escola de Frankfurt, essa frase é um exemplo de ideologia porque</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q32','a')">a) descreve com neutralidade científica uma lei universal das sociedades humanas.</button>
+      <button class="option-btn" onclick="checkQuiz('q32','b')">b) faz a dominação parecer natural e inevitável, dificultando que seja questionada.</button>
+      <button class="option-btn" onclick="checkQuiz('q32','c')">c) é uma forma de relativismo cultural, que respeita os valores de cada sociedade.</button>
+      <button class="option-btn" onclick="checkQuiz('q32','d')">d) expressa a teoria crítica, que vê o conhecimento como meio de emancipação.</button>
+      <button class="option-btn" onclick="checkQuiz('q32','e')">e) mostra a cultura pop, que une gerações por meio de símbolos compartilhados.</button>
+    </div>
+  </div>
+
+  <!-- Q33 -->
+  <div class="question-card" data-chapter="cap3" id="q33">
+    <p class="q-fonte">Hoje qualquer pessoa pode postar vídeos, músicas e textos. Por isso, dizem alguns, a Indústria Cultural acabou.</p>
+    <h4>33. Com base no resumo, essa conclusão é</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q33','a')">a) correta, pois a produção colaborativa substituiu toda a dominação econômica.</button>
+      <button class="option-btn" onclick="checkQuiz('q33','b')">b) correta, pois o acesso à internet garante que todos sejam produtores autônomos.</button>
+      <button class="option-btn" onclick="checkQuiz('q33','c')">c) correta, pois o excesso de informação amplia por si só a consciência crítica.</button>
+      <button class="option-btn" onclick="checkQuiz('q33','d')">d) apressada: as plataformas seguem concentradas e o excesso de dados aliena.</button>
+      <button class="option-btn" onclick="checkQuiz('q33','e')">e) apressada, pois a internet só divulga cultura erudita, que exige formação técnica.</button>
+    </div>
+  </div>
+
+  <!-- Q34 -->
+  <div class="question-card" data-chapter="cap3" id="q34">
+    <p class="q-fonte">A Escola de Frankfurt via o entretenimento de massa como um caminho para a emancipação.</p>
+    <h4>34. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q34','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q34','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q35 -->
+  <div class="question-card" data-chapter="cap3" id="q35">
+    <p class="q-fonte">Para Adorno, a diversão da Indústria Cultural funciona como um prolongamento do trabalho.</p>
+    <h4>35. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q35','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q35','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q36 -->
+  <div class="question-card" data-chapter="cap3" id="q36">
+    <p class="q-fonte">As plataformas de streaming podem ser vistas como novas formas de padronização cultural.</p>
+    <h4>36. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q36','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q36','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q37 -->
+  <div class="question-card" data-chapter="cap3" id="q37">
+    <p class="q-fonte">Com a internet, a cultura erudita ficou totalmente acessível e as desigualdades de acesso acabaram.</p>
+    <h4>37. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q37','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q37','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Q38 -->
+  <div class="question-card" data-chapter="cap3" id="q38">
+    <p class="q-fonte">A cultura pop não tem impacto político, pois é voltada apenas ao entretenimento.</p>
+    <h4>38. Verdadeiro ou falso?</h4>
+    <div class="options">
+      <button class="option-btn" onclick="checkQuiz('q38','a')">a) Verdadeiro</button>
+      <button class="option-btn" onclick="checkQuiz('q38','b')">b) Falso</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quiz-result">
+    <div class="donut-wrap">
+      <svg width="130" height="130" viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="55" fill="none" stroke="#e0e0e0" stroke-width="14"/>
+        <circle cx="65" cy="65" r="55" fill="none" stroke="var(--secondary)" stroke-width="14"
+                stroke-dasharray="345.4" stroke-dashoffset="345.4" id="donut-arc"/>
+      </svg>
+      <div class="donut-center">
+        <span class="donut-score" id="donut-score">0</span>
+        <span class="donut-label">/ 38</span>
+      </div>
+    </div>
+    <div class="result-msg" id="result-msg"></div>
+    <div class="result-sub" id="result-sub"></div>
+    <button class="btn-reset" onclick="resetQuiz()">Refazer Quiz</button>
+  </div>
+</section>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o Nêuron. Pode me perguntar sobre as escolas da antropologia (evolucionismo, culturalismo, funcionalismo, estruturalismo), cultura popular e erudita, contracultura ou Indústria Cultural!</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+</main>
+
+</main>
+
+<footer>
+  &copy; 2026 Caderno Digital · Sociologia 3º Trimestre
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+window.addEventListener('scroll', () => {
+  const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progressBar').style.width = p + '%';
+});
+
+/* ── Quiz ── */
+const ANSWERS = {q1:'d', q2:'a', q3:'c', q4:'b', q5:'e', q6:'c', q7:'b', q8:'b', q9:'b', q10:'b', q11:'a', q12:'a', q13:'b', q14:'d', q15:'b', q16:'c', q17:'a', q18:'d', q19:'b', q20:'e', q21:'c', q22:'a', q23:'b', q24:'a', q25:'c', q26:'d', q27:'b', q28:'e', q29:'a', q30:'e', q31:'c', q32:'b', q33:'d', q34:'b', q35:'a', q36:'a', q37:'b', q38:'b'};
+/* Explicação mostrada depois de responder */
+const EXPLICA = {
+  q1: "No período colonial, os relatos tinham objetivo prático: adentrar territórios, conhecer alianças e conflitos, criar mercados e exterminar a população local. A neutralidade e o trabalho de campo vieram depois.",
+  q2: "Os evolucionistas aplicavam Darwin e Spencer às culturas: um único caminho (selvagens → bárbaros → civilizados), com os \"selvagens\" vistos como \"museu vivo\". Essa hierarquia é etnocêntrica.",
+  q3: "Os evolucionistas faziam \"antropologia de gabinete\": analisavam relatos de terceiros, sem contato direto com os povos estudados.",
+  q4: "O culturalismo de Boas, Benedict e Mead separou raça de cultura e propôs o relativismo: avaliar cada cultura dentro do seu próprio contexto, sem padrões universais de superioridade.",
+  q5: "Para o funcionalismo, todo costume cumpre uma função no todo social. O Kula se baseia na reciprocidade (dar, receber, retribuir) e solidifica alianças; Malinowski analisava o presente (sincronia), não a história.",
+  q6: "O tabu do incesto articula natureza e cultura: é universal, mas é regra social e convenção. Ao obrigar casamentos fora da família, cria redes de aliança, obrigação e cooperação, o que funda a sociedade.",
+  q7: "O estruturalismo busca estruturas comuns, invisíveis e inconscientes. Papai Noel e katchina funcionam como rito de iniciação das crianças, mostrando a mesma estrutura em culturas distantes.",
+  q8: "Os evolucionistas faziam antropologia de gabinete: usavam relatos de viajantes e missionários, sem contato com os povos. O trabalho de campo veio com culturalistas e Malinowski.",
+  q9: "Essa é a tese do evolucionismo. Boas e os culturalistas defendiam o relativismo: cada cultura tem sua própria história e deve ser entendida nos seus próprios termos.",
+  q10: "Mead mostrou o contrário: comportamentos de gênero e a forma de viver a adolescência são moldados pela cultura, não pela biologia.",
+  q11: "É o funcionalismo: todo costume satisfaz necessidades (função) e a análise é sincrônica, olhando o momento presente.",
+  q12: "O etnocentrismo nem sempre é intencional: julgar o diferente como estranho ou inferior a partir dos próprios valores é uma forma inconsciente dele.",
+  q13: "O contato entre culturas, sozinho, não elimina preconceitos; a globalização também pode padronizar culturas e gerar reações etnocêntricas.",
+  q14: "A cultura popular nasce nas comunidades, é transmitida pela tradição oral e pelo exemplo, fortalece o pertencimento e é dinâmica: incorpora elementos novos sem perder a identidade.",
+  q15: "A cultura erudita surge em instituições formais (conservatórios, museus, teatros), exige aprendizado técnico e tem acesso restrito por barreiras econômicas e de capital cultural.",
+  q16: "Com a Guerra Fria e o Vietnã, os jovens dos anos 1960 viam no pragmatismo e no autoritarismo dos mais velhos um caminho para a destruição, e rejeitavam os valores e as instituições do pós-guerra.",
+  q17: "Maio de 1968 foi na França. Martin Luther King nunca foi presidente (foi assassinado em abril de 1968); o punk é dos anos 1970 e Thatcher governou de 1979 a 1990; o rastafarianismo surgiu nos anos 1930; a Escola de Frankfurt é dos anos 1920.",
+  q18: "Os beatniks (EUA, anos 1950) rejeitavam o consumismo, o puritanismo e a vida suburbana; usavam fluxo de consciência, linguagem de rua e o ritmo do jazz.",
+  q19: "Os hippies foram o ápice da contracultura dos anos 1960: pacifismo (\"Make Love, Not War\"), vida em comunidades, retorno à natureza e o Flower Power.",
+  q20: "O movimento rastafári nasceu na Jamaica nos anos 1930, é messiânico e de fé (Jah, Haile Selassie), valoriza as raízes africanas e ganhou projeção global nos anos 1970 com o reggae.",
+  q21: "O DIY punk é uma prática política autogestionária: produzir cultura sem as grandes corporações, o oposto da lógica da Indústria Cultural.",
+  q22: "Os dois nasceram nas comunidades e foram transmitidos pela tradição e pela vivência coletiva, características da cultura popular.",
+  q23: "A diferença está na origem, na transmissão e no acesso, não em uma ser melhor que a outra. Classificar uma como superior é uma hierarquia social.",
+  q24: "A contracultura se manifestou na música, na estética e na política: rock, moda hippie e movimentos estudantis rejeitavam os valores do pós-guerra.",
+  q25: "A teoria crítica se opõe à teoria tradicional e ao positivismo: o conhecimento não é neutro e deve servir à emancipação. A razão instrumental é justamente o que eles criticavam.",
+  q26: "Na Indústria Cultural, a arte segue a lógica capitalista: produtos em série, fórmulas de aceitação garantida, experiência previsível e repetitiva, voltada ao lucro.",
+  q27: "A publicidade cria uma falsa sensação de poder e liberdade. Os produtos não entregam o que prometem (felicidade, sucesso, juventude), o que alimenta o ciclo de consumo e a passividade.",
+  q28: "Alienação: o consumo de produtos padronizados torna o indivíduo alheio a si mesmo, tirando sua autonomia e dificultando o pensamento crítico.",
+  q29: "Benjamin via os dois lados: a reprodução técnica democratiza a arte, mas o excesso de cópias elimina a aura, a singularidade da obra original.",
+  q30: "A cultura pop tem origem híbrida: pode nascer da indústria de massa, mas ganha vida própria quando o público se apropria dela e cria memes, eventos e identidades.",
+  q31: "A Escola de Frankfurt reinterpreta a catarse aristotélica: na Indústria Cultural, a emoção é descarregada sem reflexão, e o espectador sai igual.",
+  q32: "Ideologia, para Marx e para os frankfurtianos, é o que naturaliza as relações de dominação: o que é histórico e social passa a parecer natural.",
+  q33: "A internet amplia possibilidades, mas não garante produção autônoma nem acaba com a dominação econômica; o excesso de informação pode até reforçar a alienação.",
+  q34: "Para eles, o entretenimento padronizado serve como distração, não como emancipação.",
+  q35: "O lazer padronizado repete a lógica do trabalho: serve para recompor as forças e voltar a produzir, não para pensar.",
+  q36: "Algoritmos que recomendam mais do mesmo e séries feitas para maratonar seguem a lógica da Indústria Cultural.",
+  q37: "As barreiras econômicas e de capital cultural continuam. Desconfie de \"totalmente\" e \"acabaram\".",
+  q38: "A cultura pop pode reforçar ou contestar valores, padrões e identidades; por isso tem impacto político."
+};
+let answered = {}, score = 0, total = 0;
+
+function checkQuiz(qid, choice) {
+  if (answered[qid]) return;
+  answered[qid] = true; total++;
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+  const correct = ANSWERS[qid];
+  let correctText = '';
+  btns.forEach(b => {
+    const letter = b.textContent.trim()[0];
+    if (letter === correct) { b.classList.add('correct'); correctText = b.textContent.trim(); }
+    else if (letter === choice && choice !== correct) b.classList.add('wrong');
+    b.disabled = true;
+  });
+  if (choice === correct) score++;
+  let exp = card.querySelector('.answer-exp');
+  if (!exp) { exp = document.createElement('div'); exp.className = 'answer-exp'; card.querySelector('.options').after(exp); }
+  exp.innerHTML = '<span>✔</span><span><strong>' + correctText + '</strong>' + (EXPLICA[qid] ? '<br>' + EXPLICA[qid] : '') + '</span>';
+  exp.style.display = 'flex';
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>' + score + ' / ' + N + '</strong>';
+  const pct = Math.round((score / total) * 100);
+  const arc = document.getElementById('mini-arc');
+  arc.style.strokeDashoffset = 106.8 - (pct / 100) * 106.8;
+  arc.style.stroke = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  const pctEl = document.getElementById('mini-pct');
+  pctEl.textContent = pct + '%';
+  pctEl.style.color = pct >= 70 ? '#27ae60' : pct >= 40 ? '#e67e22' : '#e74c3c';
+  if (total === N) showResult();
+}
+
+function filterQuiz(chapter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.question-card').forEach(c => {
+    c.classList.toggle('hidden', chapter !== 'all' && c.dataset.chapter !== chapter);
+  });
+}
+
+function showResult() {
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('donut-score').textContent = score;
+  const N = Object.keys(ANSWERS).length;
+  const offset = 345.4 - (score / N) * 345.4;
+  document.getElementById('donut-arc').style.strokeDashoffset = offset;
+  const pct = Math.round((score / N) * 100);
+  let msg, sub;
+  if (pct >= 90) { msg = 'Excelente! Dominou o conteúdo!'; sub = 'Resultado impressionante!' }
+  else if (pct >= 70) { msg = 'Muito bem! Bom desempenho.'; sub = 'Revise os tópicos que errou.' }
+  else if (pct >= 50) { msg = 'Bom esforço! Dá para melhorar.'; sub = 'Volte aos capítulos com dificuldade.' }
+  else { msg = 'Continue estudando!'; sub = 'Releia os acordeons e tente novamente.' }
+  document.getElementById('result-msg').textContent = msg;
+  document.getElementById('result-sub').textContent = sub;
+}
+
+function resetQuiz() {
+  answered = {}; score = 0; total = 0;
+  document.querySelectorAll('.option-btn').forEach(b => { b.classList.remove('correct','wrong'); b.disabled = false; });
+  document.querySelectorAll('.answer-exp').forEach(e => e.style.display = 'none');
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('donut-arc').style.strokeDashoffset = 345.4;
+  const N = Object.keys(ANSWERS).length;
+  document.getElementById('score-live').innerHTML = 'Placar: <strong>0 / ' + N + '</strong>';
+  const arc = document.getElementById('mini-arc');
+  arc.style.strokeDashoffset = '106.8'; arc.style.stroke = '#e0e0e0';
+  const pctEl = document.getElementById('mini-pct');
+  pctEl.textContent = '—'; pctEl.style.color = '#aaa';
+}
+
+
+
+
+
+
+</script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>

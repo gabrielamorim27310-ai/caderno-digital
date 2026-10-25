@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-pagina="filosofia-3tri" data-materia="filosofia">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Resumo de Filosofia · 3º Trimestre 2026</title>
+<style>
+  :root {
+    --primary: #3d2b00;
+    --secondary: #c9953c;
+    --bg: #faf7f0;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8ddc8;
+    --c1: #3d2b00;
+    --c2: #6b4c11;
+    --c3: #8b6914;
+    --c4: #1a2744;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1e1400 0%, #3d2b00 55%, #6b4c11 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: #1e1400; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #fdf8ef; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* NESTED LIST */
+  .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
+  .list-nested li strong { color: var(--text); }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #fef3dc, #fde8b8); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-purple { background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-left: 4px solid #7c3aed; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight-gray { background: #f1f1ef; border-left: 4px solid #999; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; color: var(--text-light); }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-2 > .card,
+  .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+
+  /* QUOTE */
+  .quote { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--primary); border-left: 4px solid var(--secondary); padding: 12px 20px; margin-top: 14px; background: #fdf8ef; border-radius: 0 10px 10px 0; }
+  .quote span { display: block; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-style: normal; color: var(--text-light); margin-top: 6px; font-weight: 600; }
+
+  /* FLOW */
+  .flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .flow-step { background: var(--primary); color: white; padding: 10px 16px; border-radius: 10px; font-size: 0.86rem; font-weight: 600; text-align: center; flex: 1; min-width: 100px; }
+  .flow-arrow { color: var(--secondary); font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf8ef; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #fef9c3; color: #854d0e; }
+  .tag-pending { background: #f1f1ef; color: #666; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CL1RMGB3SN');
+</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
+</head>
+<body class="ios resumo">
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="hero">
+  <div class="hero-icon"><img src="pensador.png" alt="O Pensador" style="height:100px;object-fit:contain;filter:brightness(1.3) contrast(0.85) drop-shadow(0 4px 12px rgba(0,0,0,0.4));"/></div>
+  <h1>Filosofia</h1>
+  <p class="subtitle">Ser, Movimento e Conhecimento · Demócrito · Platão · Aristóteles · Byung-Chul Han</p>
+  <div class="badge">3º Trimestre · 2026</div>
+  <div><span class="author">Caderno Digital</span></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#contexto">Heráclito x Parmênides</a>
+    <a class="nav-link" href="#democrito">1. Demócrito</a>
+    <a class="nav-link" href="#platao">2. Platão</a>
+    <a class="nav-link" href="#aristoteles">3. Aristóteles</a>
+    <a class="nav-link" href="#han">4. Byung-Chul Han</a>
+    <a class="nav-link" href="#comparacao">Comparação</a>
+    <a class="nav-link" href="#exercicios">Exercícios</a>
+  </div>
+</nav>
+
+<div class="content">
+
+  <!-- ═══════════════════════════════════════════════
+       CONTEXTO: HERÁCLITO x PARMÊNIDES
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="contexto">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">0</div>
+      <div>
+        <h2 class="section-title">O problema de fundo: Movimento x Permanência</h2>
+        <p class="section-sub">Por que Demócrito, Platão e Aristóteles "tentam conciliar" Heráclito e Parmênides</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>Os três filósofos clássicos deste trimestre respondem à mesma pergunta, herdada dos pré-socráticos: <strong>a realidade é feita de mudança ou de permanência?</strong> Cada um propõe uma forma de juntar as duas respostas.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#9c1c1c">
+          <h4>Heráclito · tudo muda</h4>
+          <p>A realidade é fluxo e movimento constante: "ninguém se banha duas vezes no mesmo rio". O devir (vir a ser) é a lei do mundo.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Parmênides · o Ser não muda</h4>
+          <p>"O Ser é, o não-ser não é." O Ser é uno, eterno e imutável; a mudança que vemos é ilusão dos sentidos. Só a razão alcança a verdade.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Filósofo</th><th>Como concilia</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Demócrito</strong></td><td>Átomos imutáveis (Parmênides) que se movem no vazio e se combinam (Heráclito)</td></tr>
+            <tr><td><strong>Platão</strong></td><td>Divide a realidade em dois mundos: inteligível, permanente (Parmênides), e sensível, em movimento (Heráclito)</td></tr>
+            <tr><td><strong>Aristóteles</strong></td><td>Um só mundo: a essência permanece nas coisas e o movimento é a passagem da potência ao ato</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       1. DEMÓCRITO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="democrito">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">1</div>
+      <div>
+        <h2 class="section-title">Demócrito e o Atomismo</h2>
+        <p class="section-sub">Pré-socrático · Átomos e vazio · Conhecimento sensível e racional</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Quem foi</div>
+      <p><strong>Demócrito de Abdera</strong> (c. 460 a 370 a.C.) é classificado como <strong>filósofo pré-socrático</strong>. Desenvolveu o atomismo junto com seu mestre, <strong>Leucipo</strong>.</p>
+      <div class="highlight">
+        <strong>Lembrando: o que estudavam os pré-socráticos</strong>
+        A <strong>physis</strong> (a natureza e a matéria) e a <strong>arkhé</strong> (a busca de um princípio originário de todas as coisas). Para Demócrito, a arkhé são os átomos.
+      </div>
+      <div class="highlight-gray">
+        <strong>Curiosidade:</strong> apesar do rótulo "pré-socrático", Demócrito era contemporâneo de Sócrates e viveu mais do que ele. O rótulo indica a temática (a natureza), não a data exata.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> O atomismo: a realidade é feita de átomos e vazio <span class="tag tag-imp">Imp.</span></div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c1)">
+          <h4>Átomos (o Ser)</h4>
+          <p>Partes pequenas, <strong>indivisíveis</strong> (<em>á-tomos</em> = "sem corte") e <strong>eternas</strong> que compõem o Ser. Diferem entre si por forma, tamanho e posição. <strong>Onde há átomo, há movimento.</strong></p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Vazio (o não-ser)</h4>
+          <p>Ausência de átomos. <strong>Não é o "nada"</strong>: é o espaço necessário para que os átomos se movam. Corresponde a um <strong>não-ser</strong> que, mesmo assim, existe.</p>
+        </div>
+      </div>
+      <div class="highlight-purple">
+        <strong>Ponto de atrito com Parmênides</strong>
+        Parmênides dizia que o não-ser não é. Demócrito aceita que o não-ser (o vazio) existe, porque sem ele não haveria espaço para o movimento.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Como esse dualismo concilia Heráclito e Parmênides</div>
+      <ul class="list">
+        <li><span><strong>Parmênides:</strong> o Ser é composto por átomos imutáveis, que não nascem nem morrem.</span></li>
+        <li><span><strong>Heráclito:</strong> há uma constante pluralidade e mudança da realidade, causada pelo movimento dos átomos.</span></li>
+      </ul>
+      <p style="margin-top:12px">O movimento de <strong>combinação e separação</strong> dos átomos é essencial para entender o início e o fim de tudo:</p>
+      <div class="flow">
+        <div class="flow-step">Nascer<br><small style="font-weight:400;font-size:0.75rem">junção dos átomos</small></div>
+        <div class="flow-arrow">↔</div>
+        <div class="flow-step">Morrer<br><small style="font-weight:400;font-size:0.75rem">separação dos átomos</small></div>
+      </div>
+      <p style="margin-top:10px">Nos dois casos, os átomos continuam os mesmos: compõem um Ser feito de corpos imutáveis. Nada surge do nada nem vira nada; as coisas apenas se recombinam.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Os dois tipos de conhecimento <span class="tag tag-imp">Imp.</span></div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#c9953c">
+          <h4>Conhecimento sensível</h4>
+          <p>Associado a imagens, sabores, cheiros, temperaturas e sensações em geral. É <strong>produzido pelo efeito dos átomos nos nossos sentidos</strong>. Não é necessariamente "falso" ou "pior", porém <strong>limita a percepção da realidade às aparências</strong>.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Conhecimento racional</h4>
+          <p>Associado à <strong>compreensão mais profunda</strong> da realidade. Produzido pelo entendimento dos átomos: seus movimentos, combinações, formas e outras características que compõem o Ser. <strong>Ultrapassa os sentidos por meio da razão</strong> e ajuda a distinguir as aparências.</p>
+        </div>
+      </div>
+      <div class="quote">
+        "Por convenção, o doce; por convenção, o amargo; por convenção, o quente e o frio; por convenção, a cor. Na realidade, átomos e vazio."
+        <span>Demócrito, fragmento DK 68 B9</span>
+      </div>
+      <div class="highlight">
+        <strong>Exemplo da refração</strong>
+        Ao olhar um lápis dentro de um copo de água, ele parece "torto" (conhecimento sensível). Pelo conhecimento racional, sabe-se que as aparências não revelam a realidade completa: o que acontece é uma <strong>refração da luz</strong>. Os olhos não "mentem"; eles só mostram a aparência, e a razão explica o que está por trás.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. PLATÃO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="platao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">2</div>
+      <div>
+        <h2 class="section-title">Platão e o Dualismo</h2>
+        <p class="section-sub">Mundo Inteligível (episteme) x Mundo Sensível (doxa)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Dualismo platônico</div>
+      <p><strong>Platão</strong> (427 a 347 a.C.) também tenta conciliar Heráclito e Parmênides, por meio do seu dualismo: ele <strong>divide a realidade em duas</strong>.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Mundo Inteligível</h4>
+          <p>Parte da realidade <strong>permanente</strong>. Herança de <strong>Parmênides</strong>.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:#9c1c1c">
+          <h4>Mundo Sensível</h4>
+          <p>Parte da realidade <strong>em movimento</strong>. Herança de <strong>Heráclito</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Mundo Inteligível (episteme) <span class="tag tag-imp">Imp.</span></div>
+      <p>Dimensão <strong>estável e permanente</strong> da realidade, que <strong>transcende a matéria</strong> e serve como <strong>referência absoluta</strong> para o mundo físico.</p>
+      <ul class="list">
+        <li><span>É onde ficam as <strong>essências</strong> (as Ideias ou Formas): superiores, perfeitas e imutáveis.</span></li>
+        <li><span>As 4 principais destacadas em aula: <strong>Bem, Justiça, Beleza e Verdade</strong>.</span></li>
+        <li><span>São alcançadas <strong>apenas por meio da razão</strong>: pela <strong>reminiscência</strong> (anamnese: a alma "relembra" as Ideias que contemplou antes de nascer) e pela <strong>dialética</strong> (o diálogo que, por perguntas e respostas, sobe das opiniões até a essência).</span></li>
+      </ul>
+      <p style="margin-top:10px"><em>Episteme</em> = conhecimento verdadeiro, ciência.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#9c1c1c"></span> Mundo Sensível (doxa)</div>
+      <ul class="list">
+        <li><span>Dimensão <strong>instável e corruptível</strong>, associada aos <strong>sentidos</strong>.</span></li>
+        <li><span>É uma <strong>imagem imperfeita</strong> das essências do mundo inteligível (uma cópia).</span></li>
+        <li><span>Todas as mudanças do mundo sensível acontecem <strong>em relação às ideias e essências perfeitas</strong> do mundo inteligível: as coisas mudam, mas a referência não muda.</span></li>
+      </ul>
+      <p style="margin-top:10px"><em>Doxa</em> = opinião, crença baseada nas aparências.</p>
+      <div class="highlight">
+        <strong>Exemplo</strong>
+        Uma flor bonita murcha e deixa de ser bonita (mundo sensível, mudança). A <strong>Beleza em si</strong> não murcha: a flor era bela só enquanto participava, de modo imperfeito, da Ideia de Beleza.
+      </div>
+    </div>
+
+    <div class="highlight-gray">
+      <strong>Fora do caderno, mas cai muito:</strong> a <strong>Alegoria da Caverna</strong> (<em>A República</em>, livro VII). Prisioneiros acorrentados veem só sombras na parede e as tomam pela realidade (doxa, mundo sensível). Quem se liberta e sai da caverna vê as coisas reais à luz do Sol (episteme, mundo inteligível; o Sol representa a Ideia do Bem).
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. ARISTÓTELES
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="aristoteles">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">3</div>
+      <div>
+        <h2 class="section-title">Aristóteles e a Metafísica</h2>
+        <p class="section-sub">Essências · Abstração · Ato e Potência · Primeiro Motor Imóvel</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Metafísica</div>
+      <p><strong>Aristóteles</strong> (384 a 322 a.C.), aluno de Platão, é um filósofo clássico que fala bastante sobre a <strong>metafísica</strong>.</p>
+      <ul class="list">
+        <li><span>Área da filosofia que trata de temas <strong>além dos sentidos</strong>: Deus, alma, tempo, <strong>essência</strong>.</span></li>
+        <li><span>Aristóteles a chamava de <strong>"filosofia primeira"</strong>: a que investiga os <strong>princípios e causas de todas as coisas</strong>.</span></li>
+      </ul>
+      <div class="highlight-gray">
+        <strong>Curiosidade:</strong> o nome "metafísica" não é dele. Veio de quem organizou suas obras (Andrônico de Rodes), que pôs esses livros "depois da Física" (<em>meta ta physika</em>).
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> As Essências <span class="tag tag-imp">Imp.</span></div>
+      <p><strong>Essência</strong> = caracterização determinada pela natureza, atribuída a tudo que existe. É o que a coisa é, e para o que ela existe.</p>
+      <ul class="list">
+        <li><span>Ir contra as essências implica ir contra a natureza e essa <strong>ordem universal</strong>.</span></li>
+      </ul>
+      <div class="highlight">
+        <strong>Exemplo da caneta</strong>
+        Usar uma caneta para matar uma pessoa, em vez de escrever, vai contra a essência da caneta.
+      </div>
+      <h4 style="margin-top:16px;font-size:0.9rem;color:var(--primary)">Platão x Aristóteles: onde estão as essências?</h4>
+      <p>Os dois aceitam a ideia de essências, porém <strong>discordam sobre a localização delas</strong>:</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)">
+          <h4>Platão</h4>
+          <p>No <strong>mundo inteligível</strong>, separado do mundo físico.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c3)">
+          <h4>Aristóteles</h4>
+          <p><strong>Nas próprias coisas</strong>, homens e ações do mundo físico, <strong>recusando o dualismo platônico</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Abstração</div>
+      <p>A partir do uso da <strong>razão e da observação</strong>, pode-se perceber e diferenciar as <strong>propriedades</strong> e as <strong>essências</strong> dos objetos.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Exemplo</th><th>Propriedades (variam)</th><th>Essência (não varia)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Caneta azul</strong></td><td>Azul, tamanho, material...</td><td>Escrever</td></tr>
+            <tr><td><strong>Homens</strong></td><td>Altura, cor, diferenças físicas</td><td>Ser racional</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-purple">
+        <strong>Lembrem que os dois estão no mundo físico!</strong>
+        Propriedade e essência estão na mesma coisa concreta. A razão "abstrai" (separa mentalmente) a essência das propriedades, sem precisar de outro mundo.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Movimento x Permanência: Ato e Potência <span class="tag tag-imp">Imp.</span></div>
+      <p>Aristóteles usa os conceitos de <strong>ato</strong> e <strong>potência</strong> para explicar o movimento:</p>
+      <ul class="list">
+        <li><span><strong>Potência:</strong> capacidade de algo de se transformar em uma coisa ou forma nova.</span></li>
+        <li><span><strong>Ato:</strong> a forma atualizada, já realizada.</span></li>
+        <li><span><strong>Movimento:</strong> mudança qualitativa dos seres no processo de transformação das coisas de potência para ato.</span></li>
+      </ul>
+      <div class="flow">
+        <div class="flow-step">Semente<br><small style="font-weight:400;font-size:0.75rem">já possui a essência de uma árvore e a potência de se tornar uma</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step" style="background:var(--secondary);color:#1e1400">MOVIMENTO</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Árvore<br><small style="font-weight:400;font-size:0.75rem">forma em ato</small></div>
+      </div>
+      <div class="highlight-gray" style="margin-top:14px">
+        <strong>Atenção à definição de ato:</strong> no caderno aparece "processo de atualização de uma forma". O processo, em si, é o <strong>movimento</strong>; o <strong>ato</strong> é o resultado (a árvore). Se a prova pedir a definição literal da aula, use a do professor, mas não confunda os dois numa questão de interpretação.
+      </div>
+      <div class="highlight">
+        <strong>Por que isso resolve Heráclito x Parmênides</strong>
+        A semente muda (Heráclito tem razão: há movimento), mas não vira "qualquer coisa": vira árvore, porque a essência já estava nela (Parmênides tem razão: algo permanece). Não é preciso um segundo mundo.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Primeiro Motor Imóvel</div>
+      <ul class="list">
+        <li><span>Todo movimento precisa de outro movimento prévio para o criar.</span></li>
+        <li><span>Para não cair numa regressão infinita, <strong>eventualmente teria que haver um primeiro movimento, independente de outro</strong>.</span></li>
+        <li><span>Esse é o <strong>"ser divino"</strong> que atua como primeiro motor imóvel: move tudo sem ser movido.</span></li>
+        <li><span>É <strong>ato puro e perfeito</strong>: não tem nenhuma potência, por isso não muda (e por isso é imóvel).</span></li>
+      </ul>
+      <div class="highlight-purple">
+        <strong>Atenção: não deve ser considerado como o Deus cristão</strong>
+        Aristóteles veio antes do cristianismo. O primeiro motor não cria o mundo nem se relaciona com as pessoas. Séculos depois, <strong>Tomás de Aquino</strong> (Escolástica, 2º tri) adaptou esse argumento para provar a existência de Deus.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. BYUNG-CHUL HAN
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="han">
+    <div class="section-header">
+      <div class="section-num" style="background:#1a5276">4</div>
+      <div>
+        <h2 class="section-title">Byung-Chul Han e a Infocracia</h2>
+        <p class="section-sub">Democracia, informação e polarização no mundo digital</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#1a5276"></span> Quem é</div>
+      <p><strong>Byung-Chul Han</strong> (1959) é um filósofo <strong>sul-coreano</strong>, radicado na Alemanha, que trata da <strong>identidade política no mundo digital</strong>. O livro de referência é <em>Infocracia: digitalização e a crise da democracia</em> (2021).</p>
+      <div class="highlight">
+        <strong>A origem da democracia</strong>
+        A democracia surge no mundo antigo como tentativa de <strong>deliberação pública</strong> e <strong>poder conjuntivo do povo</strong>. Depende de uma <strong>esfera pública de debate</strong>, que hoje não é necessariamente física: pode estar, por exemplo, na internet.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Infocracia <span class="tag tag-imp">Imp.</span></div>
+      <p><strong>Infocracia</strong> = "governo da informação".</p>
+      <ul class="list">
+        <li><span>Atualmente, o <strong>domínio da informação</strong> (especialmente digital) é um elemento decisivo no controle da democracia e no modo como a política é feita.</span></li>
+        <li><span><strong>Empresas e Estados</strong> detêm poder sobre <strong>dados</strong> que apresentam um potencial de controle e manipulação da população.</span></li>
+      </ul>
+      <h4 style="margin-top:14px;font-size:0.9rem;color:var(--primary)">Divulgações da informação</h4>
+      <p>Há a presença de <strong>múltiplas fontes de informação</strong>. Mais fontes, porém, não significa mais debate.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#9c1c1c"></span> Algoritmos e a polarização comunicativa <span class="tag tag-imp">Imp.</span></div>
+      <ul class="list">
+        <li><span>Criação de uma <strong>polarização comunicativa</strong>: existem <strong>nichos específicos</strong> de acesso à informação, direcionados a públicos específicos.</span></li>
+        <li><span>O <strong>algoritmo</strong> funciona como uma <strong>"bolha" isolante</strong>, que direciona as informações para cada usuário com base no seu nicho ou perfil.</span></li>
+        <li><span>Isso <strong>contribui para a intensificação da polarização</strong>: cada grupo só recebe o que confirma o que já pensa, e o debate público (a base da democracia) se enfraquece.</span></li>
+      </ul>
+      <div class="flow">
+        <div class="flow-step">Dados do usuário</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Algoritmo monta o nicho</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Bolha isolante</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Polarização</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       COMPARAÇÃO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="comparacao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--primary)">≡</div>
+      <div>
+        <h2 class="section-title">Comparação rápida</h2>
+        <p class="section-sub">Para revisar na véspera</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Demócrito</th><th>Platão</th><th>Aristóteles</th></tr></thead>
+        <tbody>
+          <tr><td><strong>O que é o real</strong></td><td>Átomos e vazio</td><td>As Ideias (mundo inteligível)</td><td>As coisas concretas, com sua essência</td></tr>
+          <tr><td><strong>O que permanece</strong></td><td>Os átomos</td><td>As essências, em outro mundo</td><td>A essência, dentro das coisas</td></tr>
+          <tr><td><strong>O que muda</strong></td><td>As combinações de átomos</td><td>O mundo sensível</td><td>A passagem da potência ao ato</td></tr>
+          <tr><td><strong>Papel dos sentidos</strong></td><td>Mostram aparências; não são falsos, mas limitados</td><td>Geram só opinião (doxa)</td><td>Ponto de partida: a razão abstrai a partir da observação</td></tr>
+          <tr><td><strong>Como se conhece a verdade</strong></td><td>Razão (entender os átomos)</td><td>Razão (reminiscência e dialética)</td><td>Razão + observação (abstração)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     EXERCÍCIOS
+═══════════════════════════════════════════════ -->
+<div class="content" id="exercicios" style="padding-top:0">
+  <div class="section-header" style="margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:14px">
+    <div class="section-num" style="background:var(--primary)">✏</div>
+    <div>
+      <h2 class="section-title" style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700">Exercícios</h2>
+      <p style="font-size:0.82rem;color:var(--text-light);margin-top:2px">Clique em uma alternativa para ver se acertou</p>
+    </div>
+  </div>
+
+  <style>
+    .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+    .quiz-q { padding: 16px 22px 12px; font-size: 0.93rem; font-weight: 600; display: flex; gap: 12px; align-items: flex-start; }
+    .quiz-num { background: var(--secondary); color: #1e1400; border-radius: 50%; min-width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .quiz-opts { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 7px; }
+    .opt { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--border); cursor: pointer; font-size: 0.88rem; line-height: 1.5; transition: all 0.18s; background: white; }
+    .opt:hover:not(.disabled) { border-color: var(--secondary); background: #fdf8ef; }
+    .opt-letter { font-weight: 700; color: var(--secondary); flex-shrink: 0; min-width: 18px; }
+    .opt.correct { border-color: #166534; background: #f0fdf4; }
+    .opt.correct .opt-letter { color: #166534; }
+    .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
+    .opt.wrong .opt-letter { color: #9c1c1c; }
+    .opt.disabled { cursor: default; pointer-events: none; }
+    .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
+    .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+    .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
+    .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+    .score-label { font-size: 0.82rem; color: var(--text-light); }
+    .score-donut-wrap { display:flex; align-items:center; gap:10px; }
+    .score-pct-label { font-size:1.2rem; font-weight:800; color: var(--primary); }
+    .score-pct-sub { font-size:0.75rem; color: var(--text-light); }
+    .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+    .btn-reset:hover { background: var(--c2); }
+  </style>
+
+  <div class="score-bar">
+    <div>
+      <div class="score-val"><span id="score">0</span>/<span id="total">24</span></div>
+      <div class="score-label">acertos · clique nas alternativas para responder</div>
+    </div>
+    <div class="score-donut-wrap">
+      <svg width="60" height="60" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="8"/>
+        <circle id="donut-arc" cx="32" cy="32" r="26" fill="none" stroke="#c9953c" stroke-width="8"
+          stroke-dasharray="0 163.4" stroke-linecap="round"
+          transform="rotate(-90 32 32)"/>
+      </svg>
+      <div>
+        <div id="score-pct-label" class="score-pct-label">0%</div>
+        <div class="score-pct-sub">de acerto</div>
+      </div>
+    </div>
+    <button class="btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+  </div>
+
+  <script>
+    const ANSWERS = {q1:'c',q2:'a',q3:'e',q4:'b',q5:'d',q6:'b',q7:'e',q8:'a',q9:'c',q10:'d',q11:'b',q12:'e',q13:'a',q14:'c',q15:'d',q16:'e',q17:'b',q18:'a',q19:'c',q20:'d',q21:'e',q22:'b',q23:'a',q24:'c'};
+    let score = 0, answered = 0;
+    function updateDonut() {
+      const pct = answered ? Math.round(score / answered * 100) : 0;
+      const arc = answered ? (score / answered) * 163.4 : 0;
+      const donut = document.getElementById('donut-arc');
+      donut.setAttribute('stroke-dasharray', `${arc} 163.4`);
+      donut.setAttribute('stroke', pct >= 70 ? '#c9953c' : pct >= 40 ? '#f39c12' : '#e74c3c');
+      document.getElementById('score-pct-label').textContent = pct + '%';
+    }
+    function pick(qid, letter, el) {
+      const opts = el.closest('.quiz-opts').querySelectorAll('.opt');
+      opts.forEach(o => o.classList.add('disabled'));
+      const fb = document.getElementById('fb-'+qid);
+      if (letter === ANSWERS[qid]) {
+        el.classList.add('correct'); score++; answered++;
+        document.getElementById('score').textContent = score;
+        fb.className = 'quiz-feedback show ok';
+        fb.innerHTML = '✅ <strong>Correto!</strong> ' + fb.dataset.ok;
+      } else {
+        el.classList.add('wrong'); answered++;
+        opts.forEach(o => { if(o.dataset.l === ANSWERS[qid]) o.classList.add('reveal-correct'); });
+        fb.className = 'quiz-feedback show err';
+        fb.innerHTML = '❌ <strong>Incorreto.</strong> ' + fb.dataset.err;
+      }
+      updateDonut();
+    }
+    function resetQuiz() {
+      score = 0; answered = 0;
+      document.getElementById('score').textContent = 0;
+      document.querySelectorAll('.opt').forEach(o => o.className = 'opt');
+      document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+      document.getElementById('donut-arc').setAttribute('stroke-dasharray', '0 163.4');
+      document.getElementById('score-pct-label').textContent = '0%';
+      document.getElementById('exercicios').scrollIntoView({behavior:'smooth'});
+    }
+  </script>
+
+  <!-- Q1 -->
+  <div class="quiz">
+    <p class="q-fonte">Os primeiros filósofos gregos, chamados pré-socráticos, deixaram de explicar o mundo apenas pelos mitos.</p>
+    <div class="quiz-q"><span class="quiz-num">1</span><span>O que eles investigavam ao estudar a physis e a arkhé?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> As leis da pólis e a melhor forma de organizar o governo da cidade.</div>
+      <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> A conduta virtuosa que leva o indivíduo à felicidade e à tranquilidade.</div>
+      <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> A natureza e um princípio originário do qual todas as coisas viriam.</div>
+      <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> As Ideias perfeitas, que existem num mundo separado da matéria.</div>
+      <div class="opt" data-l="e" onclick="pick('q1','e',this)"><span class="opt-letter">E</span> A origem dos deuses e das genealogias divinas narradas pelos poetas.</div>
+    </div>
+    <div id="fb-q1" class="quiz-feedback" data-ok="Physis é a natureza (a matéria); arkhé é o princípio originário de todas as coisas. Para Demócrito, a arkhé são os átomos. Ética e política são temas de Sócrates em diante." data-err="Physis é a natureza (a matéria); arkhé é o princípio originário de todas as coisas. Para Demócrito, a arkhé são os átomos. Ética e política são temas de Sócrates em diante."></div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz">
+    <p class="q-fonte">Demócrito tenta conciliar Heráclito, para quem tudo muda, e Parmênides, para quem o Ser é imutável.</p>
+    <div class="quiz-q"><span class="quiz-num">2</span><span>No atomismo, o que vem de cada um, respectivamente?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> O movimento e a combinação dos átomos / a imutabilidade dos átomos.</div>
+      <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> A imutabilidade dos próprios átomos / o movimento e a combinação dos átomos.</div>
+      <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> A existência do mundo inteligível / a existência do mundo sensível.</div>
+      <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> A passagem da potência ao ato / a essência que permanece nas coisas.</div>
+      <div class="opt" data-l="e" onclick="pick('q2','e',this)"><span class="opt-letter">E</span> A negação completa do vazio / a afirmação de que o não-ser não existe.</div>
+    </div>
+    <div id="fb-q2" class="quiz-feedback" data-ok="De Heráclito vem a mudança constante, explicada pelo movimento e pela recombinação dos átomos. De Parmênides vem o Ser imutável: os átomos são eternos e indivisíveis. Mundos inteligível e sensível são de Platão; potência e ato, de Aristóteles." data-err="De Heráclito vem a mudança constante, explicada pelo movimento e pela recombinação dos átomos. De Parmênides vem o Ser imutável: os átomos são eternos e indivisíveis. Mundos inteligível e sensível são de Platão; potência e ato, de Aristóteles."></div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz">
+    <p class="q-fonte">Parmênides afirmava que &quot;o não-ser não é&quot;. Demócrito, porém, admite a existência do vazio.</p>
+    <div class="quiz-q"><span class="quiz-num">3</span><span>Para Demócrito, o vazio é</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> o &quot;nada&quot; absoluto, que não existe e é apenas um erro dos nossos sentidos.</div>
+      <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> um tipo especial de átomo, mais leve, que preenche o espaço entre os corpos.</div>
+      <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> o mundo inteligível, onde ficam as essências perfeitas e imutáveis.</div>
+      <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> a potência que toda coisa tem de se transformar em uma forma nova.</div>
+      <div class="opt" data-l="e" onclick="pick('q3','e',this)"><span class="opt-letter">E</span> um não-ser que existe como espaço necessário ao movimento dos átomos.</div>
+    </div>
+    <div id="fb-q3" class="quiz-feedback" data-ok="O vazio é a ausência de átomos, mas não é o &quot;nada&quot;: é o espaço sem o qual os átomos não poderiam se mover. Corresponde a um não-ser que existe, o ponto em que Demócrito se afasta de Parmênides." data-err="O vazio é a ausência de átomos, mas não é o &quot;nada&quot;: é o espaço sem o qual os átomos não poderiam se mover. Corresponde a um não-ser que existe, o ponto em que Demócrito se afasta de Parmênides."></div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz">
+    <p class="q-fonte">Um tronco é queimado numa fogueira e vira cinza, fumaça e calor.</p>
+    <div class="quiz-q"><span class="quiz-num">4</span><span>Segundo o atomismo de Demócrito, o que aconteceu com o tronco?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> Seus átomos foram destruídos pelo fogo e deixaram de existir para sempre.</div>
+      <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> Seus átomos se separaram e formam outros corpos, sem deixar de existir.</div>
+      <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> A essência do tronco voltou ao mundo inteligível, onde sempre esteve.</div>
+      <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> O tronco passou do ato para a potência, perdendo a sua forma de árvore.</div>
+      <div class="opt" data-l="e" onclick="pick('q4','e',this)"><span class="opt-letter">E</span> O fogo criou átomos novos de cinza e fumaça a partir do vazio.</div>
+    </div>
+    <div id="fb-q4" class="quiz-feedback" data-ok="Nascer é junção de átomos; morrer é separação. Os átomos são eternos: não são criados nem destruídos, só se recombinam. Por isso o Ser é feito de corpos imutáveis, mesmo num mundo que muda." data-err="Nascer é junção de átomos; morrer é separação. Os átomos são eternos: não são criados nem destruídos, só se recombinam. Por isso o Ser é feito de corpos imutáveis, mesmo num mundo que muda."></div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz">
+    <p class="q-fonte">&quot;Por convenção, o doce; por convenção, o amargo; por convenção, a cor. Na realidade, átomos e vazio.&quot; (Demócrito)</p>
+    <div class="quiz-q"><span class="quiz-num">5</span><span>O fragmento indica que</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> o doce e o amargo são essências perfeitas, alcançadas só pela reminiscência.</div>
+      <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> as sensações são sempre falsas e, por isso, devem ser descartadas pelo filósofo.</div>
+      <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> os sabores e as cores existem nos átomos do mesmo modo como os percebemos.</div>
+      <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> as qualidades sensíveis resultam do efeito dos átomos sobre os nossos sentidos.</div>
+      <div class="opt" data-l="e" onclick="pick('q5','e',this)"><span class="opt-letter">E</span> a realidade é fluxo constante, e nenhuma sensação se repete da mesma maneira.</div>
+    </div>
+    <div id="fb-q5" class="quiz-feedback" data-ok="O conhecimento sensível é produzido pelo efeito dos átomos em nossos sentidos. O sabor não está no átomo; está no encontro entre átomos e sentidos. Isso não torna os sentidos falsos, mas limitados às aparências." data-err="O conhecimento sensível é produzido pelo efeito dos átomos em nossos sentidos. O sabor não está no átomo; está no encontro entre átomos e sentidos. Isso não torna os sentidos falsos, mas limitados às aparências."></div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz">
+    <p class="q-fonte">Um lápis colocado num copo com água parece torto. Quem conhece a refração da luz sabe que ele continua reto.</p>
+    <div class="quiz-q"><span class="quiz-num">6</span><span>Pela teoria do conhecimento de Demócrito, esse exemplo mostra que</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> o conhecimento sensível é falso e não tem nenhum valor para quem busca a verdade.</div>
+      <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> os sentidos mostram as aparências, e a razão vai além delas para explicar o real.</div>
+      <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> a razão depende inteiramente dos sentidos e nunca pode corrigir o que eles mostram.</div>
+      <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> a verdade só existe no mundo inteligível, e o lápis da água é uma cópia imperfeita.</div>
+      <div class="opt" data-l="e" onclick="pick('q6','e',this)"><span class="opt-letter">E</span> o lápis passou de reto a torto em potência e voltou a ficar reto em ato.</div>
+    </div>
+    <div id="fb-q6" class="quiz-feedback" data-ok="O conhecimento sensível (lápis torto) não é necessariamente falso ou pior, mas fica nas aparências. O conhecimento racional ultrapassa os sentidos e explica o fenômeno (refração da luz)." data-err="O conhecimento sensível (lápis torto) não é necessariamente falso ou pior, mas fica nas aparências. O conhecimento racional ultrapassa os sentidos e explica o fenômeno (refração da luz)."></div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz">
+    <p class="q-fonte">Platão também tenta conciliar Heráclito e Parmênides, por meio do seu dualismo.</p>
+    <div class="quiz-q"><span class="quiz-num">7</span><span>A associação correta entre os dois mundos de Platão e esses pré-socráticos é:</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> mundo sensível, permanente (Parmênides) / mundo inteligível, em movimento (Heráclito).</div>
+      <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> mundo inteligível, feito de átomos (Heráclito) / mundo sensível, feito de vazio (Parmênides).</div>
+      <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> os dois mundos são permanentes, como em Parmênides, e o movimento é só ilusão.</div>
+      <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> os dois mundos estão em movimento, como em Heráclito, e nada permanece em lugar algum.</div>
+      <div class="opt" data-l="e" onclick="pick('q7','e',this)"><span class="opt-letter">E</span> mundo inteligível, permanente (Parmênides) / mundo sensível, em movimento (Heráclito).</div>
+    </div>
+    <div id="fb-q7" class="quiz-feedback" data-ok="O mundo inteligível é a parte permanente da realidade, herança de Parmênides. O mundo sensível é a parte em movimento, herança de Heráclito. Átomos e vazio são de Demócrito." data-err="O mundo inteligível é a parte permanente da realidade, herança de Parmênides. O mundo sensível é a parte em movimento, herança de Heráclito. Átomos e vazio são de Demócrito."></div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz">
+    <p class="q-fonte">Platão distingue dois tipos de saber: episteme e doxa.</p>
+    <div class="quiz-q"><span class="quiz-num">8</span><span>Eles correspondem, respectivamente, a</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> saber verdadeiro do mundo inteligível / opinião baseada no mundo sensível.</div>
+      <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> opinião baseada no mundo sensível / conhecimento verdadeiro do mundo inteligível.</div>
+      <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> conhecimento dos átomos pela razão / conhecimento dos sabores pelos sentidos.</div>
+      <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> conhecimento da essência nas coisas / conhecimento das propriedades das coisas.</div>
+      <div class="opt" data-l="e" onclick="pick('q8','e',this)"><span class="opt-letter">E</span> conhecimento das leis da cidade / conhecimento dos mitos e das tradições.</div>
+    </div>
+    <div id="fb-q8" class="quiz-feedback" data-ok="Episteme é o conhecimento verdadeiro, das essências do mundo inteligível. Doxa é a opinião, ligada aos sentidos e ao mundo sensível, instável e corruptível." data-err="Episteme é o conhecimento verdadeiro, das essências do mundo inteligível. Doxa é a opinião, ligada aos sentidos e ao mundo sensível, instável e corruptível."></div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz">
+    <p class="q-fonte">Ninguém jamais viu um círculo perfeito: todo círculo desenhado tem falhas. Mesmo assim, sabemos definir o que é um círculo.</p>
+    <div class="quiz-q"><span class="quiz-num">9</span><span>Para Platão, isso acontece porque</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> a razão abstrai a essência do círculo a partir dos círculos imperfeitos que observa.</div>
+      <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> os átomos do círculo agem sobre os sentidos e produzem a ideia de perfeição.</div>
+      <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> a razão alcança a Ideia de círculo, que está no mundo inteligível.</div>
+      <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> a definição de círculo é apenas uma convenção criada pelos geômetras gregos.</div>
+      <div class="opt" data-l="e" onclick="pick('q9','e',this)"><span class="opt-letter">E</span> o círculo perfeito existe em potência em cada desenho e se realiza em ato.</div>
+    </div>
+    <div id="fb-q9" class="quiz-feedback" data-ok="As essências perfeitas não estão no mundo sensível; são alcançadas apenas pela razão (reminiscência e dialética). Abstrair a essência das coisas concretas é a resposta de Aristóteles, não de Platão." data-err="As essências perfeitas não estão no mundo sensível; são alcançadas apenas pela razão (reminiscência e dialética). Abstrair a essência das coisas concretas é a resposta de Aristóteles, não de Platão."></div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz">
+    <p class="q-fonte">Uma flor muito bonita murcha depois de alguns dias.</p>
+    <div class="quiz-q"><span class="quiz-num">10</span><span>Para Platão, como explicar que a flor deixe de ser bela, enquanto a Beleza continua a existir?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> A Beleza é um conjunto de átomos que se separou quando a flor murchou.</div>
+      <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> A beleza era só uma propriedade da flor, e a essência dela era ser bela.</div>
+      <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> A Beleza nunca existiu: era só uma opinião sem nenhuma referência real.</div>
+      <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> A flor era cópia imperfeita e participava da Ideia de Beleza, imutável.</div>
+      <div class="opt" data-l="e" onclick="pick('q10','e',this)"><span class="opt-letter">E</span> A flor passou do ato à potência e, por isso, perdeu a forma que tinha.</div>
+    </div>
+    <div id="fb-q10" class="quiz-feedback" data-ok="No mundo sensível tudo é instável e corruptível; as coisas são imagens imperfeitas das essências. Todas as mudanças acontecem em relação às Ideias perfeitas, que não mudam." data-err="No mundo sensível tudo é instável e corruptível; as coisas são imagens imperfeitas das essências. Todas as mudanças acontecem em relação às Ideias perfeitas, que não mudam."></div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="quiz">
+    <p class="q-fonte">Aristóteles chamava de &quot;filosofia primeira&quot; a área que depois ficou conhecida como metafísica.</p>
+    <div class="quiz-q"><span class="quiz-num">11</span><span>Essa área se ocupa de</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> descrever os fenômenos naturais por meio de experimentos e medições.</div>
+      <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> investigar os princípios e causas de todas as coisas, além dos sentidos.</div>
+      <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> organizar as regras da argumentação válida para vencer os debates.</div>
+      <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> estudar o comportamento das cidades e as melhores formas de governo.</div>
+      <div class="opt" data-l="e" onclick="pick('q11','e',this)"><span class="opt-letter">E</span> classificar os seres vivos de acordo com as suas características físicas.</div>
+    </div>
+    <div id="fb-q11" class="quiz-feedback" data-ok="A metafísica trata de temas além dos sentidos (Deus, alma, tempo, essência) e investiga os princípios e causas de todas as coisas. O nome veio depois: os livros vinham &quot;depois da Física&quot; na organização das obras." data-err="A metafísica trata de temas além dos sentidos (Deus, alma, tempo, essência) e investiga os princípios e causas de todas as coisas. O nome veio depois: os livros vinham &quot;depois da Física&quot; na organização das obras."></div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="quiz">
+    <p class="q-fonte">Uma pessoa usa uma caneta como arma para ferir alguém, em vez de usá-la para escrever.</p>
+    <div class="quiz-q"><span class="quiz-num">12</span><span>Com base nas essências de Aristóteles, como avaliar esse uso?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> É indiferente, pois a caneta é só matéria e não tem nenhuma essência própria.</div>
+      <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> É legítimo, pois a essência de cada objeto é definida por quem o utiliza.</div>
+      <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> É uma cópia imperfeita da Ideia de caneta, que existe no mundo inteligível.</div>
+      <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> É neutro, pois os átomos da caneta continuam os mesmos em qualquer uso.</div>
+      <div class="opt" data-l="e" onclick="pick('q12','e',this)"><span class="opt-letter">E</span> Vai contra a essência da caneta e, assim, contra a ordem universal.</div>
+    </div>
+    <div id="fb-q12" class="quiz-feedback" data-ok="Essência é a caracterização determinada pela natureza, atribuída a tudo que existe. A da caneta é escrever. Usá-la para matar é ir contra a essência e, portanto, contra a natureza e a ordem universal." data-err="Essência é a caracterização determinada pela natureza, atribuída a tudo que existe. A da caneta é escrever. Usá-la para matar é ir contra a essência e, portanto, contra a natureza e a ordem universal."></div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="quiz">
+    <p class="q-fonte">Platão e Aristóteles aceitam a existência de essências, mas discordam num ponto central.</p>
+    <div class="quiz-q"><span class="quiz-num">13</span><span>A divergência está em que</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> Platão as põe num mundo separado; Aristóteles, nas próprias coisas.</div>
+      <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> Platão as põe nas próprias coisas; Aristóteles, num mundo inteligível separado.</div>
+      <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> Platão as considera mutáveis; Aristóteles, eternas e imutáveis.</div>
+      <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> Platão diz que são feitas de átomos; Aristóteles, que são feitas de vazio.</div>
+      <div class="opt" data-l="e" onclick="pick('q13','e',this)"><span class="opt-letter">E</span> Platão as conhece pelos sentidos; Aristóteles, só pela reminiscência.</div>
+    </div>
+    <div id="fb-q13" class="quiz-feedback" data-ok="Para Platão, as essências ficam no mundo inteligível, separado do físico. Aristóteles recusa o dualismo: a essência está nas próprias coisas, homens e ações do mundo físico." data-err="Para Platão, as essências ficam no mundo inteligível, separado do físico. Aristóteles recusa o dualismo: a essência está nas próprias coisas, homens e ações do mundo físico."></div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="quiz">
+    <p class="q-fonte">Duas pessoas têm alturas, cores de pele e traços físicos muito diferentes.</p>
+    <div class="quiz-q"><span class="quiz-num">14</span><span>Para Aristóteles, o que elas têm em comum, como essência, é</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> a altura média da espécie humana, que a natureza fixou.</div>
+      <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> a Ideia de Homem, que existe num mundo separado do físico.</div>
+      <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> ser racional; altura e cor são só propriedades.</div>
+      <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> o mesmo conjunto de átomos, que se combinou do mesmo modo.</div>
+      <div class="opt" data-l="e" onclick="pick('q14','e',this)"><span class="opt-letter">E</span> a potência de mudar de cor e de tamanho ao longo da vida.</div>
+    </div>
+    <div id="fb-q14" class="quiz-feedback" data-ok="Pela abstração, a razão separa as propriedades (altura, cor, diferenças físicas), que variam, da essência, que não varia: o ser humano é um ser racional. E as duas coisas estão no mundo físico." data-err="Pela abstração, a razão separa as propriedades (altura, cor, diferenças físicas), que variam, da essência, que não varia: o ser humano é um ser racional. E as duas coisas estão no mundo físico."></div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="quiz">
+    <p class="q-fonte">Aristóteles explica como chegamos à essência de algo por meio da abstração.</p>
+    <div class="quiz-q"><span class="quiz-num">15</span><span>O que diferencia essa explicação da de Platão?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> A abstração dispensa a razão: basta olhar o objeto com atenção para ver a essência.</div>
+      <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> A abstração depende de a alma recordar as Ideias que viu antes de nascer.</div>
+      <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> A abstração mostra que a essência é inventada pela mente e não existe nas coisas.</div>
+      <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> A razão, pela observação, separa a essência das propriedades no mundo físico.</div>
+      <div class="opt" data-l="e" onclick="pick('q15','e',this)"><span class="opt-letter">E</span> A abstração só é possível pelo diálogo, subindo das opiniões até a Ideia.</div>
+    </div>
+    <div id="fb-q15" class="quiz-feedback" data-ok="Abstração = razão + observação: perceber e diferenciar propriedades e essência num objeto concreto. Não precisa de outro mundo. Reminiscência e dialética são os caminhos de Platão." data-err="Abstração = razão + observação: perceber e diferenciar propriedades e essência num objeto concreto. Não precisa de outro mundo. Reminiscência e dialética são os caminhos de Platão."></div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="quiz">
+    <p class="q-fonte">Uma semente é plantada e, anos depois, torna-se uma árvore.</p>
+    <div class="quiz-q"><span class="quiz-num">16</span><span>Nos termos de Aristóteles, é correto afirmar que</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> a semente é árvore em ato, e a árvore é semente em potência.</div>
+      <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> a semente não tem relação com a árvore, pois a essência surge só no fim.</div>
+      <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> a árvore é uma cópia imperfeita da Ideia de árvore, e a semente, uma sombra.</div>
+      <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> a árvore surge da junção de átomos que antes estavam separados no vazio.</div>
+      <div class="opt" data-l="e" onclick="pick('q16','e',this)"><span class="opt-letter">E</span> a semente é árvore em potência; chegar à árvore em ato é o movimento.</div>
+    </div>
+    <div id="fb-q16" class="quiz-feedback" data-ok="A semente já possui a essência de uma árvore e a potência de se tornar uma. A árvore é a forma em ato. O movimento é a mudança qualitativa, a passagem da potência para o ato." data-err="A semente já possui a essência de uma árvore e a potência de se tornar uma. A árvore é a forma em ato. O movimento é a mudança qualitativa, a passagem da potência para o ato."></div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="quiz">
+    <p class="q-fonte">Um bloco de mármore é esculpido e se torna uma estátua.</p>
+    <div class="quiz-q"><span class="quiz-num">17</span><span>Pela teoria de Aristóteles, antes de ser esculpido, o bloco</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> já era a estátua em ato, apenas escondida pelas partes em excesso.</div>
+      <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> era estátua em potência: tinha a capacidade de receber essa nova forma.</div>
+      <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> não tinha relação com a estátua, que surgiu do nada pelas mãos do artista.</div>
+      <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> era uma cópia da Ideia de estátua, que existe no mundo inteligível.</div>
+      <div class="opt" data-l="e" onclick="pick('q17','e',this)"><span class="opt-letter">E</span> era o primeiro motor imóvel, causa de todo o movimento do escultor.</div>
+    </div>
+    <div id="fb-q17" class="quiz-feedback" data-ok="Potência é a capacidade de algo se transformar numa forma nova. O mármore é estátua em potência; a estátua pronta é a forma em ato. O trabalho do escultor é o movimento entre os dois." data-err="Potência é a capacidade de algo se transformar numa forma nova. O mármore é estátua em potência; a estátua pronta é a forma em ato. O trabalho do escultor é o movimento entre os dois."></div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="quiz">
+    <p class="q-fonte">Aristóteles explica o movimento sem precisar de dois mundos, como Platão.</p>
+    <div class="quiz-q"><span class="quiz-num">18</span><span>Como a teoria de ato e potência resolve o conflito entre Heráclito e Parmênides?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> As coisas mudam, mas a essência que guia a mudança permanece nelas.</div>
+      <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> O movimento é uma ilusão dos sentidos, e só a essência existe de verdade.</div>
+      <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> Tudo muda o tempo todo, e não há nada que permaneça nas coisas.</div>
+      <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> As coisas mudam no mundo sensível, mas a essência fica em outro mundo.</div>
+      <div class="opt" data-l="e" onclick="pick('q18','e',this)"><span class="opt-letter">E</span> A mudança é só a recombinação de átomos eternos no meio do vazio.</div>
+    </div>
+    <div id="fb-q18" class="quiz-feedback" data-ok="Há movimento real (Heráclito), mas a semente não vira qualquer coisa: vira árvore, porque a essência já estava nela (Parmênides). Mudança e permanência convivem no mesmo mundo." data-err="Há movimento real (Heráclito), mas a semente não vira qualquer coisa: vira árvore, porque a essência já estava nela (Parmênides). Mudança e permanência convivem no mesmo mundo."></div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="quiz">
+    <p class="q-fonte">Para Aristóteles, todo movimento precisa de outro movimento prévio que o cause.</p>
+    <div class="quiz-q"><span class="quiz-num">19</span><span>Daí ele conclui que deve existir um primeiro motor imóvel, porque</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> os átomos precisam de uma força externa para sair do vazio e se combinar.</div>
+      <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> a alma precisa recordar as Ideias que contemplou antes de nascer.</div>
+      <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> sem um primeiro movimento, a cadeia de causas iria ao infinito.</div>
+      <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> todas as coisas do mundo sensível estão em movimento, e nada permanece.</div>
+      <div class="opt" data-l="e" onclick="pick('q19','e',this)"><span class="opt-letter">E</span> o Deus cristão criou o mundo do nada e governa cada um dos seus movimentos.</div>
+    </div>
+    <div id="fb-q19" class="quiz-feedback" data-ok="Se cada movimento dependesse de outro anterior, sem fim, nada explicaria o primeiro. Eventualmente tem de haver um movimento inicial, independente de outro: o primeiro motor imóvel." data-err="Se cada movimento dependesse de outro anterior, sem fim, nada explicaria o primeiro. Eventualmente tem de haver um movimento inicial, independente de outro: o primeiro motor imóvel."></div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="quiz">
+    <p class="q-fonte">O primeiro motor imóvel de Aristóteles é descrito como &quot;ato puro e perfeito&quot;.</p>
+    <div class="quiz-q"><span class="quiz-num">20</span><span>Sobre ele, é correto afirmar que</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> é o Deus cristão, criador do mundo, como Aristóteles explica na Metafísica.</div>
+      <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> é feito dos átomos mais perfeitos, que nunca se separam nem se recombinam.</div>
+      <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> é pura potência, pois pode se transformar em qualquer forma que existir.</div>
+      <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> não tem potência e não muda; não deve ser confundido com o Deus cristão.</div>
+      <div class="opt" data-l="e" onclick="pick('q20','e',this)"><span class="opt-letter">E</span> é uma Ideia do mundo inteligível, alcançada só pela dialética.</div>
+    </div>
+    <div id="fb-q20" class="quiz-feedback" data-ok="Ato puro: não há nele nada em potência, por isso não muda e é imóvel. É um &quot;ser divino&quot;, mas Aristóteles veio antes do cristianismo. Só depois Tomás de Aquino adaptou o argumento para falar de Deus." data-err="Ato puro: não há nele nada em potência, por isso não muda e é imóvel. É um &quot;ser divino&quot;, mas Aristóteles veio antes do cristianismo. Só depois Tomás de Aquino adaptou o argumento para falar de Deus."></div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="quiz">
+    <p class="q-fonte">Para Byung-Chul Han, a democracia surge no mundo antigo como tentativa de deliberação pública e de poder conjuntivo do povo.</p>
+    <div class="quiz-q"><span class="quiz-num">21</span><span>Segundo essa leitura, a democracia depende de</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> um líder forte, capaz de decidir sozinho pelo bem de toda a população.</div>
+      <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> um grande volume de dados sobre os cidadãos, coletados pelo Estado.</div>
+      <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> algoritmos que entreguem a cada eleitor apenas o que ele quer ver.</div>
+      <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> um espaço físico obrigatório, como a ágora, onde todos se reúnem.</div>
+      <div class="opt" data-l="e" onclick="pick('q21','e',this)"><span class="opt-letter">E</span> uma esfera pública de debate, que hoje pode estar até na internet.</div>
+    </div>
+    <div id="fb-q21" class="quiz-feedback" data-ok="A democracia nasce da deliberação pública: o povo decide em conjunto, debatendo. Essa esfera pública hoje não é necessariamente física; pode estar, por exemplo, na internet." data-err="A democracia nasce da deliberação pública: o povo decide em conjunto, debatendo. Essa esfera pública hoje não é necessariamente física; pode estar, por exemplo, na internet."></div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="quiz">
+    <p class="q-fonte">Byung-Chul Han usa o termo &quot;infocracia&quot; para descrever a política atual.</p>
+    <div class="quiz-q"><span class="quiz-num">22</span><span>O termo indica que</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> a informação digital acabou com o poder das empresas sobre a população.</div>
+      <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> o domínio da informação digital é decisivo no controle da democracia.</div>
+      <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> a democracia ficou mais forte porque todos têm acesso a mais informação.</div>
+      <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> o governo passou a ser exercido diretamente por especialistas em tecnologia.</div>
+      <div class="opt" data-l="e" onclick="pick('q22','e',this)"><span class="opt-letter">E</span> a informação deixou de ter importância política na era das redes sociais.</div>
+    </div>
+    <div id="fb-q22" class="quiz-feedback" data-ok="Infocracia é o &quot;governo da informação&quot;: quem domina a informação (especialmente digital) tem peso decisivo na democracia. Empresas e Estados têm poder sobre dados com potencial de controle e manipulação." data-err="Infocracia é o &quot;governo da informação&quot;: quem domina a informação (especialmente digital) tem peso decisivo na democracia. Empresas e Estados têm poder sobre dados com potencial de controle e manipulação."></div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="quiz">
+    <p class="q-fonte">Dois vizinhos usam a mesma rede social, mas recebem notícias e opiniões quase opostas sobre o mesmo tema. Cada um acha que o outro está mal informado.</p>
+    <div class="quiz-q"><span class="quiz-num">23</span><span>Para Byung-Chul Han, essa situação ilustra</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q23','a',this)"><span class="opt-letter">A</span> o algoritmo como bolha que gera nichos e intensifica a polarização.</div>
+      <div class="opt" data-l="b" onclick="pick('q23','b',this)"><span class="opt-letter">B</span> a esfera pública de debate funcionando como na democracia antiga.</div>
+      <div class="opt" data-l="c" onclick="pick('q23','c',this)"><span class="opt-letter">C</span> o fim do poder das empresas sobre os dados de quem usa as redes.</div>
+      <div class="opt" data-l="d" onclick="pick('q23','d',this)"><span class="opt-letter">D</span> a falta de fontes de informação disponíveis para os dois usuários.</div>
+      <div class="opt" data-l="e" onclick="pick('q23','e',this)"><span class="opt-letter">E</span> a diferença entre conhecimento sensível e racional, como em Demócrito.</div>
+    </div>
+    <div id="fb-q23" class="quiz-feedback" data-ok="O algoritmo direciona as informações conforme o nicho e o perfil de cada usuário. Cada um fica numa bolha, com informação feita para o seu público, o que intensifica a polarização comunicativa." data-err="O algoritmo direciona as informações conforme o nicho e o perfil de cada usuário. Cada um fica numa bolha, com informação feita para o seu público, o que intensifica a polarização comunicativa."></div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="quiz">
+    <p class="q-fonte">Hoje há mais fontes de informação disponíveis do que em qualquer outra época.</p>
+    <div class="quiz-q"><span class="quiz-num">24</span><span>Para Byung-Chul Han, por que isso não garante um debate público mais rico?</span></div>
+    <div class="quiz-opts">
+      <div class="opt" data-l="a" onclick="pick('q24','a',this)"><span class="opt-letter">A</span> Porque as fontes digitais são sempre falsas e não merecem confiança.</div>
+      <div class="opt" data-l="b" onclick="pick('q24','b',this)"><span class="opt-letter">B</span> Porque o Estado proíbe a circulação da maior parte das informações.</div>
+      <div class="opt" data-l="c" onclick="pick('q24','c',this)"><span class="opt-letter">C</span> Porque cada público recebe o seu nicho, e os grupos não se ouvem.</div>
+      <div class="opt" data-l="d" onclick="pick('q24','d',this)"><span class="opt-letter">D</span> Porque as pessoas têm cada vez menos acesso à internet e às redes.</div>
+      <div class="opt" data-l="e" onclick="pick('q24','e',this)"><span class="opt-letter">E</span> Porque a democracia antiga já proibia o debate entre opiniões opostas.</div>
+    </div>
+    <div id="fb-q24" class="quiz-feedback" data-ok="Existem múltiplas fontes, mas a informação chega dividida em nichos direcionados a públicos específicos. Sem contato com o diferente, o debate (base da deliberação democrática) se enfraquece e a polarização cresce." data-err="Existem múltiplas fontes, mas a informação chega dividida em nichos direcionados a públicos específicos. Sem contato com o diferente, o debate (base da deliberação democrática) se enfraquece e a polarização cresce."></div>
+  </div>
+
+</div>
+
+<footer>
+  Caderno Digital · Filosofia 3º tri · 2ª série do Ensino Médio · 2026
+</footer>
+
+<!-- ═══ CHATBOT ═══ -->
+<style>
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #3d2b00; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: #3d2b00; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
+  .cmsg.bot { background: #fdf8ef; border: 1px solid #e8ddc8; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.user { background: #3d2b00; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.loading { color: #888; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid #e8ddc8; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: #3d2b00; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: #6b4c11; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+  
+  
+  
+</script>
+<script src="scripts/progress.js"></script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>

@@ -6,3 +6,8 @@ envios-baixados/
 # Mapas baixados pelo gerador de vídeos
 ferramentas/videos/.geo-cache/
 __pycache__/
+# vídeos dos resumos (ferramentas/video)
+videos-gerados/
+ferramentas/video/audio/
+ferramentas/video/.venv
+ferramentas/video/vozes/

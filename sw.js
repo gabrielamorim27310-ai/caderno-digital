@@ -10,13 +10,14 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-10-21-hist3';
+const VERSAO = 'cd-2026-10-25-filo3';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
   'biologia-2tri.html',
   'filosofia-1tri.html',
   'filosofia-2tri.html',
+  'filosofia-3tri.html',
   'geografia-1tri.html',
   'geografia-2tri-america.html',
   'geografia-2tri.html',
@@ -24,6 +25,7 @@ const ESSENCIAIS = [
   'historia-2tri.html',
   'historia-3tri.html',
   'index.html',
+  'enviar.html',
   'ingles-2tri.html',
   'ingles-flashcards.html',
   'matematica-2tri.html',
@@ -32,6 +34,7 @@ const ESSENCIAIS = [
   'quimica-2tri.html',
   'sociologia-1tri.html',
   'sociologia-2tri.html',
+  'sociologia-3tri.html',
   'config.js',
   'manifest.webmanifest',
   'icons.svg',

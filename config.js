@@ -10,6 +10,7 @@ var APP = {
   aiName:      'Nêuron',
   aiEndpoint:  '/api/chat',
   year:        '2026',
+  triAtual:    3,            // trimestre que o painel e o envio abrem primeiro
   school:      'Colégio Bandeirantes',
   grade:       '2ª série do Ensino Médio',
 };
@@ -48,4 +49,6 @@ var MATERIAS = [
 
   // 3º trimestre
   { tri: 3, id: 'historia-3tri',          materia: 'historia',   icone: '🏛️', nome: 'História',   desc: '1830/1848 · Ideologias · Itália · Alemanha · Comuna · EUA · com vídeos', status: 'prova' },
+  { tri: 3, id: 'filosofia-3tri',         materia: 'filosofia',  imagem: 'pensador.png', nome: 'Filosofia', desc: 'Demócrito · Platão · Aristóteles · Byung-Chul Han (Infocracia)', status: 'prova' },
+  { tri: 3, id: 'sociologia-3tri',        materia: 'sociologia', icone: '🏙️', nome: 'Sociologia', desc: 'História da Antropologia · Cultura Popular, Erudita e Contracultura · Indústria Cultural', status: 'prova' },
 ];
