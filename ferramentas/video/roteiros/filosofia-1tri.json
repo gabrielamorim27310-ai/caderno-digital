@@ -1,0 +1,269 @@
+{
+  "pagina": "filosofia-1tri",
+  "materia": "filosofia",
+  "titulo": "Filosofia · 1º tri",
+  "formato": "horizontal",
+  "cenas": [
+    {
+      "tipo": "capa",
+      "selo": "Filosofia · 1º trimestre",
+      "titulo": "Ética e Moral",
+      "subtitulo": "Agente moral · Platão · Aristóteles · Epicuro · Milgram",
+      "imagem": "pensador.png",
+      "fala": "Bora revisar Filosofia do primeiro trimestre: ética, moral, Platão, Aristóteles, Epicuro e o experimento de Mílgrem. Tudo isso pode cair na prova."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Ética e Moral",
+      "colunas": [
+        {
+          "titulo": "Ética",
+          "itens": [
+            "**Estudo** dos valores",
+            "Certo e errado, justo e injusto, bem e mal"
+          ]
+        },
+        {
+          "titulo": "Moral",
+          "itens": [
+            "**Prática** dos valores",
+            "As ações concretas do dia a dia"
+          ]
+        }
+      ],
+      "fala": "Primeiro, a diferença básica. A ética é o estudo filosófico dos valores que guiam uma sociedade ou uma pessoa: o certo e o errado, o justo e o injusto. A moral é a prática desses valores nas ações do dia a dia."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "O grande debate da ética",
+      "colunas": [
+        {
+          "titulo": "Platão",
+          "itens": [
+            "Valores **universais** e imutáveis",
+            "O bem e o mal são objetivos"
+          ]
+        },
+        {
+          "titulo": "Nietzsche",
+          "itens": [
+            "Valores **relativos**",
+            "Mudam com a cultura e a época"
+          ]
+        }
+      ],
+      "fala": "Dentro da ética há um grande debate. Para Platão, os valores são universais e imutáveis, válidos para todos, em qualquer tempo. Para Nítche, os valores são relativos: o que é certo muda conforme a cultura e o momento histórico."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Agente moral",
+      "titulo": "Razão, deliberação e responsabilidade",
+      "itens": [
+        "O ser humano é **agente moral** porque tem **logos**",
+        "Logos: razão, discurso, linguagem",
+        "**Deliberar**: refletir e escolher de forma consciente",
+        "Escolha voluntária → **responsabilização**"
+      ],
+      "fala": "O ser humano é o agente moral, porque tem logos, que quer dizer razão e discurso. Com a razão, ele delibera: reflete e escolhe de forma consciente e voluntária. E quem escolhe livremente é responsabilizado, para o bem, com mérito, ou para o mal, com culpa."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Moral, imoral e amoral",
+      "colunas": [
+        {
+          "titulo": "Moral e Imoral",
+          "itens": [
+            "Moral: age **de acordo** com os valores",
+            "Imoral: conhece os valores e age **contra** eles",
+            "Os dois têm consciência moral"
+          ]
+        },
+        {
+          "titulo": "Amoral",
+          "itens": [
+            "Age **fora** do campo moral",
+            "Sem consciência moral: bebês, animais",
+            "Não há responsabilização"
+          ]
+        }
+      ],
+      "fala": "As ações podem ser de três tipos. Moral é agir de acordo com os valores. Imoral é conhecer os valores e agir contra eles, como roubar sabendo que é errado. Amoral é agir fora do campo moral, sem consciência moral, como um bebê ou um animal. Cuidado: imoral e amoral não são a mesma coisa."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Um bebê derruba e quebra um vaso. A ação é:",
+      "alternativas": [
+        "Moral",
+        "Imoral",
+        "Amoral"
+      ],
+      "certa": "c",
+      "explicacao": "O bebê não tem consciência moral: age fora do campo moral e não é responsabilizado.",
+      "fala": "Pergunta rápida. Um bebê derruba e quebra um vaso. Essa ação é moral, imoral ou amoral?",
+      "falaResposta": "Amoral, letra C. O bebê não tem consciência moral. Imoral seria se ele soubesse que era errado e fizesse assim mesmo."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 2",
+      "titulo": "Platão",
+      "subtitulo": "Dualismo e reminiscência",
+      "fala": "Agora, a ética de Platão."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Ética de Platão",
+      "titulo": "Os valores estão no mundo inteligível",
+      "itens": [
+        "**Mundo inteligível**: justiça, bem, beleza e verdade absolutos",
+        "**Mundo sensível**: cópia imperfeita, mutável",
+        "**Reminiscência**: a alma viu as Ideias antes de reencarnar",
+        "Ética = **lembrar** os valores universais pela razão"
+      ],
+      "fala": "Platão divide a realidade em dois mundos. No mundo inteligível estão os conceitos universais de justiça, bem, beleza e verdade. O mundo sensível é só uma cópia imperfeita. Pela reminiscência, a alma já teve contato com esses conceitos antes de reencarnar. Então, para Platão, a ética é lembrar os valores universais por meio da razão e da filosofia."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 3",
+      "titulo": "Aristóteles",
+      "subtitulo": "Eudaimonia · Justa medida · Tipos de saber",
+      "fala": "Parte três: Aristóteles."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Eudaimonia",
+      "titulo": "O sumo bem",
+      "itens": [
+        "**Eudaimonia**: plena realização e felicidade",
+        "Alcançada pelo desenvolvimento das **virtudes**",
+        "Valores construídos **ao longo da vida**, não lembrados",
+        "Virtuoso: busca o bem, tem amizades, usa a razão"
+      ],
+      "fala": "Para Aristóteles, o sumo bem é a eudaimonia, a plena realização e felicidade. Ela é alcançada desenvolvendo virtudes na prática. E aqui está a diferença com Platão: para Aristóteles, os valores éticos são construídos ao longo da vida, e não lembrados de outro mundo."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Regra de ouro: a justa medida",
+      "texto": "A virtude é o **meio-termo** entre dois vícios. Covardia (falta) · **Coragem** · Imprudência (excesso)",
+      "fala": "A regra de ouro é a justa medida. A virtude é o equilíbrio entre dois vícios, um por falta e outro por excesso. A coragem, por exemplo, fica entre a covardia, que é a falta, e a imprudência, que é o excesso. A temperança é esse equilíbrio aplicado aos prazeres do corpo."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Tipos de saberes",
+      "colunas": [
+        {
+          "titulo": "Saber teórico",
+          "itens": [
+            "Ciência e leis científicas",
+            "Saberes intelectuais"
+          ]
+        },
+        {
+          "titulo": "Saber prático",
+          "itens": [
+            "Ética e **prudência**",
+            "Decisões morais"
+          ]
+        }
+      ],
+      "fala": "Aristóteles separa dois tipos de saber: o teórico, das ciências, e o prático, da ética e da prudência. Um não depende do outro. Alguém pode saber muita ciência e ter pouca prudência, e vice-versa."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 4",
+      "titulo": "Epicurismo",
+      "subtitulo": "Helenismo · Hedonismo · Clinâmen · Tetrapharmakon",
+      "fala": "Parte quatro: o epicurismo, do período helenístico."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Hedonismo",
+      "titulo": "A felicidade é prazer, mas não qualquer um",
+      "itens": [
+        "Helenismo: a filosofia deixa a política e **foca na ética**",
+        "**Naturais e necessários**: pão, água, sono → felicidade",
+        "Naturais e não necessários: luxo → afastam",
+        "Não naturais: honra, glória, fama → afastam"
+      ],
+      "fala": "Com o helenismo, a filosofia deixa de falar de política e foca na ética. Para Epicuro, a felicidade é prazer, mas não qualquer prazer. Só os naturais e necessários, como comer pão, beber água e dormir, levam à felicidade. Os de luxo, e os criados pela sociedade, como fama e glória, afastam dela."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Atomismo e clinâmen",
+      "colunas": [
+        {
+          "titulo": "Demócrito",
+          "itens": [
+            "Tudo é matéria (átomos)",
+            "Movimento por leis mecânicas",
+            "**Determinismo**: livre-arbítrio é ilusão"
+          ]
+        },
+        {
+          "titulo": "Epicuro",
+          "itens": [
+            "Tudo é matéria (átomos)",
+            "Às vezes os átomos **desviam**",
+            "**Clinâmen**: abre espaço ao livre-arbítrio"
+          ]
+        }
+      ],
+      "fala": "Epicuro adota o atomismo de Demócrito: tudo é matéria. Mas, para Demócrito, o movimento dos átomos é determinado, e o livre-arbítrio seria uma ilusão. Epicuro muda isso com o clinâmen: às vezes os átomos sofrem um desvio imprevisível, e isso torna possível o livre-arbítrio."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Ataraxia",
+      "titulo": "Tetrapharmakon: o remédio quádruplo",
+      "itens": [
+        "Não temer os **deuses**",
+        "Não temer a **morte**",
+        "A **dor** pode ser suportada",
+        "É possível **ser feliz**"
+      ],
+      "fala": "Para chegar à ataraxia, a tranquilidade da alma, Epicuro dá quatro remédios. Não temer os deuses, que não se importam com os homens. Não temer a morte: enquanto estamos vivos, ela não existe; quando ela chega, não existimos mais. A dor pode ser suportada. E é possível ser feliz, satisfazendo os prazeres necessários."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 5",
+      "titulo": "Milgram",
+      "subtitulo": "Autoridade e obediência",
+      "fala": "Por fim, o experimento de Mílgrem."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Experimento",
+      "titulo": "Até onde obedecemos?",
+      "itens": [
+        "Choques elétricos **simulados** a mando de uma autoridade",
+        "Pergunta: obedecemos mesmo **contra nossos valores**?",
+        "Limites: gravidade da ordem e custo de desobedecer",
+        "**Eichmann**: só obedecia ordens, era peça da engrenagem"
+      ],
+      "fala": "O psicólogo Stênli Mílgrem quis entender a obediência dos alemães no nazismo. No experimento, as pessoas aplicavam choques simulados a mando de uma autoridade. A pergunta era: até onde o homem obedece, mesmo contra seus valores? No Holocausto, Áikman se defendeu dizendo que era só uma peça da engrenagem e que apenas obedecia ordens."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Transferência da culpa",
+      "texto": "A culpa é **deslocada para quem deu a ordem**. A pessoa deixa de se ver como agente moral e vira só **executora**.",
+      "fala": "O ponto central é a transferência da culpa. Tanto no experimento quanto no Holocausto, a responsabilidade é jogada para quem deu a ordem. A pessoa deixa de se ver como agente moral e passa a se ver só como executora. Isso anula a responsabilidade moral."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Para Aristóteles, a coragem é:",
+      "alternativas": [
+        "O excesso de ousadia diante do perigo",
+        "A lembrança da Ideia de coragem",
+        "O meio-termo entre covardia e imprudência"
+      ],
+      "certa": "c",
+      "explicacao": "A virtude é o equilíbrio entre dois vícios: a falta (covardia) e o excesso (imprudência).",
+      "fala": "Última pergunta. Para Aristóteles, o que é a coragem?",
+      "falaResposta": "Letra C: o meio-termo entre a covardia e a imprudência. Lembrar a Ideia de coragem seria a resposta de Platão."
+    },
+    {
+      "tipo": "fim",
+      "titulo": "Bons estudos!",
+      "texto": "Faça os exercícios no Caderno Digital.",
+      "fala": "É isso! Agora faça os exercícios no Caderno Digital para fixar. Bons estudos!"
+    }
+  ]
+}
