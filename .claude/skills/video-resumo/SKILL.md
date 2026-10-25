@@ -1,6 +1,6 @@
 ---
 name: video-resumo
-description: Cria um vídeo narrado de revisão a partir de um resumo do Caderno Digital (ex. sociologia-3tri.html). Use quando pedirem vídeo, videoaula, reels/shorts ou "vídeo do resumo" de uma matéria. Escreve o roteiro, grava a narração (Piper, grátis) e monta com ffmpeg.
+description: Cria um vídeo narrado de revisão a partir de um resumo do Caderno Digital (ex. sociologia-3tri.html). Use quando pedirem vídeo, videoaula, reels/shorts ou "vídeo do resumo" de uma matéria. Escreve o roteiro, grava a narração (Kokoro, grátis) e monta com ffmpeg.
 ---
 
 # Vídeo de um resumo
@@ -9,7 +9,8 @@ Todo vídeo **tem narração**. O vídeo nunca é montado sem um áudio para cad
 
 Arquivos em `ferramentas/video/`:
 - `roteiros/<pagina>.json`: o roteiro (vai para o git);
-- `narrar.py`: grava as falas com o Piper em `audio/<pagina>/`;
+- `narrar.py`: grava as falas em `audio/<pagina>/` com o Kokoro (voz pt-BR
+  `pm_alex`, a mesma dos vídeos de História; `NARRADOR=piper` volta ao Piper);
 - `gerar.mjs`: desenha as telas (Playwright) e monta o vídeo (ffmpeg).
 
 Saída: `videos-gerados/<pagina>.mp4` na raiz (fora do git). Áudios, `.venv/`,
@@ -34,7 +35,9 @@ Saída: `videos-gerados/<pagina>.mp4` na raiz (fora do git). Áudios, `.venv/`,
    - Imagens: só as que já estão no site (`socio-imgs/...` etc.).
      Retrato pequeno: `"retrato": true`.
 3. **Narrar**: `cd ferramentas/video && python3 narrar.py roteiros/<pagina>.json`
-   (na primeira vez instala o Piper e baixa a voz pt_BR, ~2 minutos).
+   (na primeira vez instala o Kokoro e baixa a voz, ~2 minutos).
+   Nome estrangeiro que a voz lê errado: escreva como se fala só na **fala**
+   (ex.: "Biung Tchul Ran" para Byung-Chul Han).
    Depois de mudar uma fala, apague o `.wav` dela ou use `--forcar`.
 4. **Prévia das telas**: `node gerar.mjs roteiros/<pagina>.json --previa`
    (precisa de `npm install` na pasta, uma vez). Se aparecer
@@ -43,8 +46,10 @@ Saída: `videos-gerados/<pagina>.mp4` na raiz (fora do git). Áudios, `.venv/`,
 5. **Montar**: `node gerar.mjs roteiros/<pagina>.json`
    (`--horizontal` para 1920x1080; o padrão é vertical, para celular).
 6. **Conferir**: `ffprobe` (tem vídeo h264 e áudio aac?) e algumas telas.
-7. **Entregar** o `.mp4` com SendUserFile. Não commitar o vídeo; commitar
-   só o roteiro e mudanças nos scripts.
+7. **Entregar** o `.mp4` com SendUserFile. `videos-gerados/` fica fora do git.
+   Para pôr o vídeo na página, copie para a pasta de mídia da matéria
+   (ex.: `filo-videos/`, `hist-videos/`) com um pôster `.jpg` e use
+   `<video controls preload="none" playsinline poster=... src=...>`.
 
 ## Formato do roteiro
 
