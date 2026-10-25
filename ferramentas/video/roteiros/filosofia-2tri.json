@@ -1,0 +1,281 @@
+{
+  "pagina": "filosofia-2tri",
+  "materia": "filosofia",
+  "titulo": "Filosofia · 2º tri",
+  "formato": "horizontal",
+  "cenas": [
+    {
+      "tipo": "capa",
+      "selo": "Filosofia · 2º trimestre",
+      "titulo": "Filosofia Moral",
+      "subtitulo": "Estoicismo · Agostinho e Aquino · Kant · Schopenhauer · Freud · Sartre · Mill",
+      "imagem": "pensador.png",
+      "fala": "Bora revisar Filosofia do segundo trimestre: estoicismo, Agostinho e Tomás de Aquino, Kant, Chôpen-ráuer, Freud, Sartre e o utilitarismo."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 1",
+      "titulo": "Estoicismo",
+      "subtitulo": "Epicteto e a dicotomia do controle",
+      "fala": "Parte um: o estoicismo."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Ética estoica",
+      "titulo": "Só a virtude é boa",
+      "itens": [
+        "Surge no **helenismo**: sem a pólis, a virtude vai para o indivíduo",
+        "**Bom**: a virtude · **Mau**: o vício",
+        "**Indiferente**: riqueza, saúde, a própria vida",
+        "Felicidade (eudaimonia) pela **areté**, a virtude"
+      ],
+      "fala": "O estoicismo surge no período helenístico, quando as cidades gregas perdem autonomia. Sem a pólis, a virtude passa a ser buscada dentro de cada um. Para os estoicos, só a virtude é boa e só o vício é mau. Riqueza, saúde e até a vida são indiferentes, porque podem ser usadas para o bem ou para o mal."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Epicteto: a dicotomia do controle",
+      "colunas": [
+        {
+          "titulo": "Sob nosso controle",
+          "itens": [
+            "Opiniões, escolhas, desejos",
+            "Como **reagimos**"
+          ]
+        },
+        {
+          "titulo": "Fora do controle",
+          "itens": [
+            "Corpo, riqueza, reputação",
+            "O que os outros fazem"
+          ]
+        }
+      ],
+      "fala": "Epicteto, que foi escravo, simplifica tudo em duas partes: o que está sob nosso controle, como opiniões, escolhas e reações, e o que não está, como o corpo, a riqueza e a reputação. O que importa não é o que acontece, mas como reagimos."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Emoções",
+      "titulo": "Pathos, ataraxia e apatheia",
+      "itens": [
+        "**Pathos**: paixão desregrada, vem de julgamentos errados",
+        "**Ataraxia**: tranquilidade interior",
+        "**Apatheia**: ausência de paixões desregradas, não é apatia",
+        "Emoção = impressão → primeiro movimento → avaliação → **assentimento**"
+      ],
+      "fala": "O pathos é a paixão desregrada, que nasce de julgamentos errados. A meta é a ataraxia, a tranquilidade interior, e a apatheia, que é a ausência de paixões desregradas, e não apatia. No elevador que treme, o susto é só o primeiro movimento. Só vira pânico se você der o assentimento, e isso está sob seu controle."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 2",
+      "titulo": "Agostinho e Aquino",
+      "subtitulo": "Patrística e Escolástica",
+      "fala": "Parte dois: a ética cristã, com Santo Agostinho e Tomás de Aquino."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "De onde vem o mal?",
+      "colunas": [
+        {
+          "titulo": "Maniqueísmo",
+          "itens": [
+            "Bem e mal: princípios **eternos**",
+            "Independentes de Deus",
+            "O mal vem da **matéria**"
+          ]
+        },
+        {
+          "titulo": "Agostinho",
+          "itens": [
+            "Deus é **onipotente**",
+            "O mal é **ausência do bem**",
+            "Vem do **livre-arbítrio**"
+          ]
+        }
+      ],
+      "fala": "Agostinho foi maniqueísta antes de se converter. Para o maniqueísmo, bem e mal são princípios eternos e independentes de Deus. Agostinho rejeita isso: Deus é onipotente, e o mal é só a ausência do bem, como o escuro é ausência de luz. O mal surge quando o homem, com seu livre-arbítrio, escolhe não seguir o bem."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Agostinho x Tomás de Aquino",
+      "colunas": [
+        {
+          "titulo": "Agostinho (Patrística)",
+          "itens": [
+            "Base: **Platão**",
+            "Conhecimento por **iluminação** divina",
+            "Coração inquieto só descansa em Deus"
+          ]
+        },
+        {
+          "titulo": "Aquino (Escolástica)",
+          "itens": [
+            "Base: **Aristóteles**",
+            "Fé e razão **operam juntas**",
+            "Felicidade plena só **após a morte**"
+          ]
+        }
+      ],
+      "fala": "Agostinho se apoia em Platão: o intelecto conhece a verdade porque é iluminado por Deus. Tomás de Aquino se apoia em Aristóteles: fé e razão têm esferas próprias e trabalham juntas. Para Aquino, a felicidade é o último fim, mas na vida ela é incompleta. Ficamos em potência, e só na morte ela se torna ato."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 3",
+      "titulo": "Kant",
+      "subtitulo": "Esclarecimento e imperativo categórico",
+      "fala": "Parte três: Kant, iluminista alemão."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Esclarecimento",
+      "titulo": "Ouse saber",
+      "itens": [
+        "**Maioridade**: pensar por si",
+        "**Menoridade**: depender de outro para raciocinar",
+        "Sapere aude: sair da menoridade",
+        "Moral baseada na **razão**, não na religião"
+      ],
+      "fala": "Kant vive a secularização, quando a religião sai da esfera pública. Esclarecimento é usar a razão com autonomia. Maioridade é pensar por si. Menoridade é depender de outro para raciocinar. O lema é: ouse saber. E a moral passa a se basear só na razão, não mais em Deus."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Imperativo categórico",
+      "texto": "Age de modo que o princípio da tua ação possa virar **regra universal**.",
+      "fala": "O imperativo categórico é a lei moral suprema: aja de modo que o princípio da sua ação possa virar regra universal. Pergunte: e se todo mundo fizesse isso? Se todos mentissem, ninguém acreditaria em ninguém, e a mentira deixa de funcionar. Por isso não existe mentira do bem. E ele é incondicional, ao contrário do imperativo hipotético, do tipo se você quer isso, faça aquilo."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "\"Se todos colassem, a prova perderia o sentido.\" Esse raciocínio é de:",
+      "alternativas": [
+        "Bentham",
+        "Kant",
+        "Epicteto"
+      ],
+      "certa": "b",
+      "explicacao": "É o teste do imperativo categórico: universalizar a ação e ver se ela se contradiz.",
+      "fala": "Pergunta rápida. Se todos colassem, a prova perderia o sentido. De quem é esse raciocínio?",
+      "falaResposta": "Letra B, Kant. É o teste do imperativo categórico: universalizar a ação e ver se ela se destrói."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 4",
+      "titulo": "Schopenhauer e Freud",
+      "subtitulo": "A crise da razão",
+      "fala": "Parte quatro: a crise da razão, com Chôpen-ráuer e Freud."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Schopenhauer: o mundo tem duas faces",
+      "colunas": [
+        {
+          "titulo": "Representação",
+          "itens": [
+            "O mundo como **aparece**",
+            "Pelos sentidos e pela razão"
+          ]
+        },
+        {
+          "titulo": "Vontade",
+          "itens": [
+            "A essência por trás: força **cega e irracional**",
+            "A razão é **impotente** diante dela"
+          ]
+        }
+      ],
+      "fala": "No século dezenove vem a crise da razão: pessimismo, materialismo e perda de um sentido transcendente. Para Chôpen-ráuer, o mundo é representação, o modo como aparece, e vontade, uma força cega e irracional por trás de tudo. A razão não domina a vontade. A vida é um pêndulo entre a ânsia de ter e o tédio de possuir."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Freud",
+      "titulo": "Id, Ego e Superego",
+      "itens": [
+        "**Id** (inconsciente): impulsos e desejos, princípio do prazer",
+        "**Superego** (inconsciente): reprime, vem da moral social",
+        "**Ego** (consciente): busca saída entre os dois e o mundo",
+        "O homem **não é senhor da própria casa**"
+      ],
+      "fala": "Para Descartes, a consciência controlava as paixões. Freud inverte isso. O id é inconsciente: impulsos e desejos. O superego também é inconsciente e reprime esses desejos, a partir da moral da sociedade. O ego, consciente, vive em angústia buscando uma saída entre os dois e o mundo real. Por isso, o homem não é senhor da própria casa."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 5",
+      "titulo": "Sartre e Mill",
+      "subtitulo": "Existencialismo e utilitarismo",
+      "fala": "Parte cinco: Sartre e o utilitarismo."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Sartre: essência e existência",
+      "colunas": [
+        {
+          "titulo": "Visão grega",
+          "itens": [
+            "A essência **vem antes**",
+            "É fixa: o homem é racional"
+          ]
+        },
+        {
+          "titulo": "Sartre",
+          "itens": [
+            "A existência **vem antes**",
+            "O homem **cria** sua essência"
+          ]
+        }
+      ],
+      "fala": "Para os gregos, a essência vem antes e é fixa. Para Sartre, a existência precede a essência: o homem nasce com uma essência vazia e a constrói com as próprias escolhas. Por isso, o homem está condenado a ser livre. Não dá para terceirizar as ações nem culpar as circunstâncias."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Utilitarismo: Bentham x Mill",
+      "colunas": [
+        {
+          "titulo": "Bentham",
+          "itens": [
+            "Maior felicidade para o **maior número**",
+            "Cálculo **quantitativo** do prazer",
+            "Todo prazer vale igual"
+          ]
+        },
+        {
+          "titulo": "Mill",
+          "itens": [
+            "Aceita prazer e dor como guias",
+            "Prazer **qualitativo**",
+            "Prazeres intelectuais são **superiores**"
+          ]
+        }
+      ],
+      "fala": "O utilitarismo diz que a ação certa é a que gera a maior felicidade para o maior número. Bentham faz um cálculo quantitativo: mesmo prazer, mesmo valor. Mill discorda: há prazeres superiores, os do intelecto. É melhor um Sócrates insatisfeito do que um tolo satisfeito."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Liberalismo",
+      "titulo": "Mill e a liberdade",
+      "itens": [
+        "**Liberdade de expressão**: ninguém tem a verdade inteira",
+        "**Falibilidade** humana: o debate faz avançar",
+        "Contra a escravidão: cada um é **dono de si**",
+        "Ninguém pode ser **livre para não ser livre**"
+      ],
+      "fala": "Mill também é liberal. Defende a liberdade de expressão porque todos podem errar, e o debate faz a humanidade avançar. É contra a escravidão, porque cada um tem propriedade sobre si. E ninguém pode se vender como escravo: seria usar a liberdade para destruir a própria liberdade."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "\"O homem está condenado a ser livre\" significa que:",
+      "alternativas": [
+        "Não escolhemos ser livres e não fugimos da responsabilidade",
+        "A liberdade é um castigo divino",
+        "O inconsciente decide por nós"
+      ],
+      "certa": "a",
+      "explicacao": "Até não escolher é uma escolha: somos responsáveis pela nossa essência.",
+      "fala": "Última pergunta. O homem está condenado a ser livre. O que isso quer dizer?",
+      "falaResposta": "Letra A. Ninguém pediu para ser livre, mas não há como deixar de escolher. Até não escolher é uma escolha, e por isso somos responsáveis."
+    },
+    {
+      "tipo": "fim",
+      "titulo": "Bons estudos!",
+      "texto": "Faça os 34 exercícios no Caderno Digital.",
+      "fala": "É isso! O conteúdo é acumulativo, então revise também o primeiro trimestre. Faça os exercícios no Caderno Digital. Bons estudos!"
+    }
+  ]
+}
