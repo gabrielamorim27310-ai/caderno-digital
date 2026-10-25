@@ -1,0 +1,286 @@
+{
+  "pagina": "filosofia-3tri",
+  "materia": "filosofia",
+  "titulo": "Filosofia · 3º tri",
+  "formato": "horizontal",
+  "cenas": [
+    {
+      "tipo": "capa",
+      "selo": "Filosofia · 3º trimestre",
+      "titulo": "Ser, Movimento e Conhecimento",
+      "subtitulo": "Demócrito · Platão · Aristóteles · Byung-Chul Han",
+      "imagem": "pensador.png",
+      "fala": "Bora revisar Filosofia do terceiro trimestre: Demócrito, Platão, Aristóteles e, no fim, Biung Tchul Ran e a infocracia."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "O problema de fundo: movimento ou permanência?",
+      "colunas": [
+        {
+          "titulo": "Heráclito",
+          "itens": [
+            "Tudo muda",
+            "A realidade é **fluxo**",
+            "Ninguém se banha duas vezes no mesmo rio"
+          ]
+        },
+        {
+          "titulo": "Parmênides",
+          "itens": [
+            "O Ser **não muda**",
+            "O não-ser não é",
+            "A mudança é ilusão dos sentidos"
+          ]
+        }
+      ],
+      "fala": "Tudo começa num conflito. Para Heráclito, tudo muda: a realidade é fluxo. Para Parmênides, o Ser é eterno e imutável, e a mudança é ilusão dos sentidos. Os três filósofos clássicos tentam conciliar essas duas ideias, cada um do seu jeito."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 1",
+      "titulo": "Demócrito",
+      "subtitulo": "Atomismo · Conhecimento sensível e racional",
+      "fala": "Parte um: Demócrito, um filósofo pré-socrático."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Atomismo",
+      "titulo": "A realidade é feita de átomos e vazio",
+      "itens": [
+        "**Átomos**: pequenos, indivisíveis e eternos; compõem o Ser",
+        "Onde há átomo, há **movimento**",
+        "**Vazio**: ausência de átomos, não é o nada",
+        "O vazio é um **não-ser** que existe: o espaço do movimento"
+      ],
+      "fala": "Os pré-socráticos estudavam a physis, a natureza, e a arqué, o princípio de todas as coisas. Para Demócrito, a realidade é feita de átomos, partes pequenas, indivisíveis e eternas, e de vazio. Cuidado: o vazio não é o nada. É o espaço que os átomos precisam para se mover. É um não-ser que existe."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Como Demócrito concilia os dois",
+      "colunas": [
+        {
+          "titulo": "De Parmênides",
+          "itens": [
+            "Átomos **imutáveis**",
+            "Nada surge do nada"
+          ]
+        },
+        {
+          "titulo": "De Heráclito",
+          "itens": [
+            "Átomos **em movimento**",
+            "Nascer = junção · Morrer = separação"
+          ]
+        }
+      ],
+      "fala": "De Parmênides, ele pega a permanência: os átomos não mudam e não acabam. De Heráclito, pega a mudança: os átomos se movem, se juntam e se separam. Nascer é a junção dos átomos. Morrer é a separação deles. Os átomos continuam os mesmos."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Dois tipos de conhecimento",
+      "colunas": [
+        {
+          "titulo": "Sensível",
+          "itens": [
+            "Imagens, sabores, cheiros",
+            "Efeito dos átomos nos **sentidos**",
+            "Não é falso, mas fica nas **aparências**"
+          ]
+        },
+        {
+          "titulo": "Racional",
+          "itens": [
+            "Entende os átomos e seus movimentos",
+            "**Ultrapassa os sentidos** pela razão",
+            "Compreensão mais profunda"
+          ]
+        }
+      ],
+      "fala": "Demócrito separa o conhecimento em dois. O sensível vem do efeito dos átomos nos nossos sentidos. Ele não é necessariamente falso nem pior, mas fica limitado às aparências. O racional entende os átomos e vai além dos sentidos."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Exemplo da refração",
+      "texto": "O lápis no copo d'água **parece torto** (sentidos). A razão sabe que é a **refração da luz**.",
+      "fala": "O exemplo da aula: um lápis dentro de um copo de água parece torto. Isso é o conhecimento sensível. Pelo conhecimento racional, você sabe que o lápis está reto e que o que acontece é a refração da luz."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Para Demócrito, o vazio é:",
+      "alternativas": [
+        "O nada absoluto, que não existe",
+        "Um não-ser que existe como espaço do movimento",
+        "O mundo das Ideias perfeitas"
+      ],
+      "certa": "b",
+      "explicacao": "O vazio é ausência de átomos, mas existe: sem ele, não haveria movimento.",
+      "fala": "Pergunta rápida. Para Demócrito, o vazio é o quê?",
+      "falaResposta": "Letra B. O vazio é um não-ser que existe, porque é o espaço necessário para os átomos se moverem. O mundo das Ideias é Platão."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 2",
+      "titulo": "Platão",
+      "subtitulo": "O dualismo: mundo inteligível e mundo sensível",
+      "fala": "Parte dois: Platão e o dualismo."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Platão divide a realidade em duas",
+      "colunas": [
+        {
+          "titulo": "Mundo Inteligível",
+          "itens": [
+            "**Permanente** (Parmênides)",
+            "Essências perfeitas e imutáveis",
+            "**Episteme**: conhecimento verdadeiro"
+          ]
+        },
+        {
+          "titulo": "Mundo Sensível",
+          "itens": [
+            "**Em movimento** (Heráclito)",
+            "Instável e corruptível",
+            "**Doxa**: opinião, pelos sentidos"
+          ]
+        }
+      ],
+      "fala": "Platão também concilia os dois, mas dividindo a realidade. O mundo inteligível é permanente, como queria Parmênides, e é onde está a episteme, o conhecimento verdadeiro. O mundo sensível está em movimento, como queria Heráclito, e gera só a doxa, a opinião."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Mundo Inteligível",
+      "titulo": "As essências",
+      "itens": [
+        "Superiores, perfeitas e imutáveis",
+        "As 4 principais: **Bem, Justiça, Beleza e Verdade**",
+        "Alcançadas **só pela razão**: reminiscência e dialética",
+        "O sensível é **cópia imperfeita** delas"
+      ],
+      "fala": "No mundo inteligível ficam as essências, perfeitas e imutáveis. As quatro principais são o Bem, a Justiça, a Beleza e a Verdade. Elas só são alcançadas pela razão, pela reminiscência e pela dialética. E tudo no mundo sensível é uma imagem imperfeita delas: as coisas mudam, mas sempre em relação a essas essências."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 3",
+      "titulo": "Aristóteles",
+      "subtitulo": "Essências · Abstração · Ato e Potência · Primeiro Motor",
+      "fala": "Parte três: Aristóteles e a metafísica."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Metafísica",
+      "titulo": "A filosofia primeira",
+      "itens": [
+        "Temas **além dos sentidos**: Deus, alma, tempo, essência",
+        "Investiga os **princípios e causas** de todas as coisas",
+        "**Essência**: o que a natureza atribui a tudo que existe",
+        "Ir contra a essência é ir contra a **ordem universal**"
+      ],
+      "fala": "A metafísica trata de temas além dos sentidos, como Deus, alma, tempo e essência. É a filosofia primeira, que investiga os princípios e causas de todas as coisas. Essência é a caracterização que a natureza dá a tudo que existe. Usar uma caneta para matar alguém, em vez de escrever, é ir contra a essência dela."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Onde ficam as essências?",
+      "colunas": [
+        {
+          "titulo": "Platão",
+          "itens": [
+            "No **mundo inteligível**",
+            "Separado do mundo físico"
+          ]
+        },
+        {
+          "titulo": "Aristóteles",
+          "itens": [
+            "**Nas próprias coisas**",
+            "Recusa o dualismo platônico"
+          ]
+        }
+      ],
+      "fala": "Esse é o ponto que mais cai. Platão e Aristóteles aceitam as essências, mas discordam sobre onde elas estão. Para Platão, num mundo inteligível separado. Para Aristóteles, nas próprias coisas, homens e ações do mundo físico."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Abstração: propriedades e essência",
+      "colunas": [
+        {
+          "titulo": "Caneta azul",
+          "itens": [
+            "Propriedades: cor, tamanho, material",
+            "Essência: **escrever**"
+          ]
+        },
+        {
+          "titulo": "Ser humano",
+          "itens": [
+            "Propriedades: altura, cor, traços",
+            "Essência: **ser racional**"
+          ]
+        }
+      ],
+      "fala": "Pela abstração, a razão e a observação separam as propriedades, que variam, da essência, que não varia. A essência da caneta é escrever. A do ser humano é ser racional. E lembre: as duas coisas estão no mundo físico."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Movimento x Permanência",
+      "titulo": "Ato e potência",
+      "itens": [
+        "**Potência**: capacidade de virar uma forma nova",
+        "**Ato**: a forma já realizada",
+        "**Movimento**: passagem da potência ao ato",
+        "Semente → árvore"
+      ],
+      "fala": "Para explicar o movimento, Aristóteles usa ato e potência. A semente já tem a essência de uma árvore e a potência de se tornar uma. A árvore é a forma em ato. O movimento é a passagem da potência para o ato. Assim, as coisas mudam, mas a essência permanece nelas. Não precisa de dois mundos."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Primeiro Motor Imóvel",
+      "texto": "Todo movimento vem de outro. Então tem de haver um **primeiro**, que move sem ser movido: **ato puro e perfeito**.",
+      "fala": "Todo movimento precisa de outro anterior para existir. Para não ir ao infinito, tem de haver um primeiro motor imóvel, um ser divino que é ato puro e perfeito. Atenção: não é o Deus cristão, porque Aristóteles veio antes do cristianismo."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Uma semente que vira árvore mostra, para Aristóteles:",
+      "alternativas": [
+        "A passagem da potência ao ato",
+        "Uma cópia imperfeita da Ideia de árvore",
+        "A junção de átomos no vazio"
+      ],
+      "certa": "a",
+      "explicacao": "A semente é árvore em potência; a árvore é a forma em ato; a passagem é o movimento.",
+      "fala": "Mais uma. Uma semente que vira árvore mostra o quê, para Aristóteles?",
+      "falaResposta": "Letra A: a passagem da potência ao ato. Cópia da Ideia é Platão, e junção de átomos é Demócrito."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 4",
+      "titulo": "Byung-Chul Han",
+      "subtitulo": "Infocracia e polarização no mundo digital",
+      "fala": "Parte quatro: Biung Tchul Ran, filósofo sul-coreano que pensa a política no mundo digital."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Infocracia",
+      "titulo": "O governo da informação",
+      "itens": [
+        "Democracia nasce da **deliberação pública**",
+        "A esfera de debate hoje pode estar **na internet**",
+        "Domínio da informação decide o **controle da democracia**",
+        "Empresas e Estados têm **dados** para manipular"
+      ],
+      "fala": "A democracia surgiu como deliberação pública, o poder conjunto do povo, debatendo numa esfera pública, que hoje pode estar na internet. Infocracia é o governo da informação: quem domina a informação digital tem peso decisivo na democracia. Empresas e Estados têm dados com potencial de controle e manipulação."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Algoritmos e polarização",
+      "texto": "O algoritmo é uma **bolha isolante**: cada perfil recebe seu nicho, e a **polarização** se intensifica.",
+      "fala": "E os algoritmos? Eles funcionam como uma bolha isolante. Direcionam a informação para cada usuário de acordo com o seu nicho e o seu perfil. Existem muitas fontes, mas cada grupo só vê o que confirma o que já pensa. O resultado é a polarização."
+    },
+    {
+      "tipo": "fim",
+      "titulo": "Bons estudos!",
+      "texto": "Faça o quiz de 24 questões no Caderno Digital.",
+      "fala": "É isso! Agora faça o quiz no Caderno Digital para fixar. Bons estudos!"
+    }
+  ]
+}

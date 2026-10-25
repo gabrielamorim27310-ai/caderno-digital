@@ -160,6 +160,7 @@ const CSS = `
 
 const ESPERA = process.env.PW_CHROMIUM || [
   '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell',
+  '/opt/pw-browsers/chromium',
 ].find(p => fs.existsSync(p));
 const navegador = await chromium.launch(ESPERA ? { executablePath: ESPERA } : {});
 const pagina = await navegador.newPage({ viewport: { width: W, height: H } });
