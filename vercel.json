@@ -13,6 +13,7 @@
     { "src": "geo-imgs/**",  "use": "@vercel/static" },
     { "src": "hist-imgs/**", "use": "@vercel/static" },
     { "src": "hist-videos/**", "use": "@vercel/static" },
+    { "src": "filo-videos/**", "use": "@vercel/static" },
     { "src": "qui-imgs/**",  "use": "@vercel/static" },
     { "src": "socio-imgs/**", "use": "@vercel/static" },
     { "src": "*.png",       "use": "@vercel/static" },
@@ -28,7 +29,8 @@
     { "src": "/manifest.webmanifest", "headers": { "content-type": "application/manifest+json" }, "continue": true },
     { "src": "/",         "dest": "/index.html" },
     { "src": "/enviar",   "dest": "/enviar.html" },
-    { "handle": "filesystem" }
+    { "handle": "filesystem" },
+    { "src": "/([a-z0-9-]+)/?", "dest": "/$1.html" }
   ],
   "crons": [
     { "path": "/api/manter-ativo", "schedule": "17 9 * * *" }
