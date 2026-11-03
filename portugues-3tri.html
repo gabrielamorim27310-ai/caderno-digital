@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-pagina="portugues-3tri" data-materia="portugues">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Resumo de Português · Estudos Linguísticos 3º tri 2026</title>
+<style>
+  :root {
+    --primary: #4a1060;
+    --secondary: #9333ea;
+    --bg: #faf7ff;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8d8f5;
+    --c1: #4a1060;
+    --c2: #7b2d8b;
+    --c3: #9333ea;
+    --c4: #2d1b69;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a0030 0%, #4a1060 55%, #7b2d8b 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #fdf5ff; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* NESTED LIST */
+  .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
+  .list-nested li strong { color: var(--text); }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #f5e8ff, #ede0ff); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-blue { background: linear-gradient(135deg, #e8f0ff, #dde8ff); border-left: 4px solid #2563eb; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-2 > .card, .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+
+  /* QUOTE / EXEMPLO */
+  .exemplo { font-style: italic; background: #fdf5ff; border-left: 4px solid var(--secondary); padding: 10px 16px; border-radius: 0 8px 8px 0; margin-top: 10px; font-size: 0.9rem; color: var(--primary); }
+  .exemplo span { display: block; font-style: normal; font-size: 0.78rem; color: var(--text-light); margin-top: 4px; font-weight: 600; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf5ff; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #f5e8ff; color: #4a1060; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CL1RMGB3SN');
+</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
+</head>
+<body class="ios resumo">
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="hero">
+  <div class="hero-icon">📖</div>
+  <h1>Português · Estudos Linguísticos</h1>
+  <p class="subtitle">Editorial · Interpretação · Complemento Nominal · Adjunto Adnominal · Concordância Verbal · Coesão</p>
+  <div class="badge">AGI · 3º Trimestre · 2026</div>
+  <br>
+  <span class="author">Prova de 03 a 06/11 · 10 testes no SEB</span>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#editorial">1. Editorial</a>
+    <a class="nav-link" href="#interpretacao">2. Interpretação</a>
+    <a class="nav-link" href="#complemento">3. Complemento Nominal</a>
+    <a class="nav-link" href="#adjunto">4. Adjunto Adnominal</a>
+    <a class="nav-link" href="#concordancia">5. Concordância Verbal</a>
+    <a class="nav-link" href="#coesao">6. Coesão</a>
+    <a class="nav-link" href="#exercicios">Quiz</a>
+  </div>
+</nav>
+
+<div class="content">
+
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O que cai e onde revisar</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Conteúdo</th><th>Material</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Características do editorial</strong></td><td>Apostila 2º sem., pp. 27 a 30</td></tr>
+          <tr><td><strong>Interpretação de textos</strong></td><td>Textos da apostila (editoriais e artigos de opinião)</td></tr>
+          <tr><td><strong>Complemento nominal</strong></td><td>Self-Studies 3 e 4</td></tr>
+          <tr><td><strong>Adjunto adnominal</strong></td><td>Self-Study 4 · Apostila, pp. 4 a 6</td></tr>
+          <tr><td><strong>Concordância verbal</strong></td><td>Self-Studies 5 e 6</td></tr>
+          <tr><td><strong>Coesão</strong></td><td>Relações semânticas das conjunções · Apêndice da apostila do 1º sem., pp. 60 e 61</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight"><strong>Formato:</strong> 10 testes, individuais, online em sala, pelo SEB. Cada aluno precisa do próprio iPad ou tablet.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       1. EDITORIAL
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="editorial" style="margin-top:40px">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">1</div>
+      <div>
+        <h2 class="section-title">Características do Editorial</h2>
+        <p class="section-sub">Apostila pp. 27 a 30 · Editorial x artigo de opinião x dissertação</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> O que é</div>
+      <p>O <strong>editorial</strong> expõe publicamente o <strong>posicionamento do veículo de imprensa</strong> (jornal, revista, portal) sobre um tema de interesse público que está nas notícias das últimas edições.</p>
+      <p>Por isso ele <strong>não é assinado</strong>: não representa a visão do editor que o redigiu, mas a <strong>posição oficial da instituição</strong>.</p>
+      <p>O objetivo é ajudar o leitor a, mais do que se informar, <strong>formar opinião</strong>. Para isso, desenvolve uma argumentação organizada, com <strong>progressão textual</strong>.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Características que caem</div>
+      <ul class="list">
+        <li><span><strong>Sem assinatura:</strong> a responsabilidade é do veículo, não de uma pessoa.</span></li>
+        <li><span><strong>Linguagem formal e impessoal:</strong> norma-padrão e 3ª pessoa, por causa da situação de sobriedade e distanciamento. Aparecem construções como "é preciso", "torna-se evidente", "defende-se".</span></li>
+        <li><span><strong>Recursos expressivos:</strong> mesmo impessoal, usa metáforas, ironias e intertextualidade para tornar a leitura mais agradável.</span></li>
+        <li><span><strong>Tema atual e de interesse público</strong>, apoiado em fatos e dados.</span></li>
+        <li><span><strong>Estratégias argumentativas:</strong> argumento de autoridade (falas de especialistas), dados de pesquisa, exemplos, comparação.</span></li>
+        <li><span><strong>Autorreferência:</strong> o jornal pode citar a si mesmo ("como faz esta Folha"). É uma marca do editorial que a dissertação não tem.</span></li>
+        <li><span><strong>Intenção:</strong> orientar a opinião pública e influenciar o debate social ou político, muitas vezes propondo soluções.</span></li>
+      </ul>
+      <div class="exemplo">"Não será uma mera proibição dos pais que os fará manter alguma distância dos aparelhos. É preciso convencê-los disso e ensiná-los a usar da melhor maneira possível os melhores recursos do mundo digital."<span>Editorial "Perigos nas redes sociais exigem atenção redobrada dos pais", O Globo (apostila p. 27). A conclusão mostra o ponto de vista do jornal: orientar e educar, não apenas proibir.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Editorial x Artigo de opinião</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Critério</th><th>Artigo de opinião</th><th>Editorial</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Conteúdo</strong></td><td>Tema visto pelo ponto de vista pessoal do autor (ideias, valores, experiências)</td><td>Tema de interesse público, com a posição institucional do veículo, com base em fatos e dados</td></tr>
+            <tr><td><strong>Autoria</strong></td><td>Assinado (jornalista, especialista, colunista, convidado): responsabilidade individual</td><td>Não assinado: opinião do jornal como instituição</td></tr>
+            <tr><td><strong>Linguagem</strong></td><td>Admite coloquialismo, subjetividade, 1ª pessoa e interlocução explícita</td><td>Formal e impessoal (3ª pessoa)</td></tr>
+            <tr><td><strong>Intenção</strong></td><td>Provocar reflexão, persuadir, estimular o debate a partir de uma análise individual</td><td>Orientar a opinião pública e influenciar o debate social ou político</td></tr>
+            <tr><td><strong>Relação com o leitor</strong></td><td>Mais direta e próxima, dialoga com o leitor</td><td>Mais formal e institucional, busca credibilidade e autoridade</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Editorial x Dissertação-argumentativa</div>
+      <p>O editorial é o gênero mais próximo da redação do vestibular e do ENEM. Por isso a apostila manda ler editoriais para pegar familiaridade com a escrita esperada.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#166534">
+          <h4>Semelhanças</h4>
+          <p>Gêneros argumentativos · tratamento impessoal · norma-padrão · introdução, desenvolvimento e conclusão · recursos argumentativos parecidos · podem apresentar soluções · dialogam com atualidades e outras áreas.</p>
+        </div>
+        <div class="mini-card" style="border-top-color:#9c1c1c">
+          <h4>Diferenças</h4>
+          <p>Na dissertação: limite de linhas (30), recorte temático mais definido e uso obrigatório da coletânea. No editorial: autorreferência ao veículo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Estrutura do texto e do parágrafo argumentativo</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parte</th><th>Função</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Introdução</strong> (1 parágrafo)</td><td>Apresenta o assunto e, em geral, a <strong>tese</strong> (posicionamento do autor)</td></tr>
+            <tr><td><strong>Desenvolvimento</strong> (2 ou mais)</td><td>Argumentos que provam a tese, em ordem lógica. É a parte mais importante</td></tr>
+            <tr><td><strong>Conclusão</strong> (1 parágrafo)</td><td>Retoma e confirma a tese; pode trazer uma proposta de solução</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:12px">Cada parágrafo argumentativo pode ser organizado em:</p>
+      <ul class="list">
+        <li><span><strong>Tópico frasal:</strong> normalmente um período com a ideia central do parágrafo.</span></li>
+        <li><span><strong>Desenvolvimento:</strong> argumentos, fatos e dados que comprovam a ideia central.</span></li>
+        <li><span><strong>Desfecho (opcional):</strong> consequência, proposta ou síntese que fecha o raciocínio.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. INTERPRETAÇÃO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="interpretacao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">2</div>
+      <div>
+        <h2 class="section-title">Interpretação de Textos</h2>
+        <p class="section-sub">O que as questões perguntam sobre editoriais e artigos de opinião</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Roteiro de leitura</div>
+      <ul class="list">
+        <li><span><strong>Tema x tese:</strong> o tema é o assunto (uso de redes sociais por crianças); a tese é a posição defendida (os pais precisam acompanhar e educar, não só proibir).</span></li>
+        <li><span><strong>Função de cada argumento:</strong> fala de especialista = <strong>argumento de autoridade</strong> (dá credibilidade); pesquisa com porcentagens = <strong>argumento por dados</strong> (comprova); caso concreto = <strong>exemplificação</strong>.</span></li>
+        <li><span><strong>Relação entre parágrafos:</strong> o conectivo no início do parágrafo mostra se ele soma ("Além disso"), opõe ("No entanto"), conclui ("Portanto") ou compara ("Assim como").</span></li>
+        <li><span><strong>Efeito da linguagem impessoal:</strong> dá objetividade e credibilidade, porque a opinião parece um fato e não um gosto pessoal.</span></li>
+        <li><span><strong>Inferência:</strong> a resposta certa é a que o texto <em>permite</em> concluir, não a que você acha verdade. Desconfie de alternativas com "sempre", "nunca", "apenas", ou que generalizam o que o texto relativiza.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Aplicando no editorial de O Globo</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Trecho</th><th>Estratégia</th></tr></thead>
+          <tbody>
+            <tr><td>Pediatra Daniel Becker: "O crime mudou para o território da internet"</td><td>Argumento de autoridade (saúde)</td></tr>
+            <tr><td>Juíza Vanessa Cavallieri: "O lugar mais perigoso é dentro de casa"</td><td>Argumento de autoridade (Judiciário) + metáfora da "porta da rua aberta"</td></tr>
+            <tr><td>Pew Research: 44% com ansiedade, 39% solitários; 70% veem o celular como mais benéfico</td><td>Dados que mostram o problema e, ao mesmo tempo, os benefícios. Por isso a solução não é só proibir</td></tr>
+            <tr><td>Reportagem do New York Times sobre eleitores de Trump</td><td>Mostra que o problema é global</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. COMPLEMENTO NOMINAL
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="complemento">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">3</div>
+      <div>
+        <h2 class="section-title">Complemento Nominal</h2>
+        <p class="section-sub">Self-Study 3 · Completa o sentido de um nome</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Definição</div>
+      <p>O <strong>complemento nominal (CN)</strong> é o termo que <strong>completa o sentido de um nome</strong> que, sozinho, fica incompleto. Quem é confiante é confiante <em>em algo</em>; quem é alérgico é alérgico <em>a algo</em>.</p>
+      <div class="grid-3">
+        <div class="mini-card" style="border-top-color:var(--c1)"><h4>Sempre com preposição</h4><p>a, de, em, com, por, contra... Não existe CN sem preposição.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Liga-se a três classes</h4><p><strong>Substantivo</strong> abstrato, <strong>adjetivo</strong> ou <strong>advérbio</strong>.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Sentido passivo</h4><p>Com substantivo, o CN é o <strong>alvo</strong> (paciente) da ideia, não quem a pratica.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Exemplos do Self-Study 3</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Frase</th><th>CN</th><th>Nome completado</th><th>Classe</th></tr></thead>
+          <tbody>
+            <tr><td>Fiquem bem atentos ao telefone</td><td>ao telefone</td><td>atentos</td><td>adjetivo</td></tr>
+            <tr><td>Meus amigos são ricos em virtudes</td><td>em virtudes</td><td>ricos</td><td>adjetivo</td></tr>
+            <tr><td>Suas palavras não eram compatíveis com seus valores</td><td>com seus valores</td><td>compatíveis</td><td>adjetivo</td></tr>
+            <tr><td>Fiquei orgulhoso do meu pai</td><td>do meu pai</td><td>orgulhoso</td><td>adjetivo</td></tr>
+            <tr><td>Ele é alérgico a crustáceos</td><td>a crustáceos</td><td>alérgico</td><td>adjetivo</td></tr>
+            <tr><td>Inconsciente da vida que lhe fora entregue (Clarice)</td><td>da vida</td><td>inconsciente</td><td>adjetivo</td></tr>
+            <tr><td>Todos se posicionaram contrariamente à proposta</td><td>à proposta</td><td>contrariamente</td><td>advérbio</td></tr>
+            <tr><td>Não pare na frente da minha garagem</td><td>da minha garagem</td><td>na frente</td><td>locução adverbial</td></tr>
+            <tr><td>O corpo avançando atrás da cabeça (Clarice)</td><td>da cabeça</td><td>atrás</td><td>advérbio</td></tr>
+            <tr><td>A população estava insatisfeita com o prefeito</td><td>com o prefeito</td><td>insatisfeita</td><td>adjetivo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight"><strong>Pegadinha da música "Nuvem de Lágrimas":</strong> em "Longe <u>dos olhos</u> / e dentro <u>do meu coração</u>", os termos completam advérbios (longe, dentro), então são CN. Em "depois <u>da cama</u>", também (completa o advérbio "depois").</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> CN x Objeto indireto</div>
+      <p>Os dois têm preposição. A diferença é <strong>o que eles completam</strong>:</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Complemento nominal</h4><p>Completa um <strong>nome</strong>.<br>Estava confiante <strong>na vitória</strong>. (adjetivo "confiante")</p></div>
+        <div class="mini-card" style="border-top-color:var(--c1)"><h4>Objeto indireto</h4><p>Completa um <strong>verbo</strong>.<br>Cedeu <strong>aos caprichos infantis</strong>. (verbo "ceder")</p></div>
+      </div>
+      <div class="highlight-blue">Truque: troque o nome pelo verbo da mesma família. "Tenho confiança <em>na vitória</em>" (CN do substantivo) vira "Confio <em>na vitória</em>" (OI do verbo). A função muda porque o termo passou a completar um verbo.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. ADJUNTO ADNOMINAL
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="adjunto">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">4</div>
+      <div>
+        <h2 class="section-title">Adjunto Adnominal</h2>
+        <p class="section-sub">Self-Study 4 · Apostila pp. 4 a 6 · Caracteriza o substantivo</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Definição pelos três aspectos</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Aspecto</th><th>O adjunto adnominal (AA)...</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Semântico</strong></td><td>Indica característica de um nome (qualidade, posse, origem, matéria, quantidade)</td></tr>
+            <tr><td><strong>Sintático</strong></td><td>Subordina-se a um <strong>substantivo</strong> (ou equivalente) e faz parte do sintagma nominal de que ele é núcleo</td></tr>
+            <tr><td><strong>Morfológico</strong></td><td>É artigo, adjetivo, locução adjetiva, numeral ou pronome adjetivo (possessivo, indefinido, demonstrativo)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="exemplo"><strong>Os</strong> <strong>nossos</strong> <strong>três</strong> <strong>melhores</strong> professores <strong>de astronomia</strong> ganharam vários prêmios.<span>Cinco AA de "professores": artigo, pronome possessivo, numeral, adjetivo e locução adjetiva. "Vários" é AA de "prêmios".</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Como diferenciar CN de AA <span class="tag tag-imp">mais cobrado</span></div>
+      <p>A confusão só existe quando o termo tem <strong>preposição</strong> e está ligado a um <strong>substantivo</strong>. Siga a ordem:</p>
+      <ul class="list">
+        <li><span><strong>1. Sem preposição?</strong> É AA (o, meu, três, belo). CN sempre tem preposição.</span></li>
+        <li><span><strong>2. Liga-se a adjetivo ou advérbio?</strong> É CN. AA só se liga a substantivo.</span></li>
+        <li><span><strong>3. O substantivo é concreto?</strong> É AA: casa <em>de pedra</em>, ponte <em>de madeira</em>, amigo <em>de Recife</em>, profissionais <em>com experiência</em>.</span></li>
+        <li><span><strong>4. Substantivo abstrato de ação</strong> (crítica, venda, observação, medo, amor): pergunte se o termo <strong>pratica</strong> ou <strong>sofre</strong> a ação.</span>
+          </li>
+      </ul>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Pratica / possui = AA</h4><p>A crítica <strong>do professor</strong> (o professor critica)<br>O medo <strong>da criança</strong> (a criança sente medo)<br>O livro <strong>de Mariana</strong> (posse)</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Sofre / é o alvo = CN</h4><p>A crítica <strong>ao governo</strong> (o governo é criticado)<br>A venda <strong>de livros</strong> (livros são vendidos)<br>A observação <strong>da lua</strong> (a lua é observada)</p></div>
+      </div>
+      <div class="highlight"><strong>Mesma frase, duas funções:</strong> "A venda <u>de livros</u> <u>de ficção</u> aumentou." <em>De livros</em> é CN (os livros são vendidos); <em>de ficção</em> é AA (caracteriza "livros", que é concreto).</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5. CONCORDÂNCIA VERBAL
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="concordancia">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">5</div>
+      <div>
+        <h2 class="section-title">Concordância Verbal</h2>
+        <p class="section-sub">Self-Studies 5 e 6 · Regras práticas</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Sujeito composto: antes ou depois do verbo</div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c1)"><h4>Ordem direta · só plural</h4><p>[O professor e os alunos] <strong>chegaram</strong>.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Sujeito posposto · duas opções</h4><p><strong>Chegaram</strong> o diretor e a secretária. (soma dos núcleos)<br><strong>Chegou</strong> o diretor e a secretária. (núcleo mais próximo)</p></div>
+      </div>
+      <div class="exemplo">Faltou a coragem e os recursos necessários. / Faltaram os recursos e a coragem necessária.<span>Pelo núcleo mais próximo, o verbo segue o primeiro núcleo que aparece depois dele.</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Núcleos ligados por "ou"</div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Exclusão · singular</h4><p><strong>Vencerá</strong> o campeonato Pedro ou Paulo. (só um pode ser campeão)</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Inclusão · plural</h4><p><strong>Serão atendidos</strong> João ou Maria pela recepção. (os dois podem ser atendidos)</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Pronomes relativos e "um dos que"</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Caso</th><th>Regra</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>QUE</strong></td><td>Verbo concorda <strong>obrigatoriamente</strong> com o antecedente</td><td>Fui eu que <strong>relatei</strong>. Foram eles que <strong>relataram</strong>.</td></tr>
+            <tr><td><strong>QUEM</strong></td><td>Duas opções: 3ª pessoa do singular (com "quem") ou com o antecedente</td><td>Fui eu quem <strong>relatou</strong> / <strong>relatei</strong>.<br>Foram os europeus quem <strong>divulgou</strong> / <strong>divulgaram</strong>.</td></tr>
+            <tr><td><strong>É QUE</strong></td><td>Expressão de realce, invariável; o verbo concorda com o sujeito</td><td>Eu é que <strong>errei</strong>. Ele é que <strong>errou</strong>.</td></tr>
+            <tr><td><strong>Um dos que</strong></td><td>Plural (regra geral: faz parte de um grupo) ou singular (realça o indivíduo)</td><td>Pedro é um dos que mais <strong>reclamaram</strong>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Porcentagem, partitivos e "mais de"</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Expressão</th><th>Verbo concorda com</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Porcentagem</strong></td><td>O numeral <strong>ou</strong> o substantivo. Sem substantivo, só com o numeral</td><td>31% da população <strong>participou / participaram</strong>.<br>62% da população <strong>elegeu / elegeram</strong>.</td></tr>
+            <tr><td><strong>Fração, partitivo, coletivo</strong> (parte de, a maioria de, metade de, um grupo de)</td><td>O núcleo da expressão <strong>ou</strong> o substantivo</td><td>Parte dos produtos <strong>foi devolvida / foram devolvidos</strong>.<br>Cerca de metade das lojas <strong>permaneceu / permaneceram</strong> intactas.</td></tr>
+            <tr><td><strong>Mais de, menos de, cerca de</strong> + numeral</td><td><strong>Só</strong> o substantivo especificado pelo numeral</td><td>Mais de 200 pessoas <strong>foram</strong> flagradas.<br>Cerca de um morador <strong>se manifestou</strong>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight"><strong>Intenção do falante:</strong> quando há duas opções, a escolha realça uma parte. "Um grupo de moradores <strong>saqueou</strong> lojas" realça o conjunto (o bloco agiu). "Um grupo de moradores <strong>saquearam</strong> lojas" realça os indivíduos.</div>
+      <div class="highlight-blue"><strong>Atenção:</strong> "Mais da metade das lojas <strong>sofreu / sofreram</strong> saques" admite as duas formas, porque aqui "mais de" vem com fração ("metade"), não com numeral.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Verbo SER</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Situação</th><th>Regra</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Horas e distância</strong></td><td>Concorda com o numeral</td><td><strong>É</strong> uma hora. <strong>São</strong> duas horas. <strong>São</strong> seis quilômetros.</td></tr>
+            <tr><td><strong>Datas</strong></td><td>Com o numeral ou com a ideia de "dia"</td><td>Hoje <strong>são</strong> 27 de setembro. / Hoje <strong>é</strong> 27 de setembro.</td></tr>
+            <tr><td><strong>É pouco, é suficiente, é bastante</strong> (peso, medida, quantidade, preço)</td><td>Invariável no singular</td><td>Dez pessoas <strong>é</strong> suficiente. Dois mil reais <strong>é</strong> bastante. <strong>É</strong> pouco vinte toneladas.</td></tr>
+            <tr><td><strong>Sujeito e predicativo substantivos</strong></td><td>Se um deles está no plural, o verbo vai para o plural</td><td>Sua vida <strong>são</strong> os sonhos. Meu objetivo <strong>são</strong> os prêmios.</td></tr>
+            <tr><td><strong>Um deles indica pessoa</strong></td><td>Concorda com o termo que indica pessoa</td><td>Minha vida <strong>são</strong> meus familiares. O maior problema <strong>são</strong> meus vizinhos.</td></tr>
+            <tr><td><strong>Pronome pessoal reto</strong></td><td>Concorda sempre com o pronome</td><td>Tu <strong>és</strong> os doces gestos da alma. Os mais interessados <strong>somos</strong> nós.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-blue"><strong>Correção do material:</strong> no Self-Study 6, em "Suas alegrias são a minha vida", o plural vem do <strong>sujeito</strong> ("Suas alegrias"), não do predicativo ("a minha vida", singular).</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> HAVER e FAZER impessoais</div>
+      <ul class="list">
+        <li><span><strong>Haver = existir</strong> ou <strong>tempo decorrido</strong>: sempre na 3ª pessoa do singular. <em>Houve</em> muitas sugestões. <em>Havia</em> dois meses que não ia ao estádio.</span></li>
+        <li><span><strong>Fazer = tempo decorrido</strong>: sempre no singular. <em>Fazia</em> meses que não chovia.</span></li>
+        <li><span><strong>Em locução, sendo o verbo principal:</strong> o auxiliar também fica no singular. <em>Pode haver</em> inúmeras causas. <em>Deve haver</em> muitas obras. <em>Ia fazer</em> quarenta minutos. <em>Poderá haver</em> inúmeros candidatos.</span></li>
+        <li><span><strong>Haver como auxiliar:</strong> varia com o sujeito. Os alunos <em>haviam feito</em> a tarefa (concorda com "os alunos").</span></li>
+      </ul>
+      <div class="highlight">Erros clássicos: <s>Houveram</s> problemas · <s>Fazem</s> dois anos · <s>Devem haver</s> soluções. O certo é <strong>Houve, Faz, Deve haver</strong>.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       6. COESÃO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="coesao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">6</div>
+      <div>
+        <h2 class="section-title">Coesão: Relações Semânticas das Conjunções</h2>
+        <p class="section-sub">Apêndice da apostila do 1º semestre, pp. 60 e 61</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> As 12 relações da orientação</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Relação</th><th>Conectivos</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Adição</strong></td><td>e, nem, não só... mas também, além disso</td><td>Não só estudo como trabalho todos os dias.</td></tr>
+            <tr><td><strong>Oposição</strong></td><td>mas, porém, todavia, entretanto, contudo, no entanto, não obstante</td><td>O ladrão fugiu, mas foi preso.</td></tr>
+            <tr><td><strong>Explicação</strong></td><td>que (= porque), pois (antes do verbo), porque</td><td>Saia, que o professor está pedindo!</td></tr>
+            <tr><td><strong>Conclusão</strong></td><td>logo, portanto, por isso, assim, por conseguinte, pois (depois do verbo)</td><td>Estudei muito, portanto estou preparada.</td></tr>
+            <tr><td><strong>Causa</strong></td><td>porque, como (no início), uma vez que, já que, visto que, na medida em que</td><td>Como está chovendo, não vamos à praia.</td></tr>
+            <tr><td><strong>Consequência</strong></td><td>(tão, tanto, tal...) que, de modo que, de forma que</td><td>Está tão frio que a água congelou.</td></tr>
+            <tr><td><strong>Concessão</strong></td><td>embora, ainda que, mesmo que, apesar de</td><td>Embora tenha estudado, não entendi a lição.</td></tr>
+            <tr><td><strong>Comparação</strong></td><td>como, (mais/menos) do que, (tão) quanto, assim como, bem como</td><td>Ele é tão fiel quanto o irmão.</td></tr>
+            <tr><td><strong>Condição</strong></td><td>se, caso, desde que, contanto que, a menos que, a não ser que</td><td>Se você for à festa, pode me levar?</td></tr>
+            <tr><td><strong>Proporção</strong></td><td>à proporção que, à medida que, quanto mais... mais</td><td>À medida que envelheço, descubro novidades.</td></tr>
+            <tr><td><strong>Finalidade</strong></td><td>para que, a fim de que, para (+ infinitivo)</td><td>Estude para que possa entender.</td></tr>
+            <tr><td><strong>Tempo</strong></td><td>quando, logo que, assim que, antes que, depois que, enquanto</td><td>Quando cheguei, a casa já estava vazia.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:10px;font-size:0.85rem;color:var(--text-light)">A apostila também traz <strong>alternância</strong> (ou... ou, ora... ora) e <strong>conformidade</strong> (conforme, segundo, como = "de acordo com"). A conjunção <strong>integrante</strong> (que, se) apenas introduz oração substantiva e não tem relação semântica: "Sei <em>que</em> devo estudar". "Apesar de" é, a rigor, uma locução prepositiva, mas exprime concessão.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Pares que confundem <span class="tag tag-imp">teste</span></div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c1)"><h4>Oposição x Concessão</h4><p><strong>Mas</strong> liga duas ideias contrárias e a segunda prevalece. <strong>Embora</strong> admite um obstáculo que não impede o fato principal. "Estudei, <em>mas</em> não passei" = "<em>Embora</em> tenha estudado, não passei". Repare no subjuntivo depois de "embora".</p></div>
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Causa x Explicação</h4><p><strong>Causa</strong> é o fato que provoca outro: "Choveu <em>porque</em> havia muito calor". <strong>Explicação</strong> justifica uma ordem ou opinião, quase sempre depois de vírgula e imperativo: "Saia, <em>que</em> o professor está pedindo".</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Conclusão x Consequência</h4><p><strong>Conclusão</strong> é uma dedução do falante: "Estudou, <em>logo</em> está pronta". <strong>Consequência</strong> é o efeito de algo intenso: "Estudou <em>tanto que</em> passou em primeiro".</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>"Como" tem quatro sentidos</h4><p><strong>Causa:</strong> <em>Como</em> choveu, ficamos.<br><strong>Comparação:</strong> Corre <em>como</em> um atleta.<br><strong>Conformidade:</strong> <em>Como</em> lhe disse, nada mudou.<br>Descubra pelo sentido da frase.</p></div>
+      </div>
+      <div class="highlight"><strong>Como cai na prova:</strong> trocar um conectivo por outro <strong>mantendo o sentido</strong>. Só serve um da mesma relação: "mas" troca por "porém", "contudo" ou "no entanto"; "embora" troca por "ainda que" ou "mesmo que". Confira também o modo verbal: "embora" pede subjuntivo e "mas" não.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Preposições também criam relações</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Relação</th><th>Exemplo</th></tr></thead>
+          <tbody>
+            <tr><td>Causa</td><td>Morreu <strong>de</strong> fome. Correu <strong>por</strong> medo.</td></tr>
+            <tr><td>Finalidade</td><td>Estudou <strong>para</strong> passar.</td></tr>
+            <tr><td>Posse · Matéria · Origem</td><td>Caderno <strong>de</strong> Mariana · casa <strong>de</strong> pedra · amigo <strong>de</strong> Recife</td></tr>
+            <tr><td>Oposição · Ausência</td><td>Argumentos <strong>contra</strong> você · tarefa <strong>sem</strong> capricho</td></tr>
+            <tr><td>Modo · Meio · Companhia</td><td>Vivia <strong>com</strong> tranquilidade · fomos <strong>de</strong> trem · sairei <strong>com</strong> meu irmão</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       QUIZ
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="exercicios">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">✎</div>
+      <div>
+        <h2 class="section-title">Quiz de Fixação</h2>
+        <p class="section-sub">No formato da AGI: testes com 5 alternativas</p>
+      </div>
+    </div>
+    <style>
+      .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+      .quiz-q { display: flex; align-items: flex-start; gap: 12px; padding: 16px 16px 10px; font-weight: 600; font-size: 0.92rem; }
+      .quiz-num { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
+      .quiz-opts { display: flex; flex-direction: column; gap: 6px; padding: 0 16px 14px; }
+      .opt { display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-size: 0.88rem; transition: all 0.15s; }
+      .opt:hover { border-color: var(--secondary); background: #fdf5ff; }
+      .opt-letter { width: 22px; height: 22px; border-radius: 50%; background: #f0e8ff; color: var(--primary); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+      .opt.correct { border-color: #166534; background: #f0fdf4; }
+      .opt.correct .opt-letter { background: #166534; color: white; }
+      .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
+      .opt.wrong .opt-letter { color: #9c1c1c; }
+      .opt.disabled { cursor: default; pointer-events: none; }
+      .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
+      .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
+      .quiz-feedback.show { display: block; }
+      .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+      .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
+      .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+      .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+      .score-label { font-size: 0.82rem; color: var(--text-light); }
+      .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+      .btn-reset:hover { background: var(--c2); }
+    </style>
+
+
+    <div class="score-bar">
+      <div>
+        <div class="score-val"><span id="score">0</span>/<span id="total">26</span></div>
+        <div class="score-label">acertos · clique nas alternativas para responder</div>
+      </div>
+      <button class="btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+    </div>
+
+    <script>
+      const ANSWERS = {q1:'b',q2:'d',q3:'a',q4:'e',q5:'c',q6:'b',q7:'c',q8:'d',q9:'a',q10:'e',q11:'b',q12:'d',q13:'c',q14:'a',q15:'e',q16:'b',q17:'d',q18:'d',q19:'c',q20:'a',q21:'b',q22:'e',q23:'c',q24:'d',q25:'a',q26:'b'};
+      let score = 0, answered = 0;
+      function pick(qid, letter, el) {
+        const opts = el.closest('.quiz-opts').querySelectorAll('.opt');
+        opts.forEach(o => o.classList.add('disabled'));
+        const fb = document.getElementById('fb-'+qid);
+        if (letter === ANSWERS[qid]) {
+          el.classList.add('correct'); score++; answered++;
+          document.getElementById('score').textContent = score;
+          fb.className = 'quiz-feedback show ok';
+          fb.innerHTML = '✅ <strong>Correto!</strong> ' + fb.dataset.ok;
+        } else {
+          el.classList.add('wrong'); answered++;
+          opts.forEach(o => { if(o.dataset.l === ANSWERS[qid]) o.classList.add('reveal-correct'); });
+          fb.className = 'quiz-feedback show err';
+          fb.innerHTML = '❌ <strong>Incorreto.</strong> ' + fb.dataset.err;
+        }
+      }
+      function resetQuiz() {
+        score = 0; answered = 0;
+        document.getElementById('score').textContent = 0;
+        document.querySelectorAll('.opt').forEach(o => o.className = 'opt');
+        document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+      }
+    </script>
+
+    <!-- Q1 -->
+    <div class="quiz">
+      <p class="q-fonte">O editorial "Perigos nas redes sociais exigem atenção redobrada dos pais" foi publicado pelo jornal O Globo sem a assinatura de nenhum jornalista.</p>
+      <div class="quiz-q"><span class="quiz-num">1</span><span>Essa ausência de assinatura se explica porque o editorial</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> é um texto informativo, que apenas relata fatos sem tomar posição.</div>
+        <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> expressa a posição oficial do veículo, e não a visão individual de quem o redigiu.</div>
+        <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> é escrito por leitores do jornal, que preferem manter o anonimato.</div>
+        <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> reproduz notícias de agências internacionais, cuja autoria é desconhecida.</div>
+        <div class="opt" data-l="e" onclick="pick('q1','e',this)"><span class="opt-letter">E</span> dispensa argumentação, já que o jornal tem autoridade sobre o tema.</div>
+      </div>
+      <div id="fb-q1" class="quiz-feedback" data-ok="O editorial expõe o posicionamento do jornal como instituição. Não é assinado porque a responsabilidade é do veículo, não de uma pessoa. E ele argumenta, sim: quer ajudar o leitor a formar opinião." data-err="O editorial expõe o posicionamento do jornal como instituição. Não é assinado porque a responsabilidade é do veículo, não de uma pessoa. E ele argumenta, sim: quer ajudar o leitor a formar opinião."></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz">
+      <p class="q-fonte">Compare um editorial com um artigo de opinião publicados no mesmo jornal.</p>
+      <div class="quiz-q"><span class="quiz-num">2</span><span>Está correto afirmar que</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> os dois são assinados e escritos obrigatoriamente em 1ª pessoa.</div>
+        <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> o editorial admite coloquialismo; o artigo exige linguagem impessoal.</div>
+        <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> o artigo de opinião representa a posição do jornal; o editorial, a do autor.</div>
+        <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> o artigo é assinado e admite 1ª pessoa; o editorial é impessoal e institucional.</div>
+        <div class="opt" data-l="e" onclick="pick('q2','e',this)"><span class="opt-letter">E</span> nenhum dos dois pretende influenciar a opinião do leitor.</div>
+      </div>
+      <div id="fb-q2" class="quiz-feedback" data-ok="Artigo de opinião: assinado, responsabilidade individual, admite subjetividade e 1ª pessoa. Editorial: não assinado, posição institucional, formal e impessoal (3ª pessoa). Os dois são argumentativos." data-err="Artigo de opinião: assinado, responsabilidade individual, admite subjetividade e 1ª pessoa. Editorial: não assinado, posição institucional, formal e impessoal (3ª pessoa). Os dois são argumentativos."></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz">
+      <p class="q-fonte">"... tantas vezes se condena, como faz esta Folha, os assassinatos de suspeitos praticados pela polícia..."</p>
+      <div class="quiz-q"><span class="quiz-num">3</span><span>O trecho exemplifica um recurso que aparece no editorial, mas não na dissertação-argumentativa:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> a autorreferência ao próprio veículo.</div>
+        <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> o uso da norma-padrão.</div>
+        <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> o tratamento impessoal.</div>
+        <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> a estrutura em introdução, desenvolvimento e conclusão.</div>
+        <div class="opt" data-l="e" onclick="pick('q3','e',this)"><span class="opt-letter">E</span> o diálogo com temas da atualidade.</div>
+      </div>
+      <div id="fb-q3" class="quiz-feedback" data-ok="&quot;Como faz esta Folha&quot; é o jornal falando de si mesmo: autorreferência, uma das diferenças listadas na apostila. As outras alternativas são semelhanças entre os dois gêneros." data-err="&quot;Como faz esta Folha&quot; é o jornal falando de si mesmo: autorreferência, uma das diferenças listadas na apostila. As outras alternativas são semelhanças entre os dois gêneros."></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz">
+      <p class="q-fonte">"O lugar mais perigoso é dentro de casa", afirma a juíza Vanessa Cavallieri, responsável pelos casos de menores infratores no Rio.</p>
+      <div class="quiz-q"><span class="quiz-num">4</span><span>Na construção do editorial, a fala da juíza funciona como</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> dado estatístico que quantifica os crimes digitais.</div>
+        <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> contra-argumento que o jornal pretende refutar.</div>
+        <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> opinião pessoal do editor, sem relação com a tese.</div>
+        <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> exemplo de linguagem informal típica do gênero.</div>
+        <div class="opt" data-l="e" onclick="pick('q4','e',this)"><span class="opt-letter">E</span> argumento de autoridade, que dá credibilidade à tese.</div>
+      </div>
+      <div id="fb-q4" class="quiz-feedback" data-ok="A juíza &quot;fala com conhecimento de causa&quot;: é uma especialista, e sua fala reforça a tese do jornal. Isso é argumento de autoridade. Dados estatísticos são os da pesquisa Pew Research." data-err="A juíza &quot;fala com conhecimento de causa&quot;: é uma especialista, e sua fala reforça a tese do jornal. Isso é argumento de autoridade. Dados estatísticos são os da pesquisa Pew Research."></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz">
+      <p class="q-fonte">"Os smartphones são considerados por 70% dos jovens mais benéficos do que maléficos. [...] Não será uma mera proibição dos pais que os fará manter alguma distância dos aparelhos. É preciso convencê-los disso e ensiná-los a usar da melhor maneira possível os melhores recursos do mundo digital."</p>
+      <div class="quiz-q"><span class="quiz-num">5</span><span>Pode-se inferir que, para o jornal,</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> os pais devem proibir totalmente o uso de celulares pelos filhos.</div>
+        <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> as redes sociais não oferecem riscos reais aos adolescentes.</div>
+        <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> a solução passa por orientar e educar os jovens, não apenas proibir.</div>
+        <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> os jovens já sabem se proteger e dispensam o acompanhamento dos pais.</div>
+        <div class="opt" data-l="e" onclick="pick('q5','e',this)"><span class="opt-letter">E</span> cabe exclusivamente ao Estado regular o acesso dos jovens às redes.</div>
+      </div>
+      <div id="fb-q5" class="quiz-feedback" data-ok="O texto reconhece benefícios e riscos. Como os jovens valorizam o celular, a mera proibição não funciona: é preciso convencer, ensinar e alertar. As alternativas A e D são extremos que o texto rejeita." data-err="O texto reconhece benefícios e riscos. Como os jovens valorizam o celular, a mera proibição não funciona: é preciso convencer, ensinar e alertar. As alternativas A e D são extremos que o texto rejeita."></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="quiz">
+      <p class="q-fonte">Em um parágrafo argumentativo, o primeiro período apresenta a ideia central que será desenvolvida em seguida por meio de fatos e dados.</p>
+      <div class="quiz-q"><span class="quiz-num">6</span><span>Esse primeiro período é chamado de</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> desfecho.</div>
+        <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> tópico frasal.</div>
+        <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> tese da conclusão.</div>
+        <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> proposta de intervenção.</div>
+        <div class="opt" data-l="e" onclick="pick('q6','e',this)"><span class="opt-letter">E</span> repertório sociocultural.</div>
+      </div>
+      <div id="fb-q6" class="quiz-feedback" data-ok="Tópico frasal é a ideia central do parágrafo, normalmente em um período. Depois vêm o desenvolvimento (argumentos, fatos, dados) e, opcionalmente, o desfecho." data-err="Tópico frasal é a ideia central do parágrafo, normalmente em um período. Depois vêm o desenvolvimento (argumentos, fatos, dados) e, opcionalmente, o desfecho."></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="quiz">
+      <p class="q-fonte">Observe os termos destacados nas frases a seguir.</p>
+      <div class="quiz-q"><span class="quiz-num">7</span><span>O termo destacado é complemento nominal em:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> Ele construiu uma casa <strong>de pedra</strong>.</div>
+        <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> Cedeu <strong>aos caprichos infantis</strong>.</div>
+        <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> Fiquei orgulhoso <strong>do meu pai</strong>.</div>
+        <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> Meu amigo <strong>de Recife</strong> chegou.</div>
+        <div class="opt" data-l="e" onclick="pick('q7','e',this)"><span class="opt-letter">E</span> Vários profissionais <strong>com experiência</strong> foram demitidos.</div>
+      </div>
+      <div id="fb-q7" class="quiz-feedback" data-ok="&quot;Do meu pai&quot; completa o adjetivo &quot;orgulhoso&quot; (quem é orgulhoso é orgulhoso de algo): CN. &quot;De pedra&quot;, &quot;de Recife&quot; e &quot;com experiência&quot; caracterizam substantivos concretos (AA). &quot;Aos caprichos&quot; completa o verbo &quot;ceder&quot; (objeto indireto)." data-err="&quot;Do meu pai&quot; completa o adjetivo &quot;orgulhoso&quot; (quem é orgulhoso é orgulhoso de algo): CN. &quot;De pedra&quot;, &quot;de Recife&quot; e &quot;com experiência&quot; caracterizam substantivos concretos (AA). &quot;Aos caprichos&quot; completa o verbo &quot;ceder&quot; (objeto indireto)."></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="quiz">
+      <p class="q-fonte">"Durante a reunião do grêmio, todos se posicionaram contrariamente <strong>à proposta</strong>."</p>
+      <div class="quiz-q"><span class="quiz-num">8</span><span>O complemento nominal destacado se subordina a um termo que é, morfologicamente, um</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> substantivo.</div>
+        <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> adjetivo.</div>
+        <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> verbo.</div>
+        <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> advérbio.</div>
+        <div class="opt" data-l="e" onclick="pick('q8','e',this)"><span class="opt-letter">E</span> pronome.</div>
+      </div>
+      <div id="fb-q8" class="quiz-feedback" data-ok="&quot;À proposta&quot; completa &quot;contrariamente&quot;, um advérbio. O CN pode se ligar a substantivo, adjetivo ou advérbio. Nunca a verbo: aí seria objeto." data-err="&quot;À proposta&quot; completa &quot;contrariamente&quot;, um advérbio. O CN pode se ligar a substantivo, adjetivo ou advérbio. Nunca a verbo: aí seria objeto."></div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="quiz">
+      <p class="q-fonte">"A crítica <u>do professor</u> <u>aos alunos</u> foi dura."</p>
+      <div class="quiz-q"><span class="quiz-num">9</span><span>Os termos sublinhados classificam-se, respectivamente, como</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> adjunto adnominal e complemento nominal.</div>
+        <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> complemento nominal e adjunto adnominal.</div>
+        <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> complemento nominal e complemento nominal.</div>
+        <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> adjunto adnominal e objeto indireto.</div>
+        <div class="opt" data-l="e" onclick="pick('q9','e',this)"><span class="opt-letter">E</span> sujeito e objeto indireto.</div>
+      </div>
+      <div id="fb-q9" class="quiz-feedback" data-ok="O professor faz a crítica (agente), então &quot;do professor&quot; é AA. Os alunos recebem a crítica (alvo), então &quot;aos alunos&quot; é CN. &quot;Crítica&quot; é substantivo, por isso não há objeto indireto." data-err="O professor faz a crítica (agente), então &quot;do professor&quot; é AA. Os alunos recebem a crítica (alvo), então &quot;aos alunos&quot; é CN. &quot;Crítica&quot; é substantivo, por isso não há objeto indireto."></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="quiz">
+      <p class="q-fonte">"A venda <u>de livros</u> <u>de ficção</u> aumentou muito nos últimos meses."</p>
+      <div class="quiz-q"><span class="quiz-num">10</span><span>Os termos sublinhados são, respectivamente,</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> adjunto adnominal e adjunto adnominal.</div>
+        <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> complemento nominal e complemento nominal.</div>
+        <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> adjunto adnominal e complemento nominal.</div>
+        <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> objeto indireto e adjunto adnominal.</div>
+        <div class="opt" data-l="e" onclick="pick('q10','e',this)"><span class="opt-letter">E</span> complemento nominal e adjunto adnominal.</div>
+      </div>
+      <div id="fb-q10" class="quiz-feedback" data-ok="Os livros são vendidos (alvo da ação de &quot;venda&quot;, substantivo abstrato): CN. &quot;De ficção&quot; caracteriza &quot;livros&quot;, substantivo concreto: AA." data-err="Os livros são vendidos (alvo da ação de &quot;venda&quot;, substantivo abstrato): CN. &quot;De ficção&quot; caracteriza &quot;livros&quot;, substantivo concreto: AA."></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="quiz">
+      <p class="q-fonte">I. "A população ribeirinha estava insatisfeita <strong>com o prefeito</strong>."<br>II. "A ponte <strong>de madeira</strong> foi construída com material de péssima qualidade."</p>
+      <div class="quiz-q"><span class="quiz-num">11</span><span>Os termos destacados em I e II são, respectivamente,</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> adjunto adnominal e complemento nominal.</div>
+        <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> complemento nominal e adjunto adnominal.</div>
+        <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> agente da passiva e adjunto adnominal.</div>
+        <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> complemento nominal e complemento nominal.</div>
+        <div class="opt" data-l="e" onclick="pick('q11','e',this)"><span class="opt-letter">E</span> objeto indireto e adjunto adnominal.</div>
+      </div>
+      <div id="fb-q11" class="quiz-feedback" data-ok="&quot;Com o prefeito&quot; completa o adjetivo &quot;insatisfeita&quot;: CN (AA nunca se liga a adjetivo). &quot;De madeira&quot; caracteriza &quot;ponte&quot;, substantivo concreto: AA." data-err="&quot;Com o prefeito&quot; completa o adjetivo &quot;insatisfeita&quot;: CN (AA nunca se liga a adjetivo). &quot;De madeira&quot; caracteriza &quot;ponte&quot;, substantivo concreto: AA."></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="quiz">
+      <p class="q-fonte">"Ganharam vários prêmios os nossos três melhores professores de astronomia."</p>
+      <div class="quiz-q"><span class="quiz-num">12</span><span>Quantos adjuntos adnominais se referem ao núcleo "professores"?</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> Dois.</div>
+        <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> Três.</div>
+        <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> Quatro.</div>
+        <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> Cinco.</div>
+        <div class="opt" data-l="e" onclick="pick('q12','e',this)"><span class="opt-letter">E</span> Seis.</div>
+      </div>
+      <div id="fb-q12" class="quiz-feedback" data-ok="Os (artigo), nossos (pronome possessivo), três (numeral), melhores (adjetivo) e de astronomia (locução adjetiva): cinco. &quot;Vários&quot; é AA de &quot;prêmios&quot;." data-err="Os (artigo), nossos (pronome possessivo), três (numeral), melhores (adjetivo) e de astronomia (locução adjetiva): cinco. &quot;Vários&quot; é AA de &quot;prêmios&quot;."></div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="quiz">
+      <p class="q-fonte">Considere as frases abaixo, com o verbo indicado entre parênteses.</p>
+      <div class="quiz-q"><span class="quiz-num">13</span><span>A concordância admite APENAS o plural em:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> ___ o diretor e a secretária. (chegar)</div>
+        <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> ___ a coragem e os recursos necessários. (faltar)</div>
+        <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> O professor e os alunos ___ cedo. (chegar)</div>
+        <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> 31% da população ___ das atividades. (participar)</div>
+        <div class="opt" data-l="e" onclick="pick('q13','e',this)"><span class="opt-letter">E</span> A maioria dos alunos ___ aprovada. (ser)</div>
+      </div>
+      <div id="fb-q13" class="quiz-feedback" data-ok="Sujeito composto antes do verbo: plural obrigatório (chegaram). Com sujeito posposto (A e B), o verbo pode concordar com o núcleo mais próximo. Porcentagem (D) e partitivo (E) admitem as duas formas." data-err="Sujeito composto antes do verbo: plural obrigatório (chegaram). Com sujeito posposto (A e B), o verbo pode concordar com o núcleo mais próximo. Porcentagem (D) e partitivo (E) admitem as duas formas."></div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="quiz">
+      <p class="q-fonte">"Vencerá o campeonato Pedro ou Paulo."</p>
+      <div class="quiz-q"><span class="quiz-num">14</span><span>O verbo está no singular porque</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> a conjunção "ou" indica exclusão: apenas um pode ser campeão.</div>
+        <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> o sujeito está antes do verbo, o que obriga o singular.</div>
+        <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> o verbo concorda sempre com o último núcleo do sujeito.</div>
+        <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> sujeito composto por "ou" nunca admite plural.</div>
+        <div class="opt" data-l="e" onclick="pick('q14','e',this)"><span class="opt-letter">E</span> o verbo "vencer" é impessoal nesse contexto.</div>
+      </div>
+      <div id="fb-q14" class="quiz-feedback" data-ok="Com &quot;ou&quot; de exclusão (só um pratica a ação), o verbo fica no singular. Com &quot;ou&quot; de inclusão, vai para o plural: &quot;Serão atendidos João ou Maria&quot; (os dois podem ser atendidos)." data-err="Com &quot;ou&quot; de exclusão (só um pratica a ação), o verbo fica no singular. Com &quot;ou&quot; de inclusão, vai para o plural: &quot;Serão atendidos João ou Maria&quot; (os dois podem ser atendidos)."></div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="quiz">
+      <p class="q-fonte">Considere as frases a seguir.</p>
+      <div class="quiz-q"><span class="quiz-num">15</span><span>Desrespeita a norma-padrão a frase:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> Fui eu que relatei o fato.</div>
+        <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> Fui eu quem relatou o fato.</div>
+        <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> Fui eu quem relatei o fato.</div>
+        <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> Eu é que errei nos cálculos.</div>
+        <div class="opt" data-l="e" onclick="pick('q15','e',this)"><span class="opt-letter">E</span> Fui eu que relatou o fato.</div>
+      </div>
+      <div id="fb-q15" class="quiz-feedback" data-ok="Com o relativo QUE, o verbo concorda obrigatoriamente com o antecedente (&quot;eu&quot; → relatei). Com QUEM, as duas formas são aceitas. &quot;É que&quot; é invariável e o verbo concorda com &quot;eu&quot;." data-err="Com o relativo QUE, o verbo concorda obrigatoriamente com o antecedente (&quot;eu&quot; → relatei). Com QUEM, as duas formas são aceitas. &quot;É que&quot; é invariável e o verbo concorda com &quot;eu&quot;."></div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="quiz">
+      <p class="q-fonte">Observe a concordância nas frases a seguir.</p>
+      <div class="quiz-q"><span class="quiz-num">16</span><span>O verbo NÃO admite outra possibilidade de concordância em:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> 31% da população participou da pesquisa.</div>
+        <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> Mais de 200 pessoas foram flagradas pela polícia.</div>
+        <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> Parte dos produtos foi devolvida às lojas.</div>
+        <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> A maioria dos envolvidos declarou arrependimento.</div>
+        <div class="opt" data-l="e" onclick="pick('q16','e',this)"><span class="opt-letter">E</span> Um grupo de moradores saqueou lojas da região.</div>
+      </div>
+      <div id="fb-q16" class="quiz-feedback" data-ok="Com &quot;mais de&quot; + numeral, a concordância é rígida: o verbo segue o substantivo (&quot;pessoas&quot; → foram). Porcentagem, partitivos e coletivos (A, C, D, E) admitem singular ou plural." data-err="Com &quot;mais de&quot; + numeral, a concordância é rígida: o verbo segue o substantivo (&quot;pessoas&quot; → foram). Porcentagem, partitivos e coletivos (A, C, D, E) admitem singular ou plural."></div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="quiz">
+      <p class="q-fonte">"Minha vida ___ meus familiares."</p>
+      <div class="quiz-q"><span class="quiz-num">17</span><span>A forma correta do verbo SER e a justificativa são:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> é: o verbo concorda com o sujeito "minha vida", que está no singular.</div>
+        <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> é: com predicativo, o verbo SER fica sempre no singular.</div>
+        <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> são: o verbo concorda com o termo mais próximo dele.</div>
+        <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> são: o predicativo indica pessoa, e o verbo SER concorda com ele.</div>
+        <div class="opt" data-l="e" onclick="pick('q17','e',this)"><span class="opt-letter">E</span> é ou são: as duas formas são igualmente corretas.</div>
+      </div>
+      <div id="fb-q17" class="quiz-feedback" data-ok="Quando o sujeito ou o predicativo indica pessoa, o verbo SER concorda com ele. &quot;Meus familiares&quot; indica pessoas e está no plural: são." data-err="Quando o sujeito ou o predicativo indica pessoa, o verbo SER concorda com ele. &quot;Meus familiares&quot; indica pessoas e está no plural: são."></div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="quiz">
+      <p class="q-fonte">Considere a concordância dos verbos nas frases.</p>
+      <div class="quiz-q"><span class="quiz-num">18</span><span>Está de acordo com a norma-padrão:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> Fazem dois anos que não viajo.</div>
+        <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> Houveram muitas reclamações na reunião.</div>
+        <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> Devem haver soluções para o problema.</div>
+        <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> Dois quilos é bastante para o almoço.</div>
+        <div class="opt" data-l="e" onclick="pick('q18','e',this)"><span class="opt-letter">E</span> Já eram uma hora quando ele chegou.</div>
+      </div>
+      <div id="fb-q18" class="quiz-feedback" data-ok="&quot;É bastante&quot; com quantidade fica no singular. Os erros: Faz dois anos (fazer de tempo é impessoal), Houve (haver = existir), Deve haver (o impessoal passa a impessoalidade ao auxiliar), Era uma hora (horas concordam com o numeral)." data-err="&quot;É bastante&quot; com quantidade fica no singular. Os erros: Faz dois anos (fazer de tempo é impessoal), Houve (haver = existir), Deve haver (o impessoal passa a impessoalidade ao auxiliar), Era uma hora (horas concordam com o numeral)."></div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="quiz">
+      <p class="q-fonte">I. "Na Grécia, ainda <strong>deve haver</strong> muitas obras da antiguidade."<br>II. "Os alunos <strong>haviam feito</strong> parte da tarefa."</p>
+      <div class="quiz-q"><span class="quiz-num">19</span><span>Sobre as locuções destacadas, é correto afirmar que</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> as duas deveriam estar no singular, pois o verbo haver é sempre impessoal.</div>
+        <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> em I, o auxiliar deveria ir para o plural, concordando com "muitas obras".</div>
+        <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> em I, haver é o principal e impessoal; em II, é auxiliar e concorda com o sujeito.</div>
+        <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> em II, haver tem sentido de existir, por isso deveria estar no singular.</div>
+        <div class="opt" data-l="e" onclick="pick('q19','e',this)"><span class="opt-letter">E</span> em I, "muitas obras" é o sujeito da locução verbal.</div>
+      </div>
+      <div id="fb-q19" class="quiz-feedback" data-ok="Em I, &quot;haver&quot; (= existir) é o verbo principal; a impessoalidade passa ao auxiliar &quot;dever&quot;, que fica no singular. &quot;Muitas obras&quot; é objeto direto, não sujeito. Em II, &quot;haver&quot; é só auxiliar de &quot;fazer&quot; e concorda com &quot;os alunos&quot;." data-err="Em I, &quot;haver&quot; (= existir) é o verbo principal; a impessoalidade passa ao auxiliar &quot;dever&quot;, que fica no singular. &quot;Muitas obras&quot; é objeto direto, não sujeito. Em II, &quot;haver&quot; é só auxiliar de &quot;fazer&quot; e concorda com &quot;os alunos&quot;."></div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="quiz">
+      <p class="q-fonte">"Um grupo de moradores <strong>saquearam</strong> lojas da região."</p>
+      <div class="quiz-q"><span class="quiz-num">20</span><span>Ao escolher o plural, o falante</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> realça os indivíduos, os moradores que praticaram o saque.</div>
+        <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> comete erro de concordância, já que "grupo" está no singular.</div>
+        <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> realça o conjunto, o grupo como bloco único.</div>
+        <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> segue a regra obrigatória dos coletivos.</div>
+        <div class="opt" data-l="e" onclick="pick('q20','e',this)"><span class="opt-letter">E</span> indica que o sujeito é indeterminado.</div>
+      </div>
+      <div id="fb-q20" class="quiz-feedback" data-ok="Com coletivo + especificador, as duas formas são aceitas. O singular (saqueou) realça o grupo como unidade; o plural (saquearam) realça os moradores como agentes individuais." data-err="Com coletivo + especificador, as duas formas são aceitas. O singular (saqueou) realça o grupo como unidade; o plural (saquearam) realça os moradores como agentes individuais."></div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="quiz">
+      <p class="q-fonte">"<strong>Ainda que</strong> o prazo seja curto, entregaremos o projeto."</p>
+      <div class="quiz-q"><span class="quiz-num">21</span><span>O conectivo destacado estabelece relação de</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> causa.</div>
+        <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> concessão.</div>
+        <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> condição.</div>
+        <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> oposição coordenada.</div>
+        <div class="opt" data-l="e" onclick="pick('q21','e',this)"><span class="opt-letter">E</span> finalidade.</div>
+      </div>
+      <div id="fb-q21" class="quiz-feedback" data-ok="&quot;Ainda que&quot; é concessiva, como &quot;embora&quot; e &quot;mesmo que&quot;: admite um obstáculo que não impede o fato principal. Repare no subjuntivo (&quot;seja&quot;)." data-err="&quot;Ainda que&quot; é concessiva, como &quot;embora&quot; e &quot;mesmo que&quot;: admite um obstáculo que não impede o fato principal. Repare no subjuntivo (&quot;seja&quot;)."></div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="quiz">
+      <p class="q-fonte">"Está <strong>tão</strong> frio <strong>que</strong> a água congelou."</p>
+      <div class="quiz-q"><span class="quiz-num">22</span><span>A oração introduzida por "que" exprime</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> comparação.</div>
+        <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> explicação.</div>
+        <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> conclusão.</div>
+        <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> causa.</div>
+        <div class="opt" data-l="e" onclick="pick('q22','e',this)"><span class="opt-letter">E</span> consequência.</div>
+      </div>
+      <div id="fb-q22" class="quiz-feedback" data-ok="&quot;Tão... que&quot; (também &quot;tanto... que&quot;, &quot;de modo que&quot;) indica consequência: a água congelou como efeito do frio intenso. A causa é o frio; a consequência é o congelamento." data-err="&quot;Tão... que&quot; (também &quot;tanto... que&quot;, &quot;de modo que&quot;) indica consequência: a água congelou como efeito do frio intenso. A causa é o frio; a consequência é o congelamento."></div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="quiz">
+      <p class="q-fonte">"<strong>À medida que</strong> envelheço, descubro novidades na vida!"</p>
+      <div class="quiz-q"><span class="quiz-num">23</span><span>A relação semântica estabelecida pelo conectivo é de</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q23','a',this)"><span class="opt-letter">A</span> tempo.</div>
+        <div class="opt" data-l="b" onclick="pick('q23','b',this)"><span class="opt-letter">B</span> condição.</div>
+        <div class="opt" data-l="c" onclick="pick('q23','c',this)"><span class="opt-letter">C</span> proporção.</div>
+        <div class="opt" data-l="d" onclick="pick('q23','d',this)"><span class="opt-letter">D</span> conformidade.</div>
+        <div class="opt" data-l="e" onclick="pick('q23','e',this)"><span class="opt-letter">E</span> finalidade.</div>
+      </div>
+      <div id="fb-q23" class="quiz-feedback" data-ok="&quot;À medida que&quot; e &quot;à proporção que&quot; indicam proporção: um fato aumenta junto com o outro. Cuidado: &quot;na medida em que&quot; é causal." data-err="&quot;À medida que&quot; e &quot;à proporção que&quot; indicam proporção: um fato aumenta junto com o outro. Cuidado: &quot;na medida em que&quot; é causal."></div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="quiz">
+      <p class="q-fonte">"O ladrão fugiu, <strong>mas</strong> foi preso."</p>
+      <div class="quiz-q"><span class="quiz-num">24</span><span>O conectivo pode ser substituído, sem alterar o sentido e mantendo a correção, por</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q24','a',this)"><span class="opt-letter">A</span> portanto.</div>
+        <div class="opt" data-l="b" onclick="pick('q24','b',this)"><span class="opt-letter">B</span> porque.</div>
+        <div class="opt" data-l="c" onclick="pick('q24','c',this)"><span class="opt-letter">C</span> embora.</div>
+        <div class="opt" data-l="d" onclick="pick('q24','d',this)"><span class="opt-letter">D</span> contudo.</div>
+        <div class="opt" data-l="e" onclick="pick('q24','e',this)"><span class="opt-letter">E</span> desde que.</div>
+      </div>
+      <div id="fb-q24" class="quiz-feedback" data-ok="&quot;Mas&quot; é adversativo (oposição); &quot;contudo&quot; tem o mesmo valor. &quot;Embora&quot; é concessivo e pediria subjuntivo (&quot;embora tenha sido preso&quot;); &quot;portanto&quot; é conclusivo; &quot;porque&quot; é causal; &quot;desde que&quot; é condicional ou temporal." data-err="&quot;Mas&quot; é adversativo (oposição); &quot;contudo&quot; tem o mesmo valor. &quot;Embora&quot; é concessivo e pediria subjuntivo (&quot;embora tenha sido preso&quot;); &quot;portanto&quot; é conclusivo; &quot;porque&quot; é causal; &quot;desde que&quot; é condicional ou temporal."></div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="quiz">
+      <p class="q-fonte">"Saia, <strong>que</strong> o professor está pedindo!"</p>
+      <div class="quiz-q"><span class="quiz-num">25</span><span>O "que" destacado tem valor de</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q25','a',this)"><span class="opt-letter">A</span> explicação.</div>
+        <div class="opt" data-l="b" onclick="pick('q25','b',this)"><span class="opt-letter">B</span> consequência.</div>
+        <div class="opt" data-l="c" onclick="pick('q25','c',this)"><span class="opt-letter">C</span> comparação.</div>
+        <div class="opt" data-l="d" onclick="pick('q25','d',this)"><span class="opt-letter">D</span> integrante.</div>
+        <div class="opt" data-l="e" onclick="pick('q25','e',this)"><span class="opt-letter">E</span> concessão.</div>
+      </div>
+      <div id="fb-q25" class="quiz-feedback" data-ok="Depois de um imperativo e de vírgula, &quot;que&quot; (= porque) justifica a ordem: é explicativo. Integrante seria em &quot;Sei que devo estudar&quot;, que não tem relação semântica." data-err="Depois de um imperativo e de vírgula, &quot;que&quot; (= porque) justifica a ordem: é explicativo. Integrante seria em &quot;Sei que devo estudar&quot;, que não tem relação semântica."></div>
+    </div>
+
+    <!-- Q26 -->
+    <div class="quiz">
+      <p class="q-fonte">"Estudei o conteúdo todo; estou, <strong>pois</strong>, preparada para a prova."</p>
+      <div class="quiz-q"><span class="quiz-num">26</span><span>Nesse contexto, "pois" exprime</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q26','a',this)"><span class="opt-letter">A</span> explicação, porque aparece antes do verbo.</div>
+        <div class="opt" data-l="b" onclick="pick('q26','b',this)"><span class="opt-letter">B</span> conclusão, porque aparece depois do verbo, entre vírgulas.</div>
+        <div class="opt" data-l="c" onclick="pick('q26','c',this)"><span class="opt-letter">C</span> causa, equivalendo a "já que".</div>
+        <div class="opt" data-l="d" onclick="pick('q26','d',this)"><span class="opt-letter">D</span> adição, equivalendo a "além disso".</div>
+        <div class="opt" data-l="e" onclick="pick('q26','e',this)"><span class="opt-letter">E</span> oposição, equivalendo a "porém".</div>
+      </div>
+      <div id="fb-q26" class="quiz-feedback" data-ok="&quot;Pois&quot; depois do verbo (estou, pois, preparada) é conclusivo, como &quot;portanto&quot;. Antes do verbo é explicativo: &quot;Leve o guarda-chuva, pois vai chover&quot;." data-err="&quot;Pois&quot; depois do verbo (estou, pois, preparada) é conclusivo, como &quot;portanto&quot;. Antes do verbo é explicativo: &quot;Leve o guarda-chuva, pois vai chover&quot;."></div>
+    </div>
+
+  </section>
+
+</div>
+<footer>
+  Caderno Digital · Português 3º tri · 2ª série do Ensino Médio · 2026
+</footer>
+
+<!-- ═══ CHATBOT ═══ -->
+<style>
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #4a1060; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8d8f5; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: #4a1060; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
+  .cmsg.bot { background: #fdf5ff; border: 1px solid #e8d8f5; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.user { background: #4a1060; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.loading { color: #888; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid #e8d8f5; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: #4a1060; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: #7b2d8b; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+  
+  
+  
+</script>
+<script src="scripts/progress.js"></script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>
