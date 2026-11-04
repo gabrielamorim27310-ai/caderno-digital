@@ -1,0 +1,296 @@
+{
+  "pagina": "portugues-3tri",
+  "materia": "portugues",
+  "titulo": "Português · 3º tri",
+  "formato": "horizontal",
+  "cenas": [
+    {
+      "tipo": "capa",
+      "selo": "Português · 3º trimestre",
+      "titulo": "Estudos Linguísticos",
+      "subtitulo": "Editorial · Complemento nominal · Adjunto adnominal · Concordância · Coesão",
+      "fala": "Bora revisar Estudos Linguísticos do terceiro trimestre: editorial, interpretação, complemento nominal, adjunto adnominal, concordância verbal e coesão. A prova tem dez testes."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 1",
+      "titulo": "O editorial",
+      "subtitulo": "A opinião do jornal como instituição",
+      "fala": "Parte um: o editorial."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Editorial",
+      "titulo": "Características que caem",
+      "itens": [
+        "**Não é assinado**: é a posição oficial do veículo",
+        "Linguagem **formal e impessoal**, na terceira pessoa",
+        "Argumentos com **fatos, dados e especialistas**",
+        "**Autorreferência**: \"como faz esta Folha\""
+      ],
+      "fala": "O editorial expõe a posição do jornal sobre um tema de interesse público. Ele não é assinado, porque não é a opinião de quem escreveu, e sim da instituição. A linguagem é formal e impessoal, mas pode ter metáforas e ironia. A argumentação usa fatos, dados e falas de especialistas. E o jornal pode citar a si mesmo, como em: como faz esta Folha."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Editorial x artigo de opinião",
+      "colunas": [
+        {
+          "titulo": "Artigo de opinião",
+          "itens": [
+            "**Assinado**: responsabilidade individual",
+            "Admite **primeira pessoa** e coloquialismo",
+            "Relação próxima com o leitor"
+          ]
+        },
+        {
+          "titulo": "Editorial",
+          "itens": [
+            "**Sem assinatura**: posição do jornal",
+            "**Impessoal**, terceira pessoa",
+            "Relação formal e institucional"
+          ]
+        }
+      ],
+      "fala": "A comparação mais cobrada é com o artigo de opinião. O artigo é assinado, a responsabilidade é de quem escreveu, e ele admite primeira pessoa e uma conversa mais próxima com o leitor. O editorial não tem assinatura, é impessoal e quer orientar a opinião pública com credibilidade de instituição."
+    },
+    {
+      "tipo": "destaque",
+      "titulo": "Lendo o editorial de O Globo",
+      "texto": "Não basta **proibir**: é preciso **orientar e educar** os jovens no mundo digital.",
+      "fala": "Na interpretação, separe tema e tese. No editorial de O Globo, o tema é o uso das redes sociais por crianças. A tese é que os pais precisam acompanhar e educar, e não apenas proibir. A fala do pediatra e a da juíza são argumentos de autoridade. A pesquisa com porcentagens é argumento por dados."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Num editorial, a fala de uma juíza especialista é:",
+      "alternativas": [
+        "Dado estatístico",
+        "Argumento de autoridade",
+        "Opinião pessoal do editor"
+      ],
+      "certa": "b",
+      "explicacao": "Especialista dá credibilidade à tese.",
+      "fala": "Pergunta. Em um editorial, a fala de uma juíza especialista no assunto funciona como o quê?",
+      "falaResposta": "Letra B: argumento de autoridade. Ela fala com conhecimento de causa e dá credibilidade à tese do jornal. Dado estatístico seria a pesquisa com porcentagens."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 2",
+      "titulo": "Complemento nominal",
+      "subtitulo": "O termo que completa um nome",
+      "fala": "Parte dois: complemento nominal."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Complemento nominal",
+      "titulo": "Completa o sentido de um nome",
+      "itens": [
+        "Sempre com **preposição**",
+        "Liga-se a **substantivo, adjetivo ou advérbio**",
+        "Atentos **ao telefone** · orgulhoso **do meu pai**",
+        "Contrariamente **à proposta** (advérbio)"
+      ],
+      "fala": "O complemento nominal completa um nome que sozinho fica incompleto. Quem é alérgico é alérgico a alguma coisa. Ele sempre tem preposição e se liga a um substantivo, a um adjetivo ou a um advérbio. Atentos ao telefone, orgulhoso do meu pai, e contrariamente à proposta, em que o termo completa um advérbio."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Complemento nominal x objeto indireto",
+      "colunas": [
+        {
+          "titulo": "Complemento nominal",
+          "itens": [
+            "Completa um **nome**",
+            "Estava confiante **na vitória**"
+          ]
+        },
+        {
+          "titulo": "Objeto indireto",
+          "itens": [
+            "Completa um **verbo**",
+            "Cedeu **aos caprichos infantis**"
+          ]
+        }
+      ],
+      "fala": "Os dois têm preposição, então olhe o que eles completam. Em estava confiante na vitória, o termo completa o adjetivo confiante: é complemento nominal. Em cedeu aos caprichos infantis, completa o verbo ceder: é objeto indireto."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 3",
+      "titulo": "Adjunto adnominal",
+      "subtitulo": "O termo que caracteriza o substantivo",
+      "fala": "Parte três: adjunto adnominal."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Adjunto adnominal",
+      "titulo": "Caracteriza um substantivo",
+      "itens": [
+        "Artigo, adjetivo, numeral, pronome ou **locução adjetiva**",
+        "Liga-se **só a substantivo**",
+        "**Os nossos três melhores** professores **de astronomia**"
+      ],
+      "fala": "O adjunto adnominal caracteriza um substantivo e faz parte do sintagma dele. Pode ser artigo, adjetivo, numeral, pronome ou locução adjetiva. Em os nossos três melhores professores de astronomia, são cinco adjuntos adnominais de professores."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Adjunto adnominal x complemento nominal",
+      "colunas": [
+        {
+          "titulo": "Adjunto adnominal",
+          "itens": [
+            "Pode vir **sem preposição**",
+            "Com substantivo **concreto**: casa **de pedra**",
+            "**Pratica** a ação: a crítica **do professor**"
+          ]
+        },
+        {
+          "titulo": "Complemento nominal",
+          "itens": [
+            "Liga-se a **adjetivo ou advérbio**",
+            "**Sofre** a ação: a crítica **ao governo**",
+            "A venda **de livros**"
+          ]
+        }
+      ],
+      "fala": "Esse é o ponto mais cobrado. Sem preposição, é adjunto. Ligado a adjetivo ou advérbio, é complemento. Com substantivo concreto, como casa de pedra, é adjunto. E com substantivo de ação, pergunte: o termo pratica ou sofre a ação? Na crítica do professor, o professor critica: adjunto. Na crítica ao governo, o governo é criticado: complemento nominal."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Em \"a venda de livros de ficção\", os termos são:",
+      "alternativas": [
+        "Os dois: adjunto adnominal",
+        "Complemento nominal / adjunto adnominal",
+        "Adjunto adnominal / complemento nominal"
+      ],
+      "certa": "b",
+      "explicacao": "Livros são vendidos: complemento. \"De ficção\" caracteriza: adjunto.",
+      "fala": "Pergunta. Em a venda de livros de ficção aumentou, como se classificam de livros e de ficção?",
+      "falaResposta": "Letra B. Os livros são vendidos, eles sofrem a ação de venda: complemento nominal. De ficção caracteriza livros, que é concreto: adjunto adnominal."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 4",
+      "titulo": "Concordância verbal",
+      "subtitulo": "Regras práticas",
+      "fala": "Parte quatro: concordância verbal."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Concordância",
+      "titulo": "Sujeito composto e pronomes",
+      "itens": [
+        "Antes do verbo: **só plural**",
+        "Depois do verbo: plural ou **núcleo mais próximo**",
+        "**Que**: concorda com o antecedente (fui eu que relatei)",
+        "**Quem**: fui eu quem relatou **ou** relatei"
+      ],
+      "fala": "Sujeito composto antes do verbo pede plural: o professor e os alunos chegaram. Depois do verbo, pode ir para o plural ou concordar com o núcleo mais próximo: chegou o diretor e a secretária. Com o relativo que, o verbo segue o antecedente: fui eu que relatei. Com quem, as duas formas valem: fui eu quem relatou, ou quem relatei."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Concordância",
+      "titulo": "Porcentagem, partes e \"mais de\"",
+      "itens": [
+        "31% da população **participou / participaram**",
+        "A maioria dos alunos **foi aprovada / foram aprovados**",
+        "Mais de 200 pessoas **foram**: só plural"
+      ],
+      "fala": "Com porcentagem, o verbo concorda com o numeral ou com o substantivo: trinta e um por cento da população participou, ou participaram. Com parte de, a maioria de, metade de, também valem as duas. Mas com mais de, menos de e cerca de mais um número, a concordância é rígida: mais de duzentas pessoas foram flagradas."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Verbos especiais",
+      "colunas": [
+        {
+          "titulo": "Verbo ser",
+          "itens": [
+            "**São** duas horas · **É** uma hora",
+            "Dez pessoas **é suficiente**",
+            "Minha vida **são** meus familiares"
+          ]
+        },
+        {
+          "titulo": "Haver e fazer",
+          "itens": [
+            "**Houve** muitas sugestões",
+            "**Faz** dois anos",
+            "**Deve haver** muitas obras"
+          ]
+        }
+      ],
+      "fala": "O verbo ser concorda com o numeral nas horas. Com é pouco, é suficiente e é bastante, fica no singular. E, quando um dos termos indica pessoa, o verbo concorda com ele: minha vida são meus familiares. Já haver, no sentido de existir, e fazer, indicando tempo, são impessoais e ficam no singular, inclusive na locução: deve haver, nunca devem haver."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Qual frase está de acordo com a norma-padrão?",
+      "alternativas": [
+        "Fazem dois anos que não viajo.",
+        "Houveram muitas reclamações.",
+        "Devem haver soluções.",
+        "Dois quilos é bastante para o almoço."
+      ],
+      "certa": "d",
+      "explicacao": "O certo nas outras: Faz, Houve, Deve haver.",
+      "fala": "Pergunta. Qual dessas frases está de acordo com a norma-padrão?",
+      "falaResposta": "Letra D. Com quantidade, é bastante fica no singular. As outras erram nos impessoais: o certo é faz dois anos, houve muitas reclamações e deve haver soluções."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "Parte 5",
+      "titulo": "Coesão",
+      "subtitulo": "Relações semânticas das conjunções",
+      "fala": "Parte cinco: coesão e as relações das conjunções."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "Pares que confundem",
+      "colunas": [
+        {
+          "titulo": "Oposição x concessão",
+          "itens": [
+            "**Mas, porém, contudo**: oposição",
+            "**Embora, ainda que**: concessão + subjuntivo"
+          ]
+        },
+        {
+          "titulo": "Causa x consequência",
+          "itens": [
+            "**Porque, já que, visto que**: causa",
+            "**Tão... que, de modo que**: consequência"
+          ]
+        }
+      ],
+      "fala": "A prova pede a relação de sentido do conectivo. Mas, porém e contudo indicam oposição. Embora e ainda que indicam concessão, um obstáculo que não impede o fato, e pedem subjuntivo. Porque, já que e visto que indicam causa. Tão que e de modo que indicam consequência: está tão frio que a água congelou."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Coesão",
+      "titulo": "Outras relações",
+      "itens": [
+        "**À medida que**: proporção",
+        "**Para que, a fim de que**: finalidade",
+        "**Portanto, logo**: conclusão",
+        "**Se, caso, desde que**: condição"
+      ],
+      "fala": "À medida que e à proporção que indicam proporção. Para que e a fim de que, finalidade. Portanto e logo, conclusão. Se, caso e desde que, condição. E, para trocar um conectivo mantendo o sentido, só serve outro da mesma relação: mas por contudo, embora por ainda que."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "\"Fugiu, mas foi preso.\" O \"mas\" pode virar:",
+      "alternativas": [
+        "portanto",
+        "embora",
+        "contudo"
+      ],
+      "certa": "c",
+      "explicacao": "\"Mas\" e \"contudo\" indicam oposição.",
+      "fala": "Última pergunta. Em fugiu, mas foi preso, o mas pode ser trocado, sem mudar o sentido, por qual conectivo?",
+      "falaResposta": "Letra C: contudo. Os dois indicam oposição. Embora é concessivo e mudaria a frase para o subjuntivo. E portanto indica conclusão."
+    },
+    {
+      "tipo": "fim",
+      "titulo": "Bons estudos!",
+      "texto": "Resumo completo e quiz de 26 testes no Caderno Digital.",
+      "fala": "É isso. O resumo completo e o quiz com vinte e seis testes estão no Caderno Digital. Boa prova!"
+    }
+  ]
+}
