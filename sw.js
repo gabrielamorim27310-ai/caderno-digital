@@ -10,7 +10,7 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-10-25-filo3-hegel';
+const VERSAO = 'cd-2026-11-03-port3';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
@@ -30,6 +30,7 @@ const ESSENCIAIS = [
   'ingles-flashcards.html',
   'matematica-2tri.html',
   'portugues-1tri.html',
+  'portugues-3tri.html',
   'quimica-1tri.html',
   'quimica-2tri.html',
   'sociologia-1tri.html',
