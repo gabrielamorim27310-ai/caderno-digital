@@ -106,6 +106,17 @@
   body.ios .alerta { background: var(--orange-bg); border: 0; border-radius: var(--r-md, 12px); color: var(--label); }
   body.ios .mini-card .pq { color: var(--label-2); }
   body.ios .mini-card h4 { color: var(--label); }
+  body.ios .mapa { display: flex; flex-direction: column; margin-top: 12px; }
+  body.ios .mapa-caso { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 4px 16px; padding: 12px 0; border-top: 0.5px solid var(--sep); }
+  body.ios .mapa-nome { font: var(--t-subhead); color: var(--label); }
+  body.ios .mapa-linhas { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  body.ios .mapa-linhas p { font: var(--t-subhead); color: var(--label); margin: 0; }
+  body.ios .mat { display: block; font: 600 0.75rem/1.3 var(--font); letter-spacing: 0.04em; text-transform: uppercase; color: var(--m); margin-top: 2px; }
+  body.ios .mat::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--m); margin-right: 6px; vertical-align: 1px; }
+  body.ios .mini-card p { color: var(--label); }
+  body.ios .mini-card.prop .list { margin-top: 4px; }
+  body.ios .card > .list:first-child { margin-top: 0; }
+  @media (max-width: 600px) { body.ios .mapa-caso { grid-template-columns: minmax(0, 1fr); } }
 
   @media (max-width: 600px) {
     .content { padding: 24px 14px 60px; }
@@ -158,16 +169,15 @@
   <div class="card">
     <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Como usar este resumo</div>
     <p>Os quatro estudos dirigidos são interdisciplinares: o mesmo problema ambiental é olhado pela Física, pela Biologia e pela Química. Como cai <strong>uma questão em cada prova</strong>, o resumo está organizado <strong>por matéria</strong>: cada seção junta o que aquela disciplina cobra nos quatro casos. A seção 1 dá o contexto de cada caso, para você reconhecer o texto-base na prova.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Caso</th><th>Física</th><th>Biologia</th><th>Química</th></tr></thead>
-        <tbody>
-          <tr><td><strong>1 · Amazônia Azul</strong> (Noronha, Trindade, Abrolhos)</td><td>Densidade, empuxo, correntes, luz na película de óleo</td><td>Bioacumulação, desreguladores endócrinos, zooxantelas, branqueamento, biorremediação</td><td>Polímeros hidrofóbicos, adsorção, hidrocarbonetos, O₂ dissolvido, velocidade de reação</td></tr>
-          <tr><td><strong>2 · Arquipélago São Pedro e São Paulo</strong></td><td>Solar, eólica (ventos alísios), ondas e marés, transformações de energia, calor e trabalho</td><td>Magnificação trófica, osmose, desidratação, homeostase</td><td>Lixo comum, reciclável e eletrônico; metais pesados; corrosão; destilação, osmose reversa, crioscopia</td></tr>
-          <tr><td><strong>3 · Água potável</strong></td><td>Pressão hidrostática, energia potencial gravitacional, bombeamento, propriedades ópticas</td><td>Doenças de veiculação hídrica, DBO, imunização, equilíbrio hídrico</td><td>Coagulação/floculação com sulfato de alumínio, filtração, cloração (agente oxidante)</td></tr>
-          <tr><td><strong>4 · Mineração e radioatividade</strong> (Goiânia, mercúrio)</td><td>Radiação ionizante, estabilidade nuclear, fissão, transporte de contaminantes</td><td>Mutações, câncer, morte celular, biomagnificação do mercúrio, Cs imitando o K</td><td>Decaimento β e γ, especiação do Hg, solubilidade, volatilidade, adsorção, precipitação</td></tr>
-        </tbody>
-      </table>
+    <div class="mapa">
+      <div class="mapa-caso"><div class="mapa-nome"><strong>1 · Amazônia Azul</strong> (Noronha, Trindade, Abrolhos)</div>
+        <div class="mapa-linhas"><p><span class="mat" style="--m:var(--fis)">Física</span>Densidade, empuxo, correntes, luz na película de óleo</p><p><span class="mat" style="--m:var(--bio)">Biologia</span>Bioacumulação, desreguladores endócrinos, zooxantelas, branqueamento, biorremediação</p><p><span class="mat" style="--m:var(--qui)">Química</span>Polímeros hidrofóbicos, adsorção, hidrocarbonetos, O₂ dissolvido, velocidade de reação</p></div></div>
+      <div class="mapa-caso"><div class="mapa-nome"><strong>2 · Arquipélago São Pedro e São Paulo</strong></div>
+        <div class="mapa-linhas"><p><span class="mat" style="--m:var(--fis)">Física</span>Solar, eólica (ventos alísios), ondas e marés, transformações de energia, calor e trabalho</p><p><span class="mat" style="--m:var(--bio)">Biologia</span>Magnificação trófica, osmose, desidratação, homeostase</p><p><span class="mat" style="--m:var(--qui)">Química</span>Lixo comum, reciclável e eletrônico; metais pesados; corrosão; destilação, osmose reversa, crioscopia</p></div></div>
+      <div class="mapa-caso"><div class="mapa-nome"><strong>3 · Água potável</strong></div>
+        <div class="mapa-linhas"><p><span class="mat" style="--m:var(--fis)">Física</span>Pressão hidrostática, energia potencial gravitacional, bombeamento, propriedades ópticas</p><p><span class="mat" style="--m:var(--bio)">Biologia</span>Doenças de veiculação hídrica, DBO, imunização, equilíbrio hídrico</p><p><span class="mat" style="--m:var(--qui)">Química</span>Coagulação/floculação com sulfato de alumínio, filtração, cloração (agente oxidante)</p></div></div>
+      <div class="mapa-caso"><div class="mapa-nome"><strong>4 · Mineração e radioatividade</strong> (Goiânia, mercúrio)</div>
+        <div class="mapa-linhas"><p><span class="mat" style="--m:var(--fis)">Física</span>Radiação ionizante, estabilidade nuclear, fissão, transporte de contaminantes</p><p><span class="mat" style="--m:var(--bio)">Biologia</span>Mutações, câncer, morte celular, biomagnificação do mercúrio, Cs imitando o K</p><p><span class="mat" style="--m:var(--qui)">Química</span>Decaimento β e γ, especiação do Hg, solubilidade, volatilidade, adsorção, precipitação</p></div></div>
     </div>
   </div>
 
@@ -502,22 +512,10 @@
     </div>
 
     <div class="grid-2">
-      <div class="mini-card">
-        <h4>Amazônia Azul (Caso 1)</h4>
-        <p><strong>Redução:</strong> fiscalização de petroleiros, planos de emergência, barreiras de contenção; menos descartáveis, controle de pellets e fibras sintéticas.<br><strong>Educação ambiental:</strong> escolas, turistas, pescadores, empresas.<br><strong>Biorremediação</strong> controlada e monitorada.<br><strong>Monitoramento:</strong> água, sedimentos, organismos; satélite, sensoriamento remoto, espécies indicadoras.<br><strong>Biodiversidade:</strong> unidades de conservação, controle de pesca e turismo, períodos de restrição.</p>
-      </div>
-      <div class="mini-card">
-        <h4>Estação do ASPSP (Caso 2)</h4>
-        <p>Matriz híbrida solar + eólica + baterias; equipamentos de baixo consumo; uso racional da energia em dessalinização e refrigeração; segregação, reutilização e reciclagem; lixo eletrônico com destinação específica; monitoramento do impacto das próprias estruturas na vida marinha. ODS 6, 7, 12, 13, 14.</p>
-      </div>
-      <div class="mini-card">
-        <h4>Água potável (Caso 3)</h4>
-        <p>Tecnologia sozinha não resolve: ETAs e ETEs têm <strong>custo de implantação, operação e manutenção</strong>, exigem energia e pessoal qualificado; ocupação desordenada dificulta redes. Proposta: ampliar e modernizar captação, tratamento e distribuição priorizando áreas com déficit; tratar esgoto; reduzir perdas e vazamentos; proteger mananciais; bombeamento eficiente; educação ambiental e participação social. ODS 6.</p>
-      </div>
-      <div class="mini-card">
-        <h4>Mineração e radioatividade (Caso 4)</h4>
-        <p>Gestão de resíduos radioativos (armazenar, identificar, isolar, monitorar); monitorar radiação e áreas contaminadas; controle de rejeitos e tratamento de efluentes; biorremediação com microrganismos e plantas; recuperação de áreas degradadas; fiscalização; <strong>governança ambiental</strong> (poder público, empresas, cientistas e comunidade, com transparência). ODS 3, 6, 12, 13, 14, 15.</p>
-      </div>
+      <div class="mini-card prop"><h4>Amazônia Azul (Caso 1)</h4><ul class="list"><li><span><strong>Redução:</strong> fiscalização de petroleiros, planos de emergência, barreiras de contenção; menos descartáveis, controle de pellets e fibras sintéticas.</span></li><li><span><strong>Educação ambiental:</strong> escolas, turistas, pescadores, empresas.</span></li><li><span><strong>Biorremediação</strong> controlada e monitorada.</span></li><li><span><strong>Monitoramento:</strong> água, sedimentos, organismos; satélite, sensoriamento remoto, espécies indicadoras.</span></li><li><span><strong>Biodiversidade:</strong> unidades de conservação, controle de pesca e turismo, períodos de restrição.</span></li></ul></div>
+      <div class="mini-card prop"><h4>Estação do ASPSP (Caso 2)</h4><ul class="list"><li><span>Matriz híbrida solar + eólica + baterias</span></li><li><span>Equipamentos de baixo consumo</span></li><li><span>Uso racional da energia em dessalinização e refrigeração</span></li><li><span>Segregação, reutilização e reciclagem</span></li><li><span>Lixo eletrônico com destinação específica</span></li><li><span>Monitoramento do impacto das próprias estruturas na vida marinha. ODS 6, 7, 12, 13, 14</span></li></ul></div>
+      <div class="mini-card prop"><h4>Água potável (Caso 3)</h4><ul class="list"><li><span>Tecnologia sozinha não resolve: ETAs e ETEs têm <strong>custo de implantação, operação e manutenção</strong>, exigem energia e pessoal qualificado</span></li><li><span>Ocupação desordenada dificulta as redes</span></li><li><span><strong>Proposta:</strong> ampliar e modernizar captação, tratamento e distribuição priorizando áreas com déficit</span></li><li><span>Tratar esgoto</span></li><li><span>Reduzir perdas e vazamentos</span></li><li><span>Proteger mananciais</span></li><li><span>Bombeamento eficiente</span></li><li><span>Educação ambiental e participação social. ODS 6</span></li></ul></div>
+      <div class="mini-card prop"><h4>Mineração e radioatividade (Caso 4)</h4><ul class="list"><li><span>Gestão de resíduos radioativos (armazenar, identificar, isolar, monitorar)</span></li><li><span>Monitorar radiação e áreas contaminadas</span></li><li><span>Controle de rejeitos e tratamento de efluentes</span></li><li><span>Biorremediação com microrganismos e plantas</span></li><li><span>Recuperação de áreas degradadas</span></li><li><span>Fiscalização</span></li><li><span><strong>Governança ambiental</strong> (poder público, empresas, cientistas e comunidade, com transparência). ODS 3, 6, 12, 13, 14, 15</span></li></ul></div>
     </div>
   </section>
 
