@@ -89,6 +89,24 @@
 
   footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
 
+
+  /* ── Visual do Caderno (claro e escuro): sobrepõe os estilos acima ── */
+  body.ios { --fis: var(--orange); --bio: var(--green); --qui: var(--red); }
+  body.ios .formula { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; background: var(--bg-3); border: 0; border-radius: var(--r-sm, 10px); padding: 12px 16px; margin-top: 12px; color: var(--label); font: 500 1rem/1.5 var(--font); text-align: center; }
+  body.ios .formula sub { font-size: 0.72em; }
+  body.ios.resumo .list { gap: 0; margin-top: 10px; }
+  body.ios.resumo .list li { background: none !important; border-radius: 0; padding: 10px 0; gap: 12px; border-bottom: 0.5px solid var(--sep) !important; font: var(--t-subhead); }
+  body.ios.resumo .list li:last-child { border-bottom: 0 !important; }
+  body.ios.resumo .list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--tint); margin-top: 0.55em; }
+  body.ios .list li strong, body.ios .highlight strong, body.ios .alerta strong { color: var(--label); font-weight: 600; }
+  body.ios .tag { background: var(--fill); color: var(--label-2); border: 0; font-weight: 600; letter-spacing: 0.03em; white-space: nowrap; flex-shrink: 0; }
+  body.ios .card-title .tag { margin-left: auto; }
+  body.ios .fluxo span { background: var(--bg-3); border: 0; color: var(--label); font-weight: 500; }
+  body.ios .fluxo b { color: var(--label-2); font-weight: 400; }
+  body.ios .alerta { background: var(--orange-bg); border: 0; border-radius: var(--r-md, 12px); color: var(--label); }
+  body.ios .mini-card .pq { color: var(--label-2); }
+  body.ios .mini-card h4 { color: var(--label); }
+
   @media (max-width: 600px) {
     .content { padding: 24px 14px 60px; }
     .hero { padding: 50px 16px 40px; }
@@ -200,7 +218,7 @@
     <div class="card">
       <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Densidade e empuxo: por que um resíduo flutua ou afunda <span class="tag">Caso 1</span></div>
       <p>Tudo depende da comparação entre a <strong>densidade média do objeto</strong> e a <strong>densidade do fluido</strong>. O fluido exerce sobre o corpo imerso uma força vertical para cima, o <strong>empuxo</strong>.</p>
-      <div class="formula">d = m / V &nbsp;&nbsp;·&nbsp;&nbsp; E = d<sub>fluido</sub> · V<sub>imerso</sub> · g &nbsp;&nbsp;·&nbsp;&nbsp; P = m · g</div>
+      <div class="formula"><span>d = m / V</span><span>E = d<sub>fluido</sub> · V<sub>imerso</sub> · g</span><span>P = m · g</span></div>
       <ul class="list">
         <li><span><strong>d<sub>objeto</sub> &lt; d<sub>água</sub></strong>: o empuxo equilibra o peso com só parte do volume imerso → flutua.</span></li>
         <li><span><strong>d<sub>objeto</sub> &gt; d<sub>água</sub></strong>: peso maior que o empuxo máximo → afunda.</span></li>
@@ -224,7 +242,7 @@
     <div class="card">
       <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Pressão hidrostática e abastecimento de água <span class="tag">Caso 3</span></div>
       <p>A água se move <strong>da região de maior pressão para a de menor pressão</strong>. Quanto maior a coluna de água acima de um ponto, maior a pressão ali (Stevin). Por isso as cidades usam <strong>reservatórios elevados</strong> e <strong>bombas</strong>.</p>
-      <div class="formula">p = p<sub>atm</sub> + d · g · h &nbsp;&nbsp;·&nbsp;&nbsp; E<sub>p</sub> = m · g · h</div>
+      <div class="formula"><span>p = p<sub>atm</sub> + d · g · h</span><span>E<sub>p</sub> = m · g · h</span></div>
       <ul class="list">
         <li><span><strong>Reservatório elevado</strong>: a água guardada no alto tem energia potencial gravitacional, que vira energia cinética e empurra a água pela rede.</span></li>
         <li><span><strong>Bombas</strong>: fornecem energia ao sistema, aumentando a pressão para vencer distância e altura.</span></li>
@@ -428,7 +446,7 @@
     <div class="card">
       <div class="card-title"><span class="dot" style="background:var(--qui)"></span> Radioatividade do césio-137 <span class="tag">Caso 4</span></div>
       <p>O Cs-137 é um <strong>radionuclídeo</strong>: núcleo instável que <strong>decai espontaneamente</strong>, virando outro núcleo mais estável e emitindo radiação. Radioatividade é fenômeno <strong>do núcleo</strong>, não da eletrosfera, então não depende de o césio estar na forma de cloreto ou não.</p>
-      <div class="formula">¹³⁷₅₅Cs → ¹³⁷ᵐ₅₆Ba + ⁰₋₁β &nbsp;&nbsp;depois&nbsp;&nbsp; ¹³⁷ᵐBa → ¹³⁷Ba + γ</div>
+      <div class="formula"><span>¹³⁷₅₅Cs → ¹³⁷ᵐ₅₆Ba + ⁰₋₁β</span><span>¹³⁷ᵐBa → ¹³⁷Ba + γ</span></div>
       <ul class="list">
         <li><span><strong>Emissão β⁻</strong>: um nêutron vira próton e elétron; o elétron sai. O número atômico sobe 1 (Cs, Z = 55 → Ba, Z = 56) e a massa (137) não muda.</span></li>
         <li><span><strong>Emissão γ</strong>: onda eletromagnética de alta energia, sem massa e sem carga; o Ba-137m (metaestável) libera energia e vai a um estado mais estável.</span></li>
