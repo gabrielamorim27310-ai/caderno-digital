@@ -52,4 +52,5 @@ var MATERIAS = [
   { tri: 3, id: 'filosofia-3tri',         materia: 'filosofia',  imagem: 'pensador.png', nome: 'Filosofia', desc: 'Demócrito · Platão · Aristóteles · Byung-Chul Han · Hegel · com vídeo', status: 'prova' },
   { tri: 3, id: 'portugues-3tri',         materia: 'portugues',  icone: '📖', nome: 'Português',  desc: 'Editorial · Complemento Nominal · Adjunto Adnominal · Concordância Verbal · Coesão · com vídeo', status: 'prova' },
   { tri: 3, id: 'sociologia-3tri',        materia: 'sociologia', icone: '🏙️', nome: 'Sociologia', desc: 'História da Antropologia · Cultura Popular, Erudita e Contracultura · Indústria Cultural', status: 'prova' },
+  { tri: 3, id: 'semana-inter',           materia: 'biologia',   icone: '🌊', nome: 'Semana Inter', desc: 'Física · Biologia · Química · Estudos de Caso 1 a 4 (1 questão em cada prova)', status: 'prova' },
 ];

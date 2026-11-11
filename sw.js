@@ -10,7 +10,7 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-11-04-port3-video';
+const VERSAO = 'cd-2026-11-11-semana-inter';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
@@ -33,6 +33,7 @@ const ESSENCIAIS = [
   'portugues-3tri.html',
   'quimica-1tri.html',
   'quimica-2tri.html',
+  'semana-inter.html',
   'sociologia-1tri.html',
   'sociologia-2tri.html',
   'sociologia-3tri.html',

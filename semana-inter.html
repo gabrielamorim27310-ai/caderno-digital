@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-pagina="semana-inter" data-materia="biologia">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Semana Inter · Estudos de Caso 1 a 4 · Física, Biologia e Química · 3º tri 2026</title>
+<style>
+  :root {
+    --primary: #0b4f6c;
+    --secondary: #0e9aa7;
+    --bg: #f4fafc;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #5f6b70;
+    --border: #d3e9ef;
+    --soft: #eef8fa;
+    --c1: #0b4f6c;
+    --c2: #0e9aa7;
+    --fis: #ae5400;
+    --bio: #297c34;
+    --qui: #cf2c2c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  .hero { background: linear-gradient(135deg, #03263a 0%, #0b4f6c 55%, #0e9aa7 100%); color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden; }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.88; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); }
+
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; }
+  .card p + p { margin-top: 8px; }
+
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: var(--soft); border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  .highlight { background: linear-gradient(135deg, #e3f5f7, #d6eef3); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .alerta { background: #fff7ed; border-left: 4px solid #c2410c; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .alerta strong { color: #9a3412; }
+
+  .formula { font-family: 'SF Mono', ui-monospace, Menlo, monospace; background: var(--soft); border: 1px dashed var(--secondary); border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 0.92rem; text-align: center; color: var(--primary); font-weight: 600; }
+  .fluxo { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; font-size: 0.84rem; }
+  .fluxo span { background: var(--soft); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-weight: 600; color: var(--primary); }
+  .fluxo b { color: var(--secondary); }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 14px; }
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid var(--secondary); }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 6px; }
+  .mini-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+  .mini-card .pq { margin-top: 8px; font-size: 0.82rem; color: var(--primary); font-style: italic; }
+
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--soft); }
+
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; background: var(--soft); color: var(--primary); border: 1px solid var(--border); }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .card { padding: 18px 16px; }
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CL1RMGB3SN');
+</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
+</head>
+<body class="ios resumo">
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="hero">
+  <div class="hero-icon">🌊</div>
+  <h1>Semana Inter</h1>
+  <p class="subtitle">Estudos de Caso 1 a 4 · Amazônia Azul · São Pedro e São Paulo · Água Potável · Mineração e Radioatividade</p>
+  <div class="badge">Física · Biologia · Química · 3º Trimestre · 2026</div>
+  <br>
+  <span class="author">1 questão em cada prova: Física, Biologia e Química</span>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#casos">1. Os 4 casos</a>
+    <a class="nav-link" href="#fisica">2. Física</a>
+    <a class="nav-link" href="#biologia">3. Biologia</a>
+    <a class="nav-link" href="#quimica">4. Química</a>
+    <a class="nav-link" href="#intervencao">5. Propostas e ODS</a>
+    <a class="nav-link" href="#responder">6. Como responder</a>
+    <a class="nav-link" href="#exercicios">Quiz</a>
+  </div>
+</nav>
+
+<div class="content">
+
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Como usar este resumo</div>
+    <p>Os quatro estudos dirigidos são interdisciplinares: o mesmo problema ambiental é olhado pela Física, pela Biologia e pela Química. Como cai <strong>uma questão em cada prova</strong>, o resumo está organizado <strong>por matéria</strong>: cada seção junta o que aquela disciplina cobra nos quatro casos. A seção 1 dá o contexto de cada caso, para você reconhecer o texto-base na prova.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Caso</th><th>Física</th><th>Biologia</th><th>Química</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 · Amazônia Azul</strong> (Noronha, Trindade, Abrolhos)</td><td>Densidade, empuxo, correntes, luz na película de óleo</td><td>Bioacumulação, desreguladores endócrinos, zooxantelas, branqueamento, biorremediação</td><td>Polímeros hidrofóbicos, adsorção, hidrocarbonetos, O₂ dissolvido, velocidade de reação</td></tr>
+          <tr><td><strong>2 · Arquipélago São Pedro e São Paulo</strong></td><td>Solar, eólica (ventos alísios), ondas e marés, transformações de energia, calor e trabalho</td><td>Magnificação trófica, osmose, desidratação, homeostase</td><td>Lixo comum, reciclável e eletrônico; metais pesados; corrosão; destilação, osmose reversa, crioscopia</td></tr>
+          <tr><td><strong>3 · Água potável</strong></td><td>Pressão hidrostática, energia potencial gravitacional, bombeamento, propriedades ópticas</td><td>Doenças de veiculação hídrica, DBO, imunização, equilíbrio hídrico</td><td>Coagulação/floculação com sulfato de alumínio, filtração, cloração (agente oxidante)</td></tr>
+          <tr><td><strong>4 · Mineração e radioatividade</strong> (Goiânia, mercúrio)</td><td>Radiação ionizante, estabilidade nuclear, fissão, transporte de contaminantes</td><td>Mutações, câncer, morte celular, biomagnificação do mercúrio, Cs imitando o K</td><td>Decaimento β e γ, especiação do Hg, solubilidade, volatilidade, adsorção, precipitação</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 1. OS 4 CASOS ═══════════════ -->
+  <section class="section" id="casos" style="margin-top:40px">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">1</div>
+      <div>
+        <h2 class="section-title">Os 4 estudos de caso</h2>
+        <p class="section-sub">Contexto e pergunta central de cada um</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="mini-card">
+        <h4>1 · Da contaminação à recuperação: biorremediação na Amazônia Azul</h4>
+        <p>Amazônia Azul: área marítima brasileira de ~5,7 milhões de km². Contaminantes principais: <strong>petróleo</strong> (hidrocarbonetos) e <strong>microplásticos</strong> (&lt; 5 mm). Três cenários: <strong>Fernando de Noronha</strong> (microplásticos e turismo), <strong>Trindade e Martim Vaz</strong> (lixo trazido por correntes a mais de 1.000 km da costa) e <strong>Abrolhos</strong> (óleo sobre recifes de coral).</p>
+        <p class="pq">Como Biologia, Física e Química ajudam a entender e resolver a poluição marinha?</p>
+      </div>
+      <div class="mini-card">
+        <h4>2 · Ciência em meio ao oceano: sustentabilidade no ASPSP</h4>
+        <p>Estação científica no <strong>Arquipélago de São Pedro e São Paulo</strong>, ~1.100 km do litoral; equipes ficam ~15 dias. Toda energia é gerada no local, a água potável é limitada e todo resíduo precisa ser levado ao continente. Problema novo: <strong>lixo eletrônico</strong>.</p>
+        <p class="pq">Como manter uma base sustentável num ambiente isolado sem comprometer a Amazônia Azul?</p>
+      </div>
+      <div class="mini-card">
+        <h4>3 · Água potável e os desafios globais da Agenda 2030</h4>
+        <p>Bairros perto de rios que não recebem água tratada: mananciais contaminados por esgoto e resíduos industriais, expansão urbana desordenada, perda de pressão em relevo acidentado e vazamentos que deixam entrar contaminantes.</p>
+        <p class="pq">Por que, mesmo com tecnologia, ainda há gente sem água potável segura?</p>
+      </div>
+      <div class="mini-card">
+        <h4>4 · Entre a riqueza e o risco: mineração e radioatividade</h4>
+        <p><strong>Goiânia, 1987</strong>: aparelho de radioterapia abandonado com <strong>cloreto de césio-137</strong> (pó azul brilhante) foi aberto e espalhado. Hoje: <strong>garimpo com mercúrio</strong> e jazidas com <strong>urânio e tório</strong> espalhando radionuclídeos.</p>
+        <p class="pq">Como explorar recursos naturais sem pôr em risco a saúde humana e os ecossistemas?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 2. FÍSICA ═══════════════ -->
+  <section class="section" id="fisica">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--fis)">2</div>
+      <div>
+        <h2 class="section-title">Física</h2>
+        <p class="section-sub">Fluidos · Pressão · Energia · Luz · Radiação</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Densidade e empuxo: por que um resíduo flutua ou afunda <span class="tag">Caso 1</span></div>
+      <p>Tudo depende da comparação entre a <strong>densidade média do objeto</strong> e a <strong>densidade do fluido</strong>. O fluido exerce sobre o corpo imerso uma força vertical para cima, o <strong>empuxo</strong>.</p>
+      <div class="formula">d = m / V &nbsp;&nbsp;·&nbsp;&nbsp; E = d<sub>fluido</sub> · V<sub>imerso</sub> · g &nbsp;&nbsp;·&nbsp;&nbsp; P = m · g</div>
+      <ul class="list">
+        <li><span><strong>d<sub>objeto</sub> &lt; d<sub>água</sub></strong>: o empuxo equilibra o peso com só parte do volume imerso → flutua.</span></li>
+        <li><span><strong>d<sub>objeto</sub> &gt; d<sub>água</sub></strong>: peso maior que o empuxo máximo → afunda.</span></li>
+        <li><span><strong>Salinidade</strong>: sais dissolvidos aumentam a densidade da água do mar em relação à água doce, então o mar "segura" melhor alguns materiais.</span></li>
+        <li><span><strong>Outros fatores</strong>: forma, volume, ar preso dentro (garrafa fechada) e <strong>incrustação de organismos</strong>. Um resíduo que flutuava pode afundar depois de acumular organismos ou água.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Correntes marítimas e dinâmica dos fluidos <span class="tag">Caso 1</span></div>
+      <p>Correntes são movimentos contínuos de grandes massas de água, causados por <strong>ventos</strong>, diferenças de <strong>temperatura e salinidade</strong> (logo, de densidade) e pela <strong>rotação da Terra</strong>. A água em movimento exerce forças sobre o resíduo e o arrasta; o vento empurra o que fica na superfície. Por isso lixo de outros continentes chega a <strong>Trindade e Martim Vaz</strong>: a poluição marinha é <strong>global</strong>.</p>
+      <p>A <strong>radiação solar</strong> (UV) e a <strong>ação mecânica das ondas</strong> fragmentam plásticos grandes em <strong>microplásticos</strong>, invisíveis a olho nu.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Luz e a película de óleo <span class="tag">Caso 1</span></div>
+      <p>A luz que chega à superfície pode ser <strong>refletida</strong>, <strong>absorvida</strong> ou <strong>espalhada</strong>. A película de petróleo e as gotículas na água mudam essas interações e <strong>reduzem a radiação que penetra</strong> na coluna d'água. Menos energia luminosa chega a fitoplâncton, algas e zooxantelas → menos fotossíntese. A película também dificulta as <strong>trocas gasosas</strong> entre ar e água.</p>
+      <div class="highlight"><strong>Mesma ideia no Caso 3:</strong> água transparente não é água potável. Transparência é propriedade <strong>óptica</strong> (pouca partícula espalhando ou absorvendo luz); bactérias e vírus não aparecem a olho nu, e substâncias dissolvidas também não.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Pressão hidrostática e abastecimento de água <span class="tag">Caso 3</span></div>
+      <p>A água se move <strong>da região de maior pressão para a de menor pressão</strong>. Quanto maior a coluna de água acima de um ponto, maior a pressão ali (Stevin). Por isso as cidades usam <strong>reservatórios elevados</strong> e <strong>bombas</strong>.</p>
+      <div class="formula">p = p<sub>atm</sub> + d · g · h &nbsp;&nbsp;·&nbsp;&nbsp; E<sub>p</sub> = m · g · h</div>
+      <ul class="list">
+        <li><span><strong>Reservatório elevado</strong>: a água guardada no alto tem energia potencial gravitacional, que vira energia cinética e empurra a água pela rede.</span></li>
+        <li><span><strong>Bombas</strong>: fornecem energia ao sistema, aumentando a pressão para vencer distância e altura.</span></li>
+        <li><span><strong>Bairros altos sofrem mais</strong>: a água sobe contra a gravidade; é preciso pressão para vencer o desnível <em>e</em> as perdas por atrito nos canos (perda de carga). Pressão insuficiente → vazão cai, abastecimento irregular ou interrompido.</span></li>
+        <li><span><strong>Vazamentos</strong> reduzem ainda mais a pressão e, com a rede despressurizada, deixam <strong>entrar contaminantes</strong> e microrganismos.</span></li>
+        <li><span><strong>Soluções</strong>: estações de bombeamento, reservatórios elevados bem posicionados, manutenção da rede contra vazamentos, monitoramento da qualidade da água.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Matriz energética da estação do ASPSP <span class="tag">Caso 2</span></div>
+      <ul class="list">
+        <li><span><strong>Solar fotovoltaica</strong>: converte radiação solar direto em energia elétrica (efeito fotovoltaico). Reduz o transporte de diesel (custo e risco de vazamento). Precisa de baterias para noite e dias nublados.</span></li>
+        <li><span><strong>Eólica</strong>: a energia cinética do vento gira as pás (energia mecânica), e o gerador a converte em elétrica. Os <strong>ventos alísios</strong>, constantes na faixa equatorial, favorecem; exige estudo de intensidade, regularidade e direção.</span></li>
+        <li><span><strong>Ondas e marés</strong>: o movimento da água do mar também é fonte de energia, mas depende de estudos de viabilidade, manutenção (corrosão) e impacto nos ecossistemas.</span></li>
+        <li><span><strong>Melhor resposta</strong>: matriz <strong>híbrida</strong> solar + eólica + armazenamento, com o gerador a combustível só como reserva de emergência.</span></li>
+      </ul>
+      <p style="margin-top:14px"><strong>Do Sol ao computador</strong>, as transformações:</p>
+      <div class="fluxo">
+        <span>Radiação solar</span><b>→</b><span>Elétrica (painel)</span><b>→</b><span>Química (bateria)</span><b>→</b><span>Elétrica</span><b>→</b><span>Trabalho / processamento</span><b>+</b><span>Calor dissipado</span>
+      </div>
+      <div class="highlight"><strong>Conservação da energia:</strong> a energia não some, se transforma. A parte que vira <strong>calor</strong> (efeito Joule, resistência elétrica) não é aproveitada, por isso nenhuma conversão real tem rendimento de 100%.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Radiação, núcleo e fissão <span class="tag">Caso 4</span></div>
+      <ul class="list">
+        <li><span><strong>Estabilidade nuclear</strong>: a <strong>força nuclear forte</strong> mantém prótons e nêutrons juntos; a <strong>repulsão elétrica</strong> entre prótons tende a separar. A razão nêutrons/prótons (N/Z) desequilibrada torna o núcleo instável.</span></li>
+        <li><span><strong>Radiação ionizante</strong>: tem energia suficiente para <strong>arrancar elétrons</strong> de átomos e moléculas. É transferência de energia para a matéria, e por isso causa estragos químicos nos tecidos.</span></li>
+        <li><span><strong>Atividade cai com o tempo</strong>: o Cs-137 decai e sua atividade diminui aos poucos, mas não some de uma vez (meia-vida de cerca de 30 anos <span class="tag">extra</span>).</span></li>
+        <li><span><strong>Fissão nuclear</strong> (usinas): o núcleo de U-235 se divide, liberando muita energia e nêutrons. A energia aquece a água → vapor → turbina → gerador. Diferente da mineração, aqui o <strong>núcleo se transforma</strong>.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--fis)"></span> Transporte de contaminantes e osmose reversa <span class="tag">Casos 2 e 4</span></div>
+      <p><strong>Transporte (Caso 4):</strong> contaminantes vão pela <strong>água</strong> (dissolvidos ou presos a partículas, levados por rios, águas subterrâneas, erosão e assoreamento), pelo <strong>solo</strong> (infiltração) e pelo <strong>ar</strong> (vento leva poeira radioativa; formas voláteis do mercúrio evaporam). A <strong>densidade</strong> das partículas decide onde elas se depositam.</p>
+      <p><strong>Osmose reversa (Caso 2):</strong> aplica-se na água do mar uma <strong>pressão maior que a pressão osmótica</strong>, forçando a água a atravessar uma membrana semipermeável no sentido contrário ao natural; os sais ficam retidos. Gasta muita energia, por isso a dessalinização pesa na matriz energética da estação.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 3. BIOLOGIA ═══════════════ -->
+  <section class="section" id="biologia">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--bio)">3</div>
+      <div>
+        <h2 class="section-title">Biologia</h2>
+        <p class="section-sub">Cadeias alimentares · Simbiose · Microrganismos · Saúde · Homeostase</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--bio)"></span> Bioacumulação × magnificação trófica <span class="tag">Casos 1, 2 e 4</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Conceito</th><th>O que é</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bioacumulação</strong></td><td>Acúmulo de uma substância <strong>dentro de um organismo</strong>, porque ela entra mais rápido do que é eliminada ou transformada.</td></tr>
+            <tr><td><strong>Magnificação (biomagnificação) trófica</strong></td><td>Aumento da concentração <strong>de um nível trófico para o seguinte</strong>. O predador come muitas presas contaminadas e concentra mais que elas.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="list">
+        <li><span><strong>Microplásticos (Caso 1)</strong>: confundidos com alimento por zooplâncton, moluscos e peixes → passam pelos níveis tróficos → chegam ao ser humano pelo peixe e frutos do mar, levando junto os tóxicos adsorvidos.</span></li>
+        <li><span><strong>Metais do lixo eletrônico (Caso 2)</strong>: Pb, Hg, Cd, Ni liberados por corrosão → absorvidos ou ingeridos → transferidos na teia alimentar.</span></li>
+        <li><span><strong>Metilmercúrio (Caso 4)</strong>: forma do mercúrio que mais se acumula; predadores do topo e pessoas que comem peixe ficam mais expostos.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--bio)"></span> Desreguladores endócrinos <span class="tag">Caso 1</span></div>
+      <p>Microplásticos funcionam como <strong>"esponjas químicas"</strong> de <strong>bisfenol A (BPA)</strong>, <strong>ftalatos</strong> e metais pesados. Depois de ingeridos, esses compostos podem ter estrutura parecida com a de hormônios e se ligar aos <strong>receptores hormonais</strong>, ou atrapalhar a síntese, o transporte, o metabolismo ou a ação dos hormônios.</p>
+      <p>Como hormônios são <strong>mensageiros químicos</strong>, a interferência altera <strong>metabolismo, crescimento, desenvolvimento e reprodução</strong>, quebrando a homeostase.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--bio)"></span> Corais, zooxantelas e branqueamento <span class="tag">Caso 1 · Abrolhos</span></div>
+      <p><strong>Zooxantelas</strong> são microalgas fotossintetizantes que vivem dentro do coral: relação de <strong>mutualismo (simbiose)</strong>. A alga ganha abrigo e CO₂; o coral recebe matéria orgânica da fotossíntese, sua principal fonte de energia.</p>
+      <div class="fluxo">
+        <span>Óleo na superfície</span><b>→</b><span>menos luz</span><b>→</b><span>menos fotossíntese</span><b>→</b><span>estresse químico</span><b>→</b><span>expulsão das zooxantelas</span><b>→</b><span>branqueamento</span><b>→</b><span>coral pode morrer</span>
+      </div>
+      <p style="margin-top:12px">Efeito em cadeia: o coral é <strong>estruturador do ecossistema</strong>, dando abrigo e alimento a muitas espécies. Perder o coral derruba a biodiversidade do recife. Os <strong>HPAs</strong> (hidrocarbonetos policíclicos aromáticos) do petróleo ainda causam <strong>mutações</strong> e morte de organismos.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--bio)"></span> Biorremediação <span class="tag">Casos 1 e 4</span></div>
+      <p>Uso de <strong>organismos vivos</strong> (principalmente bactérias; também plantas) para remover, transformar ou imobilizar contaminantes. Certas bactérias marinhas têm <strong>enzimas</strong> que degradam hidrocarbonetos e os usam como <strong>fonte de matéria e energia</strong>.</p>
+      <div class="formula">hidrocarbonetos + O₂ → (metabolismo bacteriano) → CO₂ + H₂O + biomassa</div>
+      <ul class="list">
+        <li><span><strong>Condições que favorecem</strong>: temperatura adequada, <strong>oxigênio dissolvido</strong>, água, pH favorável e <strong>nutrientes (N e P)</strong>, que entram na formação de proteínas, DNA e ATP para a bactéria crescer.</span></li>
+        <li><span><strong>Temperatura</strong>: até certo ponto acelera as reações e as enzimas; calor demais <strong>desnatura</strong> as proteínas.</span></li>
+        <li><span><strong>Oxigênio</strong>: bactérias aeróbias precisam dele dissolvido. Água fria guarda mais O₂; pouco O₂ = degradação lenta.</span></li>
+        <li><span><strong>Cuidado</strong>: não basta jogar bactéria. Precisa avaliar o ambiente antes e monitorar depois, para não desequilibrar as comunidades microbianas locais.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--bio)"></span> Doenças de veiculação hídrica, DBO e imunização <span class="tag">Caso 3</span></div>
+      <p>Sem tratamento, o esgoto vai para rios e lagos levando <strong>patógenos</strong> e <strong>matéria orgânica</strong>. A matéria orgânica aumenta a <strong>DBO</strong> (demanda bioquímica de oxigênio): os decompositores consomem o O₂ dissolvido para degradá-la, e peixes e outros organismos aeróbios morrem.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Agente</th><th>Doença</th><th>Consequência</th></tr></thead>
+          <tbody>
+            <tr><td>Vírus</td><td><strong>Hepatite A</strong> (HAV)</td><td>Inflamação do fígado, icterícia</td></tr>
+            <tr><td>Vírus</td><td><strong>Poliomielite</strong> (poliovírus)</td><td>Ataca o sistema nervoso; casos graves: paralisia</td></tr>
+            <tr><td>Bactéria</td><td><strong>Cólera</strong> (<em>Vibrio cholerae</em>)</td><td>Diarreia intensa, perda de água e eletrólitos, desidratação</td></tr>
+            <tr><td>Protozoário</td><td><strong>Giardíase</strong> (<em>Giardia duodenalis</em>)</td><td>Diarreia e má absorção de nutrientes</td></tr>
+            <tr><td>Protozoário</td><td><strong>Amebíase</strong> (<em>Entamoeba histolytica</em>)</td><td>Lesões na mucosa intestinal; pode atingir o fígado</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="list">
+        <li><span><strong>Prevenção coletiva principal</strong>: saneamento básico (coleta e tratamento de esgoto + água potável). Reduz a <strong>exposição</strong> ao agente.</span></li>
+        <li><span><strong>Complementos</strong>: vigilância da qualidade da água, educação sanitária, higiene e <strong>vacinação</strong> (imunização ativa: o sistema imune cria memória e responde mais rápido numa exposição futura). Saneamento reduz a exposição; vacina aumenta a proteção.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--bio)"></span> Por que não beber água do mar <span class="tag">Caso 2</span></div>
+      <p>A água do mar é muito mais concentrada em sais que os líquidos do corpo. Bebida, ela aumenta a <strong>osmolaridade do meio extracelular</strong>: por <strong>osmose</strong> a água sai das células, que murcham. Os <strong>rins</strong> precisam eliminar o excesso de sal, e isso <strong>gasta água</strong>. Resultado: <strong>desidratação</strong> em vez de hidratação, quebrando a <strong>homeostase</strong>.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--bio)"></span> Efeitos biológicos da radiação e do mercúrio <span class="tag">Caso 4</span></div>
+      <ul class="list">
+        <li><span><strong>Radiação ionizante</strong> ioniza moléculas e, como a célula é cheia de água, gera <strong>espécies reativas</strong> (radicais livres) que atacam DNA, proteínas e membranas.</span></li>
+        <li><span><strong>DNA danificado</strong> → <strong>mutações</strong>. Se o reparo falha, a célula pode virar tumoral (<strong>efeito carcinogênico</strong>). Dano muito intenso → <strong>morte celular</strong> (queimaduras, como em Goiânia). O efeito depende da <strong>dose</strong>, do <strong>tempo de exposição</strong> e da sensibilidade do tecido.</span></li>
+        <li><span><strong>Cs-137 imita o potássio</strong> (mesma família, metal alcalino): é absorvido pelos organismos como se fosse K e circula pelas cadeias alimentares.</span></li>
+        <li><span><strong>Mercúrio</strong> é tóxico ao <strong>sistema nervoso</strong> e ao <strong>sistema reprodutor</strong>. Nos ecossistemas, reduz populações, crescimento e reprodução → <strong>desequilíbrio ecológico</strong> e perda de biodiversidade.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 4. QUÍMICA ═══════════════ -->
+  <section class="section" id="quimica">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--qui)">4</div>
+      <div>
+        <h2 class="section-title">Química</h2>
+        <p class="section-sub">Polímeros · Separação de misturas · Tratamento de água · Metais · Radioatividade</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--qui)"></span> Por que microplásticos acumulam tóxicos <span class="tag">Caso 1</span></div>
+      <ul class="list">
+        <li><span><strong>Polímeros orgânicos hidrofóbicos (apolares)</strong>: "semelhante dissolve semelhante", então atraem compostos orgânicos apolares (BPA, ftalatos, HPAs) que não ficam bem na água, e também alguns metais.</span></li>
+        <li><span><strong>Adsorção</strong> (não absorção): o contaminante gruda na <strong>superfície</strong> da partícula.</span></li>
+        <li><span><strong>Grande área superficial em relação ao volume</strong>: quanto mais fragmentado, mais sítios de adsorção. O microplástico vira um "transportador" de contaminantes.</span></li>
+      </ul>
+      <div class="highlight"><strong>Petróleo</strong> é mistura de <strong>hidrocarbonetos</strong> (C e H), apolares e pouco solúveis em água, e menos densos que ela: por isso forma película na superfície.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--qui)"></span> Tratamento de água <span class="tag">Caso 3</span></div>
+      <div class="fluxo">
+        <span>Captação</span><b>→</b><span>Coagulação / floculação (Al₂(SO₄)₃)</span><b>→</b><span>Decantação (sedimentação)</span><b>→</b><span>Filtração</span><b>→</b><span>Cloração (desinfecção)</span><b>→</b><span>Distribuição</span>
+      </div>
+      <ul class="list">
+        <li><span><strong>Sulfato de alumínio</strong>: atua na <strong>coagulação/floculação</strong>. Ao se dissolver, forma espécies (como o Al(OH)₃ gelatinoso) que desestabilizam e agregam as partículas finas em <strong>flocos</strong> maiores, que depois <strong>sedimentam</strong> e são <strong>filtrados</strong>. É separação de misturas. A eficiência depende da <strong>concentração</strong> certa do coagulante.</span></li>
+        <li><span><strong>Cloração</strong>: etapa de <strong>desinfecção</strong>. O cloro é <strong>agente oxidante</strong>: oxida e danifica estruturas celulares de bactérias, vírus e alguns protozoários. A eficácia depende de <strong>concentração, tempo de contato</strong> e características da água, por isso a dose é controlada.</span></li>
+        <li><span><strong>Água transparente com patógenos</strong>: coagulação, sedimentação e filtração tiram partículas (e parte dos micróbios presos nelas), mas é a <strong>desinfecção</strong> que garante a segurança biológica. Potabilidade se confirma com análise física, química e microbiológica.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--qui)"></span> Dessalinização: destilação, osmose reversa e crioscopia <span class="tag">Caso 2</span></div>
+      <p>Água do mar = <strong>mistura homogênea</strong>: <strong>solvente</strong> (água) + <strong>solutos</strong> (sais).</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Processo</th><th>Princípio</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Destilação</strong></td><td>Aquece: a água vaporiza (sais têm ponto de ebulição muito maior e ficam). O vapor é resfriado e <strong>condensa</strong>. Baseia-se em <strong>mudança de estado</strong> e <strong>volatilidade</strong>.</td></tr>
+            <tr><td><strong>Osmose reversa</strong></td><td>Pressão externa <strong>&gt; pressão osmótica</strong> empurra a água por uma <strong>membrana semipermeável</strong>, que segura os sais. Baseia-se em <strong>pressão</strong> e <strong>permeabilidade seletiva</strong>.</td></tr>
+            <tr><td><strong>Crioscopia</strong></td><td><strong>Propriedade coligativa</strong>: o soluto <strong>abaixa o ponto de congelamento</strong> do solvente. A água do mar congela abaixo de 0 °C. Caracteriza a solução, <strong>mas não é</strong> o princípio da destilação nem da osmose reversa.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alerta"><strong>Pegadinha:</strong> destilação e osmose reversa são <strong>transformações físicas</strong>. Não forma substância nova; só separa os componentes.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--qui)"></span> Resíduos da estação e lixo eletrônico <span class="tag">Caso 2</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tipo</th><th>Exemplos</th><th>Química envolvida</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Comum</strong></td><td>Restos de comida, rejeitos contaminados</td><td>Matéria orgânica sofre <strong>decomposição</strong> por microrganismos, liberando gases e substâncias</td></tr>
+            <tr><td><strong>Reciclável</strong></td><td>Papel, vidro, metal, plásticos</td><td><strong>Polímeros</strong>: cadeias de unidades repetidas (monômeros), muito resistentes à degradação → viram microplásticos no mar</td></tr>
+            <tr><td><strong>Eletrônico</strong></td><td>Baterias, placas, sensores, cabos</td><td><strong>Metais pesados e de transição</strong> (Pb, Hg, Cd, Ni, Li). Maresia e salinidade aceleram a <strong>corrosão</strong> (oxidação), liberando íons tóxicos</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="list">
+        <li><span><strong>Plano de gerenciamento</strong>: reduzir (equipamentos duráveis e reparáveis) → reparar e reutilizar → separar por categoria → armazenar protegido da umidade → levar periodicamente ao continente → reciclar.</span></li>
+        <li><span><strong>Mineração urbana</strong>: recuperar metais do lixo eletrônico, diminuindo a extração de minério novo.</span></li>
+        <li><span><strong>Economia circular</strong>: o material volta ao ciclo produtivo. Também: <strong>logística reversa</strong>, rastreamento dos resíduos e capacitação da equipe.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--qui)"></span> Radioatividade do césio-137 <span class="tag">Caso 4</span></div>
+      <p>O Cs-137 é um <strong>radionuclídeo</strong>: núcleo instável que <strong>decai espontaneamente</strong>, virando outro núcleo mais estável e emitindo radiação. Radioatividade é fenômeno <strong>do núcleo</strong>, não da eletrosfera, então não depende de o césio estar na forma de cloreto ou não.</p>
+      <div class="formula">¹³⁷₅₅Cs → ¹³⁷ᵐ₅₆Ba + ⁰₋₁β &nbsp;&nbsp;depois&nbsp;&nbsp; ¹³⁷ᵐBa → ¹³⁷Ba + γ</div>
+      <ul class="list">
+        <li><span><strong>Emissão β⁻</strong>: um nêutron vira próton e elétron; o elétron sai. O número atômico sobe 1 (Cs, Z = 55 → Ba, Z = 56) e a massa (137) não muda.</span></li>
+        <li><span><strong>Emissão γ</strong>: onda eletromagnética de alta energia, sem massa e sem carga; o Ba-137m (metaestável) libera energia e vai a um estado mais estável.</span></li>
+        <li><span><strong>Fissão × mineração</strong>: fissão transforma o <strong>núcleo</strong>; britagem, peneiração, separação por densidade, lixiviação e oxirredução da mineração só mexem nas propriedades físicas ou nas <strong>ligações químicas</strong>.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--qui)"></span> Mercúrio: o que faz um contaminante persistir <span class="tag">Caso 4</span></div>
+      <ul class="list">
+        <li><span><strong>Uso no garimpo</strong>: o Hg forma amálgama com o ouro, separando-o dos sedimentos; depois é queimado e vira vapor.</span></li>
+        <li><span><strong>Solubilidade</strong>: define se fica dissolvido e é levado pela água.</span></li>
+        <li><span><strong>Volatilidade</strong>: facilidade de ir para a atmosfera (o Hg metálico é volátil).</span></li>
+        <li><span><strong>Adsorção ao solo e sedimentos</strong>: tira o contaminante da água, mas forma um <strong>reservatório</strong> que pode liberá-lo depois.</span></li>
+        <li><span><strong>Especiação química</strong>: o mesmo elemento em formas diferentes (Hg⁰ metálico, Hg²⁺ iônico, <strong>metilmercúrio</strong> orgânico), cada uma com toxicidade e mobilidade diferentes. O metilmercúrio é o que mais bioacumula.</span></li>
+        <li><span><strong>Persistência</strong>: metal não se degrada; o Cs-137 só some no ritmo do decaimento.</span></li>
+        <li><span><strong>Remediação química</strong>: <strong>precipitação</strong> (o íon metálico reage e forma composto pouco solúvel, que é separado), <strong>adsorção</strong>, e <strong>imobilização</strong> no solo para reduzir a mobilidade e a disponibilidade aos organismos.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--qui)"></span> Gases dissolvidos e velocidade de reação <span class="tag">Caso 1</span></div>
+      <p>A <strong>solubilidade de gases diminui com o aumento da temperatura</strong>: água fria tem mais O₂ dissolvido. Ela aumenta com a <strong>pressão</strong> e com a <strong>agitação</strong> da água (ondas oxigenam). Já o aumento da temperatura <strong>acelera as reações</strong>. Na biorremediação há um equilíbrio: aquecer acelera a degradação, mas reduz o O₂ e, em excesso, desnatura enzimas.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 5. PROPOSTAS E ODS ═══════════════ -->
+  <section class="section" id="intervencao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">5</div>
+      <div>
+        <h2 class="section-title">Propostas de intervenção e ODS</h2>
+        <p class="section-sub">Todo caso termina pedindo uma proposta ligada à Agenda 2030</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> ODS que aparecem nos gabaritos</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ODS</th><th>Tema</th><th>Onde usar</th></tr></thead>
+          <tbody>
+            <tr><td><strong>3</strong></td><td>Saúde e bem-estar</td><td>Goiânia, mercúrio, doenças hídricas</td></tr>
+            <tr><td><strong>6</strong></td><td>Água potável e saneamento</td><td>Caso 3 (central), dessalinização, mineração</td></tr>
+            <tr><td><strong>7</strong></td><td>Energia limpa e acessível</td><td>Matriz solar + eólica do ASPSP</td></tr>
+            <tr><td><strong>12</strong></td><td>Consumo e produção responsáveis</td><td>Lixo eletrônico, reciclagem, mineração</td></tr>
+            <tr><td><strong>13</strong></td><td>Ação contra a mudança do clima</td><td>Trocar combustível fóssil por renovável</td></tr>
+            <tr><td><strong>14</strong></td><td>Vida na água</td><td>Amazônia Azul, petróleo, microplásticos, corais</td></tr>
+            <tr><td><strong>15</strong></td><td>Vida terrestre</td><td>Garimpo, desmatamento, solo contaminado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="mini-card">
+        <h4>Amazônia Azul (Caso 1)</h4>
+        <p><strong>Redução:</strong> fiscalização de petroleiros, planos de emergência, barreiras de contenção; menos descartáveis, controle de pellets e fibras sintéticas.<br><strong>Educação ambiental:</strong> escolas, turistas, pescadores, empresas.<br><strong>Biorremediação</strong> controlada e monitorada.<br><strong>Monitoramento:</strong> água, sedimentos, organismos; satélite, sensoriamento remoto, espécies indicadoras.<br><strong>Biodiversidade:</strong> unidades de conservação, controle de pesca e turismo, períodos de restrição.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Estação do ASPSP (Caso 2)</h4>
+        <p>Matriz híbrida solar + eólica + baterias; equipamentos de baixo consumo; uso racional da energia em dessalinização e refrigeração; segregação, reutilização e reciclagem; lixo eletrônico com destinação específica; monitoramento do impacto das próprias estruturas na vida marinha. ODS 6, 7, 12, 13, 14.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Água potável (Caso 3)</h4>
+        <p>Tecnologia sozinha não resolve: ETAs e ETEs têm <strong>custo de implantação, operação e manutenção</strong>, exigem energia e pessoal qualificado; ocupação desordenada dificulta redes. Proposta: ampliar e modernizar captação, tratamento e distribuição priorizando áreas com déficit; tratar esgoto; reduzir perdas e vazamentos; proteger mananciais; bombeamento eficiente; educação ambiental e participação social. ODS 6.</p>
+      </div>
+      <div class="mini-card">
+        <h4>Mineração e radioatividade (Caso 4)</h4>
+        <p>Gestão de resíduos radioativos (armazenar, identificar, isolar, monitorar); monitorar radiação e áreas contaminadas; controle de rejeitos e tratamento de efluentes; biorremediação com microrganismos e plantas; recuperação de áreas degradadas; fiscalização; <strong>governança ambiental</strong> (poder público, empresas, cientistas e comunidade, com transparência). ODS 3, 6, 12, 13, 14, 15.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 6. COMO RESPONDER ═══════════════ -->
+  <section class="section" id="responder">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">6</div>
+      <div>
+        <h2 class="section-title">Como responder a questão</h2>
+        <p class="section-sub">O que o gabarito cobra</p>
+      </div>
+    </div>
+    <div class="card">
+      <ul class="list">
+        <li><span><strong>Use os conceitos pedidos com o nome técnico.</strong> Todo item vinha com "utilize conceitos relacionados a...", e o gabarito conta se aparecem <strong>pelo menos 5 conceitos</strong>. Escreva "empuxo", "pressão hidrostática", "bioacumulação", "agente oxidante", não descrições vagas.</span></li>
+        <li><span><strong>Explique o mecanismo, não só o efeito.</strong> Não basta "o óleo mata o coral": óleo → menos luz → menos fotossíntese → expulsão das zooxantelas → branqueamento.</span></li>
+        <li><span><strong>Puxe a ponte com as outras matérias</strong> em uma frase: a prova de Física pode aceitar bem uma consequência biológica, e vice-versa. O espírito do trabalho é interdisciplinar.</span></li>
+        <li><span><strong>Proposta de intervenção</strong>: diga <strong>o quê</strong>, <strong>como</strong> e <strong>por quê</strong> (justificativa científica), e cite o <strong>ODS</strong> pelo número e nome.</span></li>
+        <li><span><strong>Evite absolutos</strong>: os gabaritos usam "pode", "tende a", "dependendo de". Ex.: a radiação <em>pode</em> causar câncer, dependendo de dose, tempo e tecido.</span></li>
+      </ul>
+      <div class="alerta"><strong>Confusões clássicas:</strong> adsorção (superfície) × absorção (interior) · bioacumulação (um organismo) × biomagnificação (entre níveis tróficos) · destilação (mudança de estado) × osmose reversa (pressão + membrana) · transparência × potabilidade · fissão (núcleo muda) × mineração (núcleo não muda).</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ QUIZ ═══════════════ -->
+  <section class="section" id="exercicios">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">✎</div>
+      <div>
+        <h2 class="section-title">Quiz de Fixação</h2>
+        <p class="section-sub">6 de Física, 6 de Biologia, 6 de Química</p>
+      </div>
+    </div>
+    <style>
+      .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+      .quiz-q { display: flex; align-items: flex-start; gap: 12px; padding: 16px 16px 10px; font-weight: 600; font-size: 0.92rem; }
+      .quiz-num { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
+      .quiz-opts { display: flex; flex-direction: column; gap: 6px; padding: 0 16px 14px; }
+      .opt { display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-size: 0.88rem; transition: all 0.15s; }
+      .opt:hover { border-color: var(--secondary); background: var(--soft); }
+      .opt-letter { width: 22px; height: 22px; border-radius: 50%; background: var(--soft); color: var(--primary); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+      .opt.correct { border-color: #166534; background: #f0fdf4; }
+      .opt.correct .opt-letter { background: #166534; color: white; }
+      .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
+      .opt.wrong .opt-letter { color: #9c1c1c; }
+      .opt.disabled { cursor: default; pointer-events: none; }
+      .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
+      .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
+      .quiz-feedback.show { display: block; }
+      .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+      .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
+      .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+      .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+      .score-label { font-size: 0.82rem; color: var(--text-light); }
+      .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+      .quiz-grupo { font-weight: 700; font-size: 0.95rem; margin: 22px 0 10px; }
+    </style>
+
+    <div class="score-bar">
+      <div>
+        <div class="score-val"><span id="score">0</span>/<span id="total">0</span></div>
+        <div class="score-label">acertos · clique nas alternativas para responder</div>
+      </div>
+      <button class="btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+    </div>
+
+    <div id="quiz-lista"></div>
+
+    <script>
+      var QUIZ = [
+        { g: 'Física' },
+        { q: 'Uma garrafa PET fechada flutua no mar perto de Trindade. Meses depois, coberta de cracas e algas, afunda. A melhor explicação é que', r: 'c', o: [
+          'o empuxo da água do mar diminuiu porque a salinidade caiu.',
+          'a radiação solar aumentou a densidade da água em volta da garrafa.',
+          'a densidade média do conjunto garrafa + organismos ficou maior que a da água, e o peso superou o empuxo máximo.',
+          'as correntes marítimas exercem força vertical para baixo sobre objetos flutuantes.',
+          'o plástico se dissolveu na água do mar, perdendo volume.'],
+          e: 'Flutuar ou afundar depende da densidade média do objeto comparada à do fluido. A incrustação aumenta a massa sem aumentar muito o volume, então o peso passa do empuxo máximo.' },
+        { q: 'Um mesmo objeto flutua com parte maior fora da água no mar do que num rio porque', r: 'a', o: [
+          'a água do mar é mais densa por causa dos sais dissolvidos, então gera o mesmo empuxo com menos volume imerso.',
+          'a gravidade é menor sobre o oceano.',
+          'o empuxo não depende da densidade do fluido.',
+          'a água doce tem pressão atmosférica maior.',
+          'a temperatura do mar é sempre maior que a do rio.'],
+          e: 'E = d·V·g. Com d maior (salinidade), basta um V imerso menor para equilibrar o mesmo peso.' },
+        { q: 'Bairros no alto de um morro ficam sem água com mais frequência porque', r: 'e', o: [
+          'a água perde potabilidade ao subir.',
+          'a pressão atmosférica é maior no alto, empurrando a água para baixo.',
+          'a energia potencial gravitacional da água diminui ao subir.',
+          'canos em altitude não sofrem atrito, o que desestabiliza o fluxo.',
+          'é preciso pressão suficiente para vencer o desnível e as perdas por atrito; se ela falta, a vazão cai ou para.'],
+          e: 'Subir exige ganhar energia potencial (m·g·h). Bombas e reservatórios elevados fornecem a pressão que vence a altura e a perda de carga.' },
+        { q: 'A sequência correta de transformações de energia do Sol até um computador alimentado por bateria na estação do ASPSP é', r: 'b', o: [
+          'térmica → química → nuclear → elétrica.',
+          'radiante → elétrica → química (bateria) → elétrica → trabalho + calor.',
+          'radiante → mecânica → nuclear → elétrica.',
+          'elétrica → radiante → química → calor, sem perdas.',
+          'radiante → química → elétrica, com toda a energia virando processamento.'],
+          e: 'Painel converte radiação em elétrica (efeito fotovoltaico); a bateria guarda como química; o computador usa a elétrica e dissipa parte como calor. A energia se conserva, mas nem toda é útil.' },
+        { q: 'Sobre os ventos alísios e a energia eólica no arquipélago, é correto afirmar que', r: 'd', o: [
+          'a eólica dispensa armazenamento, pois o vento nunca para.',
+          'a turbina converte energia térmica do ar diretamente em energia química.',
+          'ventos alísios só ocorrem em regiões polares.',
+          'a regularidade dos alísios favorece a eólica, que transforma energia cinética do vento em mecânica e depois em elétrica.',
+          'a energia eólica é mais poluente que o diesel por causa da corrosão.'],
+          e: 'Os alísios sopram com regularidade na faixa equatorial. Mesmo assim o gabarito pede estudo de intensidade e direção, e uma matriz híbrida com armazenamento.' },
+        { q: 'No acidente de Goiânia, a radiação do Cs-137 causou danos porque é ionizante, ou seja,', r: 'a', o: [
+          'tem energia suficiente para arrancar elétrons de átomos e moléculas, provocando alterações químicas nos tecidos.',
+          'é uma onda sonora de alta frequência.',
+          'só age se a pessoa ingerir o material.',
+          'transforma o DNA em césio.',
+          'é apenas calor, como o de uma lâmpada comum.'],
+          e: 'Ionizante = transfere energia suficiente para ionizar. Isso quebra moléculas, gera espécies reativas e danifica o DNA.' },
+
+        { g: 'Biologia' },
+        { q: 'Um atum (predador de topo) tem concentração de mercúrio muito maior que o zooplâncton da mesma região. O fenômeno é', r: 'd', o: [
+          'eutrofização.',
+          'bioacumulação apenas, sem relação com a cadeia alimentar.',
+          'sucessão ecológica.',
+          'magnificação trófica: o contaminante se concentra a cada nível trófico.',
+          'mutualismo entre o atum e o zooplâncton.'],
+          e: 'Bioacumulação ocorre dentro de cada organismo; a magnificação trófica é o aumento de concentração ao subir de nível. O predador come muitas presas contaminadas.' },
+        { q: 'O branqueamento dos corais de Abrolhos após um derramamento de petróleo ocorre porque', r: 'b', o: [
+          'o petróleo tinge o esqueleto calcário de branco.',
+          'a menor luz e o estresse químico levam à expulsão das zooxantelas, algas mutualistas que fornecem matéria orgânica ao coral.',
+          'as zooxantelas são parasitas que se multiplicam com o óleo.',
+          'o óleo aumenta a fotossíntese e o coral perde pigmentos por excesso de luz.',
+          'os corais são produtores e passam a fazer quimiossíntese.'],
+          e: 'Coral e zooxantela vivem em mutualismo. Sem luz e sob estresse, a alga é expulsa; o coral perde cor e sua principal fonte de energia.' },
+        { q: 'Na biorremediação de petróleo, adicionar nitrogênio e fósforo ao local contaminado ajuda porque', r: 'e', o: [
+          'esses elementos dissolvem o petróleo diretamente.',
+          'eles matam bactérias concorrentes.',
+          'eles substituem o oxigênio na respiração aeróbia.',
+          'eles tornam o petróleo mais denso, fazendo-o afundar.',
+          'são nutrientes para o crescimento bacteriano, entrando em moléculas como proteínas, DNA e ATP.'],
+          e: 'As bactérias usam hidrocarbonetos como fonte de carbono e energia, mas precisam de N e P para crescer e se reproduzir.' },
+        { q: 'O despejo de esgoto não tratado num rio provoca mortandade de peixes principalmente porque', r: 'c', o: [
+          'o esgoto aumenta a salinidade da água.',
+          'os peixes ficam doentes de cólera.',
+          'a matéria orgânica eleva a DBO: decompositores consomem o oxigênio dissolvido.',
+          'o esgoto bloqueia a radiação ultravioleta.',
+          'o cloro do esgoto oxida as brânquias.'],
+          e: 'DBO alta = muito O₂ consumido na decomposição. Organismos aeróbios ficam sem oxigênio.' },
+        { q: 'Um náufrago que bebe água do mar fica mais desidratado porque', r: 'a', o: [
+          'o excesso de sais aumenta a osmolaridade extracelular, a água sai das células por osmose e os rins gastam água para eliminar o sal.',
+          'a água do mar entra nas células por osmose e elas estouram.',
+          'o sal ativa a produção de suor sem gasto de água.',
+          'a água salgada não é absorvida pelo intestino.',
+          'o cloreto de sódio é um desregulador endócrino.'],
+          e: 'Meio mais concentrado fora da célula puxa água de dentro. E eliminar o excesso de sal pela urina custa água, quebrando a homeostase.' },
+        { q: 'Sobre doenças de veiculação hídrica, a associação correta é', r: 'd', o: [
+          'cólera: vírus; hepatite A: bactéria.',
+          'giardíase: vírus; poliomielite: protozoário.',
+          'amebíase: bactéria; causa paralisia.',
+          'cólera: bactéria Vibrio cholerae; diarreia intensa e desidratação.',
+          'hepatite A: protozoário; atinge o intestino.'],
+          e: 'Cólera é bacteriana. Hepatite A e pólio são virais; giardíase e amebíase são causadas por protozoários.' },
+
+        { g: 'Química' },
+        { q: 'No tratamento de água, o sulfato de alumínio é adicionado na etapa de', r: 'b', o: [
+          'desinfecção, porque é agente oxidante.',
+          'coagulação/floculação, agregando partículas finas em flocos que depois sedimentam.',
+          'fluoretação, para prevenir cáries.',
+          'filtração, funcionando como a areia do filtro.',
+          'destilação, abaixando o ponto de ebulição.'],
+          e: 'O Al₂(SO₄)₃ forma espécies (Al(OH)₃) que juntam as partículas em flocos. Quem desinfeta, como agente oxidante, é o cloro.' },
+        { q: 'Os microplásticos concentram BPA e ftalatos principalmente porque', r: 'c', o: [
+          'são polímeros iônicos muito solúveis em água.',
+          'absorvem as substâncias para dentro por osmose.',
+          'são polímeros predominantemente hidrofóbicos com grande área superficial, que adsorvem compostos orgânicos apolares.',
+          'reagem com BPA formando novas ligações covalentes.',
+          'são mais densos que a água e afundam com os tóxicos.'],
+          e: 'Apolar atrai apolar; quanto menor a partícula, maior a área relativa e mais sítios de adsorção (na superfície).' },
+        { q: 'Destilação e osmose reversa, usadas para dessalinizar a água do mar, têm em comum o fato de', r: 'e', o: [
+          'dependerem de reação química entre sal e água.',
+          'usarem o abaixamento do ponto de congelamento (crioscopia).',
+          'precisarem de membrana semipermeável.',
+          'serem baseadas em mudança de estado físico.',
+          'serem transformações físicas de separação de mistura homogênea.'],
+          e: 'Destilação usa mudança de estado e volatilidade; osmose reversa usa pressão maior que a osmótica e membrana. Nenhuma forma substância nova. Crioscopia não é o princípio de nenhuma delas.' },
+        { q: 'O Cs-137 sofre decaimento β⁻ formando bário-137. Nesse processo', r: 'a', o: [
+          'o número atômico aumenta em 1 e o número de massa não muda.',
+          'o número de massa diminui em 4.',
+          'um próton vira nêutron.',
+          'a eletrosfera perde um elétron, sem mudança no núcleo.',
+          'o átomo perde 2 prótons e 2 nêutrons.'],
+          e: 'Na β⁻ um nêutron vira próton (Z sobe de 55 para 56) e sai um elétron de massa desprezível: A continua 137. Perder 2p + 2n é a emissão alfa.' },
+        { q: '"Especiação química do mercúrio" significa que', r: 'd', o: [
+          'o mercúrio forma novas espécies de seres vivos.',
+          'o mercúrio só existe na forma metálica líquida.',
+          'cada isótopo do mercúrio tem um nome diferente.',
+          'o elemento aparece em formas químicas diferentes (Hg⁰, Hg²⁺, metilmercúrio), com toxicidade, mobilidade e volatilidade distintas.',
+          'o mercúrio se transforma em ouro no garimpo.'],
+          e: 'Mesmo elemento, formas diferentes. O metilmercúrio é a forma orgânica que mais bioacumula; o Hg⁰ é o mais volátil.' },
+        { q: 'Uma técnica química para retirar íons de metais pesados de efluentes de mineração é', r: 'b', o: [
+          'a cloração, que transforma metais em gás.',
+          'a precipitação, em que o íon reage e forma composto pouco solúvel, separado depois.',
+          'a fissão nuclear dos metais.',
+          'o aquecimento do rio para evaporar os metais.',
+          'a adição de sal para aumentar a densidade da água.'],
+          e: 'Precipitação química forma sólidos pouco solúveis que podem ser decantados e filtrados. Adsorção e imobilização no solo também aparecem no gabarito.' },
+      ];
+
+      var ANSWERS = {}, score = 0, n = 0, html = '';
+      QUIZ.forEach(function (item) {
+        if (item.g) { html += '<h3 class="quiz-grupo">' + item.g + '</h3>'; return; }
+        n++; var id = 'q' + n; ANSWERS[id] = item.r;
+        html += '<div class="quiz"><div class="quiz-q"><span class="quiz-num">' + n + '</span><span>' + item.q + '</span></div><div class="quiz-opts">';
+        item.o.forEach(function (txt, i) {
+          var l = 'abcde'[i];
+          html += '<div class="opt" data-l="' + l + '" onclick="pick(\'' + id + '\',\'' + l + '\',this)"><span class="opt-letter">' + l.toUpperCase() + '</span> ' + txt + '</div>';
+        });
+        html += '</div><div id="fb-' + id + '" class="quiz-feedback"></div></div>';
+        item.id = id;
+      });
+      document.getElementById('quiz-lista').innerHTML = html;
+      document.getElementById('total').textContent = n;
+      var EXPL = {}; QUIZ.forEach(function (it) { if (it.id) EXPL[it.id] = it.e; });
+
+      function pick(qid, letter, el) {
+        var opts = el.closest('.quiz-opts').querySelectorAll('.opt');
+        opts.forEach(function (o) { o.classList.add('disabled'); });
+        var fb = document.getElementById('fb-' + qid);
+        if (letter === ANSWERS[qid]) {
+          el.classList.add('correct'); score++;
+          document.getElementById('score').textContent = score;
+          fb.className = 'quiz-feedback show ok';
+          fb.innerHTML = '✅ <strong>Correto!</strong> ' + EXPL[qid];
+        } else {
+          el.classList.add('wrong');
+          opts.forEach(function (o) { if (o.dataset.l === ANSWERS[qid]) o.classList.add('reveal-correct'); });
+          fb.className = 'quiz-feedback show err';
+          fb.innerHTML = '❌ <strong>Incorreto.</strong> ' + EXPL[qid];
+        }
+      }
+      function resetQuiz() {
+        score = 0;
+        document.getElementById('score').textContent = 0;
+        document.querySelectorAll('.opt').forEach(function (o) { o.className = 'opt'; });
+        document.querySelectorAll('.quiz-feedback').forEach(function (f) { f.className = 'quiz-feedback'; });
+      }
+    </script>
+  </section>
+
+</div>
+
+<footer>
+  Caderno Digital · Semana Inter (Física, Biologia e Química) 3º tri · 2ª série do Ensino Médio · 2026
+</footer>
+
+<!-- ═══ CHATBOT ═══ -->
+<style>
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #0b4f6c; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; display: flex; align-items: center; justify-content: center; }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #d3e9ef; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: #0b4f6c; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
+  .cmsg.bot { background: #eef8fa; border: 1px solid #d3e9ef; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.user { background: #0b4f6c; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.loading { color: #888; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid #d3e9ef; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: #0b4f6c; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron · Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre os estudos de caso da Semana Inter! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script src="scripts/progress.js"></script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>
