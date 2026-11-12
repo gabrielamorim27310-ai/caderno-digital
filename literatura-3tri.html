@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-pagina="literatura-3tri" data-materia="portugues">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Resumo de Literatura · Estudos Literários 3º tri 2026</title>
+<style>
+  :root {
+    --primary: #4a1060;
+    --secondary: #9333ea;
+    --bg: #faf7ff;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8d8f5;
+    --c1: #4a1060;
+    --c2: #7b2d8b;
+    --c3: #9333ea;
+    --c4: #2d1b69;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1a0030 0%, #4a1060 55%, #7b2d8b 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #fdf5ff; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* NESTED LIST */
+  .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
+  .list-nested li strong { color: var(--text); }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #f5e8ff, #ede0ff); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-blue { background: linear-gradient(135deg, #e8f0ff, #dde8ff); border-left: 4px solid #2563eb; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-2 > .card, .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+
+  /* QUOTE / EXEMPLO */
+  .exemplo { font-style: italic; background: #fdf5ff; border-left: 4px solid var(--secondary); padding: 10px 16px; border-radius: 0 8px 8px 0; margin-top: 10px; font-size: 0.9rem; color: var(--primary); }
+  .exemplo span { display: block; font-style: normal; font-size: 0.78rem; color: var(--text-light); margin-top: 4px; font-weight: 600; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf5ff; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #f5e8ff; color: #4a1060; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CL1RMGB3SN');
+</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
+</head>
+<body class="ios resumo">
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="hero">
+  <div class="hero-icon">📚</div>
+  <h1>Literatura · Estudos Literários</h1>
+  <p class="subtitle">Parnasianismo · Simbolismo · Pré-modernismo · Vanguardas · Canção para ninar menino grande · Fernando Pessoa</p>
+  <div class="badge">Prova Trimestral · 3º Trimestre · 2026</div>
+  <br>
+  <span class="author">10 testes e 5 questões escritas</span>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#parnasianismo">1. Parnasianismo</a>
+    <a class="nav-link" href="#simbolismo">2. Simbolismo</a>
+    <a class="nav-link" href="#premodernismo">3. Pré-modernismo</a>
+    <a class="nav-link" href="#vanguardas">4. Vanguardas</a>
+    <a class="nav-link" href="#cancao">5. Canção p/ ninar</a>
+    <a class="nav-link" href="#pessoa">6. Fernando Pessoa</a>
+    <a class="nav-link" href="#escritas">7. Questões escritas</a>
+    <a class="nav-link" href="#exercicios">Quiz</a>
+  </div>
+</nav>
+
+<div class="content">
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O que cai e onde revisar</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Conteúdo</th><th>Onde revisar</th><th>Exercícios da orientação</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Parnasianismo</strong></td><td>Resumo do caderno · quadro-síntese (apostila, p. 76)</td><td>Livro: p. 569 (1 a 3, "Inania verba") e pp. 574 e 575 (1 a 7)</td></tr>
+            <tr><td><strong>Simbolismo</strong></td><td>Caderno · quadro-síntese (apostila, p. 80)</td><td>Livro: testes 1 a 7, pp. 609 a 611</td></tr>
+            <tr><td><strong>Pré-modernismo</strong></td><td>Caderno · apostila, pp. 81 a 89 · livro, pp. 621 e 622 (Os sertões)</td><td>Livro: p. 624 (1 a 4) e testes 1 a 5, pp. 640 a 642</td></tr>
+            <tr><td><strong>Vanguardas europeias</strong></td><td>Resumo do caderno</td><td>Livro: pp. 654 e 655 (1 a 6) · extras no Moodle</td></tr>
+            <tr><td><strong>Canção para ninar menino grande</strong></td><td>PowerPoint do Moodle (materiais de aula)</td><td>Questões escritas e testes do mesmo bloco</td></tr>
+            <tr><td><strong>Fernando Pessoa</strong></td><td>Caderno · apostila, pp. 101 e 102 · PowerPoint do Moodle</td><td>Livro: pp. 672 e 673 (1 a 6)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight"><strong>Formato:</strong> 10 testes e 5 questões escritas.</div>
+      <div class="highlight-blue"><strong>Como se preparar, segundo a professora:</strong> fazer o treino para a prova trimestral (Moodle, materiais de aula), os testes da avaliação intermediária (quem fez a prova branca treina com a amarela, e vice-versa) e a prova-modelo do Guia do ano.</div>
+
+    </div>
+
+  <!-- ═══════════════════════════════════════════════
+       1. PARNASIANISMO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="parnasianismo" style="margin-top:40px">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">1</div>
+      <div>
+        <h2 class="section-title">Parnasianismo</h2>
+        <p class="section-sub">Quadro-síntese: apostila, p. 76 · fim do século XIX</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Contexto</div>
+      <p>Movimento de poesia que surge na França e chega ao Brasil por volta de <strong>1880</strong>, junto com o Realismo e o Naturalismo na prosa. É uma <strong>reação ao sentimentalismo romântico</strong>: em vez da emoção derramada, a poesia passa a valorizar o trabalho com a forma.</p>
+      <p>Lema: <strong>"arte pela arte"</strong>. A poesia não precisa ter função social, moral ou política; o valor dela está na própria perfeição.</p>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Características que caem <span class="tag tag-imp">teste</span></div>
+      <ul class="list">
+        <li><span><strong>Culto da forma:</strong> o poema é trabalhado como uma joia. Bilac compara o poeta a um <strong>ourives</strong> ("Profissão de fé").</span></li>
+        <li><span><strong>Rigor formal:</strong> preferência pelo <strong>soneto</strong> (dois quartetos e dois tercetos), métrica regular (versos decassílabos e alexandrinos, de 12 sílabas) e rimas cuidadosas.</span></li>
+        <li><span><strong>Rima rica:</strong> entre palavras de <strong>classes gramaticais diferentes</strong> (substantivo com adjetivo, por exemplo). <strong>Rima rara:</strong> com terminações pouco comuns.</span></li>
+        <li><span><strong>Objetividade e descritivismo:</strong> o eu lírico se contém; descreve objetos, cenas e paisagens com precisão, quase como um pintor.</span></li>
+        <li><span><strong>Temas da Antiguidade clássica:</strong> mitologia greco-romana, deuses, ruínas, vasos, estátuas.</span></li>
+        <li><span><strong>Vocabulário erudito</strong> e <strong>inversões sintáticas</strong> (hipérbatos) para encaixar métrica e rima.</span></li>
+        <li><span><strong>Metalinguagem:</strong> poemas que falam do próprio fazer poético e da dificuldade de escrever.</span></li>
+      </ul>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Autores: a "tríade parnasiana"</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Autor</th><th>O que lembrar</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Olavo Bilac</strong></td><td>O mais popular. Rigor formal, mas também sensualidade e lirismo amoroso (sonetos de "Via Láctea"). Metalinguagem em "Profissão de fé" e "Inania verba".</td></tr>
+            <tr><td><strong>Raimundo Correia</strong></td><td>Tom mais reflexivo e pessimista. "Mal secreto", "As pombas".</td></tr>
+            <tr><td><strong>Alberto de Oliveira</strong></td><td>O mais fiel ao ideal parnasiano: descrição objetiva de objetos ("Vaso grego").</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> "Inania verba" (Olavo Bilac)</div>
+      <div class="exemplo">Ah! quem há de exprimir, alma impotente e escrava,<br>O que a boca não diz, o que a mão não escreve?<span>Olavo Bilac, "Inania verba" (palavras inúteis, em latim)</span></div>
+      <p><strong>Tema:</strong> a <strong>insuficiência da palavra</strong>. O pensamento e o sentimento são maiores do que aquilo que a linguagem consegue expressar; ao virar palavra, a ideia perde força. É um poema <strong>metalinguístico</strong>: fala da própria criação poética.</p>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> "Mal secreto" (Raimundo Correia)</div>
+      <div class="exemplo">Quanta gente que ri, talvez, consigo<br>Guarda um atroz, recôndito inimigo,<br>Como invisível chaga cancerosa!<br><br>Quanta gente que ri, talvez existe,<br>Cuja ventura única consiste<br>Em parecer aos outros venturosa!<span>Raimundo Correia, "Mal secreto" (tercetos)</span></div>
+      <p><strong>Tema:</strong> as aparências enganam. Muita gente esconde sofrimento por trás do riso, e muitos têm como única felicidade <strong>parecer feliz</strong> para os outros, mostrar-se superior e causar inveja.</p>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       2. SIMBOLISMO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="simbolismo">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">2</div>
+      <div>
+        <h2 class="section-title">Simbolismo</h2>
+        <p class="section-sub">Quadro-síntese: apostila, p. 80 · fim do século XIX</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Contexto</div>
+      <p>Nasce na França (Baudelaire, com <em>As flores do mal</em>, é o precursor; Verlaine, Rimbaud e Mallarmé) e chega ao Brasil em <strong>1893</strong>, com <em>Missal</em> e <em>Broquéis</em>, de <strong>Cruz e Sousa</strong>.</p>
+      <p>É uma reação ao <strong>materialismo e ao cientificismo</strong> do fim do século (Positivismo, Realismo) e à objetividade parnasiana. Em vez de descrever o mundo, o poeta busca o que está além dele: o espírito, o inconsciente, o mistério.</p>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Características que caem <span class="tag tag-imp">teste</span></div>
+      <ul class="list">
+        <li><span><strong>Sugestão, não descrição:</strong> o poema sugere sensações em vez de nomear as coisas. Mallarmé: nomear um objeto é suprimir boa parte do prazer do poema.</span></li>
+        <li><span><strong>Subjetividade e espiritualidade:</strong> misticismo, religiosidade, transcendência, busca do absoluto.</span></li>
+        <li><span><strong>Musicalidade:</strong> <strong>aliteração</strong> (repetição de consoantes) e <strong>assonância</strong> (de vogais).</span></li>
+        <li><span><strong>Sinestesia:</strong> mistura de sensações de sentidos diferentes ("perfume luminoso", "voz macia").</span></li>
+        <li><span><strong>Imagens vagas e fluidas:</strong> névoas, neblinas, luar, incenso, cor <strong>branca</strong>.</span></li>
+        <li><span><strong>Temas:</strong> morte, dor, noite, sonho, loucura, o cósmico.</span></li>
+        <li><span><strong>Maiúsculas alegorizantes:</strong> palavras comuns com inicial maiúscula para virar ideias abstratas ("a Dor", "as Formas").</span></li>
+      </ul>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Autores</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Autor</th><th>O que lembrar</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cruz e Sousa</strong></td><td>O maior simbolista brasileiro. Filho de escravizados, sofreu racismo. Obsessão pela cor branca e pela transcendência; sofrimento e dor existencial. "Antífona", "Violões que choram".</td></tr>
+            <tr><td><strong>Alphonsus de Guimaraens</strong></td><td>Misticismo católico, morte da amada, tom de lamento. "Ismália".</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="exemplo">Vozes veladas, veludosas vozes,<br>Volúpias dos violões, vozes veladas,<span>Cruz e Sousa, "Violões que choram": aliteração em "v" que imita o som do violão</span></div>
+      <div class="exemplo">Quando Ismália enlouqueceu,<br>Pôs-se na torre a sonhar...<br>Viu uma lua no céu,<br>Viu outra lua no mar.<span>Alphonsus de Guimaraens, "Ismália": loucura, sonho e o desejo do inalcançável</span></div>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Parnasianismo x Simbolismo <span class="tag tag-imp">compare</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Parnasianismo</th><th>Simbolismo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Foco</strong></td><td>O objeto, o mundo exterior</td><td>O eu, o mundo interior e espiritual</td></tr>
+            <tr><td><strong>Linguagem</strong></td><td>Precisa, descritiva</td><td>Vaga, sugestiva, musical</td></tr>
+            <tr><td><strong>Atitude</strong></td><td>Objetividade, contenção</td><td>Subjetividade, misticismo</td></tr>
+            <tr><td><strong>Em comum</strong></td><td>Cuidado formal e preferência pelo soneto</td><td>Cuidado formal e preferência pelo soneto</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. PRÉ-MODERNISMO
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="premodernismo">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">3</div>
+      <div>
+        <h2 class="section-title">Pré-modernismo</h2>
+        <p class="section-sub">Apostila, pp. 81 a 89 · livro, pp. 621 e 622 · de 1902 a 1922</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> O que é</div>
+      <p>Não é uma escola literária, mas um <strong>período de transição</strong>: vai de <strong>1902</strong> (publicação de <em>Os sertões</em>) até a <strong>Semana de Arte Moderna, em 1922</strong>. Não há um estilo comum aos autores.</p>
+      <p>O que os une é a <strong>preocupação com o Brasil real</strong>: uma visão <strong>crítica</strong> do país, longe do nacionalismo ufanista romântico, e a atenção a quem estava à margem: o sertanejo, o caipira, o morador do subúrbio, o negro.</p>
+      <div class="highlight"><strong>Cuidado nas questões:</strong> a crítica social é nova, mas a <strong>linguagem</strong> da maioria ainda é tradicional. A grande renovação da forma só vem com o Modernismo de 1922. Lima Barreto é a exceção, com estilo mais simples e coloquial.</div>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Euclides da Cunha · <em>Os sertões</em> (1902) <span class="tag tag-imp">mais cobrado</span></div>
+      <p>Relato da <strong>Guerra de Canudos</strong> (1896 e 1897), no sertão da Bahia, em que o exército da República destruiu a comunidade de <strong>Belo Monte</strong>, liderada por <strong>Antônio Conselheiro</strong>. Euclides cobriu a guerra como correspondente do jornal <em>O Estado de S. Paulo</em>.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parte</th><th>Conteúdo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A terra</strong></td><td>O meio físico: clima, relevo, seca do sertão</td></tr>
+            <tr><td><strong>O homem</strong></td><td>O sertanejo, analisado pelas teorias da época (raça, meio). "O sertanejo é, antes de tudo, um forte."</td></tr>
+            <tr><td><strong>A luta</strong></td><td>As expedições militares e o massacre final</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="list">
+        <li><span><strong>Determinismo:</strong> a obra parte das teorias científicas do século XIX (o homem é produto do meio, da raça e do momento).</span></li>
+        <li><span><strong>Denúncia:</strong> ao final, Euclides reconhece que Canudos foi um <strong>crime</strong> da República contra uma população pobre, movida pela fé e pela sobrevivência, e não um foco de "bandidos" monarquistas.</span></li>
+        <li><span><strong>Dois Brasis:</strong> o litoral "civilizado" que ignora e massacra o sertão.</span></li>
+        <li><span><strong>Gênero híbrido:</strong> junta relato histórico, análise sociológica e estilo literário (antíteses, hipérboles, vocabulário técnico). Por isso é chamada de "Bíblia da nacionalidade brasileira".</span></li>
+      </ul>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Lima Barreto · <em>Triste fim de Policarpo Quaresma</em> (1915)</div>
+      <p>O major <strong>Policarpo Quaresma</strong> é um patriota ingênuo, que idealiza o Brasil. O romance tem três partes, e cada uma frustra um projeto dele:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Projeto</th><th>Fim</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cultural:</strong> propõe o tupi como língua oficial do Brasil</td><td>É ridicularizado e internado num hospício</td></tr>
+            <tr><td><strong>Agrícola:</strong> no Sítio do Sossego, quer provar a fertilidade da terra</td><td>Derrotado pelas saúvas, pela burocracia e pela política local</td></tr>
+            <tr><td><strong>Político:</strong> apoia Floriano Peixoto na Revolta da Armada</td><td>Denuncia o fuzilamento de prisioneiros, é preso como traidor e executado</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Crítica ao <strong>nacionalismo ufanista</strong>, ao militarismo e à República. Floriano Peixoto é personagem: uma figura histórica construída de modo <strong>verossímil</strong> dentro da ficção. Lima Barreto, autor negro do subúrbio carioca, também denuncia o racismo e a exclusão.</p>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Monteiro Lobato · "Negrinha" (1920)</div>
+      <p>Conto sobre uma menina órfã, filha de escravizada, criada por <strong>D. Inácia</strong>, viúva rica que a maltrata mesmo depois da Abolição: ela não aceita que "negro" tenha os mesmos direitos que "branco". Um dia, sobrinhas da patroa deixam Negrinha brincar com uma <strong>boneca</strong>; ela descobre que tem alma, entende que nunca será tratada como gente, adoece e morre.</p>
+      <ul class="list">
+        <li><span>Para o narrador, a vida da mulher tem dois momentos: o da <strong>boneca</strong> ("preparatório") e o dos <strong>filhos</strong> ("definitivo"). Negrinha só tem o primeiro.</span></li>
+        <li><span>A boneca é comparada a <strong>anjos</strong>: o momento é vivido de forma idealizada.</span></li>
+        <li><span>A mãe de Negrinha a beliscava e xingava ("peste do diabo") por <strong>medo</strong> de que a patroa a castigasse: os beliscões são "desesperados". A culpa é da <strong>escravidão</strong>, que desumanizava a população negra.</span></li>
+      </ul>
+      <p>Lobato também criou o <strong>Jeca Tatu</strong> (<em>Urupês</em>, 1918), o caipira apático; depois reviu a ideia e mostrou que o Jeca era doente, não preguiçoso.</p>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Augusto dos Anjos · <em>Eu</em> (1912)</div>
+      <p>Poeta de estilo único: mistura o rigor formal do soneto com <strong>vocabulário científico</strong> (biologia, química) e temas <strong>mórbidos</strong> (morte, decomposição, o verme). O tom angustiado e a deformação da realidade o aproximam do <strong>Expressionismo</strong>.</p>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. VANGUARDAS EUROPEIAS
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="vanguardas">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">4</div>
+      <div>
+        <h2 class="section-title">Vanguardas europeias</h2>
+        <p class="section-sub">Resumo do caderno · livro, pp. 654 e 655 · início do século XX</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> O que são</div>
+      <p><strong>Vanguarda</strong> é a "guarda que vai na frente": movimentos artísticos do início do século XX, antes e entre as guerras, que romperam com a arte tradicional. Cada um publicou um <strong>manifesto</strong>. Eles influenciaram diretamente o Modernismo brasileiro.</p>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> As cinco vanguardas <span class="tag tag-imp">mais cobrado</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Vanguarda</th><th>Ideia central</th><th>Na literatura</th><th>Exemplos</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Futurismo</strong><br>Itália, 1909</td><td>Exaltação da <strong>máquina</strong>, da velocidade, da cidade e do progresso; ruptura com o passado</td><td>Palavras em liberdade, onomatopeias, exclamações, versos livres</td><td>Marinetti (manifesto) · Álvaro de Campos, "Ode marítima" e "Ode triunfal"</td></tr>
+            <tr><td><strong>Expressionismo</strong><br>Alemanha</td><td><strong>Deformar</strong> a realidade para expressar a angústia e a subjetividade do artista</td><td>Imagens grotescas, tom angustiado</td><td>"O grito", de Munch (precursor) · Augusto dos Anjos</td></tr>
+            <tr><td><strong>Cubismo</strong><br>França, 1907</td><td><strong>Fragmentação</strong> e <strong>simultaneidade</strong>: o objeto visto de vários ângulos ao mesmo tempo; formas geométricas</td><td>Fragmentos e frases nominais <strong>justapostos</strong>, sem conectivos, como recortes</td><td>Picasso, <em>Les demoiselles d'Avignon</em> (máscaras africanas) e <em>Guernica</em> · Oswald de Andrade, "Hípica"</td></tr>
+            <tr><td><strong>Dadaísmo</strong><br>Zurique, 1916</td><td>Antiarte: destruir a lógica e a própria arte, em reação à guerra; <strong>acaso</strong> e ironia</td><td>Texto <strong>sem sentido</strong> nenhum, palavras soltas e sons</td><td>Tristan Tzara · Duchamp, <em>A fonte</em> (ready-made)</td></tr>
+            <tr><td><strong>Surrealismo</strong><br>Paris, 1924</td><td>O <strong>inconsciente</strong> e o <strong>sonho</strong> (Freud); escrita automática</td><td>Imagens insólitas e ilógicas, mas o texto <strong>tem sentido</strong> no conjunto</td><td>André Breton (manifesto) · Dalí · Murilo Mendes · Murilo Rubião, "Teleco, o coelhinho"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Como não confundir</div>
+      <ul class="list">
+        <li><span><strong>Dadaísmo x Surrealismo:</strong> os dois têm imagens absurdas. No <strong>dadaísmo</strong> o texto inteiro não faz sentido; no <strong>surrealismo</strong> as imagens são estranhas, mas o texto tem continuidade e sentido geral, como um sonho.</span></li>
+        <li><span><strong>Cubismo x Surrealismo:</strong> o cubismo junta <strong>fragmentos soltos</strong> de cenas reais (simultaneidade); o surrealismo cria cenas impossíveis, ligadas entre si.</span></li>
+        <li><span><strong>Expressionismo:</strong> procure um eu voltado para dentro, angustiado, que deforma o que vê.</span></li>
+        <li><span><strong>Futurismo:</strong> procure máquinas, velocidade, indústria, tecnologia.</span></li>
+      </ul>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Na prática</div>
+      <div class="exemplo">Saltos records<br>Cavalos da Penha<br>Correm jóqueis de Higienópolis<br>Os magnatas<br>As meninas<br>E a orquestra toca<br>Chá<br>Na sala de cocktails.<span>Oswald de Andrade, "Hípica": cubista. Fragmentos de cena justapostos, sem conectivos, como um recorte simultâneo de um dia no jóquei.</span></div>
+      <p>No "Teleco, o coelhinho", de Murilo Rubião, um coelho fala e vira girafa no meio de uma cena comum: episódio de <strong>sonho</strong> dentro do cotidiano, típico do <strong>surrealismo</strong>.</p>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5. CANÇÃO PARA NINAR MENINO GRANDE
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="cancao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">5</div>
+      <div>
+        <h2 class="section-title">Canção para ninar menino grande</h2>
+        <p class="section-sub">Conceição Evaristo · romance (2018; edição revista de 2022)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> A autora e a escrevivência</div>
+      <p><strong>Conceição Evaristo</strong>, escritora mineira nascida em 1946, doutora em Literatura Comparada. Estreou em 1990 nos <em>Cadernos Negros</em>; <em>Olhos d'água</em> ganhou o Prêmio Jabuti. Em 2018 houve campanha para ela entrar na Academia Brasileira de Letras, mas recebeu um só voto.</p>
+      <p><strong>Escrevivência</strong> é o conceito criado por ela: a escrita nasce da <strong>vida vivida</strong>, sua e das pessoas à sua volta, principalmente de mulheres negras. É uma escrita subjetiva, mas <strong>coletiva</strong>: retoma a voz de quem foi silenciado.</p>
+      <div class="highlight"><strong>Romance polifônico:</strong> várias vozes contam a história, inclusive a da própria escritora. No fim, a narradora assina como <strong>Conceição Evaristo</strong> e diz que a canção "é minha também": é a escrevivência em ação.</div>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> O título</div>
+      <ul class="list">
+        <li><span><strong>"Menino grande":</strong> o homem irresponsável, criado por uma educação machista. Os homens "faziam filhos" como quem joga bola ou solta pipa, e deixavam tudo para a mulher resolver.</span></li>
+        <li><span><strong>"Canção":</strong> música que <strong>Tina</strong> compõe para Fio Jasmim depois de ele passar seis meses sem dar notícia. Mais tarde, ela sai pelo mundo para juntar as histórias de amor de outras mulheres numa grande ária.</span></li>
+      </ul>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Estrutura, narrador, tempo e espaço</div>
+      <ul class="list">
+        <li><span><strong>Episódios independentes:</strong> cada capítulo conta a história de uma mulher. O <strong>único vínculo</strong> entre elas é <strong>Fio Jasmim</strong>, o homem por quem todas se envolvem.</span></li>
+        <li><span><strong>Narradora:</strong> 1ª pessoa, amiga de Juventina (Tina), que reconta o que ouviu dela. Faz parte da <strong>confraria de mulheres</strong> que se forma em torno de Tina. Quase sempre se apaga; às vezes comenta e se identifica com as mulheres.</span></li>
+        <li><span><strong>Tempo:</strong> não cronológico, guiado pelas lembranças de Tina, com antecipações. Datas simbólicas: a <strong>colheita</strong> (Neide) e a <strong>Páscoa</strong> (Angelina, que "morre" como Cristo).</span></li>
+        <li><span><strong>Espaço:</strong> cidades fictícias do roteiro do trem em que Jasmim trabalha, com nomes que sugerem o que acontece nelas (Alma das Flores, Remanso Velho, Chegada Feliz...).</span></li>
+        <li><span><strong>Estilo:</strong> prosa poética, com metáforas, comparações, hipérboles, repetições, apelo sensorial e <strong>discurso indireto livre</strong> (a voz da narradora se mistura ao pensamento da personagem, sem "disse que").</span></li>
+        <li><span><strong>Águas:</strong> imagem recorrente na obra da autora, ligada a <strong>Oxum</strong>, orixá das águas doces, da fertilidade e da beleza.</span></li>
+      </ul>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Fio Jasmim <span class="tag tag-imp">mais cobrado</span></div>
+      <ul class="list">
+        <li><span>Ajudante de maquinista e depois maquinista. Casado com <strong>Pérola Maria</strong>, com quem tem seis filhos, mas se envolve com mulheres em todas as cidades do trajeto.</span></li>
+        <li><span><strong>Educação machista:</strong> aprendeu com o pai, Máximo Jasmim, que "ser homem era ter várias mulheres". Os <strong>maquinistas</strong> mais velhos aplaudem e incentivam.</span></li>
+        <li><span><strong>Inconsequente:</strong> não percebe o mal que causa; a culpa passa rápido.</span></li>
+        <li><span>A mesma educação que o faz abusar também o <strong>oprime</strong>: aprendeu a engolir o choro. Na escola, foi preterido no papel de príncipe em favor de um menino branco.</span></li>
+        <li><span><strong>O nome:</strong> é o "fio" que liga todas as histórias, e também sugere quem manipula as mulheres como marionetes.</span></li>
+      </ul>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> As mulheres <span class="tag tag-imp">teste</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Mulher e cidade</th><th>O que acontece</th><th>Filhos com Jasmim</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Neide</strong> Paranhos da Silva<br>Vale dos Laranjais</td><td>Jovem negra e reclusa. Quando ele diz que o trem não voltará, ela pede um filho. Não quer se casar.</td><td>1 (que ele nunca soube ao certo se existia), do <strong>último</strong> encontro</td></tr>
+            <tr><td><strong>Angelina</strong> Devaneia da Cruz<br>Alma das Flores</td><td>Enfermeira de 33 anos, cuida da irmã caçula, <strong>Setimazinha</strong>. Sonha com um noivo. Na Páscoa, Jasmim finge ser o noivo esperado, incentivado pelos maquinistas. Ela percebe o engano e se mata, como a mãe, Dorinda, que se matou por depressão pós-parto.</td><td>Nenhum</td></tr>
+            <tr><td><strong>Aurora</strong> Correa Liberto<br>Vila Azul</td><td>Nada nua no rio Naipã e nunca deixou homem entrar. Convida Jasmim para o "gozo das águas". Ele perde a hora do trem.</td><td>Nenhum</td></tr>
+            <tr><td><strong>Antonieta</strong> Véritas da Silva<br>Remanso Velho</td><td>Mulher bonita, discreta, "livre e de posse". Sete anos depois compra casa em Chegada Feliz e diz quem é o pai do caçula.</td><td><strong>Jasminzinho</strong></td></tr>
+            <tr><td><strong>Dolores</strong> dos Santos<br>Ardência Antiga</td><td>Dona de joalheria. Ele mente que o anel é para a irmã. Ao descobrir a família dele, planeja matar Pérola, mas desiste: seria matar a si mesma.</td><td>As gêmeas <strong>Rubia e Safira</strong></td></tr>
+            <tr><td><strong>Dalva</strong> Amorato<br>Águas Infindas</td><td>Deixou o marido, <strong>Vicentinho</strong>, que não a queria estudando nem trabalhando. Prostitui-se sem culpa para estudar; depois vira representante farmacêutica. Leva os filhos para conhecer o pai.</td><td>3</td></tr>
+            <tr><td><strong>Juventina (Tina)</strong> Maria Perpétua</td><td>Conhece Jasmim aos 17 anos (ele com 33). Ele preserva a virgindade dela. Amor de quase duas décadas. Compõe a canção.</td><td>Nenhum</td></tr>
+            <tr><td><strong>Eleonora</strong> Distinta de Sá</td><td>Única que vira <strong>amiga</strong> dele, num bar. É homossexual, separada da amada, Nina. Com ela, Jasmim chora e descobre as próprias dores.</td><td>Nenhum</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Cultura machista na obra</div>
+      <ul class="list">
+        <li><span>Os <strong>maquinistas</strong> incentivam: perder uma mulher seria fraqueza ("Já estava negando fogo?").</span></li>
+        <li><span>A mulher que se entrega é <strong>julgada</strong> (comentários sobre Dolores); o homem, não.</span></li>
+        <li><span>Papéis impostos: Vicentinho não aceita que Dalva estude e trabalhe.</span></li>
+        <li><span>As mulheres é que são ensinadas a se proteger: a mãe de Tina dizia que os homens "não passavam de meninos grandes".</span></li>
+      </ul>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Nomes que significam</div>
+      <p>A professora destacou que os nomes caracterizam as personagens:</p>
+      <ul class="list">
+        <li><span><strong>Angelina Devaneia da Cruz:</strong> anjo, sonhadora, sacrifício; tem 33 anos, a idade de Cristo, e morre na Páscoa. O menino <strong>Gabriel</strong> anuncia a "chegada do noivo", como o anjo da Anunciação.</span></li>
+        <li><span><strong>Aurora Correa Liberto:</strong> o amanhecer (nada de manhã cedo) e a liberdade.</span></li>
+        <li><span><strong>Antonieta Véritas:</strong> "valiosa" e "verdade" (assume quem é o pai do filho).</span></li>
+        <li><span><strong>Dolores:</strong> dores. <strong>Juventina Maria Perpétua:</strong> juventude, virgindade e algo inalterável.</span></li>
+        <li><span><strong>Pérola Maria:</strong> a escolhida, preciosa, "a mais certa para o casamento".</span></li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       6. FERNANDO PESSOA
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="pessoa">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">6</div>
+      <div>
+        <h2 class="section-title">Fernando Pessoa</h2>
+        <p class="section-sub">Apostila, pp. 101 e 102 · Modernismo português</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Heteronímia</div>
+      <p>Fernando Pessoa (1888 a 1935) é o principal nome do <strong>Modernismo português</strong>, iniciado com a revista <em>Orpheu</em> (1915). Ele criou <strong>heterônimos</strong>: poetas com biografia, personalidade, estilo e visão de mundo próprios.</p>
+      <div class="highlight"><strong>Heterônimo não é pseudônimo.</strong> Pseudônimo é só outro nome para o mesmo autor. Heterônimo é <strong>outro autor</strong>, com outra forma de pensar e escrever. Além deles, há o <strong>ortônimo</strong>: o próprio Fernando Pessoa assinando com o seu nome.</div>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Os heterônimos <span class="tag tag-imp">mais cobrado</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Poeta</th><th>Visão de mundo</th><th>Forma</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Alberto Caeiro</strong><br>o mestre</td><td>Poeta da <strong>natureza</strong> e das <strong>sensações</strong>. Só existe o que se vê e se sente; rejeita o pensamento abstrato, a filosofia e a metafísica. "Pensar é estar doente dos olhos." Não crê em Deus porque nunca o viu.</td><td>Linguagem <strong>simples</strong>, versos livres, tom de conversa. <em>O guardador de rebanhos</em></td></tr>
+            <tr><td><strong>Ricardo Reis</strong><br>o clássico</td><td><strong>Neoclássico</strong>: aproveitar o momento com moderação (<em>carpe diem</em>), aceitar o destino e a morte com serenidade (estoicismo e epicurismo). Fala com Lídia, Neera, Cloe. Deuses greco-romanos.</td><td><strong>Odes</strong>, métrica regular, vocabulário erudito, inversões sintáticas</td></tr>
+            <tr><td><strong>Álvaro de Campos</strong><br>o engenheiro</td><td>Três fases: <strong>decadentista</strong> ("Opiário"); <strong>futurista</strong>, que exalta máquinas e sensações ("Ode triunfal", "Ode marítima"); e <strong>intimista</strong>, de angústia e fracasso ("Tabacaria", "Poema em linha reta").</td><td>Versos livres e longos, exclamações, onomatopeias, emoção intensa</td></tr>
+            <tr><td><strong>Pessoa ortônimo</strong></td><td>Lirismo intelectual: sente pensando e pensa sentindo ("O poeta é um fingidor", em "Autopsicografia"). Saudade, sonho, despersonalização. <em>Mensagem</em> (1934): nacionalismo místico, sebastianismo.</td><td>Formas mais tradicionais, métrica e rima</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Reconheça pelo trecho</div>
+      <div class="exemplo">O Tejo é mais belo que o rio que corre pela minha aldeia,<br>Mas o Tejo não é mais belo que o rio que corre pela minha aldeia<br>Porque o Tejo não é o rio que corre pela minha aldeia.<span>Alberto Caeiro: linguagem simples, repetição, valor do que é concreto e próximo</span></div>
+      <div class="exemplo">Vem sentar-te comigo, Lídia, à beira do rio.<br>Sossegadamente fitemos o seu curso e aprendamos<br>Que a vida passa, e não estamos de mãos enlaçadas.<span>Ricardo Reis: a interlocutora Lídia, a serenidade, a consciência de que a vida passa</span></div>
+      <div class="exemplo">Não sou nada.<br>Nunca serei nada.<br>Não posso querer ser nada.<br>À parte isso, tenho em mim todos os sonhos do mundo.<span>Álvaro de Campos, "Tabacaria": a fase intimista, de angústia</span></div>
+      <div class="exemplo">O poeta é um fingidor.<br>Finge tão completamente<br>Que chega a fingir que é dor<br>A dor que deveras sente.<span>Fernando Pessoa ortônimo, "Autopsicografia": a criação poética como fingimento</span></div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       7. QUESTÕES ESCRITAS PARA TREINAR
+  ═══════════════════════════════════════════════ -->
+  <section class="section" id="escritas">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">7</div>
+      <div>
+        <h2 class="section-title">Questões escritas para treinar</h2>
+        <p class="section-sub">Exercícios do Moodle com as respostas dos gabaritos · toque na pergunta para ver a resposta</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Canção para ninar menino grande</div>
+      <details class="resp"><summary>Por que se pode dizer que os episódios do livro têm como único vínculo obrigatório a personagem Fio Jasmim?</summary><p>As histórias das mulheres são independentes: elas não precisariam se conhecer. O que liga todas é Jasmim ser o homem por quem se envolvem; é ele que une uma história à outra.</p></details>
+      <details class="resp"><summary>O trecho "Os homens faziam filhos. E faziam assim como jogavam bolas, soltavam pipas [...] deixavam tudo para a mulher pensar e resolver" se associa ao título?</summary><p>Sim. Os homens não se responsabilizam pelos filhos ("nunca pensavam antes de concebê-los"), e é essa irresponsabilidade que permite chamá-los de "meninos grandes".</p></details>
+      <details class="resp"><summary>"Onde estava a esperteza dele? [...] é só entrar no jogo, na fantasia dela": quem fala e a que fantasia se refere?</summary><p>Falam os maquinistas. A fantasia é a de Angelina, que espera um noivo e tem certeza de que ele vai chegar.</p></details>
+      <details class="resp"><summary>"E se ela fizesse o curso de Farmácia, não serviria para nada, ele não ia querer a esposa dele trabalhando": quem são "ela" e "ele"?</summary><p>Ela é Dalva; ele é Vicentinho, o marido.</p></details>
+
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Vanguardas e Pré-modernismo</div>
+      <details class="resp"><summary>A qual vanguarda se associa a "Ode marítima", de Álvaro de Campos? Explique.</summary><p>Ao Futurismo: o eu lírico mostra fascínio pelas tecnologias marítimas (navios, mastros, "mistura metálica"), e o Futurismo valoriza o progresso tecnológico e a máquina.</p></details>
+      <details class="resp"><summary>Em "Negrinha", que momentos da vida da mulher o narrador descreve, e qual deles a menina teve?</summary><p>O momento da boneca, "preparatório", e o dos filhos, "definitivo". Negrinha só teve o primeiro, vivido de forma idealizada (a boneca é comparada a anjos). Ao brincar, percebe que nunca será tratada como ser humano, entristece e morre.</p></details>
+      <details class="resp"><summary>Por que, no conto, a culpa dos maus-tratos da mãe de Negrinha não é dela?</summary><p>A culpa é da escravidão, sistema que desumanizava a população negra. A mãe batia na filha por medo de que a patroa a castigasse; por isso os beliscões são "desesperados".</p></details>
+
+    </div>
+  </section>
+
+  <section class="section" id="exercicios">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">✎</div>
+      <div>
+        <h2 class="section-title">Quiz de Fixação</h2>
+        <p class="section-sub">23 testes com 5 alternativas, como na prova</p>
+      </div>
+    </div>
+    <style>
+      .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+      .quiz-q { display: flex; align-items: flex-start; gap: 12px; padding: 16px 16px 10px; font-weight: 600; font-size: 0.92rem; }
+      .quiz-num { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
+      .quiz-opts { display: flex; flex-direction: column; gap: 6px; padding: 0 16px 14px; }
+      .opt { display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-size: 0.88rem; transition: all 0.15s; }
+      .opt:hover { border-color: var(--secondary); background: #fdf5ff; }
+      .opt-letter { width: 22px; height: 22px; border-radius: 50%; background: #f0e8ff; color: var(--primary); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+      .opt.correct { border-color: #166534; background: #f0fdf4; }
+      .opt.correct .opt-letter { background: #166534; color: white; }
+      .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
+      .opt.wrong .opt-letter { color: #9c1c1c; }
+      .opt.disabled { cursor: default; pointer-events: none; }
+      .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
+      .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
+      .quiz-feedback.show { display: block; }
+      .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+      .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
+      .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+      .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+      .score-label { font-size: 0.82rem; color: var(--text-light); }
+      .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+      .btn-reset:hover { background: var(--c2); }
+    </style>
+    <style>
+      .quiz-grupo { font-size: 1rem; font-weight: 700; margin: 26px 0 10px; }
+      details.resp { border-top: 1px solid var(--border); padding: 10px 0; }
+      details.resp:first-of-type { border-top: 0; }
+      details.resp summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+      details.resp p { margin-top: 8px; }
+    </style>
+
+    <div class="score-bar">
+      <div>
+        <div class="score-val"><span id="score">0</span>/<span id="total">23</span></div>
+        <div class="score-label">acertos · clique nas alternativas para responder</div>
+      </div>
+      <button class="btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+    </div>
+
+    <script>
+      const ANSWERS = {q1:'b',q2:'c',q3:'b',q4:'a',q5:'c',q6:'d',q7:'b',q8:'b',q9:'b',q10:'d',q11:'a',q12:'d',q13:'b',q14:'a',q15:'e',q16:'d',q17:'c',q18:'e',q19:'b',q20:'b',q21:'c',q22:'c',q23:'c'};
+      let score = 0, answered = 0;
+      function pick(qid, letter, el) {
+        const opts = el.closest('.quiz-opts').querySelectorAll('.opt');
+        opts.forEach(o => o.classList.add('disabled'));
+        const fb = document.getElementById('fb-'+qid);
+        if (letter === ANSWERS[qid]) {
+          el.classList.add('correct'); score++; answered++;
+          document.getElementById('score').textContent = score;
+          fb.className = 'quiz-feedback show ok';
+          fb.innerHTML = '✅ <strong>Correto!</strong> ' + fb.dataset.ok;
+        } else {
+          el.classList.add('wrong'); answered++;
+          opts.forEach(o => { if(o.dataset.l === ANSWERS[qid]) o.classList.add('reveal-correct'); });
+          fb.className = 'quiz-feedback show err';
+          fb.innerHTML = '❌ <strong>Incorreto.</strong> ' + fb.dataset.err;
+        }
+      }
+      function resetQuiz() {
+        score = 0; answered = 0;
+        document.getElementById('score').textContent = 0;
+        document.querySelectorAll('.opt').forEach(o => o.className = 'opt');
+        document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+      }
+    </script>
+
+    <h3 class="quiz-grupo">Parnasianismo</h3>
+
+    <!-- Q1 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">1</span><span>O lema "arte pela arte", central no Parnasianismo, significa que</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> a poesia deve denunciar os problemas sociais do país.</div>
+        <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> o valor do poema está na perfeição da própria forma, sem função moral ou social.</div>
+        <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> a arte deve expressar livremente as emoções do poeta.</div>
+        <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> o poeta deve imitar a fala do povo.</div>
+        <div class="opt" data-l="e" onclick="pick('q1','e',this)"><span class="opt-letter">E</span> a poesia deve sugerir, e não descrever.</div>
+      </div>
+      <div id="fb-q1" class="quiz-feedback" data-ok="Contra o sentimentalismo romântico, o parnasiano busca a perfeição formal: o poema vale por si mesmo, como uma joia trabalhada." data-err="Contra o sentimentalismo romântico, o parnasiano busca a perfeição formal: o poema vale por si mesmo, como uma joia trabalhada."></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz">
+      <p class="q-fonte">&quot;Ah! quem há de exprimir, alma impotente e escrava, / O que a boca não diz, o que a mão não escreve?&quot; (Olavo Bilac, &quot;Inania verba&quot;)</p>
+      <div class="quiz-q"><span class="quiz-num">2</span><span>O tema desses versos é</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> a saudade da terra natal.</div>
+        <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> o amor sensual pela mulher amada.</div>
+        <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> a insuficiência da linguagem para exprimir o pensamento e o sentimento.</div>
+        <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> a crítica à sociedade burguesa.</div>
+        <div class="opt" data-l="e" onclick="pick('q2','e',this)"><span class="opt-letter">E</span> a exaltação da Antiguidade clássica.</div>
+      </div>
+      <div id="fb-q2" class="quiz-feedback" data-ok="O poeta lamenta que a palavra não dê conta do que se pensa e sente. É um poema metalinguístico, sobre o próprio fazer poético." data-err="O poeta lamenta que a palavra não dê conta do que se pensa e sente. É um poema metalinguístico, sobre o próprio fazer poético."></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">3</span><span>Rima rica, valorizada pelos parnasianos, é a que ocorre entre palavras</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> de mesma classe gramatical.</div>
+        <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> de classes gramaticais diferentes.</div>
+        <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> que terminam em vogal aberta.</div>
+        <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> que aparecem no mesmo verso.</div>
+        <div class="opt" data-l="e" onclick="pick('q3','e',this)"><span class="opt-letter">E</span> estrangeiras.</div>
+      </div>
+      <div id="fb-q3" class="quiz-feedback" data-ok="Rima rica: classes diferentes (substantivo com adjetivo, por exemplo). Rima pobre: mesma classe. Rima rara: terminações pouco comuns." data-err="Rima rica: classes diferentes (substantivo com adjetivo, por exemplo). Rima pobre: mesma classe. Rima rara: terminações pouco comuns."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Simbolismo</h3>
+
+    <!-- Q4 -->
+    <div class="quiz">
+      <p class="q-fonte">&quot;Vozes veladas, veludosas vozes, / Volúpias dos violões, vozes veladas,&quot; (Cruz e Sousa)</p>
+      <div class="quiz-q"><span class="quiz-num">4</span><span>O recurso que mais se destaca nesses versos, típico do Simbolismo, é</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> a aliteração, que cria musicalidade.</div>
+        <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> a descrição objetiva de um instrumento.</div>
+        <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> a referência à mitologia grega.</div>
+        <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> a linguagem coloquial.</div>
+        <div class="opt" data-l="e" onclick="pick('q4','e',this)"><span class="opt-letter">E</span> a crítica social.</div>
+      </div>
+      <div id="fb-q4" class="quiz-feedback" data-ok="A repetição do som &quot;v&quot; imita o som do violão: musicalidade, marca forte do Simbolismo." data-err="A repetição do som &quot;v&quot; imita o som do violão: musicalidade, marca forte do Simbolismo."></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">5</span><span>Diferentemente do Parnasianismo, o Simbolismo</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> valoriza a descrição precisa dos objetos.</div>
+        <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> rejeita o soneto.</div>
+        <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> busca sugerir sensações e o mundo espiritual, com linguagem vaga e musical.</div>
+        <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> defende a arte engajada politicamente.</div>
+        <div class="opt" data-l="e" onclick="pick('q5','e',this)"><span class="opt-letter">E</span> usa linguagem coloquial e humor.</div>
+      </div>
+      <div id="fb-q5" class="quiz-feedback" data-ok="O parnasiano descreve o objeto; o simbolista sugere o que está além dele: espírito, mistério, sensações. Os dois cuidam da forma e usam o soneto." data-err="O parnasiano descreve o objeto; o simbolista sugere o que está além dele: espírito, mistério, sensações. Os dois cuidam da forma e usam o soneto."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Pré-modernismo</h3>
+
+    <!-- Q6 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">6</span><span>Assinale a alternativa correta sobre a literatura pré-modernista.</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> Renovou totalmente os estilos e temas literários do início do século XX.</div>
+        <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> Foi tão radical na linguagem quanto no questionamento da realidade social.</div>
+        <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> Nada acrescentou à literatura nacional por repetir modelos do século XIX.</div>
+        <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> A contribuição de Euclides da Cunha está na originalidade com que articulou relato histórico e análise sociológica com estilo literário.</div>
+        <div class="opt" data-l="e" onclick="pick('q6','e',this)"><span class="opt-letter">E</span> Lima Barreto e Monteiro Lobato repetiram os modelos de linguagem do Parnasianismo.</div>
+      </div>
+      <div id="fb-q6" class="quiz-feedback" data-ok="Os sertões mistura história, sociologia e literatura. O Pré-modernismo inova nos temas (Brasil real), mas a linguagem da maioria ainda é tradicional; não houve renovação total." data-err="Os sertões mistura história, sociologia e literatura. O Pré-modernismo inova nos temas (Brasil real), mas a linguagem da maioria ainda é tradicional; não houve renovação total."></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="quiz">
+      <p class="q-fonte">Floriano Peixoto, segundo presidente do Brasil, é também personagem de Triste fim de Policarpo Quaresma.</p>
+      <div class="quiz-q"><span class="quiz-num">7</span><span>O conceito que melhor sustenta a construção desse personagem ficcional baseado numa figura histórica é o de</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> metonímia.</div>
+        <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> verossimilhança.</div>
+        <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> generalização.</div>
+        <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> polissemia.</div>
+        <div class="opt" data-l="e" onclick="pick('q7','e',this)"><span class="opt-letter">E</span> alegoria.</div>
+      </div>
+      <div id="fb-q7" class="quiz-feedback" data-ok="Na ficção, a figura histórica é construída de modo verossímil: parece real e coerente dentro do mundo do romance." data-err="Na ficção, a figura histórica é construída de modo verossímil: parece real e coerente dentro do mundo do romance."></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">8</span><span>Em Os sertões, Euclides da Cunha</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> exalta o exército da República como herói nacional.</div>
+        <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> organiza a obra em "A terra", "O homem" e "A luta" e termina denunciando o massacre de Canudos.</div>
+        <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> narra a vida no subúrbio carioca.</div>
+        <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> cria personagens fictícios para criticar a monarquia.</div>
+        <div class="opt" data-l="e" onclick="pick('q8','e',this)"><span class="opt-letter">E</span> abandona as teorias científicas da época.</div>
+      </div>
+      <div id="fb-q8" class="quiz-feedback" data-ok="A obra parte do determinismo (meio e raça), mas termina reconhecendo que Canudos foi um crime da República contra o sertanejo." data-err="A obra parte do determinismo (meio e raça), mas termina reconhecendo que Canudos foi um crime da República contra o sertanejo."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Vanguardas</h3>
+
+    <!-- Q9 -->
+    <div class="quiz">
+      <p class="q-fonte">&quot;Bananeiras / O sol / O cansaço da ilusão / Igrejas / O ouro na serra de pedra / A decadência&quot; (Oswald de Andrade, &quot;São José Del Rei&quot;)</p>
+      <div class="quiz-q"><span class="quiz-num">9</span><span>O poema pode ser associado ao</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> Expressionismo.</div>
+        <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> Cubismo.</div>
+        <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> Futurismo.</div>
+        <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> Dadaísmo.</div>
+        <div class="opt" data-l="e" onclick="pick('q9','e',this)"><span class="opt-letter">E</span> Surrealismo.</div>
+      </div>
+      <div id="fb-q9" class="quiz-feedback" data-ok="Fragmentos nominais justapostos, sem conectivos, montam a cidade por pedaços, como uma tela cubista." data-err="Fragmentos nominais justapostos, sem conectivos, montam a cidade por pedaços, como uma tela cubista."></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="quiz">
+      <p class="q-fonte">No conto &quot;Teleco, o coelhinho&quot;, de Murilo Rubião, um coelho pede um cigarro, conversa com o narrador e se transforma em girafa.</p>
+      <div class="quiz-q"><span class="quiz-num">10</span><span>O texto sofre influência do</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> Dadaísmo, pelo caos sem sentido.</div>
+        <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> Cubismo, pela simultaneidade de perspectivas.</div>
+        <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> Expressionismo, pela deformação da subjetividade.</div>
+        <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> Surrealismo, pois numa situação corriqueira ocorrem episódios próprios do sonho, incompatíveis com a realidade.</div>
+        <div class="opt" data-l="e" onclick="pick('q10','e',this)"><span class="opt-letter">E</span> Futurismo, pela velocidade das transformações.</div>
+      </div>
+      <div id="fb-q10" class="quiz-feedback" data-ok="Acontecimentos impossíveis, como num sonho, dentro do cotidiano, mas o texto tem sentido: surrealismo." data-err="Acontecimentos impossíveis, como num sonho, dentro do cotidiano, mas o texto tem sentido: surrealismo."></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">11</span><span>A obra Les demoiselles d'Avignon, de Picasso, marco do Cubismo, também se liga ao Primitivismo porque recorre</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> às máscaras ritualísticas africanas.</div>
+        <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> aos rituais celtas.</div>
+        <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> às festas mediterrâneas.</div>
+        <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> à nudez de povos aborígenes.</div>
+        <div class="opt" data-l="e" onclick="pick('q11','e',this)"><span class="opt-letter">E</span> às danças ciganas.</div>
+      </div>
+      <div id="fb-q11" class="quiz-feedback" data-ok="Os rostos das figuras lembram máscaras africanas, que influenciaram Picasso." data-err="Os rostos das figuras lembram máscaras africanas, que influenciaram Picasso."></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">12</span><span>A vanguarda que exalta a máquina, a velocidade e o progresso, rompendo com o passado, é o</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> Surrealismo.</div>
+        <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> Dadaísmo.</div>
+        <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> Expressionismo.</div>
+        <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> Futurismo.</div>
+        <div class="opt" data-l="e" onclick="pick('q12','e',this)"><span class="opt-letter">E</span> Cubismo.</div>
+      </div>
+      <div id="fb-q12" class="quiz-feedback" data-ok="Futurismo (Marinetti, 1909). Em Pessoa, aparece na fase futurista de Álvaro de Campos (&quot;Ode triunfal&quot;, &quot;Ode marítima&quot;)." data-err="Futurismo (Marinetti, 1909). Em Pessoa, aparece na fase futurista de Álvaro de Campos (&quot;Ode triunfal&quot;, &quot;Ode marítima&quot;)."></div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">13</span><span>O que diferencia um texto dadaísta de um surrealista é que o dadaísta</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> tem imagens oníricas com sentido geral.</div>
+        <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> não tem sentido nenhum no conjunto, apostando no acaso e na antiarte.</div>
+        <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> exalta a tecnologia.</div>
+        <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> deforma a realidade para expressar angústia.</div>
+        <div class="opt" data-l="e" onclick="pick('q13','e',this)"><span class="opt-letter">E</span> justapõe fragmentos de cenas reais.</div>
+      </div>
+      <div id="fb-q13" class="quiz-feedback" data-ok="Os dois têm imagens absurdas, mas o surrealista tem continuidade e sentido, como um sonho; o dadaísta não." data-err="Os dois têm imagens absurdas, mas o surrealista tem continuidade e sentido, como um sonho; o dadaísta não."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Canção para ninar menino grande</h3>
+
+    <!-- Q14 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">14</span><span>Os maquinistas, colegas de trabalho de Fio Jasmim,</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> endossam e até o incitam a um comportamento que Fio aprendera com o pai.</div>
+        <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> repreendem seus atos, mas gostariam de fazer o mesmo.</div>
+        <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> estimulam Fio a fazer o que não têm coragem de fazer.</div>
+        <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> invejam Fio e agem igual a ele.</div>
+        <div class="opt" data-l="e" onclick="pick('q14','e',this)"><span class="opt-letter">E</span> sugerem que ele respeite as mulheres.</div>
+      </div>
+      <div id="fb-q14" class="quiz-feedback" data-ok="Os maquinistas incentivam o comportamento abusivo, que Jasmim aprendeu com o pai: &quot;ser homem era ter várias mulheres&quot;." data-err="Os maquinistas incentivam o comportamento abusivo, que Jasmim aprendeu com o pai: &quot;ser homem era ter várias mulheres&quot;."></div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">15</span><span>A mãe de Jasminzinho é</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> Antonieta, que nunca apresenta o filho ao pai.</div>
+        <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> Angelina, que leva o filho a Chegada Feliz.</div>
+        <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> Aurora, que foge ao saber que Jasmim queria conhecer o filho.</div>
+        <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> Neide, que depois leva o filho a Chegada Feliz.</div>
+        <div class="opt" data-l="e" onclick="pick('q15','e',this)"><span class="opt-letter">E</span> Antonieta, que, após um tempo, leva o filho para conhecer o pai em Chegada Feliz.</div>
+      </div>
+      <div id="fb-q15" class="quiz-feedback" data-ok="Sete anos depois do encontro, Antonieta compra casa em Chegada Feliz e anuncia que Jasmim é o pai do caçula." data-err="Sete anos depois do encontro, Antonieta compra casa em Chegada Feliz e anuncia que Jasmim é o pai do caçula."></div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">16</span><span>Dentre as mulheres com que Fio Jasmim se relacionou, Neide</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> não teve filhos com ele.</div>
+        <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> teve mais de um filho com ele.</div>
+        <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> teve um filho, fruto do único encontro.</div>
+        <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> teve somente um filho dele, fruto do último encontro que tiveram.</div>
+        <div class="opt" data-l="e" onclick="pick('q16','e',this)"><span class="opt-letter">E</span> teve um filho que recebeu a visita do pai.</div>
+      </div>
+      <div id="fb-q16" class="quiz-feedback" data-ok="Quando Jasmim conta que o trem não voltará, Neide pede um filho. Ele nunca soube ao certo se esse filho existia." data-err="Quando Jasmim conta que o trem não voltará, Neide pede um filho. Ele nunca soube ao certo se esse filho existia."></div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="quiz">
+      <p class="q-fonte">&quot;[...] eles não passavam de meninos grandes, que viviam agarrados às saias das mulheres em busca de proteção ou de brinquedo.&quot;</p>
+      <div class="quiz-q"><span class="quiz-num">17</span><span>A expressão "meninos grandes" refere-se à seguinte conduta de Fio Jasmim:</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> arrogância.</div>
+        <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> ingenuidade.</div>
+        <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> inconsequência.</div>
+        <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> intransigência.</div>
+        <div class="opt" data-l="e" onclick="pick('q17','e',this)"><span class="opt-letter">E</span> infantilidade.</div>
+      </div>
+      <div id="fb-q17" class="quiz-feedback" data-ok="Menino grande é o homem irresponsável, que não pensa nas consequências do que faz com as mulheres e os filhos." data-err="Menino grande é o homem irresponsável, que não pensa nas consequências do que faz com as mulheres e os filhos."></div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">18</span><span>A mãe de Angelina</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> impedia a filha de ver Fio Jasmim.</div>
+        <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> suicidou-se ao ser abandonada.</div>
+        <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> teve tantos dissabores quanto a filha.</div>
+        <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> teve mais de sete filhos.</div>
+        <div class="opt" data-l="e" onclick="pick('q18','e',this)"><span class="opt-letter">E</span> suicidou-se devido à depressão pós-parto.</div>
+      </div>
+      <div id="fb-q18" class="quiz-feedback" data-ok="Dorinda da Cruz se matou depois do nascimento da última filha, Setimazinha, de quem Angelina passou a cuidar." data-err="Dorinda da Cruz se matou depois do nascimento da última filha, Setimazinha, de quem Angelina passou a cuidar."></div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">19</span><span>A "escrevivência", conceito de Conceição Evaristo, se percebe no romance porque</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> a narrativa é impessoal e objetiva.</div>
+        <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> a escrita nasce de vivências coletivas, com várias vozes, e a autora assina o fim do relato.</div>
+        <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> o narrador é Fio Jasmim.</div>
+        <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> a história se passa em cidades reais.</div>
+        <div class="opt" data-l="e" onclick="pick('q19','e',this)"><span class="opt-letter">E</span> o livro é uma autobiografia sem ficção.</div>
+      </div>
+      <div id="fb-q19" class="quiz-feedback" data-ok="A escrevivência junta vida e escrita, de forma coletiva. O romance é polifônico, e no fim a narradora assina como Conceição Evaristo." data-err="A escrevivência junta vida e escrita, de forma coletiva. O romance é polifônico, e no fim a narradora assina como Conceição Evaristo."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Fernando Pessoa</h3>
+
+    <!-- Q20 -->
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">20</span><span>Heterônimo é</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> outro nome para o mesmo autor, com o mesmo estilo.</div>
+        <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> um autor fictício com biografia, estilo e visão de mundo próprios.</div>
+        <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> o nome verdadeiro do poeta.</div>
+        <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> um tipo de poema de forma fixa.</div>
+        <div class="opt" data-l="e" onclick="pick('q20','e',this)"><span class="opt-letter">E</span> um personagem de romance.</div>
+      </div>
+      <div id="fb-q20" class="quiz-feedback" data-ok="Pseudônimo é só outro nome. Heterônimo é outro poeta, com outra forma de pensar e escrever." data-err="Pseudônimo é só outro nome. Heterônimo é outro poeta, com outra forma de pensar e escrever."></div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="quiz">
+      <p class="q-fonte">&quot;O Tejo é mais belo que o rio que corre pela minha aldeia, / Mas o Tejo não é mais belo que o rio que corre pela minha aldeia / Porque o Tejo não é o rio que corre pela minha aldeia.&quot;</p>
+      <div class="quiz-q"><span class="quiz-num">21</span><span>Pela linguagem simples e pelo valor do que é concreto e próximo, o trecho é de</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> Ricardo Reis.</div>
+        <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> Álvaro de Campos, fase futurista.</div>
+        <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> Alberto Caeiro.</div>
+        <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> Fernando Pessoa ortônimo, em Mensagem.</div>
+        <div class="opt" data-l="e" onclick="pick('q21','e',this)"><span class="opt-letter">E</span> Álvaro de Campos, fase intimista.</div>
+      </div>
+      <div id="fb-q21" class="quiz-feedback" data-ok="Caeiro, o poeta das sensações, valoriza o que se vê e se vive, com linguagem simples e repetições." data-err="Caeiro, o poeta das sensações, valoriza o que se vê e se vive, com linguagem simples e repetições."></div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="quiz">
+      <p class="q-fonte">&quot;Vem sentar-te comigo, Lídia, à beira do rio. / Sossegadamente fitemos o seu curso e aprendamos / Que a vida passa&quot;</p>
+      <div class="quiz-q"><span class="quiz-num">22</span><span>O trecho é de Ricardo Reis porque apresenta</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> exaltação das máquinas.</div>
+        <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> angústia e sensação de fracasso.</div>
+        <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> serenidade diante da passagem da vida, com a interlocutora Lídia, de inspiração clássica.</div>
+        <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> rejeição total da forma.</div>
+        <div class="opt" data-l="e" onclick="pick('q22','e',this)"><span class="opt-letter">E</span> nacionalismo místico.</div>
+      </div>
+      <div id="fb-q22" class="quiz-feedback" data-ok="Reis é o clássico: aceitar o tempo e o destino com calma, aproveitar o momento com moderação, falar com Lídia." data-err="Reis é o clássico: aceitar o tempo e o destino com calma, aproveitar o momento com moderação, falar com Lídia."></div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="quiz">
+      <p class="q-fonte">&quot;Não sou nada. / Nunca serei nada. / Não posso querer ser nada. / À parte isso, tenho em mim todos os sonhos do mundo.&quot;</p>
+      <div class="quiz-q"><span class="quiz-num">23</span><span>Esses versos de "Tabacaria" pertencem a</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q23','a',this)"><span class="opt-letter">A</span> Alberto Caeiro.</div>
+        <div class="opt" data-l="b" onclick="pick('q23','b',this)"><span class="opt-letter">B</span> Ricardo Reis.</div>
+        <div class="opt" data-l="c" onclick="pick('q23','c',this)"><span class="opt-letter">C</span> Álvaro de Campos, em sua fase intimista.</div>
+        <div class="opt" data-l="d" onclick="pick('q23','d',this)"><span class="opt-letter">D</span> Álvaro de Campos, em sua fase futurista.</div>
+        <div class="opt" data-l="e" onclick="pick('q23','e',this)"><span class="opt-letter">E</span> Pessoa ortônimo, em Mensagem.</div>
+      </div>
+      <div id="fb-q23" class="quiz-feedback" data-ok="Angústia, sensação de nulidade e versos livres: a fase intimista de Álvaro de Campos." data-err="Angústia, sensação de nulidade e versos livres: a fase intimista de Álvaro de Campos."></div>
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  Caderno Digital · Literatura 3º tri · 2ª série do Ensino Médio · 2026
+</footer>
+
+<!-- ═══ CHATBOT ═══ -->
+<style>
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #4a1060; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8d8f5; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: #4a1060; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
+  .cmsg.bot { background: #fdf5ff; border: 1px solid #e8d8f5; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.user { background: #4a1060; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.loading { color: #888; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid #e8d8f5; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: #4a1060; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: #7b2d8b; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+  
+  
+  
+</script>
+<script src="scripts/progress.js"></script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>

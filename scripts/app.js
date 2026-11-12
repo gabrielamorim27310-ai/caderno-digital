@@ -261,10 +261,21 @@
       navAntiga.querySelectorAll('a[href^="#"]').forEach(function (a) {
         var alvo = a.getAttribute('href');
         if (alvo.length > 1 && document.getElementById(alvo.slice(1))) {
-          capitulos.push({ href: alvo, nome: a.textContent.replace(/\s+/g, ' ').trim() });
+          var nome = a.textContent.replace(/\s+/g, ' ').trim();
+          // "2. Artigo" vira número 2 + "Artigo": a barra mostra o número uma vez só
+          var m = nome.match(/^(\d+)\s*[.)\-–:]\s*(.+)$/);
+          capitulos.push({ href: alvo, nome: m ? m[2] : nome, num: m ? m[1] : null });
         }
       });
       navAntiga.classList.add('cd-oculto');
+    }
+    var algumNumerado = capitulos.some(function (c) { return c.num; });
+    // Marcador de cada capítulo: o número do próprio título; sem número, ▶ para vídeo e • para o resto
+    function marcador(c, i) {
+      if (/quiz|exerc/i.test(c.href + c.nome)) return icone('circle-help', 'i-sm');
+      if (c.num) return c.num;
+      if (!algumNumerado) return String(i + 1);
+      return /v[ií]deo/i.test(c.href + c.nome) ? '▶' : '•';
     }
     var temChat = typeof window.toggleChat === 'function' && document.getElementById('chat-panel');
 
@@ -297,9 +308,8 @@
     var capHtml = '';
     if (capitulos.length) {
       capHtml = '<h2 class="sidebar-section">Nesta página</h2>' + capitulos.map(function (c, i) {
-        var quiz = /quiz|exerc/i.test(c.href + c.nome);
         return '<a class="sidebar-item chapter-link" href="' + esc(c.href) + '"><span class="num">' +
-          (quiz ? icone('circle-help', 'i-sm') : (i + 1)) + '</span><span class="txt">' + esc(c.nome) + '</span></a>';
+          marcador(c, i) + '</span><span class="txt">' + esc(c.nome) + '</span></a>';
       }).join('');
     }
     var acoes = '';
@@ -328,7 +338,7 @@
       var sc = criarSheet('sheet-capitulos', 'Capítulos', '<div class="group">' + capitulos.map(function (c, i) {
         var quiz = /quiz|exerc/i.test(c.href + c.nome);
         return '<a class="cell has-icon" href="' + esc(c.href) + '"><span class="app-icon" style="--icon-bg:' + (quiz ? 'var(--fill)' : 'var(--tint-fill)') + ';' + (quiz ? 'color:var(--tint)' : '') + '">' +
-          (quiz ? icone('circle-help', 'i-sm') : (i + 1)) + '</span><span class="cell-body"><span class="cell-title">' + esc(c.nome) + '</span></span>' + icone('chevron-right', 'cell-chev') + '</a>';
+          marcador(c, i) + '</span><span class="cell-body"><span class="cell-title">' + esc(c.nome) + '</span></span>' + icone('chevron-right', 'cell-chev') + '</a>';
       }).join('') + '</div>');
       sc.addEventListener('click', function (e) {
         var a = e.target.closest('a[href^="#"]');
