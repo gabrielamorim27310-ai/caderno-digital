@@ -9,8 +9,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const AQUI = path.dirname(new URL(import.meta.url).pathname);
+const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const RAIZ = path.resolve(AQUI, '../..');
 const arq = process.argv[2];
 if (!arq) { console.error('Uso: node hyperframes.mjs roteiros/<pagina>.json'); process.exit(1); }
@@ -156,8 +157,13 @@ for (const c of rot.cenas) {
   }
   if (c.tipo === 'frase') {
     const r = rich(c.frase, 'alvo');
+    // O destaque é inline-block: se quebrasse em duas linhas, viraria um bloco
+    // da largura toda e empurraria o resto da frase. Ele fica numa linha só e,
+    // se for longo, a fonte da frase diminui para caber (1620px de largura).
+    const hlLen = ((c.frase.match(/\*\*(.+?)\*\*/) || [0, ''])[1]).length;
+    const fs = Math.min(96, Math.floor(1620 / (hlLen * 0.68 || 1)));
     h = `<div class="pad center">${rotulo}<h2 class="tt small" id="${id}-t">${esc(c.titulo)}</h2>
-      <p class="frase" id="${id}-f">${r.h}</p>
+      <p class="frase" id="${id}-f"${fs < 96 ? ` style="font-size:${fs}px"` : ''}>${r.h}</p>
       <div class="rotulo" id="${id}-r"><span class="seta">↑</span>${esc(c.rotulo)}</div></div>`;
     enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
     enter(`#${id}-t`, 0.2);
@@ -280,6 +286,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
 .col li{font-size:40px;line-height:1.25}
 .vs{align-self:center;justify-self:center;width:96px;height:96px;border-radius:50%;background:var(--a);color:#0D0A14;display:grid;place-items:center;font-family:'Archivo Black',sans-serif;font-size:44px}
 .frase{font-family:'Archivo Black',sans-serif;font-size:96px;line-height:1.15}
+.frase .hl{white-space:nowrap}
 .rotulo{margin-top:46px;font-size:42px;font-weight:700;color:var(--a);display:flex;align-items:center;gap:20px}
 .seta{font-size:60px}
 .rw{display:flex;flex-direction:column;gap:14px}
