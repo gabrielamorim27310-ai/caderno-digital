@@ -7,7 +7,7 @@
       "tipo": "capa",
       "selo": "Estudos Linguísticos · 3º tri",
       "titulo": "Revisão para a prova",
-      "subtitulo": "Os oito conteúdos da orientação, em poucos minutos",
+      "subtitulo": "Os oito conteúdos da orientação, explicados",
       "fala": "Revisão de Estudos Linguísticos para a prova trimestral. São oito conteúdos: interpretação, artigo de opinião, dissertação argumentativa, complemento nominal, adjunto adnominal, concordância verbal, impessoalidade e coesão. A prova tem seis testes, quatro questões dissertativas e uma redação, que vale metade da nota. Vamos lá."
     },
     {
@@ -15,19 +15,42 @@
       "capitulo": "1",
       "titulo": "Interpretação de textos",
       "subtitulo": "O que as questões perguntam",
-      "fala": "Primeiro tema: interpretação de textos. Os textos da prova costumam ser artigos de opinião e outros textos argumentativos."
+      "fala": "Primeiro tema: interpretação de textos. Os textos da prova costumam ser artigos de opinião e outros textos argumentativos. Veja o que as questões perguntam sobre eles."
     },
     {
       "tipo": "topicos",
       "capitulo": "Interpretação",
-      "titulo": "Roteiro de leitura",
+      "titulo": "Tema e tese",
       "itens": [
-        "**Tema** é o assunto; **tese** é a posição",
-        "Cada argumento tem uma **função**",
-        "O **conectivo** mostra a relação entre parágrafos",
-        "Resposta certa: o que o texto **permite** concluir"
+        "**Tema**: o assunto do texto",
+        "**Tese**: a posição que o autor defende",
+        "Resposta só com o assunto fica **incompleta**"
       ],
-      "fala": "Separe tema de tese: o tema é o assunto, a tese é a posição que o autor defende. Pergunte qual é a função de cada argumento. Fala de especialista é argumento de autoridade e dá credibilidade; pesquisa com números é argumento por dados. O conectivo no começo do parágrafo mostra se ele soma, opõe ou conclui. E a resposta certa é a que o texto permite concluir, não a que você acha verdade."
+      "fala": "Comece pelo tema. O tema é o assunto do texto, por exemplo, o uso de redes sociais por crianças. A tese é a posição que o autor defende sobre esse assunto: os pais precisam acompanhar e educar, e não só proibir. Muitas questões pedem a tese com suas palavras. Se você responde só com o assunto, sem a posição, a resposta fica incompleta."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Interpretação",
+      "titulo": "A função de cada argumento",
+      "itens": [
+        "Fala de especialista: **autoridade**",
+        "Pesquisa com números: **dados**",
+        "Caso concreto: **exemplificação**",
+        "Linguagem impessoal: **objetividade**"
+      ],
+      "fala": "Depois, pergunte qual é a função de cada argumento. Fala de especialista é argumento de autoridade e dá credibilidade à tese. Pesquisa com porcentagens é argumento por dados e comprova o que se afirma. Um caso concreto é exemplificação e ilustra a ideia. E, se o texto usa linguagem impessoal, o efeito é de objetividade: a opinião parece um fato, e não um gosto pessoal. Na resposta, não basta dar o nome do recurso. Diga o que ele faz no texto."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Interpretação",
+      "titulo": "Conectivos e inferência",
+      "itens": [
+        "O **conectivo** mostra a relação entre parágrafos",
+        "Além disso **soma**; no entanto opõe",
+        "Resposta certa: o que o texto **permite** concluir",
+        "Desconfie de **sempre**, nunca, apenas"
+      ],
+      "fala": "Olhe também o conectivo no início de cada parágrafo. Ele mostra a relação com o parágrafo anterior. Além disso soma, no entanto opõe, portanto conclui, assim como compara. E nas questões de inferência, a resposta certa é a que o texto permite concluir, e não a que você acha verdade. Desconfie de alternativas com sempre, nunca ou apenas, que generalizam o que o texto relativiza."
     },
     {
       "tipo": "topicos",
@@ -35,18 +58,18 @@
       "titulo": "Nas dissertativas",
       "itens": [
         "Responda com **frase completa**",
-        "**Com suas palavras** quando pedir",
-        "**Transcreva** quando pedir",
+        "**Com suas palavras** ou **transcreva**: siga o pedido",
+        "Use o **nome técnico** e justifique",
         "Escrita em **norma-padrão**"
       ],
-      "fala": "Nas questões dissertativas, responda com frase completa, retomando a pergunta. Quando o enunciado pede com suas palavras, não copie o texto. Quando pede para transcrever, copie o trecho exato entre aspas. E capriche: a prova avisa que erro de grafia, de acentuação e resposta mal estruturada perdem nota."
+      "fala": "Nas questões dissertativas, responda com frase completa, que retome a pergunta. Escreva o autor defende que, em vez de começar com porque. Quando o enunciado pede com suas palavras, não copie o texto. Quando pede para transcrever, copie o trecho exato, entre aspas. Use o nome técnico, como tese, concessão ou complemento nominal, e justifique. Por exemplo, é complemento nominal porque completa o adjetivo vulneráveis. E capriche na escrita, em norma-padrão: erro de grafia, de acentuação e resposta mal estruturada perdem nota."
     },
     {
       "tipo": "capitulo",
       "capitulo": "2",
       "titulo": "Artigo de opinião",
       "subtitulo": "Apostila, páginas 1 a 3",
-      "fala": "Segundo tema: o artigo de opinião."
+      "fala": "Segundo tema: o artigo de opinião, das páginas um a três da apostila."
     },
     {
       "tipo": "topicos",
@@ -61,11 +84,35 @@
       "fala": "O artigo de opinião é um texto argumentativo assinado por um autor identificado, o articulista ou colunista. Ele defende o próprio ponto de vista sobre um tema atual. Por isso pode usar a primeira pessoa, alguma informalidade e conversar com o leitor. A responsabilidade pelo que se diz é individual, e o texto costuma gerar debate público."
     },
     {
+      "tipo": "topicos",
+      "capitulo": "Artigo de opinião",
+      "titulo": "Características que caem",
+      "itens": [
+        "**Assinado**: o nome dá credibilidade",
+        "**Tema atual** e polêmico",
+        "**Tese clara**, muitas vezes já no título",
+        "**Argumentos** variados"
+      ],
+      "fala": "As características que caem. É assinado: o nome do autor, e muitas vezes a profissão, aparece junto ao texto, e isso dá credibilidade, principalmente quando ele é especialista. Trata de um tema atual e polêmico, ligado ao que a sociedade está discutindo. Tem uma tese clara, em geral já na introdução, e o título muitas vezes antecipa a posição. E usa argumentos variados: autoridade, dados, exemplos, comparação e contra-argumentação."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Artigo de opinião",
+      "titulo": "Marcas de opinião",
+      "itens": [
+        "Adjetivos **avaliativos**: medida desastrosa",
+        "Advérbios **modalizadores**: infelizmente",
+        "Verbos de **opinião**: acredito, defendo",
+        "**Primeira pessoa**, você e ironia"
+      ],
+      "fala": "A linguagem segue a norma-padrão, mas com mais liberdade que a dissertação. Repare nas marcas de opinião. Adjetivos avaliativos, como medida desastrosa. Advérbios modalizadores, como infelizmente e certamente. Verbos de opinião, como acredito e defendo. E ainda a primeira pessoa, a conversa com o leitor usando você, e a ironia."
+    },
+    {
       "tipo": "destaque",
       "capitulo": "Artigo de opinião",
       "titulo": "No artigo da apostila",
       "texto": "\"Quantas vezes **você** já vivenciou a experiência de abrir os comentários...?\"",
-      "fala": "No artigo da apostila, Entre o ódio e a virtude, o primeiro parágrafo já mostra as marcas do gênero. Quantas vezes você já vivenciou a experiência de abrir os comentários? É uma pergunta direta ao leitor, com você: interlocução, uma marca de pessoalidade. O autor também usa definição conceitual, analogia com o trânsito e o futebol, e um conceito filosófico, a ética de Aristóteles."
+      "fala": "No artigo da apostila, Entre o ódio e a virtude, de Bruno Trindade, o tema é o comportamento agressivo nas redes sociais. A tese: o ódio online nasce do medo, alimentado pela comparação com vidas idealizadas. Logo no primeiro parágrafo aparecem as marcas do gênero. Quantas vezes você já vivenciou a experiência de abrir os comentários? É uma pergunta direta ao leitor, com você. Isso é interlocução, uma marca de pessoalidade, aceita no artigo e evitada na dissertação. O autor também usa definição conceitual, analogia com o trânsito e o futebol, e a ética de Aristóteles."
     },
     {
       "tipo": "comparacao",
@@ -92,11 +139,47 @@
       "fala": "A apostila compara o artigo com o editorial, e essa diferença aparece nas questões. O artigo é assinado e traz a opinião de uma pessoa. O editorial não é assinado, porque traz a posição do jornal como instituição, e usa linguagem formal e impessoal."
     },
     {
+      "tipo": "comparacao",
+      "capitulo": "Artigo de opinião",
+      "titulo": "Artigo x dissertação",
+      "colunas": [
+        {
+          "titulo": "Artigo de opinião",
+          "itens": [
+            "Autor **identificado**",
+            "Admite **primeira pessoa**",
+            "Pode falar com o **leitor**"
+          ]
+        },
+        {
+          "titulo": "Dissertação",
+          "itens": [
+            "Sem **assinatura**",
+            "**Impessoal**, sem você",
+            "Tema com **recorte** e coletânea"
+          ]
+        }
+      ],
+      "fala": "Agora, artigo e dissertação. O artigo tem autor identificado, admite a primeira pessoa e pode conversar com o leitor. O tema e o tamanho são livres. A dissertação não tem assinatura no corpo do texto e é impessoal, sem você e sem perguntas ao leitor. O tema vem da proposta, com recorte, coletânea e limite de linhas. Em comum, os dois defendem uma tese com argumentos, em norma-padrão."
+    },
+    {
       "tipo": "capitulo",
       "capitulo": "3",
       "titulo": "Dissertação argumentativa",
       "subtitulo": "Vale cinco pontos",
       "fala": "Terceiro tema, o mais valioso: a dissertação argumentativa. É a redação da prova, que vale cinco pontos."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Dissertação",
+      "titulo": "Tese, recorte e coletânea",
+      "itens": [
+        "**Tese**: sua posição sobre o tema",
+        "Fugir do **recorte** derruba a nota",
+        "**Coletânea**: usar é obrigatório, copiar não",
+        "Limite de **trinta linhas**"
+      ],
+      "fala": "Três cuidados antes de escrever. A tese é a sua posição sobre o tema. Se o tema é o uso de celulares nas escolas, uma tese é: a proibição não basta, é preciso educar para o uso. Sem tese, o texto vira exposição, e não argumentação. Discuta exatamente o que a proposta pede: fugir do recorte derruba a nota. Usar a coletânea é obrigatório, mas sem copiar: reescreva com suas palavras e acrescente conhecimento próprio. E planeje para caber em trinta linhas."
     },
     {
       "tipo": "topicos",
@@ -109,6 +192,32 @@
         "Parágrafo: **tópico frasal**, desenvolvimento, desfecho"
       ],
       "fala": "A dissertação defende uma tese, em norma-padrão e com linguagem impessoal. A introdução apresenta o tema e a tese. O desenvolvimento traz os argumentos, um por parágrafo, e é a parte mais importante. A conclusão retoma a tese e pode propor uma solução. Cada parágrafo começa com o tópico frasal, a ideia central, depois vêm os dados e exemplos, e por fim um desfecho opcional."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Dissertação",
+      "titulo": "Tipos de argumento",
+      "itens": [
+        "**Autoridade**: especialista ou instituição",
+        "**Dados**: números e pesquisas",
+        "**Causa e consequência**, comparação, exemplo",
+        "**Contra-argumentação**: admite e refuta"
+      ],
+      "fala": "Para o desenvolvimento, varie os argumentos. Autoridade cita um especialista, uma instituição ou um pensador, e dá credibilidade. Dados e pesquisas comprovam com números. Causa e consequência mostram por que o problema existe e o que ele provoca. A comparação aproxima a situação de outro país ou de outra época, e o exemplo ilustra com um caso concreto. E a contra-argumentação reconhece um argumento contrário para derrubá-lo."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "\"Embora a proibição reduza distrações, ela não ensina o uso responsável.\" O autor:",
+      "alternativas": [
+        "usa argumento de autoridade",
+        "apresenta dados",
+        "abandona a tese",
+        "reconhece um argumento contrário e o refuta"
+      ],
+      "certa": "d",
+      "explicacao": "Contra-argumentação: \"embora\" admite a ideia contrária e a oração principal a refuta.",
+      "fala": "Pergunta. Embora a proibição reduza distrações, ela não ensina o uso responsável. O que o autor faz nesse período?",
+      "falaResposta": "Ele reconhece um argumento contrário e o refuta. É a contra-argumentação: embora admite a ideia do outro lado, e a oração principal derruba essa ideia."
     },
     {
       "tipo": "comparacao",
@@ -135,25 +244,23 @@
       "fala": "Segundo a apostila, a dissertação se parece muito com o editorial: os dois argumentam, são impessoais e seguem a norma-padrão. A diferença: na dissertação há limite de trinta linhas, um recorte temático definido e o uso obrigatório das informações da coletânea. Use a coletânea, mas sem copiar: reescreva com suas palavras."
     },
     {
-      "tipo": "pergunta",
-      "pergunta": "\"Embora a proibição reduza distrações, ela não ensina o uso responsável.\" O autor:",
-      "alternativas": [
-        "usa argumento de autoridade",
-        "apresenta dados",
-        "abandona a tese",
-        "reconhece um argumento contrário e o refuta"
+      "tipo": "topicos",
+      "capitulo": "Dissertação",
+      "titulo": "Antes de entregar",
+      "itens": [
+        "**Planeje**: tese, dois argumentos, conclusão",
+        "Um argumento por parágrafo, com **tópico frasal**",
+        "**Conectivos** entre os parágrafos",
+        "Sem **eu acho**, sem você"
       ],
-      "certa": "d",
-      "explicacao": "Contra-argumentação: \"embora\" admite a ideia contrária e a oração principal a refuta.",
-      "fala": "Pergunta. Embora a proibição reduza distrações, ela não ensina o uso responsável. O que o autor faz nesse período?",
-      "falaResposta": "Ele reconhece um argumento contrário e o refuta. É a contra-argumentação: embora admite a ideia do outro lado, e a oração principal derruba essa ideia."
+      "fala": "Antes de entregar a redação, confira. Planeje antes de escrever: tema, tese, dois argumentos e a conclusão. A tese aparece na introdução e volta na conclusão. Um argumento por parágrafo, cada um com o seu tópico frasal. Conectivos ligando os parágrafos, como além disso, no entanto e portanto. E texto impessoal, sem eu acho e sem você. Cuidado também com haver, fazer e o se, que aparecem daqui a pouco."
     },
     {
       "tipo": "capitulo",
       "capitulo": "4",
       "titulo": "Complemento nominal",
       "subtitulo": "Completa o sentido de um nome",
-      "fala": "Quarto tema: complemento nominal."
+      "fala": "Quarto tema: complemento nominal, do Self-Study três."
     },
     {
       "tipo": "topicos",
@@ -165,7 +272,7 @@
         "Liga-se a **substantivo abstrato, adjetivo ou advérbio**",
         "Com substantivo, é o **alvo** da ação"
       ],
-      "fala": "O complemento nominal completa o sentido de um nome que, sozinho, fica incompleto. Quem é confiante é confiante em algo. Ele sempre tem preposição. Liga-se a três classes: substantivo abstrato, adjetivo ou advérbio. E, quando se liga a um substantivo, é o alvo da ação, quem a sofre."
+      "fala": "O complemento nominal completa o sentido de um nome que, sozinho, fica incompleto. Quem é confiante é confiante em algo. Quem é alérgico é alérgico a algo. Ele sempre tem preposição: a, de, em, com, por, contra. Liga-se a três classes: substantivo abstrato, adjetivo ou advérbio. E, quando se liga a um substantivo, é o alvo da ação, quem a sofre."
     },
     {
       "tipo": "frase",
@@ -174,6 +281,41 @@
       "frase": "Fiquei orgulhoso **do meu pai**.",
       "rotulo": "Complemento nominal do adjetivo \"orgulhoso\"",
       "fala": "Fiquei orgulhoso do meu pai. Do meu pai completa o adjetivo orgulhoso: quem é orgulhoso é orgulhoso de algo. Como completa um adjetivo, é complemento nominal. Na resposta dissertativa, justifique sempre pela classe da palavra completada."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Complemento nominal",
+      "titulo": "Com advérbio também",
+      "itens": [
+        "Contrariamente **à proposta**",
+        "Na frente **da minha garagem**",
+        "Longe **dos olhos**, dentro **do meu coração**"
+      ],
+      "fala": "O complemento nominal também completa advérbios, e a prova gosta disso. Todos se posicionaram contrariamente à proposta: à proposta completa o advérbio contrariamente. Não pare na frente da minha garagem: da minha garagem completa a locução na frente. E na música Nuvem de Lágrimas, em longe dos olhos e dentro do meu coração, os termos completam os advérbios longe e dentro. São complementos nominais."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Complemento nominal",
+      "titulo": "CN x objeto indireto",
+      "colunas": [
+        {
+          "titulo": "Complemento nominal",
+          "itens": [
+            "Completa um **nome**",
+            "Confiante **na vitória**",
+            "Tenho **confiança** na vitória"
+          ]
+        },
+        {
+          "titulo": "Objeto indireto",
+          "itens": [
+            "Completa um **verbo**",
+            "Cedeu **aos caprichos**",
+            "**Confio** na vitória"
+          ]
+        }
+      ],
+      "fala": "Cuidado com o objeto indireto, que também tem preposição. A diferença é o que o termo completa. O complemento nominal completa um nome: estava confiante na vitória. Tenho confiança na vitória. O objeto indireto completa um verbo: cedeu aos caprichos infantis. O truque é trocar o nome pelo verbo da mesma família. Confio na vitória: agora o termo completa um verbo, e virou objeto indireto."
     },
     {
       "tipo": "capitulo",
@@ -192,6 +334,18 @@
         "Artigo, adjetivo, numeral, pronome ou **locução adjetiva**"
       ],
       "fala": "O adjunto adnominal caracteriza um substantivo: qualidade, posse, origem, matéria, quantidade. Liga-se só a substantivo e faz parte do sintagma dele. Pode ser artigo, adjetivo, locução adjetiva, numeral ou pronome. Em os nossos três melhores professores de astronomia, há cinco adjuntos de professores."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Adjunto x Complemento",
+      "titulo": "CN ou AA? Siga a ordem",
+      "itens": [
+        "**Sem preposição**: adjunto",
+        "Ligado a **adjetivo** ou advérbio: complemento",
+        "Substantivo **concreto**: adjunto",
+        "Substantivo de **ação**: pratica ou sofre?"
+      ],
+      "fala": "Para não confundir com o complemento nominal, siga a ordem. Primeiro: não tem preposição? É adjunto, porque complemento sempre tem. Segundo: está ligado a adjetivo ou advérbio? É complemento, porque o adjunto só se liga a substantivo. Terceiro: o substantivo é concreto? É adjunto, como casa de pedra e ponte de madeira. Quarto: se o substantivo é abstrato e indica ação, como crítica, venda ou medo, pergunte se o termo pratica ou sofre a ação."
     },
     {
       "tipo": "comparacao",
@@ -236,19 +390,81 @@
       "capitulo": "6",
       "titulo": "Concordância verbal",
       "subtitulo": "Self-studies 5 e 6",
-      "fala": "Sexto tema: concordância verbal."
+      "fala": "Sexto tema: concordância verbal, com as regras práticas dos Self-Studies cinco e seis."
     },
     {
       "tipo": "topicos",
       "capitulo": "Concordância verbal",
-      "titulo": "Regras que caem",
+      "titulo": "Sujeito composto",
       "itens": [
-        "Sujeito composto **depois** do verbo: plural ou o mais próximo",
-        "**Que**: verbo concorda com o antecedente",
-        "**Haver** (existir) e **fazer** (tempo): singular",
-        "Porcentagem: numeral ou substantivo"
+        "**Antes** do verbo: só plural",
+        "**Depois** do verbo: plural ou o mais próximo",
+        "Com ou e **exclusão**: singular",
+        "Com ou e **inclusão**: plural"
       ],
-      "fala": "Sujeito composto antes do verbo: plural. Depois do verbo: plural ou concordância com o núcleo mais próximo. Chegaram o diretor e a secretária, ou chegou o diretor e a secretária. Com o pronome relativo que, o verbo concorda com o antecedente: fui eu que relatei. Haver no sentido de existir e fazer indicando tempo ficam no singular: houve problemas, faz dois anos, deve haver soluções."
+      "fala": "Comece pelo sujeito composto. Antes do verbo, só plural: o professor e os alunos chegaram. Depois do verbo, há duas opções. Plural, somando os núcleos: chegaram o diretor e a secretária. Ou concordância com o núcleo mais próximo: chegou o diretor e a secretária. Quando os núcleos são ligados por ou, veja o sentido. Se há exclusão, singular: vencerá o campeonato Pedro ou Paulo, porque só um pode ser campeão. Se há inclusão, plural: serão atendidos João ou Maria."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Concordância verbal",
+      "titulo": "Que, quem e um dos que",
+      "itens": [
+        "Com que: concorda com o **antecedente**",
+        "Com quem: **terceira pessoa** ou antecedente",
+        "É que: **realce**, não varia",
+        "Um dos que: **plural**, em geral"
+      ],
+      "fala": "Agora os pronomes relativos. Com que, o verbo concorda obrigatoriamente com o antecedente: fui eu que relatei, foram eles que relataram. Com quem, há duas opções: a terceira pessoa do singular, fui eu quem relatou, ou a concordância com o antecedente, fui eu quem relatei. A expressão é que serve de realce e não varia. O verbo concorda com o sujeito: eu é que errei. E com um dos que, a regra geral é o plural: Pedro é um dos que mais reclamaram. O singular só aparece para realçar o indivíduo."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Concordância verbal",
+      "titulo": "Porcentagem e partes",
+      "itens": [
+        "**Porcentagem**: numeral ou substantivo",
+        "**Parte de**, a maioria de: núcleo ou substantivo",
+        "**Mais de** + numeral: o substantivo",
+        "Duas opções: a escolha **realça** algo"
+      ],
+      "fala": "Porcentagem. O verbo concorda com o numeral ou com o substantivo: trinta e um por cento da população participou, ou participaram. Sem substantivo, só com o numeral. Com parte de, a maioria de, metade de e um grupo de, o verbo concorda com o núcleo da expressão ou com o substantivo: parte dos produtos foi devolvida, ou foram devolvidos. Já mais de, menos de e cerca de, seguidos de numeral, concordam com o substantivo: mais de duzentas pessoas foram flagradas. Quando há duas opções, a escolha realça uma parte. Um grupo de moradores saqueou realça o conjunto. Saquearam realça os indivíduos."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Concordância verbal",
+      "titulo": "O verbo ser",
+      "itens": [
+        "**Horas** e distância: com o numeral",
+        "**Datas**: numeral ou a ideia de dia",
+        "É **pouco**, é suficiente: singular",
+        "Termo no plural ou de **pessoa** puxa o verbo"
+      ],
+      "fala": "O verbo ser. Com horas e distância, concorda com o numeral: é uma hora, são duas horas, são seis quilômetros. Nas datas, vale o numeral ou a ideia de dia: hoje são vinte e sete de setembro, ou hoje é vinte e sete de setembro. É pouco, é suficiente e é bastante ficam no singular: dois mil reais é bastante. Entre sujeito e predicativo, se um deles está no plural, o verbo vai para o plural: sua vida são os sonhos. Se um deles indica pessoa, o verbo concorda com ele: o maior problema são meus vizinhos. E com pronome pessoal, concorda sempre com o pronome: os mais interessados somos nós."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Qual frase está de acordo com a norma-padrão?",
+      "alternativas": [
+        "Mais de duzentas pessoas foi flagrada.",
+        "Parte dos produtos foram devolvidos.",
+        "Fui eu que relatou o caso todo.",
+        "Já é dez horas da manhã."
+      ],
+      "certa": "b",
+      "explicacao": "Com \"parte de\", o verbo concorda com o núcleo ou com o substantivo: foi devolvida ou foram devolvidos.",
+      "fala": "Pergunta. Qual frase está de acordo com a norma-padrão?",
+      "falaResposta": "Parte dos produtos foram devolvidos. Com parte de, o verbo pode concordar com o substantivo. As outras erram: mais de duzentas pessoas foram flagradas, fui eu que relatei, e já são dez horas."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Concordância verbal",
+      "titulo": "Haver e fazer",
+      "itens": [
+        "**Haver** (existir ou tempo): singular",
+        "**Fazer** (tempo): singular",
+        "Em **locução**, o verbo da frente também",
+        "Haver **auxiliar** varia: os alunos haviam feito"
+      ],
+      "fala": "Por fim, os verbos impessoais. Haver no sentido de existir ou de tempo passado fica na terceira pessoa do singular: houve muitas sugestões, havia dois meses que não ia ao estádio. Fazer indicando tempo também: fazia meses que não chovia. Em locução, quando haver ou fazer é o verbo principal, o verbo que vem antes também fica no singular: deve haver muitas obras, ia fazer quarenta minutos. Mas, quando haver é auxiliar, ele varia: os alunos haviam feito a tarefa."
     },
     {
       "tipo": "pergunta",
@@ -276,19 +492,66 @@
       "capitulo": "Impessoalidade",
       "titulo": "O que é",
       "texto": "Impessoalidade é a **omissão do agente** da ação verbal.",
-      "fala": "Segundo a apostila, impessoalidade é a omissão do agente da ação verbal. Nos textos argumentativos, evita-se dizer eu acho que, porque assim a opinião parece uma verdade, e não o ponto de vista de alguém, que é mais fácil de refutar."
+      "fala": "Impessoalidade é a omissão do agente da ação verbal. Em outras palavras, o texto não mostra quem faz a ação, nem quem está dando a opinião. Em vez de eu acho que a lei é injusta, escreve-se a lei é injusta."
     },
     {
       "tipo": "topicos",
       "capitulo": "Impessoalidade",
-      "titulo": "Os recursos",
+      "titulo": "Por que usar",
       "itens": [
-        "**Escolha vocabular**: \"o presente texto\"",
-        "**Sujeito indeterminado**: precisa-se de, dizem que",
-        "**Passiva analítica** sem agente: foi criticado",
-        "**Passiva sintética**: discutem-se soluções"
+        "A opinião soa como **verdade**",
+        "Quem fez é **desconhecido** ou irrelevante",
+        "Jornal de grande circulação: **mais impessoal**",
+        "**Dissertação** exige; artigo, não"
       ],
-      "fala": "Os recursos da apostila. Escolha vocabular: em vez de eu, o presente texto ou este artigo. Sujeito indeterminado, com se e verbo no singular, como precisa-se de cozinheiro, ou com o verbo na terceira pessoa do plural sem sujeito, como dizem que. Voz passiva analítica sem o agente: o projeto foi criticado. E voz passiva sintética, que nunca tem agente: discutem-se soluções."
+      "fala": "Por que usar? Primeiro, porque a opinião sem dono soa como verdade, e não como o ponto de vista de alguém, que é mais fácil de refutar. Segundo, porque às vezes quem fez a ação é desconhecido ou irrelevante: hoje no Brasil muito se discute sobre as iniquidades de saúde. O grau depende do veículo. Jornais e revistas de grande circulação são mais impessoais, e blogs costumam ser menos. E na prova, atenção: a dissertação exige impessoalidade, mas o artigo de opinião pode usar a primeira pessoa."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Impessoalidade",
+      "titulo": "Recursos: o sujeito",
+      "itens": [
+        "**Escolha vocabular**: este artigo, o presente texto",
+        "Sujeito **indeterminado** com se: precisa-se de",
+        "**Terceira do plural** sem sujeito: dizem que"
+      ],
+      "fala": "Agora, os recursos. Três deles mexem no sujeito. A escolha vocabular troca o eu ou o nós por uma expressão que não é pessoa: o presente texto não pretende discutir, este artigo apresenta. O sujeito indeterminado com se usa verbo intransitivo, ou verbo com preposição, sempre no singular: precisa-se de cozinheiro, vive-se melhor. E a terceira pessoa do plural, sem sujeito expresso: dizem que os brasileiros são receptivos, propuseram alterações. O plural não quer dizer que foram várias pessoas."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Impessoalidade",
+      "titulo": "Da ativa à passiva",
+      "itens": [
+        "**Ativa**: o governo esperava a aprovação",
+        "**Analítica**: a aprovação era esperada pelo governo",
+        "**Sintética**: esperava-se a aprovação",
+        "Sem agente, **ninguém** aparece como responsável"
+      ],
+      "fala": "Os outros dois recursos usam a voz passiva. Veja a mesma ideia em três versões. Na ativa, o governo esperava a aprovação do projeto, e o agente aparece. Na passiva analítica, com ser mais particípio: a aprovação do projeto era esperada pelo governo. Basta cortar pelo governo para esconder o agente. Na passiva sintética, com se: esperava-se a aprovação do projeto. Essa nunca tem agente. Sem agente, ninguém aparece como responsável. Lembre: só há voz passiva com verbo transitivo direto."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Impessoalidade",
+      "titulo": "Na redação",
+      "colunas": [
+        {
+          "titulo": "Evite",
+          "itens": [
+            "**Eu acho**, na minha opinião",
+            "**Você** e perguntas ao leitor",
+            "Exclamações e **gírias**"
+          ]
+        },
+        {
+          "titulo": "Prefira",
+          "itens": [
+            "**É necessário** que",
+            "**Cabe** ao Estado",
+            "**Nominalização**: a aprovação da lei"
+          ]
+        }
+      ],
+      "fala": "Na prática da redação. Evite a primeira pessoa, principalmente eu acho e na minha opinião. Evite a interlocução, com você e perguntas ao leitor. E evite exclamações e gírias. No lugar, prefira expressões como é necessário que e cabe ao Estado. E use a nominalização: a aprovação da lei, em vez de aprovaram a lei."
     },
     {
       "tipo": "reescrita",
@@ -297,6 +560,14 @@
       "antes": "**Devemos**, agora, estudar o comportamento online de ódio.",
       "depois": "**Cabe**, agora, estudar o comportamento online de ódio.",
       "fala": "É assim que a prova cobra: um trecho do artigo de opinião para identificar a linguagem e reescrever de modo impessoal. Devemos, agora, estudar o comportamento online. Devemos é primeira pessoa do plural. Na versão impessoal: cabe, agora, estudar o comportamento online. Mesmo sentido, sem marcar quem fala."
+    },
+    {
+      "tipo": "reescrita",
+      "capitulo": "Impessoalidade",
+      "titulo": "Reescreva",
+      "antes": "Quantas vezes **você** já abriu os comentários e encontrou agressões?",
+      "depois": "**São frequentes** as experiências de abrir os comentários e encontrar agressões.",
+      "fala": "Mais um trecho do mesmo artigo. Quantas vezes você já abriu os comentários e encontrou agressões? Há duas marcas de pessoalidade: o você, que fala direto com o leitor, e a própria pergunta. Na versão impessoal, a pergunta vira afirmação e o leitor sai de cena: são frequentes as experiências de abrir os comentários e encontrar agressões."
     },
     {
       "tipo": "comparacao",
@@ -323,11 +594,61 @@
       "fala": "Cuidado com a concordância do se. Verbo sem preposição: o se é apassivador e o verbo concorda com o sujeito. Discutem-se soluções, porque soluções são discutidas. Verbo com preposição, como precisar de e tratar de: o se indetermina o sujeito e o verbo fica no singular. Precisa-se de soluções, trata-se de questões urgentes."
     },
     {
+      "tipo": "pergunta",
+      "pergunta": "Qual reescrita de “Eu acho que devemos rever a lei” é impessoal?",
+      "alternativas": [
+        "Na minha opinião, a lei deve ser revista.",
+        "Você precisa rever essa lei logo.",
+        "É necessário que a lei seja revista.",
+        "Acho que a lei deve ser revista."
+      ],
+      "certa": "c",
+      "explicacao": "Expressão impessoal e passiva sem agente: ninguém aparece como autor da opinião.",
+      "fala": "Pergunta. Qual reescrita de eu acho que devemos rever a lei é impessoal?",
+      "falaResposta": "É necessário que a lei seja revista. A expressão é necessário que e a passiva sem agente escondem quem opina. Na minha opinião e acho que são primeira pessoa, e você é interlocução."
+    },
+    {
       "tipo": "capitulo",
       "capitulo": "8",
       "titulo": "Coesão",
       "subtitulo": "Relações das conjunções",
-      "fala": "Último tema: coesão, as relações de sentido dos conectivos."
+      "fala": "Último tema: coesão. As conjunções ligam as ideias, e cada uma cria uma relação de sentido. A orientação traz doze relações, que você vai ver em três blocos."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Coesão",
+      "titulo": "As relações, bloco 1",
+      "itens": [
+        "**Adição**: e, nem, além disso",
+        "**Oposição**: mas, porém, contudo",
+        "**Explicação**: que, pois antes do verbo",
+        "**Conclusão**: logo, portanto, por isso"
+      ],
+      "fala": "Primeiro bloco. Adição soma ideias: e, nem, não só, mas também, além disso. Não só estudo como trabalho. Oposição contrasta: mas, porém, todavia, contudo, no entanto. O ladrão fugiu, mas foi preso. Explicação justifica: que, pois antes do verbo, porque. Saia, que o professor está pedindo. E conclusão tira uma dedução: logo, portanto, por isso, pois depois do verbo. Estudei muito, portanto estou preparada."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Coesão",
+      "titulo": "As relações, bloco 2",
+      "itens": [
+        "**Causa**: porque, como, já que",
+        "**Consequência**: tão... que, de modo que",
+        "**Concessão**: embora, ainda que",
+        "**Comparação**: como, mais do que, tão quanto"
+      ],
+      "fala": "Segundo bloco. Causa é o fato que provoca outro: porque, como no início da frase, uma vez que, já que, visto que. Como está chovendo, não vamos à praia. Consequência é o efeito: tão, tanto ou tal, seguidos de que, e de modo que. Está tão frio que a água congelou. Concessão admite um obstáculo: embora, ainda que, mesmo que, apesar de. Embora tenha estudado, não entendi a lição. E comparação: como, mais do que, tão quanto, assim como. Ele é tão fiel quanto o irmão."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Coesão",
+      "titulo": "As relações, bloco 3",
+      "itens": [
+        "**Condição**: se, caso, desde que",
+        "**Proporção**: à medida que, quanto mais",
+        "**Finalidade**: para que, a fim de que",
+        "**Tempo**: quando, logo que, enquanto"
+      ],
+      "fala": "Terceiro bloco. Condição: se, caso, desde que, contanto que, a menos que. Se você for à festa, pode me levar? Proporção: à proporção que, à medida que, quanto mais, mais. À medida que envelheço, descubro novidades. Finalidade: para que, a fim de que. Estude para que possa entender. E tempo: quando, logo que, assim que, enquanto. Quando cheguei, a casa já estava vazia. A apostila ainda traz alternância, com ou, ou, e conformidade, com conforme e segundo."
     },
     {
       "tipo": "comparacao",
@@ -337,32 +658,33 @@
         {
           "titulo": "Oposição",
           "itens": [
-            "**mas**, porém, contudo",
+            "Mas, **porém**, contudo",
             "A segunda ideia prevalece",
-            "Estudei, **mas** não passei"
+            "**Estudei**, mas não passei"
           ]
         },
         {
           "titulo": "Concessão",
           "itens": [
-            "**embora**, ainda que, mesmo que",
+            "**Embora**, ainda que, mesmo que",
             "Obstáculo que não impede",
-            "**Embora** tenha estudado..."
+            "**Embora tenha** estudado..."
           ]
         }
       ],
-      "fala": "O par que mais confunde é oposição e concessão. Mas, porém e contudo opõem duas ideias, e a segunda prevalece. Embora, ainda que e mesmo que admitem um obstáculo que não impede o fato principal, e pedem o subjuntivo: embora tenha estudado. Na troca de conectivos, só serve um da mesma relação."
+      "fala": "Agora os pares que mais confundem. Mas, porém e contudo opõem duas ideias, e a segunda ideia prevalece: estudei, mas não passei. Embora, ainda que e mesmo que admitem um obstáculo que não impede o fato principal: embora tenha estudado, não passei. Repare no subjuntivo depois de embora."
     },
     {
       "tipo": "topicos",
       "capitulo": "Coesão",
-      "titulo": "Mais três pegadinhas",
+      "titulo": "Mais pares que confundem",
       "itens": [
-        "**Pois** antes do verbo explica; depois, **conclui**",
-        "**Causa** provoca; **explicação** justifica",
+        "**Causa** provoca; explicação justifica",
+        "**Conclusão** deduz; consequência é efeito",
+        "**Pois** antes do verbo explica; depois, conclui",
         "**Como**: causa, comparação ou conformidade"
       ],
-      "fala": "Mais três pegadinhas. Pois antes do verbo é explicativo; depois do verbo, entre vírgulas, é conclusivo, como portanto. Causa é o fato que provoca outro; explicação justifica uma ordem ou opinião. E como pode ser causa, no começo da frase, comparação ou conformidade, no sentido de conforme."
+      "fala": "Mais pares. Causa é o fato que provoca outro: choveu porque havia muito calor. Explicação justifica uma ordem ou opinião, quase sempre depois de vírgula: saia, que o professor está pedindo. Conclusão é uma dedução de quem fala: estudou, logo está pronta. Consequência é o efeito de algo intenso: estudou tanto que passou em primeiro. Pois antes do verbo explica; depois do verbo, entre vírgulas, conclui. E como tem vários sentidos. Causa: como choveu, ficamos. Comparação: corre como um atleta. Conformidade: como lhe disse, nada mudou."
     },
     {
       "tipo": "pergunta",
@@ -377,6 +699,32 @@
       "explicacao": "Depois do verbo, entre vírgulas, \"pois\" é conclusivo: equivale a \"portanto\".",
       "fala": "Última pergunta. Estudei muito; estou, pois, preparada. Que relação o pois exprime?",
       "falaResposta": "Conclusão. Pois depois do verbo, entre vírgulas, equivale a portanto. Se viesse antes do verbo, seria explicação."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Coesão",
+      "titulo": "Como cai na prova",
+      "itens": [
+        "**Trocar** o conectivo sem mudar o sentido",
+        "Mas troca por **porém**, contudo, no entanto",
+        "Embora troca por **ainda que**, mesmo que",
+        "Confira o **modo verbal**: embora pede subjuntivo"
+      ],
+      "fala": "Como isso cai na prova: trocar um conectivo por outro, mantendo o sentido. Só serve um da mesma relação. Mas troca por porém, contudo ou no entanto. Embora troca por ainda que ou mesmo que. E confira o modo verbal: embora pede subjuntivo, e mas não."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "“Embora tenha estudado, não passei.” Qual conectivo substitui “embora” sem mudar o sentido?",
+      "alternativas": [
+        "porque",
+        "ainda que",
+        "portanto",
+        "desde que"
+      ],
+      "certa": "b",
+      "explicacao": "Concessão por concessão: “ainda que” também pede subjuntivo.",
+      "fala": "Pergunta. Embora tenha estudado, não passei. Qual conectivo substitui embora sem mudar o sentido?",
+      "falaResposta": "Ainda que. Os dois são concessivos e pedem subjuntivo: ainda que tenha estudado, não passei. As outras não servem. Porque indica causa, portanto indica conclusão, e desde que indica condição."
     },
     {
       "tipo": "fim",

@@ -13,6 +13,12 @@ Uso (na pasta ferramentas/video):
 
 Instala sozinho, na primeira vez, o Kokoro (pip) ou o Piper (.venv/) e
 baixa a voz em vozes/ (as duas pastas ficam fora do git).
+
+Voz clonada (Chatterbox Multilingual, GPU NVIDIA): NARRADOR=chatterbox,
+rodando com um Python que já tenha chatterbox-tts e PyTorch CUDA. A voz de
+referência fica em vozes/minha-voz.wav (mono 24 kHz, fora do git; outra
+com VOZ_REF=...). SEMENTE=n muda a tomada de uma fala que saiu ruim.
+  NARRADOR=chatterbox <python-do-venv> narrar.py roteiros/<pagina>.json
 """
 import json, os, re, subprocess, sys, urllib.request
 
@@ -26,10 +32,21 @@ NARRADOR = os.environ.get('NARRADOR', 'kokoro')
 VOZ_KOKORO = 'pm_alex'
 URL_KOKORO = 'https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/'
 _kokoro = None
+VOZ_REF = os.environ.get('VOZ_REF', os.path.join(DIR_VOZES, 'minha-voz.wav'))
+SEMENTE = int(os.environ.get('SEMENTE', '7'))
+_chatterbox = None
 
 
 def preparar():
     os.makedirs(DIR_VOZES, exist_ok=True)
+    if NARRADOR == 'chatterbox':
+        try:
+            import chatterbox.mtl_tts  # noqa: F401
+        except ImportError:
+            sys.exit('NARRADOR=chatterbox precisa de um Python com chatterbox-tts e PyTorch CUDA.')
+        if not os.path.exists(VOZ_REF):
+            sys.exit(f'Falta a voz de referência: {VOZ_REF}')
+        return
     if NARRADOR == 'kokoro':
         try:
             import kokoro_onnx  # noqa: F401
@@ -62,7 +79,34 @@ def limpar(texto):
     return re.sub(r'\s+', ' ', texto).strip()
 
 
+def falar_chatterbox(texto, saida):
+    # A voz clonada respira melhor com frases curtas: ":" e ";" viram ponto,
+    # sem aspas, e cada frase é gerada à parte e emendada com uma pausa.
+    global _chatterbox
+    import numpy as np, torch, wave
+    if _chatterbox is None:
+        from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+        _chatterbox = ChatterboxMultilingualTTS.from_pretrained(device='cuda')
+        _chatterbox.prepare_conditionals(VOZ_REF, exaggeration=0.5)
+    t = re.sub(r'\s*[:;]\s*', '. ', limpar(texto))
+    t = re.sub(r'["“”‘’]', '', t)
+    t = re.sub(r'\.\s+(\w)', lambda m: '. ' + m.group(1).upper(), t)
+    sr = _chatterbox.sr
+    partes = []
+    for i, frase in enumerate(f for f in re.split(r'(?<=[.!?])\s+', t) if f):
+        torch.manual_seed(SEMENTE + i)
+        w = _chatterbox.generate(frase, language_id='pt', exaggeration=0.5, cfg_weight=0.5, temperature=0.8)
+        partes += [w.squeeze(0).cpu().numpy(), np.zeros(int(sr * 0.28), dtype=np.float32)]
+    amostras = np.concatenate(partes[:-1])
+    amostras *= 0.89 / max(1e-6, float(np.abs(amostras).max()))  # pico em -1 dB
+    with wave.open(saida, 'wb') as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+        w.writeframes((np.clip(amostras, -1, 1) * 32000).astype('<i2').tobytes())
+
+
 def falar(texto, saida):
+    if NARRADOR == 'chatterbox':
+        return falar_chatterbox(texto, saida)
     if NARRADOR == 'kokoro':
         global _kokoro
         import numpy as np, wave
