@@ -50,8 +50,8 @@ var MATERIAS = [
   // 3º trimestre
   { tri: 3, id: 'historia-3tri',          materia: 'historia',   icone: '🏛️', nome: 'História',   desc: '1830/1848 · Ideologias · Itália · Alemanha · Comuna · EUA · com vídeos', status: 'prova' },
   { tri: 3, id: 'filosofia-3tri',         materia: 'filosofia',  imagem: 'pensador.png', nome: 'Filosofia', desc: 'Demócrito · Platão · Aristóteles · Byung-Chul Han · Hegel · com vídeo', status: 'prova' },
-  { tri: 3, id: 'portugues-3tri',         materia: 'portugues',  icone: '📖', nome: 'Português',  desc: 'Artigo de Opinião · Dissertação · Complemento Nominal · Adjunto Adnominal · Concordância Verbal · Impessoalidade · Coesão', status: 'prova' },
+  { tri: 3, id: 'portugues-3tri',         materia: 'portugues',  icone: '📖', nome: 'Português',  desc: 'Artigo de Opinião · Dissertação · Complemento Nominal · Adjunto Adnominal · Concordância Verbal · Impessoalidade · Coesão · com vídeo', status: 'prova' },
   { tri: 3, id: 'sociologia-3tri',        materia: 'sociologia', icone: '🏙️', nome: 'Sociologia', desc: 'História da Antropologia · Cultura Popular, Erudita e Contracultura · Indústria Cultural', status: 'prova' },
-  { tri: 3, id: 'literatura-3tri',        materia: 'portugues',  icone: '📚', nome: 'Literatura', desc: 'Parnasianismo · Simbolismo · Pré-modernismo · Vanguardas · Canção para ninar menino grande · Fernando Pessoa', status: 'prova' },
+  { tri: 3, id: 'literatura-3tri',        materia: 'portugues',  icone: '📚', nome: 'Literatura', desc: 'Parnasianismo · Simbolismo · Pré-modernismo · Vanguardas · Canção para ninar menino grande · Fernando Pessoa · com vídeo', status: 'prova' },
   { tri: 3, id: 'semana-inter',           materia: 'biologia',   icone: '🌊', nome: 'Semana Inter', desc: 'Física · Biologia · Química · Estudos de Caso 1 a 4 (1 questão em cada prova)', status: 'prova' },
 ];
