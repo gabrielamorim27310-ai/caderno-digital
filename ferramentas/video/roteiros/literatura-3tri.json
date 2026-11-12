@@ -3,7 +3,14 @@
   "materia": "portugues",
   "paleta": "literatura",
   "titulo": "Literatura · 3º tri",
-  "capitulos": ["Parnasianismo", "Simbolismo", "Pré-modernismo", "Vanguardas", "Canção p/ ninar", "Fernando Pessoa"],
+  "capitulos": [
+    "Parnasianismo",
+    "Simbolismo",
+    "Pré-modernismo",
+    "Vanguardas",
+    "Canção p/ ninar",
+    "Fernando Pessoa"
+  ],
   "cenas": [
     {
       "tipo": "capa",
@@ -13,143 +20,289 @@
       "fala": "Revisão de Literatura para a prova trimestral. São seis temas: Parnasianismo, Simbolismo, Pré-modernismo, as vanguardas europeias, o romance Canção para ninar menino grande e Fernando Pessoa. A prova tem dez testes e cinco questões escritas. Vamos lá."
     },
     {
-      "tipo": "capitulo", "capitulo": "1", "titulo": "Parnasianismo", "subtitulo": "A disciplina do bom gosto",
+      "tipo": "capitulo",
+      "capitulo": "1",
+      "titulo": "Parnasianismo",
+      "subtitulo": "A disciplina do bom gosto",
       "fala": "Primeiro tema: o Parnasianismo, que as anotações chamam de a disciplina do bom gosto."
     },
     {
-      "tipo": "topicos", "capitulo": "Parnasianismo", "titulo": "Arte pela arte",
-      "itens": ["Reação ao **sentimentalismo** romântico", "**Culto da forma**: soneto, métrica, rima rica", "Descrição **objetiva**, temas **clássicos**", "Forma acima do **conteúdo**"],
+      "tipo": "topicos",
+      "capitulo": "Parnasianismo",
+      "titulo": "Arte pela arte",
+      "itens": [
+        "Reação ao **sentimentalismo** romântico",
+        "**Culto da forma**: soneto, métrica, rima rica",
+        "Descrição **objetiva**, temas **clássicos**",
+        "Forma acima do **conteúdo**"
+      ],
       "fala": "O Parnasianismo chega ao Brasil por volta de mil oitocentos e oitenta, ao lado do Realismo, como reação ao sentimentalismo romântico. O lema é arte pela arte: o poema vale pela perfeição da forma. Por isso o culto da forma, com soneto, métrica regular e rima rica, que junta palavras de classes diferentes. A poesia é objetiva e descritiva, com temas da Antiguidade clássica. A forma, a deusa forma, importa mais que o conteúdo."
     },
     {
-      "tipo": "destaque", "capitulo": "Parnasianismo", "titulo": "Inania verba, Olavo Bilac",
+      "tipo": "destaque",
+      "capitulo": "Parnasianismo",
+      "titulo": "Inania verba, Olavo Bilac",
       "texto": "\"Ah! quem há de exprimir, alma impotente e escrava, o que a **boca não diz**, o que a mão não escreve?\"",
       "fala": "Olavo Bilac, o mais popular da tríade parnasiana, escreveu Inania verba, que quer dizer palavras inúteis. Ah, quem há de exprimir o que a boca não diz, o que a mão não escreve? O tema é a insuficiência da palavra: o pensamento e o sentimento são maiores do que a linguagem consegue dizer. É um poema metalinguístico."
     },
     {
-      "tipo": "capitulo", "capitulo": "2", "titulo": "Simbolismo", "subtitulo": "O desconhecido supera o real",
+      "tipo": "capitulo",
+      "capitulo": "2",
+      "titulo": "Simbolismo",
+      "subtitulo": "O desconhecido supera o real",
       "fala": "Segundo tema: o Simbolismo. Para ele, o desconhecido supera o real."
     },
     {
-      "tipo": "topicos", "capitulo": "Simbolismo", "titulo": "Sugerir, não descrever",
-      "itens": ["Reação ao **cientificismo** e à objetividade", "**Espiritualidade** e misticismo", "**Musicalidade**: aliteração e assonância", "**Sinestesia** e imagens vagas"],
+      "tipo": "topicos",
+      "capitulo": "Simbolismo",
+      "titulo": "Sugerir, não descrever",
+      "itens": [
+        "Reação ao **cientificismo** e à objetividade",
+        "**Espiritualidade** e misticismo",
+        "**Musicalidade**: aliteração e assonância",
+        "**Sinestesia** e imagens vagas"
+      ],
       "fala": "O Simbolismo chega ao Brasil em mil oitocentos e noventa e três, com Cruz e Sousa. Depois das crises na Europa, o artista não confia mais só na razão, e reage ao cientificismo e à objetividade parnasiana. Busca o espiritual, o místico, o que está além do real. Em vez de descrever, sugere: usa musicalidade, com aliteração e assonância, e sinestesia, a mistura de sentidos, com imagens vagas, névoas e a cor branca."
     },
     {
-      "tipo": "frase", "capitulo": "Simbolismo", "titulo": "Violões que choram, Cruz e Sousa",
-      "frase": "**Vozes veladas, veludosas vozes**, volúpias dos violões",
+      "tipo": "frase",
+      "capitulo": "Simbolismo",
+      "titulo": "Violões que choram, Cruz e Sousa",
+      "frase": "**Vozes veladas**, veludosas vozes, volúpias dos violões",
       "rotulo": "Aliteração em \"v\": musicalidade",
       "fala": "Vozes veladas, veludosas vozes, volúpias dos violões. A repetição do som vê sugere o som do violão. É aliteração, a marca mais forte da musicalidade simbolista."
     },
     {
-      "tipo": "comparacao", "capitulo": "Comparação", "titulo": "Parnasianismo x Simbolismo",
+      "tipo": "comparacao",
+      "capitulo": "Comparação",
+      "titulo": "Parnasianismo x Simbolismo",
       "colunas": [
-        { "titulo": "Parnasianismo", "itens": ["O **objeto**, o mundo exterior", "Linguagem **precisa**", "**Objetividade**"] },
-        { "titulo": "Simbolismo", "itens": ["O **eu**, o mundo espiritual", "Linguagem **vaga** e musical", "**Subjetividade**"] }
+        {
+          "titulo": "Parnasianismo",
+          "itens": [
+            "O **objeto**, o mundo exterior",
+            "Linguagem **precisa**",
+            "**Objetividade**"
+          ]
+        },
+        {
+          "titulo": "Simbolismo",
+          "itens": [
+            "O **eu**, o mundo espiritual",
+            "Linguagem **vaga** e musical",
+            "**Subjetividade**"
+          ]
+        }
       ],
       "fala": "Compare. O parnasiano olha para o objeto, o mundo exterior, com linguagem precisa e objetiva. O simbolista olha para o eu e para o mundo espiritual, com linguagem vaga, musical e subjetiva. Em comum, os dois cuidam muito da forma e usam o soneto."
     },
     {
       "tipo": "pergunta",
       "pergunta": "Rima rica, valorizada pelos parnasianos, ocorre entre palavras:",
-      "alternativas": ["de mesma classe gramatical", "de classes gramaticais diferentes", "de terminação rara na língua", "que repetem só a vogal tônica"],
+      "alternativas": [
+        "de mesma classe gramatical",
+        "de classes gramaticais diferentes",
+        "de terminação rara na língua",
+        "que repetem só a vogal tônica"
+      ],
       "certa": "b",
       "explicacao": "Rica: classes diferentes. Pobre: mesma classe. Rara: terminação incomum.",
       "fala": "Pergunta. Rima rica, valorizada pelos parnasianos, ocorre entre que tipo de palavras?",
       "falaResposta": "Entre palavras de classes gramaticais diferentes, como um substantivo e um adjetivo. Mesma classe é rima pobre, e terminação incomum é rima rara."
     },
     {
-      "tipo": "capitulo", "capitulo": "3", "titulo": "Pré-modernismo", "subtitulo": "De 1902 a 1922",
+      "tipo": "capitulo",
+      "capitulo": "3",
+      "titulo": "Pré-modernismo",
+      "subtitulo": "De 1902 a 1922",
       "fala": "Terceiro tema: o Pré-modernismo."
     },
     {
-      "tipo": "topicos", "capitulo": "Pré-modernismo", "titulo": "Um período, não uma escola",
-      "itens": ["De **1902** a **1922**", "Visão **crítica** do Brasil real", "Sertanejo, caipira, **subúrbio**", "Linguagem ainda **tradicional**"],
+      "tipo": "topicos",
+      "capitulo": "Pré-modernismo",
+      "titulo": "Um período, não uma escola",
+      "itens": [
+        "De **1902** a **1922**",
+        "Visão **crítica** do Brasil real",
+        "Sertanejo, caipira, **subúrbio**",
+        "Linguagem ainda **tradicional**"
+      ],
       "fala": "O Pré-modernismo não é uma escola, é um período de transição: vai de mil novecentos e dois, com Os sertões, até a Semana de Arte Moderna, em mil novecentos e vinte e dois. O que une os autores é a visão crítica do Brasil real, com quem estava à margem: o sertanejo, o caipira, o morador do subúrbio. Cuidado: a crítica é nova, mas a linguagem da maioria ainda é tradicional."
     },
     {
-      "tipo": "topicos", "capitulo": "Pré-modernismo", "titulo": "Os sertões, Euclides da Cunha",
-      "itens": ["Guerra de **Canudos**", "**A terra**, **O homem**, **A luta**", "**Determinismo**: meio e raça", "Termina **denunciando** o massacre"],
+      "tipo": "topicos",
+      "capitulo": "Pré-modernismo",
+      "titulo": "Os sertões, Euclides da Cunha",
+      "itens": [
+        "Guerra de **Canudos**",
+        "**A terra**, **O homem**, **A luta**",
+        "**Determinismo**: meio e raça",
+        "Termina **denunciando** o massacre"
+      ],
       "fala": "Os sertões conta a Guerra de Canudos, em que o exército da República destruiu a comunidade de Antônio Conselheiro, no sertão da Bahia. A obra tem três partes: a terra, o homem e a luta. Parte do determinismo, a ideia de que o homem é produto do meio e da raça, mas termina reconhecendo que Canudos foi um crime da República contra o sertanejo. Mistura história, sociologia e literatura."
     },
     {
-      "tipo": "comparacao", "capitulo": "Pré-modernismo", "titulo": "Lima Barreto e Monteiro Lobato",
+      "tipo": "comparacao",
+      "capitulo": "Pré-modernismo",
+      "titulo": "Lima Barreto e Monteiro Lobato",
       "colunas": [
-        { "titulo": "Policarpo Quaresma", "itens": ["Patriota **ingênuo**", "Tupi, sítio, **Floriano**", "Crítica ao **ufanismo**"] },
-        { "titulo": "Negrinha", "itens": ["Menina filha de **escravizada**", "A **boneca** e a morte", "Culpa da **escravidão**"] }
+        {
+          "titulo": "Policarpo Quaresma",
+          "itens": [
+            "Patriota **ingênuo**",
+            "Tupi, sítio, **Floriano**",
+            "Crítica ao **ufanismo**"
+          ]
+        },
+        {
+          "titulo": "Negrinha",
+          "itens": [
+            "Menina filha de **escravizada**",
+            "A **boneca** e a morte",
+            "Culpa da **escravidão**"
+          ]
+        }
       ],
       "fala": "Em Triste fim de Policarpo Quaresma, de Lima Barreto, o major é um patriota ingênuo. Propõe o tupi como língua oficial, tenta a agricultura no sítio e apoia Floriano Peixoto, até ser preso como traidor. É uma crítica ao nacionalismo ufanista. Em Negrinha, de Monteiro Lobato, a menina, filha de escravizada, é maltratada por dona Inácia. Ao brincar com uma boneca, percebe que nunca será tratada como gente, e morre. A culpa é da escravidão."
     },
     {
-      "tipo": "capitulo", "capitulo": "4", "titulo": "Vanguardas europeias", "subtitulo": "A guarda que vai na frente",
+      "tipo": "capitulo",
+      "capitulo": "4",
+      "titulo": "Vanguardas europeias",
+      "subtitulo": "A guarda que vai na frente",
       "fala": "Quarto tema: as vanguardas europeias."
     },
     {
-      "tipo": "topicos", "capitulo": "Vanguardas", "titulo": "Como reconhecer no texto",
-      "itens": ["**Futurismo**: máquina, velocidade, exaltação", "**Expressionismo**: angústia, deformação", "**Cubismo**: fragmentos justapostos com sentido", "**Dadaísmo**: caos sem sentido nenhum", "**Surrealismo**: o sonho no cotidiano"],
+      "tipo": "topicos",
+      "capitulo": "Vanguardas",
+      "titulo": "Como reconhecer no texto",
+      "itens": [
+        "**Futurismo**: máquina, velocidade, exaltação",
+        "**Expressionismo**: angústia, deformação",
+        "**Cubismo**: fragmentos justapostos com sentido",
+        "**Dadaísmo**: caos sem sentido nenhum",
+        "**Surrealismo**: o sonho no cotidiano"
+      ],
       "fala": "Cinco vanguardas, e como reconhecer cada uma. Futurismo: tom exaltado, máquinas, velocidade, pontuação emotiva. Expressionismo: um eu angustiado que deforma o que vê. Cubismo: fragmentos soltos, sem conectivos, mas que guardam relação de sentido. Dadaísmo: caos semântico absoluto, nenhuma linha faz sentido. Surrealismo: numa cena comum, surge algo impossível, como num sonho, mas o texto tem sentido."
     },
     {
-      "tipo": "destaque", "capitulo": "Vanguardas", "titulo": "Hípica, Oswald de Andrade",
+      "tipo": "destaque",
+      "capitulo": "Vanguardas",
+      "titulo": "Hípica, Oswald de Andrade",
       "texto": "Saltos records / Cavalos da Penha / Correm jóqueis de Higienópolis / Os magnatas / **As meninas**",
       "fala": "Hípica, de Oswald de Andrade. Saltos records, cavalos da Penha, correm jóqueis de Higienópolis, os magnatas, as meninas. Frases soltas, sem conectivos, que montam a cena do jóquei por pedaços, ao mesmo tempo. É cubista."
     },
     {
       "tipo": "pergunta",
       "pergunta": "Um coelho pede um cigarro ao narrador e vira girafa numa cena comum. A influência é do:",
-      "alternativas": ["Dadaísmo", "Cubismo", "Surrealismo", "Futurismo"],
+      "alternativas": [
+        "Dadaísmo",
+        "Cubismo",
+        "Surrealismo",
+        "Futurismo"
+      ],
       "certa": "c",
       "explicacao": "Episódio de sonho dentro do cotidiano, num texto que tem sentido: surrealismo.",
       "fala": "Pergunta. No conto Teleco, o coelhinho, de Murilo Rubião, um coelho pede um cigarro ao narrador e vira girafa, no meio de uma cena comum. Qual é a influência?",
       "falaResposta": "Surrealismo. Numa situação corriqueira, acontece algo próprio do sonho. E o texto tem sentido, por isso não é dadaísmo."
     },
     {
-      "tipo": "capitulo", "capitulo": "5", "titulo": "Canção para ninar menino grande", "subtitulo": "Conceição Evaristo",
+      "tipo": "capitulo",
+      "capitulo": "5",
+      "titulo": "Canção para ninar menino grande",
+      "subtitulo": "Conceição Evaristo",
       "fala": "Quinto tema: Canção para ninar menino grande, de Conceição Evaristo."
     },
     {
-      "tipo": "topicos", "capitulo": "Canção para ninar menino grande", "titulo": "A obra",
-      "itens": ["**Escrevivência**: escrita da vida coletiva", "**Menino grande**: o homem irresponsável", "Histórias ligadas só por **Fio Jasmim**", "Narradora amiga de **Tina**"],
+      "tipo": "topicos",
+      "capitulo": "Canção para ninar menino grande",
+      "titulo": "A obra",
+      "itens": [
+        "**Escrevivência**: escrita da vida coletiva",
+        "**Menino grande**: o homem irresponsável",
+        "Histórias ligadas só por **Fio Jasmim**",
+        "Narradora amiga de **Tina**"
+      ],
       "fala": "Escrevivência é o conceito da autora: a escrita nasce da vida vivida, de forma coletiva, retomando vozes silenciadas. O romance é polifônico, e no fim a narradora assina como Conceição Evaristo. Menino grande é o homem irresponsável, criado por uma educação machista. Cada capítulo conta a história de uma mulher, e o único vínculo entre elas é Fio Jasmim. Quem narra é uma amiga de Tina, que compôs a canção."
     },
     {
-      "tipo": "topicos", "capitulo": "Canção para ninar menino grande", "titulo": "Algumas das mulheres",
-      "itens": ["**Neide**: pede um filho", "**Angelina**: o falso noivo, na Páscoa", "**Antonieta**: mãe de Jasminzinho", "**Dolores**: as gêmeas Rubia e Safira"],
+      "tipo": "topicos",
+      "capitulo": "Canção para ninar menino grande",
+      "titulo": "Algumas das mulheres",
+      "itens": [
+        "**Neide**: pede um filho",
+        "**Angelina**: o falso noivo, na Páscoa",
+        "**Antonieta**: mãe de Jasminzinho",
+        "**Dolores**: as gêmeas Rubia e Safira"
+      ],
       "fala": "Algumas das mulheres. Neide pede um filho quando Jasmim diz que o trem não voltará. Angelina, enfermeira de trinta e três anos, espera um noivo; incentivado pelos maquinistas, Jasmim finge ser esse noivo, e ela se mata, como a mãe. Antonieta é a mãe de Jasminzinho. Dolores tem as gêmeas Rubia e Safira. E Dalva tem três filhos com ele."
     },
     {
-      "tipo": "destaque", "capitulo": "Canção para ninar menino grande", "titulo": "Cultura machista",
+      "tipo": "destaque",
+      "capitulo": "Canção para ninar menino grande",
+      "titulo": "Cultura machista",
       "texto": "\"Fio cresceu ouvindo as proezas do pai. Aprendera com ele que **ser homem era ter várias mulheres**.\"",
       "fala": "A cultura machista está em toda parte. Fio cresceu ouvindo as proezas do pai, e aprendeu que ser homem era ter várias mulheres. Os maquinistas aplaudem e incentivam. A mulher que se entrega é julgada, o homem não. E a mesma educação que o faz abusar também o oprime: ele aprendeu a engolir o choro."
     },
     {
-      "tipo": "capitulo", "capitulo": "6", "titulo": "Fernando Pessoa", "subtitulo": "Um poeta, vários poetas",
+      "tipo": "capitulo",
+      "capitulo": "6",
+      "titulo": "Fernando Pessoa",
+      "subtitulo": "Um poeta, vários poetas",
       "fala": "Último tema: Fernando Pessoa e os heterônimos."
     },
     {
-      "tipo": "comparacao", "capitulo": "Fernando Pessoa", "titulo": "Heterônimo x pseudônimo",
+      "tipo": "comparacao",
+      "capitulo": "Fernando Pessoa",
+      "titulo": "Heterônimo x pseudônimo",
       "colunas": [
-        { "titulo": "Pseudônimo", "itens": ["Outro **nome**", "**Mesmo** autor", "Mesmo estilo"] },
-        { "titulo": "Heterônimo", "itens": ["Outro **autor**", "Biografia **própria**", "Estilo e visão **próprios**"] }
+        {
+          "titulo": "Pseudônimo",
+          "itens": [
+            "Outro **nome**",
+            "**Mesmo** autor",
+            "Mesmo estilo"
+          ]
+        },
+        {
+          "titulo": "Heterônimo",
+          "itens": [
+            "Outro **autor**",
+            "Biografia **própria**",
+            "Estilo e visão **próprios**"
+          ]
+        }
       ],
       "fala": "Pseudônimo é só outro nome para o mesmo autor. Heterônimo é outro autor, inventado por Pessoa, com biografia, estilo e visão de mundo próprios. Quando assina com o próprio nome, ele é o ortônimo."
     },
     {
-      "tipo": "topicos", "capitulo": "Fernando Pessoa", "titulo": "Os três heterônimos",
-      "itens": ["**Caeiro**: natureza, sensações, linguagem simples", "**Reis**: clássico, sereno, odes a Lídia", "**Campos**: futurista e depois angustiado"],
+      "tipo": "topicos",
+      "capitulo": "Fernando Pessoa",
+      "titulo": "Os três heterônimos",
+      "itens": [
+        "**Caeiro**: natureza, sensações, linguagem simples",
+        "**Reis**: clássico, sereno, odes a Lídia",
+        "**Campos**: futurista e depois angustiado"
+      ],
       "fala": "Alberto Caeiro, o mestre, é o poeta da natureza e das sensações: só existe o que se vê, e pensar é estar doente dos olhos. Linguagem simples, versos livres. Ricardo Reis é o clássico: aproveita o momento com moderação, aceita o destino com serenidade e escreve odes a Lídia. Álvaro de Campos, o engenheiro, tem uma fase futurista, que exalta as máquinas, e uma fase intimista, de angústia, como em Tabacaria."
     },
     {
       "tipo": "pergunta",
       "pergunta": "\"Não sou nada. Nunca serei nada. Não posso querer ser nada.\" Os versos são de:",
-      "alternativas": ["Alberto Caeiro", "Ricardo Reis", "Álvaro de Campos, fase futurista", "Álvaro de Campos, fase intimista"],
+      "alternativas": [
+        "Alberto Caeiro",
+        "Ricardo Reis",
+        "Álvaro de Campos, fase futurista",
+        "Álvaro de Campos, fase intimista"
+      ],
       "certa": "d",
       "explicacao": "Angústia e sensação de nulidade: a fase intimista de Álvaro de Campos, em Tabacaria.",
       "fala": "Última pergunta. Não sou nada. Nunca serei nada. Não posso querer ser nada. De quem são esses versos?",
       "falaResposta": "De Álvaro de Campos, na fase intimista. É o poema Tabacaria, com a angústia e a sensação de nulidade dessa fase."
     },
     {
-      "tipo": "fim", "titulo": "Bons estudos!",
+      "tipo": "fim",
+      "titulo": "Bons estudos!",
       "texto": "Faça o treino e a prova-modelo do Moodle.",
       "fala": "É isso. Antes da prova, faça o treino para a trimestral e a prova-modelo do Moodle. O resumo completo, com as questões escritas e o quiz, está no Caderno Digital. Bons estudos, e boa prova."
     }
