@@ -15,7 +15,6 @@
     { "src": "hist-videos/**", "use": "@vercel/static" },
     { "src": "filo-videos/**", "use": "@vercel/static" },
     { "src": "port-videos/**", "use": "@vercel/static" },
-    { "src": "lit-videos/**", "use": "@vercel/static" },
     { "src": "qui-imgs/**",  "use": "@vercel/static" },
     { "src": "socio-imgs/**", "use": "@vercel/static" },
     { "src": "*.png",       "use": "@vercel/static" },
