@@ -38,7 +38,7 @@ function rich(t, cls = '') {
   const ids = [];
   const h = esc(t).replace(/\*\*(.+?)\*\*/g, (_, x) => {
     const id = 'hl' + (++hlN); ids.push(id);
-    return `<span class="hl ${cls}"><span class="hl-bg" id="${id}"></span><span class="hl-t">${x}</span></span>`;
+    return `<span class="hl ${cls}"><span class="hl-bg" id="${id}"></span><span class="hl-t" id="${id}t">${x}</span></span>`;
   });
   return { h, ids };
 }
@@ -84,7 +84,11 @@ for (const c of rot.cenas) {
   if (c.tipo === 'capitulo') { capAtual = c.titulo; capitulos.push({ t: T, n: c.capitulo, titulo: c.titulo }); }
   const at = x => r2(T + x);   // tempo absoluto
   const enter = (sel, x, de = { opacity: 0, y: 40 }, d = 0.55) => tw.push(`tl.fromTo(${JSON.stringify(sel)}, ${JSON.stringify(de)}, {opacity:1, x:0, y:0, scale:1, rotation:0, duration:${d}, ease:"power3.out"}, ${at(x)});`);
-  const marca = (ids, x) => ids.forEach((h, k) => tw.push(`tl.fromTo("#${h}", {scaleX:0}, {scaleX:1, duration:0.45, ease:"power2.inOut"}, ${at(x + 0.25 + k * 0.12)});`));
+  // o texto começa claro e escurece enquanto o marca-texto passa por baixo dele
+  const marca = (ids, x) => ids.forEach((h, k) => {
+    tw.push(`tl.fromTo("#${h}", {scaleX:0}, {scaleX:1, duration:0.45, ease:"power2.inOut"}, ${at(x + 0.25 + k * 0.12)});`);
+    tw.push(`tl.fromTo("#${h}t", {color:"#F6F3FA"}, {color:"#0D0A14", duration:0.3, ease:"none"}, ${at(x + 0.4 + k * 0.12)});`);
+  });
   const rotulo = c.capitulo && c.tipo !== 'capitulo' ? `<div class="eyebrow" id="${id}-eb">${esc(c.capitulo)}</div>` : '';
   let h = '';
 
@@ -249,7 +253,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
 .hl-bg{position:absolute;left:0;right:0;top:12%;bottom:6%;background:var(--a);transform-origin:left center;border-radius:6px;z-index:0}
 .hl-t{position:relative;z-index:1;color:#0D0A14;font-weight:800}
 .hl.risca .hl-bg{background:#F87171;top:46%;bottom:44%}
-.hl.risca .hl-t{color:var(--ink)}
+.hl.risca .hl-t{color:var(--ink)!important}
 .hl.novo .hl-bg{background:var(--ok)}
 .capa{position:absolute;left:150px;right:150px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center}
 .pill{align-self:flex-start;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:26px;letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--a);color:var(--a);padding:12px 22px;border-radius:999px;margin-bottom:40px}
