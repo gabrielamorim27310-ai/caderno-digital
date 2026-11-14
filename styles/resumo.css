@@ -34,6 +34,16 @@
 .resumo .answer-exp { display: none; align-items: flex-start; }
 .resumo :is(.btn-reset, .btn-reset-mid, .option-btn, .filter-btn) { font-family: var(--font); }
 
+/* Feedback das três famílias de quiz: escondido até responder */
+.resumo .quiz-q.hidden, .resumo .quiz.hidden { display: none; }
+.resumo .quiz-q .feedback, .resumo .q-feedback, .resumo .quiz-feedback { display: none; margin-top: var(--s-3); padding: var(--s-3); }
+.resumo .quiz-q .feedback:is(.correct, .wrong), .resumo .q-feedback:is(.correct, .wrong), .resumo .quiz-feedback.show { display: block; }
+.resumo .quiz-feedback { margin: 0; }
+.resumo .quiz-q[id] { display: block; }
+.resumo .quiz-q label { cursor: pointer; }
+.resumo .accordion-inner { overflow-x: auto; }
+.resumo .content-block ul { list-style: disc; }
+
 /* Chat Nêuron: estrutura (o visual está na parte B) */
 .resumo #chat-panel { display: none; }
 .resumo #chat-msgs { overflow-y: auto; display: flex; flex-direction: column; }
@@ -111,6 +121,11 @@ body.ios {
   --secondary: var(--tint);
   --accent: var(--tint);
   --shadow: var(--shadow-card);
+  --shadow-sm: var(--shadow-card); --shadow-md: var(--shadow-card); --shadow-lg: var(--shadow-card);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --soft: var(--bg-3);
+  --know: var(--green);
+  --bio: var(--biologia); --fis: var(--fisica); --qui: var(--quimica);
   --highlight-bg: var(--tint-bg);   --highlight-border: var(--tint);
   --warning-bg: var(--orange-bg);   --warning-border: var(--orange);
   --tip-bg: var(--green-bg);        --tip-border: var(--green);
@@ -645,27 +660,40 @@ body.ios {
 .resumo .hero .badge { font: 600 0.8125rem/1.35 var(--font) !important; padding: 6px 11px; border-radius: var(--r-md) !important; }
 .resumo .hero .author { font: 500 0.8125rem/1.35 var(--font) !important; padding: 6px 11px; border-radius: var(--r-pill) !important; margin-left: var(--s-1) !important; }
 
-/* ── 2. Divisórias de capítulo ── */
-.resumo .chapter { margin-top: calc(var(--s-12) + var(--s-4)); }
-.resumo .chapter:first-of-type { margin-top: var(--s-12); }
-.resumo .chapter-header {
-  position: relative;
-  padding-top: var(--s-4) !important;
-  border-top: 2px solid var(--tint) !important;
+/* ── 2. Divisórias de capítulo ──
+   As páginas têm quatro jeitos de abrir capítulo; todos viram a mesma
+   divisória: linha na cor da matéria com a etiqueta do capítulo como aba.
+   .chapter-header h2 > .ch-tag | h2 > .tag   ("Cap. 1", "Aula 6")
+   .chapter-header > .chapter-num | .chapter-number   ("1")
+   .section-header > .section-num   ("1", "▶") */
+.resumo :is(.chapter, .section) { margin-top: calc(var(--s-12) + var(--s-4)) !important; }
+.resumo :is(.chapter, .section):first-of-type { margin-top: var(--s-12) !important; }
+.resumo main > .chapter-header:not(:first-child) { margin-top: calc(var(--s-12) + var(--s-4)) !important; }
+.resumo :is(.chapter-header, .section-header) {
+  position: relative; display: block !important;
+  padding: var(--s-4) 0 0 !important;
+  border: 0 !important; border-top: 2px solid var(--tint) !important;
   margin-bottom: var(--s-4) !important;
+  background: none !important;
 }
-.resumo .chapter-header h2 {
+.resumo :is(.chapter-header, .section-header)::after { display: none !important; }
+.resumo :is(.chapter-header h2, .section-header .section-title) {
   font: 750 clamp(1.5rem, 1.25rem + 1vw, 1.875rem)/1.15 var(--font-display) !important;
-  letter-spacing: -0.018em; text-wrap: balance;
+  letter-spacing: -0.018em; text-wrap: balance; color: var(--label) !important;
+  display: block !important; margin: 0 !important;
 }
-/* a etiqueta "Cap. 1" vira a aba da divisória, presa em cima da linha */
-.resumo .chapter-header .ch-tag {
-  position: absolute; left: 0; top: -2px; transform: translateY(-100%);
-  padding: 6px 12px 5px !important; border-radius: var(--r-sm) var(--r-sm) 0 0 !important;
-  background: var(--tint-fill) !important; color: var(--on-tint) !important;
-  font: 700 0.75rem/1 var(--font) !important; letter-spacing: 0.02em; white-space: nowrap;
+/* a etiqueta do capítulo vira a aba da divisória, presa em cima da linha */
+.resumo :is(.chapter-header .ch-tag, .chapter-header h2 > .tag, .chapter-header > .chapter-num, .chapter-header > .chapter-number, .section-header > .section-num) {
+  position: absolute; left: 0; top: -2px; transform: translateY(-100%) !important;
+  display: inline-block !important; width: auto !important; height: auto !important; min-width: 0 !important;
+  padding: 6px 12px 5px !important; margin: 0 !important; border: 0 !important;
+  border-radius: var(--r-sm) var(--r-sm) 0 0 !important; box-shadow: none !important;
+  background: var(--tint-fill) !important; color: var(--on-tint) !important; filter: none !important;
+  font: 700 0.75rem/1 var(--font) !important; letter-spacing: 0.02em; white-space: nowrap; text-transform: none;
 }
-.resumo .chapter-header .meta { font: var(--t-subhead) !important; color: var(--label-2); margin-top: var(--s-2) !important; }
+.resumo :is(.chapter-header .meta, .chapter-header .cap-ref, .section-header .section-sub) {
+  display: block; font: var(--t-subhead) !important; color: var(--label-2) !important; margin: var(--s-2) 0 0 !important;
+}
 
 /* ── 3. Marca-texto nos termos em negrito: componente do ios.css (seção 11) ── */
 
