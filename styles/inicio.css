@@ -18,11 +18,9 @@
 .book { scroll-snap-align: start; text-decoration: none; color: var(--label); display: grid; gap: var(--s-2); }
 .book .cover { aspect-ratio: 3 / 4; border-radius: var(--r-sm) var(--r-md) var(--r-md) var(--r-sm); display: grid; place-items: center; font-size: 2.6rem; color: #fff; position: relative; overflow: hidden;
   background: linear-gradient(160deg, color-mix(in srgb, var(--c) 78%, #fff) 0%, var(--c) 55%, color-mix(in srgb, var(--c) 70%, #000) 100%);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16), inset 3px 0 0 rgba(255, 255, 255, 0.18); transition: transform var(--dur) var(--ease); }
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16), inset 3px 0 0 rgba(255, 255, 255, 0.18); }
 .book .cover img { width: 62%; height: 62%; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); }
 .book .cover .tri { position: absolute; left: var(--s-2); bottom: var(--s-2); font: 600 0.6875rem/1 var(--font); background: rgba(0, 0, 0, 0.32); padding: 4px 7px; border-radius: var(--r-pill); }
-.book:active .cover { transform: scale(0.97); }
-@media (hover: hover) { .book:hover .cover { transform: translateY(-2px); } }
 .book .t { font: var(--t-subhead); font-weight: 600; line-height: 1.25; }
 .book .s { font: var(--t-footnote); color: var(--label-2); margin-top: -4px; }
 
@@ -67,3 +65,20 @@
 #tri-seg > button[aria-selected="true"],
 :root[data-theme="dark"] #tri-seg > button[aria-selected="true"] { background: var(--tint-fill); color: var(--on-tint); box-shadow: none; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #tri-seg > button[aria-selected="true"] { background: var(--tint-fill); } }
+
+/* ── Estante em 3D ──
+   O livro gira pela lombada quando o mouse passa, como se fosse
+   puxado da estante; a luz corre pela capa. */
+.shelf { perspective: 900px; }
+.book .cover { transform-origin: left center; transition: transform var(--dur) var(--ease-pop), box-shadow var(--dur) ease; }
+.book .cover::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.22) 48%, transparent 62%);
+  transform: translateX(-60%); transition: transform 0.5s var(--ease-out);
+}
+@media (hover: hover) {
+  .book:hover .cover { transform: rotateY(-16deg) translateZ(6px); box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.2), inset 3px 0 0 rgba(255, 255, 255, 0.18); }
+  .book:hover .cover::after { transform: translateX(60%); }
+}
+.book:active .cover { transform: scale(0.96); transition-duration: var(--dur-press); }
+@media (prefers-reduced-motion: reduce) { .book .cover::after { display: none; } }

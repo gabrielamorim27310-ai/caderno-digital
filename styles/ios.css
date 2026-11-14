@@ -598,9 +598,51 @@ body.sheet-lock { overflow: hidden; }
 }
 
 /* ═══════════════════════════════════════════════════════════
+   12. MOVIMENTO
+   Regras da casa (dos princípios de UX e animação):
+   - Rápido: toque responde em ~100 ms, mudança de estado em até
+     250 ms; nada passa de 400 ms (limiar de Doherty).
+   - Entra rápido e assenta devagar (slow in / slow out); o que
+     "pula" usa --ease-pop, que passa um pouco do ponto e volta.
+   - O que se faz toda hora anima pouco; festa só no que é raro
+     (frequência de uso).
+   - Tudo some com "reduzir movimento" (seção 9).
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);   /* passa do ponto e volta */
+  --dur-press: 0.1s;                               /* resposta ao toque */
+}
+
+/* Troca de página sem piscar: a página nova entra por cima da antiga
+   e a barra lateral / tab bar ficam paradas (navegadores que suportam). */
+@view-transition { navigation: auto; }
+.sidebar { view-transition-name: cd-sidebar; }
+.tabbar { view-transition-name: cd-tabbar; }
+::view-transition-old(root) { animation: 120ms ease-out both cd-vt-sai; }
+::view-transition-new(root) { animation: 220ms var(--ease-out) both cd-vt-entra; }
+@keyframes cd-vt-sai { to { opacity: 0; } }
+@keyframes cd-vt-entra { from { opacity: 0; transform: translateY(6px); } }
+
+/* Apertar: o controle afunda um pouco (amassa) e volta com mola */
+.btn, .bar-btn, .segmented > button {
+  transition-property: background-color, color, box-shadow, opacity, transform;
+  transition-duration: var(--dur-fast), var(--dur-fast), var(--dur-fast), var(--dur-fast), var(--dur);
+  transition-timing-function: ease, ease, ease, ease, var(--ease-pop);
+}
+:is(.btn, .bar-btn, .segmented > button):active { transform: scale(0.95); transition-duration: var(--dur-press); }
+
+/* Alvos maiores no toque (lei de Fitts): o que é pequeno por fora
+   ganha área invisível até 44 px */
+@media (pointer: coarse) {
+  .bar-btn.glass { position: relative; }
+  .bar-btn.glass::after { content: ''; position: absolute; inset: -3px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
    9. REDUZIR MOVIMENTO
    ═══════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
   .ios *, .ios *::before, .ios *::after, .sheet, .sheet-scrim {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;

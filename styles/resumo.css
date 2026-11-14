@@ -196,7 +196,7 @@ body.ios {
 .ios .accordion.open .accordion-btn::after, .ios .accordion.open .accordion-btn > :is(.chev, .chevron, .icon)::before { transform: rotate(90deg); }
 /* conteúdo: sem limite de altura (o antigo max-height cortava textos longos) */
 .ios .accordion-content, .ios .accordion-body { max-height: none !important; display: none; overflow: visible; transition: none; padding: 0; background: none; }
-.ios .accordion.open .accordion-content, .ios .accordion.open .accordion-body { display: block; animation: cd-aparecer var(--dur) var(--ease-out); }
+.ios .accordion.open .accordion-content, .ios .accordion.open .accordion-body { display: block; }
 @keyframes cd-aparecer { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
 /* ── Texto corrido ── */
@@ -682,4 +682,74 @@ body.ios {
 
 @media (max-width: 480px) {
   .resumo .hero { padding-right: var(--s-4); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   D. MOVIMENTO DOS RESUMOS (regras gerais: ios.css, seção 12)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Acordeão ──
+   Antecipação: ao apertar, a seta recua antes de girar.
+   Pose a pose: o conteúdo se revela de cima para baixo.
+   Continuidade (follow through): os blocos de dentro chegam um
+   pouquinho depois, e a seta passa do ponto e assenta. */
+.ios .accordion-btn::after,
+.ios .accordion-btn > :is(.chev, .chevron, .icon)::before { transition: transform var(--dur) var(--ease-pop), background-color var(--dur-fast) ease; }
+.ios .accordion:not(.open) > .accordion-btn:active::after,
+.ios .accordion:not(.open) > .accordion-btn:active > :is(.chev, .chevron, .icon)::before { transform: rotate(-14deg); transition-duration: var(--dur-press); }
+.ios .accordion.open .accordion-content, .ios .accordion.open .accordion-body { animation: cd-revelar 260ms var(--ease-out) both; }
+@keyframes cd-revelar { from { clip-path: inset(0 0 100% 0); opacity: 0.4; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+.resumo .accordion.open .content-block > * { animation: cd-chegar 280ms var(--ease-out) both; }
+.resumo .accordion.open .content-block > :nth-child(2) { animation-delay: 30ms; }
+.resumo .accordion.open .content-block > :nth-child(3) { animation-delay: 60ms; }
+.resumo .accordion.open .content-block > :nth-child(4) { animation-delay: 90ms; }
+.resumo .accordion.open .content-block > :nth-child(n+5) { animation-delay: 120ms; }
+@keyframes cd-chegar { from { opacity: 0; transform: translateY(6px); } }
+
+/* Ação secundária: ao abrir, o marca-texto é passado da esquerda
+   para a direita, logo depois do texto aparecer */
+.resumo .content-block :is(p, li, td) > :is(strong, b) { background-repeat: no-repeat; background-size: 100% 100%; }
+.resumo .accordion.open .content-block :is(p, li, td) > :is(strong, b) { animation: cd-marcar 420ms var(--ease-out) 160ms both; }
+@keyframes cd-marcar { from { background-size: 0% 100%; } }
+
+/* ── Quiz ──
+   Amassar e esticar: a alternativa afunda ao toque e volta com mola. */
+.ios :is(.option-btn, .opt, .quiz-q[id] label, .filter-btn, .qf-btn, .btn-reset-mid, .btn-reset, .video-links a) {
+  transition: background-color var(--dur-fast) ease, box-shadow var(--dur-fast) ease, opacity var(--dur) ease, transform var(--dur) var(--ease-pop) !important;
+}
+.ios :is(.option-btn:not(:disabled), .opt:not(.disabled), .quiz-q[id] label):active { transform: scale(0.985, 0.95) !important; transition-duration: var(--dur-press) !important; }
+.ios :is(.filter-btn, .qf-btn, .btn-reset-mid, .btn-reset, .video-links a):active { transform: scale(0.94) !important; transition-duration: var(--dur-press) !important; }
+
+/* Feedback exagerado: errou, a alternativa balança; acertou, ela pula */
+.ios :is(.option-btn.wrong, .opt.wrong),
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).wrong) label:has(input:checked) { animation: cd-errou 360ms ease-out; }
+.ios :is(.option-btn.correct, .opt.correct, .opt.reveal-correct),
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).correct) label:has(input:checked) { animation: cd-acertou 340ms var(--ease-pop); }
+@keyframes cd-errou { 0%, 100% { transform: none; } 20% { transform: translateX(-7px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(2px); } }
+@keyframes cd-acertou { 0% { transform: scale(0.97); } 55% { transform: scale(1.025); } 100% { transform: none; } }
+
+/* Encenação: depois de responder, as alternativas que não importam
+   apagam e o olho vai direto para a certa (e para a marcada) */
+.ios .options:has(.option-btn:disabled) .option-btn:not(.correct, .wrong),
+.ios .quiz-opts:has(.opt.disabled) .opt:not(.correct, .wrong, .reveal-correct) { opacity: 0.45; }
+
+/* A explicação desliza para o lugar logo depois da resposta */
+.ios :is(.answer-exp, .quiz-feedback.show, .feedback.correct, .feedback.wrong, .q-feedback.correct, .q-feedback.wrong) { animation: cd-chegar 280ms var(--ease-out) 80ms both; }
+
+/* Placar pula quando muda (classe posta pelo app.js) */
+.ios .cd-pulou { animation: cd-pulo 360ms var(--ease-pop); }
+@keyframes cd-pulo { 40% { transform: scale(1.18); } }
+
+/* Frequência de uso: responder é toda hora (efeito curto);
+   terminar o quiz é raro, então o resultado ganha entrada maior */
+.resumo .quiz-result { animation: cd-resultado 520ms var(--ease-pop) both; }
+.resumo .quiz-result .donut-wrap { animation: cd-resultado 620ms var(--ease-pop) 120ms both; }
+@keyframes cd-resultado { from { opacity: 0; transform: translateY(12px) scale(0.94); } }
+
+/* Alvos maiores no toque (lei de Fitts): chips e botões pequenos
+   ganham área invisível até 44 px de altura */
+@media (pointer: coarse) {
+  .ios :is(.filter-btn, .qf-btn, .btn-reset-mid, .video-links a) { position: relative; }
+  .ios :is(.filter-btn, .qf-btn, .btn-reset-mid)::after { content: ''; position: absolute; inset: -5px -2px; }
+  .ios .video-links a::after { content: ''; position: absolute; inset: -4px -2px; }
 }

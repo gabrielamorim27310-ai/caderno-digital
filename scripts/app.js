@@ -407,8 +407,21 @@
     }
   }
 
+  // Placar do quiz "pula" quando muda (ação secundária da resposta).
+  // Só observa: cada página continua atualizando o placar do seu jeito.
+  function animarPlacar() {
+    if (!('MutationObserver' in window)) return;
+    document.querySelectorAll('#score-live, .score-live, #mini-pct, #score-nums').forEach(function (el) {
+      new MutationObserver(function () {
+        el.classList.remove('cd-pulou');
+        void el.offsetWidth; // reinicia a animação
+        el.classList.add('cd-pulou');
+      }).observe(el, { childList: true, characterData: true, subtree: true });
+    });
+  }
+
   function iniciar() {
-    if (document.body.classList.contains('resumo')) montarResumo();
+    if (document.body.classList.contains('resumo')) { montarResumo(); animarPlacar(); }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', iniciar);
   else iniciar();
