@@ -10,11 +10,12 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-11-12-literatura3';
+const VERSAO = 'cd-2026-11-14-biologia3';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
   'biologia-2tri.html',
+  'biologia-3tri.html',
   'filosofia-1tri.html',
   'filosofia-2tri.html',
   'filosofia-3tri.html',
