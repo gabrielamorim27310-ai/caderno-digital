@@ -476,7 +476,7 @@ body.ios {
 }
 .btn:active { opacity: 0.75; transform: scale(0.98); }
 .btn.block { width: 100%; }
-.btn.gray { background: var(--fill); color: var(--tint); }
+.btn.gray { background: var(--fill); color: var(--tint-ink); }
 .btn.plain { background: none; color: var(--tint); min-height: var(--tap); padding: 0 var(--s-2); }
 .btn.small { min-height: 34px; padding: 0 var(--s-3); border-radius: var(--r-pill); font: 600 0.9375rem/1 var(--font); }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }

@@ -547,7 +547,7 @@ body.ios {
 .resumo .fc-front { background: linear-gradient(135deg, var(--tint-fill), color-mix(in srgb, var(--tint-fill) 70%, #000)) !important; color: #fff !important; }
 .resumo .fc-back { background: var(--bg-2) !important; border-color: var(--sep) !important; color: var(--label) !important; }
 .resumo .fc-back :is(.fc-pt, .fc-ex, .fc-term) { color: var(--label) !important; }
-.resumo .fc-back .fc-unit-tag { background: var(--tint-bg) !important; color: var(--tint) !important; }
+.resumo .fc-back .fc-unit-tag { background: var(--tint-bg) !important; color: var(--tint-ink) !important; }
 .resumo .fc-btn-review { background: linear-gradient(135deg, #b8501a, #8f3d12) !important; color: #fff !important; }
 .resumo .fc-btn-know { background: linear-gradient(135deg, #187a47, #12603a) !important; color: #fff !important; }
 .resumo :is(.fc-progress-bar) { background: var(--fill) !important; }
@@ -683,7 +683,8 @@ body.ios {
   display: block !important; margin: 0 !important;
 }
 /* a etiqueta do capítulo vira a aba da divisória, presa em cima da linha */
-.resumo :is(.chapter-header .ch-tag, .chapter-header h2 > .tag, .chapter-header > .chapter-num, .chapter-header > .chapter-number, .section-header > .section-num) {
+/* :not(#_) dá peso de id: vence as cores antigas das etiquetas (tag-ch1…) */
+.resumo :is(.chapter-header .ch-tag, .chapter-header h2 > .tag, .chapter-header > .chapter-num, .chapter-header > .chapter-number, .section-header > .section-num):not(#_) {
   position: absolute; left: 0; top: -2px; transform: translateY(-100%) !important;
   display: inline-block !important; width: auto !important; height: auto !important; min-width: 0 !important;
   padding: 6px 12px 5px !important; margin: 0 !important; border: 0 !important;

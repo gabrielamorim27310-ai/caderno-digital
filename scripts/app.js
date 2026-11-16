@@ -407,6 +407,11 @@
     }
   }
 
+  // Sanfonas: páginas que não trazem a própria função usam esta
+  if (typeof window.toggleAccordion !== 'function') {
+    window.toggleAccordion = function (btn) { btn.parentElement.classList.toggle('open'); };
+  }
+
   // Placar do quiz "pula" quando muda (ação secundária da resposta).
   // Só observa: cada página continua atualizando o placar do seu jeito.
   function animarPlacar() {
