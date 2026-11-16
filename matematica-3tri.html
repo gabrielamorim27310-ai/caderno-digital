@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-pagina="matematica-3tri" data-materia="matematica">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Matemática 3º Tri · Lista Extra de Retas 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Tudo da lista fica dentro de #lista: o id vence as regras gerais de .resumo main (p, li, ol, h3).
+   Cores: tokens do site (ios.css) + algumas próprias do gráfico, com versão escura. */
+#lista{
+  --card:var(--bg-2); --paper:var(--bg-3); --ink:var(--label); --muted:var(--label-2); --rule:var(--sep);
+  --accent:var(--tint); --accent-soft:var(--tint-bg); --ok:var(--green); --ok-soft:var(--green-bg); --bad:var(--red);
+  --given:#7D879B; --pt:#C2410C; --axis:#9AA4B8; --figgrid:#E2E7EF;
+  --f-math:"STIX Two Text","Cambria Math","Times New Roman",serif;
+  display:grid; gap:8px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) #lista{ --given:#8792A8; --pt:#F59E5B; --axis:#5D6880; --figgrid:#262E3D; }
+}
+:root[data-theme="dark"] #lista{ --given:#8792A8; --pt:#F59E5B; --axis:#5D6880; --figgrid:#262E3D; }
+
+#lista .intro{margin:0 0 4px;color:var(--muted)}
+#lista .intro strong{color:var(--ink)}
+
+/* atalhos + progresso */
+#lista .jump{margin:8px 0 0;padding:10px 12px;background:var(--card);border:0.5px solid var(--rule);border-radius:14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+#lista .grp{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#lista .grp span{font:600 11px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+#lista .lx-pill{font:600 14px/1 var(--font-display);font-variant-numeric:tabular-nums;color:var(--ink);text-decoration:none;min-width:38px;height:32px;display:inline-grid;place-items:center;border-radius:9px;border:0.5px solid var(--rule);background:var(--paper);transition:background .2s,color .2s}
+#lista .lx-pill:hover{color:var(--accent)}
+#lista .lx-pill.done{background:var(--ok-soft);border-color:transparent;color:var(--ok)}
+#lista .count{margin-left:auto;font:500 13px/1 var(--font);color:var(--muted);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px}
+#lista .count b{color:var(--ink);font-weight:600}
+#lista .lx-bar{width:72px;height:6px;border-radius:3px;background:var(--fill);overflow:hidden}
+#lista .lx-bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .4s}
+
+/* seções */
+#lista section.tema{margin-top:40px;display:grid;gap:16px;scroll-margin-top:64px}
+#lista .tema-head{display:grid;gap:12px}
+#lista .tema-head h2{font:var(--t-title1);margin:0;color:var(--ink)}
+#lista .cola{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px}
+#lista .cola div{background:var(--accent-soft);border-radius:12px;padding:12px 14px;display:grid;gap:4px;align-content:start}
+#lista .cola small{font:600 11px/1.3 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#lista .cola .m{font-size:1.12rem}
+
+/* cards */
+#lista article.ex{background:var(--card);border:0.5px solid var(--rule);border-radius:16px;padding:20px clamp(14px,3vw,24px) 24px;display:grid;gap:16px;scroll-margin-top:72px;container-type:inline-size}
+#lista .ex-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+#lista .lx-num{font:800 2.2rem/1 var(--font-display);font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--accent)}
+#lista .ex-head h3{font:var(--t-headline);margin:0;flex:1;min-width:12ch;color:var(--muted)}
+#lista .done-toggle{display:inline-flex;align-items:center;gap:8px;font:500 14px/1 var(--font);color:var(--muted);cursor:pointer;user-select:none;padding:8px 12px;border-radius:10px;background:var(--fill)}
+#lista .done-toggle input{width:18px;height:18px;accent-color:var(--ok);margin:0}
+#lista .done-toggle:has(input:checked){color:var(--ok);background:var(--ok-soft)}
+#lista p{font:var(--t-callout);color:var(--ink);margin:0}
+#lista .enun{font-size:1.0625rem}
+#lista .part{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,280px);gap:20px;align-items:start;padding-top:16px;border-top:0.5px solid var(--rule)}
+#lista .part:first-of-type{border-top:0;padding-top:0}
+@container (max-width: 600px){
+  #lista .part{grid-template-columns:minmax(0,1fr)}
+  #lista figure.fig{position:static;max-width:380px}
+}
+#lista .part-text{display:grid;gap:14px;min-width:0}
+#lista .plabel{font:800 1.1rem/1 var(--font-display);color:var(--accent);margin-right:6px}
+
+/* conferir */
+#lista form.check{display:grid;gap:6px}
+#lista form.check label{font:600 12px/1.3 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#lista .row{display:flex;gap:8px;flex-wrap:wrap}
+#lista .row input{flex:1;min-width:0;font:400 1.05rem/1.2 var(--f-math);color:var(--ink);background:var(--paper);border:0.5px solid var(--rule);border-radius:10px;padding:10px 12px}
+#lista .row input:focus{outline:2px solid var(--accent);outline-offset:1px}
+#lista button{font:600 14px/1 var(--font);border-radius:10px;padding:11px 14px;cursor:pointer;border:0;background:var(--fill);color:var(--accent);transition:opacity .15s,transform .1s}
+#lista button:active{transform:scale(.98);opacity:.7}
+#lista button:focus-visible,#lista .lx-pill:focus-visible,#lista .done-toggle:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+#lista button.primary{background:var(--tint-fill);color:var(--on-tint)}
+#lista .fb{font-size:14px;min-height:1.4em}
+#lista .fb.ok{color:var(--ok)} #lista .fb.bad{color:var(--bad)}
+
+/* passos */
+#lista .controls{display:flex;gap:8px;flex-wrap:wrap}
+#lista ol.steps{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:s}
+#lista ol.steps li{counter-increment:s;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:baseline;margin:0;font:var(--t-callout);color:var(--ink);animation:lx-in .35s ease both}
+#lista ol.steps li::before{content:counter(s);font:600 12px/24px var(--font);text-align:center;width:24px;height:24px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-variant-numeric:tabular-nums}
+#lista ol.steps li > div{overflow-x:auto;overflow-y:hidden;padding-block:3px}
+@keyframes lx-in{from{opacity:0;transform:translateY(4px)}}
+#lista .answer{border-radius:12px;background:var(--ok-soft);padding:12px 14px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+#lista .answer small{font:600 11px/1.3 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--ok)}
+#lista .answer .m{font-size:1.25rem}
+#lista .answer em{font:400 13px/1.3 var(--font);color:var(--muted);font-style:normal;margin-left:auto}
+#lista .lx-tip{border-left:3px solid var(--accent);padding:2px 0 2px 12px;color:var(--muted);font-size:15px}
+#lista .lx-tip b{color:var(--ink);font-weight:600}
+
+/* matemática */
+#lista .m{font-family:var(--f-math);font-size:1.08em;white-space:nowrap}
+#lista .m i{font-style:italic}
+#lista .m sub{font-size:.68em;font-style:normal}
+#lista .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em;line-height:1.1}
+#lista .fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .2em 1px}
+#lista .fr>span:last-child{padding:1px .2em 0}
+
+/* figura */
+#lista figure.fig{margin:0;position:sticky;top:72px;display:grid;gap:8px}
+#lista figure.fig svg{width:100%;max-width:100%;height:auto;aspect-ratio:1;display:block;border-radius:12px;background:var(--paper);border:0.5px solid var(--rule)}
+#lista figcaption{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
+#lista .key{display:inline-flex;align-items:center;gap:6px}
+#lista .key i{display:inline-block;width:18px;height:0;border-top:2px solid var(--given)}
+#lista .key.a i{border-top:2.5px solid var(--accent)}
+#lista .gl{stroke:var(--figgrid);stroke-width:1}
+#lista .axl{stroke:var(--axis);stroke-width:1.2}
+#lista .tk{fill:var(--muted);font:500 10px var(--font)}
+#lista .ln{fill:none;stroke-width:2.2;stroke-linecap:round}
+#lista .ln.given{stroke:var(--given)}
+#lista .ln.dash{stroke-dasharray:6 5}
+#lista .ln.res{stroke:var(--accent);stroke-width:2.8}
+#lista .circ{fill:none;stroke:var(--accent);stroke-width:2.2}
+#lista .ra{fill:none;stroke:var(--accent);stroke-width:1.6}
+#lista .dot{fill:var(--pt);stroke:var(--card);stroke-width:2}
+#lista .dot.res{fill:var(--accent)}
+#lista .lbl{fill:var(--ink);font:600 12.5px var(--font);paint-order:stroke;stroke:var(--paper);stroke-width:4px;stroke-linejoin:round}
+#lista .lbl.lnl{font:italic 600 15px var(--f-math)}
+#lista .lbl.res{fill:var(--accent)}
+#lista .ans{opacity:0;transition:opacity .45s ease}
+#lista .solved .ans{opacity:1}
+#lista .ln.ans,#lista .circ.ans{stroke-dasharray:1;stroke-dashoffset:1;opacity:1;transition:stroke-dashoffset .9s cubic-bezier(.3,.7,.2,1)}
+#lista .solved .ln.ans,#lista .solved .circ.ans{stroke-dashoffset:0}
+#lista .ln.dash.ans{stroke-dasharray:6 5;stroke-dashoffset:0;opacity:0;transition:opacity .45s ease}
+#lista .solved .ln.dash.ans{opacity:1}
+#lista .placeholder{fill:var(--muted);font:500 13px var(--font)}
+#lista .solved .placeholder{opacity:0}
+#lista .nota{margin-top:40px;color:var(--muted);font:var(--t-footnote)}
+@media (prefers-reduced-motion:reduce){
+  #lista *{animation:none!important;transition:none!important}
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CL1RMGB3SN');
+</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
+</head>
+<body class="ios resumo">
+
+<header class="hero">
+  <h1>Matemática · 3º Trimestre</h1>
+  <p class="subtitle">Lista Extra de Retas: ponto médio, retas paralelas e retas perpendiculares</p>
+  <div class="badge">Apostila F7709 · Matemática 1</div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#medio">1. Ponto médio</a>
+    <a class="nav-link" href="#paralelas">2. Retas paralelas</a>
+    <a class="nav-link" href="#perp">3. Retas perpendiculares</a>
+  </div>
+</nav>
+
+<main>
+  <div id="lista">
+    <p class="intro">Os nove exercícios para rever: <strong>06, 08, 34, 37, 41, 44, 47, 51 e 52</strong>. Tente cada um no caderno, confira sua resposta no campo e só depois abra a resolução passo a passo.</p>
+    <div class="jump" id="jump"></div>
+    <div id="main"></div>
+    <p class="nota">Todas as respostas foram conferidas com o gabarito da apostila. O que você marca como feito fica salvo só neste aparelho.</p>
+  </div>
+</main>
+
+<script src="scripts/lista-extra-retas.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>

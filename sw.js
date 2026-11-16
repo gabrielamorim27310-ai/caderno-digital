@@ -10,7 +10,7 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-11-14-biologia3';
+const VERSAO = 'cd-2026-11-16-matematica3';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
@@ -31,6 +31,7 @@ const ESSENCIAIS = [
   'ingles-2tri.html',
   'ingles-flashcards.html',
   'matematica-2tri.html',
+  'matematica-3tri.html',
   'portugues-1tri.html',
   'portugues-3tri.html',
   'quimica-1tri.html',
@@ -57,6 +58,7 @@ const ESSENCIAIS = [
   'scripts/globe.js',
   'scripts/globe-landmask.js',
   'scripts/globe-regions.js',
+  'scripts/lista-extra-retas.js',
 ];
 
 self.addEventListener('install', (e) => {
