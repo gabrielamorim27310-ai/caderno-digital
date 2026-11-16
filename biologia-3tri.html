@@ -12,112 +12,58 @@
 <meta name="color-scheme" content="light dark">
 <title>Resumo de Biologia · Reprodutor e Nervoso 3º tri 2026</title>
 <style>
-  :root {
-    --primary: #1a4731;
-    --secondary: #3a9e6f;
-    --bg: #f4faf7;
-    --card-bg: #ffffff;
-    --text: #2c2c2c;
-    --text-light: #6b6b6b;
-    --border: #d5eee0;
-    --c1: #1a4731;
-    --c2: #2e7d52;
-    --c3: #3a9e6f;
-    --c4: #8b2c4a;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
-
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #0d2b1e 0%, #1a4731 55%, #2e7d52 100%);
-    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
+  /* Só desta página. O visual comum vem de styles/ios.css e styles/resumo.css. */
   .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
-  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
-  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
-  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
-
-  /* NAV */
-  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
-  .nav-inner::-webkit-scrollbar { display: none; }
-  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
-  .back-link:hover { color: var(--primary); }
   .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
   .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
-
-  /* LAYOUT */
   .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
-  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
-  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
-  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
-  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
-
-  /* CARDS */
   .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
   .card:last-child { margin-bottom: 0; }
-  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .card-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
   .card p { font-size: 0.92rem; color: var(--text); }
   .card p + p { margin-top: 8px; }
-
-  /* LISTS */
   .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
-  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #f2faf5; border-radius: 8px; border: 1px solid var(--border); }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: var(--bg-3); border-radius: 8px; border: 1px solid var(--border); }
   .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
   .list li strong { color: var(--primary); }
-
-  /* NESTED LIST */
   .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
   .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
   .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
   .list-nested li strong { color: var(--text); }
-
-  /* HIGHLIGHTS */
-  .highlight { background: linear-gradient(135deg, #e3f3e9, #d6eedf); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
-  .highlight strong { color: var(--primary); }
-  .highlight-blue { background: linear-gradient(135deg, #e8f0ff, #dde8ff); border-left: 4px solid #2563eb; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
-
-  /* GRID */
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
   .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
   .grid-2 > .card, .grid-3 > .card { margin-bottom: 0; }
-
-  /* MINI-CARDS */
-  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card { background: var(--bg-3); border: 0; border-radius: 12px; padding: 16px; border-top: 3px solid; }
   .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
   .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
-
-  /* QUOTE / EXEMPLO */
-  .exemplo { font-style: italic; background: #f2faf5; border-left: 4px solid var(--secondary); padding: 10px 16px; border-radius: 0 8px 8px 0; margin-top: 10px; font-size: 0.9rem; color: var(--primary); }
+  .exemplo { font-style: italic; background: var(--bg-3); padding: 10px 16px; border-radius: 0 8px 8px 0; margin-top: 10px; font-size: 0.9rem; color: var(--primary); }
   .exemplo span { display: block; font-style: normal; font-size: 0.78rem; color: var(--text-light); margin-top: 4px; font-weight: 600; }
-
-  /* TABLE */
-  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
   table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
   th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
   td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
   tr:last-child td { border-bottom: none; }
-  tr:nth-child(even) td { background: #f2faf5; }
-
-  /* TAGS */
   .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
   .tag-imp { background: #e3f3e9; color: #1a4731; }
-
-  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
-
   @media (max-width: 600px) {
     .content { padding: 24px 14px 60px; }
-    .hero { padding: 50px 16px 40px; }
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
   }
+  .fig { margin: 14px 0 4px; }
+  .fig img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--border); background: #fff; }
+  .fig figcaption { font-size: 0.78rem; color: var(--text-light); margin-top: 6px; text-align: center; }
+  .passos { counter-reset: p; list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .passos li { counter-increment: p; display: flex; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: var(--bg-3); border-radius: 8px; }
+  .passos li::before { content: counter(p); flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--tint-fill); color: var(--on-tint); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .rota { font-weight: 600; font-size: 0.9rem; background: var(--tint-bg); color: var(--label); border: 1px dashed var(--tint); border-radius: 10px; padding: 10px 14px; margin-top: 12px; text-align: center; }
+  .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+  .score-label { font-size: 0.82rem; color: var(--text-light); }
+  .quiz-grupo { font-size: 1rem; font-weight: 700; margin: 26px 0 10px; }
+  details.resp { border-top: 1px solid var(--border); padding: 10px 0; }
+  details.resp:first-of-type { border-top: 0; }
+  details.resp summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+  details.resp p { margin-top: 8px; }
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
@@ -131,21 +77,13 @@
 <link rel="stylesheet" href="styles/shared.css">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="styles/ios.css">
+<link rel="stylesheet" href="styles/resumo.css">
 <script src="scripts/theme.js"></script>
 </head>
 <body class="ios resumo">
 <div class="progress-bar" id="progressBar"></div>
 
 
-<style>
-  .fig { margin: 14px 0 4px; }
-  .fig img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--border); background: #fff; }
-  .fig figcaption { font-size: 0.78rem; color: var(--text-light); margin-top: 6px; text-align: center; }
-  .passos { counter-reset: p; list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
-  .passos li { counter-increment: p; display: flex; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #f2faf5; border-radius: 8px; border: 1px solid var(--border); }
-  .passos li::before { content: counter(p); flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-  .rota { font-weight: 600; font-size: 0.9rem; background: #f2faf5; border: 1px dashed var(--secondary); border-radius: 10px; padding: 10px 14px; margin-top: 12px; text-align: center; }
-</style>
 
 <header class="hero">
   <div class="hero-icon">🧬</div>
@@ -175,8 +113,9 @@
 
 <div class="content">
 
-  <div class="card">
-    <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O que cai e onde estudar</div>
+  <div class="accordion">
+    <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> O que cai e onde estudar</span> <span class="chev">▾</span></button>
+    <div class="accordion-content"><div class="content-block">
     <div class="table-wrap">
       <table>
         <thead><tr><th>Tema</th><th>Slides do Moodle</th><th>Caderno de Atividades e Essia</th></tr></thead>
@@ -189,6 +128,7 @@
       </table>
     </div>
     <div class="highlight-blue"><strong>Recomendação da equipe:</strong> fazer a prova-modelo do Guia do ano, os exercícios de cada aula (Essia e Caderno de Atividades) e os estudos dirigidos. As perguntas deles estão respondidas na seção <a href="#escritas">10. Questões escritas</a>.</div>
+    </div></div>
   </div>
 
   <!-- ═══════════════ 1. MASCULINO ═══════════════ -->
@@ -201,8 +141,9 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Órgãos e funções <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c4)"></span> Órgãos e funções <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="rota">Rota do espermatozoide: túbulos seminíferos (testículo) → epidídimo → canal deferente → uretra → ejaculação</div>
       <div class="table-wrap">
         <table>
@@ -220,10 +161,12 @@
       </div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/masc-orgaos.jpg" alt="Corte do sistema reprodutor masculino com bexiga, vesículas seminais, próstata, canais deferentes, epidídimos, testículos, uretra e pênis"><figcaption>Slide: órgãos do sistema reprodutor masculino</figcaption></figure>
       <div class="highlight"><strong>Sêmen ≠ espermatozoide.</strong> Espermatozoide é o gameta. Sêmen = espermatozoides + líquido seminal + líquido prostático. Funções dos líquidos: dar energia aos espermatozoides, estimular a contração vaginal e neutralizar o pH ácido da vagina.</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Controle hormonal: eixo hipotálamo → hipófise → testículos <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> Controle hormonal: eixo hipotálamo → hipófise → testículos <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <ul class="list">
         <li><span>O <strong>hipotálamo</strong> estimula a <strong>adeno-hipófise</strong> a liberar FSH e LH.</span></li>
         <li><span><strong>FSH</strong> (hormônio folículo-estimulante): estimula a <strong>produção de espermatozoides</strong> nos túbulos seminíferos.</span></li>
@@ -233,10 +176,12 @@
       </ul>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/masc-controle.jpg" alt="Esquema: hipófise libera FSH e LH, que agem nos testículos produzindo espermatozoides e testosterona; a testosterona inibe a hipófise"><figcaption>Slide: controle hormonal masculino</figcaption></figure>
       <div class="highlight-blue"><strong>Pergunta do estudo dirigido:</strong> um anticoncepcional masculino com injeção mensal de testosterona funciona porque a testosterona alta, por feedback negativo, <strong>inibe a hipófise</strong> (cai FSH e LH). Sem FSH, os testículos <strong>param de produzir espermatozoides</strong>; sem LH, a produção própria de testosterona também cai (mas a injetada mantém as características masculinas).</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Vasectomia e saúde</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> Vasectomia e saúde</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <ul class="list">
         <li><span><strong>Vasectomia:</strong> corte (ligadura) dos <strong>canais deferentes</strong>. Os espermatozoides continuam sendo produzidos, mas não sobem e são <strong>reabsorvidos</strong>. A ejaculação continua, só que com sêmen sem espermatozoides.</span></li>
         <li><span><strong>Não altera a testosterona</strong> nem a espermatogênese: os testículos, o FSH e o LH não são afetados. Por isso não muda o desejo nem as características masculinas.</span></li>
@@ -245,6 +190,7 @@
       </ul>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/masc-vasectomia.jpg" alt="Comparação entre situação normal e vasectomia, com os canais deferentes cortados"><figcaption>Slide: a vasectomia não interfere na testosterona</figcaption></figure>
       <p style="margin-top:10px;font-size:0.85rem;color:var(--text-light)">A espermatogênese em detalhe fica para a 3ª série.</p>
+      </div></div>
     </div>
   </section>
 
@@ -258,8 +204,9 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Órgãos e funções <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c4)"></span> Órgãos e funções <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="rota">Rota do ovócito II: ovário → tuba uterina → corpo do útero → vagina</div>
       <div class="table-wrap">
         <table>
@@ -275,10 +222,12 @@
       </div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-anatomia.jpg" alt="Anatomia interna feminina: fundo e corpo do útero, tuba uterina, ovário, endométrio, miométrio e vagina"><figcaption>Slide: anatomia interna feminina</figcaption></figure>
       <div class="highlight"><strong>Pegadinha:</strong> a célula liberada na ovulação é o <strong>ovócito II</strong>, não o óvulo. A mulher nasce com todos os gametas parados na meiose I (ovócitos I). A cada mês um termina a meiose I e sai como ovócito II; a <strong>meiose II só termina se houver fecundação</strong>.</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Os quatro hormônios do ciclo <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> Os quatro hormônios do ciclo <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="table-wrap">
         <table>
           <thead><tr><th>Hormônio</th><th>Quem produz</th><th>O que faz</th></tr></thead>
@@ -291,10 +240,12 @@
         </table>
       </div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-controle.jpg" alt="Esquema: hipotálamo e hipófise liberam FSH e LH para os ovários, que produzem estrógeno e progesterona, que inibem a hipófise"><figcaption>Slide: controle hormonal feminino (feedback negativo)</figcaption></figure>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O ciclo dia a dia (ciclo de 28 dias) <span class="tag tag-imp">gráfico</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> O ciclo dia a dia (ciclo de 28 dias) <span class="tag tag-imp">gráfico</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <ol class="passos">
         <li><span><strong>Dias 1 a 5, menstruação:</strong> progesterona e estrógeno estão baixos, o endométrio descama. O dia 1 do ciclo é o primeiro dia de sangramento.</span></li>
         <li><span><strong>Fase folicular:</strong> o FSH sobe e o folículo cresce produzindo estrógeno. O estrógeno reconstrói o endométrio.</span></li>
@@ -304,12 +255,15 @@
       </ol>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-ciclo-grafico.jpg" alt="Gráfico do ciclo menstrual: folículo, temperatura, LH e FSH com pico no dia 14, estrógeno alto antes da ovulação, progesterona alta depois, e espessura do endométrio"><figcaption>Slide: gráfico do ciclo menstrual</figcaption></figure>
       <div class="highlight"><strong>Como ler o gráfico na prova:</strong> o pico fino e alto no meio é o <strong>LH</strong> (ovulação). A curva que sobe antes da ovulação é o <strong>estrógeno</strong>. A que sobe depois, larga, é a <strong>progesterona</strong>. Menstruação = início do gráfico, quando estrógeno e progesterona estão baixos.</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Menopausa</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Menopausa</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p>Os ovários <strong>esgotam os folículos</strong>, então param de produzir estrógeno e progesterona. Sem o feedback negativo desses hormônios, a hipófise passa a liberar <strong>FSH e LH em quantidade alta</strong>, mas sem efeito: não há folículos para responder.</p>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-menopausa.jpg" alt="Menopausa: FSH e LH aumentam e estrógeno e progesterona deixam de ser produzidos"><figcaption>Slide: menopausa</figcaption></figure>
+      </div></div>
     </div>
   </section>
 
@@ -323,16 +277,19 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Da fecundação à nidação</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c4)"></span> Da fecundação à nidação</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <ul class="list">
         <li><span>A <strong>fecundação</strong> ocorre na tuba, até cerca de <strong>24 horas</strong> após a ovulação. O espermatozoide sobrevive cerca de <strong>3 dias</strong> no corpo da mulher; o ovócito II, até 2 dias.</span></li>
         <li><span>O embrião chega ao útero <strong>4 a 6 dias</strong> depois e precisa se implantar no endométrio: é a <strong>nidação</strong>. Ela depende da espessura e da qualidade do endométrio.</span></li>
       </ul>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> HCG: por que a grávida não menstrua <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> HCG: por que a grávida não menstrua <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p>Depois da ovulação, FSH e LH estão muito baixos (inibidos pelo estrógeno e pela progesterona). Sem LH, o corpo lúteo morreria e o endométrio descamaria, levando o embrião junto. Quem resolve isso é o embrião:</p>
       <ol class="passos">
         <li><span>As células do <strong>trofoblasto</strong> (futura placenta) produzem <strong>HCG</strong> (gonadotrofina coriônica humana).</span></li>
@@ -344,19 +301,23 @@
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-gravidez-grafico.jpg" alt="Gráfico hormonal da gravidez: HCG sobe e cai no início; estrógeno e progesterona sobem até o parto"><figcaption>Slide: gráfico hormonal da gravidez</figcaption></figure>
       <div class="highlight"><strong>No gráfico:</strong> o pico precoce (primeiros 2 a 3 meses) que depois cai é o <strong>HCG</strong>. As duas curvas que sobem até o parto são <strong>estrógeno e progesterona</strong>. Se elas caem de forma brusca e precoce, o endométrio descama e pode haver <strong>aborto espontâneo</strong>. Depois do parto caem porque a placenta é eliminada.</div>
       <div class="highlight-blue"><strong>Teste de gravidez</strong> detecta HCG na urina. Em ciclo regular, espere de 20 a 28 dias desde a última menstruação, tempo para a placenta em formação produzir HCG suficiente.</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Gêmeos <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> Gêmeos <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="grid-2">
         <div class="mini-card" style="border-top-color:var(--c2)"><h4>Monozigóticos (idênticos, univitelinos)</h4><p><strong>1 ovócito + 1 espermatozoide</strong> formam 1 zigoto, que se divide em duas massas de células. Mesmo material genético: <strong>mesmo sexo</strong> e muito parecidos.</p></div>
         <div class="mini-card" style="border-top-color:var(--c4)"><h4>Dizigóticos (fraternos, bivitelinos)</h4><p><strong>2 ovócitos</strong> liberados no mesmo ciclo, cada um fecundado por um espermatozoide diferente: 2 zigotos. São irmãos comuns que nasceram juntos; <strong>podem ter sexos diferentes</strong>.</p></div>
       </div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-gemeos.jpg" alt="Formação de gêmeos idênticos (um zigoto que se divide) e fraternos (dois ovócitos fecundados)"><figcaption>Slide: casos específicos de fecundação</figcaption></figure>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Métodos contraceptivos <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Métodos contraceptivos <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="table-wrap">
         <table>
           <thead><tr><th>Método</th><th>Como funciona</th></tr></thead>
@@ -373,6 +334,7 @@
         <div class="mini-card" style="border-top-color:var(--c3)"><h4>Dá para engravidar menstruada?</h4><p>Sim. Num ciclo curto a ovulação pode ocorrer no 10º dia, e o espermatozoide sobrevive cerca de 3 dias.</p></div>
         <div class="mini-card" style="border-top-color:var(--c3)"><h4>Dá para ovular sem menstruar depois?</h4><p>Só se a ovulação resultar em fecundação e a gravidez der certo (HCG mantém o endométrio).</p></div>
       </div>
+      </div></div>
     </div>
   </section>
 
@@ -386,16 +348,19 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Para que serve</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Para que serve</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p>É a <strong>rede de comunicação</strong> do corpo: capta estímulos do ambiente, interpreta, guarda e <strong>elabora respostas</strong> (movimentos, sensações, ajustes nos órgãos). Integra os outros sistemas (endócrino, circulatório, respiratório, digestório) e mantém a <strong>homeostase</strong>.</p>
       <div class="rota">Receptor sensorial → via sensorial (aferente) → integração (SNC) → via motora (eferente) → órgão efetor (músculo ou glândula)</div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sn-integracao.jpg" alt="Função integradora: receptor, via aferente, integração no encéfalo, via eferente e órgão efetor"><figcaption>Slide: função integradora</figcaption></figure>
       <div class="highlight-blue"><strong>Nervoso × endócrino:</strong> o impulso nervoso é <strong>rápido, preciso e curto</strong> (vai direto à célula-alvo). O hormônio é <strong>lento, difuso e duradouro</strong> (vai pelo sangue). Por isso respostas de emergência dependem do sistema nervoso. Neurotransmissor não é sinônimo de hormônio: age na fenda sináptica, não pelo sangue.</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Sistema nervoso central (SNC) <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> Sistema nervoso central (SNC) <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="table-wrap">
         <table>
           <thead><tr><th>Parte</th><th>Funções</th></tr></thead>
@@ -410,10 +375,12 @@
         </table>
       </div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sn-snc.jpg" alt="SNC: encéfalo (cérebro, cerebelo e tronco encefálico com ponte e bulbo) e medula"><figcaption>Slide: divisões do SNC</figcaption></figure>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Sistema nervoso periférico (SNP) <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> Sistema nervoso periférico (SNP) <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <ul class="list">
         <li><span><strong>Nervos:</strong> feixes de fibras nervosas (axônios) fora do encéfalo e da medula. <strong>Cranianos</strong> (saem do encéfalo, 12 pares) e <strong>espinais</strong> (saem da medula, 31 pares).</span></li>
         <li><span><strong>Gânglios:</strong> conjuntos de <strong>corpos celulares</strong> de neurônios localizados fora do SNC.</span></li>
@@ -425,6 +392,7 @@
         <div class="mini-card" style="border-top-color:var(--c3)"><h4>Mistos</h4><p>Têm fibras sensitivas e motoras. Ex.: <strong>nervo trigêmeo</strong>, nervos espinais.</p></div>
       </div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sn-snp.jpg" alt="SNP: nervos sensitivos, motores e mistos, gânglios e receptores sensoriais"><figcaption>Slide: componentes do SNP</figcaption></figure>
+      </div></div>
     </div>
   </section>
 
@@ -438,8 +406,9 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Partes do neurônio e sentido do impulso <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Partes do neurônio e sentido do impulso <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p>O tecido nervoso tem <strong>neurônios</strong> e <strong>células da glia</strong> (que são a maioria: é <strong>mito</strong> que 90% do tecido seja de neurônios). A glia sustenta, nutre, protege e forma a bainha de mielina.</p>
       <div class="table-wrap">
         <table>
@@ -454,10 +423,12 @@
       </div>
       <div class="rota">Sentido único: dendrito → corpo celular → axônio → terminação do axônio</div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/neuronio-partes.jpg" alt="Neurônio com dendritos, corpo celular, axônio e terminações, e seta de propagação do impulso"><figcaption>Slide: impulso nervoso propaga em uma única direção</figcaption></figure>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Os três estados da membrana <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> Os três estados da membrana <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="table-wrap">
         <table>
           <thead><tr><th>Estado</th><th>Cargas</th><th>O que acontece</th><th>Transporte</th></tr></thead>
@@ -474,15 +445,18 @@
       <p style="margin-top:10px"><strong>Impulso nervoso = propagação do potencial de ação</strong> ao longo do neurônio, como uma onda de despolarização seguida de repolarização (efeito dominó: cada trecho despolarizado despolariza o vizinho).</p>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/neuronio-etapas.jpg" alt="Membrana polarizada, despolarizada pelo estímulo e repolarizada enquanto o impulso avança"><figcaption>Slide: polarizada → despolarizada → repolarizada</figcaption></figure>
       <div class="highlight-blue"><strong>Pomada anestésica do dentista</strong> (Fuvest): mantém fechados os canais de sódio. Sem entrada de Na⁺ não há despolarização, logo não há potencial de ação: o neurônio sensorial não leva a dor ao SNC.</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Com e sem mielina <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> Com e sem mielina <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="grid-2">
         <div class="mini-card" style="border-top-color:var(--c2)"><h4>Mielinizado: condução saltatória</h4><p>A mielina isola o axônio; a despolarização só acontece nos <strong>nódulos de Ranvier</strong> e o impulso "salta" de nódulo em nódulo. <strong>Muito mais rápida</strong> e gasta menos energia.</p></div>
         <div class="mini-card" style="border-top-color:var(--c4)"><h4>Não mielinizado: condução contínua</h4><p>A despolarização percorre <strong>toda</strong> a membrana do axônio, trecho a trecho. <strong>Mais lenta.</strong></p></div>
       </div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/neuronio-conducao.jpg" alt="Condução saltatória em neurônio mielinizado e contínua em neurônio sem mielina"><figcaption>Slide: tipos de condução</figcaption></figure>
+      </div></div>
     </div>
   </section>
 
@@ -496,8 +470,9 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Sinapse química passo a passo <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Sinapse química passo a passo <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p><strong>Sinapse</strong> é a região de contato entre um neurônio e outra célula. Funciona como uma <strong>válvula</strong>: o impulso só passa num sentido, do axônio de um para os receptores do outro.</p>
       <ol class="passos">
         <li><span>O impulso chega à <strong>terminação do axônio</strong> do neurônio <strong>pré-sináptico</strong>.</span></li>
@@ -509,20 +484,24 @@
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sinapse-quimica.jpg" alt="Sinapse química: vesículas no neurônio pré-sináptico, liberação na fenda e receptores no neurônio pós-sináptico"><figcaption>Slide: sinapse química</figcaption></figure>
       <div class="highlight"><strong>Por que é unidirecional?</strong> Só o pré-sináptico tem <strong>vesículas com neurotransmissor</strong>; só o pós-sináptico tem os <strong>receptores</strong>.</div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sinapse-regulacao.jpg" alt="Regulação da resposta: degradação por enzimas e recaptação do neurotransmissor"><figcaption>Slide: regulação da resposta (degradação e recaptação)</figcaption></figure>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Tipos de sinapse</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> Tipos de sinapse</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="grid-3">
         <div class="mini-card" style="border-top-color:var(--c1)"><h4>Entre neurônios</h4><p>Axônio de um neurônio com dendrito (ou corpo celular) de outro.</p></div>
         <div class="mini-card" style="border-top-color:var(--c2)"><h4>Neuromuscular (placa motora)</h4><p>Neurônio motor com <strong>músculo</strong>. Neurotransmissor: <strong>acetilcolina</strong>, que contrai o músculo esquelético.</p></div>
         <div class="mini-card" style="border-top-color:var(--c3)"><h4>Neuroglandular</h4><p>Neurônio com <strong>glândula</strong>, estimulando a secreção.</p></div>
       </div>
       <div class="highlight-blue"><strong>Sinapse elétrica:</strong> os neurônios se ligam diretamente por canais (junções) que passam íons; não há neurotransmissor. É <strong>mais rápida</strong>. Algumas sinapses são elétricas e químicas ao mesmo tempo; a resposta elétrica vem primeiro.</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Neurotransmissores <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> Neurotransmissores <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p>Mediadores químicos produzidos pelos neurônios. O efeito depende do <strong>receptor</strong> em que se ligam:</p>
       <ul class="list">
         <li><span><strong>Excitatórios:</strong> provocam potencial de ação no neurônio seguinte ou ativam o órgão efetor.</span></li>
@@ -542,6 +521,7 @@
         </table>
       </div>
       <div class="highlight"><strong>Drogas e remédios agem nas sinapses:</strong> imitam, bloqueiam ou impedem a recaptação de neurotransmissores. Ex.: o <strong>curare</strong> bloqueia os receptores de acetilcolina no músculo: a ordem nervosa não chega e o músculo fica <strong>flácido (paralisado)</strong>. As sinapses também explicam a <strong>neuroplasticidade</strong> (o cérebro cria e reforça conexões ao aprender).</div>
+      </div></div>
     </div>
   </section>
 
@@ -555,8 +535,9 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Conceitos <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Conceitos <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <ul class="list">
         <li><span><strong>Ato reflexo:</strong> resposta <strong>rápida e involuntária</strong>, elaborada pela <strong>medula espinal</strong>, sem processamento cerebral. Protege o corpo (tirar a mão do fogo, do cacto, do fio desencapado) e mantém o tônus (reflexo patelar).</span></li>
         <li><span><strong>Arco reflexo:</strong> o <strong>caminho</strong> que o impulso faz para produzir o ato reflexo.</span></li>
@@ -568,10 +549,12 @@
       </div>
       <div class="rota">Sequência no composto: neurônio sensitivo → neurônio associativo → neurônio motor</div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/reflexo-composto.jpg" alt="Arco reflexo composto: receptor na pele, neurônio sensorial, neurônio associativo na medula, neurônio motor e músculo"><figcaption>Slide: arco reflexo composto</figcaption></figure>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> E se cortar o nervo? (pergunta clássica)</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> E se cortar o nervo? (pergunta clássica)</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/reflexo-simples.jpg" alt="Arco reflexo simples do tendão patelar com tesoura indicando corte no neurônio sensitivo"><figcaption>Slide: arco reflexo simples com corte</figcaption></figure>
       <div class="table-wrap">
         <table>
@@ -583,6 +566,7 @@
         </table>
       </div>
       <p style="margin-top:10px">Truque: a raiz <strong>dorsal</strong> (de trás) é <strong>sensitiva</strong> e tem um gânglio; a raiz <strong>ventral</strong> (da frente) é <strong>motora</strong>.</p>
+      </div></div>
     </div>
   </section>
 
@@ -596,16 +580,19 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Somático × autônomo <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Somático × autônomo <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="grid-2">
         <div class="mini-card" style="border-top-color:var(--c2)"><h4>Somático (voluntário)</h4><p>Leva ordens do SNC aos <strong>músculos esqueléticos</strong>: andar, escrever, falar. Neurotransmissor na placa motora: <strong>acetilcolina</strong>.</p></div>
         <div class="mini-card" style="border-top-color:var(--c4)"><h4>Autônomo (involuntário)</h4><p>Inerva as <strong>vísceras</strong> (coração, vasos, digestório, bexiga, glândulas) e regula o meio interno, mantendo a <strong>homeostase</strong>. Ex.: a pupila dilata quando vemos alguém interessante.</p></div>
       </div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Simpático × parassimpático <span class="tag tag-imp">cai</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> Simpático × parassimpático <span class="tag tag-imp">cai</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p>A maioria dos órgãos recebe os dois ramos, com <strong>ações antagônicas</strong>: como uma gangorra, um acelera e o outro freia, buscando o equilíbrio.</p>
       <div class="table-wrap">
         <table>
@@ -626,6 +613,7 @@
       </div>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/snp-antagonicas.jpg" alt="Ações antagônicas: divisão parassimpática com acetilcolina e simpática com noradrenalina em cada órgão"><figcaption>Slide: ações antagônicas do sistema nervoso autônomo</figcaption></figure>
       <div class="highlight"><strong>Por que o susto acelera o coração?</strong> O simpático libera <strong>noradrenalina</strong> no coração e estimula as adrenais a liberar <strong>adrenalina</strong>: o corpo se prepara para lutar ou fugir. O coração tem ritmo próprio (é involuntário), mas o autônomo <strong>ajusta a frequência</strong>: o simpático aumenta, o parassimpático reduz.</div>
+      </div></div>
     </div>
   </section>
 
@@ -639,14 +627,17 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Semana Interdisciplinar</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> Semana Interdisciplinar</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p>Tema: <strong>"Restauração de ecossistemas: gestão de recursos hídricos, conservação do solo e preservação da biodiversidade"</strong>. Na prova de Biologia o foco são as <strong>consequências das ações humanas nos ecossistemas aquáticos</strong> e os <strong>impactos no organismo humano</strong>.</p>
       <div class="highlight-blue">O resumo completo dos quatro estudos de caso está na página <a href="semana-inter.html#biologia"><strong>Semana Inter</strong></a>.</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Sistema endócrino: hormônios que precisa saber <span class="tag tag-imp">revisão</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Sistema endócrino: hormônios que precisa saber <span class="tag tag-imp">revisão</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <p><strong>Hormônios</strong> são substâncias produzidas por <strong>glândulas endócrinas</strong> (que secretam no sangue; as <strong>exócrinas</strong> secretam por ductos, como as salivares) e agem nas <strong>células-alvo</strong>, as que têm receptores para eles.</p>
       <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/endo-hipofise.jpg" alt="Hipófise: adeno-hipófise produz GH, ACTH, TSH, FSH, LH e prolactina; neuro-hipófise secreta ocitocina e ADH, produzidos no hipotálamo"><figcaption>Slide: hormônios hipofisários e órgãos-alvo</figcaption></figure>
       <div class="table-wrap">
@@ -677,10 +668,12 @@
         <div class="mini-card" style="border-top-color:var(--c4)"><h4>Feedback positivo</h4><p>A resposta <strong>reforça</strong> o estímulo e aumenta a instabilidade. Ex.: contrações do parto liberam ocitocina, que gera contrações mais fortes.</p></div>
       </div>
       <div class="highlight"><strong>Não confunda:</strong> diabetes <strong>mellitus</strong> = insulina (glicemia alta, glicose na urina). Diabetes <strong>insipidus</strong> = ADH (muita urina diluída, muita sede, glicemia normal).</div>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Digestório: onde cada enzima age <span class="tag tag-imp">revisão</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c2)"></span> Digestório: onde cada enzima age <span class="tag tag-imp">revisão</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <div class="table-wrap">
         <table>
           <thead><tr><th>Local</th><th>pH</th><th>Enzima (origem)</th><th>Substrato → produto</th></tr></thead>
@@ -695,15 +688,18 @@
         </table>
       </div>
       <p style="margin-top:10px;font-size:0.85rem;color:var(--text-light)">Tabela de revisão montada a partir do roteiro da orientação; confira com a lista da Maratona de Biologia.</p>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Circulatório, respiratório e excretor <span class="tag tag-imp">revisão</span></div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c3)"></span> Circulatório, respiratório e excretor <span class="tag tag-imp">revisão</span></span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <ul class="list">
         <li><span><strong>Circulatório:</strong> cavidades do coração, veias e artérias ligadas a cada uma, sístole e diástole, circulação pulmonar e sistêmica. Ver <a href="biologia-2tri.html#circulatorio-anat">Bio 2º tri · Circulatório</a>.</span></li>
         <li><span><strong>Respiratório:</strong> ler a <strong>curva de saturação da hemoglobina</strong> (mais O₂ ligado onde a pressão de O₂ é alta, nos pulmões; libera nos tecidos; acidez, CO₂ e temperatura deslocam a curva para a direita e facilitam a liberação). Ver <a href="biologia-2tri.html#respiratorio">Bio 2º tri · Respiratório</a>.</span></li>
         <li><span><strong>Excretor:</strong> partes do néfron e o que acontece em cada uma (filtração no glomérulo, reabsorção nos túbulos, ação do ADH no ducto coletor e da aldosterona nos túbulos). Ver <a href="biologia-2tri.html#excretor">Bio 2º tri · Excretor</a>.</span></li>
       </ul>
+      </div></div>
     </div>
   </section>
 
@@ -717,8 +713,9 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Reprodutor</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c4)"></span> Reprodutor</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <details class="resp"><summary>A vasectomia interfere na espermatogênese? E na taxa de testosterona? Como ela evita a gravidez?</summary><p>Não interfere em nenhuma das duas: os testículos, o FSH e o LH continuam iguais, então os espermatozoides e a testosterona continuam sendo produzidos. Ela corta os canais deferentes: os espermatozoides não chegam à uretra e são reabsorvidos, e o sêmen sai só com os líquidos da próstata e das vesículas seminais.</p></details>
       <details class="resp"><summary>Num gráfico com dois hormônios ovarianos (A sobe na primeira metade, B na segunda), quem é quem e o que estimula cada um?</summary><p>A é o estrógeno, produzido pelo folículo em crescimento sob estímulo do FSH. B é a progesterona, produzida pelo corpo lúteo, formado depois da ovulação sob estímulo do LH.</p></details>
       <details class="resp"><summary>Qual a função do endométrio? E do miométrio?</summary><p>O endométrio é a camada interna, vascularizada, que recebe e nutre o embrião (nidação) e descama na menstruação. O miométrio é a camada de músculo liso que, sob ação da ocitocina, contrai no parto.</p></details>
@@ -726,10 +723,12 @@
       <details class="resp"><summary>O que é nidação? Que hormônio surge a partir dela e por que a menstruação não acontece?</summary><p>Nidação é a implantação do embrião no endométrio. A partir dela o trofoblasto (futura placenta) produz HCG, que mantém o corpo lúteo produzindo progesterona e estrógeno. Com a progesterona alta o endométrio não descama, então não há menstruação.</p></details>
       <details class="resp"><summary>No gráfico da gestação, quem são os hormônios 1, 2 e 3 (o 3 sobe e cai no início)? Por que 1 e 2 caem depois do parto?</summary><p>3 é o HCG; 1 e 2 são estrógeno e progesterona. O HCG mantém o corpo lúteo produzindo estrógeno e progesterona até a placenta assumir essa produção. Depois do parto a placenta é eliminada, por isso eles caem. Uma queda brusca e precoce durante a gravidez faz o endométrio descamar e pode causar aborto espontâneo.</p></details>
       <details class="resp"><summary>Diferencie gêmeos monozigóticos de dizigóticos.</summary><p>Monozigóticos: um ovócito fecundado por um espermatozoide forma um zigoto que se divide em dois embriões, geneticamente iguais e do mesmo sexo. Dizigóticos: dois ovócitos liberados no mesmo ciclo, cada um fecundado por um espermatozoide, formam dois zigotos diferentes, que podem ser de sexos diferentes.</p></details>
+      </div></div>
     </div>
 
-    <div class="card">
-      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Nervoso</div>
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)"><span class="card-title"><span class="dot" style="background:var(--c1)"></span> Nervoso</span> <span class="chev">▾</span></button>
+      <div class="accordion-content"><div class="content-block">
       <details class="resp"><summary>Classifique como SNC ou SNP: cerebelo, bulbo, medula espinal, gânglios, hipotálamo, nervos, cérebro.</summary><p>SNC: cerebelo, bulbo, medula espinal, hipotálamo e cérebro. SNP: gânglios nervosos e nervos.</p></details>
       <details class="resp"><summary>Cite três funções das células da glia.</summary><p>Sustentar e proteger os neurônios, nutri-los (os astrócitos ligam os neurônios aos vasos sanguíneos), formar a bainha de mielina (oligodendrócitos no SNC) e defender o tecido (a micróglia fagocita).</p></details>
       <details class="resp"><summary>O que significa "o impulso nervoso é a propagação de um potencial de ação"? Qual o estado inicial necessário?</summary><p>O estímulo inverte a polaridade de um trecho da membrana (despolarização: o Na⁺ entra), e essa inversão vai passando de trecho em trecho pelo neurônio, seguida da repolarização. Para responder, o neurônio precisa estar polarizado, em potencial de repouso (fora positivo, dentro negativo), mantido pela bomba de sódio e potássio.</p></details>
@@ -739,6 +738,7 @@
       <details class="resp"><summary>Por que um susto provoca taquicardia?</summary><p>O susto ativa o sistema nervoso autônomo simpático, que libera noradrenalina no coração (e faz as adrenais liberarem adrenalina), aumentando a frequência cardíaca para a reação de luta ou fuga.</p></details>
       <details class="resp"><summary>Qual o papel do parassimpático no coração, na pupila e no peristaltismo?</summary><p>Mantém o corpo em repouso e digestão, usando acetilcolina: diminui a frequência cardíaca, contrai a pupila e aumenta o peristaltismo e as secreções digestivas.</p></details>
       <details class="resp"><summary>No arco reflexo da vela: o que acontece se cortar a raiz dorsal (A)? E a ventral (B)?</summary><p>Raiz dorsal (sensitiva): o impulso não chega à medula, então não há reflexo nem sensação de calor, mas a pessoa ainda move o braço voluntariamente. Raiz ventral (motora): a pessoa sente o calor, porque a informação sobe ao cérebro, mas não há reflexo nem movimento voluntário do braço.</p></details>
+      </div></div>
     </div>
   </section>
 
@@ -750,37 +750,6 @@
         <p class="section-sub">25 testes com alternativas, na linha dos exercícios dos slides</p>
       </div>
     </div>
-    <style>
-      .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
-      .quiz-q { display: flex; align-items: flex-start; gap: 12px; padding: 16px 16px 10px; font-weight: 600; font-size: 0.92rem; }
-      .quiz-num { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
-      .quiz-opts { display: flex; flex-direction: column; gap: 6px; padding: 0 16px 14px; }
-      .opt { display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-size: 0.88rem; transition: all 0.15s; }
-      .opt:hover { border-color: var(--secondary); background: #f2faf5; }
-      .opt-letter { width: 22px; height: 22px; border-radius: 50%; background: #e3f3e9; color: var(--primary); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-      .opt.correct { border-color: #166534; background: #f0fdf4; }
-      .opt.correct .opt-letter { background: #166534; color: white; }
-      .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
-      .opt.wrong .opt-letter { color: #9c1c1c; }
-      .opt.disabled { cursor: default; pointer-events: none; }
-      .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
-      .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
-      .quiz-feedback.show { display: block; }
-      .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
-      .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
-      .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-      .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
-      .score-label { font-size: 0.82rem; color: var(--text-light); }
-      .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
-      .btn-reset:hover { background: var(--c2); }
-    </style>
-    <style>
-      .quiz-grupo { font-size: 1rem; font-weight: 700; margin: 26px 0 10px; }
-      details.resp { border-top: 1px solid var(--border); padding: 10px 0; }
-      details.resp:first-of-type { border-top: 0; }
-      details.resp summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; }
-      details.resp p { margin-top: 8px; }
-    </style>
 
     <div class="score-bar">
       <div>
@@ -1144,24 +1113,6 @@
 </footer>
 
 <!-- ═══ CHATBOT ═══ -->
-<style>
-  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #1a4731; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
-  #chat-btn:hover { transform: scale(1.08); }
-  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #d5eee0; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
-  #chat-panel.open { display: flex; }
-  #chat-head { background: #1a4731; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
-  #chat-head span { font-weight: 600; font-size: 0.92rem; }
-  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
-  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
-  .cmsg.bot { background: #f2faf5; border: 1px solid #d5eee0; align-self: flex-start; border-bottom-left-radius: 4px; }
-  .cmsg.user { background: #1a4731; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
-  .cmsg.loading { color: #888; font-style: italic; }
-  #chat-form { display: flex; border-top: 1px solid #d5eee0; }
-  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
-  #chat-send { background: #1a4731; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
-  #chat-send:hover { background: #2e7d52; }
-</style>
 
 <button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
 <div id="chat-panel">

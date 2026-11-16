@@ -12,460 +12,77 @@
 <meta name="color-scheme" content="light dark">
 <title>Resumo de História - 1ª Avaliação Intermediária 2026</title>
 <style>
-  :root {
-    --primary: #1a2744;
-    --secondary: #c9953c;
-    --accent: #8b2e2e;
-    --bg: #faf7f2;
-    --card-bg: #ffffff;
-    --text: #2c2c2c;
-    --text-light: #6b6b6b;
-    --border: #e8e0d4;
-    --shadow: 0 4px 24px rgba(0,0,0,0.08);
-    --ch1: #1a2744;
-    --ch2: #2d6a4f;
-    --ch3: #8b2e2e;
-    --ch4: #7b4b1e;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    scroll-behavior: smooth;
-  }
-  /* === HERO === */
-  .hero {
-    background: linear-gradient(135deg, var(--primary) 0%, #2a3f6e 50%, var(--accent) 100%);
-    color: white;
-    padding: 80px 20px 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 900;
-    margin-bottom: 12px;
-    position: relative;
-  }
-  .hero .subtitle {
-    font-size: 1.1rem;
-    opacity: 0.85;
-    font-weight: 300;
-    position: relative;
-  }
-  .hero .badge {
-    display: inline-block;
-    background: var(--secondary);
-    color: var(--primary);
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    margin-top: 16px;
-    position: relative;
-  }
-  /* === NAV === */
-  nav {
-    background: white;
-    border-bottom: 2px solid var(--border);
-    padding: 0 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
-  nav .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  nav .nav-inner::-webkit-scrollbar { display: none; }
-  nav a {
-    text-decoration: none;
-    padding: 14px 20px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    color: var(--text-light);
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s;
-  }
-  nav a:hover, nav a.active {
-    color: var(--primary);
-    border-bottom-color: var(--secondary);
-  }
-  nav a[data-ch="1"] { border-bottom-color: var(--ch1); color: var(--ch1); }
-  nav a[data-ch="2"] { border-bottom-color: var(--ch2); color: var(--ch2); }
-  nav a[data-ch="3"] { border-bottom-color: var(--ch3); color: var(--ch3); }
-  nav a[data-ch="4"] { border-bottom-color: var(--ch4); color: var(--ch4); }
-  /* === MAIN === */
-  main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
-  }
-  /* === CHAPTER HEADER === */
-  .chapter {
-    margin-bottom: 50px;
-    scroll-margin-top: 80px;
-  }
-  .chapter-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 3px solid var(--border);
-  }
-  .chapter-num {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: white;
-    flex-shrink: 0;
-  }
+  /* Só desta página. O visual comum vem de styles/ios.css e styles/resumo.css. */
   .ch1 .chapter-num { background: var(--ch1); }
   .ch2 .chapter-num { background: var(--ch2); }
   .ch3 .chapter-num { background: var(--ch3); }
   .ch4 .chapter-num { background: var(--ch4); }
-  .chapter-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-  }
-  .chapter-header .cap-ref {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-  }
-  /* === ACCORDION === */
-  .accordion {
-    margin-bottom: 12px;
-  }
-  .accordion-btn {
-    width: 100%;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px 24px;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text);
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    font-family: 'Inter', sans-serif;
-  }
-  .accordion-btn:hover {
-    box-shadow: var(--shadow);
-    transform: translateY(-1px);
-  }
-  .accordion-btn .icon {
-    font-size: 1.2rem;
-    transition: transform 0.3s;
-    flex-shrink: 0;
-  }
-  .accordion.open .accordion-btn {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-color: transparent;
-  }
-  .accordion.open .accordion-btn .icon {
-    transform: rotate(180deg);
-  }
-  .accordion-content {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-top: none;
-    border-radius: 0 0 12px 12px;
-    padding: 0 24px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.3s ease;
-  }
-  .accordion.open .accordion-content {
-    max-height: 3000px;
-    padding: 20px 24px 28px;
-  }
-  .accordion-content h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    margin: 20px 0 10px;
-    color: var(--primary);
-  }
-  .accordion-content h4:first-child { margin-top: 0; }
-  .accordion-content p {
-    margin-bottom: 12px;
-    color: var(--text);
-    line-height: 1.8;
-  }
-  /* === CARDS === */
   .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
-    margin: 16px 0;
-  }
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
   .card {
-    background: linear-gradient(135deg, #f8f6f3, #fff);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
+      background: linear-gradient(135deg, #f8f6f3, #fff);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
   .card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-  }
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
   .card h5 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: var(--primary);
-  }
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
   .card p {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin: 0;
-  }
-  /* === HIGHLIGHT BOX === */
-  .highlight {
-    background: linear-gradient(135deg, #fef9e7, #fdf2d0);
-    border-left: 4px solid var(--secondary);
-    padding: 16px 20px;
-    border-radius: 0 10px 10px 0;
-    margin: 16px 0;
-    font-size: 0.95rem;
-  }
-  .highlight strong { color: var(--accent); }
-  .info-box {
-    background: linear-gradient(135deg, #e8f4f0, #d4edda);
-    border-left: 4px solid var(--ch2);
-    padding: 16px 20px;
-    border-radius: 0 10px 10px 0;
-    margin: 16px 0;
-    font-size: 0.95rem;
-  }
-  .danger-box {
-    background: linear-gradient(135deg, #fde8e8, #f5d0d0);
-    border-left: 4px solid var(--ch3);
-    padding: 16px 20px;
-    border-radius: 0 10px 10px 0;
-    margin: 16px 0;
-    font-size: 0.95rem;
-  }
-  /* === TIMELINE === */
-  .timeline {
-    position: relative;
-    padding-left: 36px;
-    margin: 20px 0;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 14px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(to bottom, var(--secondary), var(--accent));
-    border-radius: 2px;
-  }
-  .timeline-item {
-    position: relative;
-    margin-bottom: 20px;
-    padding: 14px 18px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -28px;
-    top: 20px;
-    width: 12px;
-    height: 12px;
-    background: var(--secondary);
-    border: 3px solid white;
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--secondary);
-  }
-  .timeline-item .date {
-    font-weight: 700;
-    font-size: 0.85rem;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-  .timeline-item .desc {
-    font-size: 0.92rem;
-    color: var(--text);
-  }
-  /* === TABLE === */
-  .styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .styled-table th {
-    background: var(--primary);
-    color: white;
-    padding: 12px 16px;
-    text-align: left;
-    font-size: 0.9rem;
-  }
-  .styled-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.9rem;
-    background: white;
-  }
-  .styled-table tr:last-child td { border-bottom: none; }
-  .styled-table tr:hover td { background: #f8f6f3; }
-  /* === MAP SVG === */
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin: 0;
+    }
   .map-container {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
   .map-container h4 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 12px;
-    color: var(--primary);
-  }
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
   .map-container svg {
-    max-width: 100%;
-    height: auto;
-  }
+      max-width: 100%;
+      height: auto;
+    }
   .map-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 12px;
-    font-size: 0.82rem;
-  }
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 12px;
+      font-size: 0.82rem;
+    }
   .map-legend span {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
   .map-legend .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  /* === QUIZ === */
-  .quiz-section {
-    background: linear-gradient(135deg, var(--primary), #2a3f6e);
-    color: white;
-    border-radius: 16px;
-    padding: 32px;
-    margin: 40px 0;
-  }
-  .quiz-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .quiz-q {
-    margin-bottom: 20px;
-    padding: 16px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-  }
-  .quiz-q p {
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  .quiz-q label {
-    display: block;
-    padding: 8px 14px;
-    margin: 4px 0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s;
-    font-size: 0.92rem;
-  }
-  .quiz-q label:hover { background: rgba(255,255,255,0.15); }
-  .quiz-q input[type="radio"] { margin-right: 8px; }
-  .quiz-q .feedback {
-    display: none;
-    margin-top: 10px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-  }
-  .quiz-q .feedback.correct {
-    background: rgba(45, 106, 79, 0.4);
-    display: block;
-  }
-  .quiz-q .feedback.wrong {
-    background: rgba(139, 46, 46, 0.4);
-    display: block;
-  }
-  .quiz-q.hidden { display: none; }
-  .filter-btn {
-    padding: 6px 16px;
-    border-radius: 20px;
-    border: 1.5px solid rgba(255,255,255,0.5);
-    background: transparent;
-    color: white;
-    font-size: 0.78rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .filter-btn.active, .filter-btn:hover {
-    background: rgba(255,255,255,0.25);
-    border-color: white;
-  }
-  .quiz-chapter-tag {
-    display: inline-block;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    opacity: 0.85;
-  }
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
   .tag-ch1 { background: rgba(106,48,147,0.5); }
   .tag-ch2 { background: rgba(30,83,180,0.5); }
   .tag-ch3 { background: rgba(180,80,30,0.5); }
@@ -475,74 +92,39 @@
   #score-chart-wrap { display:flex; align-items:center; justify-content:center; gap:14px; }
   #score-pct-label { font-size:1.3rem; font-weight:800; }
   #score-pct-sub { font-size:0.78rem; opacity:0.75; font-weight:400; }
-  /* === PROGRESS BAR === */
-  .progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--secondary), var(--accent));
-    z-index: 200;
-    transition: width 0.2s;
-    width: 0%;
-  }
-  /* === FOOTER === */
-  footer {
-    text-align: center;
-    padding: 30px 20px;
-    color: var(--text-light);
-    font-size: 0.85rem;
-    border-top: 1px solid var(--border);
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  /* === TAGS === */
   .tag {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    margin: 2px;
-  }
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin: 2px;
+    }
   .tag-pol { background: #dbeafe; color: #1e40af; }
   .tag-eco { background: #dcfce7; color: #166534; }
   .tag-soc { background: #fef3c7; color: #92400e; }
   .tag-rel { background: #f3e8ff; color: #6b21a8; }
   .tag-art { background: #ffe4e6; color: #9f1239; }
   .tag-mil { background: #e0e7ff; color: #3730a3; }
-  /* === LIST STYLED === */
   .styled-list {
-    list-style: none;
-    margin: 12px 0;
-  }
+      list-style: none;
+      margin: 12px 0;
+    }
   .styled-list li {
-    padding: 8px 0 8px 24px;
-    position: relative;
-    font-size: 0.95rem;
-  }
+      padding: 8px 0 8px 24px;
+      position: relative;
+      font-size: 0.95rem;
+    }
   .styled-list li::before {
-    content: '\25C6';
-    position: absolute;
-    left: 0;
-    color: var(--secondary);
-    font-size: 0.7rem;
-    top: 12px;
-  }
-  /* === RESPONSIVE === */
+      content: '\25C6';
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+      font-size: 0.7rem;
+      top: 12px;
+    }
   @media (max-width: 600px) {
     .card-grid { grid-template-columns: 1fr; }
-    .hero { padding: 50px 16px 40px; }
-    main { padding: 24px 16px 60px; }
-    .accordion-btn { padding: 14px 16px; font-size: 0.95rem; }
-    .accordion.open .accordion-content { padding: 16px; }
-    nav a { padding: 12px 14px; font-size: 0.8rem; }
-  }
-  /* === PRINT === */
-  @media print {
-    nav, .progress-bar, .quiz-section { display: none; }
-    .accordion-content { max-height: none !important; padding: 16px 24px !important; }
-    .hero { padding: 30px; }
   }
 </style>
 <!-- Google Analytics -->
@@ -557,6 +139,7 @@
 <link rel="stylesheet" href="styles/shared.css">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="styles/ios.css">
+<link rel="stylesheet" href="styles/resumo.css">
 <script src="scripts/theme.js"></script>
 </head>
 <body class="ios resumo">
@@ -2193,24 +1776,6 @@ window.addEventListener('scroll', () => {
 </script>
 
 <!-- ═══ CHATBOT ═══ -->
-<style>
-  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #3d2b00; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
-  #chat-btn:hover { transform: scale(1.08); }
-  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
-  #chat-panel.open { display: flex; }
-  #chat-head { background: #3d2b00; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
-  #chat-head span { font-weight: 600; font-size: 0.92rem; }
-  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
-  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
-  .cmsg.bot { background: #fdf8ef; border: 1px solid #e8ddc8; align-self: flex-start; border-bottom-left-radius: 4px; }
-  .cmsg.user { background: #3d2b00; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
-  .cmsg.loading { color: #888; font-style: italic; }
-  #chat-form { display: flex; border-top: 1px solid #e8ddc8; }
-  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
-  #chat-send { background: #3d2b00; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
-  #chat-send:hover { background: #6b4c11; }
-</style>
 
 <button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
 <div id="chat-panel">

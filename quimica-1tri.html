@@ -12,62 +12,10 @@
 <meta name="color-scheme" content="light dark">
 <title>Resumo de Química – Avaliação Especial 2026</title>
 <style>
-  :root {
-    --primary: #7b1111;
-    --secondary: #e07b00;
-    --bg: #faf7f2;
-    --card-bg: #ffffff;
-    --text: #2c2c2c;
-    --text-light: #6b6b6b;
-    --border: #e8e0d4;
-    --shadow: 0 4px 24px rgba(0,0,0,0.08);
-    --ch1: #1565c0;
-    --ch2: #2e7d32;
-    --ch3: #6a1b9a;
-    --ch4: #e65100;
-    --ch5: #7b1111;
-    --ch6: #00695c;
-    --ch7: #00838f;
-    --ch8: #283593;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #3b0a0a 0%, #7b1111 50%, #b33030 100%);
-    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
-  .hero .subtitle { font-size: 1.1rem; opacity: 0.85; font-weight: 300; position: relative; }
-  .hero .badge { display: inline-block; background: var(--secondary); color: #3b0a0a; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
-  /* NAV */
-  nav { background: white; border-bottom: 2px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  nav .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
-  nav .nav-inner::-webkit-scrollbar { display: none; }
-  nav a { text-decoration: none; padding: 14px 20px; font-weight: 600; font-size: 0.85rem; white-space: nowrap; color: var(--text-light); border-bottom: 3px solid transparent; transition: all 0.3s; }
-  nav a:hover { color: var(--text); border-bottom-color: var(--secondary); }
-  nav a[data-ch="1"] { color: var(--ch1); border-bottom-color: var(--ch1); }
-  nav a[data-ch="2"] { color: var(--ch2); border-bottom-color: var(--ch2); }
-  nav a[data-ch="3"] { color: var(--ch3); border-bottom-color: var(--ch3); }
-  nav a[data-ch="4"] { color: var(--ch4); border-bottom-color: var(--ch4); }
-  nav a[data-ch="5"] { color: var(--ch5); border-bottom-color: var(--ch5); }
-  nav a[data-ch="6"] { color: var(--ch6); border-bottom-color: var(--ch6); }
-  nav a[data-ch="7"] { color: var(--ch7); border-bottom-color: var(--ch7); }
-  nav a[data-ch="8"] { color: var(--ch8); border-bottom-color: var(--ch8); }
+  /* Só desta página. O visual comum vem de styles/ios.css e styles/resumo.css. */
   .nav-home { opacity:0.6; border-right:1px solid var(--border); margin-right:4px; padding-right:20px !important; }
   .nav-sep { width: 1px; background: var(--border); height: 28px; align-self: center; flex-shrink: 0; margin: 0 6px; }
   .nav-ch { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 6px; white-space: nowrap; align-self: center; flex-shrink: 0; opacity: 0.95; }
-  nav a { padding: 12px 10px !important; font-size: 0.78rem !important; }
-  /* MAIN */
-  main { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
-  /* CHAPTER */
-  .chapter { margin-bottom: 50px; scroll-margin-top: 80px; }
-  .chapter-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 3px solid var(--border); }
-  .chapter-num { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: white; flex-shrink: 0; }
   .ch1 .chapter-num { background: var(--ch1); }
   .ch2 .chapter-num { background: var(--ch2); }
   .ch3 .chapter-num { background: var(--ch3); }
@@ -76,37 +24,15 @@
   .ch6 .chapter-num { background: var(--ch6); }
   .ch7 .chapter-num { background: var(--ch7); }
   .ch8 .chapter-num { background: var(--ch8); }
-  .chapter-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; }
-  .chapter-header .cap-ref { font-size: 0.85rem; color: var(--text-light); font-family: 'Inter', sans-serif; font-weight: 400; }
-  /* ACCORDION */
-  .accordion { margin-bottom: 12px; scroll-margin-top: 80px; }
-  .accordion-btn { width: 100%; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px 24px; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 1.05rem; font-weight: 600; color: var(--text); transition: all 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); font-family: 'Inter', sans-serif; }
-  .accordion-btn:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
-  .accordion-btn .icon { font-size: 1.2rem; transition: transform 0.3s; flex-shrink: 0; }
-  .accordion.open .accordion-btn { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
-  .accordion.open .accordion-btn .icon { transform: rotate(180deg); }
-  .accordion-content { background: var(--card-bg); border: 1px solid var(--border); border-top: none; border-radius: 0 0 12px 12px; padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease; }
-  .accordion.open .accordion-content { max-height: 4000px; padding: 20px 24px 28px; }
-  .accordion-content h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin: 20px 0 10px; color: var(--primary); }
-  .accordion-content h4:first-child { margin-top: 0; }
-  .accordion-content p { margin-bottom: 12px; color: var(--text); line-height: 1.8; }
-  /* CARDS */
   .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 16px 0; }
   .card { background: linear-gradient(135deg, #f8f6f3, #fff); border: 1px solid var(--border); border-radius: 10px; padding: 18px; transition: transform 0.3s, box-shadow 0.3s; }
   .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
   .card h5 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--primary); }
   .card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin: 0; }
-  /* BOXES */
-  .highlight { background: linear-gradient(135deg, #fef9e7, #fdf2d0); border-left: 4px solid var(--secondary); padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 16px 0; font-size: 0.95rem; }
-  .highlight strong { color: var(--primary); }
-  .info-box { background: linear-gradient(135deg, #e8f4f0, #d4edda); border-left: 4px solid var(--ch2); padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 16px 0; font-size: 0.95rem; }
-  .danger-box { background: linear-gradient(135deg, #fde8e8, #f5d0d0); border-left: 4px solid var(--ch5); padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 16px 0; font-size: 0.95rem; }
-  /* FORMULA BOX */
   .formula-box { background: #1a1a2e; color: #e8e0ff; border-radius: 12px; padding: 20px 24px; margin: 16px 0; font-family: 'Inter', monospace; }
   .formula-box .formula-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #e07b00; margin-bottom: 12px; }
   .formula-box .formula-line { font-size: 1.05rem; font-weight: 600; margin: 6px 0; line-height: 1.9; }
   .formula-box .formula-note { font-size: 0.8rem; color: #a0a0c0; margin-top: 8px; }
-  /* NOX TABLE */
   .nox-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 16px 0; }
   .nox-card { background: var(--card-bg); border: 2px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
   .nox-card .nox-val { font-size: 2rem; font-weight: 900; font-family: 'Playfair Display', serif; margin-bottom: 6px; }
@@ -115,19 +41,11 @@
   .nox-val-0 { color: #555; }
   .nox-val-pos { color: #1565c0; }
   .nox-val-neg { color: #7b1111; }
-  /* TABLE */
-  .styled-table { width: 100%; border-collapse: collapse; margin: 16px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-  .styled-table th { background: var(--primary); color: white; padding: 12px 16px; text-align: left; font-size: 0.9rem; }
-  .styled-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem; background: white; }
-  .styled-table tr:last-child td { border-bottom: none; }
-  .styled-table tr:hover td { background: #f8f6f3; }
-  /* REACTION ARROW */
   .reaction { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
   .reaction .reactant, .reaction .product { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; font-size: 1rem; font-weight: 600; text-align: center; }
   .reaction .reactant { border-color: var(--ch1); color: var(--ch1); }
   .reaction .product { border-color: var(--ch2); color: var(--ch2); }
   .reaction .arrow { font-size: 1.5rem; color: var(--text-light); }
-  /* OXIREDOX DIAGRAM */
   .redox-row { display: flex; gap: 12px; margin: 12px 0; align-items: stretch; }
   .redox-box { flex: 1; padding: 16px; border-radius: 10px; text-align: center; }
   .redox-oxidacao { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border: 2px solid #e65100; }
@@ -136,21 +54,6 @@
   .redox-oxidacao h5 { color: #e65100; }
   .redox-reducao h5 { color: #2e7d32; }
   .redox-box p { font-size: 0.88rem; margin: 0; }
-  /* QUIZ */
-  .quiz-section { background: linear-gradient(135deg, #3b0a0a, #7b1111); color: white; border-radius: 16px; padding: 32px; margin: 40px 0; }
-  .quiz-section h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; text-align: center; }
-  .quiz-q { margin-bottom: 20px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 10px; }
-  .quiz-q p { font-weight: 600; margin-bottom: 10px; }
-  .quiz-q label { display: block; padding: 8px 14px; margin: 4px 0; border-radius: 8px; cursor: pointer; transition: background 0.2s; font-size: 0.92rem; }
-  .quiz-q label:hover { background: rgba(255,255,255,0.15); }
-  .quiz-q input[type="radio"] { margin-right: 8px; }
-  .quiz-q .feedback { display: none; margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; }
-  .quiz-q .feedback.correct { background: rgba(46,125,50,0.4); display: block; }
-  .quiz-q .feedback.wrong { background: rgba(123,17,17,0.5); display: block; }
-  .quiz-q.hidden { display: none; }
-  .filter-btn { padding: 6px 16px; border-radius: 20px; border: 1.5px solid rgba(255,255,255,0.5); background: transparent; color: white; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-  .filter-btn.active, .filter-btn:hover { background: rgba(255,255,255,0.25); border-color: white; }
-  .quiz-chapter-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 10px; margin-bottom: 8px; opacity: 0.9; }
   .tag-ch1 { background: rgba(21,101,192,0.5); }
   .tag-ch2 { background: rgba(46,125,50,0.5); }
   .tag-ch3 { background: rgba(106,27,154,0.5); }
@@ -164,76 +67,54 @@
   #score-chart-wrap { display:flex; align-items:center; justify-content:center; gap:14px; color:white; }
   #score-pct-label { font-size:1.3rem; font-weight:800; }
   #score-pct-sub { font-size:0.78rem; opacity:0.75; font-weight:400; }
-  /* PROGRESS BAR */
-  .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--secondary), var(--primary)); z-index: 200; transition: width 0.2s; width: 0%; }
-  /* FOOTER */
-  footer { text-align: center; padding: 30px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
-  /* STYLED LIST */
   .styled-list { list-style: none; margin: 12px 0; }
   .styled-list li { padding: 8px 0 8px 24px; position: relative; font-size: 0.95rem; }
   .styled-list li::before { content: '\25C6'; position: absolute; left: 0; color: var(--secondary); font-size: 0.7rem; top: 12px; }
-  /* STEPS */
   .steps { counter-reset: step; margin: 16px 0; }
   .step { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
   .step-num { width: 32px; height: 32px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
   .step-body { flex: 1; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 0.92rem; }
   .step-body strong { display: block; margin-bottom: 4px; color: var(--text); }
-  /* RESPONSIVE */
   @media (max-width: 600px) {
     .card-grid { grid-template-columns: 1fr; }
     .nox-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero { padding: 50px 16px 40px; }
-    main { padding: 24px 16px 60px; }
-    .accordion-btn { padding: 14px 16px; font-size: 0.95rem; }
-    .accordion.open .accordion-content { padding: 16px; }
-    nav a { padding: 12px 14px; font-size: 0.8rem; }
     .redox-row { flex-direction: column; }
     .formula-box { padding: 14px 16px; }
   }
-  @media print {
-    nav, .progress-bar, .quiz-section { display: none; }
-    .accordion-content { max-height: none !important; padding: 16px 24px !important; }
-  }
-  /* === MOLECULE EQUATION VISUAL === */
   .mol-equation {
-    display: flex; align-items: center; justify-content: center;
-    gap: 8px; flex-wrap: wrap; padding: 20px 16px;
-    background: #f8f6f3; border: 1px solid var(--border);
-    border-radius: 12px; margin: 16px 0;
-  }
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; flex-wrap: wrap; padding: 20px 16px;
+      background: #f8f6f3; border: 1px solid var(--border);
+      border-radius: 12px; margin: 16px 0;
+    }
   .mol-substance {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto;
-    align-items: center;
-    gap: 3px 10px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    background: white; border: 1px solid var(--border);
-  }
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto;
+      align-items: center;
+      gap: 3px 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: white; border: 1px solid var(--border);
+    }
   .mol-substance.highlight { border: 2px solid var(--secondary); background: #fffbf0; }
   .mol-substance.dim { opacity: 0.4; }
-  /* Coeficiente — coluna esquerda, ocupa todas as linhas */
   .mol-substance .mol-coeff {
-    grid-column: 1; grid-row: 1 / 4;
-    align-self: center; justify-self: center;
-    font-size: 1.5rem; font-weight: 900;
-    font-family: 'Playfair Display', serif;
-    color: var(--primary); line-height: 1;
-  }
-  /* SVG da molécula — coluna direita, linha 1 */
+      grid-column: 1; grid-row: 1 / 4;
+      align-self: center; justify-self: center;
+      font-size: 1.5rem; font-weight: 900;
+      font-family: 'Playfair Display', serif;
+      color: var(--primary); line-height: 1;
+    }
   .mol-substance svg { grid-column: 2; grid-row: 1; align-self: center; justify-self: center; }
-  /* Fórmula molecular — coluna direita, linha 2 */
   .mol-formula-label { grid-column: 2; grid-row: 2; text-align: center; font-size: 0.95rem; font-weight: 700; color: var(--text); }
-  /* Massa molar — coluna direita, linha 3 */
   .mol-mass-label { grid-column: 2; grid-row: 3; text-align: center; font-size: 0.7rem; color: var(--text-light); background: #f0ede8; padding: 2px 7px; border-radius: 8px; white-space: nowrap; }
   .mol-op { font-size: 1.4rem; font-weight: 700; color: var(--text-light); align-self: center; }
   .mol-arrow-op { font-size: 2rem; color: var(--secondary); align-self: center; }
-  /* === PROPORTION TABLE === */
   .prop-table {
-    border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-    margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
   .prop-cols { display: flex; }
   .prop-col { flex: 1; display: flex; flex-direction: column; }
   .prop-col:first-child { border-right: 2px solid var(--border); }
@@ -244,7 +125,6 @@
   .prop-col-val { padding: 12px 16px; text-align: center; font-size: 1rem; font-weight: 700; color: var(--ch2); background: white; }
   .prop-cross { background: #1a1a2e; color: #e8e0ff; padding: 12px 20px; text-align: center; font-size: 0.93rem; border-top: 2px solid var(--secondary); }
   .prop-answer { font-weight: 700; color: #e07b00; }
-  /* === SOLVED EXERCISES === */
   .solved-ex { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
   .solved-ex-header { background: linear-gradient(135deg, #1a1a2e 0%, #2a3560 100%); color: white; padding: 16px 20px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .solved-ex-tag { background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 12px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
@@ -273,6 +153,7 @@
 <link rel="stylesheet" href="styles/shared.css">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="styles/ios.css">
+<link rel="stylesheet" href="styles/resumo.css">
 <script src="scripts/theme.js"></script>
 </head>
 <body class="ios resumo">
@@ -2208,24 +2089,6 @@ function resetQuiz() {
 </script>
 
 <!-- ═══ CHATBOT ═══ -->
-<style>
-  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #3d2b00; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
-  #chat-btn:hover { transform: scale(1.08); }
-  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
-  #chat-panel.open { display: flex; }
-  #chat-head { background: #3d2b00; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
-  #chat-head span { font-weight: 600; font-size: 0.92rem; }
-  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
-  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
-  .cmsg.bot { background: #fdf8ef; border: 1px solid #e8ddc8; align-self: flex-start; border-bottom-left-radius: 4px; }
-  .cmsg.user { background: #3d2b00; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
-  .cmsg.loading { color: #888; font-style: italic; }
-  #chat-form { display: flex; border-top: 1px solid #e8ddc8; }
-  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
-  #chat-send { background: #3d2b00; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
-  #chat-send:hover { background: #6b4c11; }
-</style>
 
 <button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
 <div id="chat-panel">

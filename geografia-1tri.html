@@ -12,127 +12,54 @@
 <meta name="color-scheme" content="light dark">
 <title>Resumo de Geografia — 1ª Avaliação Intermediária 2026</title>
 <style>
-  :root {
-    --primary: #1b4332;
-    --secondary: #52b788;
-    --bg: #f0f7f4;
-    --card-bg: #ffffff;
-    --text: #2c2c2c;
-    --text-light: #6b6b6b;
-    --border: #d8eddf;
-    --c1: #1b4332;
-    --c2: #2d6a4f;
-    --c3: #40916c;
-    --c4: #1a2744;
-    --c5: #7b4b1e;
-    --c6: #9c1c1c;
-    --c7: #0e6b7a;
-    --c8: #5c3d72;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
-
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #0d2b1d 0%, #1b4332 55%, #2d6a4f 100%);
-    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
+  /* Só desta página. O visual comum vem de styles/ios.css e styles/resumo.css. */
   .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
-  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
-  .hero .badge { display: inline-block; background: var(--secondary); color: #0d2b1d; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
-
-  /* NAV */
-  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-  .nav-inner { max-width: 980px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
-  .nav-inner::-webkit-scrollbar { display: none; }
-  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
-  .back-link:hover { color: var(--primary); }
   .nav-link { padding: 14px 12px; text-decoration: none; color: var(--text-light); font-size: 0.79rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
   .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
-
-  /* LAYOUT */
   .content { max-width: 980px; margin: 0 auto; padding: 40px 20px 80px; }
-  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
-  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
-  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
-  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
-
-  /* CARDS */
   .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
   .card:last-child { margin-bottom: 0; }
   .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
   .card p { font-size: 0.92rem; color: var(--text); }
   .card p + p { margin-top: 8px; }
-
-  /* LISTS */
   .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
   .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #f5fbf7; border-radius: 8px; border: 1px solid var(--border); }
   .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
   .list li strong { color: var(--primary); }
-
-  /* TABLES */
-  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
   table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
   th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
   td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
   tr:last-child td { border-bottom: none; }
   tr:nth-child(even) td { background: #f5fbf7; }
-
-  /* HIGHLIGHTS */
-  .highlight { background: linear-gradient(135deg, #d8f3dc, #b7e4c7); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
-  .highlight strong { color: var(--primary); }
-  .highlight-red { background: linear-gradient(135deg, #fee2e2, #fecaca); border-left: 4px solid #dc2626; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
-  .highlight-blue { background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-left: 4px solid #1d4ed8; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
-
-  /* GRIDS */
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
   .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 14px; }
-
-  /* Remove card margin when inside a grid */
   .grid-2 > .card,
-  .grid-3 > .card { margin-bottom: 0; }
-
-  /* MINI-CARDS */
+    .grid-3 > .card { margin-bottom: 0; }
   .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
   .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
   .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
   .mini-card ul { list-style: none; margin-top: 6px; }
   .mini-card ul li { font-size: 0.83rem; color: var(--text-light); padding: 2px 0; }
   .mini-card ul li::before { content: '· '; color: var(--secondary); }
-
-  /* Mini-cards inside a .card (nested) */
   .card .grid-3 { margin-top: 12px; }
   .card .grid-3 .mini-card,
-  .card .grid-2 .mini-card { box-shadow: none; }
-
-  /* TIMELINE */
-  .timeline { position: relative; padding-left: 28px; }
-  .timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
-  .tl-item { position: relative; margin-bottom: 20px; }
-  .tl-item:last-child { margin-bottom: 0; }
-  .tl-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--secondary); border: 2px solid white; box-shadow: 0 0 0 2px var(--secondary); }
-  .tl-item h4 { font-weight: 700; font-size: 0.94rem; margin-bottom: 4px; color: var(--primary); }
-  .tl-item p { font-size: 0.88rem; color: var(--text-light); }
-
-  /* TAGS */
+    .card .grid-2 .mini-card { box-shadow: none; }
   .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
   .tag-imp { background: #fef9c3; color: #854d0e; }
   .tag-new { background: #dcfce7; color: #166534; }
-
-  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 980px; margin: 0 auto; }
-
   @media (max-width: 600px) {
     .content { padding: 24px 14px 60px; }
-    .hero { padding: 50px 16px 40px; }
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
   }
+  #score-box { background: linear-gradient(135deg, var(--primary), #0d2b1d); border-radius: 12px; padding: 16px 22px; color: white; font-weight: 700; font-size: 1rem; margin-bottom: 16px; display: none; }
+  #score-nums { margin-bottom: 10px; }
+  #score-chart-wrap { display:flex; align-items:center; gap:12px; }
+  #score-donut { flex-shrink:0; }
+  #score-pct-label { font-size:1.1rem; font-weight:800; }
+  #score-pct-sub { font-size:0.8rem; opacity:0.8; font-weight:400; }
+  .quiz-reset { background:var(--primary); color:white; border:none; padding:12px 28px; border-radius:8px; font-weight:700; cursor:pointer; font-size:1rem; margin-top:8px; }
+  .quiz-reset:hover { background:#2d6a4f; }
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
@@ -146,6 +73,7 @@
 <link rel="stylesheet" href="styles/shared.css">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="styles/ios.css">
+<link rel="stylesheet" href="styles/resumo.css">
 <script src="scripts/theme.js"></script>
 </head>
 <body class="ios resumo">
@@ -687,30 +615,6 @@
       </div>
     </div>
 
-    <style>
-      /* Quiz Geography */
-      .quiz-filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
-      .qf-btn { padding:6px 14px; border-radius:20px; border:2px solid var(--border); background:white; color:var(--text-light); font-size:0.8rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
-      .qf-btn.active, .qf-btn:hover { background:var(--primary); color:white; border-color:var(--primary); }
-      #score-box { background: linear-gradient(135deg, var(--primary), #0d2b1d); border-radius: 12px; padding: 16px 22px; color: white; font-weight: 700; font-size: 1rem; margin-bottom: 16px; display: none; }
-      #score-nums { margin-bottom: 10px; }
-      #score-chart-wrap { display:flex; align-items:center; gap:12px; }
-      #score-donut { flex-shrink:0; }
-      #score-pct-label { font-size:1.1rem; font-weight:800; }
-      #score-pct-sub { font-size:0.8rem; opacity:0.8; font-weight:400; }
-      .quiz-q { background:white; border:1px solid var(--border); border-radius:12px; padding:18px 20px; margin-bottom:14px; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
-      .quiz-q.hidden { display:none; }
-      .quiz-tag { display:inline-block; font-size:0.72rem; font-weight:700; padding:3px 10px; border-radius:12px; margin-bottom:10px; background:#d8f3dc; color:var(--primary); letter-spacing:0.04em; }
-      .quiz-q p { font-size:0.93rem; margin-bottom:12px; line-height:1.6; color:var(--text); font-weight:500; }
-      .quiz-q label { display:block; padding:8px 12px; border-radius:6px; cursor:pointer; font-size:0.88rem; margin-bottom:4px; transition:background 0.2s; color:var(--text); }
-      .quiz-q label:hover { background:#f0faf4; }
-      .quiz-q input[type="radio"] { margin-right:8px; accent-color:var(--primary); }
-      .q-feedback { margin-top:10px; padding:10px 14px; border-radius:8px; font-size:0.87rem; display:none; line-height:1.5; }
-      .q-feedback.correct { background:#d8f3dc; color:#1b4332; display:block; }
-      .q-feedback.wrong { background:#fde8e8; color:#7b1d1d; display:block; }
-      .quiz-reset { background:var(--primary); color:white; border:none; padding:12px 28px; border-radius:8px; font-weight:700; cursor:pointer; font-size:1rem; margin-top:8px; }
-      .quiz-reset:hover { background:#2d6a4f; }
-    </style>
 
     <div class="quiz-filters">
       <button class="qf-btn active" onclick="filterGeo('all',this)">Todas (15)</button>
@@ -951,24 +855,6 @@ IV. Pacto de Varsóvia</p>
 
 
 <!-- ═══ CHATBOT ═══ -->
-<style>
-  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #3d2b00; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
-  #chat-btn:hover { transform: scale(1.08); }
-  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #e8ddc8; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
-  #chat-panel.open { display: flex; }
-  #chat-head { background: #3d2b00; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
-  #chat-head span { font-weight: 600; font-size: 0.92rem; }
-  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
-  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
-  .cmsg.bot { background: #fdf8ef; border: 1px solid #e8ddc8; align-self: flex-start; border-bottom-left-radius: 4px; }
-  .cmsg.user { background: #3d2b00; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
-  .cmsg.loading { color: #888; font-style: italic; }
-  #chat-form { display: flex; border-top: 1px solid #e8ddc8; }
-  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
-  #chat-send { background: #3d2b00; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
-  #chat-send:hover { background: #6b4c11; }
-</style>
 
 <button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
 <div id="chat-panel">
