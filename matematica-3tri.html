@@ -29,6 +29,8 @@
 }
 :root[data-theme="dark"] #lista{ --given:#8792A8; --pt:#F59E5B; --axis:#5D6880; --figgrid:#262E3D; }
 
+/* elementos com hidden (resposta, dica) ficam escondidos mesmo quando a regra deles define display */
+#lista [hidden]{display:none!important}
 #lista .intro{margin:0 0 4px;color:var(--muted)}
 #lista .intro strong{color:var(--ink)}
 
