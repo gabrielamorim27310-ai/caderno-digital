@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-pagina="biologia-3tri" data-materia="biologia">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Caderno Digital">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Resumo de Biologia · Reprodutor e Nervoso 3º tri 2026</title>
+<style>
+  :root {
+    --primary: #1a4731;
+    --secondary: #3a9e6f;
+    --bg: #f4faf7;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #d5eee0;
+    --c1: #1a4731;
+    --c2: #2e7d52;
+    --c3: #3a9e6f;
+    --c4: #8b2c4a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d2b1e 0%, #1a4731 55%, #2e7d52 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #f2faf5; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* NESTED LIST */
+  .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
+  .list-nested li strong { color: var(--text); }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #e3f3e9, #d6eedf); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-blue { background: linear-gradient(135deg, #e8f0ff, #dde8ff); border-left: 4px solid #2563eb; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-2 > .card, .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+
+  /* QUOTE / EXEMPLO */
+  .exemplo { font-style: italic; background: #f2faf5; border-left: 4px solid var(--secondary); padding: 10px 16px; border-radius: 0 8px 8px 0; margin-top: 10px; font-size: 0.9rem; color: var(--primary); }
+  .exemplo span { display: block; font-style: normal; font-size: 0.78rem; color: var(--text-light); margin-top: 4px; font-weight: 600; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f2faf5; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #e3f3e9; color: #1a4731; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CL1RMGB3SN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CL1RMGB3SN');
+</script>
+<script src="config.js"></script>
+<link rel="stylesheet" href="styles/shared.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles/ios.css">
+<script src="scripts/theme.js"></script>
+</head>
+<body class="ios resumo">
+<div class="progress-bar" id="progressBar"></div>
+
+
+<style>
+  .fig { margin: 14px 0 4px; }
+  .fig img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--border); background: #fff; }
+  .fig figcaption { font-size: 0.78rem; color: var(--text-light); margin-top: 6px; text-align: center; }
+  .passos { counter-reset: p; list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .passos li { counter-increment: p; display: flex; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #f2faf5; border-radius: 8px; border: 1px solid var(--border); }
+  .passos li::before { content: counter(p); flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .rota { font-weight: 600; font-size: 0.9rem; background: #f2faf5; border: 1px dashed var(--secondary); border-radius: 10px; padding: 10px 14px; margin-top: 12px; text-align: center; }
+</style>
+
+<header class="hero">
+  <div class="hero-icon">🧬</div>
+  <h1>Biologia · 3º Trimestre</h1>
+  <p class="subtitle">Sistema Reprodutor · Sistema Nervoso · Semana Inter · Revisão (Endócrino e anteriores)</p>
+  <div class="badge">Prova Trimestral · 19/11/2026</div>
+  <br>
+  <span class="author">Segue a orientação de estudos da equipe de Biologia</span>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a class="back-link" href="index.html">← Caderno</a>
+    <a class="nav-link" href="#masculino">1. Masculino</a>
+    <a class="nav-link" href="#feminino">2. Feminino e ciclo</a>
+    <a class="nav-link" href="#gravidez">3. Gravidez e contracepção</a>
+    <a class="nav-link" href="#organizacao">4. Organização do SN</a>
+    <a class="nav-link" href="#impulso">5. Impulso nervoso</a>
+    <a class="nav-link" href="#sinapses">6. Sinapses</a>
+    <a class="nav-link" href="#reflexo">7. Arco reflexo</a>
+    <a class="nav-link" href="#autonomo">8. Somático e autônomo</a>
+    <a class="nav-link" href="#revisao">9. Revisão</a>
+    <a class="nav-link" href="#escritas">10. Questões escritas</a>
+    <a class="nav-link" href="#exercicios">Quiz</a>
+  </div>
+</nav>
+
+<div class="content">
+
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O que cai e onde estudar</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tema</th><th>Slides do Moodle</th><th>Caderno de Atividades e Essia</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. Sistema reprodutor</strong></td><td>Reprodutor feminino · Reprodutor masculino</td><td>Caps. 2 a 5 (pp. 10 a 18) · Essia, cap. 13, seções 13.3 a 13.7 (sem ISTs)</td></tr>
+          <tr><td><strong>2. Sistema nervoso</strong></td><td>Introdução · Neurônio e impulso · Sinapses · Arco reflexo · SNP somático e autônomo</td><td>Cap. 6 (pp. 19 a 21) · Essia, cap. 12 (exceto 12.2)</td></tr>
+          <tr><td><strong>3. Semana Interdisciplinar</strong></td><td>Estudos dirigidos da semana</td><td>Ações humanas nos ecossistemas aquáticos e efeitos no corpo humano</td></tr>
+          <tr><td><strong>4. Revisão</strong></td><td>Maratona de Biologia (Moodle)</td><td>Digestório · Circulatório · Respiratório · Excretor · Endócrino</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-blue"><strong>Recomendação da equipe:</strong> fazer a prova-modelo do Guia do ano, os exercícios de cada aula (Essia e Caderno de Atividades) e os estudos dirigidos. As perguntas deles estão respondidas na seção <a href="#escritas">10. Questões escritas</a>.</div>
+  </div>
+
+  <!-- ═══════════════ 1. MASCULINO ═══════════════ -->
+  <section class="section" id="masculino" style="margin-top:40px">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">1</div>
+      <div>
+        <h2 class="section-title">Sistema reprodutor masculino</h2>
+        <p class="section-sub">Testículos, vias espermáticas, glândulas e controle por FSH e LH</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Órgãos e funções <span class="tag tag-imp">cai</span></div>
+      <div class="rota">Rota do espermatozoide: túbulos seminíferos (testículo) → epidídimo → canal deferente → uretra → ejaculação</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Estrutura</th><th>Função</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Testículos</strong> (2, na bolsa escrotal)</td><td>Nos <strong>túbulos seminíferos</strong> são produzidos os espermatozoides (espermatogênese). As células entre os túbulos produzem <strong>testosterona</strong>. A bolsa escrotal mantém os testículos fora do abdome, a uma temperatura um pouco menor, boa para a produção dos gametas.</td></tr>
+            <tr><td><strong>Epidídimo</strong></td><td>Tubo enovelado sobre o testículo onde os espermatozoides são <strong>armazenados</strong> e terminam de amadurecer.</td></tr>
+            <tr><td><strong>Canais (ductos) deferentes</strong></td><td>Levam os espermatozoides do epidídimo até a uretra. São cortados na <strong>vasectomia</strong>.</td></tr>
+            <tr><td><strong>Vesículas seminais</strong></td><td>Produzem o <strong>líquido seminal</strong> (cerca de 80% do sêmen), que fornece energia (frutose) aos espermatozoides.</td></tr>
+            <tr><td><strong>Próstata</strong></td><td>Produz o <strong>líquido prostático</strong> (cerca de 20% do sêmen), <strong>alcalino</strong>: neutraliza a acidez da vagina e ativa os espermatozoides.</td></tr>
+            <tr><td><strong>Uretra</strong></td><td>Canal comum aos sistemas <strong>excretor e reprodutor</strong>: leva a urina (da bexiga) e o sêmen (dos deferentes) para fora.</td></tr>
+            <tr><td><strong>Pênis</strong></td><td>Órgão da cópula e da excreção. Os <strong>corpos cavernosos e esponjoso</strong> se enchem de sangue na ereção.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/masc-orgaos.jpg" alt="Corte do sistema reprodutor masculino com bexiga, vesículas seminais, próstata, canais deferentes, epidídimos, testículos, uretra e pênis"><figcaption>Slide: órgãos do sistema reprodutor masculino</figcaption></figure>
+      <div class="highlight"><strong>Sêmen ≠ espermatozoide.</strong> Espermatozoide é o gameta. Sêmen = espermatozoides + líquido seminal + líquido prostático. Funções dos líquidos: dar energia aos espermatozoides, estimular a contração vaginal e neutralizar o pH ácido da vagina.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Controle hormonal: eixo hipotálamo → hipófise → testículos <span class="tag tag-imp">cai</span></div>
+      <ul class="list">
+        <li><span>O <strong>hipotálamo</strong> estimula a <strong>adeno-hipófise</strong> a liberar FSH e LH.</span></li>
+        <li><span><strong>FSH</strong> (hormônio folículo-estimulante): estimula a <strong>produção de espermatozoides</strong> nos túbulos seminíferos.</span></li>
+        <li><span><strong>LH</strong> (hormônio luteinizante): estimula a <strong>produção de testosterona</strong> no testículo.</span></li>
+        <li><span><strong>Testosterona:</strong> ajuda na espermatogênese e desenvolve as características sexuais secundárias masculinas (pelos, voz grave, massa muscular).</span></li>
+        <li><span><strong>Feedback negativo:</strong> testosterona alta <strong>inibe</strong> o hipotálamo e a hipófise, que diminuem FSH e LH.</span></li>
+      </ul>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/masc-controle.jpg" alt="Esquema: hipófise libera FSH e LH, que agem nos testículos produzindo espermatozoides e testosterona; a testosterona inibe a hipófise"><figcaption>Slide: controle hormonal masculino</figcaption></figure>
+      <div class="highlight-blue"><strong>Pergunta do estudo dirigido:</strong> um anticoncepcional masculino com injeção mensal de testosterona funciona porque a testosterona alta, por feedback negativo, <strong>inibe a hipófise</strong> (cai FSH e LH). Sem FSH, os testículos <strong>param de produzir espermatozoides</strong>; sem LH, a produção própria de testosterona também cai (mas a injetada mantém as características masculinas).</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Vasectomia e saúde</div>
+      <ul class="list">
+        <li><span><strong>Vasectomia:</strong> corte (ligadura) dos <strong>canais deferentes</strong>. Os espermatozoides continuam sendo produzidos, mas não sobem e são <strong>reabsorvidos</strong>. A ejaculação continua, só que com sêmen sem espermatozoides.</span></li>
+        <li><span><strong>Não altera a testosterona</strong> nem a espermatogênese: os testículos, o FSH e o LH não são afetados. Por isso não muda o desejo nem as características masculinas.</span></li>
+        <li><span><strong>Câncer de próstata:</strong> 2º tipo de câncer mais comum no Brasil. Diagnóstico por dosagem de <strong>PSA</strong>, toque retal e biópsia. Fatores de risco: idade acima de 55 anos, histórico familiar, obesidade e exposição a arsênio, aminas aromáticas e derivados de petróleo.</span></li>
+        <li><span><strong>Sem próstata</strong> (prostatectomia), falta o líquido alcalino que neutraliza o pH ácido da vagina: os espermatozoides sobrevivem menos. (Exercício Famerp: resposta B.)</span></li>
+      </ul>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/masc-vasectomia.jpg" alt="Comparação entre situação normal e vasectomia, com os canais deferentes cortados"><figcaption>Slide: a vasectomia não interfere na testosterona</figcaption></figure>
+      <p style="margin-top:10px;font-size:0.85rem;color:var(--text-light)">A espermatogênese em detalhe fica para a 3ª série.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 2. FEMININO ═══════════════ -->
+  <section class="section" id="feminino">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">2</div>
+      <div>
+        <h2 class="section-title">Sistema reprodutor feminino e ciclo menstrual</h2>
+        <p class="section-sub">Ovários e folículos, tuba, útero, vagina · FSH, LH, estrógeno e progesterona</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Órgãos e funções <span class="tag tag-imp">cai</span></div>
+      <div class="rota">Rota do ovócito II: ovário → tuba uterina → corpo do útero → vagina</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Estrutura</th><th>Função</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ovários</strong></td><td>Contêm os <strong>folículos ovarianos</strong>: conjunto de células que envolve e nutre o ovócito. O folículo em crescimento produz <strong>estrógeno</strong>; depois da ovulação vira <strong>corpo lúteo</strong> e produz <strong>progesterona</strong>.</td></tr>
+            <tr><td><strong>Tuba uterina</strong> (trompa)</td><td>Recebe o ovócito liberado na ovulação. É onde normalmente ocorre a <strong>fecundação</strong>; leva o embrião ao útero.</td></tr>
+            <tr><td><strong>Útero</strong></td><td>Abriga o embrião. Camadas: <strong>endométrio</strong> (interna, vascularizada; recebe o embrião na nidação e descama na menstruação) e <strong>miométrio</strong> (músculo liso; sensível à <strong>ocitocina</strong>, faz as contrações do parto).</td></tr>
+            <tr><td><strong>Vagina</strong></td><td>Liga o útero ao meio externo: canal da cópula, da menstruação e do parto. Tem pH ácido.</td></tr>
+            <tr><td><strong>Uretra e clitóris</strong></td><td>Na mulher a uretra (bexiga → exterior) é separada da vagina. O clitóris tem a mesma origem embrionária do pênis e cerca de 8 mil terminações nervosas.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-anatomia.jpg" alt="Anatomia interna feminina: fundo e corpo do útero, tuba uterina, ovário, endométrio, miométrio e vagina"><figcaption>Slide: anatomia interna feminina</figcaption></figure>
+      <div class="highlight"><strong>Pegadinha:</strong> a célula liberada na ovulação é o <strong>ovócito II</strong>, não o óvulo. A mulher nasce com todos os gametas parados na meiose I (ovócitos I). A cada mês um termina a meiose I e sai como ovócito II; a <strong>meiose II só termina se houver fecundação</strong>.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Os quatro hormônios do ciclo <span class="tag tag-imp">cai</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Hormônio</th><th>Quem produz</th><th>O que faz</th></tr></thead>
+          <tbody>
+            <tr><td><strong>FSH</strong></td><td>Adeno-hipófise</td><td>Faz o <strong>folículo crescer</strong>; o folículo passa a produzir estrógeno.</td></tr>
+            <tr><td><strong>LH</strong></td><td>Adeno-hipófise</td><td>O <strong>pico de LH</strong> (meio do ciclo) causa a <strong>ovulação</strong>. As células que sobram do folículo viram corpo lúteo, que produz progesterona.</td></tr>
+            <tr><td><strong>Estrógeno</strong></td><td>Folículo em desenvolvimento</td><td><strong>Começa a espessar o endométrio</strong> e desenvolve os caracteres sexuais secundários femininos. Alto na <strong>primeira metade</strong> do ciclo.</td></tr>
+            <tr><td><strong>Progesterona</strong></td><td>Corpo lúteo</td><td><strong>Mantém o endométrio</strong> desenvolvido: aumenta a vascularização e a secreção das glândulas. Alta na <strong>segunda metade</strong> do ciclo.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-controle.jpg" alt="Esquema: hipotálamo e hipófise liberam FSH e LH para os ovários, que produzem estrógeno e progesterona, que inibem a hipófise"><figcaption>Slide: controle hormonal feminino (feedback negativo)</figcaption></figure>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O ciclo dia a dia (ciclo de 28 dias) <span class="tag tag-imp">gráfico</span></div>
+      <ol class="passos">
+        <li><span><strong>Dias 1 a 5, menstruação:</strong> progesterona e estrógeno estão baixos, o endométrio descama. O dia 1 do ciclo é o primeiro dia de sangramento.</span></li>
+        <li><span><strong>Fase folicular:</strong> o FSH sobe e o folículo cresce produzindo estrógeno. O estrógeno reconstrói o endométrio.</span></li>
+        <li><span><strong>Por volta do 14º dia, ovulação:</strong> o estrógeno alto provoca um <strong>pico de LH</strong> (e de FSH), e o ovócito II é liberado na tuba.</span></li>
+        <li><span><strong>Fase lútea:</strong> o folículo vazio vira corpo lúteo, que produz <strong>progesterona</strong> (e algum estrógeno). O endométrio fica espesso e vascularizado, pronto para a nidação. Estrógeno e progesterona altos <strong>inibem</strong> FSH e LH (feedback negativo).</span></li>
+        <li><span><strong>Sem fecundação:</strong> sem LH, o corpo lúteo degenera, a progesterona cai, o endométrio descama e começa nova menstruação. Com a queda dos hormônios ovarianos, a hipófise volta a liberar FSH e o ciclo recomeça.</span></li>
+      </ol>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-ciclo-grafico.jpg" alt="Gráfico do ciclo menstrual: folículo, temperatura, LH e FSH com pico no dia 14, estrógeno alto antes da ovulação, progesterona alta depois, e espessura do endométrio"><figcaption>Slide: gráfico do ciclo menstrual</figcaption></figure>
+      <div class="highlight"><strong>Como ler o gráfico na prova:</strong> o pico fino e alto no meio é o <strong>LH</strong> (ovulação). A curva que sobe antes da ovulação é o <strong>estrógeno</strong>. A que sobe depois, larga, é a <strong>progesterona</strong>. Menstruação = início do gráfico, quando estrógeno e progesterona estão baixos.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Menopausa</div>
+      <p>Os ovários <strong>esgotam os folículos</strong>, então param de produzir estrógeno e progesterona. Sem o feedback negativo desses hormônios, a hipófise passa a liberar <strong>FSH e LH em quantidade alta</strong>, mas sem efeito: não há folículos para responder.</p>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-menopausa.jpg" alt="Menopausa: FSH e LH aumentam e estrógeno e progesterona deixam de ser produzidos"><figcaption>Slide: menopausa</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 3. GRAVIDEZ ═══════════════ -->
+  <section class="section" id="gravidez">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">3</div>
+      <div>
+        <h2 class="section-title">Fecundação, gravidez, gêmeos e contracepção</h2>
+        <p class="section-sub">HCG, nidação, gráfico da gestação, tabelinha, pílula, vasectomia e laqueadura</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Da fecundação à nidação</div>
+      <ul class="list">
+        <li><span>A <strong>fecundação</strong> ocorre na tuba, até cerca de <strong>24 horas</strong> após a ovulação. O espermatozoide sobrevive cerca de <strong>3 dias</strong> no corpo da mulher; o ovócito II, até 2 dias.</span></li>
+        <li><span>O embrião chega ao útero <strong>4 a 6 dias</strong> depois e precisa se implantar no endométrio: é a <strong>nidação</strong>. Ela depende da espessura e da qualidade do endométrio.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> HCG: por que a grávida não menstrua <span class="tag tag-imp">cai</span></div>
+      <p>Depois da ovulação, FSH e LH estão muito baixos (inibidos pelo estrógeno e pela progesterona). Sem LH, o corpo lúteo morreria e o endométrio descamaria, levando o embrião junto. Quem resolve isso é o embrião:</p>
+      <ol class="passos">
+        <li><span>As células do <strong>trofoblasto</strong> (futura placenta) produzem <strong>HCG</strong> (gonadotrofina coriônica humana).</span></li>
+        <li><span>O HCG <strong>mantém o corpo lúteo</strong> produzindo estrógeno e progesterona.</span></li>
+        <li><span>A progesterona <strong>mantém o endométrio</strong>: a mulher não menstrua e a gravidez continua.</span></li>
+        <li><span>Por volta do 3º mês, a <strong>placenta</strong> já desenvolvida passa a produzir estrógeno e progesterona sozinha, e o <strong>HCG cai</strong>.</span></li>
+        <li><span>No parto, os hormônios placentários caem e entra a <strong>ocitocina</strong> (hipotálamo, liberada pela neuro-hipófise), que contrai o miométrio.</span></li>
+      </ol>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-gravidez-grafico.jpg" alt="Gráfico hormonal da gravidez: HCG sobe e cai no início; estrógeno e progesterona sobem até o parto"><figcaption>Slide: gráfico hormonal da gravidez</figcaption></figure>
+      <div class="highlight"><strong>No gráfico:</strong> o pico precoce (primeiros 2 a 3 meses) que depois cai é o <strong>HCG</strong>. As duas curvas que sobem até o parto são <strong>estrógeno e progesterona</strong>. Se elas caem de forma brusca e precoce, o endométrio descama e pode haver <strong>aborto espontâneo</strong>. Depois do parto caem porque a placenta é eliminada.</div>
+      <div class="highlight-blue"><strong>Teste de gravidez</strong> detecta HCG na urina. Em ciclo regular, espere de 20 a 28 dias desde a última menstruação, tempo para a placenta em formação produzir HCG suficiente.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Gêmeos <span class="tag tag-imp">cai</span></div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Monozigóticos (idênticos, univitelinos)</h4><p><strong>1 ovócito + 1 espermatozoide</strong> formam 1 zigoto, que se divide em duas massas de células. Mesmo material genético: <strong>mesmo sexo</strong> e muito parecidos.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Dizigóticos (fraternos, bivitelinos)</h4><p><strong>2 ovócitos</strong> liberados no mesmo ciclo, cada um fecundado por um espermatozoide diferente: 2 zigotos. São irmãos comuns que nasceram juntos; <strong>podem ter sexos diferentes</strong>.</p></div>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-gemeos.jpg" alt="Formação de gêmeos idênticos (um zigoto que se divide) e fraternos (dois ovócitos fecundados)"><figcaption>Slide: casos específicos de fecundação</figcaption></figure>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Métodos contraceptivos <span class="tag tag-imp">cai</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Método</th><th>Como funciona</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Pílula (hormonal)</strong></td><td>Hormônios sintéticos parecidos com <strong>estrógeno e progesterona</strong>. Mantêm esses níveis altos e, por <strong>feedback negativo</strong>, inibem FSH e LH: o folículo não amadurece e <strong>não há pico de LH, logo não há ovulação</strong>. Na pausa (pílula de 21 dias), os hormônios caem e há sangramento.</td></tr>
+            <tr><td><strong>Vasectomia</strong></td><td>Corte dos <strong>canais deferentes</strong>: o sêmen sai sem espermatozoides. Não altera testosterona.</td></tr>
+            <tr><td><strong>Laqueadura</strong></td><td>Corte ou amarração das <strong>tubas uterinas</strong>: o ovócito não encontra o espermatozoide. A mulher continua ovulando e menstruando normalmente (os ovários não são tocados).</td></tr>
+            <tr><td><strong>Tabelinha</strong></td><td>Método comportamental: evitar relações no <strong>período fértil</strong>. A ovulação ocorre entre o 11º e o 15º dia (ciclo de 28 dias); conta-se cerca de 3 dias antes e 3 depois. É indicada para <strong>concepção</strong>, não para contracepção: falha muito porque os ciclos variam.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/fem-tabelinha.jpg" alt="Tabelinha: período fértil em torno da ovulação, entre os dias 11 e 17 do ciclo"><figcaption>Slide: como funciona a tabelinha</figcaption></figure>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Dá para engravidar menstruada?</h4><p>Sim. Num ciclo curto a ovulação pode ocorrer no 10º dia, e o espermatozoide sobrevive cerca de 3 dias.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Dá para ovular sem menstruar depois?</h4><p>Só se a ovulação resultar em fecundação e a gravidez der certo (HCG mantém o endométrio).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 4. ORGANIZAÇÃO SN ═══════════════ -->
+  <section class="section" id="organizacao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">4</div>
+      <div>
+        <h2 class="section-title">Organização do sistema nervoso</h2>
+        <p class="section-sub">SNC (encéfalo e medula) · SNP (nervos, gânglios, receptores) · tipos de nervos</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Para que serve</div>
+      <p>É a <strong>rede de comunicação</strong> do corpo: capta estímulos do ambiente, interpreta, guarda e <strong>elabora respostas</strong> (movimentos, sensações, ajustes nos órgãos). Integra os outros sistemas (endócrino, circulatório, respiratório, digestório) e mantém a <strong>homeostase</strong>.</p>
+      <div class="rota">Receptor sensorial → via sensorial (aferente) → integração (SNC) → via motora (eferente) → órgão efetor (músculo ou glândula)</div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sn-integracao.jpg" alt="Função integradora: receptor, via aferente, integração no encéfalo, via eferente e órgão efetor"><figcaption>Slide: função integradora</figcaption></figure>
+      <div class="highlight-blue"><strong>Nervoso × endócrino:</strong> o impulso nervoso é <strong>rápido, preciso e curto</strong> (vai direto à célula-alvo). O hormônio é <strong>lento, difuso e duradouro</strong> (vai pelo sangue). Por isso respostas de emergência dependem do sistema nervoso. Neurotransmissor não é sinônimo de hormônio: age na fenda sináptica, não pelo sangue.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Sistema nervoso central (SNC) <span class="tag tag-imp">cai</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parte</th><th>Funções</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Cérebro</strong></td><td>Atos voluntários, consciência, memória, raciocínio, linguagem e interpretação dos sentidos (visão, audição, olfato, gustação, tato). Os dois hemisférios são ligados pelo <strong>corpo caloso</strong>.</td></tr>
+            <tr><td><strong>Hipotálamo</strong></td><td>Controla temperatura, fome, sede (balanço hídrico), emoções e os órgãos viscerais; produz ADH e ocitocina e comanda a hipófise. Liga o nervoso ao endócrino.</td></tr>
+            <tr><td><strong>Cerebelo</strong></td><td><strong>Equilíbrio, coordenação motora</strong> e tônus muscular. Lesão: <strong>ataxia</strong> (perda de coordenação).</td></tr>
+            <tr><td><strong>Tronco encefálico: ponte</strong></td><td>Liga o cérebro ao cerebelo e à medula; participa do controle da respiração.</td></tr>
+            <tr><td><strong>Tronco encefálico: bulbo</strong></td><td>Funções <strong>vitais automáticas</strong>: respiração, batimentos cardíacos, pressão, deglutição. Lesão no bulbo pode matar.</td></tr>
+            <tr><td><strong>Medula espinal</strong></td><td>Conduz impulsos entre o corpo e o encéfalo e elabora os <strong>atos reflexos</strong>. Lesão na região lombar causa paraplegia (pernas); lesão no pescoço (cervical), tetraplegia.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sn-snc.jpg" alt="SNC: encéfalo (cérebro, cerebelo e tronco encefálico com ponte e bulbo) e medula"><figcaption>Slide: divisões do SNC</figcaption></figure>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Sistema nervoso periférico (SNP) <span class="tag tag-imp">cai</span></div>
+      <ul class="list">
+        <li><span><strong>Nervos:</strong> feixes de fibras nervosas (axônios) fora do encéfalo e da medula. <strong>Cranianos</strong> (saem do encéfalo, 12 pares) e <strong>espinais</strong> (saem da medula, 31 pares).</span></li>
+        <li><span><strong>Gânglios:</strong> conjuntos de <strong>corpos celulares</strong> de neurônios localizados fora do SNC.</span></li>
+        <li><span><strong>Receptores sensoriais:</strong> terminações de neurônios nos órgãos dos sentidos que <strong>transformam estímulos</strong> (luz, som, calor, toque, substâncias químicas) em impulsos elétricos.</span></li>
+      </ul>
+      <div class="grid-3">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Sensitivos (aferentes)</h4><p>Levam informação dos receptores <strong>para o SNC</strong>.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Motores (eferentes)</h4><p>Levam ordens <strong>do SNC</strong> para músculos e glândulas.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Mistos</h4><p>Têm fibras sensitivas e motoras. Ex.: <strong>nervo trigêmeo</strong>, nervos espinais.</p></div>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sn-snp.jpg" alt="SNP: nervos sensitivos, motores e mistos, gânglios e receptores sensoriais"><figcaption>Slide: componentes do SNP</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 5. IMPULSO ═══════════════ -->
+  <section class="section" id="impulso">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">5</div>
+      <div>
+        <h2 class="section-title">Neurônio e impulso nervoso</h2>
+        <p class="section-sub">Partes do neurônio · repouso e potencial de ação · bomba de Na⁺/K⁺ · mielina</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Partes do neurônio e sentido do impulso <span class="tag tag-imp">cai</span></div>
+      <p>O tecido nervoso tem <strong>neurônios</strong> e <strong>células da glia</strong> (que são a maioria: é <strong>mito</strong> que 90% do tecido seja de neurônios). A glia sustenta, nutre, protege e forma a bainha de mielina.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parte</th><th>Função</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Dendritos</strong></td><td><strong>Recebem</strong> os estímulos (do meio ou de outro neurônio).</td></tr>
+            <tr><td><strong>Corpo celular</strong></td><td>Tem o núcleo; recebe a informação dos dendritos e passa ao axônio.</td></tr>
+            <tr><td><strong>Axônio</strong></td><td><strong>Conduz</strong> o impulso para longe do corpo celular. Pode ter <strong>bainha de mielina</strong> (isolante, com falhas chamadas <strong>nódulos de Ranvier</strong>).</td></tr>
+            <tr><td><strong>Terminações do axônio</strong></td><td><strong>Transmitem</strong> o sinal a outro neurônio ou à célula efetora, liberando neurotransmissores.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rota">Sentido único: dendrito → corpo celular → axônio → terminação do axônio</div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/neuronio-partes.jpg" alt="Neurônio com dendritos, corpo celular, axônio e terminações, e seta de propagação do impulso"><figcaption>Slide: impulso nervoso propaga em uma única direção</figcaption></figure>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Os três estados da membrana <span class="tag tag-imp">cai</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Estado</th><th>Cargas</th><th>O que acontece</th><th>Transporte</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Polarizado</strong> (potencial de repouso, cerca de −70 mV)</td><td>Fora <strong>+</strong>, dentro <strong>−</strong></td><td>Muito Na⁺ fora e muito K⁺ dentro. Estado necessário para o neurônio poder responder a um estímulo.</td><td><strong>Ativo:</strong> bomba de sódio e potássio (gasta ATP)</td></tr>
+            <tr><td><strong>Despolarizado</strong> (potencial de ação, até cerca de +40 mV)</td><td>Fora <strong>−</strong>, dentro <strong>+</strong></td><td>O estímulo (acima do limiar) abre canais de sódio e o <strong>Na⁺ entra</strong> rápido: a polaridade se inverte.</td><td><strong>Passivo:</strong> difusão facilitada de Na⁺ por canais</td></tr>
+            <tr><td><strong>Repolarizado</strong></td><td>Volta a fora +, dentro −</td><td>Os canais de Na⁺ fecham, o <strong>K⁺ sai</strong> e a bomba restaura as concentrações. Há um <strong>período refratário</strong> em que o trecho não responde.</td><td>Passivo (saída de K⁺) e depois ativo (bomba)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/neuronio-potencial.jpg" alt="Gráfico do potencial de ação: repouso em −70 mV, limiar, despolarização até +40 mV, repolarização e período refratário"><figcaption>Slide: gráfico do potencial de ação</figcaption></figure>
+      <div class="highlight"><strong>Bomba de sódio e potássio:</strong> proteína que, gastando ATP, joga <strong>3 Na⁺ para fora e 2 K⁺ para dentro</strong>, contra o gradiente. Mantém a polarização (repouso) e restaura as concentrações depois de cada impulso. Sem ela, o neurônio não conseguiria disparar de novo. (Exercício Unesp: a diferença de potencial é mantida pelo bombeamento ativo de íons; resposta A.)</div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/neuronio-bomba.jpg" alt="Bomba de sódio e potássio na membrana, com íons sódio fora e potássio dentro"><figcaption>Slide: polarização mantida pela bomba (transporte ativo)</figcaption></figure>
+      <p style="margin-top:10px"><strong>Impulso nervoso = propagação do potencial de ação</strong> ao longo do neurônio, como uma onda de despolarização seguida de repolarização (efeito dominó: cada trecho despolarizado despolariza o vizinho).</p>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/neuronio-etapas.jpg" alt="Membrana polarizada, despolarizada pelo estímulo e repolarizada enquanto o impulso avança"><figcaption>Slide: polarizada → despolarizada → repolarizada</figcaption></figure>
+      <div class="highlight-blue"><strong>Pomada anestésica do dentista</strong> (Fuvest): mantém fechados os canais de sódio. Sem entrada de Na⁺ não há despolarização, logo não há potencial de ação: o neurônio sensorial não leva a dor ao SNC.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Com e sem mielina <span class="tag tag-imp">cai</span></div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Mielinizado: condução saltatória</h4><p>A mielina isola o axônio; a despolarização só acontece nos <strong>nódulos de Ranvier</strong> e o impulso "salta" de nódulo em nódulo. <strong>Muito mais rápida</strong> e gasta menos energia.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Não mielinizado: condução contínua</h4><p>A despolarização percorre <strong>toda</strong> a membrana do axônio, trecho a trecho. <strong>Mais lenta.</strong></p></div>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/neuronio-conducao.jpg" alt="Condução saltatória em neurônio mielinizado e contínua em neurônio sem mielina"><figcaption>Slide: tipos de condução</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 6. SINAPSES ═══════════════ -->
+  <section class="section" id="sinapses">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">6</div>
+      <div>
+        <h2 class="section-title">Sinapses e neurotransmissores</h2>
+        <p class="section-sub">Pré-sináptico, fenda, pós-sináptico · tipos de sinapse · excitatório e inibitório</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Sinapse química passo a passo <span class="tag tag-imp">cai</span></div>
+      <p><strong>Sinapse</strong> é a região de contato entre um neurônio e outra célula. Funciona como uma <strong>válvula</strong>: o impulso só passa num sentido, do axônio de um para os receptores do outro.</p>
+      <ol class="passos">
+        <li><span>O impulso chega à <strong>terminação do axônio</strong> do neurônio <strong>pré-sináptico</strong>.</span></li>
+        <li><span><strong>Vesículas</strong> cheias de neurotransmissor se fundem à membrana e o liberam na <strong>fenda sináptica</strong> (espaço entre as células; elas não se encostam).</span></li>
+        <li><span>O neurotransmissor se difunde pela fenda e se liga a <strong>receptores</strong> da membrana da célula <strong>pós-sináptica</strong>.</span></li>
+        <li><span>Os receptores abrem canais de íons e geram (ou dificultam) um novo potencial de ação.</span></li>
+        <li><span>Para a resposta acabar, o neurotransmissor é <strong>degradado por enzimas</strong> na fenda ou <strong>recaptado</strong> pelo neurônio pré-sináptico.</span></li>
+      </ol>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sinapse-quimica.jpg" alt="Sinapse química: vesículas no neurônio pré-sináptico, liberação na fenda e receptores no neurônio pós-sináptico"><figcaption>Slide: sinapse química</figcaption></figure>
+      <div class="highlight"><strong>Por que é unidirecional?</strong> Só o pré-sináptico tem <strong>vesículas com neurotransmissor</strong>; só o pós-sináptico tem os <strong>receptores</strong>.</div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/sinapse-regulacao.jpg" alt="Regulação da resposta: degradação por enzimas e recaptação do neurotransmissor"><figcaption>Slide: regulação da resposta (degradação e recaptação)</figcaption></figure>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Tipos de sinapse</div>
+      <div class="grid-3">
+        <div class="mini-card" style="border-top-color:var(--c1)"><h4>Entre neurônios</h4><p>Axônio de um neurônio com dendrito (ou corpo celular) de outro.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Neuromuscular (placa motora)</h4><p>Neurônio motor com <strong>músculo</strong>. Neurotransmissor: <strong>acetilcolina</strong>, que contrai o músculo esquelético.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Neuroglandular</h4><p>Neurônio com <strong>glândula</strong>, estimulando a secreção.</p></div>
+      </div>
+      <div class="highlight-blue"><strong>Sinapse elétrica:</strong> os neurônios se ligam diretamente por canais (junções) que passam íons; não há neurotransmissor. É <strong>mais rápida</strong>. Algumas sinapses são elétricas e químicas ao mesmo tempo; a resposta elétrica vem primeiro.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Neurotransmissores <span class="tag tag-imp">cai</span></div>
+      <p>Mediadores químicos produzidos pelos neurônios. O efeito depende do <strong>receptor</strong> em que se ligam:</p>
+      <ul class="list">
+        <li><span><strong>Excitatórios:</strong> provocam potencial de ação no neurônio seguinte ou ativam o órgão efetor.</span></li>
+        <li><span><strong>Inibitórios:</strong> impedem ou dificultam o potencial de ação, ou diminuem a atividade do efetor.</span></li>
+        <li><span>O <strong>mesmo</strong> neurotransmissor pode ser os dois: a <strong>acetilcolina excita</strong> o músculo esquelético e <strong>inibe</strong> o músculo cardíaco.</span></li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Neurotransmissor</th><th>Onde / efeito principal</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Acetilcolina</strong></td><td>Placa motora (contração do músculo esquelético); sistema parassimpático (reduz batimentos).</td></tr>
+            <tr><td><strong>Noradrenalina</strong></td><td>Sistema simpático: alerta, luta e fuga (acelera coração, dilata pupila).</td></tr>
+            <tr><td><strong>Dopamina</strong></td><td>Prazer, recompensa, motivação e controle dos movimentos.</td></tr>
+            <tr><td><strong>Serotonina</strong></td><td>Humor, sono e apetite (baixa associada à depressão).</td></tr>
+            <tr><td><strong>Endorfina</strong></td><td>Analgésico natural, sensação de bem-estar (exercício físico).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight"><strong>Drogas e remédios agem nas sinapses:</strong> imitam, bloqueiam ou impedem a recaptação de neurotransmissores. Ex.: o <strong>curare</strong> bloqueia os receptores de acetilcolina no músculo: a ordem nervosa não chega e o músculo fica <strong>flácido (paralisado)</strong>. As sinapses também explicam a <strong>neuroplasticidade</strong> (o cérebro cria e reforça conexões ao aprender).</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 7. REFLEXO ═══════════════ -->
+  <section class="section" id="reflexo">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">7</div>
+      <div>
+        <h2 class="section-title">Ato reflexo e arco reflexo</h2>
+        <p class="section-sub">Resposta rápida elaborada pela medula, sem passar pelo cérebro</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Conceitos <span class="tag tag-imp">cai</span></div>
+      <ul class="list">
+        <li><span><strong>Ato reflexo:</strong> resposta <strong>rápida e involuntária</strong>, elaborada pela <strong>medula espinal</strong>, sem processamento cerebral. Protege o corpo (tirar a mão do fogo, do cacto, do fio desencapado) e mantém o tônus (reflexo patelar).</span></li>
+        <li><span><strong>Arco reflexo:</strong> o <strong>caminho</strong> que o impulso faz para produzir o ato reflexo.</span></li>
+        <li><span>A informação também sobe ao cérebro, por isso <strong>sentimos</strong> a dor, mas só <strong>depois</strong> de a mão já ter se afastado.</span></li>
+      </ul>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Arco reflexo simples</h4><p>Receptor → <strong>neurônio sensitivo</strong> (aferente) → medula → <strong>neurônio motor</strong> (eferente) → efetor. Ex.: reflexo patelar (martelinho no joelho).</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Arco reflexo composto</h4><p>Tem um <strong>neurônio associativo</strong> (interneurônio) na medula entre o sensitivo e o motor. Ex.: tirar a mão do espinho.</p></div>
+      </div>
+      <div class="rota">Sequência no composto: neurônio sensitivo → neurônio associativo → neurônio motor</div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/reflexo-composto.jpg" alt="Arco reflexo composto: receptor na pele, neurônio sensorial, neurônio associativo na medula, neurônio motor e músculo"><figcaption>Slide: arco reflexo composto</figcaption></figure>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> E se cortar o nervo? (pergunta clássica)</div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/reflexo-simples.jpg" alt="Arco reflexo simples do tendão patelar com tesoura indicando corte no neurônio sensitivo"><figcaption>Slide: arco reflexo simples com corte</figcaption></figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Corte</th><th>Reflexo?</th><th>Sente?</th><th>Move a perna voluntariamente?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Raiz dorsal / neurônio sensitivo</strong></td><td>Não</td><td>Não</td><td><strong>Sim</strong> (a via motora está intacta)</td></tr>
+            <tr><td><strong>Raiz ventral / neurônio motor</strong></td><td>Não</td><td><strong>Sim</strong> (a via sensitiva chega ao cérebro)</td><td>Não</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:10px">Truque: a raiz <strong>dorsal</strong> (de trás) é <strong>sensitiva</strong> e tem um gânglio; a raiz <strong>ventral</strong> (da frente) é <strong>motora</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 8. SOMÁTICO E AUTÔNOMO ═══════════════ -->
+  <section class="section" id="autonomo">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">8</div>
+      <div>
+        <h2 class="section-title">SNP somático e autônomo</h2>
+        <p class="section-sub">Voluntário × involuntário · simpático × parassimpático</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Somático × autônomo <span class="tag tag-imp">cai</span></div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Somático (voluntário)</h4><p>Leva ordens do SNC aos <strong>músculos esqueléticos</strong>: andar, escrever, falar. Neurotransmissor na placa motora: <strong>acetilcolina</strong>.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Autônomo (involuntário)</h4><p>Inerva as <strong>vísceras</strong> (coração, vasos, digestório, bexiga, glândulas) e regula o meio interno, mantendo a <strong>homeostase</strong>. Ex.: a pupila dilata quando vemos alguém interessante.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Simpático × parassimpático <span class="tag tag-imp">cai</span></div>
+      <p>A maioria dos órgãos recebe os dois ramos, com <strong>ações antagônicas</strong>: como uma gangorra, um acelera e o outro freia, buscando o equilíbrio.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th></th><th>Simpático</th><th>Parassimpático</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Situação</strong></td><td>Estresse, <strong>luta e fuga</strong>, exercício intenso</td><td><strong>Repouso e digestão</strong>, calma, saciedade</td></tr>
+            <tr><td><strong>Neurotransmissor</strong></td><td><strong>Noradrenalina</strong></td><td><strong>Acetilcolina</strong></td></tr>
+            <tr><td>Coração</td><td>Acelera (taquicardia)</td><td>Desacelera</td></tr>
+            <tr><td>Pupilas</td><td>Dilata</td><td>Contrai</td></tr>
+            <tr><td>Brônquios</td><td>Dilata (entra mais ar)</td><td>Contrai</td></tr>
+            <tr><td>Digestão (peristaltismo e secreções)</td><td>Inibe</td><td>Estimula</td></tr>
+            <tr><td>Salivação</td><td>Inibe (boca seca)</td><td>Estimula</td></tr>
+            <tr><td>Fígado</td><td>Libera glicose no sangue</td><td>Armazena (glicogênio)</td></tr>
+            <tr><td>Adrenais</td><td>Estimula liberação de adrenalina</td><td>(sem ação)</td></tr>
+            <tr><td>Bexiga</td><td>Relaxa (segura a urina)</td><td>Contrai (esvazia)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/snp-antagonicas.jpg" alt="Ações antagônicas: divisão parassimpática com acetilcolina e simpática com noradrenalina em cada órgão"><figcaption>Slide: ações antagônicas do sistema nervoso autônomo</figcaption></figure>
+      <div class="highlight"><strong>Por que o susto acelera o coração?</strong> O simpático libera <strong>noradrenalina</strong> no coração e estimula as adrenais a liberar <strong>adrenalina</strong>: o corpo se prepara para lutar ou fugir. O coração tem ritmo próprio (é involuntário), mas o autônomo <strong>ajusta a frequência</strong>: o simpático aumenta, o parassimpático reduz.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 9. REVISÃO ═══════════════ -->
+  <section class="section" id="revisao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">9</div>
+      <div>
+        <h2 class="section-title">Semana Inter e revisão dos trimestres anteriores</h2>
+        <p class="section-sub">Endócrino · Digestório · Circulatório · Respiratório · Excretor</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Semana Interdisciplinar</div>
+      <p>Tema: <strong>"Restauração de ecossistemas: gestão de recursos hídricos, conservação do solo e preservação da biodiversidade"</strong>. Na prova de Biologia o foco são as <strong>consequências das ações humanas nos ecossistemas aquáticos</strong> e os <strong>impactos no organismo humano</strong>.</p>
+      <div class="highlight-blue">O resumo completo dos quatro estudos de caso está na página <a href="semana-inter.html#biologia"><strong>Semana Inter</strong></a>.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Sistema endócrino: hormônios que precisa saber <span class="tag tag-imp">revisão</span></div>
+      <p><strong>Hormônios</strong> são substâncias produzidas por <strong>glândulas endócrinas</strong> (que secretam no sangue; as <strong>exócrinas</strong> secretam por ductos, como as salivares) e agem nas <strong>células-alvo</strong>, as que têm receptores para eles.</p>
+      <figure class="fig"><img loading="lazy" src="bio-imgs/3tri/endo-hipofise.jpg" alt="Hipófise: adeno-hipófise produz GH, ACTH, TSH, FSH, LH e prolactina; neuro-hipófise secreta ocitocina e ADH, produzidos no hipotálamo"><figcaption>Slide: hormônios hipofisários e órgãos-alvo</figcaption></figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Glândula</th><th>Hormônio</th><th>Ação</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="6"><strong>Adeno-hipófise</strong><br>(produz e secreta)</td><td><strong>GH</strong> (crescimento)</td><td>Cresce ossos (cartilagem da epífise) e aumenta síntese de proteínas; usa gordura como fonte de energia.</td><td>Falta na infância: <strong>nanismo</strong> (proporcional). Excesso na infância: <strong>gigantismo</strong>. Excesso no adulto: <strong>acromegalia</strong> (extremidades crescem).</td></tr>
+            <tr><td><strong>TSH</strong> (tireotrófico)</td><td>Estimula a tireoide a produzir T3 e T4.</td><td>Feedback negativo: T3/T4 altos inibem o TSH.</td></tr>
+            <tr><td><strong>ACTH</strong> (adrenocorticotrófico)</td><td>Estimula o córtex das adrenais.</td><td></td></tr>
+            <tr><td><strong>FSH</strong></td><td>Folículo (mulher) e espermatozoides (homem).</td><td>Gonadotrofinas: alvo são as gônadas.</td></tr>
+            <tr><td><strong>LH</strong></td><td>Ovulação e corpo lúteo (mulher); testosterona (homem).</td><td></td></tr>
+            <tr><td><strong>Prolactina</strong></td><td><strong>Produção</strong> de leite.</td><td></td></tr>
+            <tr><td rowspan="2"><strong>Neuro-hipófise</strong><br>(só armazena e secreta; quem produz é o <strong>hipotálamo</strong>)</td><td><strong>Ocitocina</strong></td><td>Contração do útero no parto e <strong>ejeção</strong> do leite na amamentação.</td><td>Exemplo de <strong>feedback positivo</strong> (contrações cada vez mais fortes).</td></tr>
+            <tr><td><strong>ADH</strong> (antidiurético, vasopressina)</td><td>Aumenta as <strong>aquaporinas</strong> e a reabsorção de água no ducto coletor: urina concentrada.</td><td><strong>Álcool inibe o ADH</strong> (desidrata). Falta ou receptor que não responde: <strong>diabetes insipidus</strong> (poliúria e polidipsia).</td></tr>
+            <tr><td rowspan="3"><strong>Tireoide</strong></td><td><strong>T3 e T4</strong></td><td>Aumentam o <strong>metabolismo basal</strong>: respiração celular, frequência cardíaca, desenvolvimento cerebral na infância.</td><td>Precisam de <strong>iodo</strong> (sal iodado, contra o bócio). Hiper: agitação, perda de peso, calor, exoftalmia. Hipo: sono, ganho de peso, frio, <strong>bócio</strong>, cretinismo na infância, Hashimoto.</td></tr>
+            <tr><td><strong>Calcitonina</strong></td><td><strong>Baixa</strong> o cálcio no sangue (guarda nos ossos).</td><td rowspan="2">Antagônicos. Cálcio: rigidez óssea, contração muscular, coagulação.</td></tr>
+            <tr><td><strong>Paratireoides</strong></td><td><strong>Paratormônio</strong></td><td><strong>Aumenta</strong> o cálcio no sangue (tira dos ossos). Liberado quando o cálcio cai.</td></tr>
+            <tr><td rowspan="2"><strong>Pâncreas</strong> (glândula mista; parte endócrina = ilhotas de Langerhans)</td><td><strong>Insulina</strong> (células β)</td><td><strong>Baixa a glicemia</strong>: faz a glicose entrar nas células e ser guardada como glicogênio (fígado e músculos).</td><td>Diabetes mellitus <strong>tipo 1</strong>: não produz insulina (autoimune, jovens, tratamento com insulina). <strong>Tipo 2</strong>: receptores não respondem (adultos, obesidade).</td></tr>
+            <tr><td><strong>Glucagon</strong> (células α)</td><td><strong>Sobe a glicemia</strong>: quebra glicogênio (glicogenólise) no jejum e no sono.</td><td>No jejum prolongado age o glucagon.</td></tr>
+            <tr><td rowspan="3"><strong>Adrenais</strong> (suprarrenais)</td><td><strong>Adrenalina</strong> (medula)</td><td>Luta e fuga, junto com o simpático: acelera coração, sobe glicemia.</td><td></td></tr>
+            <tr><td><strong>Aldosterona</strong> (córtex)</td><td>Aumenta a <strong>reabsorção de sódio</strong> nos túbulos renais (a água vai junto): sobe a pressão arterial.</td><td>Ativada pela renina quando a pressão cai. Falta: perda de sal e "fome de sal".</td></tr>
+            <tr><td><strong>Glicocorticoides</strong> (cortisol) e andrógenos (córtex)</td><td>Estresse, glicemia, anti-inflamatório.</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Feedback negativo</h4><p>A resposta é <strong>contrária</strong> ao estímulo e devolve o valor ao normal. Ex.: T3/T4 altos inibem o TSH; glicemia alta libera insulina, que a baixa. É o que mantém a homeostase.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Feedback positivo</h4><p>A resposta <strong>reforça</strong> o estímulo e aumenta a instabilidade. Ex.: contrações do parto liberam ocitocina, que gera contrações mais fortes.</p></div>
+      </div>
+      <div class="highlight"><strong>Não confunda:</strong> diabetes <strong>mellitus</strong> = insulina (glicemia alta, glicose na urina). Diabetes <strong>insipidus</strong> = ADH (muita urina diluída, muita sede, glicemia normal).</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Digestório: onde cada enzima age <span class="tag tag-imp">revisão</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Local</th><th>pH</th><th>Enzima (origem)</th><th>Substrato → produto</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Boca</strong></td><td>~7 (neutro)</td><td>Amilase salivar (ptialina)</td><td>Amido → maltose</td></tr>
+            <tr><td><strong>Estômago</strong></td><td>~2 (ácido, HCl)</td><td>Pepsina (a partir do pepsinogênio)</td><td>Proteínas → peptídeos</td></tr>
+            <tr><td rowspan="4"><strong>Duodeno</strong> (intestino delgado)</td><td rowspan="4">~8 (básico, bicarbonato do pâncreas)</td><td>Amilase pancreática</td><td>Amido → maltose</td></tr>
+            <tr><td>Tripsina e quimotripsina (pâncreas)</td><td>Proteínas e peptídeos → peptídeos menores</td></tr>
+            <tr><td>Lipase pancreática (bile só <strong>emulsifica</strong>, não é enzima)</td><td>Lipídios → ácidos graxos e glicerol</td></tr>
+            <tr><td>Enzimas intestinais: maltase, sacarase, lactase, peptidases</td><td>Dissacarídeos → monossacarídeos (glicose etc.); peptídeos → aminoácidos</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:10px;font-size:0.85rem;color:var(--text-light)">Tabela de revisão montada a partir do roteiro da orientação; confira com a lista da Maratona de Biologia.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Circulatório, respiratório e excretor <span class="tag tag-imp">revisão</span></div>
+      <ul class="list">
+        <li><span><strong>Circulatório:</strong> cavidades do coração, veias e artérias ligadas a cada uma, sístole e diástole, circulação pulmonar e sistêmica. Ver <a href="biologia-2tri.html#circulatorio-anat">Bio 2º tri · Circulatório</a>.</span></li>
+        <li><span><strong>Respiratório:</strong> ler a <strong>curva de saturação da hemoglobina</strong> (mais O₂ ligado onde a pressão de O₂ é alta, nos pulmões; libera nos tecidos; acidez, CO₂ e temperatura deslocam a curva para a direita e facilitam a liberação). Ver <a href="biologia-2tri.html#respiratorio">Bio 2º tri · Respiratório</a>.</span></li>
+        <li><span><strong>Excretor:</strong> partes do néfron e o que acontece em cada uma (filtração no glomérulo, reabsorção nos túbulos, ação do ADH no ducto coletor e da aldosterona nos túbulos). Ver <a href="biologia-2tri.html#excretor">Bio 2º tri · Excretor</a>.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════ 10. ESCRITAS ═══════════════ -->
+  <section class="section" id="escritas">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">10</div>
+      <div>
+        <h2 class="section-title">Questões escritas</h2>
+        <p class="section-sub">Perguntas dos estudos dirigidos e exercícios dos slides, respondidas. Tente antes de abrir.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Reprodutor</div>
+      <details class="resp"><summary>A vasectomia interfere na espermatogênese? E na taxa de testosterona? Como ela evita a gravidez?</summary><p>Não interfere em nenhuma das duas: os testículos, o FSH e o LH continuam iguais, então os espermatozoides e a testosterona continuam sendo produzidos. Ela corta os canais deferentes: os espermatozoides não chegam à uretra e são reabsorvidos, e o sêmen sai só com os líquidos da próstata e das vesículas seminais.</p></details>
+      <details class="resp"><summary>Num gráfico com dois hormônios ovarianos (A sobe na primeira metade, B na segunda), quem é quem e o que estimula cada um?</summary><p>A é o estrógeno, produzido pelo folículo em crescimento sob estímulo do FSH. B é a progesterona, produzida pelo corpo lúteo, formado depois da ovulação sob estímulo do LH.</p></details>
+      <details class="resp"><summary>Qual a função do endométrio? E do miométrio?</summary><p>O endométrio é a camada interna, vascularizada, que recebe e nutre o embrião (nidação) e descama na menstruação. O miométrio é a camada de músculo liso que, sob ação da ocitocina, contrai no parto.</p></details>
+      <details class="resp"><summary>Numa mulher que toma pílula de 21 dias, como ficam FSH e LH?</summary><p>Baixos e sem pico durante todo o ciclo. Os hormônios sintéticos mantêm estrógeno e progesterona altos, que por feedback negativo inibem a hipófise: o folículo não amadurece e não há ovulação.</p></details>
+      <details class="resp"><summary>O que é nidação? Que hormônio surge a partir dela e por que a menstruação não acontece?</summary><p>Nidação é a implantação do embrião no endométrio. A partir dela o trofoblasto (futura placenta) produz HCG, que mantém o corpo lúteo produzindo progesterona e estrógeno. Com a progesterona alta o endométrio não descama, então não há menstruação.</p></details>
+      <details class="resp"><summary>No gráfico da gestação, quem são os hormônios 1, 2 e 3 (o 3 sobe e cai no início)? Por que 1 e 2 caem depois do parto?</summary><p>3 é o HCG; 1 e 2 são estrógeno e progesterona. O HCG mantém o corpo lúteo produzindo estrógeno e progesterona até a placenta assumir essa produção. Depois do parto a placenta é eliminada, por isso eles caem. Uma queda brusca e precoce durante a gravidez faz o endométrio descamar e pode causar aborto espontâneo.</p></details>
+      <details class="resp"><summary>Diferencie gêmeos monozigóticos de dizigóticos.</summary><p>Monozigóticos: um ovócito fecundado por um espermatozoide forma um zigoto que se divide em dois embriões, geneticamente iguais e do mesmo sexo. Dizigóticos: dois ovócitos liberados no mesmo ciclo, cada um fecundado por um espermatozoide, formam dois zigotos diferentes, que podem ser de sexos diferentes.</p></details>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c1)"></span> Nervoso</div>
+      <details class="resp"><summary>Classifique como SNC ou SNP: cerebelo, bulbo, medula espinal, gânglios, hipotálamo, nervos, cérebro.</summary><p>SNC: cerebelo, bulbo, medula espinal, hipotálamo e cérebro. SNP: gânglios nervosos e nervos.</p></details>
+      <details class="resp"><summary>Cite três funções das células da glia.</summary><p>Sustentar e proteger os neurônios, nutri-los (os astrócitos ligam os neurônios aos vasos sanguíneos), formar a bainha de mielina (oligodendrócitos no SNC) e defender o tecido (a micróglia fagocita).</p></details>
+      <details class="resp"><summary>O que significa "o impulso nervoso é a propagação de um potencial de ação"? Qual o estado inicial necessário?</summary><p>O estímulo inverte a polaridade de um trecho da membrana (despolarização: o Na⁺ entra), e essa inversão vai passando de trecho em trecho pelo neurônio, seguida da repolarização. Para responder, o neurônio precisa estar polarizado, em potencial de repouso (fora positivo, dentro negativo), mantido pela bomba de sódio e potássio.</p></details>
+      <details class="resp"><summary>No gráfico do potencial de membrana, identifique repouso, despolarização, repolarização e hiperpolarização/período refratário.</summary><p>Linha reta em cerca de −70 mV: repouso. Subida rápida até cerca de +40 mV: despolarização (entrada de Na⁺). Descida: repolarização (saída de K⁺). Trecho que passa abaixo de −70 mV antes de voltar: hiperpolarização, parte do período refratário, depois a bomba restaura o repouso.</p></details>
+      <details class="resp"><summary>Por que a sinapse química é unidirecional? O que é sinapse motora e qual o seu neurotransmissor?</summary><p>Só a terminação pré-sináptica tem vesículas com neurotransmissor e só a membrana pós-sináptica tem os receptores. A sinapse motora (placa motora) é entre o neurônio motor e a fibra do músculo esquelético; o neurotransmissor é a acetilcolina.</p></details>
+      <details class="resp"><summary>Neurotransmissores e hormônios são sinônimos?</summary><p>Não. Neurotransmissores são liberados pelos neurônios na fenda sináptica e agem na célula vizinha, de forma rápida e localizada. Hormônios são liberados por glândulas no sangue e agem em células-alvo distantes, de forma mais lenta e duradoura. (A noradrenalina e a adrenalina aparecem nos dois papéis.)</p></details>
+      <details class="resp"><summary>Por que um susto provoca taquicardia?</summary><p>O susto ativa o sistema nervoso autônomo simpático, que libera noradrenalina no coração (e faz as adrenais liberarem adrenalina), aumentando a frequência cardíaca para a reação de luta ou fuga.</p></details>
+      <details class="resp"><summary>Qual o papel do parassimpático no coração, na pupila e no peristaltismo?</summary><p>Mantém o corpo em repouso e digestão, usando acetilcolina: diminui a frequência cardíaca, contrai a pupila e aumenta o peristaltismo e as secreções digestivas.</p></details>
+      <details class="resp"><summary>No arco reflexo da vela: o que acontece se cortar a raiz dorsal (A)? E a ventral (B)?</summary><p>Raiz dorsal (sensitiva): o impulso não chega à medula, então não há reflexo nem sensação de calor, mas a pessoa ainda move o braço voluntariamente. Raiz ventral (motora): a pessoa sente o calor, porque a informação sobe ao cérebro, mas não há reflexo nem movimento voluntário do braço.</p></details>
+    </div>
+  </section>
+
+  <section class="section" id="exercicios">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">✎</div>
+      <div>
+        <h2 class="section-title">Quiz de Fixação</h2>
+        <p class="section-sub">25 testes com alternativas, na linha dos exercícios dos slides</p>
+      </div>
+    </div>
+    <style>
+      .quiz { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+      .quiz-q { display: flex; align-items: flex-start; gap: 12px; padding: 16px 16px 10px; font-weight: 600; font-size: 0.92rem; }
+      .quiz-num { background: var(--primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
+      .quiz-opts { display: flex; flex-direction: column; gap: 6px; padding: 0 16px 14px; }
+      .opt { display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-size: 0.88rem; transition: all 0.15s; }
+      .opt:hover { border-color: var(--secondary); background: #f2faf5; }
+      .opt-letter { width: 22px; height: 22px; border-radius: 50%; background: #e3f3e9; color: var(--primary); font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+      .opt.correct { border-color: #166534; background: #f0fdf4; }
+      .opt.correct .opt-letter { background: #166534; color: white; }
+      .opt.wrong { border-color: #9c1c1c; background: #fff5f5; }
+      .opt.wrong .opt-letter { color: #9c1c1c; }
+      .opt.disabled { cursor: default; pointer-events: none; }
+      .opt.reveal-correct { border-color: #166534; background: #f0fdf4; opacity: 0.7; }
+      .quiz-feedback { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: 0.86rem; display: none; }
+      .quiz-feedback.show { display: block; }
+      .quiz-feedback.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+      .quiz-feedback.err { background: #fff5f5; border: 1px solid #fecaca; color: #9c1c1c; }
+      .score-bar { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+      .score-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--primary); }
+      .score-label { font-size: 0.82rem; color: var(--text-light); }
+      .btn-reset { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif; }
+      .btn-reset:hover { background: var(--c2); }
+    </style>
+    <style>
+      .quiz-grupo { font-size: 1rem; font-weight: 700; margin: 26px 0 10px; }
+      details.resp { border-top: 1px solid var(--border); padding: 10px 0; }
+      details.resp:first-of-type { border-top: 0; }
+      details.resp summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+      details.resp p { margin-top: 8px; }
+    </style>
+
+    <div class="score-bar">
+      <div>
+        <div class="score-val"><span id="score">0</span>/<span id="total">25</span></div>
+        <div class="score-label">acertos · clique nas alternativas para responder</div>
+      </div>
+      <button class="btn-reset" onclick="resetQuiz()">↺ Reiniciar</button>
+    </div>
+
+    <script>
+      const ANSWERS = {"q1":"b","q2":"c","q3":"d","q4":"b","q5":"e","q6":"a","q7":"c","q8":"b","q9":"e","q10":"a","q11":"c","q12":"d","q13":"b","q14":"c","q15":"e","q16":"c","q17":"a","q18":"b","q19":"e","q20":"c","q21":"d","q22":"b","q23":"e","q24":"a","q25":"c"};
+      let score = 0, answered = 0;
+      function pick(qid, letter, el) {
+        const opts = el.closest('.quiz-opts').querySelectorAll('.opt');
+        opts.forEach(o => o.classList.add('disabled'));
+        const fb = document.getElementById('fb-'+qid);
+        if (letter === ANSWERS[qid]) {
+          el.classList.add('correct'); score++; answered++;
+          document.getElementById('score').textContent = score;
+          fb.className = 'quiz-feedback show ok';
+          fb.innerHTML = '✅ <strong>Correto!</strong> ' + fb.dataset.ok;
+        } else {
+          el.classList.add('wrong'); answered++;
+          opts.forEach(o => { if(o.dataset.l === ANSWERS[qid]) o.classList.add('reveal-correct'); });
+          fb.className = 'quiz-feedback show err';
+          fb.innerHTML = '❌ <strong>Incorreto.</strong> ' + fb.dataset.err;
+        }
+      }
+      function resetQuiz() {
+        score = 0; answered = 0;
+        document.getElementById('score').textContent = 0;
+        document.querySelectorAll('.opt').forEach(o => o.className = 'opt');
+        document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+      }
+    </script>
+
+    <h3 class="quiz-grupo">Reprodutor</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">1</span><span>Um homem passou por prostatectomia (retirada da próstata). Isso pode afetar a reprodução natural porque a próstata</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q1','a',this)"><span class="opt-letter">A</span> armazena os espermatozoides produzidos nos túbulos seminíferos.</div>
+        <div class="opt" data-l="b" onclick="pick('q1','b',this)"><span class="opt-letter">B</span> secreta um líquido alcalino que neutraliza a acidez da vagina.</div>
+        <div class="opt" data-l="c" onclick="pick('q1','c',this)"><span class="opt-letter">C</span> produz todo o volume do sêmen e a frutose que nutre os gametas.</div>
+        <div class="opt" data-l="d" onclick="pick('q1','d',this)"><span class="opt-letter">D</span> produz a testosterona que mantém a ereção e a libido.</div>
+        <div class="opt" data-l="e" onclick="pick('q1','e',this)"><span class="opt-letter">E</span> abriga os nervos responsáveis por desencadear a ejaculação.</div>
+      </div>
+      <div id="fb-q1" class="quiz-feedback" data-ok="O líquido prostático é alcalino: neutraliza o pH ácido da vagina e ativa os espermatozoides. O armazenamento é no epidídimo; a maior parte do sêmen vem das vesículas seminais; a testosterona vem dos testículos." data-err="O líquido prostático é alcalino: neutraliza o pH ácido da vagina e ativa os espermatozoides. O armazenamento é no epidídimo; a maior parte do sêmen vem das vesículas seminais; a testosterona vem dos testículos."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">2</span><span>Sobre a vasectomia, é correto afirmar que</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q2','a',this)"><span class="opt-letter">A</span> reduz a testosterona, pois interrompe a comunicação com a hipófise.</div>
+        <div class="opt" data-l="b" onclick="pick('q2','b',this)"><span class="opt-letter">B</span> impede a espermatogênese, porque os testículos deixam de receber FSH.</div>
+        <div class="opt" data-l="c" onclick="pick('q2','c',this)"><span class="opt-letter">C</span> corta os canais deferentes, e o sêmen passa a sair sem espermatozoides.</div>
+        <div class="opt" data-l="d" onclick="pick('q2','d',this)"><span class="opt-letter">D</span> retira as vesículas seminais, e por isso a ejaculação deixa de ocorrer.</div>
+        <div class="opt" data-l="e" onclick="pick('q2','e',this)"><span class="opt-letter">E</span> liga as tubas, impedindo o encontro entre ovócito e espermatozoide.</div>
+      </div>
+      <div id="fb-q2" class="quiz-feedback" data-ok="Na vasectomia os canais deferentes são cortados. Espermatozoides e testosterona continuam sendo produzidos; os gametas são reabsorvidos e a ejaculação continua. Ligar as tubas é a laqueadura." data-err="Na vasectomia os canais deferentes são cortados. Espermatozoides e testosterona continuam sendo produzidos; os gametas são reabsorvidos e a ejaculação continua. Ligar as tubas é a laqueadura."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">3</span><span>Injeções mensais de testosterona estão em teste como anticoncepcional masculino. O efeito esperado é</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q3','a',this)"><span class="opt-letter">A</span> aumento de FSH e LH, que esgota os túbulos seminíferos.</div>
+        <div class="opt" data-l="b" onclick="pick('q3','b',this)"><span class="opt-letter">B</span> bloqueio dos canais deferentes por excesso de líquido seminal.</div>
+        <div class="opt" data-l="c" onclick="pick('q3','c',this)"><span class="opt-letter">C</span> aumento da produção de espermatozoides com baixa mobilidade.</div>
+        <div class="opt" data-l="d" onclick="pick('q3','d',this)"><span class="opt-letter">D</span> queda de FSH e LH por feedback negativo e parada da espermatogênese.</div>
+        <div class="opt" data-l="e" onclick="pick('q3','e',this)"><span class="opt-letter">E</span> destruição das células da próstata que ativam os espermatozoides.</div>
+      </div>
+      <div id="fb-q3" class="quiz-feedback" data-ok="A testosterona alta inibe o hipotálamo e a hipófise (feedback negativo). Sem FSH, os testículos param de produzir espermatozoides." data-err="A testosterona alta inibe o hipotálamo e a hipófise (feedback negativo). Sem FSH, os testículos param de produzir espermatozoides."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Ciclo menstrual</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">4</span><span>O hormônio cujo pico, por volta do 14º dia, provoca a ovulação é o</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q4','a',this)"><span class="opt-letter">A</span> estrógeno, produzido pelo corpo lúteo.</div>
+        <div class="opt" data-l="b" onclick="pick('q4','b',this)"><span class="opt-letter">B</span> LH, liberado pela adeno-hipófise.</div>
+        <div class="opt" data-l="c" onclick="pick('q4','c',this)"><span class="opt-letter">C</span> progesterona, liberada pela neuro-hipófise.</div>
+        <div class="opt" data-l="d" onclick="pick('q4','d',this)"><span class="opt-letter">D</span> FSH, produzido pelo folículo maduro.</div>
+        <div class="opt" data-l="e" onclick="pick('q4','e',this)"><span class="opt-letter">E</span> HCG, produzido pelo trofoblasto.</div>
+      </div>
+      <div id="fb-q4" class="quiz-feedback" data-ok="O pico de LH (adeno-hipófise) causa a ovulação e transforma o folículo vazio em corpo lúteo." data-err="O pico de LH (adeno-hipófise) causa a ovulação e transforma o folículo vazio em corpo lúteo."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">5</span><span>A progesterona, na segunda metade do ciclo, é produzida</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q5','a',this)"><span class="opt-letter">A</span> pela hipófise, para estimular o crescimento de novos folículos.</div>
+        <div class="opt" data-l="b" onclick="pick('q5','b',this)"><span class="opt-letter">B</span> pelo folículo em crescimento, para iniciar a ovulação.</div>
+        <div class="opt" data-l="c" onclick="pick('q5','c',this)"><span class="opt-letter">C</span> pela placenta, desde o início de cada ciclo menstrual.</div>
+        <div class="opt" data-l="d" onclick="pick('q5','d',this)"><span class="opt-letter">D</span> pelo endométrio, para provocar a sua própria descamação.</div>
+        <div class="opt" data-l="e" onclick="pick('q5','e',this)"><span class="opt-letter">E</span> pelo corpo lúteo, e mantém o endométrio espesso e vascularizado.</div>
+      </div>
+      <div id="fb-q5" class="quiz-feedback" data-ok="Depois da ovulação, o corpo lúteo produz progesterona, que mantém o endométrio pronto para a nidação. Quando ela cai, ocorre a menstruação." data-err="Depois da ovulação, o corpo lúteo produz progesterona, que mantém o endométrio pronto para a nidação. Quando ela cai, ocorre a menstruação."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">6</span><span>A menstruação ocorre quando</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q6','a',this)"><span class="opt-letter">A</span> as taxas de estrógeno e progesterona caem com a degeneração do corpo lúteo.</div>
+        <div class="opt" data-l="b" onclick="pick('q6','b',this)"><span class="opt-letter">B</span> o pico de LH faz o endométrio descamar logo após a ovulação.</div>
+        <div class="opt" data-l="c" onclick="pick('q6','c',this)"><span class="opt-letter">C</span> o FSH atinge sua concentração máxima e destrói o folículo.</div>
+        <div class="opt" data-l="d" onclick="pick('q6','d',this)"><span class="opt-letter">D</span> a ocitocina contrai o miométrio no meio do ciclo menstrual.</div>
+        <div class="opt" data-l="e" onclick="pick('q6','e',this)"><span class="opt-letter">E</span> o HCG é produzido pelo corpo lúteo em ciclos sem fecundação.</div>
+      </div>
+      <div id="fb-q6" class="quiz-feedback" data-ok="Sem fecundação não há HCG; o corpo lúteo degenera, progesterona e estrógeno caem e o endométrio descama." data-err="Sem fecundação não há HCG; o corpo lúteo degenera, progesterona e estrógeno caem e o endométrio descama."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">7</span><span>A pílula anticoncepcional combinada evita a gravidez porque</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q7','a',this)"><span class="opt-letter">A</span> mata os espermatozoides ao deixar o pH da vagina mais ácido.</div>
+        <div class="opt" data-l="b" onclick="pick('q7','b',this)"><span class="opt-letter">B</span> impede a nidação ao destruir o endométrio a cada ciclo.</div>
+        <div class="opt" data-l="c" onclick="pick('q7','c',this)"><span class="opt-letter">C</span> mantém estrógeno e progesterona altos, que inibem FSH e LH e a ovulação.</div>
+        <div class="opt" data-l="d" onclick="pick('q7','d',this)"><span class="opt-letter">D</span> aumenta o FSH e o LH, e os folículos amadurecem cedo demais.</div>
+        <div class="opt" data-l="e" onclick="pick('q7','e',this)"><span class="opt-letter">E</span> bloqueia as tubas uterinas como na laqueadura, de forma reversível.</div>
+      </div>
+      <div id="fb-q7" class="quiz-feedback" data-ok="Os hormônios sintéticos, por feedback negativo, inibem a hipófise: sem FSH o folículo não amadurece e sem pico de LH não há ovulação." data-err="Os hormônios sintéticos, por feedback negativo, inibem a hipófise: sem FSH o folículo não amadurece e sem pico de LH não há ovulação."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">8</span><span>Na menopausa, as taxas no sangue ficam</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q8','a',this)"><span class="opt-letter">A</span> baixas de FSH e LH e altas de estrógeno e progesterona.</div>
+        <div class="opt" data-l="b" onclick="pick('q8','b',this)"><span class="opt-letter">B</span> altas de FSH e LH e baixas de estrógeno e progesterona.</div>
+        <div class="opt" data-l="c" onclick="pick('q8','c',this)"><span class="opt-letter">C</span> baixas de todos os hormônios, inclusive os da hipófise.</div>
+        <div class="opt" data-l="d" onclick="pick('q8','d',this)"><span class="opt-letter">D</span> altas de HCG, que passa a substituir a progesterona.</div>
+        <div class="opt" data-l="e" onclick="pick('q8','e',this)"><span class="opt-letter">E</span> iguais às da fase lútea de um ciclo menstrual normal.</div>
+      </div>
+      <div id="fb-q8" class="quiz-feedback" data-ok="Sem folículos, os ovários não produzem estrógeno e progesterona. Sem o feedback negativo, a hipófise libera muito FSH e LH, que ficam sem efeito." data-err="Sem folículos, os ovários não produzem estrógeno e progesterona. Sem o feedback negativo, a hipófise libera muito FSH e LH, que ficam sem efeito."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Gravidez</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">9</span><span>No início da gravidez, a mulher não menstrua porque</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q9','a',this)"><span class="opt-letter">A</span> a ocitocina produzida pelo embrião contrai e fecha o colo do útero.</div>
+        <div class="opt" data-l="b" onclick="pick('q9','b',this)"><span class="opt-letter">B</span> o FSH continua alto e faz o folículo produzir progesterona.</div>
+        <div class="opt" data-l="c" onclick="pick('q9','c',this)"><span class="opt-letter">C</span> a prolactina inibe a descamação do endométrio desde a fecundação.</div>
+        <div class="opt" data-l="d" onclick="pick('q9','d',this)"><span class="opt-letter">D</span> o embrião se implanta no miométrio, que não sofre descamação.</div>
+        <div class="opt" data-l="e" onclick="pick('q9','e',this)"><span class="opt-letter">E</span> o HCG do trofoblasto mantém o corpo lúteo produzindo progesterona.</div>
+      </div>
+      <div id="fb-q9" class="quiz-feedback" data-ok="O HCG mantém o corpo lúteo ativo; a progesterona mantém o endométrio. Por volta do 3º mês a placenta assume e o HCG cai." data-err="O HCG mantém o corpo lúteo ativo; a progesterona mantém o endométrio. Por volta do 3º mês a placenta assume e o HCG cai."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">10</span><span>Os testes de gravidez de farmácia detectam na urina o hormônio</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q10','a',this)"><span class="opt-letter">A</span> HCG, produzido pela placenta em formação.</div>
+        <div class="opt" data-l="b" onclick="pick('q10','b',this)"><span class="opt-letter">B</span> LH, que fica alto durante toda a gestação.</div>
+        <div class="opt" data-l="c" onclick="pick('q10','c',this)"><span class="opt-letter">C</span> ocitocina, liberada desde a nidação.</div>
+        <div class="opt" data-l="d" onclick="pick('q10','d',this)"><span class="opt-letter">D</span> progesterona, só produzida na gravidez.</div>
+        <div class="opt" data-l="e" onclick="pick('q10','e',this)"><span class="opt-letter">E</span> prolactina, que prepara as mamas.</div>
+      </div>
+      <div id="fb-q10" class="quiz-feedback" data-ok="O HCG só é produzido quando há embrião implantado (trofoblasto). Progesterona também existe em todo ciclo, na fase lútea." data-err="O HCG só é produzido quando há embrião implantado (trofoblasto). Progesterona também existe em todo ciclo, na fase lútea."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">11</span><span>Gêmeos de sexos diferentes são, necessariamente,</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q11','a',this)"><span class="opt-letter">A</span> monozigóticos, pois vêm de um zigoto que se dividiu.</div>
+        <div class="opt" data-l="b" onclick="pick('q11','b',this)"><span class="opt-letter">B</span> univitelinos, formados por um ovócito e dois espermatozoides.</div>
+        <div class="opt" data-l="c" onclick="pick('q11','c',this)"><span class="opt-letter">C</span> dizigóticos, formados por dois ovócitos fecundados por dois espermatozoides.</div>
+        <div class="opt" data-l="d" onclick="pick('q11','d',this)"><span class="opt-letter">D</span> monozigóticos, pois a divisão tardia do embrião troca o sexo de um deles.</div>
+        <div class="opt" data-l="e" onclick="pick('q11','e',this)"><span class="opt-letter">E</span> dizigóticos, formados por um ovócito fecundado por dois espermatozoides.</div>
+      </div>
+      <div id="fb-q11" class="quiz-feedback" data-ok="Monozigóticos têm o mesmo material genético e o mesmo sexo. Sexos diferentes só ocorrem com dois zigotos: dois ovócitos e dois espermatozoides." data-err="Monozigóticos têm o mesmo material genético e o mesmo sexo. Sexos diferentes só ocorrem com dois zigotos: dois ovócitos e dois espermatozoides."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Organização do SN</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">12</span><span>A ataxia, perda de coordenação motora e equilíbrio, indica lesão no</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q12','a',this)"><span class="opt-letter">A</span> bulbo.</div>
+        <div class="opt" data-l="b" onclick="pick('q12','b',this)"><span class="opt-letter">B</span> hipotálamo.</div>
+        <div class="opt" data-l="c" onclick="pick('q12','c',this)"><span class="opt-letter">C</span> corpo caloso.</div>
+        <div class="opt" data-l="d" onclick="pick('q12','d',this)"><span class="opt-letter">D</span> cerebelo.</div>
+        <div class="opt" data-l="e" onclick="pick('q12','e',this)"><span class="opt-letter">E</span> gânglio nervoso.</div>
+      </div>
+      <div id="fb-q12" class="quiz-feedback" data-ok="O cerebelo coordena os movimentos, o equilíbrio e o tônus muscular. O bulbo controla funções vitais (respiração, batimentos)." data-err="O cerebelo coordena os movimentos, o equilíbrio e o tônus muscular. O bulbo controla funções vitais (respiração, batimentos)."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">13</span><span>Os gânglios nervosos são</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q13','a',this)"><span class="opt-letter">A</span> feixes de axônios que saem da medula espinal.</div>
+        <div class="opt" data-l="b" onclick="pick('q13','b',this)"><span class="opt-letter">B</span> conjuntos de corpos celulares de neurônios fora do SNC.</div>
+        <div class="opt" data-l="c" onclick="pick('q13','c',this)"><span class="opt-letter">C</span> regiões do encéfalo que controlam funções vitais.</div>
+        <div class="opt" data-l="d" onclick="pick('q13','d',this)"><span class="opt-letter">D</span> terminações que transformam estímulos em impulsos.</div>
+        <div class="opt" data-l="e" onclick="pick('q13','e',this)"><span class="opt-letter">E</span> células da glia que formam a bainha de mielina.</div>
+      </div>
+      <div id="fb-q13" class="quiz-feedback" data-ok="Gânglios = corpos celulares fora do SNC. Feixes de axônios são nervos; terminações que captam estímulos são receptores sensoriais." data-err="Gânglios = corpos celulares fora do SNC. Feixes de axônios são nervos; terminações que captam estímulos são receptores sensoriais."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Impulso nervoso</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">14</span><span>No neurônio em repouso, a membrana</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q14','a',this)"><span class="opt-letter">A</span> é negativa por fora e positiva por dentro, pela entrada de sódio.</div>
+        <div class="opt" data-l="b" onclick="pick('q14','b',this)"><span class="opt-letter">B</span> não tem diferença de cargas, pois os canais estão todos fechados.</div>
+        <div class="opt" data-l="c" onclick="pick('q14','c',this)"><span class="opt-letter">C</span> é positiva por fora e negativa por dentro, graças à bomba de sódio e potássio.</div>
+        <div class="opt" data-l="d" onclick="pick('q14','d',this)"><span class="opt-letter">D</span> é positiva por fora e negativa por dentro, pela difusão simples de potássio.</div>
+        <div class="opt" data-l="e" onclick="pick('q14','e',this)"><span class="opt-letter">E</span> é negativa dos dois lados, pois a bomba retira todo o sódio da célula.</div>
+      </div>
+      <div id="fb-q14" class="quiz-feedback" data-ok="Repouso (polarizado): fora +, dentro −. Quem mantém é a bomba de Na⁺/K⁺, transporte ativo com gasto de ATP." data-err="Repouso (polarizado): fora +, dentro −. Quem mantém é a bomba de Na⁺/K⁺, transporte ativo com gasto de ATP."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">15</span><span>A despolarização da membrana do neurônio ocorre pela</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q15','a',this)"><span class="opt-letter">A</span> saída de potássio pela bomba, com gasto de ATP.</div>
+        <div class="opt" data-l="b" onclick="pick('q15','b',this)"><span class="opt-letter">B</span> entrada de cálcio nas vesículas sinápticas.</div>
+        <div class="opt" data-l="c" onclick="pick('q15','c',this)"><span class="opt-letter">C</span> saída de sódio por difusão simples entre os fosfolipídios.</div>
+        <div class="opt" data-l="d" onclick="pick('q15','d',this)"><span class="opt-letter">D</span> entrada de potássio por endocitose.</div>
+        <div class="opt" data-l="e" onclick="pick('q15','e',this)"><span class="opt-letter">E</span> entrada de sódio por difusão facilitada através de canais.</div>
+      </div>
+      <div id="fb-q15" class="quiz-feedback" data-ok="O estímulo abre canais de Na⁺ e o sódio entra a favor do gradiente (transporte passivo, difusão facilitada): o interior fica positivo." data-err="O estímulo abre canais de Na⁺ e o sódio entra a favor do gradiente (transporte passivo, difusão facilitada): o interior fica positivo."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">16</span><span>A condução saltatória, mais rápida, acontece em neurônios com</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q16','a',this)"><span class="opt-letter">A</span> axônios mais curtos.</div>
+        <div class="opt" data-l="b" onclick="pick('q16','b',this)"><span class="opt-letter">B</span> mais dendritos.</div>
+        <div class="opt" data-l="c" onclick="pick('q16','c',this)"><span class="opt-letter">C</span> bainha de mielina.</div>
+        <div class="opt" data-l="d" onclick="pick('q16','d',this)"><span class="opt-letter">D</span> muitas sinapses elétricas.</div>
+        <div class="opt" data-l="e" onclick="pick('q16','e',this)"><span class="opt-letter">E</span> corpo celular maior.</div>
+      </div>
+      <div id="fb-q16" class="quiz-feedback" data-ok="Com mielina, a despolarização só ocorre nos nódulos de Ranvier e o impulso &quot;salta&quot; entre eles." data-err="Com mielina, a despolarização só ocorre nos nódulos de Ranvier e o impulso &quot;salta&quot; entre eles."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Sinapses</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">17</span><span>Sobre os neurotransmissores, é correto afirmar que</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q17','a',this)"><span class="opt-letter">A</span> dependem da ligação a receptores na membrana da célula seguinte.</div>
+        <div class="opt" data-l="b" onclick="pick('q17','b',this)"><span class="opt-letter">B</span> sempre provocam potencial de ação no neurônio seguinte.</div>
+        <div class="opt" data-l="c" onclick="pick('q17','c',this)"><span class="opt-letter">C</span> sempre estimulam e nunca inibem a célula que os recebe.</div>
+        <div class="opt" data-l="d" onclick="pick('q17','d',this)"><span class="opt-letter">D</span> não podem ser reabsorvidos depois de liberados na fenda.</div>
+        <div class="opt" data-l="e" onclick="pick('q17','e',this)"><span class="opt-letter">E</span> são lançados no sangue e agem em células distantes.</div>
+      </div>
+      <div id="fb-q17" class="quiz-feedback" data-ok="Sem receptor não há resposta. Eles podem excitar ou inibir, podem ser recaptados ou degradados, e agem na fenda sináptica, não pelo sangue." data-err="Sem receptor não há resposta. Eles podem excitar ou inibir, podem ser recaptados ou degradados, e agem na fenda sináptica, não pelo sangue."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">18</span><span>O curare bloqueia os receptores de acetilcolina na junção neuromuscular. A consequência é</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q18','a',this)"><span class="opt-letter">A</span> contração contínua, porque a acetilcolina se acumula no músculo.</div>
+        <div class="opt" data-l="b" onclick="pick('q18','b',this)"><span class="opt-letter">B</span> paralisia flácida, porque a ordem nervosa não chega ao músculo.</div>
+        <div class="opt" data-l="c" onclick="pick('q18','c',this)"><span class="opt-letter">C</span> morte dos neurônios motores, que deixam de produzir acetilcolina.</div>
+        <div class="opt" data-l="d" onclick="pick('q18','d',this)"><span class="opt-letter">D</span> aumento da frequência cardíaca, pela ação da noradrenalina.</div>
+        <div class="opt" data-l="e" onclick="pick('q18','e',this)"><span class="opt-letter">E</span> perda de sensibilidade, porque os receptores da pele se fecham.</div>
+      </div>
+      <div id="fb-q18" class="quiz-feedback" data-ok="Sem a acetilcolina se ligar aos receptores do músculo, ele não contrai: fica flácido. O neurônio continua vivo e produzindo acetilcolina." data-err="Sem a acetilcolina se ligar aos receptores do músculo, ele não contrai: fica flácido. O neurônio continua vivo e produzindo acetilcolina."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Arco reflexo</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">19</span><span>Uma pessoa encosta num fio desencapado e afasta o braço antes de sentir dor. A ordem dos neurônios acionados é</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q19','a',this)"><span class="opt-letter">A</span> associativo → sensitivo → motor.</div>
+        <div class="opt" data-l="b" onclick="pick('q19','b',this)"><span class="opt-letter">B</span> motor → sensitivo → associativo.</div>
+        <div class="opt" data-l="c" onclick="pick('q19','c',this)"><span class="opt-letter">C</span> motor → associativo → sensitivo.</div>
+        <div class="opt" data-l="d" onclick="pick('q19','d',this)"><span class="opt-letter">D</span> sensitivo → motor → associativo.</div>
+        <div class="opt" data-l="e" onclick="pick('q19','e',this)"><span class="opt-letter">E</span> sensitivo → associativo → motor.</div>
+      </div>
+      <div id="fb-q19" class="quiz-feedback" data-ok="O receptor ativa o neurônio sensitivo (aferente), que passa ao associativo na medula, que aciona o motor (eferente)." data-err="O receptor ativa o neurônio sensitivo (aferente), que passa ao associativo na medula, que aciona o motor (eferente)."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">20</span><span>Se a raiz ventral do nervo espinal de uma perna for cortada, a pessoa</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q20','a',this)"><span class="opt-letter">A</span> terá reflexo patelar, mas não sentirá a batida do martelo.</div>
+        <div class="opt" data-l="b" onclick="pick('q20','b',this)"><span class="opt-letter">B</span> não terá reflexo nem sentirá a batida, mas moverá a perna.</div>
+        <div class="opt" data-l="c" onclick="pick('q20','c',this)"><span class="opt-letter">C</span> não terá reflexo e não moverá a perna, mas sentirá a batida.</div>
+        <div class="opt" data-l="d" onclick="pick('q20','d',this)"><span class="opt-letter">D</span> terá reflexo e sentirá a batida, mas não moverá a perna.</div>
+        <div class="opt" data-l="e" onclick="pick('q20','e',this)"><span class="opt-letter">E</span> não terá reflexo, não sentirá a batida e não moverá a perna.</div>
+      </div>
+      <div id="fb-q20" class="quiz-feedback" data-ok="A raiz ventral é motora: sem ela não há reflexo nem movimento. A via sensitiva (raiz dorsal) está inteira, então ela sente." data-err="A raiz ventral é motora: sem ela não há reflexo nem movimento. A via sensitiva (raiz dorsal) está inteira, então ela sente."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Autônomo</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">21</span><span>Diante de um susto, o sistema simpático provoca</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q21','a',this)"><span class="opt-letter">A</span> redução dos batimentos e contração das pupilas, com acetilcolina.</div>
+        <div class="opt" data-l="b" onclick="pick('q21','b',this)"><span class="opt-letter">B</span> aumento do peristaltismo e da salivação, com noradrenalina.</div>
+        <div class="opt" data-l="c" onclick="pick('q21','c',this)"><span class="opt-letter">C</span> contração dos brônquios e da bexiga, com acetilcolina.</div>
+        <div class="opt" data-l="d" onclick="pick('q21','d',this)"><span class="opt-letter">D</span> aceleração cardíaca e dilatação das pupilas, com noradrenalina.</div>
+        <div class="opt" data-l="e" onclick="pick('q21','e',this)"><span class="opt-letter">E</span> contração voluntária dos músculos esqueléticos, com adrenalina.</div>
+      </div>
+      <div id="fb-q21" class="quiz-feedback" data-ok="Simpático = luta e fuga, noradrenalina: acelera o coração, dilata pupilas e brônquios, inibe a digestão. Músculo esquelético voluntário é o somático." data-err="Simpático = luta e fuga, noradrenalina: acelera o coração, dilata pupilas e brônquios, inibe a digestão. Músculo esquelético voluntário é o somático."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">22</span><span>Sobre os batimentos cardíacos, é correto afirmar que</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q22','a',this)"><span class="opt-letter">A</span> são voluntários, mas o simpático ajusta a sua força.</div>
+        <div class="opt" data-l="b" onclick="pick('q22','b',this)"><span class="opt-letter">B</span> são involuntários, e o autônomo ajusta a frequência às necessidades do corpo.</div>
+        <div class="opt" data-l="c" onclick="pick('q22','c',this)"><span class="opt-letter">C</span> aceleram pela ação parassimpática, que libera acetilcolina.</div>
+        <div class="opt" data-l="d" onclick="pick('q22','d',this)"><span class="opt-letter">D</span> diminuem pela ação simpática em situações de luta e fuga.</div>
+        <div class="opt" data-l="e" onclick="pick('q22','e',this)"><span class="opt-letter">E</span> dependem só do sistema somático, que controla o músculo cardíaco.</div>
+      </div>
+      <div id="fb-q22" class="quiz-feedback" data-ok="O coração tem ritmo próprio e contração involuntária. O simpático aumenta a frequência; o parassimpático reduz." data-err="O coração tem ritmo próprio e contração involuntária. O simpático aumenta a frequência; o parassimpático reduz."></div>
+    </div>
+
+    <h3 class="quiz-grupo">Endócrino</h3>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">23</span><span>Um tumor impede a neuro-hipófise de liberar seus hormônios. Espera-se que a pessoa tenha</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q23','a',this)"><span class="opt-letter">A</span> nanismo, por falta de GH.</div>
+        <div class="opt" data-l="b" onclick="pick('q23','b',this)"><span class="opt-letter">B</span> bócio, por falta de TSH.</div>
+        <div class="opt" data-l="c" onclick="pick('q23','c',this)"><span class="opt-letter">C</span> diabetes mellitus, por falta de insulina.</div>
+        <div class="opt" data-l="d" onclick="pick('q23','d',this)"><span class="opt-letter">D</span> falta de leite, por falta de prolactina.</div>
+        <div class="opt" data-l="e" onclick="pick('q23','e',this)"><span class="opt-letter">E</span> diabetes insipidus, por falta de ADH.</div>
+      </div>
+      <div id="fb-q23" class="quiz-feedback" data-ok="A neuro-hipófise libera ADH e ocitocina (produzidos no hipotálamo). Sem ADH: muita urina diluída e sede (diabetes insipidus). GH, TSH e prolactina vêm da adeno-hipófise." data-err="A neuro-hipófise libera ADH e ocitocina (produzidos no hipotálamo). Sem ADH: muita urina diluída e sede (diabetes insipidus). GH, TSH e prolactina vêm da adeno-hipófise."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">24</span><span>Uma queda de cálcio no sangue estimula a liberação de</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q24','a',this)"><span class="opt-letter">A</span> paratormônio, pelas paratireoides.</div>
+        <div class="opt" data-l="b" onclick="pick('q24','b',this)"><span class="opt-letter">B</span> calcitonina, pela tireoide.</div>
+        <div class="opt" data-l="c" onclick="pick('q24','c',this)"><span class="opt-letter">C</span> aldosterona, pelas adrenais.</div>
+        <div class="opt" data-l="d" onclick="pick('q24','d',this)"><span class="opt-letter">D</span> tiroxina, pela tireoide.</div>
+        <div class="opt" data-l="e" onclick="pick('q24','e',this)"><span class="opt-letter">E</span> glucagon, pelo pâncreas.</div>
+      </div>
+      <div id="fb-q24" class="quiz-feedback" data-ok="O paratormônio tira cálcio dos ossos e sobe a calcemia. A calcitonina faz o contrário e é liberada quando o cálcio sobe." data-err="O paratormônio tira cálcio dos ossos e sobe a calcemia. A calcitonina faz o contrário e é liberada quando o cálcio sobe."></div>
+    </div>
+
+    <div class="quiz">
+      <div class="quiz-q"><span class="quiz-num">25</span><span>Durante um jejum prolongado, a glicemia é mantida principalmente pelo</span></div>
+      <div class="quiz-opts">
+        <div class="opt" data-l="a" onclick="pick('q25','a',this)"><span class="opt-letter">A</span> aumento de insulina, que tira glicose das células.</div>
+        <div class="opt" data-l="b" onclick="pick('q25','b',this)"><span class="opt-letter">B</span> aumento de ADH, que reabsorve glicose nos rins.</div>
+        <div class="opt" data-l="c" onclick="pick('q25','c',this)"><span class="opt-letter">C</span> aumento de glucagon, que quebra o glicogênio do fígado.</div>
+        <div class="opt" data-l="d" onclick="pick('q25','d',this)"><span class="opt-letter">D</span> aumento de calcitonina, que libera glicose dos ossos.</div>
+        <div class="opt" data-l="e" onclick="pick('q25','e',this)"><span class="opt-letter">E</span> aumento de TSH, que diminui o metabolismo basal.</div>
+      </div>
+      <div id="fb-q25" class="quiz-feedback" data-ok="Glucagon (células α) sobe a glicemia pela quebra do glicogênio (glicogenólise). A insulina faz o contrário." data-err="Glucagon (células α) sobe a glicemia pela quebra do glicogênio (glicogenólise). A insulina faz o contrário."></div>
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  Caderno Digital · Biologia 3º tri · 2ª série do Ensino Médio · 2026
+</footer>
+
+<!-- ═══ CHATBOT ═══ -->
+<style>
+  #chat-btn { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: #1a4731; color: white; border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.22); z-index: 999; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+  #chat-btn:hover { transform: scale(1.08); }
+  #chat-panel { position: fixed; bottom: 86px; right: 24px; width: 420px; max-width: calc(100vw - 32px); background: white; border: 1px solid #d5eee0; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14); z-index: 998; display: none; flex-direction: column; overflow: hidden; font-family: Inter, sans-serif; }
+  #chat-panel.open { display: flex; }
+  #chat-head { background: #1a4731; color: white; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  #chat-head span { font-weight: 600; font-size: 0.92rem; }
+  #chat-close { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0; }
+  #chat-msgs { height: 360px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cmsg { max-width: 85%; padding: 9px 13px; border-radius: 12px; font-size: 0.93rem; line-height: 1.6; }
+  .cmsg.bot { background: #f2faf5; border: 1px solid #d5eee0; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .cmsg.user { background: #1a4731; color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .cmsg.loading { color: #888; font-style: italic; }
+  #chat-form { display: flex; border-top: 1px solid #d5eee0; }
+  #chat-input { flex: 1; border: none; padding: 12px 14px; font-size: 0.95rem; font-family: Inter, sans-serif; outline: none; resize: none; height: 44px; }
+  #chat-send { background: #1a4731; color: white; border: none; padding: 0 16px; cursor: pointer; font-size: 1rem; }
+  #chat-send:hover { background: #2e7d52; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Pergunte ao Nêuron">🧠</button>
+<div id="chat-panel">
+  <div id="chat-head">
+    <span>🧠 Nêuron — Assistente de Estudos</span>
+    <button id="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-msgs">
+    <div class="cmsg bot">Olá! Sou o assistente de estudos do Caderno Digital. Tire suas dúvidas sobre o conteúdo desta página! 📚</div>
+  </div>
+  <form id="chat-form" onsubmit="sendMsg(event)">
+    <input id="chat-input" type="text" placeholder="Digite sua dúvida..." autocomplete="off"/>
+    <button id="chat-send" type="submit">➤</button>
+  </form>
+</div>
+
+<script>
+  
+  
+  
+</script>
+<script src="scripts/progress.js"></script>
+<script src="scripts/chat.js"></script>
+<script src="scripts/app.js"></script>
+</body>
+</html>
