@@ -142,9 +142,9 @@
   .fig img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--border); background: #fff; }
   .fig figcaption { font-size: 0.78rem; color: var(--text-light); margin-top: 6px; text-align: center; }
   .passos { counter-reset: p; list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
-  .passos li { counter-increment: p; display: flex; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #f2faf5; border-radius: 8px; border: 1px solid var(--border); }
+  .passos li { counter-increment: p; display: flex; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: var(--bg-3); color: var(--label); border-radius: 8px; border: 1px solid var(--border); }
   .passos li::before { content: counter(p); flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-  .rota { font-weight: 600; font-size: 0.9rem; background: #f2faf5; border: 1px dashed var(--secondary); border-radius: 10px; padding: 10px 14px; margin-top: 12px; text-align: center; }
+  .rota { font-weight: 600; font-size: 0.9rem; background: var(--bg-3); color: var(--label); border: 1px dashed var(--tint); border-radius: 10px; padding: 10px 14px; margin-top: 12px; text-align: center; }
 </style>
 
 <header class="hero">
@@ -174,6 +174,7 @@
 </nav>
 
 <div class="content">
+
 
   <div class="card">
     <div class="card-title"><span class="dot" style="background:var(--c3)"></span> O que cai e onde estudar</div>

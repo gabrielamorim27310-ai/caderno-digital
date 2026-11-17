@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <style>.cab,.boca,.sobr,.nariz,.m,.m2,.fx{transform-box:fill-box;transform-origin:center}
+  .m{transform-box:view-box;transform-origin:190px 200px}@keyframes torce{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}.m{animation:torce 0.9s ease-in-out infinite }@keyframes brilha{0%,100%{transform:scale(0.6) rotate(0);opacity:.4}50%{transform:scale(1.2) rotate(45deg);opacity:1}}.fx{animation:brilha 1.8s ease-in-out infinite }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+  <rect width="240" height="240" rx="28" fill="#eef8f9"/>
+  <clipPath id="c"><rect width="240" height="240" rx="28"/></clipPath>
+  <g clip-path="url(#c)"><path d="M36 240 q2 -70 44 -78 h80 q42 0 44 78 z" fill="#0a778f" stroke="#2b1d15" stroke-width="2.4"/>
+    <path d="M106 162 l14 16 l14 -16" fill="#e3ad80" stroke="#2b1d15" stroke-width="2"/><g class="cab"><g transform="rotate(0 120 140)">
+    <rect x="110" y="128" width="20" height="22" fill="#e3ad80"/>
+    <ellipse cx="72" cy="98" rx="0" ry="0"/>
+    <circle cx="74" cy="98" r="8" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2"/>
+    <circle cx="166" cy="98" r="8" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2"/>
+    <ellipse cx="120" cy="96" rx="46" ry="50" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2.4"/>
+    <path d="M74 92 q-4 -50 46 -52 q50 2 46 52 q-6 -26 -30 -30 q-22 10 -56 2 q-4 10 -6 28z" fill="#3d2a1f"/>
+    
+    <g class="sobr"><path d="M98 80 q8 -6 16 -1" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M126 79 q8 -5 16 1" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M100 93 q6 4 12 0" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M128 93 q6 4 12 0" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g class="nariz"><path d="M120 96 v12 q-3 3 -6 1" fill="none" stroke="#e3ad80" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="boca"><path d="M108 121 q12 10 24 0" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </g></g><path d="M188 240 q10 -36 2 -60" fill="none" stroke="#075d70" stroke-width="20" stroke-linecap="round"/><g class="m"><g transform="translate(190 176)"><rect x="-14" y="-6" width="28" height="28" rx="9" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2"/>
+   <rect x="-11" y="-40" width="10" height="38" rx="5" transform="rotate(22 -6 -4)" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2"/>
+   <rect x="1" y="-42" width="10" height="40" rx="5" transform="rotate(-22 6 -4)" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2"/>
+   <path d="M-9 -2 a4 4 0 0 1 8 0" fill="#f4c9a1" stroke="#2b1d15" stroke-width="1.6"/></g></g><g class="fx"><text x="24" y="70" font-family="Arial" font-size="30" fill="#e8590c">✦</text></g></g></svg>

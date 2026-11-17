@@ -1,0 +1,354 @@
+{
+  "pagina": "biologia-3tri",
+  "materia": "biologia",
+  "titulo": "Biologia · 3º tri",
+  "capitulos": [
+    "Reprodutor masculino",
+    "Ciclo e gravidez",
+    "Neurônio e impulso",
+    "Sinapses",
+    "Arco reflexo",
+    "Sistema autônomo"
+  ],
+  "cenas": [
+    {
+      "tipo": "capa",
+      "selo": "Biologia · prova de 19/11",
+      "titulo": "Reprodução e sistema nervoso",
+      "subtitulo": "Os esquemas que caem na prova, explicados passo a passo",
+      "fala": "Revisão de Biologia para a prova do terceiro trimestre. São seis temas: o reprodutor masculino, o ciclo menstrual e a gravidez, o neurônio e o impulso nervoso, as sinapses, o arco reflexo e o sistema autônomo. Em cada um, um esquema animado mostra o que acontece. Vamos lá."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "1",
+      "titulo": "Reprodutor masculino",
+      "subtitulo": "Órgãos, caminho e hormônios",
+      "fala": "Tema um. O sistema reprodutor masculino."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Reprodutor masculino",
+      "titulo": "O caminho do espermatozoide",
+      "desenho": "bio-imgs/esquemas/rota-espermatozoide.svg",
+      "itens": [
+        "**túbulos seminíferos**: produzem os gametas",
+        "**epidídimo**: armazena e amadurece",
+        "**canal deferente**: leva até a uretra",
+        "**vesículas e próstata**: o líquido do sêmen"
+      ],
+      "fala": "Siga o espermatozoide. Ele é produzido nos túbulos seminíferos, dentro do testículo. Depois vai para o epidídimo, onde é armazenado e termina de amadurecer. O canal deferente leva até a uretra. No caminho, as vesículas seminais e a próstata acrescentam o líquido do sêmen. A próstata faz um líquido alcalino, que neutraliza a acidez da vagina."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Reprodutor masculino",
+      "titulo": "Quem controla os testículos",
+      "itens": [
+        "**FSH**: estimula a produção de espermatozoides",
+        "**LH**: estimula a produção de testosterona",
+        "testosterona alta inibe a hipófise: **feedback negativo**"
+      ],
+      "fala": "O hipotálamo manda a hipófise liberar dois hormônios. O éfe ésse agá estimula a produção de espermatozoides. O éle agá estimula a produção de testosterona. E quando a testosterona fica alta, ela inibe o hipotálamo e a hipófise. É o feedback negativo, que mantém tudo equilibrado."
+    },
+    {
+      "tipo": "destaque",
+      "capitulo": "Reprodutor masculino",
+      "titulo": "Vasectomia",
+      "texto": "Corta os **canais deferentes**. A testosterona não muda.",
+      "fala": "Na vasectomia, os canais deferentes são cortados. Os testículos continuam produzindo espermatozoides e testosterona, mas os gametas não chegam à uretra e são reabsorvidos. O sêmen sai só com os líquidos. Por isso o desejo e as características masculinas não mudam."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Injeções mensais de testosterona como anticoncepcional masculino funcionam porque",
+      "alternativas": [
+        "aumentam o FSH e o LH",
+        "bloqueiam os canais deferentes",
+        "derrubam FSH e LH por feedback negativo",
+        "destroem as células da próstata"
+      ],
+      "certa": "c",
+      "explicacao": "Testosterona alta inibe a hipófise: sem FSH, os testículos param de produzir espermatozoides.",
+      "fala": "Pergunta. Injeções mensais de testosterona funcionam como anticoncepcional masculino. Por quê?",
+      "falaResposta": "Resposta C. A testosterona alta, por feedback negativo, inibe a hipófise. Sem éfe ésse agá, os testículos param de produzir espermatozoides."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "2",
+      "titulo": "Ciclo e gravidez",
+      "subtitulo": "FSH, LH, estrógeno, progesterona e HCG",
+      "fala": "Tema dois. O ciclo menstrual e a gravidez. Aqui a prova pede para ler gráficos."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Ciclo e gravidez",
+      "titulo": "Lendo o gráfico do ciclo",
+      "desenho": "bio-imgs/esquemas/ciclo-menstrual.svg",
+      "itens": [
+        "**FSH**: faz o folículo crescer",
+        "**estrógeno**: reconstrói o endométrio",
+        "**pico de LH**: ovulação, por volta do dia 14",
+        "**progesterona**: do corpo lúteo, mantém o endométrio"
+      ],
+      "fala": "Veja o gráfico de um ciclo de vinte e oito dias. O dia um é o primeiro dia da menstruação. O éfe ésse agá sobe e faz o folículo crescer. O folículo produz estrógeno, que reconstrói o endométrio. Por volta do dia catorze vem o pico de éle agá, aquele pico fino e alto, que provoca a ovulação. O que sobra do folículo vira corpo lúteo, que produz progesterona. A progesterona mantém o endométrio grosso, pronto para receber o embrião."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Ciclo e gravidez",
+      "titulo": "Se não houver fecundação",
+      "itens": [
+        "o **corpo lúteo** degenera",
+        "a **progesterona** cai",
+        "o endométrio descama: **menstruação**",
+        "o **FSH** volta a subir e o ciclo recomeça"
+      ],
+      "fala": "Se não houver fecundação, o corpo lúteo degenera. A progesterona cai. Sem ela, o endométrio descama, e isso é a menstruação. Com os hormônios do ovário baixos, a hipófise volta a liberar éfe ésse agá, e o ciclo recomeça."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Ciclo e gravidez",
+      "titulo": "Por que a grávida não menstrua",
+      "desenho": "bio-imgs/esquemas/gravidez-hormonios.svg",
+      "itens": [
+        "**HCG** do trofoblasto mantém o corpo lúteo",
+        "progesterona alta: **sem menstruação**",
+        "no 3º mês a **placenta** assume",
+        "o teste de gravidez detecta **HCG**"
+      ],
+      "fala": "Na gravidez, quem segura tudo é o embrião. As células do trofoblasto, a futura placenta, produzem agá cê gê. O agá cê gê mantém o corpo lúteo produzindo progesterona, e com a progesterona alta não há menstruação. No gráfico, o agá cê gê é o pico do começo. Por volta do terceiro mês, a placenta assume a produção de estrógeno e progesterona, e o agá cê gê cai. É o agá cê gê que o teste de gravidez detecta na urina."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Ciclo e gravidez",
+      "titulo": "Gêmeos",
+      "colunas": [
+        {
+          "titulo": "Monozigóticos",
+          "itens": [
+            "**1** ovócito e **1** espermatozoide",
+            "o zigoto se divide em dois",
+            "mesmo DNA e **mesmo sexo**"
+          ]
+        },
+        {
+          "titulo": "Dizigóticos",
+          "itens": [
+            "**2** ovócitos e **2** espermatozoides",
+            "dois zigotos diferentes",
+            "podem ter **sexos diferentes**"
+          ]
+        }
+      ],
+      "fala": "Gêmeos monozigóticos vêm de um ovócito e um espermatozoide. O zigoto se divide em dois embriões, com o mesmo material genético e o mesmo sexo. Os dizigóticos vêm de dois ovócitos, liberados no mesmo ciclo, cada um fecundado por um espermatozoide. São dois zigotos diferentes, que podem ter sexos diferentes."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Ciclo e gravidez",
+      "titulo": "Como agem os contraceptivos",
+      "itens": [
+        "**pílula**: hormônios altos inibem FSH e LH, sem ovulação",
+        "**laqueadura**: corta as tubas, a mulher ainda menstrua",
+        "**vasectomia**: corta os canais deferentes",
+        "**tabelinha**: evita o período fértil, falha muito"
+      ],
+      "fala": "Os métodos contraceptivos. A pílula mantém estrógeno e progesterona altos, e por feedback negativo inibe o éfe ésse agá e o éle agá. Sem pico de éle agá, não há ovulação. A laqueadura corta as tubas: o ovócito não encontra o espermatozoide, mas a mulher continua ovulando e menstruando. A vasectomia corta os canais deferentes. E a tabelinha evita relações no período fértil, mas falha muito, porque os ciclos variam."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Na menopausa, as taxas no sangue ficam",
+      "alternativas": [
+        "altas de FSH e LH, baixas de estrógeno e progesterona",
+        "baixas de FSH e LH, altas de estrógeno",
+        "baixas de todos os hormônios",
+        "iguais às da fase lútea"
+      ],
+      "certa": "a",
+      "explicacao": "Sem folículos, o ovário para; sem feedback negativo, a hipófise libera muito FSH e LH.",
+      "fala": "Pergunta. Na menopausa, como ficam os hormônios no sangue?",
+      "falaResposta": "Resposta A. Os folículos acabam, e o ovário para de produzir estrógeno e progesterona. Sem o feedback negativo, a hipófise libera éfe ésse agá e éle agá em quantidade alta, mas sem efeito."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "3",
+      "titulo": "Neurônio e impulso",
+      "subtitulo": "Partes, cargas e a bomba de sódio e potássio",
+      "fala": "Tema três. O neurônio e o impulso nervoso."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Neurônio e impulso",
+      "titulo": "As partes do neurônio",
+      "desenho": "bio-imgs/esquemas/neuronio-impulso.svg",
+      "itens": [
+        "**dendritos**: recebem o estímulo",
+        "**corpo celular**: tem o núcleo",
+        "**axônio**: conduz o impulso",
+        "**terminações**: liberam o neurotransmissor"
+      ],
+      "fala": "O impulso tem um sentido só. Os dendritos recebem o estímulo. O corpo celular, que tem o núcleo, passa a informação adiante. O axônio conduz o impulso para longe do corpo celular. E as terminações do axônio liberam o neurotransmissor para a próxima célula."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Neurônio e impulso",
+      "titulo": "Os três estados da membrana",
+      "desenho": "bio-imgs/esquemas/membrana-potencial.svg",
+      "itens": [
+        "**polarizada**: fora positivo, dentro negativo",
+        "**despolarizada**: o sódio entra e inverte",
+        "**repolarizada**: o potássio sai e volta ao normal"
+      ],
+      "fala": "Em repouso, a membrana está polarizada: positiva por fora e negativa por dentro, perto de menos setenta milivolts. Quem mantém isso é a bomba de sódio e potássio, que gasta a tê pê: é transporte ativo. Quando chega um estímulo, canais de sódio se abrem e o sódio entra, por difusão facilitada. As cargas se invertem: é a despolarização. Depois o potássio sai, e a bomba restaura tudo: é a repolarização."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Neurônio e impulso",
+      "titulo": "Com e sem mielina",
+      "colunas": [
+        {
+          "titulo": "Com mielina",
+          "itens": [
+            "condução **saltatória**",
+            "salta de **nódulo em nódulo**",
+            "mais **rápida**"
+          ]
+        },
+        {
+          "titulo": "Sem mielina",
+          "itens": [
+            "condução **contínua**",
+            "percorre **toda a membrana**",
+            "mais **lenta**"
+          ]
+        }
+      ],
+      "fala": "A bainha de mielina isola o axônio. Com mielina, a despolarização só acontece nos nódulos de Ranvier, e o impulso salta de nódulo em nódulo. É a condução saltatória, muito mais rápida. Sem mielina, a despolarização percorre a membrana inteira, trecho a trecho, e a condução é mais lenta."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "A pomada anestésica do dentista mantém fechados os canais de sódio. Por isso",
+      "alternativas": [
+        "o neurônio fica sempre despolarizado",
+        "não há despolarização e a dor não chega ao cérebro",
+        "a bomba de sódio e potássio para",
+        "a mielina é destruída no local"
+      ],
+      "certa": "b",
+      "explicacao": "Sem entrada de sódio não há despolarização, logo não há potencial de ação.",
+      "fala": "Pergunta. A pomada anestésica do dentista mantém fechados os canais de sódio. O que acontece?",
+      "falaResposta": "Resposta B. Sem a entrada de sódio, não há despolarização, e sem ela não há impulso. A dor não chega ao cérebro."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "4",
+      "titulo": "Sinapses",
+      "subtitulo": "Pré-sináptico, fenda e pós-sináptico",
+      "fala": "Tema quatro. As sinapses."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Sinapses",
+      "titulo": "Sinapse química",
+      "desenho": "bio-imgs/esquemas/sinapse-quimica.svg",
+      "itens": [
+        "as **vesículas** liberam o neurotransmissor",
+        "ele atravessa a **fenda sináptica**",
+        "liga-se aos **receptores** da outra célula",
+        "depois é **degradado ou recaptado**"
+      ],
+      "fala": "Quando o impulso chega ao fim do axônio, as vesículas liberam o neurotransmissor na fenda sináptica. Ele atravessa a fenda e se liga aos receptores da célula seguinte, que abrem canais e geram um novo impulso, ou dificultam um. Para a resposta acabar, o neurotransmissor é degradado por enzimas ou recaptado. A sinapse só funciona num sentido, porque só o neurônio pré-sináptico tem vesículas, e só a célula pós-sináptica tem receptores."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Sinapses",
+      "titulo": "Neurotransmissores",
+      "itens": [
+        "**acetilcolina**: contrai o músculo, age no parassimpático",
+        "**noradrenalina**: simpático, luta e fuga",
+        "**dopamina**: prazer e movimentos",
+        "**serotonina**: humor, sono e apetite"
+      ],
+      "fala": "Os principais neurotransmissores. A acetilcolina contrai o músculo esquelético e é a do parassimpático. A noradrenalina é a do simpático, de luta e fuga. A dopamina está ligada ao prazer e ao controle dos movimentos. E a serotonina, ao humor, ao sono e ao apetite. Um exemplo de prova: o curare bloqueia os receptores de acetilcolina, e o músculo fica paralisado."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "5",
+      "titulo": "Arco reflexo",
+      "subtitulo": "Resposta rápida pela medula",
+      "fala": "Tema cinco. O ato reflexo e o arco reflexo."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Arco reflexo",
+      "titulo": "Tirar a mão do fogo",
+      "desenho": "bio-imgs/esquemas/arco-reflexo.svg",
+      "itens": [
+        "**receptor** capta o calor",
+        "**neurônio sensitivo** leva à medula",
+        "**associativo** liga dentro da medula",
+        "**motor** contrai o músculo"
+      ],
+      "fala": "Você encosta na chama e tira a mão antes de sentir dor. O receptor capta o calor. O neurônio sensitivo leva o impulso até a medula espinal. Lá, o neurônio associativo faz a ligação. E o neurônio motor manda o músculo contrair. Tudo pela medula, sem passar pelo cérebro. A informação também sobe ao cérebro, por isso a dor é sentida, mas só depois."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Arco reflexo",
+      "titulo": "E se cortar a raiz do nervo?",
+      "colunas": [
+        {
+          "titulo": "Raiz dorsal (sensitiva)",
+          "itens": [
+            "sem **reflexo**",
+            "**não sente**",
+            "move a perna **por vontade**"
+          ]
+        },
+        {
+          "titulo": "Raiz ventral (motora)",
+          "itens": [
+            "sem **reflexo**",
+            "**sente** a batida",
+            "**não move** a perna"
+          ]
+        }
+      ],
+      "fala": "Pergunta clássica. A raiz dorsal, de trás, é sensitiva. Se for cortada, não há reflexo e a pessoa não sente, mas ainda move a perna por vontade, porque a via motora está inteira. A raiz ventral, da frente, é motora. Cortada, não há reflexo e a pessoa não move a perna, mas sente a batida, porque a via sensitiva chega ao cérebro."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "6",
+      "titulo": "Sistema autônomo",
+      "subtitulo": "Simpático e parassimpático",
+      "fala": "Tema seis. O sistema nervoso autônomo."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Sistema autônomo",
+      "titulo": "Uma gangorra",
+      "desenho": "bio-imgs/esquemas/autonomo-gangorra.svg",
+      "itens": [
+        "**simpático**: luta e fuga, noradrenalina",
+        "**parassimpático**: repouso, acetilcolina",
+        "**ações antagônicas** no mesmo órgão"
+      ],
+      "fala": "O autônomo controla as vísceras sem a nossa vontade, e tem dois ramos que funcionam como uma gangorra. O simpático prepara para luta e fuga, com noradrenalina: acelera o coração, dilata a pupila e os brônquios, e para a digestão. O parassimpático cuida do repouso e da digestão, com acetilcolina: desacelera o coração, contrai a pupila e ativa a digestão. São ações antagônicas no mesmo órgão."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Um susto provoca taquicardia porque",
+      "alternativas": [
+        "o parassimpático libera acetilcolina no coração",
+        "o somático contrai o músculo cardíaco",
+        "o simpático libera noradrenalina e as adrenais, adrenalina",
+        "o bulbo para de controlar os batimentos"
+      ],
+      "certa": "c",
+      "explicacao": "O simpático acelera o coração para a reação de luta ou fuga.",
+      "fala": "Última pergunta. Por que um susto acelera o coração?",
+      "falaResposta": "Resposta C. O susto ativa o simpático, que libera noradrenalina no coração e faz as adrenais liberarem adrenalina. O corpo se prepara para lutar ou fugir."
+    },
+    {
+      "tipo": "fim",
+      "titulo": "Boa prova!",
+      "texto": "A revisão dos outros trimestres está no vídeo do 2º tri e nas páginas do Caderno Digital.",
+      "fala": "Esses foram os seis temas do trimestre. A prova também revisa o digestório, o coração, a curva da hemoglobina, o néfron e o endócrino: para isso, veja o vídeo do segundo trimestre e as páginas do Caderno Digital. Boa prova!"
+    }
+  ]
+}
