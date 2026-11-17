@@ -51,6 +51,13 @@ Saída: `videos-gerados/<pagina>.mp4` na raiz (fora do git). Áudios, `.venv/`,
    (ex.: `filo-videos/`, `hist-videos/`) com um pôster `.jpg` e use
    `<video controls preload="none" playsinline poster=... src=...>`.
 
+## Vídeo animado (HyperFrames) e outros idiomas
+
+Os vídeos mais novos (Português, Literatura, Inglês) usam `hyperframes.mjs`
+(1920x1080, animado com GSAP) e a voz clonada do Gabriel. Roteiro em inglês
+(`"idioma": "en"`), cenas `gestos`/`desenho` com SVG animado e o passo a passo
+completo estão na skill `resumo-completo`, seção 4.
+
 ## Formato do roteiro
 
 ```json

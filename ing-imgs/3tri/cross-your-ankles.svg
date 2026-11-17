@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <style>.cab,.boca,.sobr,.nariz,.m,.m2,.fx{transform-box:fill-box;transform-origin:center}
+  .m{transform-box:view-box;transform-origin:148px 60px}@keyframes cruza{0%,20%{transform:rotate(-22deg)}50%,100%{transform:rotate(0)}}.m{animation:cruza 2.6s ease-in-out infinite }@keyframes aparece{0%,45%{opacity:0;transform:scale(0.6)}60%,100%{opacity:1;transform:scale(1)}}.fx{animation:aparece 2.6s ease-in-out infinite }
+  @media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+  <rect width="240" height="240" rx="28" fill="#eef8f9"/>
+  <clipPath id="c"><rect width="240" height="240" rx="28"/></clipPath>
+  <g clip-path="url(#c)"><rect x="20" y="40" width="200" height="22" rx="8" fill="#8a5a3a"/><rect x="34" y="62" width="10" height="60" fill="#6d4630"/><rect x="196" y="62" width="10" height="60" fill="#6d4630"/><path d="M70 20 h100 v42 h-100z" fill="#36415a"/><path d="M92 60 l32 120" stroke="#36415a" stroke-width="28" stroke-linecap="round"/><ellipse cx="140" cy="196" rx="24" ry="11" fill="#333"/><g class="m"><path d="M148 60 l-32 120" stroke="#46526e" stroke-width="28" stroke-linecap="round"/><ellipse cx="102" cy="196" rx="24" ry="11" fill="#222"/></g><g class="fx"><circle cx="120" cy="170" r="20" fill="none" stroke="#e8590c" stroke-width="3.5" stroke-dasharray="6 5"/></g></g></svg>

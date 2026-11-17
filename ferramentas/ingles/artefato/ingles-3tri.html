@@ -1,0 +1,485 @@
+<title>C1 Term 3 Workout</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: a single study column; each unit is a "drill station" with its own interactive tool. */
+:root {
+  --bg: #f3f8f8; --surface: #ffffff; --ink: #14242a; --muted: #50656b; --line: #d4e4e6;
+  --teal: #0a778f; --teal-soft: #dff0f2; --orange: #c2410c; --orange-soft: #fdebe0;
+  --ok: #17733f; --ok-soft: #e1f4e8; --bad: #b42318; --bad-soft: #fde7e5;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0d1719; --surface: #142327; --ink: #e5f0f1; --muted: #9db3b8; --line: #24393e;
+  --teal: #4cc3d9; --teal-soft: #173a41; --orange: #ff9a5c; --orange-soft: #3a2316;
+  --ok: #5fd08b; --ok-soft: #133524; --bad: #ff8a80; --bad-soft: #3b1a18; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0d1719; --surface: #142327; --ink: #e5f0f1; --muted: #9db3b8; --line: #24393e;
+  --teal: #4cc3d9; --teal-soft: #173a41; --orange: #ff9a5c; --orange-soft: #3a2316;
+  --ok: #5fd08b; --ok-soft: #133524; --bad: #ff8a80; --bad-soft: #3b1a18; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 16px/1.6 var(--body); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px; }
+.wrap { max-width: 920px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3.6vw, 2rem); font-weight: 800; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+p { margin: 0; }
+.eyebrow { font: 700 0.72rem/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); }
+.muted { color: var(--muted); }
+em.k { font-style: normal; color: var(--teal); font-weight: 700; }
+
+/* hero */
+header.hero { padding-block: 44px 28px; display: grid; gap: 14px; }
+.hero p.lede { font-size: 1.1rem; max-width: 62ch; color: var(--muted); }
+.format { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-top: 8px; }
+.format div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.format b { display: block; font-family: var(--display); font-size: 1rem; }
+.format span { font-size: 0.88rem; color: var(--muted); }
+
+/* sticky nav */
+nav.units { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 10px; border-bottom: 1px solid var(--line); display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+nav.units a { flex: none; text-decoration: none; color: var(--ink); font-size: 0.86rem; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); }
+nav.units a:hover, nav.units a:focus-visible { border-color: var(--teal); color: var(--teal); outline: none; }
+
+section.unit { padding-block: 48px 8px; display: grid; gap: 18px; scroll-margin-top: 64px; }
+.unit-head { display: grid; gap: 6px; }
+.unit-head p { max-width: 66ch; color: var(--muted); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 14px; min-width: 0; }
+.tip { border-left: 4px solid var(--orange); background: var(--orange-soft); padding: 10px 14px; border-radius: 0 10px 10px 0; font-size: 0.95rem; }
+
+/* buttons */
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.btn { background: var(--teal); color: var(--surface); border: 0; border-radius: 10px; padding: 9px 16px; font-weight: 700; }
+.btn.ghost { background: transparent; color: var(--teal); border: 1px solid var(--teal); }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+/* flip cards */
+.flips { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.flip { perspective: 900px; background: none; border: 0; padding: 0; height: 170px; text-align: left; }
+.flip .in { position: relative; width: 100%; height: 100%; transition: transform 0.45s; transform-style: preserve-3d; }
+.flip.on .in { transform: rotateY(180deg); }
+.flip .f, .flip .b { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); }
+.flip .f { background: var(--teal-soft); }
+.flip .f strong { font-family: var(--display); font-size: 1.25rem; line-height: 1.15; }
+.flip .f small { color: var(--muted); }
+.flip .b { background: var(--surface); transform: rotateY(180deg); font-size: 0.9rem; gap: 6px; }
+.flip .b i { color: var(--muted); }
+
+/* effort scale */
+.scale { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 10px 12px; text-align: left; }
+.chip b { font-family: var(--display); font-size: 1.05rem; display: block; }
+.chip span { font-size: 0.8rem; color: var(--muted); }
+.chip[aria-pressed="true"] { border-color: var(--teal); background: var(--teal-soft); }
+.explain { min-height: 76px; border-radius: 12px; background: var(--teal-soft); padding: 12px 14px; }
+.explain b { font-family: var(--display); }
+
+/* gap exercises */
+.gaps { display: grid; gap: 10px; }
+.gap { display: grid; gap: 8px; padding: 12px 0; border-top: 1px solid var(--line); }
+.gap:first-child { border-top: 0; padding-top: 0; }
+.gap .opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.gap .opts button { border: 1px solid var(--line); background: var(--bg); border-radius: 8px; padding: 5px 12px; font-size: 0.92rem; }
+.gap .opts button.ok { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); font-weight: 700; }
+.gap .opts button.no { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); text-decoration: line-through; }
+.blank { display: inline-block; min-width: 64px; border-bottom: 2px solid var(--orange); text-align: center; font-weight: 700; color: var(--orange); padding: 0 4px; }
+.blank.ok { color: var(--ok); border-color: var(--ok); }
+.why { font-size: 0.86rem; color: var(--muted); }
+
+/* two selves */
+.selves { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.self { border-radius: 14px; padding: 16px; display: grid; gap: 8px; border: 1px solid var(--line); min-width: 0; }
+.self.one { background: var(--orange-soft); }
+.self.two { background: var(--teal-soft); }
+.self .bubble { font-style: italic; font-size: 0.92rem; }
+.match { display: grid; gap: 8px; }
+.match label { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 10px; align-items: center; font-size: 0.95rem; }
+.match select { font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); max-width: 100%; }
+.match select.ok { border-color: var(--ok); background: var(--ok-soft); }
+.match select.no { border-color: var(--bad); background: var(--bad-soft); }
+@media (max-width: 520px) { .match label { grid-template-columns: 1fr; gap: 4px; } }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 0.88rem; background: var(--surface); }
+.pill[aria-pressed="true"] { background: var(--teal); color: var(--surface); border-color: var(--teal); }
+
+/* modal table */
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.93rem; min-width: 560px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--display); font-size: 0.85rem; color: var(--muted); font-weight: 700; }
+td code { font-family: var(--body); font-weight: 700; color: var(--teal); }
+.kwt { display: grid; gap: 12px; }
+.kwt .item { display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 12px; }
+.kwt .item:first-child { border-top: 0; padding-top: 0; }
+.kwt .key { font: 800 0.8rem/1 var(--display); background: var(--orange); color: var(--surface); padding: 3px 8px; border-radius: 6px; letter-spacing: 0.05em; }
+.kwt input { font: inherit; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: min(100%, 320px); }
+.kwt input.ok { border-color: var(--ok); background: var(--ok-soft); }
+.kwt input.no { border-color: var(--bad); background: var(--bad-soft); }
+.kwt .ans { font-size: 0.9rem; color: var(--ok); font-weight: 700; }
+
+/* gestures */
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.g { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px; display: grid; gap: 6px; text-align: center; }
+.g img { width: 100%; height: auto; aspect-ratio: 1; border-radius: 10px; display: block; }
+.g b { font-family: var(--display); font-size: 0.95rem; line-height: 1.2; }
+.g span { font-size: 0.78rem; color: var(--muted); line-height: 1.3; }
+.game { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 18px; align-items: center; }
+.game img { width: 100%; max-width: 220px; aspect-ratio: 1; border-radius: 16px; }
+.game .opts { display: grid; gap: 8px; }
+.game .opts button { border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 10px 12px; text-align: left; font-weight: 700; }
+.game .opts button.ok { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+.game .opts button.no { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+@media (max-width: 560px) { .game { grid-template-columns: 1fr; justify-items: center; } .game .opts { width: 100%; } }
+.score { font: 800 1.4rem/1 var(--display); font-variant-numeric: tabular-nums; color: var(--teal); }
+
+/* quiz */
+.q { display: grid; gap: 10px; }
+.q .stem { font-size: 1.05rem; }
+.q .opts { display: grid; gap: 8px; }
+.q .opts button { text-align: left; border: 1px solid var(--line); background: var(--bg); border-radius: 10px; padding: 10px 12px; }
+.q .opts button.ok { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); font-weight: 700; }
+.q .opts button.no { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+.bar { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--teal); width: 0; transition: width 0.3s; }
+footer { margin-top: 56px; color: var(--muted); font-size: 0.85rem; }
+@media (prefers-reduced-motion: reduce) { .flip .in, .bar i { transition: none; } }
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <span class="eyebrow">Inglês C1 · 3º trimestre · 2026</span>
+  <h1>Do your best, feel good.</h1>
+  <p class="lede">Revisão interativa das Units 5 e 6 do High Note 5: idioms, collocations com <em class="k">attempt</em> e <em class="k">effort</em>, verbos com preposição, o texto <em>Our Two Selves</em>, modal verbs e linguagem corporal. Clique, vire, responda.</p>
+  <div class="format">
+    <div><b>Part 1 · Multiple choice</b><span>8 testes: 2 de leitura (tirinha, letra ou poema), 4 de vocabulário, 2 de gramática</span></div>
+    <div><b>Part 2 · Reading</b><span>Marcar tópicos do texto, inferir vocabulário, 2 perguntas abertas</span></div>
+    <div><b>Part 3 · Use of English</b><span>Word box, collocations, transformação com palavra dada, 1 palavra por lacuna, tempos verbais</span></div>
+    <div><b>Part 4 · Open question</b><span>1 parágrafo sobre um tema de aula ou <i>The Catcher in the Rye</i></span></div>
+  </div>
+</header>
+
+<nav class="units" aria-label="Units">
+  <a href="#idioms">Idioms</a><a href="#effort">Attempt &amp; effort</a><a href="#preps">Verb + preposition</a><a href="#selves">Our Two Selves</a><a href="#modals">Modals</a><a href="#body">Body language</a><a href="#tenses">Tenses &amp; gaps</a><a href="#quiz">Final quiz</a>
+</nav>
+
+<section class="unit" id="idioms">
+  <div class="unit-head"><span class="eyebrow">Unit 5 · Vocabulary</span><h2>Nine idioms about learning and effort</h2>
+  <p>Toque no cartão para ver o significado e um exemplo. Na prova eles aparecem em "qual frase não combina com o contexto" e em lacunas com a forma certa do verbo.</p></div>
+  <div class="flips" id="flips"></div>
+  <div class="tip"><b>Pegadinha clássica:</b> o contexto contradiz o idiom. "Mark is not very experienced, so he <i>breezes through</i> his work" está errado: quem tem pouca experiência não acha o trabalho fácil. Leia a frase inteira antes de marcar.</div>
+</section>
+
+<section class="unit" id="effort">
+  <div class="unit-head"><span class="eyebrow">Unit 5 · Collocations</span><h2>What kind of attempt was it?</h2>
+  <p>Os oito adjetivos combinam com <em class="k">attempt</em> e <em class="k">effort</em> (make a ... effort / attempt). Toque num adjetivo para ver o sentido, depois complete as frases.</p></div>
+  <div class="panel">
+    <div class="scale" id="scale"></div>
+    <div class="explain" id="explain" aria-live="polite"><span class="muted">Escolha um adjetivo acima.</span></div>
+  </div>
+  <div class="panel"><h3>Complete with the best collocation</h3><div class="gaps" id="effortGaps"></div></div>
+</section>
+
+<section class="unit" id="preps">
+  <div class="unit-head"><span class="eyebrow">Unit 5 · Dependent prepositions</span><h2>Verb + the right preposition</h2>
+  <p>Nove verbos e a preposição que vem com cada um. O texto abaixo é o mesmo tipo da Part 3: uma palavra por lacuna.</p></div>
+  <div class="panel">
+    <div class="pills" id="prepList"></div>
+    <div class="tip"><b>Atenção:</b> <i>apply yourself to</i> + <b>-ing</b> ("apply yourself to <b>solving</b> the problem"), porque <i>to</i> aqui é preposição. E <i>cram</i> tem duas: <i>cram <b>into</b></i> (enfiar num espaço ou tempo curto) e <i>cram <b>for</b></i> (estudar em cima da hora para uma prova).</div>
+  </div>
+  <div class="panel"><h3>Managing stress before exams</h3><div class="gaps" id="prepGaps"></div></div>
+</section>
+
+<section class="unit" id="selves">
+  <div class="unit-head"><span class="eyebrow">Unit 5 · Reading, SB p. 68</span><h2>Our Two Selves</h2>
+  <p>W. Timothy Gallwey, técnico de tênis, percebeu que existem dois "eus" na quadra. A ideia principal: calar a voz que julga deixa a habilidade natural aparecer, com concentração relaxada e um ambiente sem julgamento.</p></div>
+  <div class="selves">
+    <div class="self one"><h3>Self 1 · the instructor</h3><p class="bubble">"Bend your knees... watch the ball... Oh, this is embarrassing!"</p><p>Cheio de conceitos e expectativas dos outros; critica como um sargento. Uma "calculadora barata" tentando comandar o show. Quanto mais fala, pior o jogo.</p></div>
+    <div class="self two"><h3>Self 2 · the player</h3><p class="bubble">bounce... hit... bounce... hit</p><p>Quem joga de verdade: um "supercomputador". Aprende como a criança que aprende a andar, por tentativa e correção, sem se julgar. É o caso da Molly, que acerta a bola quando só diz "bounce, hit".</p></div>
+  </div>
+  <div class="panel"><h3>Match the words from the text</h3><div class="match" id="textMatch"></div><div class="row"><button class="btn" id="checkMatch" type="button">Check</button><span class="muted" id="matchScore" aria-live="polite"></span></div></div>
+  <div class="panel"><h3>What makes someone succeed? (SB p. 68)</h3><p class="muted">Toque numa qualidade para ver o sentido.</p><div class="pills" id="traits"></div><div class="explain" id="traitExplain" aria-live="polite"><span class="muted">Escolha uma qualidade.</span></div></div>
+</section>
+
+<section class="unit" id="modals">
+  <div class="unit-head"><span class="eyebrow">Unit 5 · Grammar, SB pp. 66–67</span><h2>Modal verbs, present and past</h2>
+  <p>No presente, o modal dá permissão, obrigação, proibição ou conselho. No passado (modal + <b>have + particípio</b>), ele deduz ou critica o que já aconteceu.</p></div>
+  <div class="panel tbl"><table>
+    <thead><tr><th>Estrutura</th><th>Função</th><th>Exemplo</th></tr></thead>
+    <tbody>
+      <tr><td><code>may</code></td><td>permissão</td><td>Candidates <b>may</b> consult the reference materials.</td></tr>
+      <tr><td><code>have to</code></td><td>obrigação de fora (regra)</td><td>Every group <b>has to</b> include subtitles.</td></tr>
+      <tr><td><code>must</code></td><td>obrigação que eu mesmo me dou</td><td>I <b>must</b> stop leaving revision until midnight.</td></tr>
+      <tr><td><code>mustn't</code></td><td>proibição</td><td>You <b>mustn't</b> record classmates without consent.</td></tr>
+      <tr><td><code>should / ought to</code></td><td>conselho</td><td>You <b>ought to</b> ask for feedback.</td></tr>
+      <tr><td><code>can't</code></td><td>falta de habilidade</td><td>She <b>can't</b> edit video independently yet.</td></tr>
+      <tr><td><code>must have + pp</code></td><td>quase certeza (passado)</td><td>They <b>must have rehearsed</b> a lot.</td></tr>
+      <tr><td><code>might / may have + pp</code></td><td>possibilidade</td><td>She <b>might have attached</b> the wrong file.</td></tr>
+      <tr><td><code>can't have + pp</code></td><td>impossível</td><td>He <b>can't have appeared</b> in the recording: he was abroad.</td></tr>
+      <tr><td><code>should / ought to have + pp</code></td><td>crítica: não fez e devia</td><td>We <b>ought to have tested</b> the microphone.</td></tr>
+      <tr><td><code>shouldn't have + pp</code></td><td>crítica: fez e não devia</td><td>I <b>shouldn't have shared</b> the screenshot.</td></tr>
+      <tr><td><code>needn't have + pp</code></td><td>fez, mas era desnecessário</td><td>I <b>needn't have printed</b> them: copies were provided.</td></tr>
+      <tr><td><code>didn't need to</code></td><td>era desnecessário (em geral, não fez)</td><td>We knew, so we <b>didn't need to print</b> them.</td></tr>
+    </tbody></table></div>
+  <div class="tip"><b>Erros que a prova pede para achar:</b> "I ought <s>reconsider</s>" (falta o <b>to</b>: ought <b>to</b> reconsider); "should have <s>took</s>" (particípio: should have <b>taken</b>); "backfired <s>at</s> her" (backfire <b>on</b>).</div>
+  <div class="panel"><h3>Key word transformation</h3><p class="muted">Complete a segunda frase com 2 a 5 palavras, usando a palavra dada. Escreva e confira.</p><div class="kwt" id="kwt"></div></div>
+</section>
+
+<section class="unit" id="body">
+  <div class="unit-head"><span class="eyebrow">Unit 6 · Feels good, SB pp. 78–79</span><h2>Body language</h2>
+  <p>Eighteen verb + body part collocations, animated. Dezoito collocations de verbo + parte do corpo. Na prova cai "qual alternativa não pode ser completada com as palavras do quadro" e textos com gestos (como as cenas das Mini Auditions).</p></div>
+  <div class="panel">
+    <div class="row" style="justify-content:space-between"><h3>Guess the gesture</h3><span class="score" id="gScore">0/0</span></div>
+    <div class="game"><img id="gImg" alt="" width="220" height="220"><div class="opts" id="gOpts"></div></div>
+    <div class="row"><button class="btn" id="gNext" type="button">Next gesture</button><span class="muted" id="gMsg" aria-live="polite"></span></div>
+  </div>
+  <div class="gallery" id="gallery"></div>
+  <div class="panel"><h3>Body idioms</h3><div class="flips" id="bodyIdioms"></div></div>
+</section>
+
+<section class="unit" id="tenses">
+  <div class="unit-head"><span class="eyebrow">Revise verb tenses</span><h2>Tenses and one-word gaps</h2>
+  <p>O guia pede revisar os tempos verbais. A pista está no marcador de tempo: <b>since / so far</b> pedem present perfect; <b>last year / in late September</b> pedem simple past; <b>by the time ... earlier that week</b> pede past perfect.</p></div>
+  <div class="panel"><div class="gaps" id="tenseGaps"></div></div>
+</section>
+
+<section class="unit" id="quiz">
+  <div class="unit-head"><span class="eyebrow">Final check</span><h2>Mixed quiz</h2><p>Doze perguntas sorteadas de todas as unidades. Cada vez sai uma rodada diferente.</p></div>
+  <div class="panel">
+    <div class="bar"><i id="qBar"></i></div>
+    <div class="q" id="qBox"></div>
+    <div class="row"><button class="btn" id="qNext" type="button" hidden>Next</button><button class="btn ghost" id="qNew" type="button">New round</button><span class="score" id="qScore"></span></div>
+  </div>
+</section>
+
+<footer>Feito a partir do Study Guide do 3º tri, das Extra Practices do Moodle, do Mock Test e da Prova Modelo C1. High Note 5 · Pearson.</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+/* ── Idioms ── */
+const IDIOMS = [
+  ['be on a steep learning curve', 'ter muito para aprender, rápido; achar difícil no começo', 'I was on a steep learning curve when I started my new job.'],
+  ['breeze through', 'fazer algo com muita facilidade e rapidez', 'Sarah breezed through the test and finished early.'],
+  ['get your head down', 'se concentrar a sério no trabalho', "Let's get our heads down and finish this report."],
+  ['go blank', 'dar branco: de repente não lembrar de nada', 'My mind went blank when the teacher called on me.'],
+  ['drum sth into sb', 'repetir algo até a pessoa aprender', 'My parents drummed it into me that I should save money.'],
+  ['keep sb on track', 'ajudar alguém a manter o foco nos objetivos', 'My study partner keeps me on track.'],
+  ['run on empty', 'estar sem energia de tanto trabalhar', 'After studying all night, I was running on empty.'],
+  ['get the hang of sth', 'pegar o jeito depois de praticar', "I'm finally getting the hang of the new software."],
+  ['give it your best shot', 'fazer o máximo, mesmo sem garantia de sucesso', "I'm not sure I'll win, but I'll give it my best shot."],
+];
+function flipCards(el, list) {
+  el.innerHTML = list.map(([t, m, e]) => `<button class="flip" type="button" aria-label="${esc(t)}"><div class="in"><div class="f"><strong>${esc(t)}</strong><small>toque para virar</small></div><div class="b"><span>${esc(m)}</span><i>${esc(e)}</i></div></div></button>`).join('');
+  el.querySelectorAll('.flip').forEach(b => b.onclick = () => b.classList.toggle('on'));
+}
+flipCards($('#flips'), IDIOMS);
+
+/* ── Attempt & effort ── */
+const EFFORT = [
+  ['last-ditch', 'última tentativa, quando quase não há esperança', 'With minutes left, they made a last-ditch effort to finish the project.'],
+  ['misguided', 'baseada numa ideia errada ou julgamento ruim', 'Banning cars from the centre was a misguided attempt to cut traffic: it made things worse.'],
+  ['futile', 'inútil: não tem como dar resultado', 'Trying to recover a permanently deleted file is a futile attempt.'],
+  ['half-hearted', 'sem vontade, sem empenho', 'She made a half-hearted effort to apologise; she clearly was not sorry.'],
+  ['sustained', 'contínua, por muito tempo', 'After years of sustained effort, she became a professional athlete.'],
+  ['valiant', 'corajosa e determinada, em situação difícil', 'The rescue team made a valiant attempt to reach the climbers.'],
+  ['frantic', 'desesperada, apressada, sem controle', 'She made a frantic attempt to log in, trying password after password.'],
+  ['strenuous', 'que exige muita energia física ou mental', 'Moving the heavy machinery required a strenuous effort.'],
+];
+$('#scale').innerHTML = EFFORT.map(([w, m], i) => `<button class="chip" type="button" aria-pressed="false" data-i="${i}"><b>${w}</b><span>${m.split(',')[0].split(':')[0]}</span></button>`).join('');
+$('#scale').onclick = e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  $('#scale').querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === b));
+  const [w, m, ex] = EFFORT[b.dataset.i];
+  $('#explain').innerHTML = `<b>a ${w} attempt / effort</b>: ${esc(m)}.<br><i>${esc(ex)}</i>`;
+};
+
+function gapExercise(el, items) {
+  el.innerHTML = items.map((it, i) => `<div class="gap" data-i="${i}"><p>${it.s.replace('___', '<span class="blank">?</span>')}</p><div class="opts">${shuffle(it.o).map(o => `<button type="button">${esc(o)}</button>`).join('')}</div>${it.w ? `<p class="why" hidden>${it.w}</p>` : ''}</div>`).join('');
+  el.onclick = e => {
+    const b = e.target.closest('.opts button'); if (!b) return;
+    const g = b.closest('.gap'), it = items[g.dataset.i];
+    if (g.dataset.done) return;
+    if (b.textContent === it.a) {
+      b.classList.add('ok'); g.dataset.done = 1;
+      const bl = g.querySelector('.blank'); bl.textContent = it.a; bl.classList.add('ok');
+      const w = g.querySelector('.why'); if (w) w.hidden = false;
+    } else b.classList.add('no');
+  };
+}
+gapExercise($('#effortGaps'), [
+  { s: 'With seconds left before the portal closed, Sofia made ___ to recover her portfolio.', a: 'a last-ditch effort', o: ['a last-ditch effort', 'a sustained effort', 'a half-hearted effort'] },
+  { s: 'Oliver added two vague sentences and went back to his phone: ___.', a: 'a half-hearted effort', o: ['a half-hearted effort', 'a strenuous effort', 'a valiant attempt'] },
+  { s: 'Restoring the school garden took ___ over several months.', a: 'a sustained effort', o: ['a sustained effort', 'a frantic attempt', 'a futile attempt'] },
+  { s: 'Despite losing two members, the debate team made ___ to win; the judges admired their courage.', a: 'a valiant attempt', o: ['a valiant attempt', 'a misguided attempt', 'a half-hearted effort'] },
+  { s: 'Trying to recover the recordings from the destroyed device was ___.', a: 'a futile attempt', o: ['a futile attempt', 'a sustained effort', 'a last-ditch effort'] },
+  { s: 'Banning group discussions to help students concentrate was ___: they lost interest.', a: 'a misguided attempt', o: ['a misguided attempt', 'a valiant attempt', 'a strenuous effort'] },
+]);
+
+/* ── Verb + preposition ── */
+const PREPS = [['cram into', 'enfiar algo num espaço/tempo pequeno'], ['cram for', 'estudar muito em pouco tempo para uma prova'], ['backfire on', 'sair pela culatra para alguém'], ['apply yourself to', 'se dedicar a algo (+ -ing)'], ['sort into', 'separar em grupos'], ['associate with', 'associar a'], ['gape at', 'olhar boquiaberto para'], ['deflect from', 'desviar (atenção, culpa) de'], ['munch on', 'mastigar, beliscar']];
+$('#prepList').innerHTML = PREPS.map(([v, m]) => `<span class="pill" title="${m}"><b>${v}</b> · ${m}</span>`).join('');
+const P = ['into', 'on', 'to', 'for', 'with', 'at', 'from', 'than'];
+const pg = (s, a, w) => ({ s, a, o: P.filter(x => x !== a).sort(() => Math.random() - 0.5).slice(0, 3).concat(a), w });
+gapExercise($('#prepGaps'), [
+  pg('First, avoid trying to cram all your revision ___ a single weekend.', 'into'),
+  pg('Studying for hours without rest can backfire ___ you.', 'on'),
+  pg('Instead, apply yourself ___ following a realistic study plan.', 'to', 'apply yourself to + <b>-ing</b> (following).'),
+  pg('Sort your notes ___ manageable groups by topic.', 'into'),
+  pg('This reduces the pressure to cram ___ an exam the night before.', 'for'),
+  pg('If you associate breaks ___ laziness, remember that rest is part of preparation.', 'with'),
+  pg('You might gape ___ your timetable when you see how much there is to revise.', 'at'),
+  pg("Don't let that feeling deflect you ___ your main goal.", 'from'),
+  pg('Try munching ___ some fruit or nuts during a break.', 'on'),
+  pg('Returning to your books refreshed is more useful ___ studying when you are too tired.', 'than', 'Comparação: more useful <b>than</b>.'),
+]);
+
+/* ── Our Two Selves ── */
+const WORDS = [['The quality of not being very good', 'mediocrity'], ['Directly relevant', 'pertinent'], ['Something that gets in the way of a task', 'interference'], ['A great number of questions or criticisms directed at someone', 'barrage'], ['To make a large jump', 'leap'], ['Skilful', 'adroit'], ['The quality of being very energetic', 'exuberance']];
+const wOpts = shuffle(WORDS.map(w => w[1]));
+$('#textMatch').innerHTML = WORDS.map(([d], i) => `<label for="m${i}"><span>${d}</span><select id="m${i}"><option value="">choose…</option>${wOpts.map(o => `<option>${o}</option>`).join('')}</select></label>`).join('');
+$('#checkMatch').onclick = () => {
+  let n = 0;
+  WORDS.forEach(([, w], i) => { const s = $('#m' + i); const ok = s.value === w; s.className = s.value ? (ok ? 'ok' : 'no') : ''; n += ok; });
+  $('#matchScore').textContent = `${n}/7 · word forms: adroit → adroitly · exuberance → exuberant · mediocre → mediocrity · interfere → interference`;
+};
+const TRAITS = [['self-starter', 'quem toma a iniciativa sem esperar ordens'], ['boundless energy', 'energia que parece não ter fim'], ['natural aptitude', 'facilidade natural (aptitude for sth)'], ['perseverance', 'continuar tentando apesar das dificuldades'], ['raw talent', 'talento bruto, antes do treino formal'], ['rivalry', 'competição entre dois rivais'], ['willingness to make sacrifices', 'disposição para abrir mão de festas, tempo livre, dinheiro'], ['self-conviction', 'confiança firme na própria capacidade'], ['stubborn streak', 'traço teimoso: não muda de ideia nem com provas'], ['tenacity', 'não desistir, lutar até o fim']];
+$('#traits').innerHTML = TRAITS.map(([t], i) => `<button class="pill" type="button" aria-pressed="false" data-i="${i}">${t}</button>`).join('');
+$('#traits').onclick = e => { const b = e.target.closest('.pill'); if (!b) return; $('#traits').querySelectorAll('.pill').forEach(p => p.setAttribute('aria-pressed', p === b)); const [t, m] = TRAITS[b.dataset.i]; $('#traitExplain').innerHTML = `<b>${t}</b>: ${m}.`; };
+
+/* ── Key word transformations ── */
+const KWT = [
+  ['I am almost certain that someone gave the journalist a copy of the secret report.', 'MUST', 'The journalist', 'a copy of the secret report.', ['must have been given']],
+  ['Perhaps the researchers missed an important detail.', 'MIGHT', 'The researchers', 'an important detail.', ['might have missed']],
+  ['It is impossible that Eva wrote the review: she had never seen the show.', "CAN'T", 'Eva', 'the review.', ["can't have written", 'cannot have written']],
+  ['It was a mistake for Max to share the results before anyone checked them.', "SHOULDN'T", 'Max', 'the results before anyone had checked them.', ["shouldn't have shared", 'should not have shared']],
+  ['The school did not ask the students for their opinions, but that would have been right.', 'OUGHT', 'The school', 'the students for their opinions.', ['ought to have asked']],
+  ['We printed all the worksheets, but it was unnecessary: everyone got an online copy.', "NEEDN'T", 'We', 'all the worksheets.', ["needn't have printed", 'need not have printed']],
+  ['The weekly feedback prevents our group from losing focus on its objectives.', 'TRACK', 'The weekly feedback', 'its objectives.', ['keeps our group on track with', 'keeps us on track with']],
+  ['Sofia completed the assessment without experiencing any difficulty.', 'BREEZED', 'Sofia', 'the assessment.', ['breezed through', 'simply breezed through', 'easily breezed through']],
+];
+const norm = s => s.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
+$('#kwt').innerHTML = KWT.map(([a, k, s, e], i) => `<div class="item"><p>${esc(a)} <span class="key">${k}</span></p><p>${esc(s)} <input id="k${i}" autocomplete="off" spellcheck="false" aria-label="answer ${i + 1}"> ${esc(e)}</p><div class="row"><button class="btn ghost" type="button" data-i="${i}">Check</button><span class="ans" id="ka${i}" aria-live="polite"></span></div></div>`).join('');
+$('#kwt').onclick = e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const i = +b.dataset.i, inp = $('#k' + i), ok = KWT[i][4].map(norm).includes(norm(inp.value));
+  inp.className = ok ? 'ok' : 'no';
+  $('#ka' + i).textContent = ok ? 'Correct!' : 'Answer: ' + KWT[i][4][0];
+};
+
+/* ── Body language ── */
+const GEST = [
+  ['fold-your-arms', 'fold your arms', 'cruzar os braços', 'cross your arms over your chest: defensive, closed, or just comfortable'],
+  ['purse-your-lips', 'purse your lips', 'apertar os lábios', 'press your lips tightly together: disapproval, holding words back'],
+  ['furrow-your-brow', 'furrow your brow', 'franzir a testa', 'draw your eyebrows together: concentration or confusion'],
+  ['drum-your-fingers', 'drum your fingers', 'tamborilar os dedos', 'tap your fingers again and again: impatience'],
+  ['rub-your-hands-together', 'rub your hands together', 'esfregar as mãos', 'rub your palms together: excitement, something good is coming'],
+  ['tilt-your-head', 'tilt your head', 'inclinar a cabeça', 'move your head slightly to one side: curiosity, a question'],
+  ['cross-your-ankles', 'cross your ankles', 'cruzar os tornozelos', 'place one ankle over the other while sitting'],
+  ['steeple-your-hands', 'steeple your hands', 'juntar as pontas dos dedos', 'press your fingertips together in a triangle: confidence, thinking'],
+  ['wrinkle-your-nose', 'wrinkle your nose', 'torcer o nariz', 'screw up your nose: disgust, a bad smell'],
+  ['stroke-your-chin', 'stroke your chin', 'alisar o queixo', 'move your hand gently over your chin: thinking it over'],
+  ['give-a-thumbs-up', 'give a thumbs up', 'fazer joinha', 'raise your thumb: approval, well done'],
+  ['cross-your-fingers', 'cross your fingers', 'cruzar os dedos', 'twist one finger over another: hoping for good luck'],
+  ['clear-your-throat', 'clear your throat', 'pigarrear', 'cough lightly: before speaking or to get attention'],
+  ['shrug-your-shoulders', 'shrug your shoulders', 'dar de ombros', 'raise and lower your shoulders: I don’t know / I don’t care'],
+  ['grind-your-teeth', 'grind your teeth', 'ranger os dentes', 'rub your teeth together hard: frustration, or in your sleep'],
+  ['twirl-your-hair', 'twirl your hair', 'enrolar o cabelo no dedo', 'wind a strand of hair around your finger: nervous or bored'],
+  ['flick-your-hair-back', 'flick your hair back', 'jogar o cabelo para trás', 'move your hair away from your face with a quick movement'],
+  ['bite-your-lip', 'bite your lip', 'morder o lábio', 'hold your lip between your teeth: nervous, holding back words'],
+];
+$('#gallery').innerHTML = GEST.map(([f, en, pt, m]) => `<figure class="g" style="margin:0"><img src="g/${f}.svg" alt="${en}" loading="lazy" width="240" height="240"><b>${en}</b><span>${m}</span><span lang="pt-BR" style="font-style:italic">${pt}</span></figure>`).join('');
+let gRight = 0, gTotal = 0, gCur, gDone;
+function gRound() {
+  gCur = GEST[Math.floor(Math.random() * GEST.length)]; gDone = false;
+  $('#gImg').src = `g/${gCur[0]}.svg`; $('#gImg').alt = 'Which gesture is this?';
+  const opts = shuffle([gCur, ...shuffle(GEST.filter(g => g !== gCur)).slice(0, 3)]);
+  $('#gOpts').innerHTML = opts.map(g => `<button type="button" data-f="${g[0]}">${g[1]}</button>`).join('');
+  $('#gMsg').textContent = '';
+}
+$('#gOpts').onclick = e => {
+  const b = e.target.closest('button'); if (!b || gDone) return;
+  gDone = true; gTotal++;
+  if (b.dataset.f === gCur[0]) { gRight++; b.classList.add('ok'); $('#gMsg').textContent = `Correct! To ${gCur[1]} = ${gCur[3]}.`; }
+  else { b.classList.add('no'); $('#gOpts').querySelector(`[data-f="${gCur[0]}"]`).classList.add('ok'); $('#gMsg').textContent = `Not quite. It's "${gCur[1]}": ${gCur[3]}.`; }
+  $('#gScore').textContent = `${gRight}/${gTotal}`;
+};
+$('#gNext').onclick = gRound; gRound();
+flipCards($('#bodyIdioms'), [
+  ['get in over your head', 'assumir mais do que dá conta', 'He agreed to lead three projects and got in over his head.'],
+  ['get cold feet', 'amarelar: ficar nervoso e pensar em desistir', 'Nina got cold feet just before going on stage.'],
+  ['give sb the cold shoulder', 'ignorar alguém de propósito', 'After the argument, she gave him the cold shoulder.'],
+  ['keep your chin up', 'não desanimar', 'Keep your chin up: one defeat does not erase your progress.'],
+  ['turn your nose up at sth', 'desprezar algo por achar que não está à altura', 'She turned her nose up at the second-hand jacket.'],
+  ['off the top of my head', 'de cabeça, sem conferir', "I can't tell you the exact figure off the top of my head."],
+  ['my lips are sealed', 'não vou contar a ninguém', "You can trust me with the surprise. My lips are sealed."],
+  ['get off my back', 'pare de me criticar e pressionar', 'Get off my back! I am doing my best.'],
+]);
+
+/* ── Tenses ── */
+gapExercise($('#tenseGaps'), [
+  { s: 'Thousands of students ___ to the streets since the protests began.', a: 'have taken', o: ['have taken', 'took', 'had taken', 'are taken'], w: '<b>since</b> → present perfect.' },
+  { s: 'The student action ___ in late September last year.', a: 'began', o: ['began', 'has begun', 'had began', 'has been beginning'], w: 'Data fechada no passado → simple past.' },
+  { s: 'More than 1,000 schools ___ by protests so far.', a: 'have been affected', o: ['have been affected', 'have affected', 'had affecting', 'are affect'], w: '<b>so far</b> + passiva → have been + particípio.' },
+  { s: 'By the time the minister spoke, police ___ several people earlier that week.', a: 'had arrested', o: ['had arrested', 'have arrested', 'are arresting', 'arrest'], w: 'Ação anterior a outra no passado → past perfect.' },
+  { s: 'The students described what they perceived ___ unfair treatment.', a: 'as', o: ['as', 'like', 'for', 'with'], w: '<b>perceive sth as</b> sth.' },
+  { s: 'There are 35 pupils ___ class.', a: 'per', o: ['per', 'by', 'at', 'with'], w: '<b>per</b> class = em cada sala.' },
+  { s: 'Students are calling ___ greater investment in education.', a: 'for', o: ['for', 'to', 'with', 'at'], w: '<b>call for</b> = exigir, pedir.' },
+  { s: '___ particular, they want more spending on schools in poorer suburbs.', a: 'In', o: ['In', 'On', 'At', 'For'], w: '<b>In particular</b> = principalmente.' },
+]);
+
+/* ── Final quiz ── */
+const BANK = [
+  ['New to video production, Lara had to learn many techniques quickly. She was ___.', ['on a steep learning curve', 'running on empty', 'breezing through it', 'keeping on track'], 0],
+  ['I knew my opening perfectly, but on stage my mind suddenly ___.', ['went blank', 'got the hang of it', 'drummed into me', 'got its head down'], 0],
+  ['After three nights of poor sleep, I was still working with almost no energy. I was ___.', ['running on empty', 'on track', 'breezing through', 'giving it my best shot'], 0],
+  ['He deleted system files to make his laptop faster and made it unusable. It was a ___ attempt.', ['misguided', 'valiant', 'sustained', 'strenuous'], 0],
+  ['Improving accessibility will need steady work over several years: a ___ effort.', ['sustained', 'frantic', 'last-ditch', 'half-hearted'], 0],
+  ['Copying an essay may backfire ___ you if you cannot explain it.', ['on', 'at', 'to', 'from'], 0],
+  ['I would rather revise regularly than cram ___ an exam the night before.', ['for', 'into', 'on', 'with'], 0],
+  ['She dealt skilfully with a difficult disagreement. She was ___.', ['adroit', 'exuberant', 'pertinent', 'mediocre'], 0],
+  ['Constant notifications broke his concentration. They caused ___.', ['interference', 'exuberance', 'rivalry', 'perseverance'], 0],
+  ['Even with convincing evidence, he refuses to change his mind. He has a ___.', ['stubborn streak', 'natural aptitude', 'boundless energy', 'self-starter'], 0],
+  ['She organises rehearsals without waiting for instructions. She is a ___.', ['self-starter', 'stubborn streak', 'rivalry', 'raw talent'], 0],
+  ['Recording classmates without consent is forbidden. You ___ do it.', ["mustn't", "needn't", "don't have to", "might not"], 0],
+  ['Their timing was perfect after months of practice. They ___ rehearsed thoroughly.', ['must have', "can't have", "needn't have", "shouldn't have"], 0],
+  ['We failed to test the microphone, which was a mistake. We ___ it.', ['ought to have tested', 'must have tested', "can't have tested", "needn't have tested"], 0],
+  ['I printed the slides, then found out copies were provided. I ___ them.', ["needn't have printed", "didn't need to print", "mustn't have printed", "can't have printed"], 0],
+  ['Which sentence contains a mistake?', ['The organisers should have took accessibility into account.', 'You needn’t have bought the software.', 'The group might have misunderstood the instructions.', 'They must have rehearsed extensively.'], 0],
+  ['When she smelt the spoiled milk, she ___ her nose.', ['wrinkled', 'stroked', 'pursed', 'furrowed'], 0],
+  ['He pressed his fingertips together in a triangle. He ___ his hands.', ['steepled', 'rubbed', 'folded', 'drummed'], 0],
+  ['When asked which option he preferred, he raised and lowered his shoulders. He ___.', ['shrugged', 'tilted', 'flicked', 'cleared'], 0],
+  ['Following their argument, she deliberately ignored him. She ___.', ['gave him the cold shoulder', 'kept her chin up', 'got cold feet', 'turned her nose up'], 0],
+  ['He accepted more responsibilities than he could manage. He ___.', ['got in over his head', 'got cold feet', 'kept his chin up', 'got off his back'], 0],
+  ['Which sentence does NOT fit its context?', ['Although Nina wanted to welcome him, she gave him the cold shoulder, inviting him to sit beside her.', 'Before answering, she steepled her hands while considering her position.', 'Trying to make sense of the instructions, Daniel furrowed his brow.', 'As the results failed to appear, students began drumming their fingers.'], 0],
+  ['In Our Two Selves, Self 1 is ___.', ['the judging, instructing voice that gets in the way', 'the body’s natural ability to play', 'the coach who teaches Molly', 'the opponent across the net'], 0],
+  ['What does the walking example show about learning?', ['It is natural: trial and correction, without self-judgement', 'It depends on precise step-by-step instructions', 'Children need a coach to learn to walk', 'Mistakes should be criticised immediately'], 0],
+  ['In chapter 26 of The Catcher in the Rye, Holden objects to being asked if he will apply himself. He suggests that ___.', ['you cannot know what you will do until you do it', 'school is pointless for everyone', 'he has already decided to study hard', 'adults never ask honest questions'], 0],
+];
+let qList = [], qi = 0, qRight = 0;
+function qNew() { qList = shuffle(BANK).slice(0, 12); qi = 0; qRight = 0; qShow(); }
+function qShow() {
+  const [stem, opts] = qList[qi];
+  const order = shuffle(opts.map((o, i) => [o, i]));
+  $('#qBox').innerHTML = `<p class="muted">Question ${qi + 1} of ${qList.length}</p><p class="stem">${esc(stem)}</p><div class="opts">${order.map(([o, i]) => `<button type="button" data-i="${i}">${esc(o)}</button>`).join('')}</div>`;
+  $('#qNext').hidden = true; $('#qScore').textContent = `${qRight}/${qi}`;
+  $('#qBar').style.width = (qi / qList.length * 100) + '%';
+}
+$('#qBox').onclick = e => {
+  const b = e.target.closest('.opts button'); if (!b || !$('#qNext').hidden) return;
+  const right = qList[qi][2];
+  if (+b.dataset.i === right) { b.classList.add('ok'); qRight++; }
+  else { b.classList.add('no'); $('#qBox').querySelector(`[data-i="${right}"]`).classList.add('ok'); }
+  qi++; $('#qScore').textContent = `${qRight}/${qi}`; $('#qBar').style.width = (qi / qList.length * 100) + '%';
+  if (qi < qList.length) $('#qNext').hidden = false;
+  else $('#qBox').insertAdjacentHTML('beforeend', `<p class="tip">Round over: <b>${qRight}/${qList.length}</b>. ${qRight >= 10 ? 'Ready for the test!' : 'Revise the units where you slipped and try a new round.'}</p>`);
+};
+$('#qNext').onclick = qShow; $('#qNew').onclick = qNew; qNew();
+</script>

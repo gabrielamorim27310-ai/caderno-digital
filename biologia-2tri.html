@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-title" content="Caderno Digital">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>Biologia 2º Tri — Circulatório ao Sistema Excretor 2026</title>
+<title>Biologia 2º Tri — Digestório ao Sistema Excretor 2026</title>
 <style>
   :root {
     --primary: #1a4731;
@@ -198,13 +198,16 @@
 <div class="hero">
   <h1>Biologia — 2º Trimestre</h1>
   <p class="subtitle">AI Unificada 01/06 · Prova Trimestral 25/08 · 2ª série do Ensino Médio · 2026</p>
-  <div><span class="badge">Circulatório · Sangue e Linfa · Imunológico · Respiratório · Excretor</span></div>
+  <div><span class="badge">Digestório · Transportes · Circulatório · Sangue e Linfa · Imunológico · Respiratório · Excretor</span></div>
   <div><span class="author">Caderno Digital</span></div>
 </div>
 
 <nav>
   <div class="nav-inner">
     <a href="index.html#t2" style="opacity:0.6;border-right:1px solid var(--border);margin-right:4px;padding-right:20px;">← Início</a>
+    <a href="#digestorio">Sist. Digestório</a>
+    <a href="#intestino-delgado">Int. Delgado</a>
+    <a href="#intestino-grosso">Int. Grosso</a>
     <a href="#transportes">Transportes</a>
     <a href="#circulatorio-anat">Circulatório — Anat.</a>
     <a href="#circulatorio-fisio">Circulatório — Fisio.</a>
@@ -218,23 +221,468 @@
 
 <main>
 
+
 <div class="tip-box" style="margin-bottom:28px;">
-  <strong>O que cai na prova trimestral (25/08)</strong>
-  Conforme a orientação oficial da Equipe de Biologia: <strong>Sistema Circulatório</strong> (Caps. 2-3),
-  <strong>Sangue e Linfa</strong> (Cap. 4), <strong>Sistema Imunológico</strong> (Cap. 5),
-  <strong>Sistema Respiratório</strong> (Cap. 6) e <strong>Sistema Excretor</strong> (Cap. 7) — use o menu
-  acima para ir direto ao que interessa. Transportes de Membrana (Cap. 1) já caiu na AI Unificada de 01/06
-  e não faz parte desta prova; o Sistema Digestório, que também foi cobrado só naquela AI, saiu deste resumo.
+  <strong>O que caiu em cada prova</strong>
+  <strong>Prova trimestral (25/08):</strong> Sistema Circulatório (Caps. 5-6), Sangue e Linfa (Cap. 7),
+  Sistema Imunológico (Cap. 8), Sistema Respiratório (Cap. 9) e Sistema Excretor (Cap. 10).
+  <strong>AI Unificada (01/06):</strong> Sistema Digestório (Caps. 1-3) e Transportes de Membrana (Cap. 4).
   <br><br>
-  <strong>Não cai:</strong> a seção sobre excretas nitrogenados <em>em outros animais</em> (amoniotélicos,
-  ureotélicos, uricotélicos) — a orientação exclui esse ponto explicitamente. O foco do Sistema Excretor
-  é a fisiologia humana.
+  <strong>Para a prova do 3º tri (19/11):</strong> a revisão cobra o <strong>Sistema Digestório</strong>
+  (onde há digestão química, pH, enzimas, substratos e produtos), o coração e a circulação, a curva de
+  saturação da hemoglobina e o néfron. Por isso o Digestório voltou para esta página.
+  <br><br>
+  <strong>Extra:</strong> o quadro sobre excretas nitrogenados <em>em outros animais</em>, no Cap. 10, não caiu
+  na prova do 2º tri; fica aqui para consulta.
 </div>
+
+<!-- ══════════ CAPÍTULO 1 — SISTEMA DIGESTÓRIO (trato superior) ══════════ -->
+<section class="chapter" id="digestorio">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch1">Cap. 1</span> Sistema Digestório — Visão Geral e Trato Superior</h2>
+    <p class="meta">Boca · Faringe · Esôfago · Estômago · Órgãos Anexos</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">O que é digestão?</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Digestão</strong> = processo de transformação dos alimentos em moléculas pequenas o suficiente para serem <strong>absorvidas</strong> pelo organismo.<br><br>
+            <strong>• Digestão mecânica</strong> — fragmentação física (mastigação, peristaltismo)<br>
+            <strong>• Digestão química</strong> — quebra de moléculas por enzimas e sucos digestivos
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Digestão Simples</h5>
+              <ul>
+                <li>Digestão e absorção no mesmo compartimento</li>
+                <li>Ex: protozoários, esponjas, planárias</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Digestão Complexa (humanos)</h5>
+              <ul>
+                <li>Sistema com órgãos especializados</li>
+                <li>Digestão e absorção em locais distintos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tip-box">
+            <strong>Absorção direta:</strong> organismos como fungos absorvem nutrientes pelo tegumento (sem trato digestório). Não confundir com digestão simples.
+          </div>
+          <img src="bio-imgs/digestorio-intro_p5.png" alt="Tipos de digestão: mecânica, química, simples, complexa e absorção direta" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+          <h4>Trato Gastrointestinal — em ordem</h4>
+          <div class="flow-box">
+            <span class="flow-step">Boca</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Faringe</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Esôfago</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Estômago</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Int. Delgado</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Int. Grosso</span><span class="flow-arrow">→</span>
+            <span class="flow-step">Reto / Ânus</span>
+          </div>
+          <img src="bio-imgs/digestorio-intro_p4.png" alt="Mapa dos órgãos do sistema digestório — trato e órgãos anexos" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+          <h4>Órgãos Anexos (auxiliam sem fazer parte do trato)</h4>
+          <ul>
+            <li><strong>Glândulas salivares</strong> — produzem saliva com ptialina (amilase salivar)</li>
+            <li><strong>Fígado</strong> — produz bile (emulsificante de gordura)</li>
+            <li><strong>Vesícula biliar</strong> — armazena e concentra a bile</li>
+            <li><strong>Pâncreas</strong> — produz suco pancreático (enzimas + bicarbonato)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Boca — Início da Digestão de Carboidratos</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Boca</strong> = local da digestão mecânica (mastigação com dentes) e do início da digestão química de carboidratos.<br><br>
+            pH: <strong>~7,0</strong> (neutro)
+          </div>
+          <h4>Ptialina (Amilase Salivar)</h4>
+          <ul>
+            <li>Produzida pelas <strong>glândulas salivares</strong></li>
+            <li>Substrato: <strong>amido</strong> (polissacarídeo)</li>
+            <li>Produto: <strong>maltose</strong> (dissacarídeo) — <strong>NÃO absorvível</strong></li>
+            <li>Ação interrompida no estômago (pH ácido desnatura a ptialina)</li>
+            <li>Proteínas e gorduras <strong>não</strong> são digeridas na boca</li>
+          </ul>
+          <div class="flow-box">
+            <span class="flow-step">Amido (polissacarídeo)</span>
+            <span class="flow-arrow">—ptialina (pH~7)→</span>
+            <span class="flow-step">Maltose (dissacarídeo) — NÃO absorvível</span>
+          </div>
+          <img src="bio-imgs/digestorio-intro_p9.png" alt="Digestão química na boca — ptialina, amido → maltose" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Faringe e Esôfago — Transporte do Alimento</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <h4>Faringe</h4>
+          <ul>
+            <li>Cruzamento das vias aérea e digestiva</li>
+            <li>Reflexo de deglutição: epiglote fecha a traqueia para o alimento ir ao esôfago</li>
+            <li>Não realiza digestão química</li>
+          </ul>
+          <h4>Esôfago</h4>
+          <ul>
+            <li>Tubo muscular que conecta faringe ao estômago</li>
+            <li><strong>Peristaltismo</strong> = ondas de contração do músculo liso que empurram o bolo alimentar</li>
+            <li>Não realiza digestão química nem absorção</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Peristaltismo</strong> funciona independentemente da gravidade — por isso conseguimos comer de cabeça para baixo. É involuntário (músculo liso) e percorre todo o trato.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Estômago — Digestão de Proteínas e o Quimo</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Estômago</strong> = digestão química e mecânica (movimentos de mistura).<br><br>
+            O alimento misturado ao suco gástrico vira <strong>quimo</strong> — pH ~2 (muito ácido).
+          </div>
+          <img src="bio-imgs/digestorio-intro_p12.png" alt="Estômago — enzimas, HCl e muco do suco gástrico" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+          <h4>Componentes do Suco Gástrico</h4>
+          <ul>
+            <li><strong>HCl (ácido clorídrico)</strong> — acidifica para pH~2, ativa a pepsina, destrói microrganismos</li>
+            <li><strong>Pepsinogênio</strong> (inativo) → ativado pelo HCl → <strong>Pepsina</strong> (ativa)</li>
+            <li><strong>Muco</strong> — protege a parede gástrica do ataque do HCl e da pepsina</li>
+          </ul>
+          <div class="warning-box">
+            <strong>Pepsina</strong> quebra proteínas em <strong>peptídeos</strong> — mas peptídeos <strong>não são absorvíveis</strong>. A absorção de aminoácidos só acontece no intestino delgado.
+          </div>
+          <div class="flow-box">
+            <span class="flow-step">Pepsinogênio (inativo)</span>
+            <span class="flow-arrow">—HCl→</span>
+            <span class="flow-step">Pepsina (ativa)</span>
+            <span class="flow-arrow">age em</span>
+            <span class="flow-step">Proteínas → Peptídeos (NÃO absorvíveis)</span>
+          </div>
+          <img src="bio-imgs/digestorio-intro_p13.png" alt="Digestão química no estômago — pepsinogênio → pepsina → peptídeos" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+          <div class="tip-box">
+            <strong>Úlcera gástrica:</strong> quando o muco falha, a pepsina e o HCl atacam a própria parede do estômago, causando erosão. Frequentemente associada à bactéria Helicobacter pylori, que degrada o muco protetor.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 2 — INTESTINO DELGADO ══════════ -->
+<section class="chapter" id="intestino-delgado">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch2">Cap. 2</span> Intestino Delgado — Duodeno, Jejuno e Íleo</h2>
+    <p class="meta">Bile · Suco Pancreático · Suco Entérico · Vilosidades · Absorção</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Duodeno — Onde a Digestão Atinge o Máximo</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            O <strong>duodeno</strong> (1ª parte do intestino delgado) recebe simultaneamente:<br>
+            <strong>• Bile</strong> (do fígado/vesícula biliar via ducto colédoco)<br>
+            <strong>• Suco pancreático</strong> (do pâncreas)<br>
+            <strong>• Suco entérico</strong> (produzido pelo próprio duodeno)<br><br>
+            É aqui que a digestão química atinge capacidade máxima e a maioria das moléculas chega ao estágio absorvível.
+          </div>
+          <img src="bio-imgs/intestino-delgado_p2.png" alt="Duodeno — bile, suco pancreático e suco entérico chegando simultaneamente" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+
+          <h4>Bile — Emulsificação de Gorduras</h4>
+          <ul>
+            <li>Produzida no <strong>fígado</strong>, armazenada na <strong>vesícula biliar</strong></li>
+            <li>Lançada no duodeno pelo <strong>ducto colédoco</strong></li>
+            <li><strong>Sais biliares</strong> emulsificam gorduras: dividem grandes glóbulos em gotículas (maior área para a lipase agir)</li>
+            <li><strong>Bile NÃO contém enzimas</strong> — é um emulsificante físico, não um catalisador</li>
+            <li>Neutraliza o quimo ácido vindo do estômago (ambiente passa para pH ~8)</li>
+          </ul>
+          <div class="warning-box">
+            <strong>Prova clássica:</strong> Bile <strong>não digere</strong> gordura — ela <strong>emulsifica</strong> (fragmenta fisicamente). Quem <strong>digere quimicamente</strong> é a <strong>lipase pancreática</strong>.
+          </div>
+          <img src="bio-imgs/intestino-delgado_p6.png" alt="Bile — sais biliares emulsificando gordura em gotículas menores" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+
+          <h4>Suco Pancreático</h4>
+          <ul>
+            <li><strong>Bicarbonato</strong> — neutraliza o quimo ácido (pH ~8)</li>
+            <li><strong>Tripsinogênio</strong> (inativo) → ativado pela <strong>enteroquinase</strong> → <strong>Tripsina</strong> + Quimiotripsina: proteínas/peptídeos → peptídeos menores</li>
+            <li><strong>Amilase pancreática</strong> — amido → maltose</li>
+            <li><strong>Lipase pancreática</strong> — lipídeos (emulsificados pela bile) → <strong>ácidos graxos + glicerol</strong> (ABSORVÍVEIS)</li>
+            <li><strong>RNAse / DNAse</strong> — ácidos nucleicos → nucleotídeos (não absorvíveis ainda)</li>
+          </ul>
+          <img src="bio-imgs/intestino-delgado_p5.png" alt="Enzimas do suco pancreático — tabela substrato/produto/absorção" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+
+          <h4>Suco Entérico (produzido pelo duodeno)</h4>
+          <ul>
+            <li><strong>Enteroquinase</strong> — ativa o tripsinogênio → tripsina</li>
+            <li><strong>Peptidases</strong> — peptídeos → <strong>aminoácidos</strong> (ABSORVÍVEIS)</li>
+            <li><strong>Maltase</strong> — maltose → glicose + glicose (ABSORVÍVEIS)</li>
+            <li><strong>Sacarase</strong> — sacarose → glicose + frutose (ABSORVÍVEIS)</li>
+            <li><strong>Lactase</strong> — lactose → glicose + galactose (ABSORVÍVEIS)
+              <ul><li>Deficiência de lactase = <strong>intolerância à lactose</strong></li></ul>
+            </li>
+            <li><strong>Nucleotidase</strong> — nucleotídeos → pentoses + bases nitrogenadas + fosfato (ABSORVÍVEIS)</li>
+          </ul>
+          <img src="bio-imgs/intestino-delgado_p8.png" alt="Enzimas do suco entérico — tabela substrato/produto/absorção" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Tabela-Resumo: Enzimas, Substratos e Produtos</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <table class="enzyme-table">
+            <thead>
+              <tr>
+                <th>Local</th>
+                <th>Enzima / Suco</th>
+                <th>Substrato</th>
+                <th>Produto</th>
+                <th>Absorvível?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Boca</td>
+                <td>Ptialina (amilase salivar)</td>
+                <td>Amido</td>
+                <td>Maltose</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Estômago</td>
+                <td>Pepsina (ativada por HCl)</td>
+                <td>Proteínas</td>
+                <td>Peptídeos</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Bile (emulsificante)</td>
+                <td>Gordura</td>
+                <td>Gotículas (emulsão)</td>
+                <td class="no">NÃO (físico)</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Lipase pancreática</td>
+                <td>Lipídeos</td>
+                <td>Ác. graxos + Glicerol</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Amilase pancreática</td>
+                <td>Amido</td>
+                <td>Maltose</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Tripsina / Quimiotripsina</td>
+                <td>Proteínas / Peptídeos</td>
+                <td>Peptídeos menores</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Peptidases (suco entérico)</td>
+                <td>Peptídeos</td>
+                <td>Aminoácidos</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Maltase</td>
+                <td>Maltose</td>
+                <td>Glicose + Glicose</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Sacarase</td>
+                <td>Sacarose</td>
+                <td>Glicose + Frutose</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Lactase</td>
+                <td>Lactose</td>
+                <td>Glicose + Galactose</td>
+                <td class="ok">SIM</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>RNAse / DNAse</td>
+                <td>Ácidos nucleicos</td>
+                <td>Nucleotídeos</td>
+                <td class="no">NÃO</td>
+              </tr>
+              <tr>
+                <td>Duodeno</td>
+                <td>Nucleotidase</td>
+                <td>Nucleotídeos</td>
+                <td>Pentoses + bases + fosfato</td>
+                <td class="ok">SIM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Jejuno e Íleo — Absorção e Amplificação de Superfície</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Jejuno e Íleo</strong> = partes do intestino delgado onde ocorre a maior parte da <strong>absorção</strong> dos nutrientes já digeridos no duodeno.
+          </div>
+          <h4>Estruturas que Ampliam a Superfície de Absorção</h4>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Vilosidades (nível de tecido)</h5>
+              <ul>
+                <li>Dobras da mucosa intestinal</li>
+                <li>Visíveis a olho nu</li>
+                <li>Contêm capilares sanguíneos (aminoácidos, glicose) e vasos quilíferos (ác. graxos)</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Microvilosidades (nível celular)</h5>
+              <ul>
+                <li>Projeções da membrana de cada enterócito</li>
+                <li>Sustentadas por microfilamentos de actina</li>
+                <li>Formam a "borda em escova"</li>
+              </ul>
+            </div>
+          </div>
+          <p style="font-size:0.93rem;margin-top:8px;">Juntas, ampliam a superfície em até <strong>600×</strong> o comprimento tubular do intestino.</p>
+          <img src="bio-imgs/intestino-delgado_p12.png" alt="Vilosidades intestinais (tecido) e microvilosidades (célula) — ampliação da superfície de absorção" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+          <div class="tip-box">
+            <strong>Quilo:</strong> ao longo do intestino delgado, o quimo vai sendo digerido e absorvido, tornando-se o <strong>quilo</strong> — material restante, menos denso, que segue para o intestino grosso.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ CAPÍTULO 3 — INTESTINO GROSSO ══════════ -->
+<section class="chapter" id="intestino-grosso">
+  <div class="chapter-header">
+    <h2><span class="tag tag-ch3">Cap. 3</span> Intestino Grosso — Microbiota, Água e Fezes</h2>
+    <p class="meta">Ceco · Cólon · Reto · Microbiota · Fibras · Absorção de Água</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="accordion open">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Estrutura e Função do Intestino Grosso</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Intestino Grosso</strong> = porção final do trato digestório. Mais largo, porém mais curto que o delgado. <strong>Não digere nutrientes</strong> — sua função principal é absorver água e sais e compactar as fezes.
+          </div>
+          <img src="bio-imgs/intestino-grosso_p2.png" alt="Estrutura do intestino grosso — ceco, cólon, reto e ânus" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+          <h4>Partes do Intestino Grosso</h4>
+          <ul>
+            <li><strong>Ceco</strong> — bolsão inicial onde o íleo desemboca; apêndice vermiforme está aqui</li>
+            <li><strong>Cólon ascendente</strong> → <strong>Cólon transverso</strong> → <strong>Cólon descendente</strong></li>
+            <li><strong>Reto</strong> — armazena as fezes temporariamente</li>
+            <li><strong>Ânus</strong> — eliminação (esfíncter externo voluntário)</li>
+          </ul>
+          <h4>Absorção de Água e Sais</h4>
+          <ul>
+            <li>Absorção de <strong>água</strong> e <strong>sais minerais</strong> por osmose</li>
+            <li>O quilo vai sendo concentrado até formar fezes sólidas</li>
+            <li><strong>Composição das fezes:</strong> 3/4 água · 1/4 sólido (células mortas, bactérias, fibras indigeríveis)</li>
+          </ul>
+          <div class="warning-box">
+            <strong>Diarreia</strong> = fezes com excesso de água (passagem rápida ou infecção → menos tempo de absorção).<br>
+            <strong>Constipação</strong> = fezes ressecadas (passagem lenta → absorção excessiva de água).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Microbiota Intestinal</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="highlight-box">
+            <strong>Microbiota intestinal</strong> (flora intestinal) = conjunto de microrganismos (principalmente bactérias) em relação de <strong>mutualismo</strong> com o ser humano no intestino grosso.
+          </div>
+          <img src="bio-imgs/intestino-grosso_p3.png" alt="Microbiota intestinal — funções e mutualismo" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+          <h4>O que a Microbiota Faz por Nós</h4>
+          <ul>
+            <li>Produz <strong>vitamina B12</strong> e <strong>vitamina K</strong> (essenciais ao metabolismo humano)</li>
+            <li><strong>Exclusão competitiva</strong> — ocupa nichos impedindo colonização por patógenos</li>
+            <li>Auxiliam na fermentação de fibras solúveis</li>
+            <li>Modulam o sistema imunológico intestinal</li>
+          </ul>
+          <div class="tip-box">
+            <strong>Mutualismo:</strong> a bactéria ganha abrigo e alimento; o humano ganha vitaminas e proteção. Uso excessivo de antibióticos destrói essa microbiota, abrindo espaço para organismos oportunistas (ex: Candida albicans).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)">Fibras Alimentares</button>
+      <div class="accordion-content">
+        <div class="content-block">
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h5>Fibra Insolúvel — Celulose</h5>
+              <ul>
+                <li>Não se dissolve em água</li>
+                <li>Indigerível (sem celulase humana)</li>
+                <li>Aumenta o bolo fecal</li>
+                <li>Acelera trânsito intestinal</li>
+                <li>Ex: farelo de trigo, folhas</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h5>Fibra Solúvel — Pectina</h5>
+              <ul>
+                <li>Dissolve-se formando gel</li>
+                <li>Fermentada pela microbiota</li>
+                <li>Retarda absorção de glicose e colesterol</li>
+                <li>Alimenta a microbiota (prebiótico)</li>
+                <li>Ex: maçã, aveia, feijão</li>
+              </ul>
+            </div>
+          </div>
+          <img src="bio-imgs/intestino-grosso_p6.png" alt="Fibras — celulose insolúvel e pectina solúvel" style="width:100%;max-width:580px;display:block;margin:14px auto;border-radius:10px;">
+          <div class="highlight-box">
+            <strong>Por que celulose não é digerida?</strong> Humanos não possuem a enzima <strong>celulase</strong>. Ruminantes (vacas) e cupins contam com microrganismos simbiontes que a produzem.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- ══════════ CAPÍTULO 4 — TRANSPORTES DE MEMBRANA ══════════ -->
 <section class="chapter" id="transportes">
   <div class="chapter-header">
-    <h2><span class="tag tag-ch4">Cap. 1</span> Transportes de Membrana</h2>
+    <h2><span class="tag tag-ch4">Cap. 4</span> Transportes de Membrana</h2>
     <p class="meta">Difusão Simples · Difusão Facilitada · Osmose · Transporte Ativo · Bomba Na⁺/K⁺</p>
   </div>
   <div class="chapter-body">
@@ -458,7 +906,7 @@
 <!-- ══════════ CAPÍTULO 5 — SISTEMA CIRCULATÓRIO: ORGANIZAÇÃO ══════════ -->
 <section class="chapter" id="circulatorio-anat">
   <div class="chapter-header">
-    <h2><span class="tag tag-ch5">Cap. 2</span> Sistema Circulatório — Organização e Anatomia</h2>
+    <h2><span class="tag tag-ch5">Cap. 5</span> Sistema Circulatório — Organização e Anatomia</h2>
     <p class="meta">Coração · Câmaras · Válvulas Cardíacas · Artérias · Veias · Capilares</p>
   </div>
   <div class="chapter-body">
@@ -593,7 +1041,7 @@
 <!-- ══════════ CAPÍTULO 6 — SISTEMA CIRCULATÓRIO: FISIOLOGIA ══════════ -->
 <section class="chapter" id="circulatorio-fisio">
   <div class="chapter-header">
-    <h2><span class="tag tag-ch5">Cap. 3</span> Sistema Circulatório — Fisiologia</h2>
+    <h2><span class="tag tag-ch5">Cap. 6</span> Sistema Circulatório — Fisiologia</h2>
     <p class="meta">Circulação Dupla e Completa · Ciclo Cardíaco · Marcapasso · Pressão Arterial · Frequência Cardíaca</p>
   </div>
   <div class="chapter-body">
@@ -765,7 +1213,7 @@
 <!-- ══════════ CAPÍTULO 7 — SANGUE E LINFA ══════════ -->
 <section class="chapter" id="sangue">
   <div class="chapter-header">
-    <h2><span class="tag tag-ch6">Cap. 4</span> Sangue e Linfa</h2>
+    <h2><span class="tag tag-ch6">Cap. 7</span> Sangue e Linfa</h2>
     <p class="meta">Plasma · Elementos Figurados · Hemograma · Coagulação · Sistema Linfático</p>
   </div>
   <div class="chapter-body">
@@ -928,7 +1376,7 @@
 <!-- ══════════ CAPÍTULO 8 — SISTEMA IMUNOLÓGICO ══════════ -->
 <section class="chapter" id="imune">
   <div class="chapter-header">
-    <h2><span class="tag tag-ch7">Cap. 5</span> Sistema Imunológico</h2>
+    <h2><span class="tag tag-ch7">Cap. 8</span> Sistema Imunológico</h2>
     <p class="meta">Imunidade Inata e Adaptativa · Fagocitose · Vacinas e Soros</p>
   </div>
   <div class="chapter-body">
@@ -1084,7 +1532,7 @@
 <!-- ══════════ CAPÍTULO 9 — SISTEMA RESPIRATÓRIO ══════════ -->
 <section class="chapter" id="respiratorio">
   <div class="chapter-header">
-    <h2><span class="tag tag-ch8">Cap. 6</span> Sistema Respiratório</h2>
+    <h2><span class="tag tag-ch8">Cap. 9</span> Sistema Respiratório</h2>
     <p class="meta">Anatomia · Hematose · Transporte de Gases · Curva de Saturação da Hemoglobina</p>
   </div>
   <div class="chapter-body">
@@ -1217,7 +1665,7 @@
 <!-- ══════════ CAPÍTULO 10 — SISTEMA EXCRETOR ══════════ -->
 <section class="chapter" id="excretor">
   <div class="chapter-header">
-    <h2><span class="tag tag-ch9">Cap. 7</span> Sistema Excretor</h2>
+    <h2><span class="tag tag-ch9">Cap. 10</span> Sistema Excretor</h2>
     <p class="meta">Néfron · Formação da Urina · Homeostase Renal</p>
   </div>
   <div class="chapter-body">
@@ -1345,6 +1793,13 @@
           <div class="warning-box">
             <strong>Cálculo renal:</strong> baixa ingestão de líquidos ou dieta rica em sais → alta concentração de sais no néfron → formação de cristais, que lesionam o rim e causam dor intensa ao se deslocar.
           </div>
+          <div class="tip-box">
+            <strong>Extra (não caiu na prova do 2º tri): excretas nitrogenados nos animais.</strong>
+            A quebra de proteínas gera amônia, que é tóxica. Cada grupo a elimina de um jeito, conforme a água disponível:<br>
+            <strong>• Amoniotélicos</strong> (amônia): muito tóxica e solúvel, precisa de muita água para ser eliminada. Peixes ósseos e invertebrados aquáticos.<br>
+            <strong>• Ureotélicos</strong> (ureia): menos tóxica, produzida no fígado; gasta menos água. Mamíferos (o ser humano), anfíbios adultos e peixes cartilaginosos.<br>
+            <strong>• Uricotélicos</strong> (ácido úrico): quase insolúvel e pouco tóxico, sai com pouquíssima água. Aves, répteis e insetos; ajuda o embrião dentro do ovo.
+          </div>
         </div>
       </div>
     </div>
@@ -1355,7 +1810,7 @@
 <!-- ══════════ QUIZ ══════════ -->
 <section class="quiz-section" id="quiz">
   <h3>Quiz — AI Unificada e Prova Trimestral</h3>
-  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">34 questões · Transportes · Circulatório · Sangue e Linfa · Imunológico · Respiratório · Excretor</p>
+  <p style="text-align:center; opacity:0.8; margin-bottom:16px; font-size:0.9rem;">40 questões · Digestório · Transportes · Circulatório · Sangue e Linfa · Imunológico · Respiratório · Excretor</p>
 
   <div class="bio-topbar">
     <div style="display:flex;align-items:center;gap:10px;">
@@ -1368,12 +1823,15 @@
         </svg>
         <span id="mini-pct" style="position:relative;font-size:0.65rem;font-weight:800;color:rgba(255,255,255,0.5);">—</span>
       </div>
-      <div style="font-size:0.9rem;font-weight:600;color:white;" id="score-live">Placar: <strong>0 / 34</strong></div>
+      <div style="font-size:0.9rem;font-weight:600;color:white;" id="score-live">Placar: <strong>0 / 40</strong></div>
     </div>
     <button class="btn-reset-mid" onclick="resetQuiz()">↺ Reiniciar</button>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px;">
-    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (34)</button>
+    <button class="filter-btn active" onclick="filterQuiz('all',this)">Todas (40)</button>
+    <button class="filter-btn" onclick="filterQuiz('ch1',this)">Trato Superior</button>
+    <button class="filter-btn" onclick="filterQuiz('ch2',this)">Int. Delgado</button>
+    <button class="filter-btn" onclick="filterQuiz('ch3',this)">Int. Grosso</button>
     <button class="filter-btn" onclick="filterQuiz('ch4',this)">Transportes</button>
     <button class="filter-btn" onclick="filterQuiz('ch5',this)">Sist. Circulatório</button>
     <button class="filter-btn" onclick="filterQuiz('ch6',this)">Sangue e Linfa</button>
@@ -1821,6 +2279,78 @@ IV. A ureia é produzida nos rins, a partir da filtração do sangue.</p>
     <div class="feedback" id="q34-fb"></div>
   </div>
 
+  <div class="quiz-q" id="q35" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Trato Superior</span>
+    <p class="q-fonte">Num experimento, amido foi misturado com saliva em dois tubos a 37 °C: um em pH 7 e outro em pH 2.</p>
+    <p>35. O resultado esperado é que o amido seja digerido</p>
+    <label><input type="radio" name="q35" value="a" onclick="checkQuiz('q35','d')"> a) nos dois tubos, porque a amilase salivar funciona em qualquer pH do corpo.</label>
+    <label><input type="radio" name="q35" value="b" onclick="checkQuiz('q35','d')"> b) só no tubo de pH 2, porque a amilase depende do HCl para ser ativada.</label>
+    <label><input type="radio" name="q35" value="c" onclick="checkQuiz('q35','d')"> c) em nenhum tubo, porque o amido só é digerido pela amilase pancreática no duodeno.</label>
+    <label><input type="radio" name="q35" value="d" onclick="checkQuiz('q35','d')"> d) só no tubo de pH 7, porque a amilase salivar age em meio neutro e é inativada no meio ácido.</label>
+    <label><input type="radio" name="q35" value="e" onclick="checkQuiz('q35','d')"> e) só no tubo de pH 2, porque nele a pepsina da saliva quebra o amido em maltose.</label>
+    <div class="feedback" id="q35-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q36" data-ch="ch1">
+    <span class="quiz-chapter-tag tag-ch1">Trato Superior</span>
+    <p class="q-fonte">As células da parede do estômago liberam pepsinogênio, e não pepsina pronta.</p>
+    <p>36. A vantagem disso é</p>
+    <label><input type="radio" name="q36" value="a" onclick="checkQuiz('q36','b')"> a) permitir que a pepsina digira o amido que a saliva não conseguiu quebrar.</label>
+    <label><input type="radio" name="q36" value="b" onclick="checkQuiz('q36','b')"> b) evitar que a enzima digira as proteínas das próprias células que a produzem; ela só é ativada pelo HCl no estômago.</label>
+    <label><input type="radio" name="q36" value="c" onclick="checkQuiz('q36','b')"> c) fazer a enzima agir no duodeno, onde o pH básico a transforma em pepsina.</label>
+    <label><input type="radio" name="q36" value="d" onclick="checkQuiz('q36','b')"> d) impedir a absorção de proteínas no estômago, que só ocorre no intestino grosso.</label>
+    <label><input type="radio" name="q36" value="e" onclick="checkQuiz('q36','b')"> e) garantir que a digestão de gorduras comece no estômago.</label>
+    <div class="feedback" id="q36-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q37" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Intestino Delgado</span>
+    <p class="q-fonte">Uma pessoa retirou a vesícula biliar e passou a ter desconforto depois de refeições muito gordurosas.</p>
+    <p>37. Isso se explica porque</p>
+    <label><input type="radio" name="q37" value="a" onclick="checkQuiz('q37','e')"> a) a vesícula produzia a lipase, a única enzima que digere gorduras.</label>
+    <label><input type="radio" name="q37" value="b" onclick="checkQuiz('q37','e')"> b) sem a vesícula o fígado para de produzir bile e as gorduras não são absorvidas.</label>
+    <label><input type="radio" name="q37" value="c" onclick="checkQuiz('q37','e')"> c) a vesícula produzia o bicarbonato que neutraliza o quimo ácido.</label>
+    <label><input type="radio" name="q37" value="d" onclick="checkQuiz('q37','e')"> d) a bile passa a ir para o estômago, que fica com pH básico.</label>
+    <label><input type="radio" name="q37" value="e" onclick="checkQuiz('q37','e')"> e) a vesícula armazenava a bile e a liberava de uma vez; sem ela há menos bile para emulsificar as gorduras de uma refeição grande.</label>
+    <div class="feedback" id="q37-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q38" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Intestino Delgado</span>
+    <p class="q-fonte">O quimo chega ao duodeno muito ácido, vindo do estômago.</p>
+    <p>38. Se o pâncreas deixasse de liberar bicarbonato,</p>
+    <label><input type="radio" name="q38" value="a" onclick="checkQuiz('q38','a')"> a) as enzimas pancreáticas, que agem em pH ~8, funcionariam mal, e a mucosa do duodeno seria agredida pelo ácido.</label>
+    <label><input type="radio" name="q38" value="b" onclick="checkQuiz('q38','a')"> b) a pepsina continuaria agindo no duodeno e completaria a digestão do amido.</label>
+    <label><input type="radio" name="q38" value="c" onclick="checkQuiz('q38','a')"> c) a bile passaria a digerir as proteínas no lugar da tripsina.</label>
+    <label><input type="radio" name="q38" value="d" onclick="checkQuiz('q38','a')"> d) a absorção de água no intestino grosso aumentaria para compensar.</label>
+    <label><input type="radio" name="q38" value="e" onclick="checkQuiz('q38','a')"> e) a amilase salivar voltaria a agir no intestino delgado.</label>
+    <div class="feedback" id="q38-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q39" data-ch="ch2">
+    <span class="quiz-chapter-tag tag-ch2">Intestino Delgado</span>
+    <p class="q-fonte">Na doença celíaca, as vilosidades do intestino delgado ficam achatadas.</p>
+    <p>39. A consequência mais direta é</p>
+    <label><input type="radio" name="q39" value="a" onclick="checkQuiz('q39','c')"> a) a falta de bile, porque as vilosidades produzem os sais biliares.</label>
+    <label><input type="radio" name="q39" value="b" onclick="checkQuiz('q39','c')"> b) o aumento da digestão química, porque o alimento passa mais devagar.</label>
+    <label><input type="radio" name="q39" value="c" onclick="checkQuiz('q39','c')"> c) a diminuição da superfície de absorção, e a pessoa absorve menos nutrientes.</label>
+    <label><input type="radio" name="q39" value="d" onclick="checkQuiz('q39','c')"> d) a produção de vitamina K pela mucosa, que passa a ser absorvida no estômago.</label>
+    <label><input type="radio" name="q39" value="e" onclick="checkQuiz('q39','c')"> e) o fim da digestão do amido, que só ocorre dentro das vilosidades.</label>
+    <div class="feedback" id="q39-fb"></div>
+  </div>
+
+  <div class="quiz-q" id="q40" data-ch="ch3">
+    <span class="quiz-chapter-tag tag-ch3">Intestino Grosso</span>
+    <p class="q-fonte">Depois de semanas de antibiótico, um paciente apresentou sangramentos por falta de vitamina K.</p>
+    <p>40. A relação entre os fatos é que o antibiótico</p>
+    <label><input type="radio" name="q40" value="a" onclick="checkQuiz('q40','d')"> a) destruiu as vilosidades do intestino delgado, onde a vitamina K é fabricada.</label>
+    <label><input type="radio" name="q40" value="b" onclick="checkQuiz('q40','d')"> b) impediu o fígado de produzir bile, necessária para fabricar vitamina K.</label>
+    <label><input type="radio" name="q40" value="c" onclick="checkQuiz('q40','d')"> c) acelerou a absorção de água no intestino grosso, diluindo a vitamina K.</label>
+    <label><input type="radio" name="q40" value="d" onclick="checkQuiz('q40','d')"> d) eliminou bactérias da microbiota do intestino grosso, que produzem vitamina K.</label>
+    <label><input type="radio" name="q40" value="e" onclick="checkQuiz('q40','d')"> e) bloqueou a pepsina, que libera a vitamina K das proteínas da dieta.</label>
+    <div class="feedback" id="q40-fb"></div>
+  </div>
+
   <div style="text-align:center; margin-top:28px;">
     <button onclick="resetQuiz()" style="background:var(--secondary);color:white;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:1rem;">🔄 Refazer Quiz</button>
   </div>
@@ -1890,7 +2420,13 @@ const answers = {
   q31: { correct: "d", explain: "Resposta: d. Com o corpo desidratado, a hipófise libera ADH (hormônio antidiurético). Ele aumenta as aquaporinas do ducto coletor, mais água é reabsorvida por osmose e a urina sai concentrada. A ureia é produzida no fígado, não no rim." },
   q32: { correct: "d", explain: "Resposta: d. A II descreve a secreção: na reabsorção, a substância sai do filtrado e volta ao sangue. A IV está errada: a ureia é formada no fígado (a partir de aminoácidos); o rim só a elimina." },
   q33: { correct: "a", explain: "Resposta: a. Entra mais sangue do que consegue sair: a pressão dentro do novelo de capilares sobe e empurra o plasma para a cápsula de Bowman. É a filtração, um processo físico. Células e proteínas grandes não passam pelo filtro." },
-  q34: { correct: "b", explain: "Resposta: b. Além de formar urina, o rim tem função endócrina: produz eritropoietina, que estimula a medula óssea a produzir hemácias, e ativa a vitamina D. Com o rim doente, cai a eritropoietina e surge anemia. A vitamina K atua na coagulação." }
+  q34: { correct: "b", explain: "Resposta: b. Além de formar urina, o rim tem função endócrina: produz eritropoietina, que estimula a medula óssea a produzir hemácias, e ativa a vitamina D. Com o rim doente, cai a eritropoietina e surge anemia. A vitamina K atua na coagulação." },
+  q35: { correct: "d", explain: "Resposta: d. A amilase salivar (ptialina) quebra o amido em maltose em pH próximo de 7. No meio ácido, como o do estômago, ela é inativada. Pepsina é do suco gástrico e age sobre proteínas." },
+  q36: { correct: "b", explain: "Resposta: b. O pepsinogênio é inativo; o HCl do suco gástrico o transforma em pepsina, que quebra proteínas em peptídeos em pH ~2. Assim a enzima não ataca as células que a fabricam." },
+  q37: { correct: "e", explain: "Resposta: e. A bile é produzida no fígado e armazenada na vesícula. Ela não é enzima: emulsifica as gorduras em gotículas, aumentando a superfície para a lipase pancreática agir." },
+  q38: { correct: "a", explain: "Resposta: a. O bicarbonato do suco pancreático neutraliza o quimo e deixa o duodeno em pH levemente básico, o ideal para amilase pancreática, tripsina e lipase." },
+  q39: { correct: "c", explain: "Resposta: c. Vilosidades e microvilosidades aumentam enormemente a área de absorção do intestino delgado. Achatadas, a área cai e há má absorção de nutrientes." },
+  q40: { correct: "d", explain: "Resposta: d. Bactérias da microbiota do intestino grosso produzem vitamina K, importante na coagulação. O antibiótico também mata essas bactérias." },
 };
 
 let scoreCorrect = 0, scoreTotal = 0;

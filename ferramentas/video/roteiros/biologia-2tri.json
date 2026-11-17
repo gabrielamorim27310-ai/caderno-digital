@@ -1,0 +1,261 @@
+{
+  "pagina": "biologia-2tri",
+  "materia": "biologia",
+  "titulo": "Biologia · 2º tri",
+  "capitulos": [
+    "Digestório",
+    "Membrana",
+    "Coração",
+    "Sangue e defesa",
+    "Respiração",
+    "Rim"
+  ],
+  "cenas": [
+    {
+      "tipo": "capa",
+      "selo": "Biologia · revisão do 2º tri",
+      "titulo": "Do intestino ao rim",
+      "subtitulo": "Digestão, membrana, coração, sangue, respiração e néfron",
+      "fala": "Revisão do segundo trimestre de Biologia, que também cai na revisão da prova do terceiro. São seis temas: a digestão, o transporte pela membrana, o coração, o sangue e a defesa, a respiração e o rim. Vamos lá."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "1",
+      "titulo": "Digestório",
+      "subtitulo": "Onde, em que pH e com qual enzima",
+      "fala": "Tema um. O sistema digestório. A prova pergunta onde acontece a digestão química, em que pê agá, e qual enzima age sobre o quê."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Digestório",
+      "titulo": "Onde age cada enzima",
+      "desenho": "bio-imgs/esquemas/digestao-enzimas.svg",
+      "itens": [
+        "**boca**, pH 7: amilase salivar no amido",
+        "**estômago**, pH 2: pepsina nas proteínas",
+        "**duodeno**, pH 8: enzimas do pâncreas",
+        "**intestino delgado**: termina e absorve"
+      ],
+      "fala": "Na boca, em pê agá neutro, a amilase salivar quebra o amido em maltose. No estômago, em pê agá dois por causa do ácido clorídrico, a pepsina quebra as proteínas em peptídeos. No duodeno, o bicarbonato do pâncreas deixa o pê agá perto de oito, e agem as enzimas pancreáticas: amilase, tripsina e lipase. No intestino delgado, enzimas como a maltase e as peptidases terminam a digestão, e os nutrientes são absorvidos."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Digestório",
+      "titulo": "Pegadinhas da digestão",
+      "itens": [
+        "a **bile** emulsifica a gordura, mas não é enzima",
+        "a pepsina sai como **pepsinogênio**, ativado pelo HCl",
+        "as **vilosidades** aumentam a área de absorção",
+        "intestino grosso: **água** e vitamina K das bactérias"
+      ],
+      "fala": "Quatro pegadinhas. A bile, feita no fígado, só emulsifica a gordura em gotinhas. Ela não é enzima. A pepsina é liberada inativa, como pepsinogênio, e o ácido do estômago a ativa. As vilosidades do intestino delgado aumentam muito a área de absorção. E no intestino grosso há absorção de água, e as bactérias produzem vitamina K."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Amido com saliva, a 37 graus: em qual tubo ele é digerido?",
+      "alternativas": [
+        "só no de pH 7",
+        "só no de pH 2",
+        "nos dois",
+        "em nenhum"
+      ],
+      "certa": "a",
+      "explicacao": "A amilase salivar age em meio neutro e é inativada no ácido.",
+      "fala": "Pergunta. Amido foi misturado com saliva em dois tubos a trinta e sete graus, um com pê agá sete e outro com pê agá dois. Em qual o amido é digerido?",
+      "falaResposta": "Resposta A. Só no tubo de pê agá sete. A amilase salivar trabalha em meio neutro e é inativada no meio ácido."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "2",
+      "titulo": "Membrana",
+      "subtitulo": "Passivo, ativo e osmose",
+      "fala": "Tema dois. Como as substâncias atravessam a membrana."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Membrana",
+      "titulo": "Três jeitos de atravessar",
+      "desenho": "bio-imgs/esquemas/transporte-membrana.svg",
+      "itens": [
+        "**difusão simples**: O₂ e CO₂ passam direto",
+        "**difusão facilitada**: por proteína, sem ATP",
+        "**transporte ativo**: contra o gradiente, gasta ATP",
+        "**osmose**: a água vai para o lado com mais soluto"
+      ],
+      "fala": "Na difusão simples, moléculas pequenas e apolares, como o oxigênio e o gás carbônico, passam direto pela bicamada, a favor do gradiente. Na difusão facilitada, a substância usa uma proteína, como a glicose, mas continua a favor do gradiente e sem gastar energia. No transporte ativo, a célula leva a substância contra o gradiente e gasta ATP, como na bomba de sódio e potássio. E na osmose, a água passa para o lado com mais soluto."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "3",
+      "titulo": "Coração",
+      "subtitulo": "Câmaras, vasos, sístole e diástole",
+      "fala": "Tema três. O coração e as duas circulações."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Coração",
+      "titulo": "O caminho do sangue",
+      "desenho": "bio-imgs/esquemas/coracao-circulacao.svg",
+      "itens": [
+        "**veias cavas** trazem o sangue venoso ao átrio direito",
+        "**artéria pulmonar** leva do ventrículo direito ao pulmão",
+        "**veias pulmonares** trazem o arterial ao átrio esquerdo",
+        "**aorta** sai do ventrículo esquerdo para o corpo"
+      ],
+      "fala": "Siga o sangue. As veias cavas trazem o sangue venoso do corpo para o átrio direito. Ele desce para o ventrículo direito, que o manda pela artéria pulmonar até os pulmões. Lá acontece a hematose, e o sangue fica arterial. As veias pulmonares o trazem de volta ao átrio esquerdo. Ele desce ao ventrículo esquerdo, que o manda pela aorta para o corpo inteiro."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Coração",
+      "titulo": "Sístole e diástole",
+      "colunas": [
+        {
+          "titulo": "Sístole",
+          "itens": [
+            "o músculo **contrai**",
+            "o sangue é **ejetado**",
+            "ventrículos → **artérias**"
+          ]
+        },
+        {
+          "titulo": "Diástole",
+          "itens": [
+            "o músculo **relaxa**",
+            "a câmara **se enche**",
+            "veias → **átrios**"
+          ]
+        }
+      ],
+      "fala": "Sístole é a contração: os ventrículos se contraem e empurram o sangue para as artérias. Diástole é o relaxamento: as câmaras relaxam e se enchem de sangue que chega pelas veias. Lembre também: a pequena circulação vai do coração ao pulmão e volta. A grande circulação vai do coração ao corpo e volta."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "4",
+      "titulo": "Sangue e defesa",
+      "subtitulo": "Células do sangue e imunidade",
+      "fala": "Tema quatro. O sangue e o sistema imunológico."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Sangue e defesa",
+      "titulo": "O que tem no sangue",
+      "itens": [
+        "**hemácias**: transportam gases, sem núcleo",
+        "**leucócitos**: defesa do corpo",
+        "**plaquetas**: coagulação",
+        "**soro** é o plasma sem o fibrinogênio"
+      ],
+      "fala": "O sangue tem plasma e elementos figurados. As hemácias transportam os gases e não têm núcleo, por isso não servem para teste de paternidade. Os leucócitos fazem a defesa. As plaquetas participam da coagulação. E cuidado: soro não é o mesmo que plasma. O soro é o plasma sem o fibrinogênio, que foi gasto na coagulação."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Sangue e defesa",
+      "titulo": "Memória imunológica",
+      "desenho": "bio-imgs/esquemas/imune-resposta.svg",
+      "itens": [
+        "**1º contato**: resposta lenta e fraca",
+        "ficam as **células de memória**",
+        "**2º contato**: rápida e forte"
+      ],
+      "fala": "No primeiro contato com um antígeno, a resposta é lenta e produz poucos anticorpos. Mas ficam as células de memória. No segundo contato, a resposta é muito mais rápida e mais forte. É nisso que se baseiam as vacinas."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Sangue e defesa",
+      "titulo": "Vacina × soro",
+      "colunas": [
+        {
+          "titulo": "Vacina",
+          "itens": [
+            "imunização **ativa**",
+            "o corpo faz os anticorpos",
+            "lenta, **com memória**",
+            "**prevenção**"
+          ]
+        },
+        {
+          "titulo": "Soro",
+          "itens": [
+            "imunização **passiva**",
+            "anticorpos **prontos**",
+            "imediata, **sem memória**",
+            "**tratamento**"
+          ]
+        }
+      ],
+      "fala": "A vacina é imunização ativa: ela traz o antígeno, e o próprio corpo produz os anticorpos. É lenta, mas deixa memória, por isso serve para prevenção. O soro é imunização passiva: traz anticorpos prontos. Age na hora, mas não deixa memória, por isso serve para tratamento, como numa picada de cobra."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "5",
+      "titulo": "Respiração",
+      "subtitulo": "Hematose e a curva da hemoglobina",
+      "fala": "Tema cinco. A respiração e a curva de saturação da hemoglobina, que a prova pede para interpretar."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Respiração",
+      "titulo": "Lendo a curva",
+      "desenho": "bio-imgs/esquemas/hemoglobina-curva.svg",
+      "itens": [
+        "**pulmões**: muito O₂, hemoglobina quase cheia",
+        "**tecidos**: pouco O₂, ela solta oxigênio",
+        "ácido, CO₂ e calor: a curva vai para a **direita**",
+        "à direita, ela **libera mais O₂**"
+      ],
+      "fala": "O eixo de baixo é a pressão de oxigênio. Nos pulmões, onde há muito oxigênio, a hemoglobina fica quase cheia, perto de cem por cento. Nos tecidos, com pouco oxigênio, a saturação cai, e ela solta o oxigênio. Quando o sangue fica mais ácido, com mais gás carbônico ou mais calor, como no exercício, a curva vai para a direita. Na mesma pressão, a hemoglobina libera mais oxigênio, justamente para o músculo que está trabalhando. É o efeito Bohr."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Durante um exercício intenso, a curva da hemoglobina no músculo",
+      "alternativas": [
+        "desloca para a direita e libera mais O₂",
+        "desloca para a esquerda e segura o O₂",
+        "não muda, porque o pH não interfere",
+        "chega a zero por cento de saturação"
+      ],
+      "certa": "a",
+      "explicacao": "Mais CO₂ e acidez (efeito Bohr): a hemoglobina solta mais oxigênio.",
+      "fala": "Pergunta. Durante um exercício intenso, o que acontece com a curva no músculo?",
+      "falaResposta": "Resposta A. Mais gás carbônico e mais acidez deslocam a curva para a direita, e a hemoglobina libera mais oxigênio para o músculo."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "6",
+      "titulo": "Rim",
+      "subtitulo": "As partes do néfron",
+      "fala": "Tema seis. O rim e o néfron, a unidade que forma a urina."
+    },
+    {
+      "tipo": "desenho",
+      "capitulo": "Rim",
+      "titulo": "Néfron: o que acontece em cada parte",
+      "desenho": "bio-imgs/esquemas/nefron.svg",
+      "itens": [
+        "**glomérulo**: filtração sob pressão",
+        "**túbulo proximal**: volta glicose e aminoácidos",
+        "**alça de Henle**: concentra a urina",
+        "**ducto coletor**: o ADH faz a água voltar"
+      ],
+      "fala": "No glomérulo, a pressão do sangue empurra o plasma para a cápsula de Bowman: é a filtração. O filtrado tem água, glicose, aminoácidos, sais e ureia, mas não tem células nem proteínas grandes. No túbulo proximal, a glicose e os aminoácidos voltam todos para o sangue. A alça de Henle cria o gradiente que concentra a urina. No túbulo distal e no ducto coletor, os hormônios fazem o ajuste fino: o ADH faz mais água voltar, e a aldosterona faz o sódio voltar."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Rim",
+      "titulo": "Os números e os hormônios",
+      "itens": [
+        "uns **180 litros** de filtrado por dia",
+        "só uns **1,5 litro** de urina",
+        "**ADH**: urina concentrada; o álcool o inibe",
+        "**glicose na urina**: sinal de diabetes"
+      ],
+      "fala": "Os rins formam uns cento e oitenta litros de filtrado por dia, mas a gente elimina só um litro e meio de urina. Quase tudo é reabsorvido. Com ADH, mais água volta e a urina fica concentrada. O álcool inibe o ADH, por isso desidrata. E glicose na urina é sinal de diabetes: tem tanta glicose no sangue que o túbulo não consegue reabsorver tudo."
+    },
+    {
+      "tipo": "fim",
+      "titulo": "Boa revisão!",
+      "texto": "Quiz com 40 questões e os capítulos completos na página do Caderno Digital.",
+      "fala": "Esses foram os seis temas do segundo trimestre. Para treinar, faça o quiz de quarenta questões na página do Caderno Digital. Boa revisão!"
+    }
+  ]
+}

@@ -25,8 +25,31 @@ fs.mkdirSync(path.join(OUT, 'assets/aud'), { recursive: true });
 const CORES = {
   portugues: { a: '#FF4D8D', b: '#8B5CF6', bg: '#0D0A14' },
   literatura: { a: '#FFB020', b: '#E5484D', bg: '#120C0A' },
+  ingles: { a: '#4CC9E0', b: '#FF8A4C', bg: '#06161A' },
+  biologia: { a: '#5BE38B', b: '#2EC4B6', bg: '#07140D' },
 };
 const COR = CORES[rot.paleta || rot.materia] || CORES.portugues;
+
+// Rótulos fixos da tela no idioma do roteiro ("idioma": "en" para Inglês)
+const EN = rot.idioma === 'en';
+const TX = EN
+  ? { pergunta: 'Question', pense: 'think', resposta: 'Answer', tema: (i, n) => `Topic ${i} of ${n}`, antes: 'Before', depois: 'After' }
+  : { pergunta: 'Pergunta', pense: 'pense', resposta: 'Resposta', tema: (i, n) => `Tema ${i} de ${n}`, antes: 'Pessoal', depois: 'Impessoal' };
+
+// Desenho SVG embutido (gestos animados, esquemas). As classes e @keyframes de
+// cada SVG ganham um prefixo único, para não colidirem com as dos outros desenhos;
+// assim as animações CSS ficam no documento e o HyperFrames as sincroniza.
+let svgN = 0;
+function svgInline(rel) {
+  const p = 'v' + (++svgN) + '-';
+  let s = fs.readFileSync(path.join(RAIZ, rel), 'utf8');
+  const kfs = [...s.matchAll(/@keyframes\s+([\w-]+)/g)].map(m => m[1]);
+  for (const k of new Set(kfs)) s = s.replace(new RegExp(`(@keyframes\\s+|animation:\\s*)${k}\\b`, 'g'), `$1${p}${k}`);
+  s = s.replace(/class="([^"]+)"/g, (_, c) => `class="${c.split(/\s+/).map(x => p + x).join(' ')}"`);
+  s = s.replace(/<style>([\s\S]*?)<\/style>/, (_, css) => `<style>${css.replace(/\.([a-zA-Z][\w-]*)/g, `.${p}$1`)}</style>`);
+  s = s.replace(/id="([^"]+)"/g, `id="${p}$1"`).replace(/url\(#([^)]+)\)/g, `url(#${p}$1)`);
+  return s.replace(/<svg /, '<svg class="desenho" ');
+}
 
 const dur = f => Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim());
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -111,7 +134,7 @@ for (const c of rot.cenas) {
     h = `<div class="cap">
       <div class="cap-n" id="${id}-n">${esc(String(c.capitulo).padStart(2, '0'))}</div>
       <div class="cap-txt">
-        <div class="eyebrow" id="${id}-k">Tema ${esc(c.capitulo)} de ${(rot.capitulos || []).length || ''}</div>
+        <div class="eyebrow" id="${id}-k">${TX.tema(esc(c.capitulo), (rot.capitulos || []).length || '')}</div>
         <h2 class="cap-t">${c.titulo.split(' ').map((w, i) => `<span class="w"><span class="wi" id="${id}-w${i}">${esc(w)}</span></span>`).join(' ')}</h2>
         <p class="sub" id="${id}-sub">${esc(c.subtitulo || '')}</p>
       </div>
@@ -175,9 +198,9 @@ for (const c of rot.cenas) {
   if (c.tipo === 'reescrita') {
     const ra = rich(c.antes, 'risca'), rd = rich(c.depois, 'novo');
     h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
-      <div class="rw"><div class="rw-k" id="${id}-ka">Pessoal</div><p class="rw-a" id="${id}-a">${ra.h}</p>
+      <div class="rw"><div class="rw-k" id="${id}-ka">${esc(c.rotuloAntes || TX.antes)}</div><p class="rw-a" id="${id}-a">${ra.h}</p>
       <div class="rw-seta" id="${id}-s">↓</div>
-      <div class="rw-k ok" id="${id}-kd">Impessoal</div><p class="rw-d" id="${id}-d">${rd.h}</p></div></div>`;
+      <div class="rw-k ok" id="${id}-kd">${esc(c.rotuloDepois || TX.depois)}</div><p class="rw-d" id="${id}-d">${rd.h}</p></div></div>`;
     const ts = momentos([c.antes, c.depois], c.fala, A, 0.8);
     enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
     enter(`#${id}-t`, 0.2);
@@ -192,11 +215,11 @@ for (const c of rot.cenas) {
   if (c.tipo === 'pergunta') {
     const L = 'abcdefgh';
     const tq = 0.4 + A, tr = tq + PAUSA;
-    h = `<div class="pad">${`<div class="eyebrow q" id="${id}-eb">Pergunta</div>`}
+    h = `<div class="pad">${`<div class="eyebrow q" id="${id}-eb">${TX.pergunta}</div>`}
       <h2 class="perg" id="${id}-p">${esc(c.pergunta)}</h2>
       <div class="alts">${c.alternativas.map((x, i) => `<div class="alt" id="${id}-x${i}"><b>${L[i]}</b><span>${esc(x)}</span></div>`).join('')}</div>
-      <div class="timer" id="${id}-tm"><svg viewBox="0 0 120 120"><circle class="tr-bg" cx="60" cy="60" r="52"/><circle class="tr-fg" id="${id}-tf" cx="60" cy="60" r="52"/></svg><span id="${id}-tn">pense</span></div>
-      <div class="expl" id="${id}-e"><b>Resposta ${c.certa.toUpperCase()}.</b> ${esc(c.explicacao)}</div></div>`;
+      <div class="timer" id="${id}-tm"><svg viewBox="0 0 120 120"><circle class="tr-bg" cx="60" cy="60" r="52"/><circle class="tr-fg" id="${id}-tf" cx="60" cy="60" r="52"/></svg><span id="${id}-tn">${TX.pense}</span></div>
+      <div class="expl" id="${id}-e"><b>${TX.resposta} ${c.certa.toUpperCase()}.</b> ${esc(c.explicacao)}</div></div>`;
     enter(`#${id}-eb`, 0.1, { opacity: 0, scale: 0.8 });
     enter(`#${id}-p`, 0.25, { opacity: 0, y: 40 }, 0.7);
     c.alternativas.forEach((_, i) => enter(`#${id}-x${i}`, 0.9 + i * Math.min(0.9, (A - 1) / c.alternativas.length), { opacity: 0, x: -50 }, 0.45));
@@ -209,6 +232,25 @@ for (const c of rot.cenas) {
       else tw.push(`tl.to("#${id}-x${i}", {opacity:0.28, duration:0.4}, ${at(tr)});`);
     });
     enter(`#${id}-e`, tr + 0.5, { opacity: 0, y: 30 });
+  }
+  if (c.tipo === 'gestos' || c.tipo === 'desenho') {
+    // gestos: grade de desenhos animados com legenda, cada um entra quando a fala o cita.
+    // desenho: um esquema grande à esquerda e tópicos à direita.
+    const lista = c.tipo === 'gestos' ? c.gestos : (c.itens || []).map(t => ({ texto: t }));
+    const ts = momentos(lista.map(g => g.texto), c.fala, A, 0.9);
+    if (c.tipo === 'gestos') {
+      h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
+        <div class="gestos n${lista.length}">${lista.map((g, i) => { const r = rich(g.texto); r.ids.length && marca(r.ids, ts[i] + 0.3); return `<figure class="gesto" id="${id}-g${i}">${svgInline(g.arquivo)}<figcaption>${r.h}</figcaption></figure>`; }).join('')}</div></div>`;
+      lista.forEach((_, i) => enter(`#${id}-g${i}`, ts[i], { opacity: 0, y: 50, scale: 0.85 }, 0.55));
+    } else {
+      h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
+        <div class="dz"><div class="dz-img" id="${id}-img">${svgInline(c.desenho)}</div>
+        <ol class="itens dz-it">${lista.map((g, i) => { const r = rich(g.texto); r.ids.length && marca(r.ids, ts[i]); return `<li id="${id}-i${i}"><span class="num">${String(i + 1).padStart(2, '0')}</span><span class="it">${r.h}</span></li>`; }).join('')}</ol></div></div>`;
+      tw.push(`tl.fromTo("#${id}-img", {opacity:0, scale:0.9}, {opacity:1, scale:1, duration:0.8, ease:"expo.out"}, ${at(0.4)});`);
+      lista.forEach((_, i) => enter(`#${id}-i${i}`, ts[i], { opacity: 0, x: 60 }));
+    }
+    enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
+    enter(`#${id}-t`, 0.2);
   }
   if (c.tipo === 'fim') {
     h = `<div class="capa fim"><h1 class="mega">${c.titulo.split(' ').map((w, i) => `<span class="w"><span class="wi" id="${id}-w${i}">${esc(w)}</span></span>`).join(' ')}</h1>
@@ -308,6 +350,14 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
 .expl b{color:var(--ok)}
 .fim .mega{font-size:180px}
 .marca{margin-top:60px;font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--a)}
+.gestos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 40px;margin-top:-20px}
+.gestos.n4{grid-template-columns:repeat(4,1fr)}
+.gesto{display:flex;align-items:center;gap:24px}
+.gesto .desenho{width:220px;height:220px;flex:none;border-radius:28px}
+.gesto figcaption{font-size:40px;line-height:1.15;font-weight:700}
+.dz{display:grid;grid-template-columns:640px 1fr;gap:70px;align-items:center}
+.dz-img .desenho{width:640px;height:auto;max-height:680px;display:block;border-radius:28px}
+.dz-it li{font-size:38px}
 #hud{position:absolute;inset:0;pointer-events:none}
 .brand{position:absolute;left:150px;top:64px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
 .brand .dot{width:14px;height:14px;border-radius:50%;background:var(--a)}
@@ -317,7 +367,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
 `;
 
 const html = `<!doctype html>
-<html lang="pt-BR">
+<html lang="${EN ? 'en' : 'pt-BR'}">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=1920, height=1080" />

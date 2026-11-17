@@ -55,5 +55,6 @@ var MATERIAS = [
   { tri: 3, id: 'literatura-3tri',        materia: 'portugues',  icone: '📚', nome: 'Literatura', desc: 'Parnasianismo · Simbolismo · Pré-modernismo · Vanguardas · Canção para ninar menino grande · Fernando Pessoa · com vídeo', status: 'prova' },
   { tri: 3, id: 'biologia-3tri',          materia: 'biologia',   icone: '🧬', nome: 'Biologia',   desc: 'Reprodutor · Ciclo menstrual e gravidez · Neurônio e impulso · Sinapses · Arco reflexo · Simpático e parassimpático · Revisão endócrino', status: 'prova' },
   { tri: 3, id: 'matematica-3tri',        materia: 'matematica', icone: '➗', nome: 'Matemática', desc: 'Lista Extra de Retas · Ponto médio · Paralelas · Perpendiculares · com gráficos e conferência de resposta', status: 'prova' },
+  { tri: 3, id: 'ingles-3tri',            materia: 'ingles',     icone: '🔤', nome: 'Inglês C1',  desc: 'Idioms · Attempt & effort · Verbs + prepositions · Our Two Selves · Modals · Body language animada', status: 'prova' },
   { tri: 3, id: 'semana-inter',           materia: 'biologia',   icone: '🌊', nome: 'Semana Inter', desc: 'Física · Biologia · Química · Estudos de Caso 1 a 4 (1 questão em cada prova)', status: 'prova' },
 ];
