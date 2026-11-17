@@ -23,7 +23,7 @@
       "capitulo": "1",
       "titulo": "Digestório",
       "subtitulo": "Onde, em que pH e com qual enzima",
-      "fala": "Tema um. O sistema digestório. A prova pergunta onde acontece a digestão química, em que pê agá, e qual enzima age sobre o quê."
+      "fala": "Tema um. O sistema digestório. A prova pergunta onde acontece a digestão química, em que pH, e qual enzima age sobre o quê."
     },
     {
       "tipo": "desenho",
@@ -36,7 +36,7 @@
         "**duodeno**, pH 8: enzimas do pâncreas",
         "**intestino delgado**: termina e absorve"
       ],
-      "fala": "Na boca, em pê agá neutro, a amilase salivar quebra o amido em maltose. No estômago, em pê agá dois por causa do ácido clorídrico, a pepsina quebra as proteínas em peptídeos. No duodeno, o bicarbonato do pâncreas deixa o pê agá perto de oito, e agem as enzimas pancreáticas: amilase, tripsina e lipase. No intestino delgado, enzimas como a maltase e as peptidases terminam a digestão, e os nutrientes são absorvidos."
+      "fala": "Na boca, em pH neutro, a amilase salivar quebra o amido em maltose. No estômago, em pH dois por causa do ácido clorídrico, a pepsina quebra as proteínas em peptídeos. No duodeno, o bicarbonato do pâncreas deixa o pH perto de oito, e agem as enzimas pancreáticas: amilase, tripsina e lipase. No intestino delgado, enzimas como a maltase e as peptidases terminam a digestão, e os nutrientes são absorvidos."
     },
     {
       "tipo": "topicos",
@@ -61,8 +61,8 @@
       ],
       "certa": "a",
       "explicacao": "A amilase salivar age em meio neutro e é inativada no ácido.",
-      "fala": "Pergunta. Amido foi misturado com saliva em dois tubos a trinta e sete graus, um com pê agá sete e outro com pê agá dois. Em qual o amido é digerido?",
-      "falaResposta": "Resposta A. Só no tubo de pê agá sete. A amilase salivar trabalha em meio neutro e é inativada no meio ácido."
+      "fala": "Pergunta. Amido foi misturado com saliva em dois tubos a trinta e sete graus, um com pH sete e outro com pH dois. Em qual o amido é digerido?",
+      "falaResposta": "Resposta A. Só no tubo de pH sete. A amilase salivar trabalha em meio neutro e é inativada no meio ácido."
     },
     {
       "tipo": "capitulo",
