@@ -47,7 +47,7 @@
         "**LH**: estimula a produção de testosterona",
         "testosterona alta inibe a hipófise: **feedback negativo**"
       ],
-      "fala": "O hipotálamo manda a hipófise liberar dois hormônios. O éfe ésse agá estimula a produção de espermatozoides. O éle agá estimula a produção de testosterona. E quando a testosterona fica alta, ela inibe o hipotálamo e a hipófise. É o feedback negativo, que mantém tudo equilibrado."
+      "fala": "O hipotálamo manda a hipófise liberar dois hormônios. O FSH estimula a produção de espermatozoides. O LH estimula a produção de testosterona. E quando a testosterona fica alta, ela inibe o hipotálamo e a hipófise. É o feedback negativo, que mantém tudo equilibrado."
     },
     {
       "tipo": "destaque",
@@ -68,7 +68,7 @@
       "certa": "c",
       "explicacao": "Testosterona alta inibe a hipófise: sem FSH, os testículos param de produzir espermatozoides.",
       "fala": "Pergunta. Injeções mensais de testosterona funcionam como anticoncepcional masculino. Por quê?",
-      "falaResposta": "Resposta C. A testosterona alta, por feedback negativo, inibe a hipófise. Sem éfe ésse agá, os testículos param de produzir espermatozoides."
+      "falaResposta": "Resposta C. A testosterona alta, por feedback negativo, inibe a hipófise. Sem FSH, os testículos param de produzir espermatozoides."
     },
     {
       "tipo": "capitulo",
@@ -88,7 +88,7 @@
         "**pico de LH**: ovulação, por volta do dia 14",
         "**progesterona**: do corpo lúteo, mantém o endométrio"
       ],
-      "fala": "Veja o gráfico de um ciclo de vinte e oito dias. O dia um é o primeiro dia da menstruação. O éfe ésse agá sobe e faz o folículo crescer. O folículo produz estrógeno, que reconstrói o endométrio. Por volta do dia catorze vem o pico de éle agá, aquele pico fino e alto, que provoca a ovulação. O que sobra do folículo vira corpo lúteo, que produz progesterona. A progesterona mantém o endométrio grosso, pronto para receber o embrião."
+      "fala": "Veja o gráfico de um ciclo de vinte e oito dias. O dia um é o primeiro dia da menstruação. O FSH sobe e faz o folículo crescer. O folículo produz estrógeno, que reconstrói o endométrio. Por volta do dia catorze vem o pico de LH, aquele pico fino e alto, que provoca a ovulação. O que sobra do folículo vira corpo lúteo, que produz progesterona. A progesterona mantém o endométrio grosso, pronto para receber o embrião."
     },
     {
       "tipo": "topicos",
@@ -100,7 +100,7 @@
         "o endométrio descama: **menstruação**",
         "o **FSH** volta a subir e o ciclo recomeça"
       ],
-      "fala": "Se não houver fecundação, o corpo lúteo degenera. A progesterona cai. Sem ela, o endométrio descama, e isso é a menstruação. Com os hormônios do ovário baixos, a hipófise volta a liberar éfe ésse agá, e o ciclo recomeça."
+      "fala": "Se não houver fecundação, o corpo lúteo degenera. A progesterona cai. Sem ela, o endométrio descama, e isso é a menstruação. Com os hormônios do ovário baixos, a hipófise volta a liberar FSH, e o ciclo recomeça."
     },
     {
       "tipo": "desenho",
@@ -113,7 +113,7 @@
         "no 3º mês a **placenta** assume",
         "o teste de gravidez detecta **HCG**"
       ],
-      "fala": "Na gravidez, quem segura tudo é o embrião. As células do trofoblasto, a futura placenta, produzem agá cê gê. O agá cê gê mantém o corpo lúteo produzindo progesterona, e com a progesterona alta não há menstruação. No gráfico, o agá cê gê é o pico do começo. Por volta do terceiro mês, a placenta assume a produção de estrógeno e progesterona, e o agá cê gê cai. É o agá cê gê que o teste de gravidez detecta na urina."
+      "fala": "Na gravidez, quem segura tudo é o embrião. As células do trofoblasto, a futura placenta, produzem HCG. O HCG mantém o corpo lúteo produzindo progesterona, e com a progesterona alta não há menstruação. No gráfico, o HCG é o pico do começo. Por volta do terceiro mês, a placenta assume a produção de estrógeno e progesterona, e o HCG cai. É o HCG que o teste de gravidez detecta na urina."
     },
     {
       "tipo": "comparacao",
@@ -149,7 +149,7 @@
         "**vasectomia**: corta os canais deferentes",
         "**tabelinha**: evita o período fértil, falha muito"
       ],
-      "fala": "Os métodos contraceptivos. A pílula mantém estrógeno e progesterona altos, e por feedback negativo inibe o éfe ésse agá e o éle agá. Sem pico de éle agá, não há ovulação. A laqueadura corta as tubas: o ovócito não encontra o espermatozoide, mas a mulher continua ovulando e menstruando. A vasectomia corta os canais deferentes. E a tabelinha evita relações no período fértil, mas falha muito, porque os ciclos variam."
+      "fala": "Os métodos contraceptivos. A pílula mantém estrógeno e progesterona altos, e por feedback negativo inibe o FSH e o LH. Sem pico de LH, não há ovulação. A laqueadura corta as tubas: o ovócito não encontra o espermatozoide, mas a mulher continua ovulando e menstruando. A vasectomia corta os canais deferentes. E a tabelinha evita relações no período fértil, mas falha muito, porque os ciclos variam."
     },
     {
       "tipo": "pergunta",
@@ -163,7 +163,7 @@
       "certa": "a",
       "explicacao": "Sem folículos, o ovário para; sem feedback negativo, a hipófise libera muito FSH e LH.",
       "fala": "Pergunta. Na menopausa, como ficam os hormônios no sangue?",
-      "falaResposta": "Resposta A. Os folículos acabam, e o ovário para de produzir estrógeno e progesterona. Sem o feedback negativo, a hipófise libera éfe ésse agá e éle agá em quantidade alta, mas sem efeito."
+      "falaResposta": "Resposta A. Os folículos acabam, e o ovário para de produzir estrógeno e progesterona. Sem o feedback negativo, a hipófise libera FSH e LH em quantidade alta, mas sem efeito."
     },
     {
       "tipo": "capitulo",
@@ -195,7 +195,7 @@
         "**despolarizada**: o sódio entra e inverte",
         "**repolarizada**: o potássio sai e volta ao normal"
       ],
-      "fala": "Em repouso, a membrana está polarizada: positiva por fora e negativa por dentro, perto de menos setenta milivolts. Quem mantém isso é a bomba de sódio e potássio, que gasta a tê pê: é transporte ativo. Quando chega um estímulo, canais de sódio se abrem e o sódio entra, por difusão facilitada. As cargas se invertem: é a despolarização. Depois o potássio sai, e a bomba restaura tudo: é a repolarização."
+      "fala": "Em repouso, a membrana está polarizada: positiva por fora e negativa por dentro, perto de menos setenta milivolts. Quem mantém isso é a bomba de sódio e potássio, que gasta ATP: é transporte ativo. Quando chega um estímulo, canais de sódio se abrem e o sódio entra, por difusão facilitada. As cargas se invertem: é a despolarização. Depois o potássio sai, e a bomba restaura tudo: é a repolarização."
     },
     {
       "tipo": "comparacao",
