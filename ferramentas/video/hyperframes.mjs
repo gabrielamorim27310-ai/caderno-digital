@@ -351,7 +351,8 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
 .fim .mega{font-size:180px}
 .marca{margin-top:60px;font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--a)}
 .gestos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 40px;margin-top:-20px}
-.gestos.n4{grid-template-columns:repeat(4,1fr)}
+.gestos.n2,.gestos.n3,.gestos.n4{grid-template-columns:repeat(2,1fr);gap:22px 60px}
+.gesto .hl{white-space:nowrap}
 .gesto{display:flex;align-items:center;gap:24px}
 .gesto .desenho{width:220px;height:220px;flex:none;border-radius:28px}
 .gesto figcaption{font-size:40px;line-height:1.15;font-weight:700}

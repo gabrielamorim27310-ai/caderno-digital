@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <style>.cab,.boca,.sobr,.nariz,.m,.m2,.fx{transform-box:fill-box;transform-origin:center}
+  @keyframes sobe{0%{offset-distance:0%}80%,100%{offset-distance:100%}}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+  <rect width="240" height="240" rx="28" fill="#eef8f9"/>
+  <clipPath id="c"><rect width="240" height="240" rx="28"/></clipPath>
+  <g clip-path="url(#c)"><path d="M30 210 L30 30" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 210 L215 210" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 205 C80 200 95 120 120 70 C130 50 150 40 205 36" fill="none" stroke="#2f6fd6" stroke-width="5" stroke-linecap="round"/><circle class="sobe" r="10" fill="#e8590c" stroke="#fff" stroke-width="2" style="offset-path:path('M40 205 C80 200 95 120 120 70 C130 50 150 40 205 36');animation:sobe 2.6s ease-in-out infinite"/><g transform="translate(118 120) scale(0.42)"><path d="M36 240 q2 -70 44 -78 h80 q42 0 44 78 z" fill="#0a778f" stroke="#2b1d15" stroke-width="2.4"/>
+    <path d="M106 162 l14 16 l14 -16" fill="#e3ad80" stroke="#2b1d15" stroke-width="2"/><g class="cab"><g transform="rotate(0 120 140)">
+    <rect x="110" y="128" width="20" height="22" fill="#e3ad80"/>
+    <ellipse cx="72" cy="98" rx="0" ry="0"/>
+    <circle cx="74" cy="98" r="8" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2"/>
+    <circle cx="166" cy="98" r="8" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2"/>
+    <ellipse cx="120" cy="96" rx="46" ry="50" fill="#f4c9a1" stroke="#2b1d15" stroke-width="2.4"/>
+    <path d="M74 92 q-4 -50 46 -52 q50 2 46 52 q-6 -26 -30 -30 q-22 10 -56 2 q-4 10 -6 28z" fill="#3d2a1f"/>
+    
+    <g class="sobr"><path d="M98 74 q8 -8 16 -2" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M126 72 q8 -8 16 2" fill="none" stroke="#2b1d15" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><circle cx="106" cy="92" r="4.2" fill="#2b1d15"/><circle cx="134" cy="92" r="4.2" fill="#2b1d15"/><g class="nariz"><path d="M120 96 v12 q-3 3 -6 1" fill="none" stroke="#e3ad80" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="boca"><ellipse cx="120" cy="123" rx="7" ry="6" fill="#7a2c33" stroke="#2b1d15" stroke-width="2.4"/></g>
+  </g></g></g></g></svg>

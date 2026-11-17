@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SAIDA = join(RAIZ, 'ing-imgs', '3tri');
-mkdirSync(SAIDA, { recursive: true });
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) mkdirSync(SAIDA, { recursive: true });
 
 const PELE = '#f4c9a1', PELE2 = '#e3ad80', CABELO = '#3d2a1f', CAMISA = '#0a778f', CAMISA2 = '#075d70',
   TRACO = '#2b1d15', DESTAQUE = '#e8590c', FUNDO = '#eef8f9', CALCA = '#36415a';
@@ -213,6 +213,11 @@ G['bite-your-lip'] = cartao(tronco() + cabeca({ boca: 'mordida', sobr: 'erguida'
   kf('morde', '0%,100%{transform:scaleY(1)}50%{transform:scaleY(0.8) translateY(1px)}') + anima('.boca', 'morde', '1.3s') +
   kf('pisca', '0%,100%{opacity:.2}50%{opacity:1}') + anima('.fx', 'pisca', '1.3s'));
 
-const nomes = Object.keys(G);
-for (const n of nomes) writeFileSync(join(SAIDA, n + '.svg'), G[n]);
-console.log(nomes.length + ' ilustrações em ' + SAIDA);
+// Peças reaproveitadas por idioms.mjs (mesmo personagem, mesmo estilo)
+export { linha, mov, rosto, cabeca, tronco, mao, braco, cartao, PELE, PELE2, CABELO, CAMISA, CAMISA2, TRACO, DESTAQUE, FUNDO, CALCA, RAIZ };
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  const nomes = Object.keys(G);
+  for (const n of nomes) writeFileSync(join(SAIDA, n + '.svg'), G[n]);
+  console.log(nomes.length + ' ilustrações em ' + SAIDA);
+}

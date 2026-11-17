@@ -3,7 +3,14 @@
   "materia": "ingles",
   "idioma": "en",
   "titulo": "English C1 · Term 3",
-  "capitulos": ["Idioms", "Attempt & effort", "Verb + preposition", "Our Two Selves", "Modal verbs", "Body language"],
+  "capitulos": [
+    "Idioms",
+    "Attempt & effort",
+    "Verb + preposition",
+    "Our Two Selves",
+    "Modal verbs",
+    "Body language"
+  ],
   "cenas": [
     {
       "tipo": "capa",
@@ -20,38 +27,64 @@
       "fala": "Topic one. Nine idioms about learning and effort."
     },
     {
-      "tipo": "topicos",
+      "tipo": "gestos",
       "capitulo": "Idioms",
       "titulo": "When learning is hard",
-      "itens": [
-        "**on a steep learning curve**: a lot to learn, fast",
-        "**go blank**: suddenly remember nothing",
-        "**run on empty**: no energy left"
-      ],
-      "fala": "First, three idioms for difficult moments. If you are on a steep learning curve, you have a lot to learn, very quickly. If your mind goes blank, you suddenly cannot remember anything. And if you are running on empty, you have no energy left, because you have worked too hard."
+      "fala": "First, three idioms for difficult moments. If you are on a steep learning curve, you have a lot to learn, very quickly. If your mind goes blank, you suddenly cannot remember anything. And if you are running on empty, you have no energy left, because you have worked too hard.",
+      "gestos": [
+        {
+          "arquivo": "ing-imgs/3tri/idioms/steep-learning-curve.svg",
+          "texto": "on a **steep learning curve**"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/idioms/go-blank.svg",
+          "texto": "your mind **goes blank**"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/idioms/run-on-empty.svg",
+          "texto": "**running on empty**"
+        }
+      ]
     },
     {
-      "tipo": "topicos",
+      "tipo": "gestos",
       "capitulo": "Idioms",
       "titulo": "When it goes well",
-      "itens": [
-        "**breeze through** a test: find it very easy",
-        "**get the hang of** it: learn it with practice",
-        "**get your head down**: concentrate on work",
-        "**give it your best shot**: try your hardest"
-      ],
-      "fala": "Now the positive ones. You breeze through a test when you find it very easy. You get the hang of something when you learn it after some practice. You get your head down when you concentrate seriously on your work. And you give it your best shot when you try as hard as you can, even if you might not succeed."
+      "fala": "Now the positive ones. You breeze through a test when you find it very easy. You get the hang of something when you learn it after some practice. You get your head down when you concentrate seriously on your work. And you give it your best shot when you try as hard as you can, even if you might not succeed.",
+      "gestos": [
+        {
+          "arquivo": "ing-imgs/3tri/idioms/breeze-through.svg",
+          "texto": "**breeze through** a test"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/idioms/get-the-hang-of.svg",
+          "texto": "**get the hang of** it"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/idioms/get-head-down.svg",
+          "texto": "**get your head down**"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/idioms/give-best-shot.svg",
+          "texto": "**give it your best shot**"
+        }
+      ]
     },
     {
-      "tipo": "topicos",
+      "tipo": "gestos",
       "capitulo": "Idioms",
       "titulo": "Help from other people",
-      "itens": [
-        "**drum** the rules **into** us: repeat until we learn",
-        "**keep** me **on track**: help me stay focused",
-        "Watch the **context**: it must agree with the idiom"
-      ],
-      "fala": "Two idioms involve other people. A teacher drums the rules into us when she repeats them until we learn. A study partner keeps me on track when he helps me stay focused on my goals. On the test, always read the whole context. The idiom must agree with the rest of the sentence."
+      "fala": "Two idioms involve other people. A teacher drums the rules into us when she repeats them until we learn. A study partner keeps me on track when he helps me stay focused on my goals. On the test, always read the whole context. The idiom must agree with the rest of the sentence.",
+      "gestos": [
+        {
+          "arquivo": "ing-imgs/3tri/idioms/drum-into.svg",
+          "texto": "**drum** the rules **into** us"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/idioms/keep-on-track.svg",
+          "texto": "**keep** me **on track**"
+        }
+      ]
     },
     {
       "tipo": "pergunta",
@@ -79,15 +112,36 @@
       "capitulo": "Attempt & effort",
       "titulo": "What kind of attempt was it?",
       "colunas": [
-        { "titulo": "Strong", "itens": ["**sustained**: over a long time", "**valiant**: brave, determined", "**strenuous**: needs lots of energy"] },
-        { "titulo": "Weak or wrong", "itens": ["**half-hearted**: no enthusiasm", "**misguided**: based on a bad idea", "**futile**: pointless", "**frantic**: desperate, rushed", "**last-ditch**: a final try"] }
+        {
+          "titulo": "Strong",
+          "itens": [
+            "**sustained**: over a long time",
+            "**valiant**: brave, determined",
+            "**strenuous**: needs lots of energy"
+          ]
+        },
+        {
+          "titulo": "Weak or wrong",
+          "itens": [
+            "**half-hearted**: no enthusiasm",
+            "**misguided**: based on a bad idea",
+            "**futile**: pointless",
+            "**frantic**: desperate, rushed",
+            "**last-ditch**: a final try"
+          ]
+        }
       ],
       "fala": "Some attempts are strong. A sustained effort continues over a long time. A valiant attempt is brave and determined. A strenuous effort needs a lot of physical or mental energy. Others are weak or wrong. A half-hearted effort has no enthusiasm. A misguided attempt is based on a bad idea. A futile attempt is pointless. A frantic attempt is desperate and rushed. And a last-ditch effort is the final try, when there is very little hope."
     },
     {
       "tipo": "pergunta",
       "pergunta": "Moving the heavy equipment upstairs left the students exhausted. It was a ___ effort.",
-      "alternativas": ["strenuous", "half-hearted", "futile", "misguided"],
+      "alternativas": [
+        "strenuous",
+        "half-hearted",
+        "futile",
+        "misguided"
+      ],
       "certa": "a",
       "explicacao": "Exhausted: it needed a lot of physical energy.",
       "fala": "Complete the sentence. Moving the heavy equipment upstairs left the students exhausted. It was a blank effort.",
@@ -105,8 +159,25 @@
       "capitulo": "Verb + preposition",
       "titulo": "Learn them as a pair",
       "colunas": [
-        { "titulo": "into · for · on", "itens": ["cram **into** a weekend", "sort notes **into** groups", "cram **for** an exam", "backfire **on** you", "munch **on** snacks"] },
-        { "titulo": "to · with · at · from", "itens": ["apply yourself **to**", "associate it **with**", "gape **at** the stage", "deflect attention **from**"] }
+        {
+          "titulo": "into · for · on",
+          "itens": [
+            "cram **into** a weekend",
+            "sort notes **into** groups",
+            "cram **for** an exam",
+            "backfire **on** you",
+            "munch **on** snacks"
+          ]
+        },
+        {
+          "titulo": "to · with · at · from",
+          "itens": [
+            "apply yourself **to**",
+            "associate it **with**",
+            "gape **at** the stage",
+            "deflect attention **from**"
+          ]
+        }
       ],
       "fala": "Learn each verb with its preposition. You cram your revision into one weekend, and you sort your notes into groups. You cram for an exam. A bad plan backfires on you. And you munch on snacks. On the other side: apply yourself to your studies. Associate a song with a memory. Gape at something surprising. And deflect attention from a problem."
     },
@@ -126,14 +197,17 @@
       "fala": "Topic four. The reading text. It is called Our Two Selves, and it was written by a tennis coach."
     },
     {
-      "tipo": "comparacao",
+      "tipo": "desenho",
       "capitulo": "Our Two Selves",
       "titulo": "Two selves on the court",
-      "colunas": [
-        { "titulo": "Self 1", "itens": ["**talks**, instructs and judges", "full of other people's **expectations**", "a cheap **calculator**"] },
-        { "titulo": "Self 2", "itens": ["actually **plays** the game", "learns **naturally**, like a child walking", "a powerful **supercomputer**"] }
-      ],
-      "fala": "The coach noticed two selves on the court. Self one talks. It instructs and judges, and it is full of other people's expectations. He compares it to a cheap calculator. Self two actually plays. It learns naturally, like a child learning to walk, by trial and correction. It is a powerful supercomputer. The more Self one talks, the worse Self two plays."
+      "fala": "The coach noticed two selves on the court. Self one talks. It instructs and judges, and it is full of other people's expectations. He compares it to a cheap calculator. Self two actually plays. It learns naturally, like a child learning to walk, by trial and correction. It is a powerful supercomputer. The more Self one talks, the worse Self two plays.",
+      "desenho": "ing-imgs/3tri/idioms/two-selves.svg",
+      "itens": [
+        "**Self 1** talks, instructs and judges",
+        "a cheap **calculator**",
+        "**Self 2** plays, learns naturally",
+        "a powerful **supercomputer**"
+      ]
     },
     {
       "tipo": "destaque",
@@ -167,8 +241,24 @@
       "capitulo": "Modal verbs",
       "titulo": "Now, and looking back",
       "colunas": [
-        { "titulo": "Present", "itens": ["**may**: permission", "**have to**: a rule", "**mustn't**: forbidden", "**ought to**: advice"] },
-        { "titulo": "Past: modal + have + participle", "itens": ["**must have**: almost certain", "**might have**: possible", "**can't have**: impossible", "**shouldn't have**: criticism"] }
+        {
+          "titulo": "Present",
+          "itens": [
+            "**may**: permission",
+            "**have to**: a rule",
+            "**mustn't**: forbidden",
+            "**ought to**: advice"
+          ]
+        },
+        {
+          "titulo": "Past: modal + have + participle",
+          "itens": [
+            "**must have**: almost certain",
+            "**might have**: possible",
+            "**can't have**: impossible",
+            "**shouldn't have**: criticism"
+          ]
+        }
       ],
       "fala": "In the present, may gives permission. Have to is a rule. Mustn't means it is forbidden. And ought to gives advice. In the past, we use the modal, plus have, plus the past participle. Must have means you are almost certain. Might have means it is possible. Can't have means it is impossible. And shouldn't have criticises something that somebody did."
     },
@@ -206,12 +296,30 @@
       "capitulo": "Body language",
       "titulo": "The face",
       "gestos": [
-        { "arquivo": "ing-imgs/3tri/furrow-your-brow.svg", "texto": "**furrow** your brow" },
-        { "arquivo": "ing-imgs/3tri/purse-your-lips.svg", "texto": "**purse** your lips" },
-        { "arquivo": "ing-imgs/3tri/wrinkle-your-nose.svg", "texto": "**wrinkle** your nose" },
-        { "arquivo": "ing-imgs/3tri/bite-your-lip.svg", "texto": "**bite** your lip" },
-        { "arquivo": "ing-imgs/3tri/grind-your-teeth.svg", "texto": "**grind** your teeth" },
-        { "arquivo": "ing-imgs/3tri/tilt-your-head.svg", "texto": "**tilt** your head" }
+        {
+          "arquivo": "ing-imgs/3tri/furrow-your-brow.svg",
+          "texto": "**furrow** your brow"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/purse-your-lips.svg",
+          "texto": "**purse** your lips"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/wrinkle-your-nose.svg",
+          "texto": "**wrinkle** your nose"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/bite-your-lip.svg",
+          "texto": "**bite** your lip"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/grind-your-teeth.svg",
+          "texto": "**grind** your teeth"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/tilt-your-head.svg",
+          "texto": "**tilt** your head"
+        }
       ],
       "fala": "Start with the face. You furrow your brow when you are confused. You purse your lips when you disapprove. You wrinkle your nose at a bad smell. You bite your lip when you are nervous. You grind your teeth in frustration. And you tilt your head when you are curious."
     },
@@ -220,12 +328,30 @@
       "capitulo": "Body language",
       "titulo": "The hands",
       "gestos": [
-        { "arquivo": "ing-imgs/3tri/drum-your-fingers.svg", "texto": "**drum** your fingers" },
-        { "arquivo": "ing-imgs/3tri/rub-your-hands-together.svg", "texto": "**rub** your hands together" },
-        { "arquivo": "ing-imgs/3tri/steeple-your-hands.svg", "texto": "**steeple** your hands" },
-        { "arquivo": "ing-imgs/3tri/stroke-your-chin.svg", "texto": "**stroke** your chin" },
-        { "arquivo": "ing-imgs/3tri/cross-your-fingers.svg", "texto": "**cross** your fingers" },
-        { "arquivo": "ing-imgs/3tri/give-a-thumbs-up.svg", "texto": "give a **thumbs up**" }
+        {
+          "arquivo": "ing-imgs/3tri/drum-your-fingers.svg",
+          "texto": "**drum** your fingers"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/rub-your-hands-together.svg",
+          "texto": "**rub** your hands together"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/steeple-your-hands.svg",
+          "texto": "**steeple** your hands"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/stroke-your-chin.svg",
+          "texto": "**stroke** your chin"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/cross-your-fingers.svg",
+          "texto": "**cross** your fingers"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/give-a-thumbs-up.svg",
+          "texto": "give a **thumbs up**"
+        }
       ],
       "fala": "Now the hands. You drum your fingers when you are impatient. You rub your hands together when something good is coming. You steeple your hands, fingertips together, when you feel confident. You stroke your chin while you think. You cross your fingers for luck. And you give a thumbs up to show approval."
     },
@@ -234,12 +360,30 @@
       "capitulo": "Body language",
       "titulo": "Arms, legs and hair",
       "gestos": [
-        { "arquivo": "ing-imgs/3tri/fold-your-arms.svg", "texto": "**fold** your arms" },
-        { "arquivo": "ing-imgs/3tri/shrug-your-shoulders.svg", "texto": "**shrug** your shoulders" },
-        { "arquivo": "ing-imgs/3tri/clear-your-throat.svg", "texto": "**clear** your throat" },
-        { "arquivo": "ing-imgs/3tri/cross-your-ankles.svg", "texto": "**cross** your ankles" },
-        { "arquivo": "ing-imgs/3tri/twirl-your-hair.svg", "texto": "**twirl** your hair" },
-        { "arquivo": "ing-imgs/3tri/flick-your-hair-back.svg", "texto": "**flick** your hair back" }
+        {
+          "arquivo": "ing-imgs/3tri/fold-your-arms.svg",
+          "texto": "**fold** your arms"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/shrug-your-shoulders.svg",
+          "texto": "**shrug** your shoulders"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/clear-your-throat.svg",
+          "texto": "**clear** your throat"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/cross-your-ankles.svg",
+          "texto": "**cross** your ankles"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/twirl-your-hair.svg",
+          "texto": "**twirl** your hair"
+        },
+        {
+          "arquivo": "ing-imgs/3tri/flick-your-hair-back.svg",
+          "texto": "**flick** your hair back"
+        }
       ],
       "fala": "Finally, the rest of the body. You fold your arms across your chest. You shrug your shoulders when you don't know. You clear your throat before you speak. You cross your ankles when you sit. You twirl your hair around your finger. And you flick your hair back from your face."
     },
@@ -259,7 +403,12 @@
     {
       "tipo": "pergunta",
       "pergunta": "After their argument, she deliberately ignored him. She ___.",
-      "alternativas": ["gave him the cold shoulder", "kept her chin up", "got cold feet", "turned her nose up at him"],
+      "alternativas": [
+        "gave him the cold shoulder",
+        "kept her chin up",
+        "got cold feet",
+        "turned her nose up at him"
+      ],
       "certa": "a",
       "explicacao": "To ignore someone on purpose is to give them the cold shoulder.",
       "fala": "Last question. After their argument, she deliberately ignored him. What did she do?",
