@@ -84,7 +84,8 @@
           "arquivo": "ing-imgs/3tri/idioms/keep-on-track.svg",
           "texto": "**keep** me **on track**"
         }
-      ]
+      ],
+      "nota": "On the test, read the whole **context**: it must agree with the idiom."
     },
     {
       "tipo": "pergunta",
@@ -197,26 +198,6 @@
       "fala": "Topic four. The reading text. It is called Our Two Selves, and it was written by a tennis coach."
     },
     {
-      "tipo": "desenho",
-      "capitulo": "Our Two Selves",
-      "titulo": "Two selves on the court",
-      "fala": "The coach noticed two selves on the court. Self one talks. It instructs and judges, and it is full of other people's expectations. He compares it to a cheap calculator. Self two actually plays. It learns naturally, like a child learning to walk, by trial and correction. It is a powerful supercomputer. The more Self one talks, the worse Self two plays.",
-      "desenho": "ing-imgs/3tri/idioms/two-selves.svg",
-      "itens": [
-        "**Self 1** talks, instructs and judges",
-        "a cheap **calculator**",
-        "**Self 2** plays, learns naturally",
-        "a powerful **supercomputer**"
-      ]
-    },
-    {
-      "tipo": "destaque",
-      "capitulo": "Our Two Selves",
-      "titulo": "The main idea",
-      "texto": "Quiet the judging voice, and **natural ability** comes out.",
-      "fala": "Remember Molly. She was sure she could never play tennis. The coach asked her only to say bounce and hit, in time with the ball. Focused and relaxed, she stopped missing. So the main idea is this: quiet the judging voice, and natural ability comes out, in relaxed concentration, without judgement."
-    },
-    {
       "tipo": "topicos",
       "capitulo": "Our Two Selves",
       "titulo": "Words from the text",
@@ -225,7 +206,9 @@
         "**exuberance**: great energy and joy",
         "**pertinent**: directly relevant",
         "**mediocrity**: not being very good",
-        "**barrage**: lots of questions or criticism"
+        "**barrage**: lots of questions or criticism",
+        "**interference**: something that gets in the way",
+        "**leap**: to make a large jump"
       ],
       "fala": "Now the vocabulary from the text. Adroit means skilful. Exuberance is great energy and joy. Pertinent means directly relevant. Mediocrity is the quality of not being very good. And a barrage is a great number of questions or criticisms. Also remember interference, something that gets in the way, and leap, to make a large jump."
     },

@@ -192,8 +192,9 @@ for (const c of rot.cenas) {
     enter(`#${id}-t`, 0.2);
     enter(`#${id}-f`, 0.4, { opacity: 0, y: 40 }, 0.8);
     const tr = momentos(['**' + (c.frase.match(/\*\*(.+?)\*\*/) || [0, ''])[1] + '**'], c.fala, A, 1.2)[0];
-    marca(r.ids, Math.max(1.2, tr + 1.2));
-    enter(`#${id}-r`, Math.max(1.8, tr + 1.8), { opacity: 0, y: 30 });
+    // o destaque e o rótulo nunca podem passar do fim da fala (senão a cena acaba sem eles)
+    marca(r.ids, Math.min(Math.max(1.2, tr + 1.2), A * 0.6));
+    enter(`#${id}-r`, Math.min(Math.max(1.8, tr + 1.8), A * 0.7), { opacity: 0, y: 30 });
   }
   if (c.tipo === 'reescrita') {
     const ra = rich(c.antes, 'risca'), rd = rich(c.depois, 'novo');
@@ -240,7 +241,8 @@ for (const c of rot.cenas) {
     const ts = momentos(lista.map(g => g.texto), c.fala, A, 0.9);
     if (c.tipo === 'gestos') {
       h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
-        <div class="gestos n${lista.length}">${lista.map((g, i) => { const r = rich(g.texto); r.ids.length && marca(r.ids, ts[i] + 0.3); return `<figure class="gesto" id="${id}-g${i}">${svgInline(g.arquivo)}<figcaption>${r.h}</figcaption></figure>`; }).join('')}</div></div>`;
+        <div class="gestos n${lista.length}">${lista.map((g, i) => { const r = rich(g.texto); r.ids.length && marca(r.ids, ts[i] + 0.3); return `<figure class="gesto" id="${id}-g${i}">${svgInline(g.arquivo)}<figcaption>${r.h}</figcaption></figure>`; }).join('')}</div>
+        ${c.nota ? (() => { const r = rich(c.nota); const tn = momentos([c.nota], c.fala, A, ts[ts.length - 1] + 1.5)[0]; r.ids.length && marca(r.ids, tn + 0.3); enter(`#${id}-nota`, tn, { opacity: 0, y: 30 }); return `<p class="nota" id="${id}-nota">${r.h}</p>`; })() : ''}</div>`;
       lista.forEach((_, i) => enter(`#${id}-g${i}`, ts[i], { opacity: 0, y: 50, scale: 0.85 }, 0.55));
     } else {
       h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
@@ -353,6 +355,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
 .gestos{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 40px;margin-top:-20px}
 .gestos.n2,.gestos.n3,.gestos.n4{grid-template-columns:repeat(2,1fr);gap:22px 60px}
 .gesto .hl{white-space:nowrap}
+.nota{margin-top:56px;font-size:46px;line-height:1.25;font-weight:600;border-left:6px solid var(--a);padding-left:26px;max-width:1500px}
 .gesto{display:flex;align-items:center;gap:24px}
 .gesto .desenho{width:220px;height:220px;flex:none;border-radius:28px}
 .gesto figcaption{font-size:40px;line-height:1.15;font-weight:700}
