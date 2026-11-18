@@ -11,7 +11,7 @@ const tri = process.argv[2] || '3tri', arq = join(RAIZ, `biologia-${tri}.html`);
 const crlf = readFileSync(arq, 'utf8').includes('\r\n');
 let html = readFileSync(arq, 'utf8').replace(/\r\n/g, '\n');
 const fonte = readFileSync(join(AQUI, `labs-${tri}.html`), 'utf8');
-const js = '(function () {\n' + readFileSync(join(AQUI, 'labs-comum.js'), 'utf8') + '\n' + readFileSync(join(AQUI, `labs-${tri}.js`), 'utf8') + '\n})();';
+const js = readFileSync(join(AQUI, '..', 'labs-ui.js'), 'utf8') + '\n(function () {\n' + readFileSync(join(AQUI, 'labs-comum.js'), 'utf8') + '\n' + readFileSync(join(AQUI, `labs-${tri}.js`), 'utf8') + '\n})();';
 
 // limpa execuções anteriores
 html = html.replace(/\n?<!-- LABS:[\w-]+ -->[\s\S]*?<!-- \/LABS -->\n?/g, '\n')

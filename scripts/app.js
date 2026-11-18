@@ -408,7 +408,11 @@
   }
 
   function iniciar() {
-    if (document.body.classList.contains('resumo')) montarResumo();
+    if (document.body.classList.contains('resumo')) {
+      montarResumo();
+      // clique na foto para ampliar (scripts/zoom-fotos.js)
+      var z = document.createElement('script'); z.src = 'scripts/zoom-fotos.js'; z.defer = true; document.body.appendChild(z);
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', iniciar);
   else iniciar();

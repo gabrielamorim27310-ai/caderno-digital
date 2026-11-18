@@ -2,359 +2,177 @@
   "pagina": "filosofia-3tri",
   "materia": "filosofia",
   "titulo": "Filosofia · 3º tri",
-  "formato": "horizontal",
+  "capitulos": ["Identidade", "Pré-socráticos", "Clássicos", "Hegel", "Marx", "Han"],
   "cenas": [
     {
       "tipo": "capa",
       "selo": "Filosofia · 3º trimestre",
-      "titulo": "Ser, Movimento e Conhecimento",
-      "subtitulo": "Demócrito · Platão · Aristóteles · Byung-Chul Han · Hegel",
-      "imagem": "pensador.png",
-      "fala": "Bora revisar Filosofia do terceiro trimestre: Demócrito, Platão, Aristóteles Biung Tchul Ran e a infocracia, e, no fim, Hêguel e a dialética."
+      "titulo": "Sou ou estou sendo?",
+      "subtitulo": "Identidade: de Heráclito a Byung-Chul Han",
+      "fala": "Revisão de Filosofia do terceiro trimestre. O tema é identidade, e a pergunta que liga tudo é: eu sou, ou eu estou sendo? Vamos passar por Heráclito e Parmênides, por Demócrito, Platão e Aristóteles, por Hêguel, por Márks e, no fim, por Biung Tchul Ran e a infocracia."
     },
     {
       "tipo": "comparacao",
-      "titulo": "O problema de fundo: movimento ou permanência?",
+      "titulo": "Identidade como problema",
       "colunas": [
-        {
-          "titulo": "Heráclito",
-          "itens": [
-            "Tudo muda",
-            "A realidade é **fluxo**",
-            "Ninguém se banha duas vezes no mesmo rio"
-          ]
-        },
-        {
-          "titulo": "Parmênides",
-          "itens": [
-            "O Ser **não muda**",
-            "O não-ser não é",
-            "A mudança é ilusão dos sentidos"
-          ]
-        }
+        { "titulo": "Sou", "itens": ["Algo **permanece**", "Um Ser, uma **essência**", "Linha de Parmênides"] },
+        { "titulo": "Estou sendo", "itens": ["Identidade é **processo**", "Mudança e contrários", "Linha de Heráclito"] }
       ],
-      "fala": "Tudo começa num conflito. Para Heráclito, tudo muda: a realidade é fluxo. Para Parmênides, o Ser é eterno e imutável, e a mudança é ilusão dos sentidos. Os três filósofos clássicos tentam conciliar essas duas ideias, cada um do seu jeito."
+      "fala": "Em português, ser e estar são verbos diferentes. Eu sou sugere algo fixo, uma essência. Eu estou sendo sugere um processo, que ainda está acontecendo. O problema é este: se tudo em mim muda, o corpo, as ideias, os gostos, o que garante que eu continuo sendo eu?"
     },
     {
       "tipo": "capitulo",
-      "capitulo": "Parte 1",
-      "titulo": "Demócrito",
-      "subtitulo": "Atomismo · Conhecimento sensível e racional",
-      "fala": "Parte um: Demócrito, um filósofo pré-socrático."
-    },
-    {
-      "tipo": "topicos",
-      "capitulo": "Atomismo",
-      "titulo": "A realidade é feita de átomos e vazio",
-      "itens": [
-        "**Átomos**: pequenos, indivisíveis e eternos; compõem o Ser",
-        "Onde há átomo, há **movimento**",
-        "**Vazio**: ausência de átomos, não é o nada",
-        "O vazio é um **não-ser** que existe: o espaço do movimento"
-      ],
-      "fala": "Os pré-socráticos estudavam a physis, a natureza, e a arqué, o princípio de todas as coisas. Para Demócrito, a realidade é feita de átomos, partes pequenas, indivisíveis e eternas, e de vazio. Cuidado: o vazio não é o nada. É o espaço que os átomos precisam para se mover. É um não-ser que existe."
+      "capitulo": "1",
+      "titulo": "Heráclito e Parmênides",
+      "subtitulo": "Os pré-socráticos e a contradição",
+      "fala": "Primeiro, os pré-socráticos. Eles estudavam a natureza e procuravam a arqué, o princípio de todas as coisas. Heráclito e Parmênides deram duas respostas opostas."
     },
     {
       "tipo": "comparacao",
-      "titulo": "Como Demócrito concilia os dois",
+      "titulo": "Devir × Ser",
       "colunas": [
-        {
-          "titulo": "De Parmênides",
-          "itens": [
-            "Átomos **imutáveis**",
-            "Nada surge do nada"
-          ]
-        },
-        {
-          "titulo": "De Heráclito",
-          "itens": [
-            "Átomos **em movimento**",
-            "Nascer = junção · Morrer = separação"
-          ]
-        }
+        { "titulo": "Heráclito", "itens": ["**Tudo flui**: devir", "O mesmo rio nunca é o mesmo", "Luta dos **contrários**"] },
+        { "titulo": "Parmênides", "itens": ["**O Ser é**, o não-ser não é", "Uno, eterno, **imóvel**", "Mudança é ilusão dos sentidos"] }
       ],
-      "fala": "De Parmênides, ele pega a permanência: os átomos não mudam e não acabam. De Heráclito, pega a mudança: os átomos se movem, se juntam e se separam. Nascer é a junção dos átomos. Morrer é a separação deles. Os átomos continuam os mesmos."
-    },
-    {
-      "tipo": "comparacao",
-      "titulo": "Dois tipos de conhecimento",
-      "colunas": [
-        {
-          "titulo": "Sensível",
-          "itens": [
-            "Imagens, sabores, cheiros",
-            "Efeito dos átomos nos **sentidos**",
-            "Não é falso, mas fica nas **aparências**"
-          ]
-        },
-        {
-          "titulo": "Racional",
-          "itens": [
-            "Entende os átomos e seus movimentos",
-            "**Ultrapassa os sentidos** pela razão",
-            "Compreensão mais profunda"
-          ]
-        }
-      ],
-      "fala": "Demócrito separa o conhecimento em dois. O sensível vem do efeito dos átomos nos nossos sentidos. Ele não é necessariamente falso nem pior, mas fica limitado às aparências. O racional entende os átomos e vai além dos sentidos."
-    },
-    {
-      "tipo": "destaque",
-      "titulo": "Exemplo da refração",
-      "texto": "O lápis no copo d'água **parece torto** (sentidos). A razão sabe que é a **refração da luz**.",
-      "fala": "O exemplo da aula: um lápis dentro de um copo de água parece torto. Isso é o conhecimento sensível. Pelo conhecimento racional, você sabe que o lápis está reto e que o que acontece é a refração da luz."
+      "fala": "Para Heráclito, tudo flui. Ninguém se banha duas vezes no mesmo rio, porque nem o rio nem a pessoa são os mesmos. A tensão entre os contrários gera o movimento. Para Parmênides, o Ser é, e o não-ser não é. O Ser é uno, eterno e imóvel. A mudança que vemos é ilusão dos sentidos, e só a razão chega à verdade. É daí que vem o princípio de identidade: o que é, é."
     },
     {
       "tipo": "pergunta",
-      "pergunta": "Para Demócrito, o vazio é:",
-      "alternativas": [
-        "O nada absoluto, que não existe",
-        "Um não-ser que existe como espaço do movimento",
-        "O mundo das Ideias perfeitas"
-      ],
+      "pergunta": "Para Parmênides, a mudança que percebemos é:",
+      "alternativas": ["a lei que ordena o mundo", "ilusão dos sentidos", "a luta dos contrários", "a passagem da potência ao ato"],
       "certa": "b",
-      "explicacao": "O vazio é ausência de átomos, mas existe: sem ele, não haveria movimento.",
-      "fala": "Pergunta rápida. Para Demócrito, o vazio é o quê?",
-      "falaResposta": "Letra B. O vazio é um não-ser que existe, porque é o espaço necessário para os átomos se moverem. O mundo das Ideias é Platão."
+      "explicacao": "O Ser é uno e imóvel; só a razão alcança a verdade.",
+      "fala": "Pergunta. Para Parmênides, a mudança que percebemos é o quê?",
+      "falaResposta": "Letra b: ilusão dos sentidos. O Ser é uno e imóvel, e só a razão alcança a verdade."
     },
     {
       "tipo": "capitulo",
-      "capitulo": "Parte 2",
-      "titulo": "Platão",
-      "subtitulo": "O dualismo: mundo inteligível e mundo sensível",
-      "fala": "Parte dois: Platão e o dualismo."
-    },
-    {
-      "tipo": "comparacao",
-      "titulo": "Platão divide a realidade em duas",
-      "colunas": [
-        {
-          "titulo": "Mundo Inteligível",
-          "itens": [
-            "**Permanente** (Parmênides)",
-            "Essências perfeitas e imutáveis",
-            "**Episteme**: conhecimento verdadeiro"
-          ]
-        },
-        {
-          "titulo": "Mundo Sensível",
-          "itens": [
-            "**Em movimento** (Heráclito)",
-            "Instável e corruptível",
-            "**Doxa**: opinião, pelos sentidos"
-          ]
-        }
-      ],
-      "fala": "Platão também concilia os dois, mas dividindo a realidade. O mundo inteligível é permanente, como queria Parmênides, e é onde está a episteme, o conhecimento verdadeiro. O mundo sensível está em movimento, como queria Heráclito, e gera só a doxa, a opinião."
+      "capitulo": "2",
+      "titulo": "Superando a contradição",
+      "subtitulo": "Demócrito · Platão · Aristóteles",
+      "fala": "Agora, três filósofos que tentam juntar as duas respostas: Demócrito, Platão e Aristóteles."
     },
     {
       "tipo": "topicos",
-      "capitulo": "Mundo Inteligível",
-      "titulo": "As essências",
-      "itens": [
-        "Superiores, perfeitas e imutáveis",
-        "As 4 principais: **Bem, Justiça, Beleza e Verdade**",
-        "Alcançadas **só pela razão**: reminiscência e dialética",
-        "O sensível é **cópia imperfeita** delas"
-      ],
-      "fala": "No mundo inteligível ficam as essências, perfeitas e imutáveis. As quatro principais são o Bem, a Justiça, a Beleza e a Verdade. Elas só são alcançadas pela razão, pela reminiscência e pela dialética. E tudo no mundo sensível é uma imagem imperfeita delas: as coisas mudam, mas sempre em relação a essas essências."
-    },
-    {
-      "tipo": "capitulo",
-      "capitulo": "Parte 3",
-      "titulo": "Aristóteles",
-      "subtitulo": "Essências · Abstração · Ato e Potência · Primeiro Motor",
-      "fala": "Parte três: Aristóteles e a metafísica."
-    },
-    {
-      "tipo": "topicos",
-      "capitulo": "Metafísica",
-      "titulo": "A filosofia primeira",
-      "itens": [
-        "Temas **além dos sentidos**: Deus, alma, tempo, essência",
-        "Investiga os **princípios e causas** de todas as coisas",
-        "**Essência**: o que a natureza atribui a tudo que existe",
-        "Ir contra a essência é ir contra a **ordem universal**"
-      ],
-      "fala": "A metafísica trata de temas além dos sentidos, como Deus, alma, tempo e essência. É a filosofia primeira, que investiga os princípios e causas de todas as coisas. Essência é a caracterização que a natureza dá a tudo que existe. Usar uma caneta para matar alguém, em vez de escrever, é ir contra a essência dela."
+      "capitulo": "Demócrito",
+      "titulo": "Átomos e vazio",
+      "itens": ["**Átomos**: indivisíveis e eternos (Parmênides)", "Movimento e recombinação (Heráclito)", "**Vazio**: não é o nada, é o espaço do movimento", "Nascer é juntar átomos; morrer é separar"],
+      "fala": "Demócrito diz que a realidade é feita de átomos e vazio. Os átomos são indivisíveis e eternos: é a herança de Parmênides. Mas eles se movem e se recombinam o tempo todo: é a herança de Heráclito. O vazio não é o nada, é o espaço que permite o movimento. Nascer é juntar átomos, morrer é separar, e os átomos continuam os mesmos."
     },
     {
       "tipo": "comparacao",
-      "titulo": "Onde ficam as essências?",
+      "titulo": "Platão: dois mundos",
       "colunas": [
-        {
-          "titulo": "Platão",
-          "itens": [
-            "No **mundo inteligível**",
-            "Separado do mundo físico"
-          ]
-        },
-        {
-          "titulo": "Aristóteles",
-          "itens": [
-            "**Nas próprias coisas**",
-            "Recusa o dualismo platônico"
-          ]
-        }
+        { "titulo": "Mundo inteligível", "itens": ["**Ideias** perfeitas e imutáveis", "Bem, Justiça, Beleza, Verdade", "Razão: **episteme**"] },
+        { "titulo": "Mundo sensível", "itens": ["Cópias **imperfeitas**", "Instável e corruptível", "Sentidos: **doxa**"] }
       ],
-      "fala": "Esse é o ponto que mais cai. Platão e Aristóteles aceitam as essências, mas discordam sobre onde elas estão. Para Platão, num mundo inteligível separado. Para Aristóteles, nas próprias coisas, homens e ações do mundo físico."
-    },
-    {
-      "tipo": "comparacao",
-      "titulo": "Abstração: propriedades e essência",
-      "colunas": [
-        {
-          "titulo": "Caneta azul",
-          "itens": [
-            "Propriedades: cor, tamanho, material",
-            "Essência: **escrever**"
-          ]
-        },
-        {
-          "titulo": "Ser humano",
-          "itens": [
-            "Propriedades: altura, cor, traços",
-            "Essência: **ser racional**"
-          ]
-        }
-      ],
-      "fala": "Pela abstração, a razão e a observação separam as propriedades, que variam, da essência, que não varia. A essência da caneta é escrever. A do ser humano é ser racional. E lembre: as duas coisas estão no mundo físico."
+      "fala": "Platão divide a realidade em dois. O mundo inteligível é permanente, onde ficam as Ideias, como a Beleza e a Justiça. Só a razão chega lá, pela reminiscência e pela dialética, e isso é episteme, conhecimento verdadeiro. O mundo sensível muda o tempo todo: as coisas são cópias imperfeitas das Ideias, e pelos sentidos só temos doxa, opinião. A flor murcha. A Beleza em si, não."
     },
     {
       "tipo": "topicos",
-      "capitulo": "Movimento x Permanência",
-      "titulo": "Ato e potência",
-      "itens": [
-        "**Potência**: capacidade de virar uma forma nova",
-        "**Ato**: a forma já realizada",
-        "**Movimento**: passagem da potência ao ato",
-        "Semente → árvore"
-      ],
-      "fala": "Para explicar o movimento, Aristóteles usa ato e potência. A semente já tem a essência de uma árvore e a potência de se tornar uma. A árvore é a forma em ato. O movimento é a passagem da potência para o ato. Assim, as coisas mudam, mas a essência permanece nelas. Não precisa de dois mundos."
-    },
-    {
-      "tipo": "destaque",
-      "titulo": "Primeiro Motor Imóvel",
-      "texto": "Todo movimento vem de outro. Então tem de haver um **primeiro**, que move sem ser movido: **ato puro e perfeito**.",
-      "fala": "Todo movimento precisa de outro anterior para existir. Para não ir ao infinito, tem de haver um primeiro motor imóvel, um ser divino que é ato puro e perfeito. Atenção: não é o Deus cristão, porque Aristóteles veio antes do cristianismo."
+      "capitulo": "Aristóteles",
+      "titulo": "Um mundo só: essência, ato e potência",
+      "itens": ["A **essência** está nas próprias coisas", "**Abstração**: razão + observação", "Semente: árvore em **potência**; árvore: **ato**", "**Primeiro motor imóvel**: ato puro"],
+      "fala": "Aristóteles recusa os dois mundos. A essência está nas próprias coisas, e a razão, junto com a observação, separa a essência das propriedades. O movimento é a passagem da potência ao ato. A semente já tem a essência de árvore: ela muda, mas não vira qualquer coisa. E para não voltar ao infinito, deve existir um primeiro motor imóvel, que é ato puro. Cuidado: ele não é o Deus cristão."
     },
     {
       "tipo": "pergunta",
-      "pergunta": "Uma semente que vira árvore mostra, para Aristóteles:",
-      "alternativas": [
-        "A passagem da potência ao ato",
-        "Uma cópia imperfeita da Ideia de árvore",
-        "A junção de átomos no vazio"
-      ],
-      "certa": "a",
-      "explicacao": "A semente é árvore em potência; a árvore é a forma em ato; a passagem é o movimento.",
-      "fala": "Mais uma. Uma semente que vira árvore mostra o quê, para Aristóteles?",
-      "falaResposta": "Letra A: a passagem da potência ao ato. Cópia da Ideia é Platão, e junção de átomos é Demócrito."
+      "pergunta": "Onde está a essência para Aristóteles?",
+      "alternativas": ["No mundo inteligível", "Nos átomos", "Nas próprias coisas", "Nos dados"],
+      "certa": "c",
+      "explicacao": "Ele recusa o dualismo de Platão: a essência está nas coisas do mundo físico.",
+      "fala": "Pergunta. Onde está a essência para Aristóteles?",
+      "falaResposta": "Letra c: nas próprias coisas. Platão a colocava no mundo inteligível; Aristóteles recusa os dois mundos."
     },
     {
       "tipo": "capitulo",
-      "capitulo": "Parte 4",
-      "titulo": "Byung-Chul Han",
-      "subtitulo": "Infocracia e polarização no mundo digital",
-      "fala": "Parte quatro: Biung Tchul Ran, filósofo sul-coreano que pensa a política no mundo digital."
-    },
-    {
-      "tipo": "topicos",
-      "capitulo": "Infocracia",
-      "titulo": "O governo da informação",
-      "itens": [
-        "Democracia nasce da **deliberação pública**",
-        "A esfera de debate hoje pode estar **na internet**",
-        "Domínio da informação decide o **controle da democracia**",
-        "Empresas e Estados têm **dados** para manipular"
-      ],
-      "fala": "A democracia surgiu como deliberação pública, o poder conjunto do povo, debatendo numa esfera pública, que hoje pode estar na internet. Infocracia é o governo da informação: quem domina a informação digital tem peso decisivo na democracia. Empresas e Estados têm dados com potencial de controle e manipulação."
-    },
-    {
-      "tipo": "destaque",
-      "titulo": "Algoritmos e polarização",
-      "texto": "O algoritmo é uma **bolha isolante**: cada perfil recebe seu nicho, e a **polarização** se intensifica.",
-      "fala": "E os algoritmos? Eles funcionam como uma bolha isolante. Direcionam a informação para cada usuário de acordo com o seu nicho e o seu perfil. Existem muitas fontes, mas cada grupo só vê o que confirma o que já pensa. O resultado é a polarização."
-    },
-    {
-      "tipo": "capitulo",
-      "capitulo": "Parte 5",
+      "capitulo": "3",
       "titulo": "Hegel",
-      "subtitulo": "Dialética e Espírito Absoluto",
-      "fala": "Parte cinco, a última: Hêguel, filósofo idealista alemão."
+      "subtitulo": "O real é racional e o racional é real",
+      "fala": "Agora, Hêguel, filósofo idealista alemão."
     },
     {
-      "tipo": "comparacao",
-      "titulo": "Aceitação do contraditório",
-      "colunas": [
-        {
-          "titulo": "Lógica grega",
-          "itens": [
-            "Princípio da **não contradição**",
-            "Algo não pode ser e não ser ao mesmo tempo"
-          ]
-        },
-        {
-          "titulo": "Hegel",
-          "itens": [
-            "A contradição **rege a realidade**",
-            "**Pares de opostos**: quente x frio"
-          ]
-        }
-      ],
-      "fala": "Até então, a base da filosofia era a lógica grega da não contradição: algo não pode ser e não ser ao mesmo tempo. Hêguel aceita a contradição. Para ele, é ela que rege a realidade. Todo elemento já traz em si o seu oposto: não dá para pensar o quente sem o frio. E essa oposição é o que move a realidade e a história."
-    },
-    {
-      "tipo": "comparacao",
-      "titulo": "O que muda a história?",
-      "colunas": [
-        {
-          "titulo": "Hegel · idealismo",
-          "itens": [
-            "As **ideias**: produção cultural",
-            "Artes, leis, tecnologia"
-          ]
-        },
-        {
-          "titulo": "Marx · materialismo",
-          "itens": [
-            "A **economia**",
-            "Transformações econômicas"
-          ]
-        }
-      ],
-      "fala": "A dialética de Hêguel tenta explicar como a humanidade avança, por contradições e superações. E o que muda a história são as ideias, a produção cultural: artes, leis, tecnologia, tudo que o ser humano cria contra a natureza. Marx discorda: para ele, quem move a história é a economia. Idealismo contra materialismo."
+      "tipo": "destaque",
+      "titulo": "Idealismo",
+      "texto": "\"O que é racional é real, e o que é real é racional.\"",
+      "fala": "Hêguel é idealista: o fundamento da realidade e o motor da história são a razão e as ideias, o Espírito. A frase mais famosa dele é: o que é racional é real, e o que é real é racional. Nada na história é por acaso. Pensamento e realidade têm a mesma estrutura, e a razão se realiza no mundo, nas leis, na arte, na cultura."
     },
     {
       "tipo": "topicos",
-      "capitulo": "Espírito Absoluto",
-      "titulo": "Tese, antítese e síntese",
-      "itens": [
-        "**Espírito Absoluto**: a razão que guia e aperfeiçoa a história",
-        "Progresso **acumulativo**, por estágios",
-        "**Não linear**: avança pelo choque de etapas",
-        "Antigo Regime + Revolução Francesa → **Napoleão**"
+      "capitulo": "Hegel",
+      "titulo": "A dialética",
+      "itens": ["Aceita a **contradição**: ela move o real", "**Tese** + **antítese** → **síntese**", "Antigo Regime + Revolução → Napoleão", "Espírito Absoluto: progresso **acumulativo**"],
+      "fala": "Ao contrário da lógica grega, Hêguel aceita a contradição. É ela que move a realidade, como em Heráclito. A tese encontra a sua antítese, e o choque gera uma síntese, que supera e conserva as duas. Exemplo: o Antigo Regime, a Revolução Francesa e, como síntese, Napoleão. A síntese vira nova tese, e o processo se repete. O Espírito Absoluto guia esse progresso, que é acumulativo e não linear."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "4",
+      "titulo": "Marx",
+      "subtitulo": "A crítica ao idealismo de Hegel",
+      "fala": "Agora, Márks, e a crítica dele a Hêguel."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "A dialética de cabeça para baixo",
+      "colunas": [
+        { "titulo": "Hegel · idealismo", "itens": ["As **ideias** movem a história", "O Espírito vem primeiro"] },
+        { "titulo": "Marx · materialismo", "itens": ["A **economia** move a história", "**Luta de classes**", "O ser social determina a consciência"] }
       ],
-      "fala": "O Espírito Absoluto é o processo racional que guia e aperfeiçoa a história da humanidade. Ela avança de forma acumulativa, mas não linear, pelo choque entre etapas: tese, antítese e síntese. O Antigo Regime é a tese. A Revolução Francesa, a antítese. Napoleão é a síntese, que junta os dois. Depois, a síntese vira nova tese, e tudo se repete."
+      "fala": "Márks mantém a dialética, mas troca o motor. Para ele, não são as ideias que movem a história, são as condições materiais: o jeito como a sociedade produz a vida. A base econômica determina as leis, o Estado e as ideias. E a história avança pela luta de classes: senhores e escravos, senhores feudais e servos, burguesia e proletariado. Márks diz que, em Hêguel, a dialética está de cabeça para baixo, e que é preciso colocá-la de pé. Não é a consciência que determina o ser: é o ser social que determina a consciência."
     },
     {
       "tipo": "pergunta",
-      "pergunta": "Para Hegel, o que move as mudanças da história?",
-      "alternativas": [
-        "As transformações econômicas",
-        "As ideias e a produção cultural",
-        "O acaso dos acontecimentos"
-      ],
+      "pergunta": "Qual é a crítica de Marx a Hegel?",
+      "alternativas": ["Abandona a dialética", "Troca as ideias pelas condições materiais", "Diz que o Ser é imóvel", "Nega a luta de classes"],
       "certa": "b",
-      "explicacao": "Hegel é idealista: as ideias movem a história. A economia é a resposta de Marx.",
-      "fala": "Última pergunta. Para Hêguel, o que move as mudanças da história?",
-      "falaResposta": "Letra B: as ideias e a produção cultural. As transformações econômicas são a resposta de Marx, que é materialista."
+      "explicacao": "Marx mantém a dialética, mas o motor da história passa a ser a economia.",
+      "fala": "Pergunta. Qual é a crítica de Márks a Hêguel?",
+      "falaResposta": "Letra b. Márks mantém a dialética, mas troca as ideias pelas condições materiais como motor da história."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "5",
+      "titulo": "Byung-Chul Han",
+      "subtitulo": "Identidade digital e infocracia",
+      "fala": "Por fim, Biung Tchul Ran, filósofo sul-coreano que pensa a identidade política no mundo digital."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Han",
+      "titulo": "Infocracia: o governo da informação",
+      "itens": ["Democracia: **deliberação pública**", "Dados nas mãos de **empresas e Estados**", "Algoritmo como **bolha isolante**", "Mais **polarização** ideológica"],
+      "fala": "A democracia nasce como deliberação pública: o povo debatendo e decidindo junto. Hoje, essa esfera pública pode ser a internet. Na infocracia, o governo da informação, quem domina os dados domina a política. E o algoritmo funciona como uma bolha isolante: entrega a cada um só o seu nicho. Sem contato com o diferente, o debate enfraquece e a polarização aumenta."
+    },
+    {
+      "tipo": "comparacao",
+      "titulo": "O poder mudou de forma",
+      "colunas": [
+        { "titulo": "Antes", "itens": ["Poder **negativo** e visível", "Proibição, obediência", "\"Você não deve\""] },
+        { "titulo": "Hoje", "itens": ["Informação e **autoexploração**", "**Aparência da liberdade**", "\"Você pode\""] }
+      ],
+      "fala": "Antes, o poder era negativo e visível: proibição, obediência, disciplina. Hoje ele se apoia na informação e na autoexploração. Ninguém proíbe; a própria pessoa se expõe e gera dados. Isso é a psicopolítica: a aparência da liberdade. Você pesquisa um produto, começa a ver anúncios dele em todo lugar e acaba comprando, achando que escolheu sozinho. É o capitalismo de vigilância, em que dados viram mercadoria preciosa."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Han",
+      "titulo": "Dataísmo e excesso de positividade",
+      "itens": ["**Dataísmo**: dados como fonte da verdade", "Reduz o ser humano a dados", "Liberdade, amor, felicidade: **imensuráveis**", "Saída: menos tela, mais **laços**"],
+      "fala": "O dataísmo é usar dados e algoritmos como principal fonte da verdade. Ao acordar, a pessoa não pergunta como dormiu: olha a nota do relógio. Ran critica isso porque reduz o ser humano a dados e tira o pensamento crítico. Liberdade, amor e felicidade não se medem. Ele também critica o excesso de positividade: esconder os sentimentos negativos para parecer perfeito gera pessoas esgotadas. As saídas: diminuir o tempo de tela, retomar a autonomia e reconstruir os laços de confiança."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "O que Han chama de psicopolítica?",
+      "alternativas": ["Proibições visíveis do Estado", "A aparência da liberdade, com autoexploração", "O governo direto do povo", "A luta de classes"],
+      "certa": "b",
+      "explicacao": "O indivíduo se sente livre, mas é influenciado por dados, consumo e pressões sociais.",
+      "fala": "Última pergunta. O que Ran chama de psicopolítica?",
+      "falaResposta": "Letra b: a aparência da liberdade. A pessoa se sente livre, mas é influenciada pelos dados que ela mesma gerou, pelo consumo e pelas pressões sociais."
     },
     {
       "tipo": "fim",
       "titulo": "Bons estudos!",
-      "texto": "Faça o quiz de 29 questões no Caderno Digital.",
-      "fala": "É isso! Agora faça o quiz no Caderno Digital para fixar. Bons estudos!"
+      "texto": "Mexa nos laboratórios e faça o quiz no Caderno Digital.",
+      "fala": "É isso. Para fixar, mexa nos laboratórios da página e faça o quiz. O conteúdo é acumulativo, então revise tudo. Bons estudos e boa prova!"
     }
   ]
 }

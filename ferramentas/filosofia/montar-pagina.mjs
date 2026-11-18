@@ -179,7 +179,7 @@ const Q = [
 ];
 
 const corpo = ler('pagina-corpo.html').replace('QUIZ_AQUI', quizHtml(Q));
-const widgets = ler('pagina-widgets.js');
+const widgets = readFileSync(join(AQUI, '..', 'labs-ui.js'), 'utf8') + '\n' + ler('pagina-widgets.js');
 const cabeca = ler('molde-cabeca.html')
   .replace(/<title>[^<]*<\/title>/, '<title>Filosofia 3º Tri · Identidade: de Heráclito a Byung-Chul Han 2026</title>')
   .replace('<link rel="stylesheet" href="styles/ios.css">', '<link rel="stylesheet" href="styles/ios.css">\n<link rel="stylesheet" href="styles/labs.css">');

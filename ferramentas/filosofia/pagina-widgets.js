@@ -6,7 +6,7 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 const RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 const T = (x, y, s, o = '') => `<text x="${x}" y="${y}" ${o} style="fill:var(--label);font:600 13px Inter,system-ui,sans-serif">${s}</text>`;
 const T2 = (x, y, s, o = '') => `<text x="${x}" y="${y}" ${o} style="fill:var(--label-2);font:500 11.5px Inter,system-ui,sans-serif">${s}</text>`;
-const BOX = (x, y, w, h, extra = '') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" style="fill:var(--bg-2);stroke:var(--sep);stroke-width:1.5" ${extra}/>`;
+const BOX = (x, y, w, h, extra = '') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" style="fill:var(--bg-2);stroke:var(--sep);stroke-width:1.2;filter:drop-shadow(0 2px 4px rgba(0,0,0,.12))" ${extra}/>`;
 function seg(el, cb) { if (!el) return; el.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; el.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); cb(b.dataset.v); }); }
 function loop(canvas, draw) { // só anima quando visível
   let on = false, raf = 0;

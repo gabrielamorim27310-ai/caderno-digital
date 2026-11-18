@@ -10,7 +10,7 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-11-18-labs';
+const VERSAO = 'cd-2026-11-18-labs2';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
@@ -53,6 +53,7 @@ const ESSENCIAIS = [
   'styles/effects.css',
   'scripts/theme.js',
   'scripts/app.js',
+  'scripts/zoom-fotos.js',
   'scripts/chat.js',
   'scripts/contribuir.js',
   'scripts/effects.js',

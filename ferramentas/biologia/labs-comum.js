@@ -7,7 +7,7 @@ const RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').m
 const F = (w = 600, s = 13) => `${w} ${s}px Inter,system-ui,sans-serif`;
 const T = (x, y, s, a = 'start', c = 'var(--label)', w = 600, z = 13) => `<text x="${x}" y="${y}" text-anchor="${a}" style="fill:${c};font:${F(w, z)}">${s}</text>`;
 const T2 = (x, y, s, a = 'start') => T(x, y, s, a, 'var(--label-2)', 500, 11.5);
-const BOX = (x, y, w, h, st = '') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" style="fill:var(--bg-2);stroke:var(--sep);stroke-width:1.5;${st}"/>`;
+const BOX = (x, y, w, h, st = '') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" style="fill:var(--bg-2);stroke:var(--sep);stroke-width:1.2;filter:drop-shadow(0 2px 4px rgba(0,0,0,.12));${st}"/>`;
 const C = { verde: '#2e9d6a', verm: '#d9534f', roxo: '#8e44ad', amar: '#e3a21a', azul: '#3b82c4', lar: '#e0702a', cinza: '#8e8e93' };
 function seg(el, cb) { if (!el) return; el.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; el.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); cb(b.dataset.v); }); }
 function steps(el, labels, cb) {
