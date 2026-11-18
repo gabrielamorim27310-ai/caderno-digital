@@ -27,6 +27,7 @@ const CORES = {
   literatura: { a: '#FFB020', b: '#E5484D', bg: '#120C0A' },
   ingles: { a: '#4CC9E0', b: '#FF8A4C', bg: '#06161A' },
   biologia: { a: '#5BE38B', b: '#2EC4B6', bg: '#07140D' },
+  filosofia: { a: '#F5BF3C', b: '#E07A5F', bg: '#120E06' },
 };
 const COR = CORES[rot.paleta || rot.materia] || CORES.portugues;
 
