@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { quizHtml } from '../quiz.mjs';
-import { artefato } from '../artefato-base.mjs';
+import { artefatoSite } from '../artefato-base.mjs';
 const AQUI = dirname(fileURLToPath(import.meta.url)), RAIZ = join(AQUI, '..', '..');
 const ler = f => readFileSync(join(AQUI, f), 'utf8');
 
@@ -185,8 +185,8 @@ const cabeca = ler('molde-cabeca.html')
   .replace('<link rel="stylesheet" href="styles/ios.css">', '<link rel="stylesheet" href="styles/ios.css">\n<link rel="stylesheet" href="styles/labs.css">');
 const pagina = cabeca + corpo + `\n<script>\n${widgets}\n</script>\n` + ler('molde-cauda.html');
 writeFileSync(join(RAIZ, 'filosofia-3tri.html'), pagina.replace(/\r?\n/g, '\r\n'));
-writeFileSync(join(AQUI, 'artefato', 'filosofia-3tri.html'), artefato({
-  titulo: 'Filosofia 3º Tri', tint: ['#906400', '#f5bf3c'], corpo, widgets,
-  css: [readFileSync(join(RAIZ, 'styles/labs.css'), 'utf8')],
+writeFileSync(join(AQUI, 'artefato', 'filosofia-3tri.html'), artefatoSite({
+  raiz: RAIZ, titulo: 'Filosofia 3º Tri', materia: 'filosofia', pagina: 'filosofia-3tri', corpo, widgets,
+  estilosPagina: [...cabeca.matchAll(/<style>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n'),
 }));
 console.log('filosofia-3tri.html + artefato montados:', Q.length, 'perguntas; gabarito', Q.map(q => q[2]).join(''));

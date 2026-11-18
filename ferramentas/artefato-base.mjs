@@ -11,11 +11,30 @@ const corDe = v => {
   const r = v.match(/rgba?\(([^)]+)\)/); if (r) { const [a, b, c] = r[1].split(',').map(Number); return (.2126 * a + .7152 * b + .0722 * c) / 255; }
   return null;
 };
+const alfa = v => { const r = v.match(/rgba\(([^)]+)\)/); return r ? Number(r[1].split(',')[3]) : 1; };
+// Trata cada bloco de declarações inteiro, porque fundo e texto andam juntos:
+// - fundo claro (ou branco translúcido) → --bg-3; se o texto do bloco era claro, vira --label
+// - fundo translúcido escuro com texto claro (feito para fundo escuro fixo) → texto --label
+// - texto escuro → --label / --label-2; bordas claras → --sep
+function bloco(d) {
+  const get = re => { const m = d.match(re); return m ? m[1].trim() : null; };
+  const bg = get(/(?:^|;|\s)background(?:-color)?\s*:\s*([^;!]+)/i), col = get(/(?:^|;|\s)color\s*:\s*([^;!]+)/i);
+  const lb = bg && !/url\(/.test(bg) ? corDe(bg) : null, lc = col ? corDe(col) : null;
+  const claroBg = lb !== null && lb > .75, transl = bg && /rgba\(/.test(bg) && alfa(bg) < .7;
+  let out = d;
+  if (claroBg) out = out.replace(/((?:^|;|\s)background(?:-color)?\s*:\s*)([^;!]+)/gi, '$1var(--bg-3)');
+  if (lc !== null) {
+    const novo = lc < .3 ? 'var(--label)' : lc < .55 ? 'var(--label-2)' : (claroBg || transl) ? 'var(--label)' : null;
+    if (novo) out = out.replace(/((?:^|;|\s)color\s*:\s*)([^;!]+)/i, '$1' + novo);
+  }
+  return out.replace(/(border(?:-[a-z]+)?\s*:[^;]*?)(#(?:[0-9a-f]{6}|[0-9a-f]{3})(?![0-9a-f])|rgba?\([^)]*\)|\bwhite\b)/gi, (t, k, c) => corDe(c) > .75 ? k + 'var(--sep)' : t);
+}
 export function temaSeguro(css) {
-  return css
-    .replace(/(background(?:-color)?\s*:\s*)([^;}!]+)/gi, (t, k, v) => { const l = corDe(v); return l !== null && l > .75 && !/url\(/.test(v) ? k + 'var(--bg-3)' : t; })
-    .replace(/((?:^|[;{\s])color\s*:\s*)([^;}!]+)/gi, (t, k, v) => { const l = corDe(v); return l === null ? t : l < .3 ? k + 'var(--label)' : l < .55 ? k + 'var(--label-2)' : t; })
-    .replace(/(border(?:-[a-z]+)?\s*:[^;}]*?)(#(?:[0-9a-f]{6}|[0-9a-f]{3})(?![0-9a-f]))/gi, (t, k, h) => lum(h) > .75 ? k + 'var(--sep)' : t);
+  return /[{}]/.test(css) ? css.replace(/\{([^{}]*)\}/g, (t, d) => '{' + bloco(d) + '}') : bloco(css);
+}
+const TOKENS_DO_TEMA = ['--bg', '--card-bg', '--text', '--text-light', '--border'];
+export function rootDaPagina(css) { // mantém as variáveis próprias (--ch1, --c2...), tira as que o tema define
+  return css.replace(/:root\s*\{([^}]*)\}/, (t, d) => ':root{' + d.split(';').filter(x => !TOKENS_DO_TEMA.includes(x.split(':')[0].trim())).join(';') + '}');
 }
 export function artefato({ titulo, tint: [claro, escuro], corpo, widgets, css = [], extraCss = '' }) {
   extraCss = temaSeguro(extraCss);
@@ -88,6 +107,41 @@ nav{background:var(--bg)!important;border-color:var(--sep)!important}.nav-link{c
 </style>
 <style>${css.join('\n')}</style>
 ${limpo}
+<script>
+${widgets}
+</script>`;
+}
+
+// Modo "igual ao site": leva o CSS do próprio site (shared.css + ios.css + labs.css) para o artefato.
+// O ios.css já faz todas as páginas antigas funcionarem no claro e no escuro, e usa a mesma convenção
+// de tema do claude.ai (data-theme no <html> + prefers-color-scheme). É o jeito que não quebra.
+import { readFileSync as _ler } from 'node:fs';
+import { join as _j } from 'node:path';
+export function artefatoSite({ raiz, titulo, materia, pagina, corpo, widgets, estilosPagina }) {
+  const css = f => _ler(_j(raiz, 'styles', f), 'utf8');
+  const limpo = corpo
+    .replace(/<body[^>]*>/, '').replace(/<\/body>/, '')
+    .replace(/<div class="progress-bar"[^>]*><\/div>/, '')
+    .replace(/<a class="back-link"[^>]*>[^<]*<\/a>/, '')
+    .replace(/<section class="(?:section|chapter)" id="video"[\s\S]*?<\/section>/, '')
+    .replace(/<a class="nav-link" href="#video">[^<]*<\/a>/, '')
+    .replace(/<script\b[^>]*\bsrc=[^>]*><\/script>/g, '');
+  return `<title>${titulo}</title>
+<style>${estilosPagina}</style>
+<style>${css('shared.css')}</style>
+<style>${css('ios.css')}</style>
+<style>${css('labs.css')}
+/* artefato: sem a moldura do site (barra lateral, topo fixo), o conteúdo usa a largura toda */
+body { margin: 0; background: var(--bg); color: var(--label); }
+.qz-score { top: 8px; }
+nav, .chapter-nav, .top-nav { background: var(--bg-2) !important; border-color: var(--sep) !important; box-shadow: none !important; }
+nav a, .chapter-nav a { color: var(--label-2) !important; }
+nav a:hover { color: var(--tint) !important; }
+</style>
+<script>document.documentElement.dataset.materia = ${JSON.stringify(materia)}; document.documentElement.dataset.pagina = ${JSON.stringify(pagina)};
+(function liga() { if (!document.body) return document.addEventListener('DOMContentLoaded', liga); document.body.classList.add('ios', 'resumo'); })();</script>
+${limpo}
+<script>document.body.classList.add('ios', 'resumo');</script>
 <script>
 ${widgets}
 </script>`;

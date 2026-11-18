@@ -5,7 +5,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { artefato } from '../artefato-base.mjs';
+import { artefatoSite } from '../artefato-base.mjs';
 const AQUI = dirname(fileURLToPath(import.meta.url)), RAIZ = join(AQUI, '..', '..');
 const tri = process.argv[2] || '3tri', arq = join(RAIZ, `biologia-${tri}.html`);
 const crlf = readFileSync(arq, 'utf8').includes('\r\n');
@@ -35,9 +35,7 @@ writeFileSync(arq, crlf ? html.replace(/\n/g, '\r\n') : html);
 const estilos = [...html.slice(0, html.indexOf('<body')).matchAll(/<style>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n');
 const corpo = html.slice(html.indexOf('<body'), html.indexOf('<!-- LABS-JS -->')).replace(/<script[^>]*src=[^>]*><\/script>/g, '');
 mkdirSync(join(AQUI, 'artefato'), { recursive: true });
-writeFileSync(join(AQUI, 'artefato', `biologia-${tri}.html`), artefato({
-  titulo: `Biologia ${tri[0]}º Tri`, tint: ['#1f7a4d', '#4cd388'], corpo, widgets: js,
-  css: [readFileSync(join(RAIZ, 'styles/labs.css'), 'utf8')],
-  extraCss: '/* estilos da página, depois dos do artefato */\n' + estilos.replace(/:root\s*\{[\s\S]*?\}/, ''),
+writeFileSync(join(AQUI, 'artefato', `biologia-${tri}.html`), artefatoSite({
+  raiz: RAIZ, titulo: `Biologia ${tri[0]}º Tri`, materia: 'biologia', pagina: `biologia-${tri}`, corpo, widgets: js, estilosPagina: estilos,
 }));
 console.log(`biologia-${tri}.html: ${blocos.length / 2} seções com laboratórios; artefato gerado.`);
