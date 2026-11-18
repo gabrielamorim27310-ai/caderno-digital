@@ -488,6 +488,13 @@
     </div>
   
 <!-- LABS:organizacao -->
+<div class="lab" id="labNervo">
+  <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Monte um nervo: junte neurônios e veja nervo e gânglio aparecerem</b></div>
+  <div class="lab-ctl"><span style="font-size:.86rem;color:var(--label-2)">Clique nos neurônios da bandeja:</span><span id="nvTray" style="display:flex;gap:6px;flex-wrap:wrap"></span></div>
+  <div class="lab-stage"><svg id="nvSvg" viewBox="0 0 640 310" role="img" aria-label="Neurônios formando nervo e gânglio junto à medula"></svg></div>
+  <div class="lab-ctl"><button class="lbtn pri" type="button" id="nvImp">⚡ Mandar impulsos</button><button class="lbtn" type="button" id="nvCorte">🔍 Corte do nervo</button><button class="lbtn" type="button" id="nvReset">↺ Desmontar</button></div>
+  <div class="lab-out" id="nvOut"></div>
+</div>
 <div class="lab" id="labSNC">
   <div class="lab-head"><span class="lab-tag">Jogo</span><b>SNC, SNP ou tipo de nervo?</b></div>
   <div class="sorter" id="sortSN"></div>
@@ -1669,6 +1676,81 @@ sorter($('#sortContra'), [
   ['Tabelinha', 'Evita o período fértil', 'Método comportamental: evitar relações perto da ovulação. Falha muito.'],
   ['Injeção mensal de testosterona (em teste)', 'Impede a produção de espermatozoides', 'Testosterona alta inibe FSH e LH; sem FSH, os túbulos param de produzir espermatozoides.'],
 ], ['Impede a ovulação', 'Impede o encontro dos gametas', 'Impede a produção de espermatozoides', 'Evita o período fértil']);
+
+/* ═════════ NEURÔNIOS → NERVO E GÂNGLIO ═════════ */
+(function () {
+  const svg = $('#nvSvg'), tray = $('#nvTray'), out = $('#nvOut'); if (!svg) return;
+  // 3 neurônios sensitivos (azuis) e 3 motores (vermelhos). O caminho de cada um segue o sentido do impulso.
+  const N = [0, 1, 2].map(k => ({ t: 's', k })).concat([0, 1, 2].map(k => ({ t: 'm', k })));
+  const caminho = ({ t, k }) => t === 's'
+    ? `M58 ${108 + k * 4} C90 ${110 + k * 4} 92 ${162 + k * 3} 120 ${162 + k * 3} L398 ${162 + k * 3} C430 ${160 + k * 3} 432 ${124 + k * 5} 452 ${120 + k * 5} C490 ${118 + k * 5} 505 ${132 + k * 4} 540 ${140 + k * 4}`
+    : `M575 ${196 + k * 9} C545 ${198 + k * 7} 520 ${206 + k * 4} 470 ${214 + k * 3} C430 ${218 + k * 3} 428 ${178 + k * 3} 398 ${178 + k * 3} L120 ${178 + k * 3} C92 ${178 + k * 3} 90 ${232 + k * 4} 62 ${234 + k * 4}`;
+  const corpo = ({ t, k }) => t === 's' ? [452, 120 + k * 5] : [575, 196 + k * 9];
+  const cor = t => t === 's' ? C.azul : C.verm;
+  let colocados = [], corte = false;
+  const nomeDe = n => `${n.t === 's' ? 'Sensitivo' : 'Motor'} ${n.k + 1}`;
+  function iconeBandeja(n, i) {
+    const x = 34 + i * 58, c = cor(n.t);
+    return `<g class="nv-ic" data-i="${i}" style="cursor:pointer"><rect x="${x - 24}" y="8" width="48" height="34" rx="9" style="fill:var(--bg-2);stroke:var(--sep)"/>
+      <circle cx="${x - 10}" cy="25" r="6" style="fill:${c}"/><path d="M${x - 16} 25 l-5 -6 M${x - 16} 25 l-6 3 M${x - 4} 25 H${x + 16} M${x + 16} 25 l4 -4 M${x + 16} 25 l4 4" style="stroke:${c};stroke-width:2;fill:none;stroke-linecap:round"/></g>`;
+  }
+  function draw() {
+    const s = colocados.filter(i => N[i].t === 's').length, m = colocados.length - s;
+    let h = `
+      <ellipse cx="562" cy="168" rx="64" ry="80" style="fill:var(--bg-2);stroke:var(--label-2);stroke-width:2"/>
+      <path d="M535 120 q27 26 54 0 q-8 48 0 96 q-27 -26 -54 0 q8 -48 0 -96" style="fill:rgba(142,68,173,.15);stroke:${C.roxo};stroke-width:1.5"/>
+      ${T(562, 268, 'medula (SNC)', 'middle')}
+      <rect x="14" y="94" width="44" height="28" rx="8" style="fill:#f2c4a8;opacity:.8"/>${T2(10, 88, 'pele (receptor)')}
+      <ellipse cx="40" cy="240" rx="28" ry="14" style="fill:rgba(217,83,79,.3);stroke:${C.verm};stroke-width:2"/>${T2(40, 268, 'músculo', 'middle')}
+      ${N.map((n, i) => colocados.includes(i) ? '' : iconeBandeja(n, i)).join('')}
+      ${colocados.length === 0 ? T(320, 120, 'Clique nos neurônios lá em cima ↑', 'middle', 'var(--label-2)', 600, 14) : ''}`;
+    if (colocados.length >= 2 && (s >= 1 || m >= 1)) {
+      const y0 = s ? 156 : 172, y1 = m ? 190 : 174;
+      h += `<rect x="104" y="${y0}" width="304" height="${y1 - y0}" rx="${(y1 - y0) / 2}" style="fill:rgba(227,162,26,.18);stroke:${C.amar};stroke-width:2"/>`;
+      h += T(256, y0 - 8, 'NERVO = feixe de axônios fora do SNC', 'middle', C.amar, 800, 12);
+    }
+    if (s >= 2) h += `<ellipse cx="452" cy="125" rx="22" ry="17" style="fill:rgba(46,157,106,.2);stroke:${C.verde};stroke-width:2"/>` + T(452, 98, 'GÂNGLIO', 'middle', C.verde, 800, 12) + T2(452, 84, 'corpos celulares fora do SNC', 'middle');
+    colocados.forEach(i => { const n = N[i], [cx, cy] = corpo(n); h += `<path class="nv-f" data-i="${i}" d="${caminho(n)}" style="fill:none;stroke:${cor(n.t)};stroke-width:2.5;stroke-linecap:round"/><circle cx="${cx}" cy="${cy}" r="5.5" style="fill:${cor(n.t)};stroke:var(--bg-3);stroke-width:1.5"/>`; });
+    if (corte && colocados.length) {
+      h += `<path d="M250 186 L250 236" style="stroke:var(--label-2);stroke-dasharray:4 3"/><circle cx="250" cy="270" r="34" style="fill:rgba(227,162,26,.15);stroke:${C.amar};stroke-width:2"/>`;
+      let k = 0; colocados.forEach(i => { for (let j = 0; j < 4; j++, k++) { const a = k * 2.4, d = 7 + 4 * Math.sqrt(k); if (d > 28) continue; h += `<circle cx="${250 + Math.cos(a) * d}" cy="${270 + Math.sin(a) * d}" r="3.2" style="fill:${cor(N[i].t)};stroke:#f0e2b6;stroke-width:1.2"/>`; } });
+      h += T2(292, 262, 'corte transversal: cada bolinha é um axônio') + T2(292, 278, '(um nervo real tem milhares)');
+    }
+    h += '<g id="nvImpG"></g>';
+    svg.innerHTML = h;
+    svg.querySelectorAll('.nv-ic').forEach(g => g.onclick = () => coloca(+g.dataset.i));
+    tray.innerHTML = N.map((n, i) => colocados.includes(i) ? '' : `<button class="lbtn" type="button" data-i="${i}"><span style="color:${cor(n.t)}">●</span> ${nomeDe(n)}</button>`).join('');
+    tray.querySelectorAll('button').forEach(b => b.onclick = () => coloca(+b.dataset.i));
+    out.innerHTML = texto(s, m);
+  }
+  function texto(s, m) {
+    if (!s && !m) return 'Cada neurônio tem <b>corpo celular</b>, dendritos e um <b>axônio</b> comprido. Sozinhos eles são microscópicos; juntos formam as estruturas que se veem a olho nu. Os <span style="color:' + C.azul + '">azuis</span> são <b>sensitivos</b>, os <span style="color:' + C.verm + '">vermelhos</span> são <b>motores</b>.';
+    const tipo = s && m ? '<b>nervo misto</b> (fibras sensitivas e motoras, como os nervos espinais e o trigêmeo)' : s ? '<b>nervo sensitivo</b> (aferente: leva informação do receptor ao SNC)' : '<b>nervo motor</b> (eferente: leva ordens do SNC ao músculo)';
+    let t = s + m === 1 ? 'Um axônio sozinho é só uma <b>fibra nervosa</b>. Junte mais um.' : `Os axônios correm juntos no mesmo feixe: isso é um <b>nervo</b>. Com o que você juntou, é um ${tipo}.`;
+    if (s === 1) t += ' O corpo celular do sensitivo fica <b>fora do SNC</b>, perto da medula.';
+    if (s >= 2) t += ' Os corpos celulares dos sensitivos se agruparam fora do SNC: isso é um <b>gânglio</b> (na raiz dorsal do nervo espinal).';
+    if (m) t += ' O corpo celular do motor fica <b>dentro da medula</b> (SNC): por isso ele não forma gânglio.';
+    return t;
+  }
+  function coloca(i) {
+    if (colocados.includes(i)) return;
+    colocados.push(i); draw();
+    const p = svg.querySelector(`.nv-f[data-i="${i}"]`), L = p.getTotalLength();
+    p.style.strokeDasharray = L; p.style.strokeDashoffset = L;
+    anim(700, q => { p.style.strokeDashoffset = L * (1 - q); }, () => { p.style.strokeDasharray = ''; });
+  }
+  $('#nvImp').onclick = () => {
+    if (!colocados.length) { out.innerHTML = 'Monte o nervo primeiro: clique nos neurônios.'; return; }
+    const g = svg.querySelector('#nvImpG'), ps = colocados.map(i => svg.querySelector(`.nv-f[data-i="${i}"]`));
+    anim(1800, q => { g.innerHTML = ps.map(p => { const pt = p.getPointAtLength(q * p.getTotalLength()); return `<circle cx="${pt.x}" cy="${pt.y}" r="5" style="fill:${C.amar};stroke:#fff;stroke-width:1.5"/>`; }).join(''); }, () => {
+      g.innerHTML = '';
+      out.innerHTML = 'No mesmo nervo, os impulsos dos <b>sensitivos</b> vão <b>da pele para a medula</b> (aferentes) e os dos <b>motores</b> vão <b>da medula para o músculo</b> (eferentes). Cada axônio conduz num só sentido; o nervo é só o cabo que junta todos.';
+    });
+  };
+  $('#nvCorte').onclick = () => { corte = !corte; draw(); };
+  $('#nvReset').onclick = () => { colocados = []; corte = false; draw(); };
+  draw();
+})();
 
 /* ═════════ SISTEMA NERVOSO: ORGANIZAÇÃO ═════════ */
 sorter($('#sortSN'), [
