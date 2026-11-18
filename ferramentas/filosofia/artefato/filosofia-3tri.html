@@ -1,0 +1,2508 @@
+<title>Filosofia 3º Tri</title>
+<style>
+  :root {
+    --primary: #3d2b00;
+    --secondary: #c9953c;
+    --bg: #faf7f0;
+    --card-bg: #ffffff;
+    --text: #2c2c2c;
+    --text-light: #6b6b6b;
+    --border: #e8ddc8;
+    --c1: #3d2b00;
+    --c2: #6b4c11;
+    --c3: #8b6914;
+    --c4: #1a2744;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; scroll-behavior: smooth; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #1e1400 0%, #3d2b00 55%, #6b4c11 100%);
+    color: white; padding: 80px 20px 60px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-icon { font-size: 3rem; margin-bottom: 14px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
+  .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+  .hero .badge { display: inline-block; background: var(--secondary); color: #1e1400; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
+  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+
+  /* NAV */
+  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
+  .back-link:hover { color: var(--primary); }
+  .nav-link { padding: 14px 14px; text-decoration: none; color: var(--text-light); font-size: 0.82rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-link:hover { color: var(--primary); border-bottom-color: var(--secondary); }
+
+  /* LAYOUT */
+  .content { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--border); }
+  .section-num { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CARDS */
+  .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; margin-bottom: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); }
+  .card:last-child { margin-bottom: 0; }
+  .card-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .card p { font-size: 0.92rem; color: var(--text); }
+  .card p + p { margin-top: 8px; }
+
+  /* LISTS */
+  .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #fdf8ef; border-radius: 8px; border: 1px solid var(--border); }
+  .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
+  .list li strong { color: var(--primary); }
+
+  /* NESTED LIST */
+  .list-nested { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 8px; padding-left: 16px; border-left: 2px solid var(--border); }
+  .list-nested li { font-size: 0.88rem; color: var(--text-light); padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .list-nested li::before { content: '·'; color: var(--secondary); font-size: 1rem; flex-shrink: 0; }
+  .list-nested li strong { color: var(--text); }
+
+  /* HIGHLIGHTS */
+  .highlight { background: linear-gradient(135deg, #fef3dc, #fde8b8); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight strong { color: var(--primary); }
+  .highlight-purple { background: linear-gradient(135deg, #f3e8ff, #e9d5ff); border-left: 4px solid #7c3aed; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight-gray { background: #f1f1ef; border-left: 4px solid #999; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; color: var(--text-light); }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 14px; }
+  .grid-2 > .card,
+  .grid-3 > .card { margin-bottom: 0; }
+
+  /* MINI-CARDS */
+  .mini-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; border-top: 4px solid; }
+  .mini-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
+  .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
+
+  /* QUOTE */
+  .quote { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--primary); border-left: 4px solid var(--secondary); padding: 12px 20px; margin-top: 14px; background: #fdf8ef; border-radius: 0 10px 10px 0; }
+  .quote span { display: block; font-family: 'Inter', sans-serif; font-size: 0.8rem; font-style: normal; color: var(--text-light); margin-top: 6px; font-weight: 600; }
+
+  /* FLOW */
+  .flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .flow-step { background: var(--primary); color: white; padding: 10px 16px; border-radius: 10px; font-size: 0.86rem; font-weight: 600; text-align: center; flex: 1; min-width: 100px; }
+  .flow-arrow { color: var(--secondary); font-size: 1.4rem; font-weight: 700; flex-shrink: 0; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 12px; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf8ef; }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+  .tag-imp { background: #fef9c3; color: #854d0e; }
+  .tag-pending { background: #f1f1ef; color: #666; }
+
+  footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  @media (max-width: 600px) {
+    .content { padding: 24px 14px 60px; }
+    .hero { padding: 50px 16px 40px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+<style>/* ═══════════════════════════════════════════════════════════
+   shared.css — Estilos compartilhados entre todas as páginas
+   Importado por todas as páginas após o bloco :root da página.
+   Usa as variáveis CSS (--primary, --secondary, --border…)
+   definidas localmente em cada página.
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* RESET */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* BARRA DE PROGRESSO */
+.progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 3px; background: var(--secondary);
+  z-index: 999; width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* HERO — PADRÃO DE FUNDO (cross+) */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* NAV — BACK LINK PADRÃO */
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 14px 16px 14px 0;
+  color: var(--text-light); text-decoration: none;
+  font-size: 0.82rem; font-weight: 600;
+  margin-right: 8px; border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+.back-link:hover { color: var(--primary); }
+
+/* FOOTER PADRÃO */
+footer {
+  text-align: center; padding: 32px 20px;
+  color: var(--text-light, #6b6b6b); font-size: 0.82rem;
+  border-top: 1px solid var(--border, #e5ddd4);
+  max-width: 1100px; margin: 0 auto;
+}
+
+/* ═══ CHAT WIDGET (Nêuron) ═══ */
+#chat-btn {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--primary); color: white;
+  border: none; font-size: 1.4rem; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+  z-index: 999; transition: transform 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+#chat-btn:hover { transform: scale(1.08); }
+
+#chat-panel {
+  position: fixed; bottom: 86px; right: 24px;
+  width: 420px; max-width: calc(100vw - 32px);
+  background: white; border: 1px solid var(--border);
+  border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+  z-index: 998; display: none; flex-direction: column;
+  overflow: hidden; font-family: Inter, sans-serif;
+}
+#chat-panel.open { display: flex; }
+
+#chat-head {
+  background: var(--primary); color: white;
+  padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+#chat-head span { font-weight: 600; font-size: 0.92rem; }
+#chat-close {
+  background: none; border: none; color: white;
+  cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0;
+}
+
+#chat-msgs {
+  height: 360px; overflow-y: auto;
+  padding: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+
+.cmsg {
+  max-width: 88%; padding: 10px 14px;
+  border-radius: 14px; font-size: 0.93rem; line-height: 1.5;
+}
+.cmsg.user {
+  background: var(--primary); color: white;
+  align-self: flex-end; border-bottom-right-radius: 4px;
+}
+.cmsg.bot {
+  background: #f0f0f0; color: #222;
+  align-self: flex-start; border-bottom-left-radius: 4px;
+}
+.cmsg.loading { opacity: 0.6; font-style: italic; }
+
+#chat-form { display: flex; border-top: 1px solid var(--border); }
+#chat-input {
+  flex: 1; border: none; padding: 12px 14px;
+  font-size: 0.95rem; font-family: Inter, sans-serif;
+  outline: none; resize: none; height: 44px;
+}
+#chat-send {
+  background: var(--primary); color: white;
+  border: none; padding: 0 16px; cursor: pointer; font-size: 1rem;
+}
+#chat-send:hover { filter: brightness(1.2); }
+
+/* ═══ ENVIAR MEU RESUMO (scripts/contribuir.js) ═══ */
+#contrib-btn {
+  position: fixed; bottom: 24px; left: 24px;
+  background: white; color: var(--primary);
+  border: 1px solid var(--border); border-radius: 26px;
+  padding: 12px 18px; font: 600 0.86rem Inter, sans-serif;
+  cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+  z-index: 997; transition: transform 0.2s;
+}
+#contrib-btn:hover { transform: translateY(-2px); }
+
+#contrib-modal {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  z-index: 1000; display: none;
+  align-items: center; justify-content: center; padding: 16px;
+}
+#contrib-modal.open { display: flex; }
+
+#contrib-box {
+  background: white; border-radius: 18px;
+  width: 560px; max-width: 100%; max-height: calc(100vh - 32px);
+  overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  font-family: Inter, sans-serif;
+}
+#contrib-head {
+  background: var(--primary); color: white; padding: 14px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0;
+}
+#contrib-head span { font-weight: 600; font-size: 0.95rem; }
+#contrib-close {
+  background: none; border: none; color: white;
+  cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0;
+}
+
+#contrib-form { padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+#contrib-form label {
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: 0.85rem; font-weight: 600; color: var(--text, #1e1e1e);
+}
+#contrib-form input[type="text"], #contrib-form select, #contrib-form textarea {
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 12px; font: 400 0.93rem Inter, sans-serif;
+  resize: vertical; outline: none;
+}
+#contrib-form input[type="text"]:focus, #contrib-form select:focus, #contrib-form textarea:focus { border-color: var(--primary); }
+#contrib-form input[type="file"] { font: 400 0.85rem Inter, sans-serif; }
+#contrib-files { margin: -6px 0 0; padding: 0; list-style: none; font-size: 0.82rem; color: var(--text-light, #6b6b6b); }
+#contrib-files:empty { display: none; }
+#contrib-files li { padding: 2px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.contrib-info { margin: 0; font-size: 0.85rem; color: var(--text-light, #6b6b6b); line-height: 1.5; }
+.contrib-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+#contrib-status { font-size: 0.88rem; min-height: 1.2em; }
+#contrib-status.ok { color: #1e7a3c; }
+#contrib-status.erro { color: #b3261e; }
+
+#contrib-send {
+  background: var(--primary); color: white; border: none;
+  border-radius: 10px; padding: 12px; cursor: pointer;
+  font: 600 0.93rem Inter, sans-serif;
+}
+#contrib-send:hover { filter: brightness(1.2); }
+#contrib-send:disabled { opacity: 0.6; cursor: wait; }
+
+@media (max-width: 600px) {
+  #contrib-btn { bottom: 16px; left: 16px; padding: 10px 14px; font-size: 0.8rem; }
+}
+
+/* PRINT */
+@media print {
+  nav, .progress-bar, .quiz-section, #chat-btn, #chat-panel, #contrib-btn, #contrib-modal { display: none; }
+  .accordion-content { max-height: none !important; padding: 0 20px 20px !important; }
+}
+</style>
+<style>/* ═══════════════════════════════════════════════════════════
+   ios.css — Sistema de design do Caderno Digital (estilo iOS)
+
+   ESTE É O LUGAR PARA MUDAR CORES, FONTES E MEDIDAS DO SITE.
+   Guia visual com todos os tokens: docs/design.html
+
+   Como funciona
+   1. TOKENS (este bloco): variáveis CSS. Mude um valor aqui e o
+      site inteiro acompanha.
+   2. Cada página diz qual é a sua matéria com
+        <html data-materia="historia">
+      e ganha a cor dela em --tint (texto/ícones) e --tint-fill
+      (fundo de botões).
+   3. Modo escuro: automático pelo aparelho, ou forçado por
+      <html data-theme="dark|light"> (ver scripts/theme.js).
+
+   Regras de contraste (WCAG AA, 4,5:1 para texto):
+   todas as cores de texto abaixo foram calculadas para passar
+   sobre o fundo do card e sobre o fundo agrupado, no claro e no
+   escuro. Se trocar uma cor, confira o contraste.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────
+   1. TOKENS: claro (padrão)
+   ───────────────────────────────────────────── */
+:root {
+  color-scheme: light;
+
+  /* Fontes do sistema. Nenhum arquivo de fonte é baixado. */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Escala tipográfica do iOS. Em rem: acompanha o zoom do navegador. */
+  --t-large:    700 2.125rem/1.18 var(--font-display);  /* Large Title  34 */
+  --t-title1:   700 1.75rem/1.2   var(--font-display);  /* Title 1      28 */
+  --t-title2:   700 1.375rem/1.25 var(--font-display);  /* Title 2      22 */
+  --t-title3:   600 1.25rem/1.3   var(--font-display);  /* Title 3      20 */
+  --t-headline: 600 1.0625rem/1.35 var(--font);         /* Headline     17 */
+  --t-body:     400 1.0625rem/1.5  var(--font);         /* Body         17 */
+  --t-callout:  400 1rem/1.5       var(--font);         /* Callout      16 */
+  --t-subhead:  400 0.9375rem/1.45 var(--font);         /* Subheadline  15 */
+  --t-footnote: 400 0.8125rem/1.4  var(--font);         /* Footnote     13 */
+  --t-caption:  400 0.75rem/1.35   var(--font);         /* Caption      12 */
+
+  /* Cantos */
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r-md: 12px;     /* listas agrupadas, callouts */
+  --r-lg: 16px;
+  --r-xl: 22px;     /* cards grandes, sheets */
+  --r-pill: 999px;
+
+  /* Espaçamento (múltiplos de 4) */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px;
+
+  /* Área mínima de toque (44pt da Apple) */
+  --tap: 44px;
+
+  /* Larguras */
+  --w-content: 760px;   /* largura máxima do texto: leitura confortável */
+  --w-sidebar: 300px;
+
+  /* Movimento */
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);       /* curva "mola" do iOS */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.18s;
+  --dur: 0.3s;
+  --dur-slow: 0.45s;
+
+  /* Cores do sistema: claro */
+  --bg:        #f2f2f7;   /* fundo agrupado (systemGroupedBackground) */
+  --bg-2:      #ffffff;   /* card / célula de lista */
+  --bg-3:      #f2f2f7;   /* elemento dentro de card */
+  --bg-elev:   #ffffff;   /* sheets e popovers */
+  --fill:      rgba(120, 120, 128, 0.12);  /* campos, botões cinza */
+  --fill-2:    rgba(120, 120, 128, 0.2);
+  --label:     #000000;
+  --label-2:   rgba(60, 60, 67, 0.75);     /* iOS usa 0.6, que reprova no contraste (3,4:1); 0.75 dá 5,2:1 */
+  --label-3:   rgba(60, 60, 67, 0.3);      /* só decorativo: placeholders, setas */
+  --sep:       rgba(60, 60, 67, 0.29);
+  --sep-opaque:#c6c6c8;
+
+  /* Cores semânticas (texto e ícone) e seus fundos suaves */
+  --green:  #207c37;  --green-bg:  rgba(52, 199, 89, 0.14);
+  --orange: #c93400;  --orange-bg: rgba(255, 149, 0, 0.15);
+  --red:    #d70015;  --red-bg:    rgba(255, 59, 48, 0.12);
+  --blue:   #0066cc;  --blue-bg:   rgba(0, 122, 255, 0.1);
+  --yellow-bg: rgba(255, 204, 0, 0.2);   /* marca-texto */
+
+  /* Vidro: só no que flutua (tab bar, botões da barra, sheets) */
+  --bar:          rgba(249, 249, 249, 0.94);
+  --glass:        rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --blur:         saturate(180%) blur(20px);
+
+  /* Sombras */
+  --shadow-card:  0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-float: 0 10px 40px rgba(0, 0, 0, 0.16);
+  --scrim:        rgba(0, 0, 0, 0.35);   /* fundo atrás de sheets */
+
+  /* Cores das matérias: claro.
+     Texto/ícone na cor da matéria passa 4,6:1 sobre branco e #F2F2F7.
+     Texto branco sobre a cor (botões) passa 5:1 ou mais. */
+  --historia:   #4f46e5;
+  --geografia:  #0e7c59;
+  --portugues:  #c2185b;
+  --matematica: #0a6bd4;
+  --biologia:   #297c34;
+  --fisica:     #ae5400;
+  --quimica:    #cf2c2c;
+  --ingles:     #0a778f;
+  --filosofia:  #906400;
+  --sociologia: #7e3fb2;
+
+  /* Destaque da página: por padrão, azul do sistema */
+  --tint: var(--blue);
+  --tint-fill: #0066cc;       /* fundo de botão cheio: tom fixo, aceita texto branco no claro e no escuro */
+  --on-tint: #ffffff;
+}
+
+/* ─────────────────────────────────────────────
+   2. TOKENS: escuro
+   O mesmo bloco aparece duas vezes: uma para "seguir o aparelho"
+   e outra para quando o aluno força o escuro. Mude os dois juntos.
+   ───────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #000000; --bg-2: #1c1c1e; --bg-3: #2c2c2e; --bg-elev: #1c1c1e;
+    --fill: rgba(120, 120, 128, 0.24); --fill-2: rgba(120, 120, 128, 0.36);
+    --label: #ffffff; --label-2: rgba(235, 235, 245, 0.6); --label-3: rgba(235, 235, 245, 0.3);
+    --sep: rgba(84, 84, 88, 0.65); --sep-opaque: #38383a;
+    --green: #30d158;  --green-bg: rgba(48, 209, 88, 0.16);
+    --orange: #ff9f0a; --orange-bg: rgba(255, 159, 10, 0.16);
+    --red: #ff6961;    --red-bg: rgba(255, 69, 58, 0.18);
+    --blue: #409cff;   --blue-bg: rgba(10, 132, 255, 0.18);
+    --yellow-bg: rgba(255, 214, 10, 0.22);
+    --bar: rgba(22, 22, 24, 0.92); --glass: rgba(44, 44, 48, 0.62);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    --shadow-card: none; --shadow-float: 0 10px 40px rgba(0, 0, 0, 0.6); --scrim: rgba(0, 0, 0, 0.55);
+    --historia: #8987ff; --geografia: #30d3a0; --portugues: #ff6fa8; --matematica: #4da3ff; --biologia: #5fd86f;
+    --fisica: #ff9f3d; --quimica: #ff6b61; --ingles: #40c8e0; --filosofia: #f5bf3c; --sociologia: #c08bff;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #000000; --bg-2: #1c1c1e; --bg-3: #2c2c2e; --bg-elev: #1c1c1e;
+  --fill: rgba(120, 120, 128, 0.24); --fill-2: rgba(120, 120, 128, 0.36);
+  --label: #ffffff; --label-2: rgba(235, 235, 245, 0.6); --label-3: rgba(235, 235, 245, 0.3);
+  --sep: rgba(84, 84, 88, 0.65); --sep-opaque: #38383a;
+  --green: #30d158;  --green-bg: rgba(48, 209, 88, 0.16);
+  --orange: #ff9f0a; --orange-bg: rgba(255, 159, 10, 0.16);
+  --red: #ff6961;    --red-bg: rgba(255, 69, 58, 0.18);
+  --blue: #409cff;   --blue-bg: rgba(10, 132, 255, 0.18);
+  --yellow-bg: rgba(255, 214, 10, 0.22);
+  --bar: rgba(22, 22, 24, 0.92); --glass: rgba(44, 44, 48, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-card: none; --shadow-float: 0 10px 40px rgba(0, 0, 0, 0.6); --scrim: rgba(0, 0, 0, 0.55);
+  --historia: #8987ff; --geografia: #30d3a0; --portugues: #ff6fa8; --matematica: #4da3ff; --biologia: #5fd86f;
+  --fisica: #ff9f3d; --quimica: #ff6b61; --ingles: #40c8e0; --filosofia: #f5bf3c; --sociologia: #c08bff;
+}
+
+/* ─────────────────────────────────────────────
+   3. COR DA MATÉRIA DA PÁGINA
+   --tint muda com o modo (texto legível no claro e no escuro).
+   --tint-fill usa sempre o tom do modo claro, que aceita texto
+   branco por cima com bom contraste, inclusive no escuro.
+   ───────────────────────────────────────────── */
+:root {
+  /* Tom "cheio" de cada matéria: igual no claro e no escuro.
+     Usado em botões e ícones quadrados, sempre com texto branco. */
+  --historia-fill: #4f46e5; --geografia-fill: #0e7c59; --portugues-fill: #c2185b;
+  --matematica-fill: #0a6bd4; --biologia-fill: #297c34; --fisica-fill: #ae5400;
+  --quimica-fill: #cf2c2c; --ingles-fill: #0a778f; --filosofia-fill: #906400;
+  --sociologia-fill: #7e3fb2;
+}
+[data-materia="historia"]   { --tint: var(--historia);   --tint-fill: var(--historia-fill); }
+[data-materia="geografia"]  { --tint: var(--geografia);  --tint-fill: var(--geografia-fill); }
+[data-materia="portugues"]  { --tint: var(--portugues);  --tint-fill: var(--portugues-fill); }
+[data-materia="matematica"] { --tint: var(--matematica); --tint-fill: var(--matematica-fill); }
+[data-materia="biologia"]   { --tint: var(--biologia);   --tint-fill: var(--biologia-fill); }
+[data-materia="fisica"]     { --tint: var(--fisica);     --tint-fill: var(--fisica-fill); }
+[data-materia="quimica"]    { --tint: var(--quimica);    --tint-fill: var(--quimica-fill); }
+[data-materia="ingles"]     { --tint: var(--ingles);     --tint-fill: var(--ingles-fill); }
+[data-materia="filosofia"]  { --tint: var(--filosofia);  --tint-fill: var(--filosofia-fill); }
+[data-materia="sociologia"] { --tint: var(--sociologia); --tint-fill: var(--sociologia-fill); }
+
+/* Fundo suave na cor da matéria (selos, linhas selecionadas) */
+:root, [data-materia] {
+  --tint-bg: color-mix(in srgb, var(--tint) 14%, transparent);
+  /* "tinta": cor da matéria para TEXTO sobre fundo colorido (selos, etiquetas),
+     um pouco mais escura no claro / mais clara no escuro para passar 4,5:1 */
+  --tint-ink: color-mix(in srgb, var(--tint) 72%, #000);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]), :root:not([data-theme="light"]) [data-materia] { --tint-ink: color-mix(in srgb, var(--tint) 70%, #fff); } }
+:root[data-theme="dark"], :root[data-theme="dark"] [data-materia] { --tint-ink: color-mix(in srgb, var(--tint) 70%, #fff); }
+
+/* ═══════════════════════════════════════════════════════════
+   4. BASE
+   Só vale em páginas marcadas com <body class="ios">, para não
+   mexer nas páginas que ainda não foram migradas.
+   ═══════════════════════════════════════════════════════════ */
+.ios, .ios *, .ios *::before, .ios *::after { box-sizing: border-box; }
+html:has(body.ios) { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 64px; }
+body.ios {
+  margin: 0;
+  font: var(--t-body);
+  color: var(--label);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.ios :focus-visible { outline: 3px solid var(--tint); outline-offset: 2px; border-radius: var(--r-xs); }
+/* :where() deixa estas regras com peso zero: qualquer componente as sobrescreve */
+:where(.ios) a { color: var(--tint); }
+:where(.ios) img { max-width: 100%; height: auto; }
+.ios ::selection { background: var(--tint-bg); }
+
+/* Ícone Lucide: <svg class="i" aria-hidden="true"><use href="icons.svg#nome"/></svg> */
+.i { width: 22px; height: 22px; flex-shrink: 0; display: inline-block; vertical-align: middle; }
+.i-sm { width: 18px; height: 18px; }
+.i-lg { width: 28px; height: 28px; }
+
+/* Texto só para leitor de tela */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Pular para o conteúdo (teclado) */
+.skip-link { position: absolute; left: var(--s-4); top: -100px; z-index: 100; padding: var(--s-2) var(--s-4); background: var(--tint-fill); color: var(--on-tint) !important; border-radius: var(--r-sm); font: var(--t-headline); text-decoration: none; }
+.skip-link:focus { top: calc(var(--s-2) + env(safe-area-inset-top)); }
+
+/* ═══════════════════════════════════════════════════════════
+   5. ESTRUTURA DO APP
+   .app-layout
+     .sidebar        (iPad / computador)
+     .app-main
+       .navbar       (barra do topo com large title que encolhe)
+       main.page     (conteúdo)
+   .tabbar           (celular)
+   ═══════════════════════════════════════════════════════════ */
+.app-layout { display: flex; min-height: 100vh; min-height: 100dvh; }
+.app-main { flex: 1; min-width: 0; }
+
+.page {
+  max-width: var(--w-content);
+  margin: 0 auto;
+  padding: 0 calc(var(--s-4) + env(safe-area-inset-right)) calc(110px + env(safe-area-inset-bottom)) calc(var(--s-4) + env(safe-area-inset-left));
+}
+
+/* ── Navigation bar ── */
+.navbar {
+  position: sticky; top: 0; z-index: 40;
+  padding: env(safe-area-inset-top) calc(var(--s-2) + env(safe-area-inset-right)) 0 calc(var(--s-2) + env(safe-area-inset-left));
+  border-bottom: 0.5px solid transparent;
+  transition: background-color var(--dur) ease, border-color var(--dur) ease;
+}
+.navbar.is-scrolled {
+  background: var(--bar);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border-bottom-color: var(--sep);
+}
+.navbar-row {
+  height: var(--tap);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: var(--s-2);
+}
+.navbar-left { justify-self: start; display: flex; align-items: center; }
+.navbar-right { justify-self: end; display: flex; align-items: center; gap: var(--s-1); }
+.navbar-title {
+  font: var(--t-headline); color: var(--label);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 52vw;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.navbar.is-scrolled .navbar-title { opacity: 1; transform: none; }
+
+/* Botões da barra: texto/ícone na cor de destaque; redondos com vidro */
+.bar-btn {
+  min-width: var(--tap); height: var(--tap); padding: 0 var(--s-2);
+  display: inline-flex; align-items: center; justify-content: center; gap: 2px;
+  background: none; border: 0; color: var(--tint); font: var(--t-body);
+  text-decoration: none; cursor: pointer; border-radius: var(--r-pill);
+}
+.bar-btn .i { width: 24px; height: 24px; }
+.bar-btn.glass {
+  min-width: 38px; height: 38px; margin: 3px 0; padding: 0 10px;
+  background: var(--glass); border: 0.5px solid var(--glass-border); box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+}
+.bar-btn.glass .i { width: 20px; height: 20px; }
+.bar-btn:active { opacity: 0.55; }
+
+/* Large title */
+.large-title { font: var(--t-large); letter-spacing: 0.005em; margin: var(--s-1) 0 0; color: var(--label); }
+.large-sub { font: var(--t-subhead); color: var(--label-2); margin: var(--s-1) 0 var(--s-5); }
+
+/* ── Tab bar (celular) ── */
+.tabbar {
+  position: fixed; z-index: 50;
+  left: calc(var(--s-4) + env(safe-area-inset-left));
+  right: calc(var(--s-4) + env(safe-area-inset-right));
+  bottom: calc(var(--s-2) + env(safe-area-inset-bottom));
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  padding: 5px;
+  background: var(--glass); border: 0.5px solid var(--glass-border);
+  border-radius: var(--r-pill); box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  /* blindagem: páginas antigas têm regras para toda <nav> (sticky, top:0, fundo branco) */
+  top: auto; height: auto; max-height: none; margin: 0; overflow: visible; border-bottom: 0.5px solid var(--glass-border);
+}
+.tabbar > .tab { border: 0; margin: 0; white-space: nowrap; letter-spacing: 0; text-transform: none; text-decoration: none; opacity: 1; }
+.tab {
+  min-height: 50px; padding: 4px 2px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  color: var(--label); text-decoration: none; background: none; border: 0; border-radius: var(--r-pill);
+  font: 600 0.6875rem/1.1 var(--font); cursor: pointer;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+.tab .i { width: 24px; height: 24px; }
+.tab[aria-current="page"], .tab.is-active { color: var(--tint); background: var(--fill); }
+.tab:active { transform: scale(0.96); }
+
+/* ── Barra lateral (iPad / computador) ── */
+.sidebar {
+  display: none;
+  width: var(--w-sidebar); flex-shrink: 0;
+  position: sticky; top: 0; height: 100vh; height: 100dvh; overflow-y: auto;
+  padding: calc(var(--s-3) + env(safe-area-inset-top)) var(--s-3) var(--s-6) calc(var(--s-3) + env(safe-area-inset-left));
+  background: var(--bg-2);
+  border-right: 0.5px solid var(--sep);
+  overscroll-behavior: contain;
+}
+.sidebar-brand { display: flex; align-items: center; gap: var(--s-2); font: var(--t-title3); color: var(--label); text-decoration: none; padding: var(--s-2) var(--s-3) var(--s-3); }
+.sidebar-section { font: 600 0.8125rem/1.3 var(--font); color: var(--label-2); padding: var(--s-5) var(--s-3) var(--s-2); margin: 0; }
+.sidebar-item {
+  min-height: var(--tap); display: flex; align-items: center; gap: var(--s-3);
+  padding: 6px var(--s-3); border-radius: var(--r-md);
+  color: var(--label); text-decoration: none; font: var(--t-body); font-size: 1rem;
+  background: none; border: 0; width: 100%; text-align: left; cursor: pointer;
+}
+.sidebar-item:hover { background: var(--fill); }
+.sidebar-item[aria-current="page"], .sidebar-item.is-active { background: var(--tint-fill); color: var(--on-tint); }
+.sidebar-item .sidebar-meta { margin-left: auto; font: var(--t-footnote); color: var(--label-2); }
+.sidebar-item[aria-current="page"] .sidebar-meta, .sidebar-item.is-active .sidebar-meta { color: inherit; opacity: 0.85; }
+.sidebar-item .txt { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-item.sub { padding-left: var(--s-6); font-size: 0.9375rem; color: var(--label-2); }
+.sidebar-item.sub[aria-current="page"] { color: var(--on-tint); }
+
+/* Ícone quadrado colorido (estilo Ajustes / Lembretes) */
+.app-icon {
+  width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+  display: grid; place-items: center; overflow: hidden;
+  background: var(--icon-bg, var(--tint-fill)); color: #fff; font-size: 1rem; line-height: 1;
+}
+.app-icon img { width: 100%; height: 100%; object-fit: cover; }
+.app-icon.lg { width: 44px; height: 44px; border-radius: 11px; font-size: 1.4rem; }
+
+@media (min-width: 768px) {
+  .sidebar { display: block; }
+  .tabbar { display: none; }
+  .so-celular { display: none !important; }
+  .page { padding-bottom: var(--s-12); }
+  .navbar { padding-left: var(--s-4); padding-right: var(--s-4); }
+}
+/* No celular a tab bar ocupa o rodapé: rodapé antigo e botões flutuantes sobem */
+@media (max-width: 767px) {
+  .ios footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   6. LISTAS AGRUPADAS (inset grouped, estilo Ajustes)
+   <h2 class="group-title">…</h2>
+   <div class="group">
+     <a class="cell" href="…">…<svg class="i cell-chev">…</svg></a>
+   </div>
+   <p class="group-footer">…</p>
+   ═══════════════════════════════════════════════════════════ */
+.group-title { font: var(--t-title3); color: var(--label); margin: var(--s-8) 0 var(--s-2); display: flex; align-items: baseline; gap: var(--s-2); flex-wrap: wrap; }
+.group-title.small { font: 600 0.8125rem/1.3 var(--font); color: var(--label-2); text-transform: uppercase; letter-spacing: 0.02em; margin: var(--s-6) var(--s-4) var(--s-2); }
+.group-footer { font: var(--t-footnote); color: var(--label-2); margin: var(--s-2) var(--s-4) 0; }
+.group {
+  background: var(--bg-2); border-radius: var(--r-md); overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.group + .group { margin-top: var(--s-4); }
+.cell {
+  position: relative;
+  min-height: var(--tap); display: flex; align-items: center; gap: var(--s-3);
+  padding: 10px var(--s-4); width: 100%;
+  background: none; border: 0; text-align: left; color: var(--label); font: var(--t-body);
+  text-decoration: none; cursor: pointer;
+}
+.cell + .cell::before, .cell-wrap + .cell-wrap > .cell::before {
+  content: ''; position: absolute; top: 0; right: 0; left: var(--sep-inset, var(--s-4));
+  border-top: 0.5px solid var(--sep);
+}
+.cell.has-icon { --sep-inset: 58px; }
+.cell:active { background: var(--fill); }
+@media (hover: hover) { a.cell:hover, button.cell:hover { background: color-mix(in srgb, var(--fill) 50%, transparent); } }
+.cell-body { flex: 1; min-width: 0; }
+.cell-title { font: var(--t-body); color: var(--label); display: block; }
+.cell-sub { font: var(--t-subhead); color: var(--label-2); display: block; margin-top: 1px; }
+.cell-detail { font: var(--t-body); color: var(--label-2); flex-shrink: 0; }
+.cell-chev { width: 18px; height: 18px; color: var(--label-3); flex-shrink: 0; transition: transform var(--dur) var(--ease); }
+
+/* Selo (pill) */
+.pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  font: 600 0.75rem/1 var(--font); padding: 4px 8px; border-radius: var(--r-pill);
+  color: var(--tint); background: var(--tint-bg); white-space: nowrap;
+}
+.pill.green  { color: var(--green);  background: var(--green-bg); }
+.pill.orange { color: var(--orange); background: var(--orange-bg); }
+.pill.gray   { color: var(--label-2); background: var(--fill); }
+
+/* ═══════════════════════════════════════════════════════════
+   7. CONTROLES
+   ═══════════════════════════════════════════════════════════ */
+
+/* Campo de busca */
+.search-field {
+  display: flex; align-items: center; gap: var(--s-2);
+  height: 40px; padding: 0 var(--s-3); margin: 0 0 var(--s-4);
+  background: var(--fill); border-radius: 10px; color: var(--label-2);
+  cursor: text;
+}
+.search-field .i { width: 18px; height: 18px; }
+.search-field input {
+  flex: 1; min-width: 0; height: 100%; border: 0; background: none; outline: none;
+  font: var(--t-body); color: var(--label);
+}
+.search-field input::placeholder { color: var(--label-2); }
+.search-field kbd { font: 500 0.75rem/1 var(--font); color: var(--label-2); border: 0.5px solid var(--sep); border-radius: 5px; padding: 3px 5px; }
+.search-field:focus-within { box-shadow: 0 0 0 3px var(--tint-bg); }
+
+/* Segmented control */
+.segmented {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px;
+  padding: 2px; margin: 0 0 var(--s-5);
+  background: var(--fill); border-radius: 9px;
+}
+.segmented > button, .segmented > a {
+  min-height: 32px; padding: 4px var(--s-3);
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border: 0; border-radius: 7px; background: none; cursor: pointer;
+  font: 500 0.875rem/1.2 var(--font); color: var(--label); text-decoration: none; white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.segmented > [aria-pressed="true"], .segmented > [aria-selected="true"], .segmented > .is-active {
+  background: var(--bg-2); font-weight: 600;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12), 0 3px 1px rgba(0, 0, 0, 0.04);
+}
+:root[data-theme="dark"] .segmented > [aria-pressed="true"], :root[data-theme="dark"] .segmented > [aria-selected="true"], :root[data-theme="dark"] .segmented > .is-active { background: #636366; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .segmented > [aria-pressed="true"],
+  :root:not([data-theme="light"]) .segmented > [aria-selected="true"],
+  :root:not([data-theme="light"]) .segmented > .is-active { background: #636366; }
+}
+/* Segmented com muitas opções: rola para o lado em vez de espremer */
+.segmented.scroll { grid-auto-columns: max-content; overflow-x: auto; scrollbar-width: none; }
+.segmented.scroll::-webkit-scrollbar { display: none; }
+
+/* Botões */
+.btn {
+  min-height: 50px; padding: 0 var(--s-5);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2);
+  border: 0; border-radius: var(--r-md); cursor: pointer; text-decoration: none;
+  font: var(--t-headline); background: var(--tint-fill); color: var(--on-tint);
+  transition: opacity var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.btn:active { opacity: 0.75; transform: scale(0.98); }
+.btn.block { width: 100%; }
+.btn.gray { background: var(--fill); color: var(--tint); }
+.btn.plain { background: none; color: var(--tint); min-height: var(--tap); padding: 0 var(--s-2); }
+.btn.small { min-height: 34px; padding: 0 var(--s-3); border-radius: var(--r-pill); font: 600 0.9375rem/1 var(--font); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Toggle (switch) */
+.toggle {
+  position: relative; width: 51px; height: 31px; flex-shrink: 0;
+  border-radius: 16px; background: var(--fill-2);
+  transition: background-color var(--dur) ease;
+}
+.toggle::after {
+  content: ''; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; border-radius: 50%;
+  background: #fff; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 3px 1px rgba(0, 0, 0, 0.06);
+  transition: transform var(--dur) var(--ease);
+}
+.toggle.is-on, [aria-checked="true"] > .toggle { background: #34c759; }
+.toggle.is-on::after, [aria-checked="true"] > .toggle::after { transform: translateX(20px); }
+
+/* ═══════════════════════════════════════════════════════════
+   8. SHEET (painel que sobe de baixo)
+   <div class="sheet-scrim" data-sheet-close></div>
+   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="…">
+     <div class="sheet-grabber"></div>
+     <div class="sheet-head"><h2>…</h2><button class="bar-btn" data-sheet-close>…</button></div>
+     <div class="sheet-body">…</div>
+   </div>
+   Abrir/fechar: classe .is-open no .sheet e no .sheet-scrim.
+   ═══════════════════════════════════════════════════════════ */
+.sheet-scrim {
+  position: fixed; inset: 0; z-index: 80; background: var(--scrim);
+  opacity: 0; pointer-events: none; transition: opacity var(--dur) ease;
+}
+.sheet-scrim.is-open { opacity: 1; pointer-events: auto; }
+.sheet {
+  position: fixed; z-index: 81; left: 0; right: 0; bottom: 0;
+  max-width: 620px; max-height: calc(100dvh - 48px - env(safe-area-inset-top)); margin: 0 auto;
+  display: flex; flex-direction: column;
+  background: var(--bg); color: var(--label);
+  border-radius: var(--r-xl) var(--r-xl) 0 0; box-shadow: var(--shadow-float);
+  transform: translateY(105%); visibility: hidden;
+  transition: transform var(--dur-slow) var(--ease), visibility 0s linear var(--dur-slow);
+}
+.sheet.is-open { transform: none; visibility: visible; transition: transform var(--dur-slow) var(--ease), visibility 0s; }
+.sheet-grabber { width: 36px; height: 5px; border-radius: 3px; background: var(--label-3); margin: var(--s-2) auto 0; flex-shrink: 0; }
+.sheet-head {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: var(--s-1) var(--s-2) var(--s-2); flex-shrink: 0;
+}
+.sheet-head h2 { grid-column: 2; margin: 0; font: var(--t-headline); text-align: center; }
+.sheet-head .bar-btn { grid-column: 3; justify-self: end; }
+.sheet-body {
+  overflow-y: auto; overscroll-behavior: contain;
+  padding: 0 var(--s-4) calc(var(--s-6) + env(safe-area-inset-bottom));
+}
+/* No iPad/computador a sheet vira um painel centralizado */
+@media (min-width: 768px) {
+  .sheet { bottom: auto; top: 50%; border-radius: var(--r-xl); transform: translateY(-46%) scale(0.98); opacity: 0;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) ease, visibility 0s linear var(--dur); max-height: min(720px, 86vh); }
+  .sheet.is-open { transform: translateY(-50%); opacity: 1; transition: transform var(--dur) var(--ease), opacity var(--dur) ease, visibility 0s; }
+}
+body.sheet-lock { overflow: hidden; }
+
+/* ═══════════════════════════════════════════════════════════
+   10. CONTEÚDO DOS RESUMOS (camada de compatibilidade)
+   Reestiliza, pelo nome que já têm, os componentes das páginas
+   antigas. Não muda HTML nem JavaScript: as classes e ids que os
+   scripts usam continuam iguais.
+   As páginas de resumo usam <body class="ios resumo">. Tudo começa
+   com .ios ou .resumo, que soma uma classe de peso e vence o <style>
+   de cada página (o ios.css é carregado por último).
+   ═══════════════════════════════════════════════════════════ */
+
+/* Ícones usados como máscara (pintados com background-color) */
+.ios {
+  --mask-chev: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E");
+  --mask-bulb: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5'/%3E%3Cpath d='M9 18h6'/%3E%3Cpath d='M10 22h4'/%3E%3C/svg%3E");
+  --mask-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+  --mask-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E");
+  --mask-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9-5.5 5.5L8 12'/%3E%3C/svg%3E");
+}
+
+/* Tokens antigos das páginas → tokens novos (seguem o claro/escuro) */
+body.ios {
+  --text: var(--label);
+  --text-light: var(--label-2);
+  --text-muted: var(--label-2);
+  --border: var(--sep);
+  --card-bg: var(--bg-2);
+  --card: var(--bg-2);
+  --white: var(--bg-2);
+  /* nas páginas antigas --primary é usado como cor de TEXTO (182×) mais
+     do que como fundo (130×, quase todos em componentes reestilizados
+     abaixo com --tint-fill): por isso aponta para a cor legível */
+  --primary: var(--tint);
+  --secondary: var(--tint);
+  --accent: var(--tint);
+  --shadow: var(--shadow-card);
+  --highlight-bg: var(--tint-bg);   --highlight-border: var(--tint);
+  --warning-bg: var(--orange-bg);   --warning-border: var(--orange);
+  --tip-bg: var(--green-bg);        --tip-border: var(--green);
+  /* cores de capítulo: paleta própria, legível no claro e no escuro */
+  --c1: var(--tint);   --ch1: var(--tint);
+  --c2: #0a7ea4;       --ch2: #0a7ea4;
+  --c3: #9a5b00;       --ch3: #9a5b00;
+  --c4: #a8326b;       --ch4: #a8326b;
+  --c5: #2f7d32;       --ch5: #2f7d32;
+  --c6: #6b4fbb;       --ch6: #6b4fbb;
+  --c7: #b03a2e;       --ch7: #b03a2e;
+  --c8: #4b6584;       --ch8: #4b6584;
+  --ch9: #7a6a00;
+  background: var(--bg);
+  color: var(--label);
+  line-height: 1.5;
+}
+:root[data-theme="dark"] body.ios { --c2:#5ac8e8; --ch2:#5ac8e8; --c3:#f0b44c; --ch3:#f0b44c; --c4:#ff8ac1; --ch4:#ff8ac1; --c5:#6fd673; --ch5:#6fd673; --c6:#b4a0ff; --ch6:#b4a0ff; --c7:#ff8a7a; --ch7:#ff8a7a; --c8:#a9bdd6; --ch8:#a9bdd6; --ch9:#e6d35a; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body.ios { --c2:#5ac8e8; --ch2:#5ac8e8; --c3:#f0b44c; --ch3:#f0b44c; --c4:#ff8ac1; --ch4:#ff8ac1; --c5:#6fd673; --ch5:#6fd673; --c6:#b4a0ff; --ch6:#b4a0ff; --c7:#ff8a7a; --ch7:#ff8a7a; --c8:#a9bdd6; --ch8:#a9bdd6; --ch9:#e6d35a; }
+}
+
+/* Fonte do sistema em tudo (o seletor :not(#_) dá peso de id e vence
+   as fontes antigas de cada página), menos código e fórmulas */
+.ios :not(#_):not(code, pre, kbd, samp, svg, svg *, [class*="formula"], [class*="mol-"], .mono) { font-family: var(--font); }
+.ios :is(h1, h2, h3):not(#_) { font-family: var(--font-display); }
+
+/* Largura de leitura */
+.resumo main, .resumo .content { max-width: var(--w-content); margin-left: auto; margin-right: auto; padding: 0 calc(var(--s-4) + env(safe-area-inset-right)) var(--s-8) calc(var(--s-4) + env(safe-area-inset-left)); }
+.resumo main .content { padding-left: 0; padding-right: 0; }
+
+/* Partes antigas substituídas pela moldura nova */
+.ios .cd-oculto, .ios #chat-btn, .ios #contrib-btn { display: none !important; }
+
+/* Barra de progresso: linha fina na cor da matéria, sob a navbar */
+.ios .progress-bar { height: 2px !important; background: var(--tint) !important; background-image: none !important; box-shadow: none !important; top: env(safe-area-inset-top); z-index: 45; }
+
+/* ── Cabeçalho da matéria (hero) → large title ── */
+.ios .hero {
+  background: none !important; color: var(--label); text-align: left; overflow: visible;
+  max-width: var(--w-content); margin: 0 auto; min-height: 0;
+  padding: var(--s-2) calc(var(--s-4) + env(safe-area-inset-right)) var(--s-4) calc(var(--s-4) + env(safe-area-inset-left));
+}
+.ios .hero::before, .ios .hero::after { display: none !important; }
+.ios .hero h1 { font: var(--t-large); color: var(--label); margin: 0 0 var(--s-1); letter-spacing: 0.005em; text-shadow: none; }
+.ios .hero .subtitle, .ios .hero > p { font: var(--t-subhead); color: var(--label-2); opacity: 1; margin: 0 0 var(--s-3); }
+.ios .hero .badge, .ios .hero .author {
+  display: inline-block; margin: var(--s-1) 0 0; padding: 5px 10px; border: 0; border-radius: var(--r-sm);
+  font: var(--t-footnote); font-weight: 600; white-space: normal; background: var(--tint-bg); color: var(--tint); box-shadow: none;
+}
+.ios .hero .author { background: var(--fill); color: var(--label-2); }
+.ios .hero br { display: none; }
+.ios .hero > div:has(> .badge, > .author) { display: inline; }
+.ios .hero-icon img { filter: none !important; height: 56px !important; width: auto !important; }
+
+/* ── Capítulos ── */
+.ios .chapter, .ios .section { margin: var(--s-10) 0 0; scroll-margin-top: 64px; background: none; box-shadow: none; border: 0; padding: 0; }
+.ios .chapter-header, .ios .section-header { margin: 0 0 var(--s-3); padding: 0; border: 0; background: none; }
+.ios .chapter-header h2, .ios .section-title { font: var(--t-title2); color: var(--label); display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--s-2); margin: 0; }
+.ios .chapter-header .meta, .ios .cap-ref, .ios .section-sub { font: var(--t-footnote); color: var(--label-2); margin: var(--s-1) 0 0; }
+.ios .ch-tag, .ios .chapter-num, .ios .section-num {
+  font: 600 0.75rem/1 var(--font) !important; padding: 5px 8px; border-radius: var(--r-pill);
+  background: var(--tint-bg) !important; color: var(--tint) !important; letter-spacing: 0; transform: translateY(-3px);
+}
+.ios .pending-badge { background: var(--orange-bg); color: var(--orange); border: 0; border-radius: var(--r-pill); }
+
+/* ── Acordeões → linhas de lista agrupada com seta (disclosure) ── */
+.ios .accordion { background: var(--bg-2); border: 0; border-radius: 0; margin: 0; box-shadow: none; overflow: hidden; position: relative; }
+.ios .accordion:not(.accordion + .accordion) { border-top-left-radius: var(--r-md); border-top-right-radius: var(--r-md); margin-top: var(--s-3); }
+.ios .accordion:not(:has(+ .accordion)) { border-bottom-left-radius: var(--r-md); border-bottom-right-radius: var(--r-md); margin-bottom: var(--s-4); }
+.ios .accordion + .accordion::before { content: ''; position: absolute; top: 0; left: var(--s-4); right: 0; border-top: 0.5px solid var(--sep); z-index: 1; }
+.ios .accordion-btn {
+  width: 100%; min-height: var(--tap); padding: 12px var(--s-4); gap: var(--s-3);
+  display: flex; align-items: center; justify-content: space-between; text-align: left;
+  background: none !important; border: 0; color: var(--label) !important; cursor: pointer;
+  font: var(--t-body) !important; font-weight: 500 !important;
+}
+.ios .accordion-btn:active { background: var(--fill) !important; }
+@media (hover: hover) { .ios .accordion-btn:hover { background: color-mix(in srgb, var(--fill) 50%, transparent) !important; } }
+/* seta: esconde a antiga (▾, ▼, +) e desenha o chevron do iOS */
+.ios .accordion-btn > .chev, .ios .accordion-btn > .chevron, .ios .accordion-btn > .icon { font-size: 0 !important; color: transparent !important; width: 18px; height: 18px; flex-shrink: 0; transform: none !important; }
+.ios .accordion-btn::after { content: ''; width: 18px; height: 18px; flex-shrink: 0; background: var(--label-3); -webkit-mask: var(--mask-chev) center / contain no-repeat; mask: var(--mask-chev) center / contain no-repeat; transform: none; transition: transform var(--dur) var(--ease); }
+.ios .accordion-btn:has(> .chev, > .chevron, > .icon)::after { display: none; }
+.ios .accordion-btn > .chev::before, .ios .accordion-btn > .chevron::before, .ios .accordion-btn > .icon::before {
+  content: ''; display: block; width: 18px; height: 18px; background: var(--label-3);
+  -webkit-mask: var(--mask-chev) center / contain no-repeat; mask: var(--mask-chev) center / contain no-repeat; transition: transform var(--dur) var(--ease);
+}
+.ios .accordion.open .accordion-btn::after, .ios .accordion.open .accordion-btn > :is(.chev, .chevron, .icon)::before { transform: rotate(90deg); }
+/* conteúdo: sem limite de altura (o antigo max-height cortava textos longos) */
+.ios .accordion-content, .ios .accordion-body { max-height: none !important; display: none; overflow: visible; transition: none; padding: 0; background: none; }
+.ios .accordion.open .accordion-content, .ios .accordion.open .accordion-body { display: block; animation: cd-aparecer var(--dur) var(--ease-out); }
+@keyframes cd-aparecer { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+/* ── Texto corrido ── */
+.resumo .content-block, .ios .accordion-inner, .ios .accordion-content > :not(.content-block) { padding-left: var(--s-4); padding-right: var(--s-4); }
+.resumo .content-block, .ios .accordion-inner { padding-top: var(--s-1); padding-bottom: var(--s-5); border: 0; }
+.ios .accordion-content > :first-child:not(.content-block) { margin-top: var(--s-2); }
+.ios .accordion-content > :last-child:not(.content-block) { margin-bottom: var(--s-5); }
+.resumo main :is(p, li) { font: var(--t-callout); color: var(--label); }
+.resumo main p { margin: var(--s-2) 0 var(--s-3); }
+.resumo main :is(ul, ol) { margin: var(--s-2) 0 var(--s-3); padding-left: 1.3em; }
+.resumo main li { margin: 0 0 var(--s-2); }
+.resumo main li::marker { color: var(--tint); }
+.resumo main :is(h3, h4) { font: var(--t-headline); color: var(--label); margin: var(--s-5) 0 var(--s-2); }
+.resumo main h5 { font: var(--t-subhead); font-weight: 600; color: var(--label); margin: 0 0 var(--s-2); }
+.resumo main strong, .resumo main b { font-weight: 600; color: inherit; }
+.resumo main em { color: inherit; }
+
+/* ── Caixas de destaque (callouts) ── */
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight, .highlight-purple, .highlight-gray) {
+  position: relative; border: 0 !important; border-radius: var(--r-md); box-shadow: none;
+  padding: var(--s-3) var(--s-4) var(--s-3) calc(var(--s-4) + 28px); margin: var(--s-3) 0;
+  font: var(--t-subhead); color: var(--label) !important; background: var(--tint-bg) !important;
+}
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight, .highlight-purple, .highlight-gray)::before {
+  content: ''; position: absolute; left: var(--s-3); top: calc(var(--s-3) + 1px); width: 20px; height: 20px;
+  background: var(--tint); -webkit-mask: var(--mask-info) center / contain no-repeat; mask: var(--mask-info) center / contain no-repeat;
+}
+.ios :is(.warn-box, .warning-box, .danger-box) { background: var(--orange-bg) !important; }
+.ios :is(.warn-box, .warning-box, .danger-box)::before { background: var(--orange); -webkit-mask-image: var(--mask-alert); mask-image: var(--mask-alert); }
+.ios .danger-box { background: var(--red-bg) !important; }
+.ios .danger-box::before { background: var(--red); }
+.ios :is(.tip-box, .tip, .example-box)::before { background: var(--green); -webkit-mask-image: var(--mask-bulb); mask-image: var(--mask-bulb); }
+.ios :is(.tip-box, .tip, .example-box) { background: var(--green-bg) !important; }
+.ios .highlight-gray { background: var(--fill) !important; }
+.ios .highlight-gray::before { background: var(--label-2); }
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight, .highlight-purple, .highlight-gray) > strong:first-child { display: block; font: var(--t-headline); font-size: 0.9375rem; margin: 0 0 2px; color: var(--label); }
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight) :is(p, li) { font: var(--t-subhead); }
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight) :is(ul, ol) { margin: var(--s-1) 0 0; }
+/* caixa solta logo no início da página (aviso de conteúdo) */
+.resumo main > :is(.tip-box, .highlight-box, .warn-box):first-child { margin-top: 0; }
+
+/* ── Linha do tempo ── */
+.ios .timeline { margin: var(--s-3) 0; padding: 0; border: 0; display: grid; gap: var(--s-3); position: relative; }
+.ios .timeline::before, .ios .timeline::after { display: none; }
+.ios :is(.tl-item, .timeline-item) { display: grid; grid-template-columns: 5.5rem 1fr; gap: var(--s-3); margin: 0; padding: 0; border: 0; background: none; align-items: baseline; }
+.ios :is(.tl-item, .timeline-item)::before, .ios :is(.tl-item, .timeline-item)::after { display: none; }
+.ios :is(.tl-year, .timeline-year, .timeline-item .date) {
+  background: none !important; color: var(--tint) !important; padding: 0; border-radius: 0; margin: 0;
+  font: 600 0.8125rem/1.45 var(--font) !important; white-space: normal; font-variant-numeric: tabular-nums;
+}
+.ios :is(.tl-text, .timeline-text, .timeline-item .desc) { font: var(--t-subhead); color: var(--label); }
+.ios .tl-item > h4 { grid-column: 1; margin: 0; font: 600 0.8125rem/1.45 var(--font); color: var(--tint); }
+.ios .tl-item > p { grid-column: 2; margin: 0; font: var(--t-subhead); }
+
+/* ── Tabelas ── */
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) {
+  width: 100%; border-collapse: collapse; margin: var(--s-3) 0; background: none; box-shadow: none; border-radius: 0;
+  font: var(--t-subhead);
+}
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) th {
+  background: none !important; color: var(--label-2) !important; text-align: left; vertical-align: bottom;
+  font: 600 0.75rem/1.3 var(--font) !important; text-transform: uppercase; letter-spacing: 0.03em;
+  padding: 6px var(--s-2) 6px 0; border: 0; border-bottom: 0.5px solid var(--sep);
+}
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) td {
+  background: none !important; color: var(--label); padding: 9px var(--s-2) 9px 0; vertical-align: top;
+  border: 0; border-bottom: 0.5px solid var(--sep);
+}
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) tr:last-child td { border-bottom: 0; }
+.ios :is(.data-table, .styled-table, .table-wrap table, .enzyme-table) tr:hover td { background: none !important; }
+.ios .table-wrap { overflow-x: auto; border: 0; border-radius: 0; box-shadow: none; background: none; }
+
+/* ── Cards e grades ── */
+.ios :is(.card, .compare-card, .mini-card, .nox-card) {
+  background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card);
+  color: var(--label);
+}
+.ios .accordion :is(.card, .compare-card, .mini-card) { background: var(--bg-3) !important; box-shadow: none; }
+.ios :is(.compare-grid, .card-grid, .grid-2, .grid-3) { gap: var(--s-3); }
+.ios .card-title { font: var(--t-headline); color: var(--label); }
+
+/* ── Selos ── */
+.ios :is(.tag, .ch-tag, .quiz-chapter-tag, .quiz-tag, .tag-imp, .tag-new) { border: 0; }
+
+/* ── Fórmulas ── */
+.ios .formula-pill { background: var(--fill) !important; color: var(--label) !important; border: 0 !important; border-radius: var(--r-sm) !important; }
+
+/* ── Imagens ── */
+.resumo main img { border-radius: var(--r-md); }
+
+/* ═══ QUIZ ═══ */
+.ios :is(#quiz-section, .quiz-section) {
+  background: none !important; border: 0; box-shadow: none; padding: 0; margin: var(--s-12) 0 0; color: var(--label); border-radius: 0;
+}
+.ios :is(#quiz-section, .quiz-section) > h2, .ios :is(#quiz-section, .quiz-section) > h3 { font: var(--t-title2); color: var(--label) !important; margin: 0 0 var(--s-1); }
+.ios :is(#quiz-section, .quiz-section) > p { font: var(--t-subhead); color: var(--label-2) !important; margin: 0 0 var(--s-4); }
+
+/* placar ao vivo */
+.ios .quiz-topbar {
+  position: sticky; top: calc(44px + env(safe-area-inset-top)); z-index: 30;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); flex-wrap: nowrap;
+  margin: 0 calc(-1 * var(--s-4)) var(--s-3); padding: var(--s-2) var(--s-4);
+  background: var(--bar); -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  border-bottom: 0.5px solid var(--sep);
+}
+.ios .score-left { display: flex; align-items: center; gap: var(--s-2); }
+.ios .score-live { background: none !important; border: 0 !important; padding: 0 !important; font: var(--t-subhead) !important; color: var(--label) !important; }
+.ios .score-live strong { font-weight: 700; font-variant-numeric: tabular-nums; }
+.ios .mini-donut-wrap circle:first-child, .ios .donut-wrap circle:first-child { stroke: var(--fill-2); }
+.ios #mini-arc:not([style*="stroke:"]) { stroke: var(--fill-2); }
+.ios #mini-pct { color: var(--label-2); font: 700 0.625rem/1 var(--font); }
+.ios :is(.btn-reset-mid, .btn-reset, .reset-btn) {
+  min-height: 34px; padding: 0 var(--s-3); border: 0 !important; border-radius: var(--r-pill);
+  background: var(--fill) !important; color: var(--tint) !important; font: 600 0.875rem/1 var(--font) !important; cursor: pointer;
+}
+.ios .btn-reset { min-height: 44px; padding: 0 var(--s-5); background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+
+/* filtros por capítulo → chips roláveis */
+.ios :is(.quiz-filter, .quiz-filters) { display: flex; flex-wrap: nowrap; gap: var(--s-2); overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--s-4)) var(--s-4); padding: 2px var(--s-4); }
+.ios :is(.quiz-filter, .quiz-filters)::-webkit-scrollbar { display: none; }
+.ios :is(.filter-btn, .qf-btn) {
+  flex-shrink: 0; min-height: 34px; padding: 0 var(--s-3); border: 0 !important; border-radius: var(--r-pill);
+  background: var(--fill) !important; color: var(--label) !important; font: 500 0.875rem/1 var(--font) !important; white-space: nowrap; cursor: pointer;
+}
+.ios :is(.filter-btn, .qf-btn).active { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+
+/* questão (família B: question-card) */
+.ios .question-card {
+  background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card);
+  padding: var(--s-4); margin: 0 0 var(--s-3); scroll-margin-top: 110px;
+}
+.ios .question-card.hidden { display: none; }
+.ios .question-card h4 { font: var(--t-headline) !important; color: var(--label) !important; margin: 0 0 var(--s-3); }
+.ios .q-fonte {
+  font: var(--t-subhead) !important; color: var(--label) !important; margin: 0 0 var(--s-3) !important;
+  padding: var(--s-2) var(--s-3); border-left: 3px solid var(--tint); background: var(--bg-3); border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  white-space: pre-line; /* afirmações I, II, III em linhas separadas */
+}
+.ios .options { display: grid; gap: var(--s-2); }
+.ios .option-btn {
+  min-height: var(--tap); padding: 11px var(--s-3); border: 0 !important; border-radius: var(--r-md);
+  background: var(--fill) !important; color: var(--label) !important; font: var(--t-callout) !important; text-align: left; cursor: pointer;
+  transition: background-color var(--dur-fast) ease, transform var(--dur-fast) ease;
+}
+.ios .option-btn:not(:disabled):active { transform: scale(0.985); }
+@media (hover: hover) { .ios .option-btn:not(:disabled):hover { background: var(--fill-2) !important; } }
+.ios .option-btn:disabled { cursor: default; opacity: 1; }
+.ios .option-btn.correct { background: var(--green-bg) !important; color: var(--label) !important; box-shadow: inset 0 0 0 1.5px var(--green); }
+.ios .option-btn.wrong { background: var(--red-bg) !important; color: var(--label) !important; box-shadow: inset 0 0 0 1.5px var(--red); }
+.ios .answer-exp {
+  gap: var(--s-2); margin-top: var(--s-3); padding: var(--s-3); border: 0 !important; border-radius: var(--r-md);
+  background: var(--bg-3) !important; color: var(--label) !important; font: var(--t-subhead) !important;
+}
+.ios .answer-exp > span:first-child { color: var(--green); font-weight: 700; }
+.ios .answer-exp strong { display: block; margin-bottom: 4px; }
+.ios .answer-exp br { display: none; }
+
+/* resultado final */
+.ios .quiz-result { background: var(--bg-2); border-radius: var(--r-md); box-shadow: var(--shadow-card); padding: var(--s-6) var(--s-4); margin-top: var(--s-4); }
+.ios :is(.donut-score, .result-msg) { color: var(--label) !important; }
+.ios :is(.donut-label, .result-sub) { color: var(--label-2) !important; }
+
+/* questão (família A: rádio) */
+.ios .quiz-q[id] {
+  background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card);
+  padding: var(--s-4); margin: 0 0 var(--s-3); color: var(--label) !important;
+}
+.ios .quiz-q[id] > p:not(.q-fonte) { font: var(--t-headline) !important; color: var(--label) !important; margin: var(--s-2) 0 var(--s-3); }
+.ios .quiz-q[id] label {
+  display: flex; align-items: flex-start; gap: var(--s-2); min-height: var(--tap); padding: 11px var(--s-3); margin: 0 0 var(--s-2);
+  border: 0 !important; border-radius: var(--r-md); background: var(--fill) !important; color: var(--label) !important;
+  font: var(--t-callout) !important; cursor: pointer;
+}
+.ios .quiz-q[id] label input { accent-color: var(--tint); margin-top: 0.3em; }
+.ios .quiz-q[id] label:has(input:checked) { box-shadow: inset 0 0 0 1.5px var(--tint); }
+/* depois de responder: a marcada fica verde ou vermelha, e a certa aparece em verde
+   (a letra certa é o 2º argumento de checkQuiz no onclick de cada rádio) */
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).correct) label:has(input:checked) { background: var(--green-bg) !important; box-shadow: inset 0 0 0 1.5px var(--green); }
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).wrong) label:has(input:checked) { background: var(--red-bg) !important; box-shadow: inset 0 0 0 1.5px var(--red); }
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).wrong) label input:checked { accent-color: var(--red); }
+.ios .quiz-q[id]:has(:is(.feedback, .q-feedback).wrong) label:has(:is(input[value="a"][onclick$="'a')"], input[value="b"][onclick$="'b')"], input[value="c"][onclick$="'c')"], input[value="d"][onclick$="'d')"], input[value="e"][onclick$="'e')"])) {
+  background: var(--green-bg) !important; box-shadow: inset 0 0 0 1.5px var(--green);
+}
+.ios :is(.feedback, .q-feedback) { border: 0 !important; border-radius: var(--r-md); font: var(--t-subhead) !important; color: var(--label) !important; }
+.ios :is(.feedback, .q-feedback).correct { background: var(--green-bg) !important; padding: var(--s-3); }
+.ios :is(.feedback, .q-feedback).wrong { background: var(--red-bg) !important; padding: var(--s-3); }
+.ios :is(.quiz-chapter-tag, .quiz-tag) { background: var(--tint-bg) !important; color: var(--tint) !important; border-radius: var(--r-pill); font: 600 0.75rem/1 var(--font) !important; padding: 5px 8px; }
+
+/* questão (família C: .quiz com .opt) */
+.ios .quiz { background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card); padding: var(--s-4); margin: 0 0 var(--s-3); }
+.ios .quiz .quiz-q { font: var(--t-headline) !important; color: var(--label) !important; display: flex; gap: var(--s-2); margin: 0 0 var(--s-3); }
+.ios .quiz-num { background: var(--tint-bg) !important; color: var(--tint) !important; border-radius: var(--r-pill); min-width: 24px; height: 24px; display: inline-grid; place-items: center; font: 700 0.8125rem/1 var(--font) !important; flex-shrink: 0; }
+.ios .quiz-opts { display: grid; gap: var(--s-2); }
+.ios .opt {
+  display: flex; align-items: flex-start; gap: var(--s-2); min-height: var(--tap); padding: 11px var(--s-3);
+  border: 0 !important; border-radius: var(--r-md); background: var(--fill) !important; color: var(--label) !important;
+  font: var(--t-callout) !important; cursor: pointer;
+}
+.ios .opt-letter { background: var(--bg-2) !important; color: var(--label-2) !important; border: 0 !important; border-radius: 50%; min-width: 24px; height: 24px; display: inline-grid; place-items: center; font: 600 0.8125rem/1 var(--font) !important; }
+.ios .opt.correct, .ios .opt.reveal-correct { background: var(--green-bg) !important; box-shadow: inset 0 0 0 1.5px var(--green); }
+.ios .opt.wrong { background: var(--red-bg) !important; box-shadow: inset 0 0 0 1.5px var(--red); }
+.ios .opt.disabled { cursor: default; opacity: 1; }
+.ios .quiz-feedback.show { border: 0 !important; border-radius: var(--r-md); background: var(--bg-3) !important; color: var(--label) !important; font: var(--t-subhead) !important; padding: var(--s-3); margin-top: var(--s-3); }
+
+/* ═══ CHAT NÊURON → sheet ═══ */
+.ios #chat-panel {
+  position: fixed; z-index: 81; left: 0; right: 0; bottom: 0; top: auto; width: auto; max-width: 620px; margin: 0 auto;
+  height: min(78dvh, 640px); max-height: none; display: none; flex-direction: column;
+  background: var(--bg) !important; border: 0 !important; border-radius: var(--r-xl) var(--r-xl) 0 0; box-shadow: var(--shadow-float); overflow: hidden;
+}
+.ios #chat-panel.open { display: flex; animation: cd-subir var(--dur-slow) var(--ease); }
+@keyframes cd-subir { from { transform: translateY(100%); } to { transform: none; } }
+.ios #chat-head { background: none !important; color: var(--label) !important; padding: var(--s-4) var(--s-4) var(--s-2); border-bottom: 0.5px solid var(--sep); display: flex; align-items: center; justify-content: space-between; }
+.ios #chat-head span { font: var(--t-headline) !important; color: var(--label) !important; }
+.ios #chat-close { width: 30px; height: 30px; border-radius: 50%; background: var(--fill) !important; color: var(--label-2) !important; font-size: 0.9rem !important; display: grid; place-items: center; }
+.ios #chat-msgs { flex: 1; height: auto !important; padding: var(--s-4); gap: var(--s-2); background: none; }
+.ios .cmsg { font: var(--t-callout) !important; border-radius: 18px; padding: 9px 14px; max-width: 85%; }
+.ios .cmsg.user { background: var(--tint-fill) !important; color: var(--on-tint) !important; border-bottom-right-radius: 6px; }
+.ios .cmsg.bot { background: var(--bg-2) !important; color: var(--label) !important; border-bottom-left-radius: 6px; box-shadow: var(--shadow-card); }
+.ios #chat-form { display: flex; gap: var(--s-2); padding: var(--s-2) var(--s-3) calc(var(--s-3) + env(safe-area-inset-bottom)); border-top: 0.5px solid var(--sep); background: var(--bar); }
+.ios #chat-input { flex: 1; height: 38px; border: 0.5px solid var(--sep) !important; border-radius: var(--r-pill); padding: 0 var(--s-4); background: var(--bg-2) !important; color: var(--label) !important; font: var(--t-body) !important; font-size: 16px !important; }
+.ios #chat-send { width: 38px; height: 38px; padding: 0; border-radius: 50%; background: var(--tint-fill) !important; color: var(--on-tint) !important; font-size: 0.95rem; display: grid; place-items: center; }
+@media (min-width: 768px) {
+  .ios #chat-panel { left: auto; right: var(--s-6); bottom: var(--s-6); width: 420px; height: min(620px, 80vh); border-radius: var(--r-xl); }
+}
+
+/* ═══ ENVIAR MEU RESUMO → sheet ═══ */
+.ios #contrib-modal { background: var(--scrim); align-items: flex-end; padding: 0; z-index: 90; }
+.ios #contrib-box { width: 620px; max-width: 100%; max-height: calc(100dvh - 40px); border-radius: var(--r-xl) var(--r-xl) 0 0; background: var(--bg); box-shadow: var(--shadow-float); padding-bottom: env(safe-area-inset-bottom); }
+.ios #contrib-modal.open #contrib-box { animation: cd-subir var(--dur-slow) var(--ease); }
+.ios #contrib-head { background: var(--bg); color: var(--label); border-bottom: 0.5px solid var(--sep); }
+.ios #contrib-head span { font: var(--t-headline); }
+.ios #contrib-close { width: 30px; height: 30px; border-radius: 50%; background: var(--fill); color: var(--label-2); font-size: 0.9rem; }
+.ios #contrib-form label { color: var(--label); font: 600 0.8125rem/1.3 var(--font); }
+.ios #contrib-form :is(input[type="text"], select, textarea) { background: var(--bg-2); color: var(--label); border: 0.5px solid var(--sep); font: var(--t-body); font-size: 16px; }
+.ios #contrib-form :is(input[type="text"], select, textarea):focus { border-color: var(--tint); box-shadow: 0 0 0 3px var(--tint-bg); }
+.ios #contrib-send { background: var(--tint-fill); color: var(--on-tint); min-height: 50px; border-radius: var(--r-md); font: var(--t-headline); }
+.ios #contrib-status.ok { color: var(--green); } .ios #contrib-status.erro { color: var(--red); }
+@media (min-width: 768px) { .ios #contrib-modal { align-items: center; } .ios #contrib-box { border-radius: var(--r-xl); } }
+
+/* ── Ajustes encontrados pelo detector de contraste ── */
+
+/* Etiquetas coloridas de capítulo: fundo suave + texto na cor (legível nos dois modos) */
+.ios .tag-ch1, .ios .tag.tag-ch1 { background: color-mix(in srgb, var(--ch1) 16%, transparent) !important; color: var(--ch1) !important; }
+.ios .tag-ch2, .ios .tag.tag-ch2 { background: color-mix(in srgb, var(--ch2) 16%, transparent) !important; color: var(--ch2) !important; }
+.ios .tag-ch3, .ios .tag.tag-ch3 { background: color-mix(in srgb, var(--ch3) 16%, transparent) !important; color: var(--ch3) !important; }
+.ios .tag-ch4, .ios .tag.tag-ch4 { background: color-mix(in srgb, var(--ch4) 16%, transparent) !important; color: var(--ch4) !important; }
+.ios .tag-ch5, .ios .tag.tag-ch5 { background: color-mix(in srgb, var(--ch5) 16%, transparent) !important; color: var(--ch5) !important; }
+.ios .tag-ch6, .ios .tag.tag-ch6 { background: color-mix(in srgb, var(--ch6) 16%, transparent) !important; color: var(--ch6) !important; }
+.ios .tag-ch7, .ios .tag.tag-ch7 { background: color-mix(in srgb, var(--ch7) 16%, transparent) !important; color: var(--ch7) !important; }
+.ios .tag-ch8, .ios .tag.tag-ch8 { background: color-mix(in srgb, var(--ch8) 16%, transparent) !important; color: var(--ch8) !important; }
+.ios .tag-ch9, .ios .tag.tag-ch9 { background: color-mix(in srgb, var(--ch9) 16%, transparent) !important; color: var(--ch9) !important; }
+.ios .tag-imp { background: var(--yellow-bg) !important; color: var(--label) !important; }
+.ios .tag-new { background: var(--green-bg) !important; color: var(--green) !important; }
+
+/* Botões de refazer/reiniciar com cor escrita no HTML (feitos para fundo escuro) */
+.ios button[onclick^="reset"]:not(.btn-reset-mid):not(.btn-reset) {
+  background: var(--tint-fill) !important; color: var(--on-tint) !important; border: 0 !important;
+  border-radius: var(--r-pill) !important; min-height: 40px; font: 600 0.9375rem/1 var(--font) !important;
+}
+
+/* Elementos com fundo na cor da matéria e texto branco: usam o tom cheio */
+.ios :is(.flow-step, .step-num, .nox-val, .deck-btn.active, .fc-unit-tag) { background-color: var(--tint-fill) !important; color: var(--on-tint) !important; }
+.ios [style*="background:var(--primary)"], .ios [style*="background: var(--primary)"],
+.ios [style*="background:var(--secondary)"], .ios [style*="background: var(--secondary)"],
+.ios [style*="background:var(--accent)"], .ios [style*="background: var(--accent)"] { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+
+/* Listas em caixinhas e citações (Filosofia, Português, Geografia 1º tri) */
+.resumo .list li { background: var(--bg-3) !important; border: 0 !important; color: var(--label) !important; }
+.resumo .list li::before { color: var(--tint) !important; }
+.resumo .list-nested { border-left-color: var(--sep) !important; }
+.resumo .list-nested li { color: var(--label-2) !important; }
+.resumo :is(.quote, .exemplo) {
+  background: var(--bg-3) !important; color: var(--label) !important; border: 0 !important; border-left: 3px solid var(--tint) !important;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0 !important; font-style: italic;
+}
+.resumo :is(.quote, .exemplo) span { color: var(--label-2) !important; font-style: normal; }
+.ios .highlight-red { background: var(--red-bg) !important; color: var(--label) !important; border: 0 !important; border-radius: var(--r-md); }
+.ios .highlight-blue { background: var(--blue-bg) !important; color: var(--label) !important; border: 0 !important; border-radius: var(--r-md); }
+
+/* Faixa antiga "← Caderno Digital" (História e Química 1º tri) e seta de círculo da Matemática */
+.ios div:has(> a[href^="index.html"][onmouseover]) { display: none !important; }
+.ios .accordion-btn > :is(.chev, .chevron, .icon) { background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
+.resumo .chapter-body { padding: 0 !important; background: none !important; border: 0 !important; }
+
+/* Quiz antigo feito para fundo escuro: texto branco escrito no HTML */
+.resumo .quiz-section :is([style*="color:white"], [style*="color: white"], [style*="color:#fff"], [style*="color:rgba(255,255,255"], [style*="color: rgba(255,255,255"]) { color: var(--label) !important; }
+.resumo .quiz-section p[style*="opacity"] { color: var(--label-2) !important; opacity: 1 !important; }
+.resumo circle[stroke^="rgba(255,255,255"], .resumo circle[stroke="#e0e0e0"] { stroke: var(--fill-2); }
+.resumo .author { color: var(--label) !important; }
+
+/* Geografia (América): o globo foi desenhado para fundo escuro → cartão "planetário" */
+.resumo .hero .globe-wrap:not(.is-mini) {
+  background: radial-gradient(120% 90% at 50% 30%, #1b2a4a 0%, #0b1220 70%); border-radius: var(--r-xl);
+  padding: var(--s-4) var(--s-4) var(--s-3); max-width: 480px; box-shadow: var(--shadow-card);
+}
+.resumo .hero .globe-wrap:not(.is-mini) .globe-caption { color: rgba(255, 255, 255, 0.82) !important; opacity: 1 !important; text-align: center; }
+/* no celular, o globo flutuante sai da frente enquanto o quiz está na tela (classe posta pelo app.js) */
+@media (max-width: 999px) {
+  .resumo.cd-no-quiz .globe-wrap.globe-sticky.is-mini { opacity: 0 !important; visibility: hidden; pointer-events: none; transform: translateY(16px) scale(0.92); transition: opacity var(--dur) ease, transform var(--dur) ease, visibility 0s linear var(--dur); }
+}
+
+/* Matemática: blocos de fórmula e gráfico de sinais */
+.resumo .formula-block { background: var(--bg-3) !important; color: var(--label) !important; border-color: var(--sep) !important; }
+.resumo .sign-chart .seg.pos { color: var(--green) !important; border-color: var(--green) !important; background: var(--green-bg) !important; }
+.resumo .sign-chart .seg.neg { color: var(--red) !important; border-color: var(--red) !important; background: var(--red-bg) !important; }
+.resumo .sign-chart .seg { color: var(--label-2); }
+
+/* Química 1º tri: diagramas de moléculas, proporções e redox */
+.resumo .mol-equation, .resumo .solved-problem { background: var(--bg-3) !important; border-color: var(--sep) !important; color: var(--label); }
+.resumo .mol-substance { background: var(--bg-2) !important; border-color: var(--sep) !important; }
+.resumo .mol-substance.highlight { background: var(--tint-bg) !important; border-color: var(--tint) !important; }
+.resumo .mol-mass-label { background: var(--fill) !important; color: var(--label-2) !important; }
+.resumo :is(.mol-op, .mol-formula-label) { color: var(--label) !important; }
+.resumo :is(.mol-coeff, .mol-arrow-op) { color: var(--tint) !important; }
+.resumo .prop-col-head { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+.resumo .prop-col:last-child .prop-col-head { background: #0a6c8c !important; }
+.resumo .prop-col-mass { background: var(--bg-3) !important; color: var(--tint) !important; border-color: var(--sep) !important; }
+.resumo .prop-col-val { background: var(--bg-2) !important; color: var(--label) !important; }
+.resumo .redox-oxidacao { background: var(--orange-bg) !important; border-color: var(--orange) !important; }
+.resumo .redox-reducao { background: var(--green-bg) !important; border-color: var(--green) !important; }
+.resumo .redox-oxidacao h5 { color: var(--orange) !important; }
+.resumo .redox-reducao h5 { color: var(--green) !important; }
+.resumo .redox-box p { color: var(--label) !important; }
+
+/* Sociologia 2º tri: botão das fotos */
+.resumo .photos-cta { background: var(--tint-fill) !important; color: var(--on-tint) !important; border: 0 !important; }
+
+/* Flashcards */
+.resumo .hero-nav a { background: var(--fill) !important; color: var(--tint) !important; border: 0 !important; }
+.resumo :is(.deck-btn, .fc-nav-btn, .fc-flip-hint) { background: var(--bg-2) !important; color: var(--label) !important; border: 0.5px solid var(--sep) !important; box-shadow: var(--shadow-card); }
+.resumo .deck-btn.active { background: var(--tint-fill) !important; color: var(--on-tint) !important; border-color: transparent !important; }
+.resumo .fc-front { background: linear-gradient(135deg, var(--tint-fill), color-mix(in srgb, var(--tint-fill) 70%, #000)) !important; color: #fff !important; }
+.resumo .fc-back { background: var(--bg-2) !important; border-color: var(--sep) !important; color: var(--label) !important; }
+.resumo .fc-back :is(.fc-pt, .fc-ex, .fc-term) { color: var(--label) !important; }
+.resumo .fc-back .fc-unit-tag { background: var(--tint-bg) !important; color: var(--tint) !important; }
+.resumo .fc-btn-review { background: linear-gradient(135deg, #b8501a, #8f3d12) !important; color: #fff !important; }
+.resumo .fc-btn-know { background: linear-gradient(135deg, #187a47, #12603a) !important; color: #fff !important; }
+.resumo :is(.fc-progress-bar) { background: var(--fill) !important; }
+.resumo :is(.fc-progress-fill) { background: var(--tint) !important; }
+.resumo :is(.fc-progress-label, #fcCounter, #fcDeckLabel) { color: var(--label-2) !important; }
+
+/* Texto sobre fundo colorido usa a "tinta" (contraste ≥ 4,5) */
+.pill, .ios .hero .badge, .ios :is(.ch-tag, .chapter-num, .section-num, .quiz-num, .quiz-chapter-tag, .quiz-tag),
+.sidebar-item.chapter-link.is-active, .sidebar-item.chapter-link.is-active .num, .ios :is(.btn-reset-mid, .btn-reset-mid *) { color: var(--tint-ink) !important; }
+.ios :is(.tag-ch1, .tag-ch2, .tag-ch3, .tag-ch4, .tag-ch5, .tag-ch6, .tag-ch7, .tag-ch8, .tag-ch9) { filter: none; }
+.ios :is(.tag-ch1, .tag.tag-ch1) { color: color-mix(in srgb, var(--ch1) 68%, #000) !important; }
+.ios :is(.tag-ch2, .tag.tag-ch2) { color: color-mix(in srgb, var(--ch2) 68%, #000) !important; }
+.ios :is(.tag-ch3, .tag.tag-ch3) { color: color-mix(in srgb, var(--ch3) 68%, #000) !important; }
+.ios :is(.tag-ch4, .tag.tag-ch4) { color: color-mix(in srgb, var(--ch4) 68%, #000) !important; }
+.ios :is(.tag-ch5, .tag.tag-ch5) { color: color-mix(in srgb, var(--ch5) 68%, #000) !important; }
+.ios :is(.tag-ch6, .tag.tag-ch6) { color: color-mix(in srgb, var(--ch6) 68%, #000) !important; }
+.ios :is(.tag-ch7, .tag.tag-ch7) { color: color-mix(in srgb, var(--ch7) 68%, #000) !important; }
+.ios :is(.tag-ch8, .tag.tag-ch8) { color: color-mix(in srgb, var(--ch8) 68%, #000) !important; }
+.ios :is(.tag-ch9, .tag.tag-ch9) { color: color-mix(in srgb, var(--ch9) 68%, #000) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is([class*="tag-ch"]) { filter: brightness(1.12); } }
+:root[data-theme="dark"] .ios :is([class*="tag-ch"]) { filter: brightness(1.12); }
+:root[data-theme="dark"] .ios :is(.tag-ch1, .tag.tag-ch1) { color: var(--ch1) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch1, .tag.tag-ch1) { color: var(--ch1) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch2, .tag.tag-ch2) { color: var(--ch2) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch2, .tag.tag-ch2) { color: var(--ch2) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch3, .tag.tag-ch3) { color: var(--ch3) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch3, .tag.tag-ch3) { color: var(--ch3) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch4, .tag.tag-ch4) { color: var(--ch4) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch4, .tag.tag-ch4) { color: var(--ch4) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch5, .tag.tag-ch5) { color: var(--ch5) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch5, .tag.tag-ch5) { color: var(--ch5) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch6, .tag.tag-ch6) { color: var(--ch6) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch6, .tag.tag-ch6) { color: var(--ch6) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch7, .tag.tag-ch7) { color: var(--ch7) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch7, .tag.tag-ch7) { color: var(--ch7) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch8, .tag.tag-ch8) { color: var(--ch8) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch8, .tag.tag-ch8) { color: var(--ch8) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch9, .tag.tag-ch9) { color: var(--ch9) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch9, .tag.tag-ch9) { color: var(--ch9) !important; } }
+.ios :is(.highlight-box, .warn-box, .warning-box, .tip-box, .tip, .info-box, .danger-box, .example-box, .highlight, .highlight-purple, .highlight-gray, .highlight-red, .highlight-blue) strong { color: var(--label) !important; }
+.ios .search-field kbd { color: var(--label); }
+.resumo .mol-mass-label { color: var(--label) !important; }
+.resumo .sign-chart .seg.pos, .resumo .sign-chart .seg.neg { color: var(--label) !important; }
+.ios :is(.chapter-number) { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+
+.resumo .quiz-section, .resumo .quiz-section :is(#score-box, #score-nums, #score-pct-label, #score-pct-sub, #score-chart-wrap) { color: var(--label) !important; }
+.resumo #score-box { background: var(--bg-2) !important; border: 0 !important; border-radius: var(--r-md); box-shadow: var(--shadow-card); }
+.ios .section-num:is([style*="var(--primary)"], [style*="var(--secondary)"], [style*="var(--accent)"]) { background: var(--tint-fill) !important; color: var(--on-tint) !important; }
+.resumo .hero-nav a, .resumo .root { color: var(--tint-ink) !important; }
+:root[data-theme="dark"] .ios :is(.tag-ch1, .tag.tag-ch1) { color: color-mix(in srgb, var(--ch1) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch1, .tag.tag-ch1) { color: color-mix(in srgb, var(--ch1) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch2, .tag.tag-ch2) { color: color-mix(in srgb, var(--ch2) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch2, .tag.tag-ch2) { color: color-mix(in srgb, var(--ch2) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch3, .tag.tag-ch3) { color: color-mix(in srgb, var(--ch3) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch3, .tag.tag-ch3) { color: color-mix(in srgb, var(--ch3) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch4, .tag.tag-ch4) { color: color-mix(in srgb, var(--ch4) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch4, .tag.tag-ch4) { color: color-mix(in srgb, var(--ch4) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch5, .tag.tag-ch5) { color: color-mix(in srgb, var(--ch5) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch5, .tag.tag-ch5) { color: color-mix(in srgb, var(--ch5) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch6, .tag.tag-ch6) { color: color-mix(in srgb, var(--ch6) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch6, .tag.tag-ch6) { color: color-mix(in srgb, var(--ch6) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch7, .tag.tag-ch7) { color: color-mix(in srgb, var(--ch7) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch7, .tag.tag-ch7) { color: color-mix(in srgb, var(--ch7) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch8, .tag.tag-ch8) { color: color-mix(in srgb, var(--ch8) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch8, .tag.tag-ch8) { color: color-mix(in srgb, var(--ch8) 72%, #fff) !important; } }
+:root[data-theme="dark"] .ios :is(.tag-ch9, .tag.tag-ch9) { color: color-mix(in srgb, var(--ch9) 72%, #fff) !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ios :is(.tag-ch9, .tag.tag-ch9) { color: color-mix(in srgb, var(--ch9) 72%, #fff) !important; } }
+
+/* ── Rodapé ── */
+.resumo footer { background: none; border: 0; color: var(--label-2); font: var(--t-footnote); text-align: center; padding: var(--s-8) var(--s-4) var(--s-10); max-width: var(--w-content); margin: 0 auto; }
+
+@media (max-width: 767px) { .resumo footer { padding-bottom: calc(var(--s-10) + 76px + env(safe-area-inset-bottom)); } }
+
+/* ── Barra lateral fixa nas páginas de resumo (sem mover o HTML) ── */
+@media (min-width: 768px) {
+  body.ios.has-sidebar { padding-left: var(--w-sidebar); }
+  body.ios.has-sidebar > .sidebar { position: fixed; left: 0; top: 0; bottom: 0; z-index: 60; }
+  body.ios.has-sidebar .progress-bar { left: var(--w-sidebar) !important; }
+}
+.sidebar-item.chapter-link { font-size: 0.9375rem; min-height: 38px; padding-top: 4px; padding-bottom: 4px; }
+.sidebar-item.chapter-link .num { width: 30px; text-align: center; font: 600 0.8125rem/1 var(--font); color: var(--label-2); flex-shrink: 0; }
+.sidebar-item.chapter-link.is-active { background: var(--tint-bg); color: var(--tint); }
+.sidebar-item.chapter-link.is-active .num { color: var(--tint); }
+
+/* ── Impressão: só o conteúdo ── */
+@media print {
+  .ios :is(.navbar, .tabbar, .sidebar, .sheet, .sheet-scrim, .progress-bar, #chat-panel, #contrib-modal) { display: none !important; }
+  body.ios.has-sidebar { padding-left: 0; }
+  .ios .accordion-content, .ios .accordion-body { display: block !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   9. REDUZIR MOVIMENTO
+   ═══════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .ios *, .ios *::before, .ios *::after, .sheet, .sheet-scrim {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+<style>/* labs.css — laboratórios interativos dos resumos (Filosofia e Biologia 3º tri).
+   Só variáveis do ios.css: funciona no claro e no escuro. Classes próprias
+   (.lab, .lbtn, .seg...) para não herdar o botão grande do site. */
+.lab { margin: 18px 0; border: 1px solid var(--sep); border-radius: 16px; background: var(--bg-2); overflow: hidden; color: var(--label); }
+.lab-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 16px; border-bottom: 1px solid var(--sep); }
+.lab-head b { font-size: .98rem; color: var(--label); }
+.lab-tag { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--tint); border: 1px solid var(--tint); border-radius: 999px; padding: 2px 9px; }
+.lab-stage { background: var(--bg-3); position: relative; }
+.lab-stage svg, .lab-stage canvas { display: block; width: 100%; height: auto; }
+.lab-ctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 16px 6px; }
+.lab-ctl label { font-size: .86rem; color: var(--label-2); display: flex; align-items: center; gap: 8px; flex: 1 1 260px; }
+.lab-ctl input[type=range] { flex: 1; accent-color: var(--tint); min-width: 120px; }
+.lab-out { padding: 6px 16px 14px; font-size: .93rem; line-height: 1.55; color: var(--label); min-height: 2.6em; }
+.lab-out b { color: var(--tint); }
+.lab-out small { color: var(--label-2); }
+.lab-hint { font-size: .8rem; color: var(--label-2); padding: 0 16px 12px; }
+.lbtn { font: inherit; font-size: .88rem; font-weight: 600; border: 1px solid var(--sep); background: var(--bg-3); color: var(--label); border-radius: 10px; padding: 7px 13px; cursor: pointer; transition: transform .12s, background .2s, border-color .2s; }
+.lbtn:hover { border-color: var(--tint); }
+.lbtn:active { transform: scale(.97); }
+.lbtn.pri { background: var(--tint-fill); border-color: var(--tint-fill); color: #fff; }
+.lbtn.on { border-color: var(--tint); color: var(--tint); background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--tint); }
+.lbtn.ok { background: var(--green-bg); border-color: var(--green); color: var(--green); }
+.lbtn.no { background: var(--red-bg); border-color: var(--red); color: var(--red); text-decoration: line-through; }
+.lbtn:disabled { opacity: .55; cursor: default; }
+.seg { display: inline-flex; border: 1px solid var(--sep); border-radius: 10px; overflow: hidden; background: var(--bg-3); }
+.seg button { font: inherit; font-size: .85rem; font-weight: 600; border: 0; background: none; color: var(--label-2); padding: 7px 12px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--sep); }
+.seg button.on { background: var(--tint-fill); color: #fff; }
+.lab-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.lab-split > * + * { border-left: 1px solid var(--sep); }
+@media (max-width: 640px) { .lab-split { grid-template-columns: 1fr; } .lab-split > * + * { border-left: 0; border-top: 1px solid var(--sep); } }
+.lab-pane { padding: 12px 16px; font-size: .9rem; }
+.lab-pane h5 { margin: 0 0 6px !important; font-size: .9rem; color: var(--tint) !important; }
+/* jogo de classificar */
+.sorter { padding: 12px 16px 14px; display: grid; gap: 10px; }
+.sorter .card-q { font-size: 1rem; font-weight: 600; padding: 14px; border-radius: 12px; background: var(--bg-3); border: 1px dashed var(--sep); min-height: 3.2em; color: var(--label); }
+.sorter .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.sorter .meta { display: flex; justify-content: space-between; font-size: .82rem; color: var(--label-2); }
+.sorter .fb { font-size: .88rem; color: var(--label-2); min-height: 1.4em; }
+.sorter .fb.ok { color: var(--green); }
+.sorter .fb.no { color: var(--red); }
+/* chips (abstração, órgãos) */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 16px; }
+.chip { font: inherit; font-size: .88rem; border: 1px solid var(--sep); background: var(--bg-3); color: var(--label); border-radius: 999px; padding: 6px 13px; cursor: pointer; }
+.chip.ok { background: var(--green-bg); border-color: var(--green); color: var(--green); font-weight: 700; }
+.chip.no { background: var(--red-bg); border-color: var(--red); color: var(--red); }
+.chip.dim { opacity: .55; }
+/* passo a passo */
+.steps { display: flex; gap: 6px; padding: 12px 16px 0; flex-wrap: wrap; }
+.steps button { font: inherit; font-size: .8rem; font-weight: 700; border: 1px solid var(--sep); background: var(--bg-3); color: var(--label-2); border-radius: 999px; padding: 4px 11px; cursor: pointer; }
+.steps button.on { background: var(--tint-fill); border-color: var(--tint-fill); color: #fff; }
+/* medidor */
+.meter { height: 10px; border-radius: 999px; background: var(--fill, rgba(120,120,128,.2)); overflow: hidden; }
+.meter i { display: block; height: 100%; width: 50%; background: var(--tint); border-radius: inherit; transition: width .4s, background .4s; }
+/* feed da bolha (Han) */
+.feed { display: grid; gap: 8px; padding: 12px 16px; max-height: 360px; overflow: auto; }
+.post { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; background: var(--bg-3); border: 1px solid var(--sep); font-size: .88rem; color: var(--label); animation: labIn .35s ease both; }
+.post .av { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #fff; font-size: .8rem; }
+.post small { display: block; color: var(--label-2); font-size: .75rem; }
+@keyframes labIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .post, .lab * { animation: none !important; transition: none !important; } }
+/* quiz A–E */
+.qz { background: var(--bg-2); border: 1px solid var(--sep); border-radius: 14px; margin-bottom: 14px; overflow: hidden; }
+.qz-q { display: flex; gap: 12px; padding: 16px 16px 10px; font-weight: 600; font-size: .93rem; color: var(--label); }
+.qz-n { background: var(--tint-fill); color: #fff; min-width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; flex-shrink: 0; }
+.qz-opts { display: grid; gap: 6px; padding: 0 16px 14px; }
+.qz-opt { display: flex; gap: 10px; align-items: flex-start; text-align: left; font: inherit; font-size: .9rem; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--sep); background: var(--bg-3); color: var(--label); cursor: pointer; }
+.qz-opt:hover { border-color: var(--tint); }
+.qz-opt .l { width: 22px; height: 22px; border-radius: 50%; background: var(--bg-2); border: 1px solid var(--sep); color: var(--tint); font-weight: 800; font-size: .75rem; display: grid; place-items: center; flex-shrink: 0; }
+.qz-opt.ok { border-color: var(--green); background: var(--green-bg); }
+.qz-opt.ok .l { background: var(--green); color: #fff; border-color: var(--green); }
+.qz-opt.no { border-color: var(--red); background: var(--red-bg); }
+.qz-opt.no .l { color: var(--red); }
+.qz-opt.dis { pointer-events: none; }
+.qz-fb { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: .88rem; display: none; color: var(--label); background: var(--bg-3); border-left: 4px solid var(--sep); }
+.qz-fb.ok { display: block; border-left-color: var(--green); }
+.qz-fb.no { display: block; border-left-color: var(--red); }
+.qz-score { position: sticky; top: 56px; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: var(--bg-2); border: 1px solid var(--sep); border-radius: 14px; padding: 12px 16px; margin-bottom: 14px; }
+.qz-score b { font-size: 1.5rem; color: var(--tint); font-variant-numeric: tabular-nums; }
+
+/* artefato: sem a moldura do site (barra lateral, topo fixo), o conteúdo usa a largura toda */
+body { margin: 0; background: var(--bg); color: var(--label); }
+.qz-score { top: 8px; }
+nav, .chapter-nav, .top-nav { background: var(--bg-2) !important; border-color: var(--sep) !important; box-shadow: none !important; }
+nav a, .chapter-nav a { color: var(--label-2) !important; }
+nav a:hover { color: var(--tint) !important; }
+</style>
+<script>document.documentElement.dataset.materia = "filosofia"; document.documentElement.dataset.pagina = "filosofia-3tri";
+(function liga() { if (!document.body) return document.addEventListener('DOMContentLoaded', liga); document.body.classList.add('ios', 'resumo'); })();</script>
+
+
+
+<header class="hero">
+  <div class="hero-icon"><img src="pensador.png" alt="O Pensador" style="height:100px;object-fit:contain;filter:brightness(1.3) contrast(0.85) drop-shadow(0 4px 12px rgba(0,0,0,0.4));"/></div>
+  <h1>Filosofia · Identidade</h1>
+  <p class="subtitle">Sou ou estou sendo? · Heráclito e Parmênides · Demócrito, Platão e Aristóteles · Hegel · Marx · Byung-Chul Han</p>
+  <div class="badge">Avaliação Trimestral · 3º Trimestre · 2026</div>
+  <div><span class="author">Resumo interativo · mexa nos laboratórios</span></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    
+    <a class="nav-link" href="#formato">O que cai</a>
+    <a class="nav-link" href="#identidade">0. Sou ou estou sendo?</a>
+    <a class="nav-link" href="#presocraticos">1. Heráclito × Parmênides</a>
+    <a class="nav-link" href="#democrito">2. Demócrito</a>
+    <a class="nav-link" href="#platao">3. Platão</a>
+    <a class="nav-link" href="#aristoteles">4. Aristóteles</a>
+    <a class="nav-link" href="#hegel">5. Hegel</a>
+    <a class="nav-link" href="#marx">6. Marx</a>
+    <a class="nav-link" href="#han">7. Byung-Chul Han</a>
+    <a class="nav-link" href="#revisao">Revisão</a>
+    <a class="nav-link" href="#exercicios">Quiz</a>
+    
+  </div>
+</nav>
+
+<div class="content">
+
+  <!-- ═══ O QUE CAI ═══ -->
+  <section class="section" id="formato">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--primary)">✓</div>
+      <div>
+        <h2 class="section-title">O que cai na prova</h2>
+        <p class="section-sub">Tema do trimestre: <b>Identidade</b> · o conteúdo é acumulativo</p>
+      </div>
+    </div>
+    <div class="card">
+      <p>A orientação lista seis conteúdos. Cada um virou uma seção com um laboratório para mexer. O fio que liga tudo é uma pergunta só: <strong>o que faz uma coisa (ou uma pessoa) continuar sendo ela mesma enquanto muda?</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Orientação de estudos</th><th>Onde revisar</th><th>Texto do Moodle</th></tr></thead>
+          <tbody>
+            <tr><td>Sou ou estou sendo? Identidade como problema</td><td><a href="#identidade">0</a></td><td>(base de todos)</td></tr>
+            <tr><td>Pré-socráticos: Parmênides e Heráclito</td><td><a href="#presocraticos">1</a></td><td>Heráclito, introdução · Parmênides, <i>Introdução à Metafísica</i></td></tr>
+            <tr><td>Superação da "contradição": Demócrito, Platão e Aristóteles</td><td><a href="#democrito">2</a>, <a href="#platao">3</a>, <a href="#aristoteles">4</a></td><td>Diálogo sobre Demócrito, Platão e Aristóteles</td></tr>
+            <tr><td>Hegel: idealismo, "o real é racional e o racional é real"</td><td><a href="#hegel">5</a></td><td>Hegel e Marx</td></tr>
+            <tr><td>Marx: crítica ao idealismo hegeliano</td><td><a href="#marx">6</a></td><td>Hegel e Marx</td></tr>
+            <tr><td>Byung-Chul Han: identidade digital, Infocracia</td><td><a href="#han">7</a></td><td>Byung-Chul Han, identidade virtual</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-gray">Reveja também os PPTs das aulas. Este resumo junta o caderno de aula, as anotações mais recentes (Han: dataísmo, psicopolítica, capitalismo de vigilância) e a orientação.</div>
+    </div>
+  </section>
+
+  <!-- ═══ 0. IDENTIDADE ═══ -->
+  <section class="section" id="identidade">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">0</div>
+      <div>
+        <h2 class="section-title">Sou ou estou sendo? Identidade como problema</h2>
+        <p class="section-sub">Ser (permanência) × estar sendo (devir)</p>
+      </div>
+    </div>
+    <div class="card">
+      <p>Em português há dois verbos que o grego não separa: <strong>ser</strong> e <strong>estar</strong>. "Eu <em>sou</em>" sugere algo fixo, que define quem eu sou. "Eu <em>estou sendo</em>" sugere algo em processo, que ainda está acontecendo. A identidade vira <strong>problema</strong> justamente aí: se tudo em mim muda (corpo, ideias, gostos), o que garante que eu continuo sendo eu?</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>"Sou": identidade como permanência</h4>
+          <p>Existe algo que não muda e define a coisa: um <strong>Ser</strong>, uma <strong>essência</strong>. Linha de <strong>Parmênides</strong> (e, de outro jeito, Platão e Aristóteles).</p>
+        </div>
+        <div class="mini-card" style="border-top-color:#9c1c1c">
+          <h4>"Estou sendo": identidade como devir</h4>
+          <p>A identidade é um <strong>processo</strong>, feito de mudança e de contrários. Linha de <strong>Heráclito</strong> (e, séculos depois, Hegel e Marx).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lab" id="labTeseu">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>O navio que troca de tábuas</b></div>
+      <div class="lab-stage"><svg id="teseuSvg" viewBox="0 0 640 230" role="img" aria-label="Navio com tábuas antigas e novas"></svg></div>
+      <div class="lab-ctl"><label>Tábuas trocadas <input type="range" id="teseuR" min="0" max="12" value="0"></label><button class="lbtn" type="button" id="teseuAuto">▶ Trocar uma por ano</button></div>
+      <div class="lab-out" id="teseuOut"></div>
+      <div class="lab-hint">Um exemplo clássico da Antiguidade (o "navio de Teseu"). Troque as tábuas e veja o que cada filósofo responderia: é o mesmo navio?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Como cada autor responde (o mapa do trimestre)</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Autor</th><th>O que permanece?</th><th>O que muda?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Heráclito</strong></td><td>Só a lei da mudança (o logos)</td><td>Tudo: a realidade é fluxo</td></tr>
+            <tr><td><strong>Parmênides</strong></td><td>O Ser, uno e imóvel</td><td>Nada: a mudança é ilusão dos sentidos</td></tr>
+            <tr><td><strong>Demócrito</strong></td><td>Os átomos</td><td>As combinações de átomos</td></tr>
+            <tr><td><strong>Platão</strong></td><td>As Ideias (mundo inteligível)</td><td>As coisas do mundo sensível</td></tr>
+            <tr><td><strong>Aristóteles</strong></td><td>A essência, dentro da coisa</td><td>A passagem da potência ao ato</td></tr>
+            <tr><td><strong>Hegel</strong></td><td>O Espírito, que se reconhece no processo</td><td>As formas históricas, pela contradição</td></tr>
+            <tr><td><strong>Marx</strong></td><td>—</td><td>As condições materiais e as classes, e com elas a consciência</td></tr>
+            <tr><td><strong>Byung-Chul Han</strong></td><td>—</td><td>A identidade virou perfil de dados, moldada por algoritmos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 1. PRÉ-SOCRÁTICOS ═══ -->
+  <section class="section" id="presocraticos">
+    <div class="section-header">
+      <div class="section-num" style="background:#9c1c1c">1</div>
+      <div>
+        <h2 class="section-title">Heráclito × Parmênides</h2>
+        <p class="section-sub">Pré-socráticos · devir × Ser · sentidos × razão</p>
+      </div>
+    </div>
+    <div class="card">
+      <p>Os <strong>pré-socráticos</strong> estudavam a <strong>physis</strong> (a natureza) e a <strong>arkhé</strong> (o princípio originário de todas as coisas). Heráclito e Parmênides deram as duas respostas opostas que o resto da filosofia tentou juntar: a "contradição" dos pré-socráticos.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#9c1c1c">
+          <h4>Heráclito de Éfeso (c. 535–475 a.C.)</h4>
+          <ul class="list">
+            <li><span><strong>Tudo flui</strong> (<em>panta rhei</em>): a realidade é <strong>devir</strong>, mudança constante.</span></li>
+            <li><span>"Ninguém se banha duas vezes no mesmo rio": nem o rio nem a pessoa são os mesmos.</span></li>
+            <li><span><strong>Luta dos contrários</strong>: dia/noite, quente/frio, vida/morte. A tensão entre opostos gera o movimento e a harmonia do mundo.</span></li>
+            <li><span>O <strong>fogo</strong> é a imagem da arkhé: sempre o mesmo e sempre outro. Por trás do fluxo há um <strong>logos</strong>, a razão que ordena a mudança.</span></li>
+          </ul>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Parmênides de Eleia (c. 515–450 a.C.)</h4>
+          <ul class="list">
+            <li><span>"<strong>O Ser é, o não-ser não é</strong>." Do nada nada vem.</span></li>
+            <li><span>O Ser é <strong>uno, eterno, imóvel, imutável e indivisível</strong>. Mudar seria passar do ser ao não-ser: impossível.</span></li>
+            <li><span>Dois caminhos: a <strong>via da verdade</strong> (razão) e a <strong>via da opinião</strong> (doxa, sentidos).</span></li>
+            <li><span>A mudança que vemos é <strong>ilusão dos sentidos</strong>; só a razão alcança o Ser.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight-purple"><strong>Por que isso é sobre identidade.</strong> Parmênides está na raiz do <strong>princípio de identidade</strong> (o que é, é: A = A) e da <strong>não contradição</strong> (algo não pode ser e não ser ao mesmo tempo). Heráclito pensa a identidade como <strong>processo</strong> que inclui o seu contrário. Guarde isso: Hegel vai retomar Heráclito contra essa lógica.</div>
+    </div>
+
+    <div class="lab" id="labRio">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>O rio de Heráclito, os olhos de Parmênides</b></div>
+      <div class="lab-stage"><canvas id="rioCv" width="640" height="220" aria-label="Rio correndo"></canvas></div>
+      <div class="lab-ctl">
+        <button class="lbtn pri" type="button" id="rioEntrar">🦶 Entrar no rio</button>
+        <div class="seg" id="rioOlhar"><button type="button" class="on" data-v="h">Olhar de Heráclito</button><button type="button" data-v="p">Olhar de Parmênides</button></div>
+      </div>
+      <div class="lab-out" id="rioOut">Entre no rio duas vezes e compare a água.</div>
+    </div>
+
+    
+  </section>
+
+  <!-- ═══ 2. DEMÓCRITO ═══ -->
+  <section class="section" id="democrito">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">2</div>
+      <div>
+        <h2 class="section-title">Demócrito e o atomismo</h2>
+        <p class="section-sub">Pré-socrático · átomos e vazio · conhecimento sensível e racional</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Demócrito de Abdera</strong> (c. 460–370 a.C.), com seu mestre <strong>Leucipo</strong>, cria o atomismo. É chamado de pré-socrático pelo tema (a natureza), embora fosse contemporâneo de Sócrates. Para ele, a <strong>arkhé são os átomos</strong>.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c1)"><h4>Átomos = o Ser</h4><p>Partes pequenas, <strong>indivisíveis</strong> (<em>á-tomos</em>, "sem corte") e <strong>eternas</strong>. Diferem em forma, tamanho e posição. Onde há átomo, há movimento.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Vazio = o não-ser</h4><p>Ausência de átomos. <strong>Não é o "nada"</strong>: é o espaço sem o qual os átomos não se moveriam. Um não-ser que existe, e aqui ele discorda de Parmênides.</p></div>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Herança</th><th>No atomismo</th></tr></thead><tbody>
+        <tr><td><strong>Parmênides</strong></td><td>Os átomos são imutáveis: não nascem nem morrem</td></tr>
+        <tr><td><strong>Heráclito</strong></td><td>Pluralidade e mudança constantes, pelo movimento e recombinação dos átomos</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="card"><div class="card-title"><span class="dot" style="background:var(--c2)"></span> Nascer e morrer</div>
+      <p><strong>Nascer</strong> = junção dos átomos; <strong>morrer</strong> = separação. Nos dois casos os átomos continuam os mesmos: nada surge do nada nem vira nada, as coisas só se recombinam.</p></div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Dois tipos de conhecimento <span class="tag tag-imp">Imp.</span></div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#c9953c"><h4>Sensível</h4><p>Imagens, sabores, cheiros, temperaturas. É o <strong>efeito dos átomos nos sentidos</strong>. Não é falso nem "pior", mas fica nas <strong>aparências</strong>.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Racional</h4><p>Entende os átomos: movimento, combinação, forma. <strong>Ultrapassa os sentidos</strong> pela razão e explica as aparências.</p></div>
+      </div>
+      <div class="highlight"><strong>Lápis no copo d'água.</strong> Os olhos veem o lápis "torto" (sensível). A razão explica: é a refração da luz (racional). Os olhos não mentem; só mostram a aparência.</div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. PLATÃO ═══ -->
+  <section class="section" id="platao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">3</div>
+      <div>
+        <h2 class="section-title">Platão e os dois mundos</h2>
+        <p class="section-sub">Mundo inteligível (episteme) × mundo sensível (doxa)</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Platão</strong> (427–347 a.C.) resolve a contradição <strong>dividindo a realidade em duas</strong>:</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Mundo inteligível · herança de Parmênides</h4><p>Permanente, perfeito, imutável. Onde estão as <strong>Ideias</strong> (essências): Bem, Justiça, Beleza, Verdade. Só a <strong>razão</strong> chega lá, pela <strong>reminiscência</strong> (a alma relembra o que contemplou) e pela <strong>dialética</strong> (diálogo de perguntas e respostas). Gera <strong>episteme</strong>, conhecimento verdadeiro.</p></div>
+        <div class="mini-card" style="border-top-color:#9c1c1c"><h4>Mundo sensível · herança de Heráclito</h4><p>Instável, corruptível, ligado aos <strong>sentidos</strong>. As coisas são <strong>cópias imperfeitas</strong> das Ideias e mudam <strong>em relação a elas</strong>. Gera só <strong>doxa</strong>, opinião.</p></div>
+      </div>
+    </div>
+
+    <div class="highlight"><strong>Exemplo da flor.</strong> Uma flor bela murcha (mundo sensível, mudança). A <strong>Beleza em si</strong> não murcha: a flor só era bela enquanto participava, de modo imperfeito, da Ideia de Beleza.</div>
+
+    <div class="highlight-gray"><strong>Alegoria da Caverna</strong> (<em>A República</em>, livro VII): prisioneiros acorrentados veem só sombras e as tomam pela realidade (doxa). Quem se liberta sai e vê as coisas à luz do Sol (episteme; o Sol é a Ideia do Bem). Ao voltar para libertar os outros, é ridicularizado.</div>
+  </section>
+
+  <!-- ═══ 4. ARISTÓTELES ═══ -->
+  <section class="section" id="aristoteles">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">4</div>
+      <div>
+        <h2 class="section-title">Aristóteles: essência, ato e potência</h2>
+        <p class="section-sub">Metafísica · abstração · primeiro motor imóvel</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Aristóteles</strong> (384–322 a.C.), aluno de Platão, <strong>recusa os dois mundos</strong>. A <strong>metafísica</strong> ("filosofia primeira") investiga os princípios e causas de tudo, temas além dos sentidos: Deus, alma, tempo, essência. O nome veio de quem organizou as obras: os livros vinham "depois da Física".</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Platão: onde está a essência?</h4><p>No mundo inteligível, separado das coisas.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Aristóteles: onde está a essência?</h4><p><strong>Nas próprias coisas</strong>, homens e ações do mundo físico.</p></div>
+      </div>
+      <p><strong>Essência</strong>: caracterização determinada pela natureza, aquilo para que a coisa existe. Ir contra a essência é ir contra a natureza e a ordem universal (usar uma caneta para matar, em vez de escrever).</p>
+    </div>
+
+    <div class="card"><div class="card-title"><span class="dot" style="background:var(--c2)"></span> Abstração</div>
+      <p>Pela <strong>razão e observação</strong>, separamos as <strong>propriedades</strong> (que variam) da <strong>essência</strong> (que não varia), e as duas estão no mesmo objeto, no mundo físico.</p>
+      <div class="table-wrap"><table><thead><tr><th>Exemplo</th><th>Propriedades</th><th>Essência</th></tr></thead><tbody>
+        <tr><td><strong>Caneta azul</strong></td><td>azul, tamanho, material</td><td>escrever</td></tr>
+        <tr><td><strong>Ser humano</strong></td><td>altura, cor, diferenças físicas</td><td>ser racional</td></tr></tbody></table></div></div>
+
+    <div class="lab" id="labPot">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Da potência ao ato</b></div>
+      <div class="lab-ctl"><div class="seg" id="potSeg"><button type="button" class="on" data-v="0">Semente → árvore</button><button type="button" data-v="1">Mármore → estátua</button></div></div>
+      <div class="lab-stage"><svg id="potSvg" viewBox="0 0 640 240" role="img" aria-label="Potência se tornando ato"></svg></div>
+      <div class="lab-ctl"><label>Movimento <input type="range" id="potR" min="0" max="100" value="0"></label></div>
+      <div class="lab-out" id="potOut"></div>
+    </div>
+
+    <div class="card"><div class="card-title"><span class="dot" style="background:var(--c1)"></span> Primeiro motor imóvel</div>
+      <ul class="list"><li><span>Todo movimento precisa de outro anterior que o cause (a pedra é movida pelo bastão, que é movido pela mão...).</span></li>
+      <li><span>Para não cair numa regressão infinita, <strong>tem de haver um primeiro movimento, independente de outro</strong>.</span></li>
+      <li><span>É o "ser divino" que <strong>move sem ser movido</strong>: <strong>ato puro e perfeito</strong>, sem potência, por isso imóvel.</span></li></ul></div>
+    <div class="highlight-purple"><strong>Não é o Deus cristão.</strong> O primeiro motor é <strong>ato puro</strong> (sem potência, por isso imóvel). Aristóteles veio antes do cristianismo; foi Tomás de Aquino, séculos depois, quem adaptou o argumento.</div>
+  </section>
+
+  <!-- ═══ 5. HEGEL ═══ -->
+  <section class="section" id="hegel">
+    <div class="section-header">
+      <div class="section-num" style="background:#6b1d1d">5</div>
+      <div>
+        <h2 class="section-title">Hegel: o real é racional e o racional é real</h2>
+        <p class="section-sub">Idealismo · contradição · dialética · Espírito Absoluto</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>G. W. F. Hegel</strong> (1770–1831), filósofo <strong>idealista</strong> alemão. Idealista porque o fundamento da realidade e o motor da história são a <strong>razão e as ideias</strong> (o Espírito), não a matéria.</p>
+      <div class="quote">"O que é racional é real, e o que é real é racional."<span>Hegel, prefácio da <i>Filosofia do Direito</i> (1820)</span></div>
+      <ul class="list">
+        <li><span><strong>Real = racional:</strong> nada acontece por acaso na história; o que existe tem uma lógica, que a razão pode entender.</span></li>
+        <li><span><strong>Racional = real:</strong> a razão não fica só na cabeça; ela se <strong>realiza</strong> no mundo (nas leis, no Estado, na arte, na cultura).</span></li>
+        <li><span>Pensamento e realidade têm a <strong>mesma estrutura</strong>: a dialética. Por isso, entender o real é entender a razão se desenvolvendo.</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Aceitar a contradição <span class="tag tag-imp">Imp.</span></div>
+      <p>A lógica grega da <strong>não contradição</strong> (Parmênides, Aristóteles) era a base da filosofia. Hegel <strong>aceita a contradição</strong>: é ela que rege a realidade. Nada pode ser pensado sem o seu contrário (não "quente" e "frio" separados, mas o par <strong>quente × frio</strong>). Aqui ele retoma Heráclito.</p>
+      <p><strong>Espírito Absoluto:</strong> o processo racional que guia e aperfeiçoa a história da humanidade culturalmente, em busca de uma <strong>identidade própria</strong>. A identidade não é dada: ela se faz no processo. O progresso é <strong>acumulativo</strong> e <strong>não linear</strong>: vem do choque de etapas. As mudanças vêm das <strong>ideias</strong>, da produção cultural (artes, leis, tecnologia).</p>
+    </div>
+
+    <div class="lab" id="labDial">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>A máquina dialética: tese + antítese → síntese → nova tese</b></div>
+      <div class="lab-ctl"><div class="seg" id="dialSeg"><button type="button" class="on" data-v="0">Revolução Francesa</button><button type="button" data-v="1">Ser × Nada</button></div></div>
+      <div class="lab-stage"><svg id="dialSvg" viewBox="0 0 640 230" role="img" aria-label="Tese, antítese e síntese"></svg></div>
+      <div class="lab-ctl"><button class="lbtn pri" type="button" id="dialNext">Próximo passo ▶</button><button class="lbtn" type="button" id="dialReset">↺</button></div>
+      <div class="lab-out" id="dialOut"></div>
+    </div>
+    <div class="highlight-gray">"Tese, antítese, síntese" é a fórmula escolar; Hegel falava em <em>Aufhebung</em> ("superar conservando"). Na prova, use os termos da aula.</div>
+  </section>
+
+  <!-- ═══ 6. MARX ═══ -->
+  <section class="section" id="marx">
+    <div class="section-header">
+      <div class="section-num" style="background:#1a5276">6</div>
+      <div>
+        <h2 class="section-title">Marx: a crítica ao idealismo de Hegel</h2>
+        <p class="section-sub">Materialismo histórico-dialético · luta de classes · infraestrutura e superestrutura</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Karl Marx</strong> (1818–1883) começa como leitor de Hegel. <strong>Mantém a dialética</strong> (a história avança por contradições), mas <strong>troca o motor</strong>: não são as ideias que movem a história, são as <strong>condições materiais</strong>, o modo como os seres humanos <strong>produzem a vida</strong> (trabalho, economia).</p>
+      <div class="quote">"Não é a consciência dos homens que determina o seu ser; ao contrário, é o seu ser social que determina a sua consciência."<span>Marx, prefácio da <i>Contribuição à Crítica da Economia Política</i> (1859)</span></div>
+      <p>Marx diz que em Hegel a dialética está "<strong>de cabeça para baixo</strong>" e que é preciso <strong>colocá-la de pé</strong>: partir da matéria, não da ideia.</p>
+    </div>
+
+    <div class="lab" id="labMarx">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Vire Hegel de cabeça para baixo</b></div>
+      <div class="lab-ctl"><div class="seg" id="mxSeg"><button type="button" class="on" data-v="h">Hegel · idealismo</button><button type="button" data-v="m">Marx · materialismo</button></div></div>
+      <div class="lab-stage"><svg id="mxSvg" viewBox="0 0 640 260" role="img" aria-label="Infraestrutura e superestrutura"></svg></div>
+      <div class="lab-out" id="mxOut"></div>
+    </div>
+
+    <div class="card"><div class="card-title"><span class="dot" style="background:#1a5276"></span> Luta de classes, motor da história</div>
+      <ul class="list"><li><span>Antiguidade: senhores × escravos. Feudalismo: senhores feudais × servos. Capitalismo: <strong>burguesia</strong> (dona dos meios de produção) × <strong>proletariado</strong> (vende a força de trabalho).</span></li>
+      <li><span>A contradição entre as classes transforma o modo de produção. A identidade de cada um vem do lugar que ocupa na produção: <strong>consciência de classe</strong>.</span></li></ul></div>
+
+    <div class="card">
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Hegel</th><th>Marx</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Corrente</strong></td><td>Idealismo</td><td>Materialismo histórico-dialético</td></tr>
+          <tr><td><strong>Motor da história</strong></td><td>As ideias, o Espírito, a produção cultural</td><td>As transformações econômicas e a luta de classes</td></tr>
+          <tr><td><strong>Dialética</strong></td><td>Das ideias</td><td>Das condições materiais (a mesma dialética, "posta de pé")</td></tr>
+          <tr><td><strong>Identidade</strong></td><td>O Espírito se reconhece na história</td><td>A consciência de cada um é formada pelo lugar que ocupa na produção</td></tr>
+          <tr><td><strong>Papel da filosofia</strong></td><td>Compreender a racionalidade do real</td><td>"Os filósofos só interpretaram o mundo; o que importa é transformá-lo" (11ª tese sobre Feuerbach)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. BYUNG-CHUL HAN ═══ -->
+  <section class="section" id="han">
+    <div class="section-header">
+      <div class="section-num" style="background:#0f5e73">7</div>
+      <div>
+        <h2 class="section-title">Byung-Chul Han: identidade digital e Infocracia</h2>
+        <p class="section-sub">Infocracia · algoritmos e bolhas · capitalismo de vigilância · dataísmo · psicopolítica</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Byung-Chul Han</strong> (1959) é um filósofo <strong>sul-coreano</strong> que vive na Alemanha e trata da <strong>identidade política no mundo digital</strong>. Livro de referência: <em>Infocracia</em> (2021).</p>
+      <p>A <strong>democracia</strong> surge no mundo antigo como tentativa de <strong>deliberação pública</strong> e <strong>poder conjuntivo do povo</strong>. Ela depende de uma <strong>esfera pública de debate</strong>, que hoje não é necessariamente física: pode ser, por exemplo, a internet.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Infocracia: o "governo da informação" <span class="tag tag-imp">Imp.</span></div>
+      <p>Hoje, o <strong>domínio da informação</strong> (sobretudo digital) é decisivo no controle da democracia e no modo como se faz política. <strong>Empresas e Estados</strong> detêm poder sobre <strong>dados</strong> com potencial de controle e manipulação da população.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#888"><h4>Poder de antes: negativo e visível</h4><p>Proibições, obediência, disciplina. "Você <strong>não</strong> deve." Dá para ver quem manda.</p></div>
+        <div class="mini-card" style="border-top-color:#0f5e73"><h4>Poder de hoje: informação e autoexploração</h4><p>"Você <strong>pode</strong>." Ninguém proíbe; o próprio indivíduo se expõe, produz dados e se cobra. É a <strong>autoexploração</strong>.</p></div>
+      </div>
+    </div>
+
+    <div class="lab" id="labBolha">
+      <div class="lab-head"><span class="lab-tag">Simulador</span><b>Monte sua bolha: o algoritmo aprende com cada curtida</b></div>
+      <div class="lab-split">
+        <div>
+          <div class="feed" id="bolhaFeed" aria-live="polite"></div>
+        </div>
+        <div class="lab-pane">
+          <h5>O que o algoritmo sabe de você</h5>
+          <div id="bolhaPerfil" style="font-size:.86rem;color:var(--label-2)">Nada ainda.</div>
+          <h5 style="margin-top:14px !important">Diversidade do seu feed</h5>
+          <div class="meter"><i id="bolhaMeter" style="width:100%"></i></div>
+          <p id="bolhaTxt" style="font-size:.86rem;margin:8px 0 0 !important"></p>
+          <button class="lbtn" type="button" id="bolhaReset" style="margin-top:10px">↺ Começar de novo</button>
+        </div>
+      </div>
+      <div class="lab-hint">Curta posts do feed. Repare: múltiplas fontes existem, mas o algoritmo vai te mostrando só o seu nicho.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#9c1c1c"></span> Algoritmos e polarização comunicativa <span class="tag tag-imp">Imp.</span></div>
+      <ul class="list">
+        <li><span>Há <strong>múltiplas fontes</strong> de informação, mas divididas em <strong>nichos específicos</strong>, direcionados a públicos específicos.</span></li>
+        <li><span>O algoritmo funciona como uma <strong>"bolha isolante"</strong>: direciona a informação ao usuário com base no seu nicho ou perfil.</span></li>
+        <li><span>Resultado: <strong>intensificação da polarização ideológica</strong>. Sem contato com o diferente, o debate (base da deliberação democrática) enfraquece.</span></li>
+      </ul>
+    </div>
+
+    
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Capitalismo de vigilância <span class="tag tag-imp">Imp.</span></div>
+      <p><strong>Dados e informações viram uma mercadoria preciosa</strong> no sistema capitalista. O que você pesquisa, curte e onde você está vira produto vendido para quem quer te influenciar. (A expressão foi popularizada pela pesquisadora Shoshana Zuboff.)</p>
+      <div class="card-title" style="margin-top:14px"><span class="dot" style="background:#0f5e73"></span> Psicopolítica digital: a "aparência da liberdade" <span class="tag tag-imp">Imp.</span></div>
+      <ul class="list">
+        <li><span>É a <strong>autoexploração</strong> do indivíduo. O <strong>agente moral</strong> se sente livre para decidir, mas é influenciado por uma mistura de <strong>controle de informações</strong>, <strong>sistema capitalista de consumo</strong> e <strong>pressões sociais</strong>.</span></li>
+        <li><span><strong>Livre-arbítrio ilusório</strong>: manipulação sutil e indireta, muitas vezes a partir dos <strong>próprios comportamentos</strong> do indivíduo (os dados que ele mesmo gerou).</span></li>
+        <li><span>Contradiz a ética <strong>aristotélica</strong>, para a qual o <strong>agente moral sempre detém o poder</strong> sobre suas ações.</span></li>
+      </ul>
+    </div>
+
+    
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Dataísmo <span class="tag tag-imp">Imp.</span></div>
+      <p><strong>Dataísmo</strong>: tendência social contemporânea de usar <strong>dados, informações e algoritmos como principal fonte da verdade</strong>. Funções antes exercidas ou percebidas pelo ser humano agora são automatizadas por máquinas (ao acordar, em vez de refletir se dormiu bem, a pessoa olha a nota de sono do relógio).</p>
+      <p><strong>A crítica de Han:</strong> a universalização da mensuração de aspectos humanos <strong>reduz o ser humano a dados</strong> e leva à <strong>perda do pensamento crítico</strong>. Há elementos <strong>subjetivos e imensuráveis</strong>: liberdade, amor, felicidade.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#9c1c1c"></span> Excesso de positividade</div>
+      <p>No caderno: "positivismo em excesso" (cuidado: não é o positivismo de Comte, da Sociologia). É a <strong>omissão coletiva dos sentimentos humanos "negativos"</strong> em nome de uma <strong>projeção social idealizada</strong> (a vida perfeita das redes). A busca pelo "perfeito" gera indivíduos <strong>esgotados, transtornados e desconectados</strong> da realidade e das pessoas ao redor.</p>
+      <div class="card-title" style="margin-top:14px"><span class="dot" style="background:var(--green)"></span> As "soluções"</div>
+      <div class="grid-3">
+        <div class="mini-card" style="border-top-color:var(--green)"><h4>Resistir à ditadura dos dados</h4><p>Diminuir o tempo de tela para retomar as perspectivas <strong>analógicas</strong> do mundo.</p></div>
+        <div class="mini-card" style="border-top-color:var(--green)"><h4>Retomar a autonomia</h4><p>Sobre si mesmo e as próprias emoções.</p></div>
+        <div class="mini-card" style="border-top-color:var(--green)"><h4>Reestabelecer laços</h4><p>De confiança social, em vez de depender só da tecnologia.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVISÃO ═══ -->
+  <section class="section" id="revisao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--primary)">≡</div>
+      <div>
+        <h2 class="section-title">Revisão relâmpago</h2>
+        <p class="section-sub">Frases soltas: de quem é? (sorteadas, todos os autores)</p>
+      </div>
+    </div>
+    <div class="lab" id="labQuem2">
+      <div class="lab-head"><span class="lab-tag">Jogo</span><b>Quem disse? Todos os autores</b></div>
+      <div class="sorter" id="sortTodos"></div>
+    </div>
+  </section>
+
+  <!-- ═══ QUIZ ═══ -->
+  <section class="section" id="exercicios">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--primary)">?</div>
+      <div>
+        <h2 class="section-title">Quiz de fixação</h2>
+        <p class="section-sub">5 alternativas, com explicação em cada uma</p>
+      </div>
+    </div>
+
+<div class="qz-score"><div><b id="qzScore">0</b> <span style="color:var(--label-2)">de 25 · <span id="qzDone">0</span> respondidas</span></div><button class="lbtn" type="button" id="qzReset">↺ Recomeçar</button></div>
+<div id="qzList">
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">1</span><span>A pergunta "sou ou estou sendo?" expressa o problema da identidade porque</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o verbo "ser" só existe na língua portuguesa.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>opõe uma identidade como permanência a uma identidade como processo de mudança.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>mostra que a identidade depende apenas da opinião dos outros.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>prova que nada no ser humano muda ao longo do tempo.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>reduz a identidade aos dados que produzimos nas redes.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>"Sou" sugere algo fixo (linha de Parmênides); "estou sendo", algo em devir (linha de Heráclito). O problema é saber o que permanece enquanto tudo muda.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">2</span><span>"Ninguém se banha duas vezes no mesmo rio." A frase de Heráclito afirma que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o rio é uma ilusão criada pelos sentidos.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a água é a arkhé de todas as coisas.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a realidade é fluxo: o rio e a pessoa mudam constantemente.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>só a razão permite conhecer o Ser imóvel.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o movimento é causado pela junção de átomos.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Devir: tudo flui. A ilusão dos sentidos e o Ser imóvel são de Parmênides; átomos, de Demócrito.</div>
+</div>
+<div class="qz" data-a="d">
+  <div class="qz-q"><span class="qz-n">3</span><span>Para Parmênides, a mudança que percebemos</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>é a lei que ordena o mundo (logos).</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>é a passagem da potência ao ato.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>é o resultado da luta dos contrários.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>é ilusão dos sentidos, pois o Ser é uno, eterno e imóvel.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>é produzida pelas transformações econômicas.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>"O Ser é, o não-ser não é." Mudar seria passar do ser ao não-ser; só a razão (via da verdade) alcança o Ser.</div>
+</div>
+<div class="qz" data-a="a">
+  <div class="qz-q"><span class="qz-n">4</span><span>O princípio de identidade (A = A) e o de não contradição têm raiz no pensamento de</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>Parmênides.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>Heráclito.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>Hegel.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>Marx.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>Byung-Chul Han.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>O que é, é; algo não pode ser e não ser ao mesmo tempo. Hegel é justamente quem aceita a contradição.</div>
+</div>
+<div class="qz" data-a="d">
+  <div class="qz-q"><span class="qz-n">5</span><span>Demócrito concilia Heráclito e Parmênides ao afirmar que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>existem dois mundos, um permanente e outro em movimento.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a essência está nas coisas e o movimento é a passagem da potência ao ato.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a contradição entre tese e antítese gera a síntese.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>os átomos são eternos e imutáveis, e a mudança vem do seu movimento e recombinação no vazio.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o real é racional e o racional é real.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Átomos imutáveis (Parmênides) que se movem e se combinam (Heráclito). Dois mundos é Platão; potência e ato, Aristóteles.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">6</span><span>Sobre o vazio no atomismo, é correto dizer que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>é o "nada" absoluto, e por isso não existe.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>é ausência de átomos, mas existe: é o espaço necessário ao movimento.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>é formado por átomos muito pequenos.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>é o mundo inteligível onde ficam as Ideias.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>é uma ilusão dos sentidos, como dizia Parmênides.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Um não-ser que existe: aqui Demócrito discorda de Parmênides.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">7</span><span>Ao ver um lápis "torto" dentro de um copo d'água, para Demócrito,</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>os sentidos mentem e devem ser descartados.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o lápis realmente se curvou.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>o conhecimento sensível mostra a aparência, e o racional explica o fenômeno.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>só a reminiscência pode corrigir o erro.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>trata-se de um dado que o algoritmo deve medir.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>O sensível não é falso nem pior: fica nas aparências. A razão explica (refração da luz).</div>
+</div>
+<div class="qz" data-a="e">
+  <div class="qz-q"><span class="qz-n">8</span><span>No dualismo de Platão, o mundo sensível</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>é permanente e serve de modelo para tudo.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>é onde ficam o Bem, a Justiça, a Beleza e a Verdade.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>é conhecido por episteme.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>não tem nenhuma relação com as Ideias.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>é instável e corruptível, uma cópia imperfeita das Ideias, ligado à doxa.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>O sensível muda em relação às Ideias perfeitas do mundo inteligível. Pelos sentidos temos só opinião (doxa).</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">9</span><span>Para Platão, as essências são alcançadas</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>pela observação das coisas concretas.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>pela soma dos dados coletados.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>apenas pela razão, por reminiscência e dialética.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>pelos sentidos bem treinados.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>pela luta de classes.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>A alma relembra as Ideias (reminiscência) e o diálogo sobe das opiniões à essência (dialética). Abstrair das coisas concretas é Aristóteles.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">10</span><span>A principal divergência entre Platão e Aristóteles sobre as essências é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>Aristóteles não acredita em essências.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a localização: para Platão, no mundo inteligível; para Aristóteles, nas próprias coisas.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>Platão acha que a essência se conhece pelos sentidos.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>Aristóteles acha que a essência muda o tempo todo.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>Platão diz que as essências são feitas de átomos.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Os dois aceitam essências. Aristóteles recusa o dualismo: a essência está nas coisas, homens e ações do mundo físico.</div>
+</div>
+<div class="qz" data-a="d">
+  <div class="qz-q"><span class="qz-n">11</span><span>"A semente já possui a essência de uma árvore." Nesse exemplo, o movimento é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>a ilusão dos sentidos.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a separação dos átomos.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a cópia imperfeita de uma Ideia.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>a passagem da potência ao ato, uma mudança qualitativa.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o choque entre tese e antítese.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Semente = árvore em potência; árvore = forma em ato. Muda (Heráclito), mas a essência permanece (Parmênides).</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">12</span><span>O primeiro motor imóvel de Aristóteles</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>é o Deus cristão que criou o mundo do nada.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>é o átomo indivisível.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>é ato puro, sem potência, e move sem ser movido.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>é o Espírito Absoluto que guia a história.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>é a base econômica da sociedade.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Evita a regressão infinita de movimentos. Não é o Deus cristão: Tomás de Aquino adaptou o argumento depois.</div>
+</div>
+<div class="qz" data-a="a">
+  <div class="qz-q"><span class="qz-n">13</span><span>"O que é racional é real, e o que é real é racional." Com essa frase, Hegel</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>afirma que pensamento e realidade têm a mesma estrutura, e a razão se realiza na história.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>defende que só o que é material existe.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>nega que a história tenha qualquer lógica.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>retoma o princípio de não contradição de Parmênides.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>critica o idealismo de Marx.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Idealismo: nada é por acaso; a razão (o Espírito) se realiza no mundo, e o real pode ser entendido pela razão.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">14</span><span>Ao contrário da lógica grega, Hegel</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>separa quente e frio como coisas independentes.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>aceita a contradição como aquilo que rege e move a realidade.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>afirma que o Ser é imóvel.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>considera os sentidos a única fonte da verdade.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>diz que a história é linear e sem conflitos.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Nada pode ser pensado sem o seu contrário (quente × frio). Aqui Hegel retoma Heráclito.</div>
+</div>
+<div class="qz" data-a="e">
+  <div class="qz-q"><span class="qz-n">15</span><span>No exemplo da Revolução Francesa, a síntese é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o feudalismo.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o Antigo Regime.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a Revolução.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>a burguesia.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>Napoleão.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Tese: Antigo Regime; antítese: Revolução; síntese: Napoleão, que junta elementos dos dois. A síntese vira nova tese.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">16</span><span>Para Hegel, o progresso da humanidade é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>linear e sem conflitos.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>cíclico, sempre voltando ao mesmo ponto.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>acumulativo e não linear, pelo choque de etapas, guiado pelo Espírito Absoluto.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>determinado apenas pela economia.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>uma ilusão dos sentidos.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Estágios que se chocam e se superam. A economia como motor é a leitura de Marx.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">17</span><span>A crítica de Marx a Hegel consiste em</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>abandonar a dialética e voltar à lógica de Aristóteles.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>manter a dialética, mas trocar as ideias pelas condições materiais como motor da história.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>afirmar que o Espírito Absoluto está nas coisas.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>negar que exista conflito na história.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>dizer que só os dados revelam a verdade.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Marx diz que em Hegel a dialética está "de cabeça para baixo" e a põe "de pé": materialismo histórico-dialético.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">18</span><span>"Não é a consciência dos homens que determina o seu ser; é o seu ser social que determina a sua consciência." A frase significa que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>as ideias criam a realidade econômica.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>cada pessoa escolhe livremente sua consciência.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a consciência é formada pelas condições materiais e pelo lugar que se ocupa na produção.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>a sociedade não influencia o indivíduo.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o Espírito Absoluto define a identidade.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Materialismo: a infraestrutura (economia) determina a superestrutura (leis, religião, ideias) e a consciência.</div>
+</div>
+<div class="qz" data-a="d">
+  <div class="qz-q"><span class="qz-n">19</span><span>Para Byung-Chul Han, "infocracia" é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o governo direto do povo em praça pública.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o fim de toda forma de poder.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a censura feita apenas pelo Estado.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>o "governo da informação": o domínio dos dados se torna decisivo na democracia.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>um sinônimo de dataísmo no sentido de ciência exata.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Empresas e Estados detêm dados com potencial de controle e manipulação da população.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">20</span><span>Segundo Han, os algoritmos intensificam a polarização porque</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>eliminam todas as fontes de informação.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>funcionam como bolha isolante, entregando informação segundo o nicho e o perfil do usuário.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>obrigam todos a ver as mesmas notícias.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>proíbem o debate de forma visível.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>tornam a esfera pública obrigatoriamente física.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Há múltiplas fontes, mas cada público recebe o seu nicho. Sem contato com o diferente, o debate democrático enfraquece.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">21</span><span>Han diferencia o poder de antes e o atual. É correto afirmar que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o poder atual é negativo e visível, baseado em proibições.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o poder antigo se baseava em dados e algoritmos.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>o poder atual se apoia na informação e na autoexploração do próprio indivíduo.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>hoje não há mais nenhuma forma de controle.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o poder atual depende de disciplina e obediência explícitas.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Antes: proibição, obediência, disciplina. Hoje: "você pode", e o indivíduo se expõe e se explora.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">22</span><span>Pesquisar um produto e depois receber anúncios até acabar comprando ilustra, em Han,</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>a liberdade plena do consumidor.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a aparência da liberdade: um consumo indiretamente manipulado (psicopolítica).</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>o primeiro motor imóvel.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>o conhecimento racional de Demócrito.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>a síntese dialética de Hegel.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>O agente se sente livre, mas é influenciado por dados que ele mesmo gerou. Contradiz a ética aristotélica, em que o agente moral detém o poder.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">23</span><span>O dataísmo é criticado por Han porque</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>os relógios inteligentes medem errado.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a tecnologia deve ser totalmente proibida.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>reduz o ser humano a dados e leva à perda do pensamento crítico; há coisas imensuráveis.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>os dados são poucos para governar.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>impede o capitalismo de funcionar.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Usar dados como principal fonte da verdade. Liberdade, amor e felicidade são subjetivos e imensuráveis.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">24</span><span>O "positivismo em excesso" das anotações sobre Han refere-se a</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>a filosofia de Auguste Comte.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o otimismo científico do século XIX.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a omissão coletiva de sentimentos "negativos" em nome de uma imagem social idealizada, que gera esgotamento.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>a crença de que só os sentidos dão conhecimento.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>a ideia de que o real é racional.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Excesso de positividade: a busca pelo "perfeito" gera indivíduos esgotados, transtornados e desconectados. Não é o positivismo de Comte.</div>
+</div>
+<div class="qz" data-a="e">
+  <div class="qz-q"><span class="qz-n">25</span><span>Entre as "soluções" propostas a partir de Han, NÃO está</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>diminuir o tempo de tela.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>retomar a autonomia sobre as próprias emoções.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>reestabelecer laços de confiança social.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>resistir à ditadura dos dados.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>confiar nas métricas dos aplicativos como medida da felicidade.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Isso seria o próprio dataísmo que Han critica.</div>
+</div>
+</div>
+<script>
+(function(){
+  var list=document.getElementById('qzList'),sc=0,dn=0;
+  list.addEventListener('click',function(e){
+    var b=e.target.closest('.qz-opt'); if(!b) return;
+    var q=b.closest('.qz'); if(q.dataset.done) return; q.dataset.done=1; dn++;
+    var ok=b.dataset.l===q.dataset.a, fb=q.querySelector('.qz-fb');
+    q.querySelectorAll('.qz-opt').forEach(function(o){o.classList.add('dis'); if(o.dataset.l===q.dataset.a) o.classList.add('ok');});
+    if(ok){sc++;} else b.classList.add('no');
+    fb.classList.add(ok?'ok':'no'); fb.querySelector('.pre').innerHTML=ok?'✅ <b>Isso!</b> ':'❌ <b>Não.</b> Resposta: '+q.dataset.a.toUpperCase()+'. ';
+    document.getElementById('qzScore').textContent=sc; document.getElementById('qzDone').textContent=dn;
+  });
+  document.getElementById('qzReset').onclick=function(){
+    sc=dn=0; document.getElementById('qzScore').textContent=0; document.getElementById('qzDone').textContent=0;
+    list.querySelectorAll('.qz').forEach(function(q){delete q.dataset.done; var f=q.querySelector('.qz-fb'); f.className='qz-fb'; f.querySelector('.pre').innerHTML='';});
+    list.querySelectorAll('.qz-opt').forEach(function(o){o.className='qz-opt';});
+  };
+})();
+</script>
+<!-- gabarito: bcdadbcecbdcabecbcdbcbcce -->
+  </section>
+
+  
+
+</div>
+
+<footer>
+  Caderno Digital · Filosofia 3º tri · 2ª série do Ensino Médio · 2026
+</footer>
+
+<script>document.body.classList.add('ios', 'resumo');</script>
+<script>
+/* Laboratórios de Filosofia 3º tri. Usa só variáveis do ios.css (claro/escuro). */
+(function () {
+const $ = s => document.querySelector(s);
+const cv = n => getComputedStyle(document.body).getPropertyValue(n).trim() || '#888';
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const T = (x, y, s, o = '') => `<text x="${x}" y="${y}" ${o} style="fill:var(--label);font:600 13px Inter,system-ui,sans-serif">${s}</text>`;
+const T2 = (x, y, s, o = '') => `<text x="${x}" y="${y}" ${o} style="fill:var(--label-2);font:500 11.5px Inter,system-ui,sans-serif">${s}</text>`;
+const BOX = (x, y, w, h, extra = '') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" style="fill:var(--bg-2);stroke:var(--sep);stroke-width:1.5" ${extra}/>`;
+function seg(el, cb) { if (!el) return; el.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; el.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); cb(b.dataset.v); }); }
+function loop(canvas, draw) { // só anima quando visível
+  let on = false, raf = 0;
+  const tick = t => { draw(t); if (on && !RM) raf = requestAnimationFrame(tick); };
+  new IntersectionObserver(es => { on = es[0].isIntersecting; cancelAnimationFrame(raf); if (on) raf = requestAnimationFrame(tick); }).observe(canvas);
+  draw(0);
+  return () => { if (RM || !on) draw(performance.now()); };
+}
+function steps(el, labels, cb) {
+  el.innerHTML = labels.map((l, i) => `<button type="button" data-i="${i}">${l}</button>`).join('');
+  const go = i => { el.querySelectorAll('button').forEach((b, j) => b.classList.toggle('on', j === i)); cb(i); };
+  el.onclick = e => { const b = e.target.closest('button'); if (b) go(+b.dataset.i); };
+  go(0);
+}
+
+/* ── 0. Navio de Teseu ── */
+(function () {
+  const svg = $('#teseuSvg'), r = $('#teseuR'), out = $('#teseuOut'); if (!svg) return;
+  const ordem = [5, 2, 9, 0, 7, 11, 3, 8, 1, 10, 4, 6];
+  function draw() {
+    const k = +r.value, novas = new Set(ordem.slice(0, k));
+    let p = '';
+    for (let i = 0; i < 12; i++) {
+      const row = Math.floor(i / 6), col = i % 6, x = 150 + col * 58 + row * 14, y = 128 + row * 26, w = 56 - row * 4;
+      const nova = novas.has(i);
+      p += `<rect x="${x}" y="${y}" width="${w}" height="24" rx="3" style="fill:${nova ? '#e3b04b' : '#7a4a22'};stroke:${nova ? '#b07d1e' : '#4d2c12'};stroke-width:1.5;transition:fill .4s"/>`;
+    }
+    svg.innerHTML = `
+      <path d="M0 190 Q80 180 160 190 T320 190 T480 190 T640 190 V230 H0Z" style="fill:#3b82c4;opacity:.35"/>
+      <line x1="320" y1="20" x2="320" y2="128" style="stroke:#5b3a1a;stroke-width:6"/>
+      <path d="M326 28 L430 110 L326 110 Z" style="fill:var(--bg-2);stroke:var(--sep);stroke-width:1.5"/>
+      <path d="M140 128 L500 128 L470 180 L176 180 Z" style="fill:none;stroke:#4d2c12;stroke-width:2"/>
+      ${p}
+      ${T(20, 34, `Tábuas novas: ${k} de 12`)}
+      ${T2(20, 54, k === 12 ? 'nenhuma tábua original' : `${Math.round(k / 12 * 100)}% trocado`)}
+      <rect x="22" y="70" width="12" height="12" rx="2" style="fill:#7a4a22"/>${T2(40, 80, 'original')}
+      <rect x="22" y="90" width="12" height="12" rx="2" style="fill:#e3b04b"/>${T2(40, 100, 'nova')}`;
+    const fala = k === 0
+      ? 'Nenhuma tábua trocada. Fácil: <b>é o mesmo navio</b>. Agora arraste.'
+      : `<b>Heráclito:</b> ele nunca foi "o mesmo" de um instante para o outro; o navio <i>está sendo</i>, como o rio.<br>
+         <b>Parmênides:</b> a troca é aparência dos sentidos; se o navio <i>é</i>, ele não pode virar não-ser.<br>
+         <b>Aristóteles:</b> mudou a matéria (propriedades); a <i>essência</i> de navio, feito para navegar, continua nele.` +
+        (k === 12 ? '<br><small>E se alguém montasse outro navio com as 12 tábuas velhas? Qual dos dois seria "o" navio? É esse o problema da identidade.</small>' : '');
+    out.innerHTML = fala;
+  }
+  r.oninput = draw; draw();
+  let it = 0;
+  $('#teseuAuto').onclick = function () {
+    clearInterval(it); if (+r.value >= 12) r.value = 0;
+    it = setInterval(() => { r.value = +r.value + 1; draw(); if (+r.value >= 12) clearInterval(it); }, 650);
+  };
+})();
+
+/* ── 1. Rio de Heráclito ── */
+(function () {
+  const c = $('#rioCv'), out = $('#rioOut'); if (!c) return;
+  const g = c.getContext('2d'); let id = 0, olhar = 'h', entradas = [], pe = 0;
+  const P = Array.from({ length: 90 }, () => ({ id: id++, x: Math.random() * 640, y: 60 + Math.random() * 120, v: 0.6 + Math.random() * 1.2, ph: Math.random() * 6 }));
+  let last = 0;
+  const redraw = loop(c, t => {
+    const dt = last ? Math.min(50, t - last) / 16 : 1; last = t;
+    g.clearRect(0, 0 , 640, 220);
+    g.fillStyle = olhar === 'h' ? 'rgba(59,130,196,.28)' : 'rgba(128,128,140,.22)';
+    g.fillRect(0, 50, 640, 140);
+    for (const p of P) {
+      if (olhar === 'h') { p.x += p.v * dt; if (p.x > 645) { p.x = -5; p.id = id++; p.y = 60 + Math.random() * 120; } }
+      const y = p.y + (olhar === 'h' ? Math.sin(t / 600 + p.ph) * 4 : 0);
+      g.beginPath(); g.arc(p.x, y, 3.2, 0, 7);
+      g.fillStyle = olhar === 'h' ? '#3b82c4' : cv('--label-2'); g.fill();
+    }
+    if (pe > 0) { g.font = '40px system-ui'; g.fillText('🦶', 300, 140); pe -= dt; }
+    g.fillStyle = cv('--label'); g.font = '600 14px Inter,system-ui,sans-serif';
+    g.fillText(olhar === 'h' ? 'Tudo flui: as gotas que passam nunca são as mesmas' : 'Pela razão: o Ser é uno e imóvel. O fluxo é aparência.', 16, 30);
+    g.fillStyle = cv('--label-2'); g.font = '500 12px Inter,system-ui,sans-serif';
+    g.fillText(olhar === 'h' ? 'devir · luta dos contrários · logos' : 'via da verdade (razão) × via da opinião (sentidos)', 16, 212);
+  });
+  $('#rioEntrar').onclick = () => {
+    const ids = new Set(P.filter(p => p.x > 280 && p.x < 360).map(p => p.id));
+    entradas.push(ids); pe = 40;
+    if (olhar === 'p') { out.innerHTML = 'Para Parmênides não há o que comparar: <b>o rio é</b>. Que ele "corre" é o que os sentidos dizem, e os sentidos enganam.'; redraw(); return; }
+    if (entradas.length === 1) out.innerHTML = `Primeira vez: você tocou <b>${ids.size} gotas</b>. Espere um pouco e entre de novo.`;
+    else {
+      const a = entradas[entradas.length - 2], comum = [...ids].filter(x => a.has(x)).length;
+      out.innerHTML = `Desta vez: ${ids.size} gotas, <b>${comum} em comum</b> com a anterior. Nem o rio é o mesmo, nem você (seu corpo também mudou). <i>"Ninguém se banha duas vezes no mesmo rio."</i>`;
+    }
+    redraw();
+  };
+  seg($('#rioOlhar'), v => { olhar = v; entradas = []; out.innerHTML = v === 'h' ? 'Entre no rio duas vezes e compare a água.' : 'Com os olhos da razão, o movimento some: tente entrar no rio agora.'; redraw(); });
+})();
+
+/* ── Jogos "quem diria isso?" ── */
+function sorter(el, items, opts) {
+  if (!el) return;
+  let fila = shuffle(items), i = 0, ac = 0, tot = 0, done = false;
+  function show() {
+    if (i >= fila.length) { el.innerHTML = `<div class="card-q">Fim! <b style="color:var(--tint)">${ac} de ${tot}</b> de primeira.</div><div class="opts"><button class="lbtn pri" type="button">Jogar de novo</button></div>`; el.querySelector('button').onclick = () => { fila = shuffle(items); i = ac = tot = 0; show(); }; return; }
+    const [frase] = fila[i]; done = false;
+    el.innerHTML = `<div class="meta"><span>${i + 1} de ${fila.length}</span><span>acertos de primeira: ${ac}</span></div><div class="card-q">"${frase}"</div><div class="opts">${opts.map(o => `<button class="lbtn" type="button" data-k="${o}">${o}</button>`).join('')}</div><div class="fb"></div>`;
+    let errou = false;
+    el.querySelector('.opts').onclick = e => {
+      const b = e.target.closest('button'); if (!b || done) return;
+      const [, cert, why] = fila[i], fb = el.querySelector('.fb');
+      if (b.dataset.k === cert) {
+        b.classList.add('ok'); done = true; tot++; if (!errou) ac++;
+        fb.className = 'fb ok'; fb.innerHTML = '✔ ' + why;
+        setTimeout(() => { i++; show(); }, 1900);
+      } else { errou = true; b.classList.add('no'); b.disabled = true; fb.className = 'fb no'; fb.textContent = 'Não é. Tente de novo.'; }
+    };
+  }
+  show();
+}
+/* ── 4. Potência e ato ── */
+(function () {
+  const svg = $('#potSvg'), r = $('#potR'), out = $('#potOut'); if (!svg) return;
+  let ex = 0;
+  function draw() {
+    const t = +r.value / 100; let s = '';
+    if (ex === 0) {
+      const h = 10 + t * 150, copa = Math.max(0, (t - .3) / .7) * 70;
+      s = `<rect x="0" y="200" width="640" height="40" style="fill:#7a5230;opacity:.5"/>
+        ${t < .08 ? `<ellipse cx="320" cy="196" rx="12" ry="8" style="fill:#8d6e63"/>` : `
+        <path d="M320 200 V${200 - h}" style="stroke:#6d4c41;stroke-width:${3 + t * 12};stroke-linecap:round"/>
+        ${copa > 2 ? `<circle cx="320" cy="${200 - h}" r="${copa}" style="fill:#2e9d6a;opacity:.9"/><circle cx="${290}" cy="${210 - h}" r="${copa * .7}" style="fill:#2e9d6a"/><circle cx="${350}" cy="${210 - h}" r="${copa * .7}" style="fill:#2e9d6a"/>` : `<path d="M320 ${200 - h} q-14 -6 -18 -16 q14 0 18 16 q4 -16 18 -16 q-4 10 -18 16" style="fill:#2e9d6a"/>`}`}
+        ${t === 1 ? '<circle cx="300" cy="60" r="6" style="fill:#c0392b"/><circle cx="345" cy="72" r="6" style="fill:#c0392b"/>' : ''}`;
+    } else {
+      const cut = t * 30;
+      s = `<rect x="0" y="210" width="640" height="30" style="fill:var(--sep)"/>
+        <rect x="${250 + cut}" y="${40 + cut * .6}" width="${140 - cut * 2}" height="${170 - cut * .6}" rx="${t * 30}" style="fill:#d7d4cf;stroke:#a8a39b;stroke-width:2;opacity:${1 - t * .85}"/>
+        <g style="opacity:${t}"><circle cx="320" cy="70" r="20" style="fill:#e8e5df;stroke:#a8a39b;stroke-width:2"/>
+        <path d="M300 92 Q320 86 340 92 L346 150 L332 210 H308 L294 150 Z" style="fill:#e8e5df;stroke:#a8a39b;stroke-width:2"/>
+        <path d="M300 100 L278 140 M340 100 L362 128" style="stroke:#a8a39b;stroke-width:7;stroke-linecap:round"/></g>
+        ${t > .05 && t < 1 ? `<text x="${400}" y="${100 + Math.sin(t * 40) * 6}" style="font-size:26px">🔨</text>` : ''}`;
+    }
+    const nomes = ex === 0 ? ['Semente', 'árvore'] : ['Bloco de mármore', 'estátua'];
+    svg.innerHTML = s + T(16, 26, t === 0 ? `${nomes[0]}: ${nomes[1]} em POTÊNCIA` : t === 1 ? `${nomes[1][0].toUpperCase() + nomes[1].slice(1)}: forma em ATO` : 'MOVIMENTO: potência → ato') +
+      `<rect x="16" y="38" width="200" height="8" rx="4" style="fill:var(--sep)"/><rect x="16" y="38" width="${200 * t}" height="8" rx="4" style="fill:var(--tint)"/>` + T2(16, 62, `${Math.round(t * 100)}% atualizado`);
+    out.innerHTML = t === 0
+      ? (ex === 0 ? 'A semente <b>já possui a essência de uma árvore</b> e a <b>potência</b> de se tornar uma. Não vira qualquer coisa: vira árvore.' : 'O mármore tem a <b>potência</b> de virar estátua: capacidade de se transformar numa forma nova.')
+      : t < 1 ? '<b>Movimento</b> = mudança qualitativa dos seres na passagem da potência para o ato. Heráclito tem razão (algo muda) e Parmênides também (a essência permanece).'
+      : (ex === 0 ? '<b>Ato</b>: a forma atualizada, realizada. E a árvore agora tem nova potência: dar frutos e sementes. Um só mundo, sem precisar das Ideias de Platão.' : '<b>Ato</b>: a estátua pronta. O trabalho do escultor foi o movimento entre os dois.');
+  }
+  r.oninput = draw; seg($('#potSeg'), v => { ex = +v; r.value = 0; draw(); }); draw();
+})();
+
+/* ── 5. Dialética ── */
+(function () {
+  const svg = $('#dialSvg'), out = $('#dialOut'); if (!svg) return;
+  const EX = [
+    { t: ['Antigo Regime', 'feudalismo, absolutismo'], a: ['Revolução Francesa', 'liberdade, igualdade'], s: ['Napoleão', 'imperador que espalha as leis da Revolução'],
+      txt: ['<b>Tese</b>: a situação dada, o Antigo Regime.', '<b>Antítese</b>: a oposição que nasce de dentro dela, a Revolução. O choque das duas move a história.', '<b>Síntese</b>: Napoleão junta elementos dos dois (é imperador, mas espalha o Código Civil da Revolução). Ela <b>supera e conserva</b>.', 'A síntese vira <b>nova tese</b>, que terá sua própria antítese. O processo <b>se repete de modo dialético</b>: progresso acumulativo e não linear.'] },
+    { t: ['Ser', 'puro, sem nenhuma qualidade'], a: ['Nada', 'o ser puro, vazio, é igual ao nada'], s: ['Devir', 'passagem de um ao outro'],
+      txt: ['<b>Tese</b>: o puro Ser, o ponto de partida de Parmênides. Mas um ser sem nenhuma determinação...', '<b>Antítese</b>: ...não tem nada que o distinga do <b>Nada</b>. Pensar o Ser já leva ao seu contrário.', '<b>Síntese</b>: o <b>Devir</b> (vir a ser), a passagem do ser ao nada e do nada ao ser. É assim que Hegel começa sua Lógica: <b>junta Parmênides e Heráclito</b>.', 'O devir resulta em algo determinado, que é uma nova tese. Identidade, para Hegel, é processo: o real só se entende pelo seu contrário.'] },
+  ];
+  let ex = 0, k = 0;
+  function caixa(x, y, [n, d], cor, op = 1) { return `<g style="opacity:${op};transition:opacity .4s">${BOX(x, y, 170, 62, `style="fill:var(--bg-2);stroke:${cor};stroke-width:2.5"`)}<text x="${x + 85}" y="${y + 27}" text-anchor="middle" style="fill:var(--label);font:700 14px Inter,sans-serif">${n}</text><text x="${x + 85}" y="${y + 47}" text-anchor="middle" style="fill:var(--label-2);font:500 11px Inter,sans-serif">${d}</text></g>`; }
+  function draw() {
+    const e = EX[ex];
+    let s = `<defs><marker id="ad" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" style="fill:var(--tint)"/></marker></defs>`;
+    if (k < 3) {
+      s += T2(70, 24, 'TESE') + caixa(40, 32, e.t, '#3b82c4');
+      s += T2(450, 24, 'ANTÍTESE') + caixa(430, 32, e.a, '#d9534f', k >= 1 ? 1 : .12);
+      if (k >= 1) s += `<text x="320" y="72" text-anchor="middle" style="font-size:30px">⚡</text>`;
+      if (k >= 2) s += `<path d="M125 96 Q130 150 230 168 M515 96 Q510 150 410 168" style="fill:none;stroke:var(--tint);stroke-width:2.5;marker-end:url(#ad)"/>` + T2(278, 150, 'SÍNTESE') + caixa(235, 158, e.s, '#e3a21a');
+    } else {
+      s += T2(70, 24, 'NOVA TESE') + caixa(40, 32, e.s, '#e3a21a') + T2(450, 24, 'NOVA ANTÍTESE') + caixa(430, 32, ['?', 'a contradição seguinte'], '#d9534f', .5);
+      s += `<path d="M320 120 a50 40 0 1 1 -1 0" style="fill:none;stroke:var(--tint);stroke-width:2.5;stroke-dasharray:6 5;marker-end:url(#ad)"><animateTransform attributeName="transform" type="rotate" from="0 320 160" to="360 320 160" dur="6s" repeatCount="indefinite"/></path>` + T(268, 225, 'e o processo se repete');
+    }
+    svg.innerHTML = s; out.innerHTML = e.txt[k];
+    $('#dialNext').disabled = k >= 3;
+  }
+  $('#dialNext').onclick = () => { k = Math.min(3, k + 1); draw(); };
+  $('#dialReset').onclick = () => { k = 0; draw(); };
+  seg($('#dialSeg'), v => { ex = +v; k = 0; draw(); });
+  draw();
+})();
+
+/* ── 6. Marx: de cabeça para baixo ── */
+(function () {
+  const svg = $('#mxSvg'), out = $('#mxOut'); if (!svg) return;
+  function draw(v) {
+    const m = v === 'm';
+    const topo = m ? ['SUPERESTRUTURA', 'Estado · leis · religião · arte · filosofia · ideologia'] : ['IDEIAS · ESPÍRITO', 'razão · cultura · artes · leis · tecnologia'];
+    const base = m ? ['INFRAESTRUTURA (base econômica)', 'forças produtivas + relações de produção (trabalho)'] : ['MUNDO MATERIAL', 'economia, natureza: efeito das ideias'];
+    svg.innerHTML = `<defs><marker id="am" markerWidth="9" markerHeight="9" refX="5" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9Z" style="fill:var(--tint)"/></marker></defs>
+      <path d="M180 20 H460 L500 90 H140 Z" style="fill:var(--bg-2);stroke:${m ? 'var(--sep)' : 'var(--tint)'};stroke-width:2"/>
+      <text x="320" y="52" text-anchor="middle" style="fill:var(--label);font:700 14px Inter,sans-serif">${topo[0]}</text>
+      <text x="320" y="72" text-anchor="middle" style="fill:var(--label-2);font:500 11px Inter,sans-serif">${topo[1]}</text>
+      <rect x="110" y="170" width="420" height="72" rx="10" style="fill:var(--bg-2);stroke:${m ? 'var(--tint)' : 'var(--sep)'};stroke-width:2"/>
+      <text x="320" y="200" text-anchor="middle" style="fill:var(--label);font:700 14px Inter,sans-serif">${base[0]}</text>
+      <text x="320" y="221" text-anchor="middle" style="fill:var(--label-2);font:500 11px Inter,sans-serif">${base[1]}</text>
+      <path d="${m ? 'M320 166 V96' : 'M320 94 V164'}" style="stroke:var(--tint);stroke-width:4;marker-end:url(#am)"/>
+      <text x="332" y="135" style="fill:var(--tint);font:700 12px Inter,sans-serif">determina</text>
+      <g style="transform-origin:575px 130px;transform:rotate(${m ? 0 : 180}deg);transition:transform .8s cubic-bezier(.3,1.4,.5,1)">
+        <circle cx="575" cy="98" r="11" style="fill:var(--label)"/>
+        <path d="M575 109 V140 M575 140 L563 166 M575 140 L587 166 M560 120 L590 120" style="stroke:var(--label);stroke-width:4;fill:none;stroke-linecap:round"/>
+      </g>
+      ${T2(540, 196, m ? 'dialética de pé' : 'de cabeça para baixo')}`;
+    out.innerHTML = m
+      ? '<b>Marx (materialismo)</b>: a base é o modo como a sociedade <b>produz</b> a vida. É ela que determina a superestrutura (leis, Estado, religião, ideias). "O ser social determina a consciência." As transformações <b>econômicas</b> movem a história.'
+      : '<b>Hegel (idealismo)</b>: as <b>ideias</b> e o Espírito vêm primeiro e movem a história; a produção cultural transforma a sociedade. Para Marx, isso é a dialética "de cabeça para baixo". Clique em Marx para desvirar.';
+  }
+  seg($('#mxSeg'), draw); draw('h');
+})();
+
+/* ── 7. Han: bolha ── */
+(function () {
+  const feed = $('#bolhaFeed'); if (!feed) return;
+  const CAT = { azul: ['#3b82c4', 'Time Parque'], laranja: ['#e0702a', 'Time Estacionamento'], esporte: ['#2e9d6a', 'Esporte'], cultura: ['#8e44ad', 'Cultura'], ciencia: ['#16808b', 'Ciência'] };
+  const POSTS = {
+    azul: ['Parque já! A cidade precisa de verde.', 'Estudo mostra: áreas verdes reduzem o calor.', 'Quem defende estacionamento não pensa no futuro.', 'Abaixo-assinado pelo parque passa de 10 mil.', 'O outro lado só quer saber de carro.'],
+    laranja: ['Estacionamento resolve o trânsito do centro!', 'Comerciantes apoiam o estacionamento.', 'Parque? Quem paga a manutenção?', 'Vídeo: o caos para estacionar no centro.', 'O outro lado não entende de economia.'],
+    esporte: ['Vôlei da escola vai para a final.', 'Treino aberto no sábado.'],
+    cultura: ['Nova exposição no museu da cidade.', 'Festival de cinema começa sexta.'],
+    ciencia: ['Por que o céu é azul? Thread.', 'Eclipse visível no próximo mês.'],
+  };
+  let w;
+  function reset() { w = { azul: 1, laranja: 1, esporte: 1, cultura: 1, ciencia: 1 }; render(); }
+  function pickCat() { const tot = Object.values(w).reduce((a, b) => a + b, 0); let r = Math.random() * tot; for (const k in w) { r -= w[k]; if (r <= 0) return k; } return 'azul'; }
+  function render() {
+    const items = Array.from({ length: 6 }, () => { const k = pickCat(); const l = POSTS[k]; return [k, l[Math.floor(Math.random() * l.length)]]; });
+    feed.innerHTML = items.map(([k, t], i) => `<div class="post" style="animation-delay:${i * 60}ms"><span class="av" style="background:${CAT[k][0]}">${CAT[k][1][0]}</span><span>${t}<small>${CAT[k][1]}</small></span><button class="lbtn" type="button" data-k="${k}">♡ Curtir</button></div>`).join('');
+    const tot = Object.values(w).reduce((a, b) => a + b, 0), ps = Object.values(w).map(x => x / tot);
+    const H = -ps.reduce((a, p) => a + (p > 0 ? p * Math.log(p) : 0), 0) / Math.log(5);
+    const m = $('#bolhaMeter'); m.style.width = Math.round(H * 100) + '%'; m.style.background = H > .7 ? 'var(--green)' : H > .45 ? 'var(--orange)' : 'var(--red)';
+    $('#bolhaPerfil').innerHTML = Object.entries(w).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<div style="display:flex;align-items:center;gap:8px;margin:3px 0"><span style="width:10px;height:10px;border-radius:50%;background:${CAT[k][0]}"></span><span style="flex:1">${CAT[k][1]}</span><b style="color:var(--label)">${Math.round(v / tot * 100)}%</b></div>`).join('');
+    $('#bolhaTxt').innerHTML = H > .7 ? 'Feed variado: você vê lados diferentes (esfera pública de debate).'
+      : H > .45 ? 'O algoritmo já te colocou num <b>nicho</b>. O outro lado aparece cada vez menos.'
+      : 'Você está numa <b>bolha isolante</b>: só chega o que confirma o que você já pensa. O outro lado vira "o inimigo". Isso é a <b>polarização comunicativa</b> de Han.';
+  }
+  feed.onclick = e => { const b = e.target.closest('button[data-k]'); if (!b) return; w[b.dataset.k] *= 2.2; b.textContent = '♥ Curtido'; b.classList.add('on'); setTimeout(render, 450); };
+  $('#bolhaReset').onclick = reset; reset();
+})();
+
+/* ── Revisão: quem disse (todos) ── */
+sorter($('#sortTodos'), [
+  ['Ninguém se banha duas vezes no mesmo rio.', 'Heráclito', 'Devir: tudo flui.'],
+  ['O Ser é, o não-ser não é.', 'Parmênides', 'O Ser é uno, eterno e imóvel.'],
+  ['Na realidade, só existem átomos e vazio.', 'Demócrito', 'O resto (doce, amargo, cor) é efeito nos sentidos.'],
+  ['O vazio não é o nada: é o espaço do movimento.', 'Demócrito', 'Um não-ser que existe.'],
+  ['As coisas do mundo sensível são cópias imperfeitas das Ideias.', 'Platão', 'Mundo inteligível × mundo sensível.'],
+  ['Conhecer é relembrar o que a alma já contemplou.', 'Platão', 'Reminiscência (anamnese).'],
+  ['A essência está nas próprias coisas, não em outro mundo.', 'Aristóteles', 'Recusa do dualismo platônico.'],
+  ['A semente é árvore em potência.', 'Aristóteles', 'Movimento = passagem da potência ao ato.'],
+  ['Deve haver um primeiro motor que move sem ser movido.', 'Aristóteles', 'Ato puro, sem potência.'],
+  ['O que é racional é real, e o que é real é racional.', 'Hegel', 'Idealismo: pensamento e realidade têm a mesma estrutura.'],
+  ['A contradição é o que move a realidade.', 'Hegel', 'Aceitação do contraditório.'],
+  ['O Espírito Absoluto guia a história em busca de uma identidade própria.', 'Hegel', 'Processo racional da história.'],
+  ['O ser social determina a consciência.', 'Marx', 'Materialismo: a base econômica vem primeiro.'],
+  ['Em Hegel, a dialética está de cabeça para baixo.', 'Marx', 'Crítica ao idealismo.'],
+  ['A história de todas as sociedades é a história da luta de classes.', 'Marx', 'Manifesto Comunista (1848), com Engels.'],
+  ['O algoritmo nos fecha em bolhas e intensifica a polarização.', 'Han', 'Infocracia.'],
+  ['O poder hoje não proíbe: ele explora a liberdade.', 'Han', 'Autoexploração, psicopolítica.'],
+  ['Liberdade, amor e felicidade não são mensuráveis.', 'Han', 'Crítica ao dataísmo.'],
+], ['Heráclito', 'Parmênides', 'Demócrito', 'Platão', 'Aristóteles', 'Hegel', 'Marx', 'Han']);
+})();
+
+</script>

@@ -1,0 +1,96 @@
+<!--@intestino-delgado-->
+<div class="lab" id="labDig">
+  <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Siga o alimento: enzima, pH e produto</b></div>
+  <div class="lab-ctl"><div class="seg" id="digSeg"><button type="button" class="on" data-v="amido">🍞 Pão (amido)</button><button type="button" data-v="prot">🥩 Carne (proteína)</button><button type="button" data-v="lip">🧈 Manteiga (lipídio)</button></div></div>
+  <div class="steps" id="digSteps"></div>
+  <div class="lab-stage" style="margin-top:10px"><svg id="digSvg" viewBox="0 0 640 200" role="img" aria-label="Trajeto do alimento"></svg></div>
+  <div class="lab-out" id="digOut"></div>
+</div>
+<div class="lab" id="labBile">
+  <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Bile: emulsificar não é digerir</b></div>
+  <div class="lab-stage"><canvas id="bileCv" width="760" height="230" aria-label="Gotas de gordura sendo emulsificadas"></canvas></div>
+  <div class="lab-ctl"><label>Bile <input type="range" id="bileR" min="0" max="5" value="0"></label><button class="lbtn pri" type="button" id="bileLip">✂ Soltar lipase</button></div>
+  <div class="lab-out" id="bileOut"></div>
+</div>
+<!--@intestino-grosso-->
+<div class="lab" id="labFezes">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Intestino grosso: quanto tempo o conteúdo fica lá?</b></div>
+  <div class="lab-ctl"><label>⚡ Rápido <input type="range" id="fezR" min="0" max="100" value="50"> Lento 🐢</label></div>
+  <div class="lab-stage"><svg id="fezSvg" viewBox="0 0 640 200" role="img" aria-label="Absorção de água no intestino grosso"></svg></div>
+  <div class="lab-out" id="fezOut"></div>
+</div>
+<!--@transportes-->
+<div class="lab" id="labOsmose">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Osmose: coloque a célula em cada solução</b></div>
+  <div class="lab-ctl"><div class="seg" id="osCel"><button type="button" class="on" data-v="a">Célula animal (hemácia)</button><button type="button" data-v="v">Célula vegetal</button></div></div>
+  <div class="lab-ctl" style="padding-top:0"><div class="seg" id="osSol"><button type="button" data-v="hipo">Hipotônica</button><button type="button" class="on" data-v="iso">Isotônica</button><button type="button" data-v="hiper">Hipertônica</button></div></div>
+  <div class="lab-stage"><svg id="osSvg" viewBox="0 0 640 230" role="img" aria-label="Célula em solução"></svg></div>
+  <div class="lab-out" id="osOut"></div>
+</div>
+<div class="lab" id="labTransp">
+  <div class="lab-head"><span class="lab-tag">Jogo</span><b>Que tipo de transporte é?</b></div>
+  <div class="sorter" id="sortTransp"></div>
+</div>
+<!--@circulatorio-anat-->
+<div class="lab" id="labCoracao">
+  <div class="lab-head"><span class="lab-tag">Passo a passo</span><b>Uma volta completa do sangue</b></div>
+  <div class="steps" id="corSteps"></div>
+  <div class="lab-stage" style="margin-top:10px"><svg id="corSvg" viewBox="0 0 640 300" role="img" aria-label="Coração e circulações"></svg></div>
+  <div class="lab-out" id="corOut"></div>
+</div>
+<div class="lab" id="labVasos">
+  <div class="lab-head"><span class="lab-tag">Gráfico</span><b>Pressão, velocidade e área ao longo dos vasos</b></div>
+  <div class="lab-stage"><canvas id="vasCv" width="760" height="260" aria-label="Pressão, velocidade e área nos vasos"></canvas></div>
+  <div class="lab-ctl"><label>Vaso <input type="range" id="vasR" min="0" max="4" value="0"></label></div>
+  <div class="lab-out" id="vasOut"></div>
+</div>
+<!--@circulatorio-fisio-->
+<div class="lab" id="labCiclo">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Ciclo cardíaco: válvulas e o "lub-dub"</b></div>
+  <div class="lab-stage"><svg id="ccSvg" viewBox="0 0 640 260" role="img" aria-label="Ciclo cardíaco"></svg></div>
+  <div class="lab-ctl"><button class="lbtn pri" type="button" id="ccPlay">▶ Bater</button><button class="lbtn" type="button" id="ccStep">Próxima fase ▶</button><button class="lbtn" type="button" id="ccMarca">⚡ Caminho do impulso</button></div>
+  <div class="lab-out" id="ccOut"></div>
+</div>
+<div class="lab" id="labPA">
+  <div class="lab-head"><span class="lab-tag">Calculadora</span><b>Pressão arterial e frequência cardíaca</b></div>
+  <div class="lab-ctl"><label>Sistólica <input type="range" id="paS" min="70" max="190" value="120"></label><label>Diastólica <input type="range" id="paD" min="40" max="120" value="80"></label><label>FC <input type="range" id="paF" min="35" max="180" value="72"></label></div>
+  <div class="lab-out" id="paOut2"></div>
+</div>
+<!--@sangue-->
+<div class="lab" id="labCoag">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Coagulação em cascata</b></div>
+  <div class="lab-ctl"><div class="seg" id="coagSeg"><button type="button" class="on" data-v="n">Normal</button><button type="button" data-v="k">Sem vitamina K</button><button type="button" data-v="ca">Tubo com EDTA (sem Ca²⁺)</button><button type="button" data-v="p">Plaquetas baixas</button></div><button class="lbtn pri" type="button" id="coagGo">🩸 Cortar o dedo</button></div>
+  <div class="lab-stage"><svg id="coagSvg" viewBox="0 0 640 240" role="img" aria-label="Cascata da coagulação"></svg></div>
+  <div class="lab-out" id="coagOut"></div>
+</div>
+<!--@imune-->
+<div class="lab" id="labResp">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Anticorpos ao longo do tempo: 1º e 2º contato, vacina e soro</b></div>
+  <div class="lab-ctl"><div class="seg" id="respSeg"><button type="button" class="on" data-v="contato">1º e 2º contato</button><button type="button" data-v="vacina">Vacina</button><button type="button" data-v="soro">Soro</button></div></div>
+  <div class="lab-stage"><canvas id="respCv" width="760" height="280" aria-label="Anticorpos no tempo"></canvas></div>
+  <div class="lab-out" id="respOut"></div>
+</div>
+<div class="lab" id="labImun">
+  <div class="lab-head"><span class="lab-tag">Jogo</span><b>Ativa ou passiva? Natural ou artificial?</b></div>
+  <div class="sorter" id="sortImun"></div>
+</div>
+<!--@respiratorio-->
+<div class="lab" id="labVent">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Ventilação: o diafragma muda a pressão</b></div>
+  <div class="lab-ctl"><label>Expiração <input type="range" id="ventR" min="0" max="100" value="0"> Inspiração</label><button class="lbtn" type="button" id="ventPlay">▶ Respirar</button></div>
+  <div class="lab-stage"><svg id="ventSvg" viewBox="0 0 640 250" role="img" aria-label="Tórax e diafragma"></svg></div>
+  <div class="lab-out" id="ventOut"></div>
+</div>
+<div class="lab" id="labHb">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Curva de saturação da hemoglobina</b></div>
+  <div class="lab-ctl"><label>pO₂ <input type="range" id="hbR" min="0" max="100" value="40"></label><div class="seg" id="hbSeg"><button type="button" class="on" data-v="n">pH 7,4 · repouso</button><button type="button" data-v="e">pH 7,2 · exercício</button></div></div>
+  <div class="lab-stage"><canvas id="hbCv" width="760" height="300" aria-label="Curva de saturação"></canvas></div>
+  <div class="lab-out" id="hbOut"></div>
+</div>
+<!--@excretor-->
+<div class="lab" id="labNefron">
+  <div class="lab-head"><span class="lab-tag">Passo a passo</span><b>O caminho no néfron</b></div>
+  <div class="steps" id="nefSteps"></div>
+  <div class="lab-stage" style="margin-top:10px"><svg id="nefSvg" viewBox="0 0 640 260" role="img" aria-label="Néfron"></svg></div>
+  <div class="lab-out" id="nefOut"></div>
+</div>
