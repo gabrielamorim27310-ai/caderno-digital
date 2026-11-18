@@ -10,7 +10,7 @@
     vesicula: '<b>Vesícula seminal</b>: produz o líquido seminal (cerca de 80% do sêmen), com <b>frutose</b> que dá energia aos espermatozoides.',
     prostata: '<b>Próstata</b>: líquido prostático (cerca de 20%), <b>alcalino</b>: neutraliza a acidez da vagina e ativa os espermatozoides.',
     uretra: '<b>Uretra</b>: canal comum aos sistemas <b>excretor e reprodutor</b> (urina e sêmen saem por ela).',
-    bexiga: '<b>Bexiga</b>: guarda a urina (sistema excretor). Durante a ejaculação, o sêmen não se mistura com a urina.',
+    bexiga: '<b>Bexiga</b>: guarda a urina (sistema excretor). O sêmen e a urina não passam pela uretra ao mesmo tempo.',
   };
   const ROTA = 'M175 205 C150 205 140 180 160 168 C178 156 190 130 196 110 C205 70 240 45 285 60 C330 75 330 125 345 150 C352 165 360 180 360 200 L360 248';
   function draw() {
@@ -28,7 +28,7 @@
       ${T(118, 252, 'testículo', 'middle')}${T(108, 168, 'epidídimo', 'middle')}${T(228, 40, 'canal deferente', 'middle')}
       ${T(300, 108, 'bexiga', 'middle')}${T(372, 125, 'vesícula seminal')}${T(380, 175, 'próstata')}${T(372, 242, 'uretra')}
       <g id="rotaDots"></g>
-      ${BOX(492, 150, 140, 96)}${T(502, 172, 'Sêmen que sai:')}
+      ${BOX(492, 150, 140, 96)}${T(502, 172, 'Ao final do trajeto:')}
       <g id="rotaSemen">${T2(502, 194, '—')}</g>`;
     svg.querySelectorAll('.pt').forEach(g => g.onclick = () => { out.innerHTML = INFO[g.dataset.id]; svg.querySelectorAll('.pt').forEach(x => x.style.opacity = x === g ? 1 : .55); });
   }
@@ -55,12 +55,12 @@
         ? T2(502, 194, '✗ espermatozoides') + T2(502, 212, '✓ líquido da vesícula') + T2(502, 230, '✓ líquido da próstata')
         : T2(502, 194, '✓ espermatozoides') + T2(502, 212, '✓ líquido da vesícula') + T2(502, 230, '✓ líquido da próstata');
       out.innerHTML = vas
-        ? '<b>Vasectomia</b>: os espermatozoides continuam sendo produzidos, mas param no corte do <b>canal deferente</b> e são <b>reabsorvidos</b>. A ejaculação continua, com sêmen <b>sem espermatozoides</b>. Testículos, FSH, LH e testosterona não mudam.'
+        ? '<b>Vasectomia</b>: os espermatozoides continuam sendo produzidos, mas param no corte do <b>canal deferente</b> e são <b>reabsorvidos</b>. O sêmen continua sendo formado, mas <b>sem espermatozoides</b>. Testículos, FSH, LH e testosterona não mudam.'
         : 'Rota: <b>túbulos seminíferos → epidídimo → canal deferente → uretra</b>. No caminho entram o líquido da <b>vesícula seminal</b> e o da <b>próstata</b>. Sêmen = espermatozoides + líquidos.';
     });
   }
   $('#rotaGo').onclick = go;
-  seg($('#rotaSeg'), v => { vas = v === 'v'; draw(); out.innerHTML = vas ? 'O canal deferente foi cortado. Clique em <b>Ejacular</b>.' : 'Clique numa estrutura ou em <b>Ejacular</b>.'; });
+  seg($('#rotaSeg'), v => { vas = v === 'v'; draw(); out.innerHTML = vas ? 'O canal deferente foi cortado. Clique em <b>Percorrer o caminho</b>.' : 'Clique numa estrutura ou em <b>Percorrer o caminho</b>.'; });
   draw();
 })();
 

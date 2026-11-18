@@ -142,6 +142,7 @@ nav a:hover { color: var(--tint) !important; }
 (function liga() { if (!document.body) return document.addEventListener('DOMContentLoaded', liga); document.body.classList.add('ios', 'resumo'); })();</script>
 ${limpo}
 <script>document.body.classList.add('ios', 'resumo');</script>
+<script>${_ler(_j(raiz, 'scripts', 'zoom-fotos.js'), 'utf8')}</script>
 <script>
 ${widgets}
 </script>`;
