@@ -1,0 +1,117 @@
+<!--@masculino-->
+<div class="lab" id="labRota">
+  <div class="lab-head"><span class="lab-tag">Laboratório</span><b>A rota do espermatozoide (e o que a vasectomia corta)</b></div>
+  <div class="lab-ctl"><button class="lbtn pri" type="button" id="rotaGo">▶ Ejacular</button><div class="seg" id="rotaSeg"><button type="button" class="on" data-v="n">Normal</button><button type="button" data-v="v">Com vasectomia</button></div></div>
+  <div class="lab-stage"><svg id="rotaSvg" viewBox="0 0 640 260" role="img" aria-label="Esquema das vias espermáticas"></svg></div>
+  <div class="lab-out" id="rotaOut">Clique numa estrutura do esquema ou em <b>Ejacular</b>.</div>
+</div>
+<div class="lab" id="labEixoM">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Eixo hipotálamo → hipófise → testículos</b></div>
+  <div class="lab-ctl"><div class="seg" id="eixoMSeg"><button type="button" class="on" data-v="0">Normal</button><button type="button" data-v="1">Injeção de testosterona</button><button type="button" data-v="2">Vasectomia</button></div></div>
+  <div class="lab-stage"><svg id="eixoMSvg" viewBox="0 0 640 230" role="img" aria-label="Níveis hormonais masculinos"></svg></div>
+  <div class="lab-out" id="eixoMOut"></div>
+</div>
+<!--@feminino-->
+<div class="lab" id="labCiclo">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>O ciclo menstrual dia a dia</b></div>
+  <div class="lab-ctl"><div class="seg" id="cicloSeg"><button type="button" class="on" data-v="normal">Ciclo normal</button><button type="button" data-v="gravidez">Fecundação</button><button type="button" data-v="pilula">Pílula</button><button type="button" data-v="menopausa">Menopausa</button></div></div>
+  <div class="lab-stage"><canvas id="cicloCv" width="760" height="330" aria-label="Gráfico dos hormônios do ciclo"></canvas></div>
+  <div class="lab-ctl"><label>Dia <input type="range" id="cicloR" min="1" max="28" value="1"></label><button class="lbtn" type="button" id="cicloPlay">▶ Animar</button></div>
+  <div class="lab-out" id="cicloOut"></div>
+</div>
+<!--@gravidez-->
+<div class="lab" id="labGemeos">
+  <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Gêmeos: um zigoto ou dois?</b></div>
+  <div class="lab-ctl"><div class="seg" id="gemSeg"><button type="button" class="on" data-v="mono">Monozigóticos</button><button type="button" data-v="di">Dizigóticos</button></div><button class="lbtn pri" type="button" id="gemGo">▶ Fecundar</button></div>
+  <div class="lab-stage"><svg id="gemSvg" viewBox="0 0 640 220" role="img" aria-label="Formação de gêmeos"></svg></div>
+  <div class="lab-out" id="gemOut"></div>
+</div>
+<div class="lab" id="labTabela">
+  <div class="lab-head"><span class="lab-tag">Calculadora</span><b>Tabelinha: onde cai o período fértil?</b></div>
+  <div class="lab-ctl"><label>Duração do ciclo <input type="range" id="tabR" min="21" max="35" value="28"></label><b id="tabN" style="min-width:64px">28 dias</b></div>
+  <div class="lab-stage" style="padding:12px 16px"><div id="tabCal" style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px"></div></div>
+  <div class="lab-out" id="tabOut"></div>
+</div>
+<div class="lab" id="labContra">
+  <div class="lab-head"><span class="lab-tag">Jogo</span><b>Contraceptivos: o que cada um impede?</b></div>
+  <div class="sorter" id="sortContra"></div>
+</div>
+<!--@organizacao-->
+<div class="lab" id="labSNC">
+  <div class="lab-head"><span class="lab-tag">Jogo</span><b>SNC, SNP ou tipo de nervo?</b></div>
+  <div class="sorter" id="sortSN"></div>
+</div>
+<!--@impulso-->
+<div class="lab" id="labPA">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Potencial de ação: dê um estímulo</b></div>
+  <div class="lab-ctl">
+    <label>Intensidade do estímulo <input type="range" id="paR" min="0" max="100" value="60"></label>
+    <button class="lbtn pri" type="button" id="paGo">⚡ Estimular</button>
+  </div>
+  <div class="lab-ctl" style="padding-top:0"><div class="seg" id="paSeg"><button type="button" class="on" data-v="n">Neurônio normal</button><button type="button" data-v="anest">Pomada anestésica</button><button type="button" data-v="atp">Sem ATP</button></div></div>
+  <div class="lab-stage"><canvas id="paCv" width="760" height="300" aria-label="Gráfico do potencial de membrana"></canvas></div>
+  <div class="lab-out" id="paOut"></div>
+</div>
+<div class="lab" id="labMielina">
+  <div class="lab-head"><span class="lab-tag">Corrida</span><b>Com mielina × sem mielina</b></div>
+  <div class="lab-stage"><canvas id="mieCv" width="760" height="230" aria-label="Condução saltatória e contínua"></canvas></div>
+  <div class="lab-ctl"><button class="lbtn pri" type="button" id="mieGo">▶ Disparar os dois</button></div>
+  <div class="lab-out" id="mieOut">Dispare e compare a velocidade.</div>
+</div>
+<!--@sinapses-->
+<div class="lab" id="labSinapse">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Sinapse química (placa motora)</b></div>
+  <div class="lab-ctl"><div class="seg" id="sinSeg"><button type="button" class="on" data-v="n">Normal</button><button type="button" data-v="curare">Com curare</button></div><button class="lbtn pri" type="button" id="sinGo">⚡ Mandar impulso</button></div>
+  <div class="lab-stage"><canvas id="sinCv" width="760" height="300" aria-label="Sinapse química"></canvas></div>
+  <div class="lab-out" id="sinOut"></div>
+</div>
+<!--@reflexo-->
+<div class="lab" id="labArco">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Arco reflexo: encoste no espinho (e corte nervos)</b></div>
+  <div class="lab-ctl"><div class="seg" id="arcoSeg"><button type="button" class="on" data-v="n">Tudo intacto</button><button type="button" data-v="d">Cortar raiz dorsal</button><button type="button" data-v="v">Cortar raiz ventral</button></div><button class="lbtn pri" type="button" id="arcoGo">👆 Encostar</button></div>
+  <div class="lab-stage"><svg id="arcoSvg" viewBox="0 0 640 280" role="img" aria-label="Arco reflexo composto"></svg></div>
+  <div class="lab-out" id="arcoOut"></div>
+</div>
+<!--@autonomo-->
+<div class="lab" id="labGangorra">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Simpático × parassimpático: a gangorra</b></div>
+  <div class="lab-ctl"><label>😌 Repouso <input type="range" id="ganR" min="0" max="100" value="20"> Susto 😱</label></div>
+  <div class="lab-stage"><svg id="ganSvg" viewBox="0 0 640 260" role="img" aria-label="Efeitos do autônomo nos órgãos"></svg></div>
+  <div class="lab-out" id="ganOut"></div>
+</div>
+<!--@revisao-->
+<div class="lab" id="labGlic">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Endócrino: glicemia, insulina e glucagon</b></div>
+  <div class="lab-ctl"><button class="lbtn" type="button" data-g="comer">🍞 Comer</button><button class="lbtn" type="button" data-g="jejum">⏳ Jejum</button><button class="lbtn" type="button" data-g="susto">😱 Susto</button><div class="seg" id="glicSeg"><button type="button" class="on" data-v="s">Saudável</button><button type="button" data-v="t1">Diabetes tipo 1</button><button type="button" data-v="t2">Diabetes tipo 2</button></div></div>
+  <div class="lab-stage"><canvas id="glicCv" width="760" height="260" aria-label="Glicemia ao longo do tempo"></canvas></div>
+  <div class="lab-out" id="glicOut">Clique em <b>Comer</b> ou <b>Jejum</b> e veja os hormônios do pâncreas agindo (feedback negativo).</div>
+</div>
+<div class="lab" id="labEndo">
+  <div class="lab-head"><span class="lab-tag">Jogo</span><b>Que glândula produz este hormônio?</b></div>
+  <div class="sorter" id="sortEndo"></div>
+</div>
+<div class="lab" id="labDig">
+  <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Digestório: siga o alimento</b></div>
+  <div class="lab-ctl"><div class="seg" id="digSeg"><button type="button" class="on" data-v="amido">🍞 Pão (amido)</button><button type="button" data-v="prot">🥩 Carne (proteína)</button><button type="button" data-v="lip">🧈 Manteiga (lipídio)</button></div></div>
+  <div class="steps" id="digSteps"></div>
+  <div class="lab-stage" style="margin-top:10px"><svg id="digSvg" viewBox="0 0 640 200" role="img" aria-label="Trajeto do alimento"></svg></div>
+  <div class="lab-out" id="digOut"></div>
+</div>
+<div class="lab" id="labCoracao">
+  <div class="lab-head"><span class="lab-tag">Passo a passo</span><b>Circulatório: uma volta completa do sangue</b></div>
+  <div class="steps" id="corSteps"></div>
+  <div class="lab-stage" style="margin-top:10px"><svg id="corSvg" viewBox="0 0 640 300" role="img" aria-label="Coração e circulações"></svg></div>
+  <div class="lab-out" id="corOut"></div>
+</div>
+<div class="lab" id="labHb">
+  <div class="lab-head"><span class="lab-tag">Simulador</span><b>Respiratório: curva de saturação da hemoglobina</b></div>
+  <div class="lab-ctl"><label>pO₂ <input type="range" id="hbR" min="0" max="100" value="40"></label><div class="seg" id="hbSeg"><button type="button" class="on" data-v="n">Repouso</button><button type="button" data-v="e">Exercício (CO₂↑, acidez↑, calor↑)</button></div></div>
+  <div class="lab-stage"><canvas id="hbCv" width="760" height="300" aria-label="Curva de saturação"></canvas></div>
+  <div class="lab-out" id="hbOut"></div>
+</div>
+<div class="lab" id="labNefron">
+  <div class="lab-head"><span class="lab-tag">Passo a passo</span><b>Excretor: o caminho no néfron</b></div>
+  <div class="steps" id="nefSteps"></div>
+  <div class="lab-stage" style="margin-top:10px"><svg id="nefSvg" viewBox="0 0 640 260" role="img" aria-label="Néfron"></svg></div>
+  <div class="lab-out" id="nefOut"></div>
+</div>

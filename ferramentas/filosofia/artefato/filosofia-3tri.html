@@ -1,0 +1,1138 @@
+<title>Filosofia 3º Tri</title>
+<style>
+:root{--tint:#906400;--tint-fill:#906400;--bg:#f2f2f7;--bg-2:#ffffff;--bg-3:#f6f6f9;--sep:rgba(60,60,67,.18);--label:#1c1c1e;--label-2:rgba(60,60,67,.68);
+--green:#1f8a3b;--green-bg:#e6f6ea;--red:#c9342c;--red-bg:#fdecea;--orange:#c46a00;--fill:rgba(120,120,128,.16);--primary:#906400;--c1:#906400;--c2:#8a5a00;--c3:#a0782a;--c4:#1f4e79}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--tint:#f5bf3c;--bg:#000;--bg-2:#1c1c1e;--bg-3:#2c2c2e;--sep:rgba(84,84,88,.6);--label:#fff;--label-2:rgba(235,235,245,.65);--green:#32d74b;--green-bg:rgba(50,215,75,.14);--red:#ff6b61;--red-bg:rgba(255,69,58,.15);--orange:#ff9f0a;--fill:rgba(120,120,128,.32)}}
+:root[data-theme="dark"]{--tint:#f5bf3c;--bg:#000;--bg-2:#1c1c1e;--bg-3:#2c2c2e;--sep:rgba(84,84,88,.6);--label:#fff;--label-2:rgba(235,235,245,.65);--green:#32d74b;--green-bg:rgba(50,215,75,.14);--red:#ff6b61;--red-bg:rgba(255,69,58,.15);--orange:#ff9f0a;--fill:rgba(120,120,128,.32)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--label);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Inter","Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--tint)}
+.hero{padding:44px 16px 28px;text-align:center;max-width:860px;margin:0 auto}
+.hero h1{font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
+.hero .subtitle{color:var(--label-2);margin:0 0 14px}
+.hero .badge{display:inline-block;color:var(--tint);border:1px solid var(--tint);border-radius:999px;padding:3px 12px;font-size:.8rem;font-weight:700}
+.hero .author{display:inline-block;margin-top:8px;color:var(--label-2);font-size:.85rem}
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--sep)}
+.nav-inner{max-width:860px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:8px 16px;scrollbar-width:none}
+.nav-link{white-space:nowrap;text-decoration:none;font-size:.82rem;font-weight:600;color:var(--label-2);padding:6px 10px;border-radius:999px}
+.nav-link:hover{background:var(--bg-3);color:var(--label)}
+.content{max-width:860px;margin:0 auto;padding:24px 16px 60px}
+.section{margin-bottom:44px;scroll-margin-top:60px}
+.section-header{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+.section-num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;flex-shrink:0;background:var(--tint-fill)!important}
+.section-title{font-size:1.35rem;margin:0;line-height:1.2;letter-spacing:-.01em}
+.section-sub{margin:2px 0 0;color:var(--label-2);font-size:.85rem}
+.card{background:var(--bg-2);border:1px solid var(--sep);border-radius:16px;padding:18px 18px;margin-bottom:14px}
+.card p{margin:8px 0}
+.card-title{font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.grid-2,.grid-3{display:grid;gap:12px;margin:12px 0}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.grid-3{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.mini-card{background:var(--bg-3);border-radius:12px;padding:14px;border-top:4px solid var(--tint)}
+.mini-card h4{margin:0 0 6px;font-size:.95rem}.mini-card p{margin:0;font-size:.9rem;color:var(--label-2)}
+.list{list-style:none;padding:0;margin:10px 0;display:grid;gap:6px}
+.list li{background:var(--bg-3);border-radius:10px;padding:8px 12px;font-size:.92rem}
+.highlight,.highlight-purple,.highlight-gray,.tip-box,.warn-box,.highlight-box{border-radius:12px;padding:12px 16px;margin:12px 0;font-size:.92rem;background:var(--bg-3);border-left:4px solid var(--tint)}
+.highlight-purple{border-left-color:#8e44ad}.highlight-gray{border-left-color:var(--label-2);color:var(--label-2)}
+.quote{border-left:4px solid var(--tint);padding:10px 16px;margin:12px 0;font-style:italic;background:var(--bg-3);border-radius:0 12px 12px 0}
+.quote span{display:block;font-style:normal;font-size:.8rem;color:var(--label-2);margin-top:4px}
+.table-wrap{overflow-x:auto;margin:12px 0;border:1px solid var(--sep);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{background:var(--bg-3);text-align:left;padding:9px 12px;font-weight:700}
+td{padding:9px 12px;border-top:1px solid var(--sep);vertical-align:top}
+.tag{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:999px;background:var(--bg-3);color:var(--orange)}
+img{max-width:100%;height:auto;border-radius:12px}
+figure{margin:12px 0}figcaption{font-size:.82rem;color:var(--label-2);margin-top:4px}
+footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;border-top:1px solid var(--sep)}
+.qz-score{top:52px}
+
+</style>
+<style>/* labs.css — laboratórios interativos dos resumos (Filosofia e Biologia 3º tri).
+   Só variáveis do ios.css: funciona no claro e no escuro. Classes próprias
+   (.lab, .lbtn, .seg...) para não herdar o botão grande do site. */
+.lab { margin: 18px 0; border: 1px solid var(--sep); border-radius: 16px; background: var(--bg-2); overflow: hidden; color: var(--label); }
+.lab-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 16px; border-bottom: 1px solid var(--sep); }
+.lab-head b { font-size: .98rem; color: var(--label); }
+.lab-tag { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--tint); border: 1px solid var(--tint); border-radius: 999px; padding: 2px 9px; }
+.lab-stage { background: var(--bg-3); position: relative; }
+.lab-stage svg, .lab-stage canvas { display: block; width: 100%; height: auto; }
+.lab-ctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 16px 6px; }
+.lab-ctl label { font-size: .86rem; color: var(--label-2); display: flex; align-items: center; gap: 8px; flex: 1 1 260px; }
+.lab-ctl input[type=range] { flex: 1; accent-color: var(--tint); min-width: 120px; }
+.lab-out { padding: 6px 16px 14px; font-size: .93rem; line-height: 1.55; color: var(--label); min-height: 2.6em; }
+.lab-out b { color: var(--tint); }
+.lab-out small { color: var(--label-2); }
+.lab-hint { font-size: .8rem; color: var(--label-2); padding: 0 16px 12px; }
+.lbtn { font: inherit; font-size: .88rem; font-weight: 600; border: 1px solid var(--sep); background: var(--bg-3); color: var(--label); border-radius: 10px; padding: 7px 13px; cursor: pointer; transition: transform .12s, background .2s, border-color .2s; }
+.lbtn:hover { border-color: var(--tint); }
+.lbtn:active { transform: scale(.97); }
+.lbtn.pri { background: var(--tint-fill); border-color: var(--tint-fill); color: #fff; }
+.lbtn.on { border-color: var(--tint); color: var(--tint); background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--tint); }
+.lbtn.ok { background: var(--green-bg); border-color: var(--green); color: var(--green); }
+.lbtn.no { background: var(--red-bg); border-color: var(--red); color: var(--red); text-decoration: line-through; }
+.lbtn:disabled { opacity: .55; cursor: default; }
+.seg { display: inline-flex; border: 1px solid var(--sep); border-radius: 10px; overflow: hidden; background: var(--bg-3); }
+.seg button { font: inherit; font-size: .85rem; font-weight: 600; border: 0; background: none; color: var(--label-2); padding: 7px 12px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--sep); }
+.seg button.on { background: var(--tint-fill); color: #fff; }
+.lab-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.lab-split > * + * { border-left: 1px solid var(--sep); }
+@media (max-width: 640px) { .lab-split { grid-template-columns: 1fr; } .lab-split > * + * { border-left: 0; border-top: 1px solid var(--sep); } }
+.lab-pane { padding: 12px 16px; font-size: .9rem; }
+.lab-pane h5 { margin: 0 0 6px !important; font-size: .9rem; color: var(--tint) !important; }
+/* jogo de classificar */
+.sorter { padding: 12px 16px 14px; display: grid; gap: 10px; }
+.sorter .card-q { font-size: 1rem; font-weight: 600; padding: 14px; border-radius: 12px; background: var(--bg-3); border: 1px dashed var(--sep); min-height: 3.2em; color: var(--label); }
+.sorter .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.sorter .meta { display: flex; justify-content: space-between; font-size: .82rem; color: var(--label-2); }
+.sorter .fb { font-size: .88rem; color: var(--label-2); min-height: 1.4em; }
+.sorter .fb.ok { color: var(--green); }
+.sorter .fb.no { color: var(--red); }
+/* chips (abstração, órgãos) */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 16px; }
+.chip { font: inherit; font-size: .88rem; border: 1px solid var(--sep); background: var(--bg-3); color: var(--label); border-radius: 999px; padding: 6px 13px; cursor: pointer; }
+.chip.ok { background: var(--green-bg); border-color: var(--green); color: var(--green); font-weight: 700; }
+.chip.no { background: var(--red-bg); border-color: var(--red); color: var(--red); }
+.chip.dim { opacity: .55; }
+/* passo a passo */
+.steps { display: flex; gap: 6px; padding: 12px 16px 0; flex-wrap: wrap; }
+.steps button { font: inherit; font-size: .8rem; font-weight: 700; border: 1px solid var(--sep); background: var(--bg-3); color: var(--label-2); border-radius: 999px; padding: 4px 11px; cursor: pointer; }
+.steps button.on { background: var(--tint-fill); border-color: var(--tint-fill); color: #fff; }
+/* medidor */
+.meter { height: 10px; border-radius: 999px; background: var(--fill, rgba(120,120,128,.2)); overflow: hidden; }
+.meter i { display: block; height: 100%; width: 50%; background: var(--tint); border-radius: inherit; transition: width .4s, background .4s; }
+/* feed da bolha (Han) */
+.feed { display: grid; gap: 8px; padding: 12px 16px; max-height: 360px; overflow: auto; }
+.post { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; background: var(--bg-3); border: 1px solid var(--sep); font-size: .88rem; color: var(--label); animation: labIn .35s ease both; }
+.post .av { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #fff; font-size: .8rem; }
+.post small { display: block; color: var(--label-2); font-size: .75rem; }
+@keyframes labIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .post, .lab * { animation: none !important; transition: none !important; } }
+/* quiz A–E */
+.qz { background: var(--bg-2); border: 1px solid var(--sep); border-radius: 14px; margin-bottom: 14px; overflow: hidden; }
+.qz-q { display: flex; gap: 12px; padding: 16px 16px 10px; font-weight: 600; font-size: .93rem; color: var(--label); }
+.qz-n { background: var(--tint-fill); color: #fff; min-width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: .75rem; flex-shrink: 0; }
+.qz-opts { display: grid; gap: 6px; padding: 0 16px 14px; }
+.qz-opt { display: flex; gap: 10px; align-items: flex-start; text-align: left; font: inherit; font-size: .9rem; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--sep); background: var(--bg-3); color: var(--label); cursor: pointer; }
+.qz-opt:hover { border-color: var(--tint); }
+.qz-opt .l { width: 22px; height: 22px; border-radius: 50%; background: var(--bg-2); border: 1px solid var(--sep); color: var(--tint); font-weight: 800; font-size: .75rem; display: grid; place-items: center; flex-shrink: 0; }
+.qz-opt.ok { border-color: var(--green); background: var(--green-bg); }
+.qz-opt.ok .l { background: var(--green); color: #fff; border-color: var(--green); }
+.qz-opt.no { border-color: var(--red); background: var(--red-bg); }
+.qz-opt.no .l { color: var(--red); }
+.qz-opt.dis { pointer-events: none; }
+.qz-fb { margin: 0 16px 14px; padding: 10px 14px; border-radius: 10px; font-size: .88rem; display: none; color: var(--label); background: var(--bg-3); border-left: 4px solid var(--sep); }
+.qz-fb.ok { display: block; border-left-color: var(--green); }
+.qz-fb.no { display: block; border-left-color: var(--red); }
+.qz-score { position: sticky; top: 56px; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: var(--bg-2); border: 1px solid var(--sep); border-radius: 14px; padding: 12px 16px; margin-bottom: 14px; }
+.qz-score b { font-size: 1.5rem; color: var(--tint); font-variant-numeric: tabular-nums; }
+</style>
+
+
+
+<header class="hero">
+  
+  <h1>Filosofia · Identidade</h1>
+  <p class="subtitle">Sou ou estou sendo? · Heráclito e Parmênides · Demócrito, Platão e Aristóteles · Hegel · Marx · Byung-Chul Han</p>
+  <div class="badge">Avaliação Trimestral · 3º Trimestre · 2026</div>
+  <div><span class="author">Resumo interativo · mexa nos laboratórios</span></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    
+    <a class="nav-link" href="#formato">O que cai</a>
+    <a class="nav-link" href="#identidade">0. Sou ou estou sendo?</a>
+    <a class="nav-link" href="#presocraticos">1. Heráclito × Parmênides</a>
+    <a class="nav-link" href="#democrito">2. Demócrito</a>
+    <a class="nav-link" href="#platao">3. Platão</a>
+    <a class="nav-link" href="#aristoteles">4. Aristóteles</a>
+    <a class="nav-link" href="#hegel">5. Hegel</a>
+    <a class="nav-link" href="#marx">6. Marx</a>
+    <a class="nav-link" href="#han">7. Byung-Chul Han</a>
+    <a class="nav-link" href="#revisao">Revisão</a>
+    <a class="nav-link" href="#exercicios">Quiz</a>
+    
+  </div>
+</nav>
+
+<div class="content">
+
+  <!-- ═══ O QUE CAI ═══ -->
+  <section class="section" id="formato">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--primary)">✓</div>
+      <div>
+        <h2 class="section-title">O que cai na prova</h2>
+        <p class="section-sub">Tema do trimestre: <b>Identidade</b> · o conteúdo é acumulativo</p>
+      </div>
+    </div>
+    <div class="card">
+      <p>A orientação lista seis conteúdos. Cada um virou uma seção com um laboratório para mexer. O fio que liga tudo é uma pergunta só: <strong>o que faz uma coisa (ou uma pessoa) continuar sendo ela mesma enquanto muda?</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Orientação de estudos</th><th>Onde revisar</th><th>Texto do Moodle</th></tr></thead>
+          <tbody>
+            <tr><td>Sou ou estou sendo? Identidade como problema</td><td><a href="#identidade">0</a></td><td>(base de todos)</td></tr>
+            <tr><td>Pré-socráticos: Parmênides e Heráclito</td><td><a href="#presocraticos">1</a></td><td>Heráclito, introdução · Parmênides, <i>Introdução à Metafísica</i></td></tr>
+            <tr><td>Superação da "contradição": Demócrito, Platão e Aristóteles</td><td><a href="#democrito">2</a>, <a href="#platao">3</a>, <a href="#aristoteles">4</a></td><td>Diálogo sobre Demócrito, Platão e Aristóteles</td></tr>
+            <tr><td>Hegel: idealismo, "o real é racional e o racional é real"</td><td><a href="#hegel">5</a></td><td>Hegel e Marx</td></tr>
+            <tr><td>Marx: crítica ao idealismo hegeliano</td><td><a href="#marx">6</a></td><td>Hegel e Marx</td></tr>
+            <tr><td>Byung-Chul Han: identidade digital, Infocracia</td><td><a href="#han">7</a></td><td>Byung-Chul Han, identidade virtual</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-gray">Reveja também os PPTs das aulas. Este resumo junta o caderno de aula, as anotações mais recentes (Han: dataísmo, psicopolítica, capitalismo de vigilância) e a orientação.</div>
+    </div>
+  </section>
+
+  <!-- ═══ 0. IDENTIDADE ═══ -->
+  <section class="section" id="identidade">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c4)">0</div>
+      <div>
+        <h2 class="section-title">Sou ou estou sendo? Identidade como problema</h2>
+        <p class="section-sub">Ser (permanência) × estar sendo (devir)</p>
+      </div>
+    </div>
+    <div class="card">
+      <p>Em português há dois verbos que o grego não separa: <strong>ser</strong> e <strong>estar</strong>. "Eu <em>sou</em>" sugere algo fixo, que define quem eu sou. "Eu <em>estou sendo</em>" sugere algo em processo, que ainda está acontecendo. A identidade vira <strong>problema</strong> justamente aí: se tudo em mim muda (corpo, ideias, gostos), o que garante que eu continuo sendo eu?</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>"Sou": identidade como permanência</h4>
+          <p>Existe algo que não muda e define a coisa: um <strong>Ser</strong>, uma <strong>essência</strong>. Linha de <strong>Parmênides</strong> (e, de outro jeito, Platão e Aristóteles).</p>
+        </div>
+        <div class="mini-card" style="border-top-color:#9c1c1c">
+          <h4>"Estou sendo": identidade como devir</h4>
+          <p>A identidade é um <strong>processo</strong>, feito de mudança e de contrários. Linha de <strong>Heráclito</strong> (e, séculos depois, Hegel e Marx).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="lab" id="labTeseu">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>O navio que troca de tábuas</b></div>
+      <div class="lab-stage"><svg id="teseuSvg" viewBox="0 0 640 230" role="img" aria-label="Navio com tábuas antigas e novas"></svg></div>
+      <div class="lab-ctl"><label>Tábuas trocadas <input type="range" id="teseuR" min="0" max="12" value="0"></label><button class="lbtn" type="button" id="teseuAuto">▶ Trocar uma por ano</button></div>
+      <div class="lab-out" id="teseuOut"></div>
+      <div class="lab-hint">Um exemplo clássico da Antiguidade (o "navio de Teseu"). Troque as tábuas e veja o que cada filósofo responderia: é o mesmo navio?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Como cada autor responde (o mapa do trimestre)</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Autor</th><th>O que permanece?</th><th>O que muda?</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Heráclito</strong></td><td>Só a lei da mudança (o logos)</td><td>Tudo: a realidade é fluxo</td></tr>
+            <tr><td><strong>Parmênides</strong></td><td>O Ser, uno e imóvel</td><td>Nada: a mudança é ilusão dos sentidos</td></tr>
+            <tr><td><strong>Demócrito</strong></td><td>Os átomos</td><td>As combinações de átomos</td></tr>
+            <tr><td><strong>Platão</strong></td><td>As Ideias (mundo inteligível)</td><td>As coisas do mundo sensível</td></tr>
+            <tr><td><strong>Aristóteles</strong></td><td>A essência, dentro da coisa</td><td>A passagem da potência ao ato</td></tr>
+            <tr><td><strong>Hegel</strong></td><td>O Espírito, que se reconhece no processo</td><td>As formas históricas, pela contradição</td></tr>
+            <tr><td><strong>Marx</strong></td><td>—</td><td>As condições materiais e as classes, e com elas a consciência</td></tr>
+            <tr><td><strong>Byung-Chul Han</strong></td><td>—</td><td>A identidade virou perfil de dados, moldada por algoritmos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 1. PRÉ-SOCRÁTICOS ═══ -->
+  <section class="section" id="presocraticos">
+    <div class="section-header">
+      <div class="section-num" style="background:#9c1c1c">1</div>
+      <div>
+        <h2 class="section-title">Heráclito × Parmênides</h2>
+        <p class="section-sub">Pré-socráticos · devir × Ser · sentidos × razão</p>
+      </div>
+    </div>
+    <div class="card">
+      <p>Os <strong>pré-socráticos</strong> estudavam a <strong>physis</strong> (a natureza) e a <strong>arkhé</strong> (o princípio originário de todas as coisas). Heráclito e Parmênides deram as duas respostas opostas que o resto da filosofia tentou juntar: a "contradição" dos pré-socráticos.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#9c1c1c">
+          <h4>Heráclito de Éfeso (c. 535–475 a.C.)</h4>
+          <ul class="list">
+            <li><span><strong>Tudo flui</strong> (<em>panta rhei</em>): a realidade é <strong>devir</strong>, mudança constante.</span></li>
+            <li><span>"Ninguém se banha duas vezes no mesmo rio": nem o rio nem a pessoa são os mesmos.</span></li>
+            <li><span><strong>Luta dos contrários</strong>: dia/noite, quente/frio, vida/morte. A tensão entre opostos gera o movimento e a harmonia do mundo.</span></li>
+            <li><span>O <strong>fogo</strong> é a imagem da arkhé: sempre o mesmo e sempre outro. Por trás do fluxo há um <strong>logos</strong>, a razão que ordena a mudança.</span></li>
+          </ul>
+        </div>
+        <div class="mini-card" style="border-top-color:var(--c4)">
+          <h4>Parmênides de Eleia (c. 515–450 a.C.)</h4>
+          <ul class="list">
+            <li><span>"<strong>O Ser é, o não-ser não é</strong>." Do nada nada vem.</span></li>
+            <li><span>O Ser é <strong>uno, eterno, imóvel, imutável e indivisível</strong>. Mudar seria passar do ser ao não-ser: impossível.</span></li>
+            <li><span>Dois caminhos: a <strong>via da verdade</strong> (razão) e a <strong>via da opinião</strong> (doxa, sentidos).</span></li>
+            <li><span>A mudança que vemos é <strong>ilusão dos sentidos</strong>; só a razão alcança o Ser.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight-purple"><strong>Por que isso é sobre identidade.</strong> Parmênides está na raiz do <strong>princípio de identidade</strong> (o que é, é: A = A) e da <strong>não contradição</strong> (algo não pode ser e não ser ao mesmo tempo). Heráclito pensa a identidade como <strong>processo</strong> que inclui o seu contrário. Guarde isso: Hegel vai retomar Heráclito contra essa lógica.</div>
+    </div>
+
+    <div class="lab" id="labRio">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>O rio de Heráclito, os olhos de Parmênides</b></div>
+      <div class="lab-stage"><canvas id="rioCv" width="640" height="220" aria-label="Rio correndo"></canvas></div>
+      <div class="lab-ctl">
+        <button class="lbtn pri" type="button" id="rioEntrar">🦶 Entrar no rio</button>
+        <div class="seg" id="rioOlhar"><button type="button" class="on" data-v="h">Olhar de Heráclito</button><button type="button" data-v="p">Olhar de Parmênides</button></div>
+      </div>
+      <div class="lab-out" id="rioOut">Entre no rio duas vezes e compare a água.</div>
+    </div>
+
+    
+  </section>
+
+  <!-- ═══ 2. DEMÓCRITO ═══ -->
+  <section class="section" id="democrito">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c1)">2</div>
+      <div>
+        <h2 class="section-title">Demócrito e o atomismo</h2>
+        <p class="section-sub">Pré-socrático · átomos e vazio · conhecimento sensível e racional</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Demócrito de Abdera</strong> (c. 460–370 a.C.), com seu mestre <strong>Leucipo</strong>, cria o atomismo. É chamado de pré-socrático pelo tema (a natureza), embora fosse contemporâneo de Sócrates. Para ele, a <strong>arkhé são os átomos</strong>.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c1)"><h4>Átomos = o Ser</h4><p>Partes pequenas, <strong>indivisíveis</strong> (<em>á-tomos</em>, "sem corte") e <strong>eternas</strong>. Diferem em forma, tamanho e posição. Onde há átomo, há movimento.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Vazio = o não-ser</h4><p>Ausência de átomos. <strong>Não é o "nada"</strong>: é o espaço sem o qual os átomos não se moveriam. Um não-ser que existe, e aqui ele discorda de Parmênides.</p></div>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Herança</th><th>No atomismo</th></tr></thead><tbody>
+        <tr><td><strong>Parmênides</strong></td><td>Os átomos são imutáveis: não nascem nem morrem</td></tr>
+        <tr><td><strong>Heráclito</strong></td><td>Pluralidade e mudança constantes, pelo movimento e recombinação dos átomos</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="card"><div class="card-title"><span class="dot" style="background:var(--c2)"></span> Nascer e morrer</div>
+      <p><strong>Nascer</strong> = junção dos átomos; <strong>morrer</strong> = separação. Nos dois casos os átomos continuam os mesmos: nada surge do nada nem vira nada, as coisas só se recombinam.</p></div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Dois tipos de conhecimento <span class="tag tag-imp">Imp.</span></div>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#c9953c"><h4>Sensível</h4><p>Imagens, sabores, cheiros, temperaturas. É o <strong>efeito dos átomos nos sentidos</strong>. Não é falso nem "pior", mas fica nas <strong>aparências</strong>.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Racional</h4><p>Entende os átomos: movimento, combinação, forma. <strong>Ultrapassa os sentidos</strong> pela razão e explica as aparências.</p></div>
+      </div>
+      <div class="highlight"><strong>Lápis no copo d'água.</strong> Os olhos veem o lápis "torto" (sensível). A razão explica: é a refração da luz (racional). Os olhos não mentem; só mostram a aparência.</div>
+    </div>
+  </section>
+
+  <!-- ═══ 3. PLATÃO ═══ -->
+  <section class="section" id="platao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c2)">3</div>
+      <div>
+        <h2 class="section-title">Platão e os dois mundos</h2>
+        <p class="section-sub">Mundo inteligível (episteme) × mundo sensível (doxa)</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Platão</strong> (427–347 a.C.) resolve a contradição <strong>dividindo a realidade em duas</strong>:</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c4)"><h4>Mundo inteligível · herança de Parmênides</h4><p>Permanente, perfeito, imutável. Onde estão as <strong>Ideias</strong> (essências): Bem, Justiça, Beleza, Verdade. Só a <strong>razão</strong> chega lá, pela <strong>reminiscência</strong> (a alma relembra o que contemplou) e pela <strong>dialética</strong> (diálogo de perguntas e respostas). Gera <strong>episteme</strong>, conhecimento verdadeiro.</p></div>
+        <div class="mini-card" style="border-top-color:#9c1c1c"><h4>Mundo sensível · herança de Heráclito</h4><p>Instável, corruptível, ligado aos <strong>sentidos</strong>. As coisas são <strong>cópias imperfeitas</strong> das Ideias e mudam <strong>em relação a elas</strong>. Gera só <strong>doxa</strong>, opinião.</p></div>
+      </div>
+    </div>
+
+    <div class="highlight"><strong>Exemplo da flor.</strong> Uma flor bela murcha (mundo sensível, mudança). A <strong>Beleza em si</strong> não murcha: a flor só era bela enquanto participava, de modo imperfeito, da Ideia de Beleza.</div>
+
+    <div class="highlight-gray"><strong>Alegoria da Caverna</strong> (<em>A República</em>, livro VII): prisioneiros acorrentados veem só sombras e as tomam pela realidade (doxa). Quem se liberta sai e vê as coisas à luz do Sol (episteme; o Sol é a Ideia do Bem). Ao voltar para libertar os outros, é ridicularizado.</div>
+  </section>
+
+  <!-- ═══ 4. ARISTÓTELES ═══ -->
+  <section class="section" id="aristoteles">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--c3)">4</div>
+      <div>
+        <h2 class="section-title">Aristóteles: essência, ato e potência</h2>
+        <p class="section-sub">Metafísica · abstração · primeiro motor imóvel</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Aristóteles</strong> (384–322 a.C.), aluno de Platão, <strong>recusa os dois mundos</strong>. A <strong>metafísica</strong> ("filosofia primeira") investiga os princípios e causas de tudo, temas além dos sentidos: Deus, alma, tempo, essência. O nome veio de quem organizou as obras: os livros vinham "depois da Física".</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:var(--c2)"><h4>Platão: onde está a essência?</h4><p>No mundo inteligível, separado das coisas.</p></div>
+        <div class="mini-card" style="border-top-color:var(--c3)"><h4>Aristóteles: onde está a essência?</h4><p><strong>Nas próprias coisas</strong>, homens e ações do mundo físico.</p></div>
+      </div>
+      <p><strong>Essência</strong>: caracterização determinada pela natureza, aquilo para que a coisa existe. Ir contra a essência é ir contra a natureza e a ordem universal (usar uma caneta para matar, em vez de escrever).</p>
+    </div>
+
+    <div class="card"><div class="card-title"><span class="dot" style="background:var(--c2)"></span> Abstração</div>
+      <p>Pela <strong>razão e observação</strong>, separamos as <strong>propriedades</strong> (que variam) da <strong>essência</strong> (que não varia), e as duas estão no mesmo objeto, no mundo físico.</p>
+      <div class="table-wrap"><table><thead><tr><th>Exemplo</th><th>Propriedades</th><th>Essência</th></tr></thead><tbody>
+        <tr><td><strong>Caneta azul</strong></td><td>azul, tamanho, material</td><td>escrever</td></tr>
+        <tr><td><strong>Ser humano</strong></td><td>altura, cor, diferenças físicas</td><td>ser racional</td></tr></tbody></table></div></div>
+
+    <div class="lab" id="labPot">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Da potência ao ato</b></div>
+      <div class="lab-ctl"><div class="seg" id="potSeg"><button type="button" class="on" data-v="0">Semente → árvore</button><button type="button" data-v="1">Mármore → estátua</button></div></div>
+      <div class="lab-stage"><svg id="potSvg" viewBox="0 0 640 240" role="img" aria-label="Potência se tornando ato"></svg></div>
+      <div class="lab-ctl"><label>Movimento <input type="range" id="potR" min="0" max="100" value="0"></label></div>
+      <div class="lab-out" id="potOut"></div>
+    </div>
+
+    <div class="card"><div class="card-title"><span class="dot" style="background:var(--c1)"></span> Primeiro motor imóvel</div>
+      <ul class="list"><li><span>Todo movimento precisa de outro anterior que o cause (a pedra é movida pelo bastão, que é movido pela mão...).</span></li>
+      <li><span>Para não cair numa regressão infinita, <strong>tem de haver um primeiro movimento, independente de outro</strong>.</span></li>
+      <li><span>É o "ser divino" que <strong>move sem ser movido</strong>: <strong>ato puro e perfeito</strong>, sem potência, por isso imóvel.</span></li></ul></div>
+    <div class="highlight-purple"><strong>Não é o Deus cristão.</strong> O primeiro motor é <strong>ato puro</strong> (sem potência, por isso imóvel). Aristóteles veio antes do cristianismo; foi Tomás de Aquino, séculos depois, quem adaptou o argumento.</div>
+  </section>
+
+  <!-- ═══ 5. HEGEL ═══ -->
+  <section class="section" id="hegel">
+    <div class="section-header">
+      <div class="section-num" style="background:#6b1d1d">5</div>
+      <div>
+        <h2 class="section-title">Hegel: o real é racional e o racional é real</h2>
+        <p class="section-sub">Idealismo · contradição · dialética · Espírito Absoluto</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>G. W. F. Hegel</strong> (1770–1831), filósofo <strong>idealista</strong> alemão. Idealista porque o fundamento da realidade e o motor da história são a <strong>razão e as ideias</strong> (o Espírito), não a matéria.</p>
+      <div class="quote">"O que é racional é real, e o que é real é racional."<span>Hegel, prefácio da <i>Filosofia do Direito</i> (1820)</span></div>
+      <ul class="list">
+        <li><span><strong>Real = racional:</strong> nada acontece por acaso na história; o que existe tem uma lógica, que a razão pode entender.</span></li>
+        <li><span><strong>Racional = real:</strong> a razão não fica só na cabeça; ela se <strong>realiza</strong> no mundo (nas leis, no Estado, na arte, na cultura).</span></li>
+        <li><span>Pensamento e realidade têm a <strong>mesma estrutura</strong>: a dialética. Por isso, entender o real é entender a razão se desenvolvendo.</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Aceitar a contradição <span class="tag tag-imp">Imp.</span></div>
+      <p>A lógica grega da <strong>não contradição</strong> (Parmênides, Aristóteles) era a base da filosofia. Hegel <strong>aceita a contradição</strong>: é ela que rege a realidade. Nada pode ser pensado sem o seu contrário (não "quente" e "frio" separados, mas o par <strong>quente × frio</strong>). Aqui ele retoma Heráclito.</p>
+      <p><strong>Espírito Absoluto:</strong> o processo racional que guia e aperfeiçoa a história da humanidade culturalmente, em busca de uma <strong>identidade própria</strong>. A identidade não é dada: ela se faz no processo. O progresso é <strong>acumulativo</strong> e <strong>não linear</strong>: vem do choque de etapas. As mudanças vêm das <strong>ideias</strong>, da produção cultural (artes, leis, tecnologia).</p>
+    </div>
+
+    <div class="lab" id="labDial">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>A máquina dialética: tese + antítese → síntese → nova tese</b></div>
+      <div class="lab-ctl"><div class="seg" id="dialSeg"><button type="button" class="on" data-v="0">Revolução Francesa</button><button type="button" data-v="1">Ser × Nada</button></div></div>
+      <div class="lab-stage"><svg id="dialSvg" viewBox="0 0 640 230" role="img" aria-label="Tese, antítese e síntese"></svg></div>
+      <div class="lab-ctl"><button class="lbtn pri" type="button" id="dialNext">Próximo passo ▶</button><button class="lbtn" type="button" id="dialReset">↺</button></div>
+      <div class="lab-out" id="dialOut"></div>
+    </div>
+    <div class="highlight-gray">"Tese, antítese, síntese" é a fórmula escolar; Hegel falava em <em>Aufhebung</em> ("superar conservando"). Na prova, use os termos da aula.</div>
+  </section>
+
+  <!-- ═══ 6. MARX ═══ -->
+  <section class="section" id="marx">
+    <div class="section-header">
+      <div class="section-num" style="background:#1a5276">6</div>
+      <div>
+        <h2 class="section-title">Marx: a crítica ao idealismo de Hegel</h2>
+        <p class="section-sub">Materialismo histórico-dialético · luta de classes · infraestrutura e superestrutura</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Karl Marx</strong> (1818–1883) começa como leitor de Hegel. <strong>Mantém a dialética</strong> (a história avança por contradições), mas <strong>troca o motor</strong>: não são as ideias que movem a história, são as <strong>condições materiais</strong>, o modo como os seres humanos <strong>produzem a vida</strong> (trabalho, economia).</p>
+      <div class="quote">"Não é a consciência dos homens que determina o seu ser; ao contrário, é o seu ser social que determina a sua consciência."<span>Marx, prefácio da <i>Contribuição à Crítica da Economia Política</i> (1859)</span></div>
+      <p>Marx diz que em Hegel a dialética está "<strong>de cabeça para baixo</strong>" e que é preciso <strong>colocá-la de pé</strong>: partir da matéria, não da ideia.</p>
+    </div>
+
+    <div class="lab" id="labMarx">
+      <div class="lab-head"><span class="lab-tag">Laboratório</span><b>Vire Hegel de cabeça para baixo</b></div>
+      <div class="lab-ctl"><div class="seg" id="mxSeg"><button type="button" class="on" data-v="h">Hegel · idealismo</button><button type="button" data-v="m">Marx · materialismo</button></div></div>
+      <div class="lab-stage"><svg id="mxSvg" viewBox="0 0 640 260" role="img" aria-label="Infraestrutura e superestrutura"></svg></div>
+      <div class="lab-out" id="mxOut"></div>
+    </div>
+
+    <div class="card"><div class="card-title"><span class="dot" style="background:#1a5276"></span> Luta de classes, motor da história</div>
+      <ul class="list"><li><span>Antiguidade: senhores × escravos. Feudalismo: senhores feudais × servos. Capitalismo: <strong>burguesia</strong> (dona dos meios de produção) × <strong>proletariado</strong> (vende a força de trabalho).</span></li>
+      <li><span>A contradição entre as classes transforma o modo de produção. A identidade de cada um vem do lugar que ocupa na produção: <strong>consciência de classe</strong>.</span></li></ul></div>
+
+    <div class="card">
+      <div class="table-wrap"><table>
+        <thead><tr><th></th><th>Hegel</th><th>Marx</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Corrente</strong></td><td>Idealismo</td><td>Materialismo histórico-dialético</td></tr>
+          <tr><td><strong>Motor da história</strong></td><td>As ideias, o Espírito, a produção cultural</td><td>As transformações econômicas e a luta de classes</td></tr>
+          <tr><td><strong>Dialética</strong></td><td>Das ideias</td><td>Das condições materiais (a mesma dialética, "posta de pé")</td></tr>
+          <tr><td><strong>Identidade</strong></td><td>O Espírito se reconhece na história</td><td>A consciência de cada um é formada pelo lugar que ocupa na produção</td></tr>
+          <tr><td><strong>Papel da filosofia</strong></td><td>Compreender a racionalidade do real</td><td>"Os filósofos só interpretaram o mundo; o que importa é transformá-lo" (11ª tese sobre Feuerbach)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. BYUNG-CHUL HAN ═══ -->
+  <section class="section" id="han">
+    <div class="section-header">
+      <div class="section-num" style="background:#0f5e73">7</div>
+      <div>
+        <h2 class="section-title">Byung-Chul Han: identidade digital e Infocracia</h2>
+        <p class="section-sub">Infocracia · algoritmos e bolhas · capitalismo de vigilância · dataísmo · psicopolítica</p>
+      </div>
+    </div>
+    <div class="card">
+      <p><strong>Byung-Chul Han</strong> (1959) é um filósofo <strong>sul-coreano</strong> que vive na Alemanha e trata da <strong>identidade política no mundo digital</strong>. Livro de referência: <em>Infocracia</em> (2021).</p>
+      <p>A <strong>democracia</strong> surge no mundo antigo como tentativa de <strong>deliberação pública</strong> e <strong>poder conjuntivo do povo</strong>. Ela depende de uma <strong>esfera pública de debate</strong>, que hoje não é necessariamente física: pode ser, por exemplo, a internet.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c4)"></span> Infocracia: o "governo da informação" <span class="tag tag-imp">Imp.</span></div>
+      <p>Hoje, o <strong>domínio da informação</strong> (sobretudo digital) é decisivo no controle da democracia e no modo como se faz política. <strong>Empresas e Estados</strong> detêm poder sobre <strong>dados</strong> com potencial de controle e manipulação da população.</p>
+      <div class="grid-2">
+        <div class="mini-card" style="border-top-color:#888"><h4>Poder de antes: negativo e visível</h4><p>Proibições, obediência, disciplina. "Você <strong>não</strong> deve." Dá para ver quem manda.</p></div>
+        <div class="mini-card" style="border-top-color:#0f5e73"><h4>Poder de hoje: informação e autoexploração</h4><p>"Você <strong>pode</strong>." Ninguém proíbe; o próprio indivíduo se expõe, produz dados e se cobra. É a <strong>autoexploração</strong>.</p></div>
+      </div>
+    </div>
+
+    <div class="lab" id="labBolha">
+      <div class="lab-head"><span class="lab-tag">Simulador</span><b>Monte sua bolha: o algoritmo aprende com cada curtida</b></div>
+      <div class="lab-split">
+        <div>
+          <div class="feed" id="bolhaFeed" aria-live="polite"></div>
+        </div>
+        <div class="lab-pane">
+          <h5>O que o algoritmo sabe de você</h5>
+          <div id="bolhaPerfil" style="font-size:.86rem;color:var(--label-2)">Nada ainda.</div>
+          <h5 style="margin-top:14px !important">Diversidade do seu feed</h5>
+          <div class="meter"><i id="bolhaMeter" style="width:100%"></i></div>
+          <p id="bolhaTxt" style="font-size:.86rem;margin:8px 0 0 !important"></p>
+          <button class="lbtn" type="button" id="bolhaReset" style="margin-top:10px">↺ Começar de novo</button>
+        </div>
+      </div>
+      <div class="lab-hint">Curta posts do feed. Repare: múltiplas fontes existem, mas o algoritmo vai te mostrando só o seu nicho.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#9c1c1c"></span> Algoritmos e polarização comunicativa <span class="tag tag-imp">Imp.</span></div>
+      <ul class="list">
+        <li><span>Há <strong>múltiplas fontes</strong> de informação, mas divididas em <strong>nichos específicos</strong>, direcionados a públicos específicos.</span></li>
+        <li><span>O algoritmo funciona como uma <strong>"bolha isolante"</strong>: direciona a informação ao usuário com base no seu nicho ou perfil.</span></li>
+        <li><span>Resultado: <strong>intensificação da polarização ideológica</strong>. Sem contato com o diferente, o debate (base da deliberação democrática) enfraquece.</span></li>
+      </ul>
+    </div>
+
+    
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c2)"></span> Capitalismo de vigilância <span class="tag tag-imp">Imp.</span></div>
+      <p><strong>Dados e informações viram uma mercadoria preciosa</strong> no sistema capitalista. O que você pesquisa, curte e onde você está vira produto vendido para quem quer te influenciar. (A expressão foi popularizada pela pesquisadora Shoshana Zuboff.)</p>
+      <div class="card-title" style="margin-top:14px"><span class="dot" style="background:#0f5e73"></span> Psicopolítica digital: a "aparência da liberdade" <span class="tag tag-imp">Imp.</span></div>
+      <ul class="list">
+        <li><span>É a <strong>autoexploração</strong> do indivíduo. O <strong>agente moral</strong> se sente livre para decidir, mas é influenciado por uma mistura de <strong>controle de informações</strong>, <strong>sistema capitalista de consumo</strong> e <strong>pressões sociais</strong>.</span></li>
+        <li><span><strong>Livre-arbítrio ilusório</strong>: manipulação sutil e indireta, muitas vezes a partir dos <strong>próprios comportamentos</strong> do indivíduo (os dados que ele mesmo gerou).</span></li>
+        <li><span>Contradiz a ética <strong>aristotélica</strong>, para a qual o <strong>agente moral sempre detém o poder</strong> sobre suas ações.</span></li>
+      </ul>
+    </div>
+
+    
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:var(--c3)"></span> Dataísmo <span class="tag tag-imp">Imp.</span></div>
+      <p><strong>Dataísmo</strong>: tendência social contemporânea de usar <strong>dados, informações e algoritmos como principal fonte da verdade</strong>. Funções antes exercidas ou percebidas pelo ser humano agora são automatizadas por máquinas (ao acordar, em vez de refletir se dormiu bem, a pessoa olha a nota de sono do relógio).</p>
+      <p><strong>A crítica de Han:</strong> a universalização da mensuração de aspectos humanos <strong>reduz o ser humano a dados</strong> e leva à <strong>perda do pensamento crítico</strong>. Há elementos <strong>subjetivos e imensuráveis</strong>: liberdade, amor, felicidade.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#9c1c1c"></span> Excesso de positividade</div>
+      <p>No caderno: "positivismo em excesso" (cuidado: não é o positivismo de Comte, da Sociologia). É a <strong>omissão coletiva dos sentimentos humanos "negativos"</strong> em nome de uma <strong>projeção social idealizada</strong> (a vida perfeita das redes). A busca pelo "perfeito" gera indivíduos <strong>esgotados, transtornados e desconectados</strong> da realidade e das pessoas ao redor.</p>
+      <div class="card-title" style="margin-top:14px"><span class="dot" style="background:var(--green)"></span> As "soluções"</div>
+      <div class="grid-3">
+        <div class="mini-card" style="border-top-color:var(--green)"><h4>Resistir à ditadura dos dados</h4><p>Diminuir o tempo de tela para retomar as perspectivas <strong>analógicas</strong> do mundo.</p></div>
+        <div class="mini-card" style="border-top-color:var(--green)"><h4>Retomar a autonomia</h4><p>Sobre si mesmo e as próprias emoções.</p></div>
+        <div class="mini-card" style="border-top-color:var(--green)"><h4>Reestabelecer laços</h4><p>De confiança social, em vez de depender só da tecnologia.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVISÃO ═══ -->
+  <section class="section" id="revisao">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--primary)">≡</div>
+      <div>
+        <h2 class="section-title">Revisão relâmpago</h2>
+        <p class="section-sub">Frases soltas: de quem é? (sorteadas, todos os autores)</p>
+      </div>
+    </div>
+    <div class="lab" id="labQuem2">
+      <div class="lab-head"><span class="lab-tag">Jogo</span><b>Quem disse? Todos os autores</b></div>
+      <div class="sorter" id="sortTodos"></div>
+    </div>
+  </section>
+
+  <!-- ═══ QUIZ ═══ -->
+  <section class="section" id="exercicios">
+    <div class="section-header">
+      <div class="section-num" style="background:var(--primary)">?</div>
+      <div>
+        <h2 class="section-title">Quiz de fixação</h2>
+        <p class="section-sub">5 alternativas, com explicação em cada uma</p>
+      </div>
+    </div>
+
+<div class="qz-score"><div><b id="qzScore">0</b> <span style="color:var(--label-2)">de 25 · <span id="qzDone">0</span> respondidas</span></div><button class="lbtn" type="button" id="qzReset">↺ Recomeçar</button></div>
+<div id="qzList">
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">1</span><span>A pergunta "sou ou estou sendo?" expressa o problema da identidade porque</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o verbo "ser" só existe na língua portuguesa.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>opõe uma identidade como permanência a uma identidade como processo de mudança.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>mostra que a identidade depende apenas da opinião dos outros.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>prova que nada no ser humano muda ao longo do tempo.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>reduz a identidade aos dados que produzimos nas redes.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>"Sou" sugere algo fixo (linha de Parmênides); "estou sendo", algo em devir (linha de Heráclito). O problema é saber o que permanece enquanto tudo muda.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">2</span><span>"Ninguém se banha duas vezes no mesmo rio." A frase de Heráclito afirma que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o rio é uma ilusão criada pelos sentidos.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a água é a arkhé de todas as coisas.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a realidade é fluxo: o rio e a pessoa mudam constantemente.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>só a razão permite conhecer o Ser imóvel.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o movimento é causado pela junção de átomos.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Devir: tudo flui. A ilusão dos sentidos e o Ser imóvel são de Parmênides; átomos, de Demócrito.</div>
+</div>
+<div class="qz" data-a="d">
+  <div class="qz-q"><span class="qz-n">3</span><span>Para Parmênides, a mudança que percebemos</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>é a lei que ordena o mundo (logos).</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>é a passagem da potência ao ato.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>é o resultado da luta dos contrários.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>é ilusão dos sentidos, pois o Ser é uno, eterno e imóvel.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>é produzida pelas transformações econômicas.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>"O Ser é, o não-ser não é." Mudar seria passar do ser ao não-ser; só a razão (via da verdade) alcança o Ser.</div>
+</div>
+<div class="qz" data-a="a">
+  <div class="qz-q"><span class="qz-n">4</span><span>O princípio de identidade (A = A) e o de não contradição têm raiz no pensamento de</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>Parmênides.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>Heráclito.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>Hegel.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>Marx.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>Byung-Chul Han.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>O que é, é; algo não pode ser e não ser ao mesmo tempo. Hegel é justamente quem aceita a contradição.</div>
+</div>
+<div class="qz" data-a="d">
+  <div class="qz-q"><span class="qz-n">5</span><span>Demócrito concilia Heráclito e Parmênides ao afirmar que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>existem dois mundos, um permanente e outro em movimento.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a essência está nas coisas e o movimento é a passagem da potência ao ato.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a contradição entre tese e antítese gera a síntese.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>os átomos são eternos e imutáveis, e a mudança vem do seu movimento e recombinação no vazio.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o real é racional e o racional é real.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Átomos imutáveis (Parmênides) que se movem e se combinam (Heráclito). Dois mundos é Platão; potência e ato, Aristóteles.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">6</span><span>Sobre o vazio no atomismo, é correto dizer que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>é o "nada" absoluto, e por isso não existe.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>é ausência de átomos, mas existe: é o espaço necessário ao movimento.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>é formado por átomos muito pequenos.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>é o mundo inteligível onde ficam as Ideias.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>é uma ilusão dos sentidos, como dizia Parmênides.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Um não-ser que existe: aqui Demócrito discorda de Parmênides.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">7</span><span>Ao ver um lápis "torto" dentro de um copo d'água, para Demócrito,</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>os sentidos mentem e devem ser descartados.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o lápis realmente se curvou.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>o conhecimento sensível mostra a aparência, e o racional explica o fenômeno.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>só a reminiscência pode corrigir o erro.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>trata-se de um dado que o algoritmo deve medir.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>O sensível não é falso nem pior: fica nas aparências. A razão explica (refração da luz).</div>
+</div>
+<div class="qz" data-a="e">
+  <div class="qz-q"><span class="qz-n">8</span><span>No dualismo de Platão, o mundo sensível</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>é permanente e serve de modelo para tudo.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>é onde ficam o Bem, a Justiça, a Beleza e a Verdade.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>é conhecido por episteme.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>não tem nenhuma relação com as Ideias.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>é instável e corruptível, uma cópia imperfeita das Ideias, ligado à doxa.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>O sensível muda em relação às Ideias perfeitas do mundo inteligível. Pelos sentidos temos só opinião (doxa).</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">9</span><span>Para Platão, as essências são alcançadas</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>pela observação das coisas concretas.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>pela soma dos dados coletados.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>apenas pela razão, por reminiscência e dialética.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>pelos sentidos bem treinados.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>pela luta de classes.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>A alma relembra as Ideias (reminiscência) e o diálogo sobe das opiniões à essência (dialética). Abstrair das coisas concretas é Aristóteles.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">10</span><span>A principal divergência entre Platão e Aristóteles sobre as essências é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>Aristóteles não acredita em essências.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a localização: para Platão, no mundo inteligível; para Aristóteles, nas próprias coisas.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>Platão acha que a essência se conhece pelos sentidos.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>Aristóteles acha que a essência muda o tempo todo.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>Platão diz que as essências são feitas de átomos.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Os dois aceitam essências. Aristóteles recusa o dualismo: a essência está nas coisas, homens e ações do mundo físico.</div>
+</div>
+<div class="qz" data-a="d">
+  <div class="qz-q"><span class="qz-n">11</span><span>"A semente já possui a essência de uma árvore." Nesse exemplo, o movimento é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>a ilusão dos sentidos.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a separação dos átomos.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a cópia imperfeita de uma Ideia.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>a passagem da potência ao ato, uma mudança qualitativa.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o choque entre tese e antítese.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Semente = árvore em potência; árvore = forma em ato. Muda (Heráclito), mas a essência permanece (Parmênides).</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">12</span><span>O primeiro motor imóvel de Aristóteles</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>é o Deus cristão que criou o mundo do nada.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>é o átomo indivisível.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>é ato puro, sem potência, e move sem ser movido.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>é o Espírito Absoluto que guia a história.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>é a base econômica da sociedade.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Evita a regressão infinita de movimentos. Não é o Deus cristão: Tomás de Aquino adaptou o argumento depois.</div>
+</div>
+<div class="qz" data-a="a">
+  <div class="qz-q"><span class="qz-n">13</span><span>"O que é racional é real, e o que é real é racional." Com essa frase, Hegel</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>afirma que pensamento e realidade têm a mesma estrutura, e a razão se realiza na história.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>defende que só o que é material existe.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>nega que a história tenha qualquer lógica.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>retoma o princípio de não contradição de Parmênides.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>critica o idealismo de Marx.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Idealismo: nada é por acaso; a razão (o Espírito) se realiza no mundo, e o real pode ser entendido pela razão.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">14</span><span>Ao contrário da lógica grega, Hegel</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>separa quente e frio como coisas independentes.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>aceita a contradição como aquilo que rege e move a realidade.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>afirma que o Ser é imóvel.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>considera os sentidos a única fonte da verdade.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>diz que a história é linear e sem conflitos.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Nada pode ser pensado sem o seu contrário (quente × frio). Aqui Hegel retoma Heráclito.</div>
+</div>
+<div class="qz" data-a="e">
+  <div class="qz-q"><span class="qz-n">15</span><span>No exemplo da Revolução Francesa, a síntese é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o feudalismo.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o Antigo Regime.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a Revolução.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>a burguesia.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>Napoleão.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Tese: Antigo Regime; antítese: Revolução; síntese: Napoleão, que junta elementos dos dois. A síntese vira nova tese.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">16</span><span>Para Hegel, o progresso da humanidade é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>linear e sem conflitos.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>cíclico, sempre voltando ao mesmo ponto.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>acumulativo e não linear, pelo choque de etapas, guiado pelo Espírito Absoluto.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>determinado apenas pela economia.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>uma ilusão dos sentidos.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Estágios que se chocam e se superam. A economia como motor é a leitura de Marx.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">17</span><span>A crítica de Marx a Hegel consiste em</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>abandonar a dialética e voltar à lógica de Aristóteles.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>manter a dialética, mas trocar as ideias pelas condições materiais como motor da história.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>afirmar que o Espírito Absoluto está nas coisas.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>negar que exista conflito na história.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>dizer que só os dados revelam a verdade.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Marx diz que em Hegel a dialética está "de cabeça para baixo" e a põe "de pé": materialismo histórico-dialético.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">18</span><span>"Não é a consciência dos homens que determina o seu ser; é o seu ser social que determina a sua consciência." A frase significa que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>as ideias criam a realidade econômica.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>cada pessoa escolhe livremente sua consciência.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a consciência é formada pelas condições materiais e pelo lugar que se ocupa na produção.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>a sociedade não influencia o indivíduo.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o Espírito Absoluto define a identidade.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Materialismo: a infraestrutura (economia) determina a superestrutura (leis, religião, ideias) e a consciência.</div>
+</div>
+<div class="qz" data-a="d">
+  <div class="qz-q"><span class="qz-n">19</span><span>Para Byung-Chul Han, "infocracia" é</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o governo direto do povo em praça pública.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o fim de toda forma de poder.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a censura feita apenas pelo Estado.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>o "governo da informação": o domínio dos dados se torna decisivo na democracia.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>um sinônimo de dataísmo no sentido de ciência exata.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Empresas e Estados detêm dados com potencial de controle e manipulação da população.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">20</span><span>Segundo Han, os algoritmos intensificam a polarização porque</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>eliminam todas as fontes de informação.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>funcionam como bolha isolante, entregando informação segundo o nicho e o perfil do usuário.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>obrigam todos a ver as mesmas notícias.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>proíbem o debate de forma visível.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>tornam a esfera pública obrigatoriamente física.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Há múltiplas fontes, mas cada público recebe o seu nicho. Sem contato com o diferente, o debate democrático enfraquece.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">21</span><span>Han diferencia o poder de antes e o atual. É correto afirmar que</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>o poder atual é negativo e visível, baseado em proibições.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o poder antigo se baseava em dados e algoritmos.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>o poder atual se apoia na informação e na autoexploração do próprio indivíduo.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>hoje não há mais nenhuma forma de controle.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>o poder atual depende de disciplina e obediência explícitas.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Antes: proibição, obediência, disciplina. Hoje: "você pode", e o indivíduo se expõe e se explora.</div>
+</div>
+<div class="qz" data-a="b">
+  <div class="qz-q"><span class="qz-n">22</span><span>Pesquisar um produto e depois receber anúncios até acabar comprando ilustra, em Han,</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>a liberdade plena do consumidor.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a aparência da liberdade: um consumo indiretamente manipulado (psicopolítica).</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>o primeiro motor imóvel.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>o conhecimento racional de Demócrito.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>a síntese dialética de Hegel.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>O agente se sente livre, mas é influenciado por dados que ele mesmo gerou. Contradiz a ética aristotélica, em que o agente moral detém o poder.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">23</span><span>O dataísmo é criticado por Han porque</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>os relógios inteligentes medem errado.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>a tecnologia deve ser totalmente proibida.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>reduz o ser humano a dados e leva à perda do pensamento crítico; há coisas imensuráveis.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>os dados são poucos para governar.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>impede o capitalismo de funcionar.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Usar dados como principal fonte da verdade. Liberdade, amor e felicidade são subjetivos e imensuráveis.</div>
+</div>
+<div class="qz" data-a="c">
+  <div class="qz-q"><span class="qz-n">24</span><span>O "positivismo em excesso" das anotações sobre Han refere-se a</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>a filosofia de Auguste Comte.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>o otimismo científico do século XIX.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>a omissão coletiva de sentimentos "negativos" em nome de uma imagem social idealizada, que gera esgotamento.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>a crença de que só os sentidos dão conhecimento.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>a ideia de que o real é racional.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Excesso de positividade: a busca pelo "perfeito" gera indivíduos esgotados, transtornados e desconectados. Não é o positivismo de Comte.</div>
+</div>
+<div class="qz" data-a="e">
+  <div class="qz-q"><span class="qz-n">25</span><span>Entre as "soluções" propostas a partir de Han, NÃO está</span></div>
+  <div class="qz-opts">
+    <button type="button" class="qz-opt" data-l="a"><span class="l">A</span><span>diminuir o tempo de tela.</span></button>
+    <button type="button" class="qz-opt" data-l="b"><span class="l">B</span><span>retomar a autonomia sobre as próprias emoções.</span></button>
+    <button type="button" class="qz-opt" data-l="c"><span class="l">C</span><span>reestabelecer laços de confiança social.</span></button>
+    <button type="button" class="qz-opt" data-l="d"><span class="l">D</span><span>resistir à ditadura dos dados.</span></button>
+    <button type="button" class="qz-opt" data-l="e"><span class="l">E</span><span>confiar nas métricas dos aplicativos como medida da felicidade.</span></button>
+  </div>
+  <div class="qz-fb"><span class="pre"></span>Isso seria o próprio dataísmo que Han critica.</div>
+</div>
+</div>
+<script>
+(function(){
+  var list=document.getElementById('qzList'),sc=0,dn=0;
+  list.addEventListener('click',function(e){
+    var b=e.target.closest('.qz-opt'); if(!b) return;
+    var q=b.closest('.qz'); if(q.dataset.done) return; q.dataset.done=1; dn++;
+    var ok=b.dataset.l===q.dataset.a, fb=q.querySelector('.qz-fb');
+    q.querySelectorAll('.qz-opt').forEach(function(o){o.classList.add('dis'); if(o.dataset.l===q.dataset.a) o.classList.add('ok');});
+    if(ok){sc++;} else b.classList.add('no');
+    fb.classList.add(ok?'ok':'no'); fb.querySelector('.pre').innerHTML=ok?'✅ <b>Isso!</b> ':'❌ <b>Não.</b> Resposta: '+q.dataset.a.toUpperCase()+'. ';
+    document.getElementById('qzScore').textContent=sc; document.getElementById('qzDone').textContent=dn;
+  });
+  document.getElementById('qzReset').onclick=function(){
+    sc=dn=0; document.getElementById('qzScore').textContent=0; document.getElementById('qzDone').textContent=0;
+    list.querySelectorAll('.qz').forEach(function(q){delete q.dataset.done; var f=q.querySelector('.qz-fb'); f.className='qz-fb'; f.querySelector('.pre').innerHTML='';});
+    list.querySelectorAll('.qz-opt').forEach(function(o){o.className='qz-opt';});
+  };
+})();
+</script>
+<!-- gabarito: bcdadbcecbdcabecbcdbcbcce -->
+  </section>
+
+  
+
+</div>
+
+<footer>
+  Caderno Digital · Filosofia 3º tri · 2ª série do Ensino Médio · 2026
+</footer>
+
+<script>
+/* Laboratórios de Filosofia 3º tri. Usa só variáveis do ios.css (claro/escuro). */
+(function () {
+const $ = s => document.querySelector(s);
+const cv = n => getComputedStyle(document.body).getPropertyValue(n).trim() || '#888';
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const T = (x, y, s, o = '') => `<text x="${x}" y="${y}" ${o} style="fill:var(--label);font:600 13px Inter,system-ui,sans-serif">${s}</text>`;
+const T2 = (x, y, s, o = '') => `<text x="${x}" y="${y}" ${o} style="fill:var(--label-2);font:500 11.5px Inter,system-ui,sans-serif">${s}</text>`;
+const BOX = (x, y, w, h, extra = '') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="12" style="fill:var(--bg-2);stroke:var(--sep);stroke-width:1.5" ${extra}/>`;
+function seg(el, cb) { if (!el) return; el.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; el.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); cb(b.dataset.v); }); }
+function loop(canvas, draw) { // só anima quando visível
+  let on = false, raf = 0;
+  const tick = t => { draw(t); if (on && !RM) raf = requestAnimationFrame(tick); };
+  new IntersectionObserver(es => { on = es[0].isIntersecting; cancelAnimationFrame(raf); if (on) raf = requestAnimationFrame(tick); }).observe(canvas);
+  draw(0);
+  return () => { if (RM || !on) draw(performance.now()); };
+}
+function steps(el, labels, cb) {
+  el.innerHTML = labels.map((l, i) => `<button type="button" data-i="${i}">${l}</button>`).join('');
+  const go = i => { el.querySelectorAll('button').forEach((b, j) => b.classList.toggle('on', j === i)); cb(i); };
+  el.onclick = e => { const b = e.target.closest('button'); if (b) go(+b.dataset.i); };
+  go(0);
+}
+
+/* ── 0. Navio de Teseu ── */
+(function () {
+  const svg = $('#teseuSvg'), r = $('#teseuR'), out = $('#teseuOut'); if (!svg) return;
+  const ordem = [5, 2, 9, 0, 7, 11, 3, 8, 1, 10, 4, 6];
+  function draw() {
+    const k = +r.value, novas = new Set(ordem.slice(0, k));
+    let p = '';
+    for (let i = 0; i < 12; i++) {
+      const row = Math.floor(i / 6), col = i % 6, x = 150 + col * 58 + row * 14, y = 128 + row * 26, w = 56 - row * 4;
+      const nova = novas.has(i);
+      p += `<rect x="${x}" y="${y}" width="${w}" height="24" rx="3" style="fill:${nova ? '#e3b04b' : '#7a4a22'};stroke:${nova ? '#b07d1e' : '#4d2c12'};stroke-width:1.5;transition:fill .4s"/>`;
+    }
+    svg.innerHTML = `
+      <path d="M0 190 Q80 180 160 190 T320 190 T480 190 T640 190 V230 H0Z" style="fill:#3b82c4;opacity:.35"/>
+      <line x1="320" y1="20" x2="320" y2="128" style="stroke:#5b3a1a;stroke-width:6"/>
+      <path d="M326 28 L430 110 L326 110 Z" style="fill:var(--bg-2);stroke:var(--sep);stroke-width:1.5"/>
+      <path d="M140 128 L500 128 L470 180 L176 180 Z" style="fill:none;stroke:#4d2c12;stroke-width:2"/>
+      ${p}
+      ${T(20, 34, `Tábuas novas: ${k} de 12`)}
+      ${T2(20, 54, k === 12 ? 'nenhuma tábua original' : `${Math.round(k / 12 * 100)}% trocado`)}
+      <rect x="22" y="70" width="12" height="12" rx="2" style="fill:#7a4a22"/>${T2(40, 80, 'original')}
+      <rect x="22" y="90" width="12" height="12" rx="2" style="fill:#e3b04b"/>${T2(40, 100, 'nova')}`;
+    const fala = k === 0
+      ? 'Nenhuma tábua trocada. Fácil: <b>é o mesmo navio</b>. Agora arraste.'
+      : `<b>Heráclito:</b> ele nunca foi "o mesmo" de um instante para o outro; o navio <i>está sendo</i>, como o rio.<br>
+         <b>Parmênides:</b> a troca é aparência dos sentidos; se o navio <i>é</i>, ele não pode virar não-ser.<br>
+         <b>Aristóteles:</b> mudou a matéria (propriedades); a <i>essência</i> de navio, feito para navegar, continua nele.` +
+        (k === 12 ? '<br><small>E se alguém montasse outro navio com as 12 tábuas velhas? Qual dos dois seria "o" navio? É esse o problema da identidade.</small>' : '');
+    out.innerHTML = fala;
+  }
+  r.oninput = draw; draw();
+  let it = 0;
+  $('#teseuAuto').onclick = function () {
+    clearInterval(it); if (+r.value >= 12) r.value = 0;
+    it = setInterval(() => { r.value = +r.value + 1; draw(); if (+r.value >= 12) clearInterval(it); }, 650);
+  };
+})();
+
+/* ── 1. Rio de Heráclito ── */
+(function () {
+  const c = $('#rioCv'), out = $('#rioOut'); if (!c) return;
+  const g = c.getContext('2d'); let id = 0, olhar = 'h', entradas = [], pe = 0;
+  const P = Array.from({ length: 90 }, () => ({ id: id++, x: Math.random() * 640, y: 60 + Math.random() * 120, v: 0.6 + Math.random() * 1.2, ph: Math.random() * 6 }));
+  let last = 0;
+  const redraw = loop(c, t => {
+    const dt = last ? Math.min(50, t - last) / 16 : 1; last = t;
+    g.clearRect(0, 0 , 640, 220);
+    g.fillStyle = olhar === 'h' ? 'rgba(59,130,196,.28)' : 'rgba(128,128,140,.22)';
+    g.fillRect(0, 50, 640, 140);
+    for (const p of P) {
+      if (olhar === 'h') { p.x += p.v * dt; if (p.x > 645) { p.x = -5; p.id = id++; p.y = 60 + Math.random() * 120; } }
+      const y = p.y + (olhar === 'h' ? Math.sin(t / 600 + p.ph) * 4 : 0);
+      g.beginPath(); g.arc(p.x, y, 3.2, 0, 7);
+      g.fillStyle = olhar === 'h' ? '#3b82c4' : cv('--label-2'); g.fill();
+    }
+    if (pe > 0) { g.font = '40px system-ui'; g.fillText('🦶', 300, 140); pe -= dt; }
+    g.fillStyle = cv('--label'); g.font = '600 14px Inter,system-ui,sans-serif';
+    g.fillText(olhar === 'h' ? 'Tudo flui: as gotas que passam nunca são as mesmas' : 'Pela razão: o Ser é uno e imóvel. O fluxo é aparência.', 16, 30);
+    g.fillStyle = cv('--label-2'); g.font = '500 12px Inter,system-ui,sans-serif';
+    g.fillText(olhar === 'h' ? 'devir · luta dos contrários · logos' : 'via da verdade (razão) × via da opinião (sentidos)', 16, 212);
+  });
+  $('#rioEntrar').onclick = () => {
+    const ids = new Set(P.filter(p => p.x > 280 && p.x < 360).map(p => p.id));
+    entradas.push(ids); pe = 40;
+    if (olhar === 'p') { out.innerHTML = 'Para Parmênides não há o que comparar: <b>o rio é</b>. Que ele "corre" é o que os sentidos dizem, e os sentidos enganam.'; redraw(); return; }
+    if (entradas.length === 1) out.innerHTML = `Primeira vez: você tocou <b>${ids.size} gotas</b>. Espere um pouco e entre de novo.`;
+    else {
+      const a = entradas[entradas.length - 2], comum = [...ids].filter(x => a.has(x)).length;
+      out.innerHTML = `Desta vez: ${ids.size} gotas, <b>${comum} em comum</b> com a anterior. Nem o rio é o mesmo, nem você (seu corpo também mudou). <i>"Ninguém se banha duas vezes no mesmo rio."</i>`;
+    }
+    redraw();
+  };
+  seg($('#rioOlhar'), v => { olhar = v; entradas = []; out.innerHTML = v === 'h' ? 'Entre no rio duas vezes e compare a água.' : 'Com os olhos da razão, o movimento some: tente entrar no rio agora.'; redraw(); });
+})();
+
+/* ── Jogos "quem diria isso?" ── */
+function sorter(el, items, opts) {
+  if (!el) return;
+  let fila = shuffle(items), i = 0, ac = 0, tot = 0, done = false;
+  function show() {
+    if (i >= fila.length) { el.innerHTML = `<div class="card-q">Fim! <b style="color:var(--tint)">${ac} de ${tot}</b> de primeira.</div><div class="opts"><button class="lbtn pri" type="button">Jogar de novo</button></div>`; el.querySelector('button').onclick = () => { fila = shuffle(items); i = ac = tot = 0; show(); }; return; }
+    const [frase] = fila[i]; done = false;
+    el.innerHTML = `<div class="meta"><span>${i + 1} de ${fila.length}</span><span>acertos de primeira: ${ac}</span></div><div class="card-q">"${frase}"</div><div class="opts">${opts.map(o => `<button class="lbtn" type="button" data-k="${o}">${o}</button>`).join('')}</div><div class="fb"></div>`;
+    let errou = false;
+    el.querySelector('.opts').onclick = e => {
+      const b = e.target.closest('button'); if (!b || done) return;
+      const [, cert, why] = fila[i], fb = el.querySelector('.fb');
+      if (b.dataset.k === cert) {
+        b.classList.add('ok'); done = true; tot++; if (!errou) ac++;
+        fb.className = 'fb ok'; fb.innerHTML = '✔ ' + why;
+        setTimeout(() => { i++; show(); }, 1900);
+      } else { errou = true; b.classList.add('no'); b.disabled = true; fb.className = 'fb no'; fb.textContent = 'Não é. Tente de novo.'; }
+    };
+  }
+  show();
+}
+/* ── 4. Potência e ato ── */
+(function () {
+  const svg = $('#potSvg'), r = $('#potR'), out = $('#potOut'); if (!svg) return;
+  let ex = 0;
+  function draw() {
+    const t = +r.value / 100; let s = '';
+    if (ex === 0) {
+      const h = 10 + t * 150, copa = Math.max(0, (t - .3) / .7) * 70;
+      s = `<rect x="0" y="200" width="640" height="40" style="fill:#7a5230;opacity:.5"/>
+        ${t < .08 ? `<ellipse cx="320" cy="196" rx="12" ry="8" style="fill:#8d6e63"/>` : `
+        <path d="M320 200 V${200 - h}" style="stroke:#6d4c41;stroke-width:${3 + t * 12};stroke-linecap:round"/>
+        ${copa > 2 ? `<circle cx="320" cy="${200 - h}" r="${copa}" style="fill:#2e9d6a;opacity:.9"/><circle cx="${290}" cy="${210 - h}" r="${copa * .7}" style="fill:#2e9d6a"/><circle cx="${350}" cy="${210 - h}" r="${copa * .7}" style="fill:#2e9d6a"/>` : `<path d="M320 ${200 - h} q-14 -6 -18 -16 q14 0 18 16 q4 -16 18 -16 q-4 10 -18 16" style="fill:#2e9d6a"/>`}`}
+        ${t === 1 ? '<circle cx="300" cy="60" r="6" style="fill:#c0392b"/><circle cx="345" cy="72" r="6" style="fill:#c0392b"/>' : ''}`;
+    } else {
+      const cut = t * 30;
+      s = `<rect x="0" y="210" width="640" height="30" style="fill:var(--sep)"/>
+        <rect x="${250 + cut}" y="${40 + cut * .6}" width="${140 - cut * 2}" height="${170 - cut * .6}" rx="${t * 30}" style="fill:#d7d4cf;stroke:#a8a39b;stroke-width:2;opacity:${1 - t * .85}"/>
+        <g style="opacity:${t}"><circle cx="320" cy="70" r="20" style="fill:#e8e5df;stroke:#a8a39b;stroke-width:2"/>
+        <path d="M300 92 Q320 86 340 92 L346 150 L332 210 H308 L294 150 Z" style="fill:#e8e5df;stroke:#a8a39b;stroke-width:2"/>
+        <path d="M300 100 L278 140 M340 100 L362 128" style="stroke:#a8a39b;stroke-width:7;stroke-linecap:round"/></g>
+        ${t > .05 && t < 1 ? `<text x="${400}" y="${100 + Math.sin(t * 40) * 6}" style="font-size:26px">🔨</text>` : ''}`;
+    }
+    const nomes = ex === 0 ? ['Semente', 'árvore'] : ['Bloco de mármore', 'estátua'];
+    svg.innerHTML = s + T(16, 26, t === 0 ? `${nomes[0]}: ${nomes[1]} em POTÊNCIA` : t === 1 ? `${nomes[1][0].toUpperCase() + nomes[1].slice(1)}: forma em ATO` : 'MOVIMENTO: potência → ato') +
+      `<rect x="16" y="38" width="200" height="8" rx="4" style="fill:var(--sep)"/><rect x="16" y="38" width="${200 * t}" height="8" rx="4" style="fill:var(--tint)"/>` + T2(16, 62, `${Math.round(t * 100)}% atualizado`);
+    out.innerHTML = t === 0
+      ? (ex === 0 ? 'A semente <b>já possui a essência de uma árvore</b> e a <b>potência</b> de se tornar uma. Não vira qualquer coisa: vira árvore.' : 'O mármore tem a <b>potência</b> de virar estátua: capacidade de se transformar numa forma nova.')
+      : t < 1 ? '<b>Movimento</b> = mudança qualitativa dos seres na passagem da potência para o ato. Heráclito tem razão (algo muda) e Parmênides também (a essência permanece).'
+      : (ex === 0 ? '<b>Ato</b>: a forma atualizada, realizada. E a árvore agora tem nova potência: dar frutos e sementes. Um só mundo, sem precisar das Ideias de Platão.' : '<b>Ato</b>: a estátua pronta. O trabalho do escultor foi o movimento entre os dois.');
+  }
+  r.oninput = draw; seg($('#potSeg'), v => { ex = +v; r.value = 0; draw(); }); draw();
+})();
+
+/* ── 5. Dialética ── */
+(function () {
+  const svg = $('#dialSvg'), out = $('#dialOut'); if (!svg) return;
+  const EX = [
+    { t: ['Antigo Regime', 'feudalismo, absolutismo'], a: ['Revolução Francesa', 'liberdade, igualdade'], s: ['Napoleão', 'imperador que espalha as leis da Revolução'],
+      txt: ['<b>Tese</b>: a situação dada, o Antigo Regime.', '<b>Antítese</b>: a oposição que nasce de dentro dela, a Revolução. O choque das duas move a história.', '<b>Síntese</b>: Napoleão junta elementos dos dois (é imperador, mas espalha o Código Civil da Revolução). Ela <b>supera e conserva</b>.', 'A síntese vira <b>nova tese</b>, que terá sua própria antítese. O processo <b>se repete de modo dialético</b>: progresso acumulativo e não linear.'] },
+    { t: ['Ser', 'puro, sem nenhuma qualidade'], a: ['Nada', 'o ser puro, vazio, é igual ao nada'], s: ['Devir', 'passagem de um ao outro'],
+      txt: ['<b>Tese</b>: o puro Ser, o ponto de partida de Parmênides. Mas um ser sem nenhuma determinação...', '<b>Antítese</b>: ...não tem nada que o distinga do <b>Nada</b>. Pensar o Ser já leva ao seu contrário.', '<b>Síntese</b>: o <b>Devir</b> (vir a ser), a passagem do ser ao nada e do nada ao ser. É assim que Hegel começa sua Lógica: <b>junta Parmênides e Heráclito</b>.', 'O devir resulta em algo determinado, que é uma nova tese. Identidade, para Hegel, é processo: o real só se entende pelo seu contrário.'] },
+  ];
+  let ex = 0, k = 0;
+  function caixa(x, y, [n, d], cor, op = 1) { return `<g style="opacity:${op};transition:opacity .4s">${BOX(x, y, 170, 62, `style="fill:var(--bg-2);stroke:${cor};stroke-width:2.5"`)}<text x="${x + 85}" y="${y + 27}" text-anchor="middle" style="fill:var(--label);font:700 14px Inter,sans-serif">${n}</text><text x="${x + 85}" y="${y + 47}" text-anchor="middle" style="fill:var(--label-2);font:500 11px Inter,sans-serif">${d}</text></g>`; }
+  function draw() {
+    const e = EX[ex];
+    let s = `<defs><marker id="ad" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" style="fill:var(--tint)"/></marker></defs>`;
+    if (k < 3) {
+      s += T2(70, 24, 'TESE') + caixa(40, 32, e.t, '#3b82c4');
+      s += T2(450, 24, 'ANTÍTESE') + caixa(430, 32, e.a, '#d9534f', k >= 1 ? 1 : .12);
+      if (k >= 1) s += `<text x="320" y="72" text-anchor="middle" style="font-size:30px">⚡</text>`;
+      if (k >= 2) s += `<path d="M125 96 Q130 150 230 168 M515 96 Q510 150 410 168" style="fill:none;stroke:var(--tint);stroke-width:2.5;marker-end:url(#ad)"/>` + T2(278, 150, 'SÍNTESE') + caixa(235, 158, e.s, '#e3a21a');
+    } else {
+      s += T2(70, 24, 'NOVA TESE') + caixa(40, 32, e.s, '#e3a21a') + T2(450, 24, 'NOVA ANTÍTESE') + caixa(430, 32, ['?', 'a contradição seguinte'], '#d9534f', .5);
+      s += `<path d="M320 120 a50 40 0 1 1 -1 0" style="fill:none;stroke:var(--tint);stroke-width:2.5;stroke-dasharray:6 5;marker-end:url(#ad)"><animateTransform attributeName="transform" type="rotate" from="0 320 160" to="360 320 160" dur="6s" repeatCount="indefinite"/></path>` + T(268, 225, 'e o processo se repete');
+    }
+    svg.innerHTML = s; out.innerHTML = e.txt[k];
+    $('#dialNext').disabled = k >= 3;
+  }
+  $('#dialNext').onclick = () => { k = Math.min(3, k + 1); draw(); };
+  $('#dialReset').onclick = () => { k = 0; draw(); };
+  seg($('#dialSeg'), v => { ex = +v; k = 0; draw(); });
+  draw();
+})();
+
+/* ── 6. Marx: de cabeça para baixo ── */
+(function () {
+  const svg = $('#mxSvg'), out = $('#mxOut'); if (!svg) return;
+  function draw(v) {
+    const m = v === 'm';
+    const topo = m ? ['SUPERESTRUTURA', 'Estado · leis · religião · arte · filosofia · ideologia'] : ['IDEIAS · ESPÍRITO', 'razão · cultura · artes · leis · tecnologia'];
+    const base = m ? ['INFRAESTRUTURA (base econômica)', 'forças produtivas + relações de produção (trabalho)'] : ['MUNDO MATERIAL', 'economia, natureza: efeito das ideias'];
+    svg.innerHTML = `<defs><marker id="am" markerWidth="9" markerHeight="9" refX="5" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9Z" style="fill:var(--tint)"/></marker></defs>
+      <path d="M180 20 H460 L500 90 H140 Z" style="fill:var(--bg-2);stroke:${m ? 'var(--sep)' : 'var(--tint)'};stroke-width:2"/>
+      <text x="320" y="52" text-anchor="middle" style="fill:var(--label);font:700 14px Inter,sans-serif">${topo[0]}</text>
+      <text x="320" y="72" text-anchor="middle" style="fill:var(--label-2);font:500 11px Inter,sans-serif">${topo[1]}</text>
+      <rect x="110" y="170" width="420" height="72" rx="10" style="fill:var(--bg-2);stroke:${m ? 'var(--tint)' : 'var(--sep)'};stroke-width:2"/>
+      <text x="320" y="200" text-anchor="middle" style="fill:var(--label);font:700 14px Inter,sans-serif">${base[0]}</text>
+      <text x="320" y="221" text-anchor="middle" style="fill:var(--label-2);font:500 11px Inter,sans-serif">${base[1]}</text>
+      <path d="${m ? 'M320 166 V96' : 'M320 94 V164'}" style="stroke:var(--tint);stroke-width:4;marker-end:url(#am)"/>
+      <text x="332" y="135" style="fill:var(--tint);font:700 12px Inter,sans-serif">determina</text>
+      <g style="transform-origin:575px 130px;transform:rotate(${m ? 0 : 180}deg);transition:transform .8s cubic-bezier(.3,1.4,.5,1)">
+        <circle cx="575" cy="98" r="11" style="fill:var(--label)"/>
+        <path d="M575 109 V140 M575 140 L563 166 M575 140 L587 166 M560 120 L590 120" style="stroke:var(--label);stroke-width:4;fill:none;stroke-linecap:round"/>
+      </g>
+      ${T2(540, 196, m ? 'dialética de pé' : 'de cabeça para baixo')}`;
+    out.innerHTML = m
+      ? '<b>Marx (materialismo)</b>: a base é o modo como a sociedade <b>produz</b> a vida. É ela que determina a superestrutura (leis, Estado, religião, ideias). "O ser social determina a consciência." As transformações <b>econômicas</b> movem a história.'
+      : '<b>Hegel (idealismo)</b>: as <b>ideias</b> e o Espírito vêm primeiro e movem a história; a produção cultural transforma a sociedade. Para Marx, isso é a dialética "de cabeça para baixo". Clique em Marx para desvirar.';
+  }
+  seg($('#mxSeg'), draw); draw('h');
+})();
+
+/* ── 7. Han: bolha ── */
+(function () {
+  const feed = $('#bolhaFeed'); if (!feed) return;
+  const CAT = { azul: ['#3b82c4', 'Time Parque'], laranja: ['#e0702a', 'Time Estacionamento'], esporte: ['#2e9d6a', 'Esporte'], cultura: ['#8e44ad', 'Cultura'], ciencia: ['#16808b', 'Ciência'] };
+  const POSTS = {
+    azul: ['Parque já! A cidade precisa de verde.', 'Estudo mostra: áreas verdes reduzem o calor.', 'Quem defende estacionamento não pensa no futuro.', 'Abaixo-assinado pelo parque passa de 10 mil.', 'O outro lado só quer saber de carro.'],
+    laranja: ['Estacionamento resolve o trânsito do centro!', 'Comerciantes apoiam o estacionamento.', 'Parque? Quem paga a manutenção?', 'Vídeo: o caos para estacionar no centro.', 'O outro lado não entende de economia.'],
+    esporte: ['Vôlei da escola vai para a final.', 'Treino aberto no sábado.'],
+    cultura: ['Nova exposição no museu da cidade.', 'Festival de cinema começa sexta.'],
+    ciencia: ['Por que o céu é azul? Thread.', 'Eclipse visível no próximo mês.'],
+  };
+  let w;
+  function reset() { w = { azul: 1, laranja: 1, esporte: 1, cultura: 1, ciencia: 1 }; render(); }
+  function pickCat() { const tot = Object.values(w).reduce((a, b) => a + b, 0); let r = Math.random() * tot; for (const k in w) { r -= w[k]; if (r <= 0) return k; } return 'azul'; }
+  function render() {
+    const items = Array.from({ length: 6 }, () => { const k = pickCat(); const l = POSTS[k]; return [k, l[Math.floor(Math.random() * l.length)]]; });
+    feed.innerHTML = items.map(([k, t], i) => `<div class="post" style="animation-delay:${i * 60}ms"><span class="av" style="background:${CAT[k][0]}">${CAT[k][1][0]}</span><span>${t}<small>${CAT[k][1]}</small></span><button class="lbtn" type="button" data-k="${k}">♡ Curtir</button></div>`).join('');
+    const tot = Object.values(w).reduce((a, b) => a + b, 0), ps = Object.values(w).map(x => x / tot);
+    const H = -ps.reduce((a, p) => a + (p > 0 ? p * Math.log(p) : 0), 0) / Math.log(5);
+    const m = $('#bolhaMeter'); m.style.width = Math.round(H * 100) + '%'; m.style.background = H > .7 ? 'var(--green)' : H > .45 ? 'var(--orange)' : 'var(--red)';
+    $('#bolhaPerfil').innerHTML = Object.entries(w).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<div style="display:flex;align-items:center;gap:8px;margin:3px 0"><span style="width:10px;height:10px;border-radius:50%;background:${CAT[k][0]}"></span><span style="flex:1">${CAT[k][1]}</span><b style="color:var(--label)">${Math.round(v / tot * 100)}%</b></div>`).join('');
+    $('#bolhaTxt').innerHTML = H > .7 ? 'Feed variado: você vê lados diferentes (esfera pública de debate).'
+      : H > .45 ? 'O algoritmo já te colocou num <b>nicho</b>. O outro lado aparece cada vez menos.'
+      : 'Você está numa <b>bolha isolante</b>: só chega o que confirma o que você já pensa. O outro lado vira "o inimigo". Isso é a <b>polarização comunicativa</b> de Han.';
+  }
+  feed.onclick = e => { const b = e.target.closest('button[data-k]'); if (!b) return; w[b.dataset.k] *= 2.2; b.textContent = '♥ Curtido'; b.classList.add('on'); setTimeout(render, 450); };
+  $('#bolhaReset').onclick = reset; reset();
+})();
+
+/* ── Revisão: quem disse (todos) ── */
+sorter($('#sortTodos'), [
+  ['Ninguém se banha duas vezes no mesmo rio.', 'Heráclito', 'Devir: tudo flui.'],
+  ['O Ser é, o não-ser não é.', 'Parmênides', 'O Ser é uno, eterno e imóvel.'],
+  ['Na realidade, só existem átomos e vazio.', 'Demócrito', 'O resto (doce, amargo, cor) é efeito nos sentidos.'],
+  ['O vazio não é o nada: é o espaço do movimento.', 'Demócrito', 'Um não-ser que existe.'],
+  ['As coisas do mundo sensível são cópias imperfeitas das Ideias.', 'Platão', 'Mundo inteligível × mundo sensível.'],
+  ['Conhecer é relembrar o que a alma já contemplou.', 'Platão', 'Reminiscência (anamnese).'],
+  ['A essência está nas próprias coisas, não em outro mundo.', 'Aristóteles', 'Recusa do dualismo platônico.'],
+  ['A semente é árvore em potência.', 'Aristóteles', 'Movimento = passagem da potência ao ato.'],
+  ['Deve haver um primeiro motor que move sem ser movido.', 'Aristóteles', 'Ato puro, sem potência.'],
+  ['O que é racional é real, e o que é real é racional.', 'Hegel', 'Idealismo: pensamento e realidade têm a mesma estrutura.'],
+  ['A contradição é o que move a realidade.', 'Hegel', 'Aceitação do contraditório.'],
+  ['O Espírito Absoluto guia a história em busca de uma identidade própria.', 'Hegel', 'Processo racional da história.'],
+  ['O ser social determina a consciência.', 'Marx', 'Materialismo: a base econômica vem primeiro.'],
+  ['Em Hegel, a dialética está de cabeça para baixo.', 'Marx', 'Crítica ao idealismo.'],
+  ['A história de todas as sociedades é a história da luta de classes.', 'Marx', 'Manifesto Comunista (1848), com Engels.'],
+  ['O algoritmo nos fecha em bolhas e intensifica a polarização.', 'Han', 'Infocracia.'],
+  ['O poder hoje não proíbe: ele explora a liberdade.', 'Han', 'Autoexploração, psicopolítica.'],
+  ['Liberdade, amor e felicidade não são mensuráveis.', 'Han', 'Crítica ao dataísmo.'],
+], ['Heráclito', 'Parmênides', 'Demócrito', 'Platão', 'Aristóteles', 'Hegel', 'Marx', 'Han']);
+})();
+
+</script>

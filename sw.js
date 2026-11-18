@@ -10,7 +10,7 @@
    Ao mudar a lista abaixo, troque VERSAO para renovar a instalação.
    ═══════════════════════════════════════════════════════════ */
 
-const VERSAO = 'cd-2026-11-17-ingles3';
+const VERSAO = 'cd-2026-11-18-labs';
 const ESSENCIAIS = [
   './',
   'biologia-1tri.html',
@@ -48,6 +48,7 @@ const ESSENCIAIS = [
   'icon-192.png',
   'pensador.png',
   'styles/ios.css',
+  'styles/labs.css',
   'styles/shared.css',
   'styles/effects.css',
   'scripts/theme.js',
