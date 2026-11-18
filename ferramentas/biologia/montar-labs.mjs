@@ -11,7 +11,7 @@ const tri = process.argv[2] || '3tri', arq = join(RAIZ, `biologia-${tri}.html`);
 const crlf = readFileSync(arq, 'utf8').includes('\r\n');
 let html = readFileSync(arq, 'utf8').replace(/\r\n/g, '\n');
 const fonte = readFileSync(join(AQUI, `labs-${tri}.html`), 'utf8');
-const js = readFileSync(join(AQUI, `labs-${tri}.js`), 'utf8');
+const js = '(function () {\n' + readFileSync(join(AQUI, 'labs-comum.js'), 'utf8') + '\n' + readFileSync(join(AQUI, `labs-${tri}.js`), 'utf8') + '\n})();';
 
 // limpa execuções anteriores
 html = html.replace(/\n?<!-- LABS:[\w-]+ -->[\s\S]*?<!-- \/LABS -->\n?/g, '\n')
@@ -27,13 +27,13 @@ for (let i = 0; i < blocos.length; i += 2) {
   html = html.slice(0, fimSec) + `<!-- LABS:${id} -->\n${corpo}\n<!-- /LABS -->\n` + html.slice(fimSec);
 }
 html = html.replace('<link rel="stylesheet" href="styles/ios.css">', '<link rel="stylesheet" href="styles/ios.css">\n<link rel="stylesheet" href="styles/labs.css">');
-const marca = html.indexOf('<!-- ═══ CHATBOT');
+let marca = html.indexOf('<!-- ═══ CHATBOT'); if (marca < 0) marca = html.lastIndexOf('</body>');
 html = html.slice(0, marca) + `<!-- LABS-JS -->\n<script>\n${js}\n</script>\n<!-- /LABS-JS -->\n` + html.slice(marca);
 writeFileSync(arq, crlf ? html.replace(/\n/g, '\r\n') : html);
 
 // artefato: corpo da página sem chatbot, com estilos próprios da página
 const estilos = [...html.slice(0, html.indexOf('<body')).matchAll(/<style>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n');
-const corpo = html.slice(html.indexOf('<body'), html.indexOf('<!-- LABS-JS -->'));
+const corpo = html.slice(html.indexOf('<body'), html.indexOf('<!-- LABS-JS -->')).replace(/<script[^>]*src=[^>]*><\/script>/g, '');
 mkdirSync(join(AQUI, 'artefato'), { recursive: true });
 writeFileSync(join(AQUI, 'artefato', `biologia-${tri}.html`), artefato({
   titulo: `Biologia ${tri[0]}º Tri`, tint: ['#1f7a4d', '#4cd388'], corpo, widgets: js,

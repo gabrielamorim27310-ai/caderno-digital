@@ -1,7 +1,9 @@
 <title>Filosofia 3º Tri</title>
 <style>
 :root{--tint:#906400;--tint-fill:#906400;--bg:#f2f2f7;--bg-2:#ffffff;--bg-3:#f6f6f9;--sep:rgba(60,60,67,.18);--label:#1c1c1e;--label-2:rgba(60,60,67,.68);
---green:#1f8a3b;--green-bg:#e6f6ea;--red:#c9342c;--red-bg:#fdecea;--orange:#c46a00;--fill:rgba(120,120,128,.16);--primary:#906400;--c1:#906400;--c2:#8a5a00;--c3:#a0782a;--c4:#1f4e79}
+--green:#1f8a3b;--green-bg:#e6f6ea;--red:#c9342c;--red-bg:#fdecea;--orange:#c46a00;--fill:rgba(120,120,128,.16);--primary:#906400;--c1:#906400;--c2:#8a5a00;--c3:#a0782a;--c4:#1f4e79;
+/* apelidos das variáveis antigas das páginas, apontando para o tema */
+--text:var(--label);--text-light:var(--label-2);--border:var(--sep);--card-bg:var(--bg-2);--secondary:var(--tint);--blue-bg:rgba(59,130,196,.14);--yellow-bg:rgba(227,162,26,.16)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--tint:#f5bf3c;--bg:#000;--bg-2:#1c1c1e;--bg-3:#2c2c2e;--sep:rgba(84,84,88,.6);--label:#fff;--label-2:rgba(235,235,245,.65);--green:#32d74b;--green-bg:rgba(50,215,75,.14);--red:#ff6b61;--red-bg:rgba(255,69,58,.15);--orange:#ff9f0a;--fill:rgba(120,120,128,.32)}}
 :root[data-theme="dark"]{--tint:#f5bf3c;--bg:#000;--bg-2:#1c1c1e;--bg-3:#2c2c2e;--sep:rgba(84,84,88,.6);--label:#fff;--label-2:rgba(235,235,245,.65);--green:#32d74b;--green-bg:rgba(50,215,75,.14);--red:#ff6b61;--red-bg:rgba(255,69,58,.15);--orange:#ff9f0a;--fill:rgba(120,120,128,.32)}
 *{box-sizing:border-box}
@@ -46,6 +48,14 @@ figure{margin:12px 0}figcaption{font-size:.82rem;color:var(--label-2);margin-top
 footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;border-top:1px solid var(--sep)}
 .qz-score{top:52px}
 
+/* por último: o que precisa valer nos dois temas, acima do CSS antigo da página */
+body{background:var(--bg)!important;color:var(--label)!important}
+.hero{background:none!important;color:var(--label)!important}.hero::before{display:none!important}
+.hero h1{color:var(--label)!important}.hero :is(.subtitle,.author){color:var(--label-2)!important;background:none!important;border-color:var(--sep)!important}
+.hero .badge{background:none!important;color:var(--tint)!important;border:1px solid var(--tint)!important}
+nav{background:var(--bg)!important;border-color:var(--sep)!important}.nav-link{color:var(--label-2)!important}
+.card,.chapter-body,.quiz-section{color:var(--label)}
+:is(.card,.mini-card,.list,td,.quote,[class^="highlight"],[class*=" highlight"],.tip-box,.warn-box,.info-box) :is(strong,b){color:inherit!important}
 </style>
 <style>/* labs.css — laboratórios interativos dos resumos (Filosofia e Biologia 3º tri).
    Só variáveis do ios.css: funciona no claro e no escuro. Classes próprias

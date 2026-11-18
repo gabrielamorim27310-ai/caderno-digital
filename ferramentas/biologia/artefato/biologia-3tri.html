@@ -1,7 +1,9 @@
 <title>Biologia 3º Tri</title>
 <style>
 :root{--tint:#1f7a4d;--tint-fill:#1f7a4d;--bg:#f2f2f7;--bg-2:#ffffff;--bg-3:#f6f6f9;--sep:rgba(60,60,67,.18);--label:#1c1c1e;--label-2:rgba(60,60,67,.68);
---green:#1f8a3b;--green-bg:#e6f6ea;--red:#c9342c;--red-bg:#fdecea;--orange:#c46a00;--fill:rgba(120,120,128,.16);--primary:#1f7a4d;--c1:#1f7a4d;--c2:#8a5a00;--c3:#a0782a;--c4:#1f4e79}
+--green:#1f8a3b;--green-bg:#e6f6ea;--red:#c9342c;--red-bg:#fdecea;--orange:#c46a00;--fill:rgba(120,120,128,.16);--primary:#1f7a4d;--c1:#1f7a4d;--c2:#8a5a00;--c3:#a0782a;--c4:#1f4e79;
+/* apelidos das variáveis antigas das páginas, apontando para o tema */
+--text:var(--label);--text-light:var(--label-2);--border:var(--sep);--card-bg:var(--bg-2);--secondary:var(--tint);--blue-bg:rgba(59,130,196,.14);--yellow-bg:rgba(227,162,26,.16)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--tint:#4cd388;--bg:#000;--bg-2:#1c1c1e;--bg-3:#2c2c2e;--sep:rgba(84,84,88,.6);--label:#fff;--label-2:rgba(235,235,245,.65);--green:#32d74b;--green-bg:rgba(50,215,75,.14);--red:#ff6b61;--red-bg:rgba(255,69,58,.15);--orange:#ff9f0a;--fill:rgba(120,120,128,.32)}}
 :root[data-theme="dark"]{--tint:#4cd388;--bg:#000;--bg-2:#1c1c1e;--bg-3:#2c2c2e;--sep:rgba(84,84,88,.6);--label:#fff;--label-2:rgba(235,235,245,.65);--green:#32d74b;--green-bg:rgba(50,215,75,.14);--red:#ff6b61;--red-bg:rgba(255,69,58,.15);--orange:#ff9f0a;--fill:rgba(120,120,128,.32)}
 *{box-sizing:border-box}
@@ -64,10 +66,10 @@ footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;
   .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 12px; position: relative; }
   .hero .subtitle { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
   .hero .badge { display: inline-block; background: var(--secondary); color: white; padding: 6px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-top: 16px; position: relative; }
-  .hero .author { display: inline-block; background: rgba(255,255,255,0.15); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+  .hero .author { display: inline-block; background: var(--bg-3); color: white; padding: 8px 22px; border-radius: 20px; font-size: 1.05rem; font-weight: 600; margin-top: 12px; position: relative; border: 1px solid rgba(255,255,255,0.4); letter-spacing: 0.02em; }
 
   /* NAV */
-  nav { background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  nav { background: var(--bg-3); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
   .nav-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; padding: 0 16px; }
   .nav-inner::-webkit-scrollbar { display: none; }
   .back-link { display: inline-flex; align-items: center; gap: 6px; padding: 14px 16px 14px 0; color: var(--text-light); text-decoration: none; font-size: 0.82rem; font-weight: 600; margin-right: 8px; border-right: 1px solid var(--border); white-space: nowrap; }
@@ -93,7 +95,7 @@ footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;
 
   /* LISTS */
   .list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
-  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: #f2faf5; border-radius: 8px; border: 1px solid var(--border); }
+  .list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.91rem; padding: 8px 12px; background: var(--bg-3); border-radius: 8px; border: 1px solid var(--border); }
   .list li::before { content: '▸'; color: var(--secondary); font-size: 0.78rem; margin-top: 3px; flex-shrink: 0; }
   .list li strong { color: var(--primary); }
 
@@ -104,9 +106,9 @@ footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;
   .list-nested li strong { color: var(--text); }
 
   /* HIGHLIGHTS */
-  .highlight { background: linear-gradient(135deg, #e3f3e9, #d6eedf); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight { background: var(--bg-3); border-left: 4px solid var(--secondary); border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
   .highlight strong { color: var(--primary); }
-  .highlight-blue { background: linear-gradient(135deg, #e8f0ff, #dde8ff); border-left: 4px solid #2563eb; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
+  .highlight-blue { background: var(--bg-3); border-left: 4px solid #2563eb; border-radius: 10px; padding: 14px 18px; margin-top: 14px; font-size: 0.91rem; }
 
   /* GRID */
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 14px; }
@@ -119,7 +121,7 @@ footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;
   .mini-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.6; }
 
   /* QUOTE / EXEMPLO */
-  .exemplo { font-style: italic; background: #f2faf5; border-left: 4px solid var(--secondary); padding: 10px 16px; border-radius: 0 8px 8px 0; margin-top: 10px; font-size: 0.9rem; color: var(--primary); }
+  .exemplo { font-style: italic; background: var(--bg-3); border-left: 4px solid var(--secondary); padding: 10px 16px; border-radius: 0 8px 8px 0; margin-top: 10px; font-size: 0.9rem; color: var(--primary); }
   .exemplo span { display: block; font-style: normal; font-size: 0.78rem; color: var(--text-light); margin-top: 4px; font-weight: 600; }
 
   /* TABLE */
@@ -128,11 +130,11 @@ footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;
   th { background: var(--primary); color: white; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
   td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
   tr:last-child td { border-bottom: none; }
-  tr:nth-child(even) td { background: #f2faf5; }
+  tr:nth-child(even) td { background: var(--bg-3); }
 
   /* TAGS */
   .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
-  .tag-imp { background: #e3f3e9; color: #1a4731; }
+  .tag-imp { background: var(--bg-3); color: var(--label); }
 
   footer { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
 
@@ -142,6 +144,14 @@ footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
   }
 
+/* por último: o que precisa valer nos dois temas, acima do CSS antigo da página */
+body{background:var(--bg)!important;color:var(--label)!important}
+.hero{background:none!important;color:var(--label)!important}.hero::before{display:none!important}
+.hero h1{color:var(--label)!important}.hero :is(.subtitle,.author){color:var(--label-2)!important;background:none!important;border-color:var(--sep)!important}
+.hero .badge{background:none!important;color:var(--tint)!important;border:1px solid var(--tint)!important}
+nav{background:var(--bg)!important;border-color:var(--sep)!important}.nav-link{color:var(--label-2)!important}
+.card,.chapter-body,.quiz-section{color:var(--label)}
+:is(.card,.mini-card,.list,td,.quote,[class^="highlight"],[class*=" highlight"],.tip-box,.warn-box,.info-box) :is(strong,b){color:inherit!important}
 </style>
 <style>/* labs.css — laboratórios interativos dos resumos (Filosofia e Biologia 3º tri).
    Só variáveis do ios.css: funciona no claro e no escuro. Classes próprias
@@ -923,7 +933,7 @@ footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;
 </div>
 <div class="lab" id="labHb">
   <div class="lab-head"><span class="lab-tag">Simulador</span><b>Respiratório: curva de saturação da hemoglobina</b></div>
-  <div class="lab-ctl"><label>pO₂ <input type="range" id="hbR" min="0" max="100" value="40"></label><div class="seg" id="hbSeg"><button type="button" class="on" data-v="n">Repouso</button><button type="button" data-v="e">Exercício (CO₂↑, acidez↑, calor↑)</button></div></div>
+  <div class="lab-ctl"><label>pO₂ <input type="range" id="hbR" min="0" max="100" value="40"></label><div class="seg" id="hbSeg"><button type="button" class="on" data-v="n">pH 7,4 · repouso</button><button type="button" data-v="e">pH 7,2 · exercício</button></div></div>
   <div class="lab-stage"><canvas id="hbCv" width="760" height="300" aria-label="Curva de saturação"></canvas></div>
   <div class="lab-out" id="hbOut"></div>
 </div>
@@ -1374,8 +1384,9 @@ footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;
 
 
 <script>
-/* Laboratórios de Biologia (3º tri + revisão). Só variáveis do ios.css: claro e escuro. */
 (function () {
+/* Base dos laboratórios de Biologia: utilitários + laboratórios de revisão usados no 2º e no 3º tri.
+   O montar-labs.mjs junta este arquivo com labs-<tri>.js dentro de uma função só. */
 const $ = s => document.querySelector(s);
 const cv = n => getComputedStyle(document.body).getPropertyValue(n).trim() || '#888';
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -1416,6 +1427,115 @@ function sorter(el, items, opts) {
 }
 function canvasFit(c) { const g = c.getContext('2d'); return g; }
 
+/* ═════════ REVISÃO: DIGESTÃO ═════════ */
+(function () {
+  const svg = $('#digSvg'), out = $('#digOut'); if (!svg) return;
+  const LOC = ['Boca', 'Estômago', 'Duodeno', 'Suco entérico'], PH = ['~7 neutro', '~2 ácido (HCl)', '~8 (bicarbonato)', '~8 (delgado)'];
+  const D = {
+    amido: [['Amilase salivar (ptialina)', 'amido → maltose', 6, 3], ['nenhuma para amido', 'o pH ácido desnatura a ptialina', 3, 3], ['Amilase pancreática', 'amido → maltose', 3, 2], ['Maltase (suco entérico)', 'maltose → glicose + glicose (absorvível)', 2, 1]],
+    prot: [['nenhuma', 'só mastigação', 6, 6], ['Pepsina (pepsinogênio ativado pelo HCl)', 'proteínas → peptídeos (não absorvíveis)', 6, 3], ['Tripsina e quimiotripsina (pâncreas)', 'peptídeos → peptídeos menores', 3, 2], ['Peptidases (suco entérico)', 'peptídeos → aminoácidos (absorvíveis)', 2, 1]],
+    lip: [['nenhuma', 'só mastigação', 6, 6], ['nenhuma', 'continua inteira', 6, 6], ['Bile emulsifica + lipase pancreática', 'lipídios → ácidos graxos + glicerol (a bile não é enzima!)', 6, 1], ['absorção', 'ácidos graxos vão para os vasos quilíferos (linfa)', 1, 1]],
+  };
+  let ali = 'amido', go;
+  function draw(i) {
+    const [enz, reac, n0, n1] = D[ali][i], cor = { amido: C.amar, prot: C.verm, lip: C.lar }[ali];
+    let mol = ''; const pedacos = n1, tam = n0;
+    for (let k = 0; k < tam; k++) { const grupo = Math.floor(k / Math.max(1, tam / pedacos)); mol += `<circle cx="${420 + k * 22 + grupo * 14}" cy="150" r="9" style="fill:${cor};animation:labIn .4s ${k * 40}ms both"/>`; }
+    svg.innerHTML = LOC.map((l, k) => `<g style="opacity:${k === i ? 1 : .4}"><circle cx="${60 + k * 100}" cy="60" r="${k === i ? 24 : 16}" style="fill:${k === i ? 'var(--tint)' : 'var(--bg-2)'};stroke:var(--sep);stroke-width:2"/>${T(60 + k * 100, 104, l, 'middle')}${T2(60 + k * 100, 120, PH[k], 'middle')}</g>`).join('') + `<path d="M84 60 H${36 + 300}" style="stroke:var(--sep);stroke-width:3;stroke-dasharray:4 4"/>` +
+      T(420, 40, enz, 'start', 'var(--label)', 700, 13) + T2(420, 60, reac) + mol;
+    out.innerHTML = `<b>${LOC[i]}</b>${PH[i] ? ` (pH ${PH[i]})` : ''}: <b>${enz}</b> · ${reac}.`;
+  }
+  go = steps($('#digSteps'), LOC.map((l, i) => `${i + 1}. ${l}`), draw);
+  seg($('#digSeg'), v => { ali = v; go(0); });
+})();
+
+/* ═════════ REVISÃO: CORAÇÃO ═════════ */
+(function () {
+  const svg = $('#corSvg'), out = $('#corOut'); if (!svg) return;
+  const AZ = '#5b7fc7', VM = '#d9534f';
+  const S = [
+    ['Cavas → AD', ['vc', 'AD'], 'O sangue <b>venoso</b> (pobre em O₂) do corpo chega pelas <b>veias cavas</b> ao <b>átrio direito</b>.'],
+    ['AD → VD', ['AD', 'VD'], 'Do átrio direito passa ao <b>ventrículo direito</b> pela valva tricúspide, enquanto o ventrículo está relaxado (<b>diástole</b>).'],
+    ['VD → pulmões', ['VD', 'ap', 'pul'], 'Na <b>sístole</b> (contração), o VD manda o sangue pela <b>artéria pulmonar</b> aos pulmões. ⚠ Artéria com sangue <b>venoso</b>: artéria é o vaso que <b>sai</b> do coração. Nos pulmões ocorre a hematose.'],
+    ['Pulmões → AE', ['pul', 'vp', 'AE'], 'O sangue, agora <b>arterial</b> (rico em O₂), volta pelas <b>veias pulmonares</b> ao <b>átrio esquerdo</b>. ⚠ Veia com sangue arterial. Fim da <b>circulação pulmonar</b> (pequena).'],
+    ['AE → VE', ['AE', 'VE'], 'Do átrio esquerdo passa ao <b>ventrículo esquerdo</b> pela valva mitral (bicúspide).'],
+    ['VE → corpo', ['VE', 'ao', 'corpo'], 'Na sístole, o VE (parede mais grossa, mais força) manda o sangue pela <b>aorta</b> para todo o corpo: <b>circulação sistêmica</b> (grande). Nos tecidos, o sangue entrega O₂ e vira venoso de novo.'],
+  ];
+  function draw(i) {
+    const on = new Set(S[i][1]), op = k => on.has(k) ? 1 : .35, sw = k => on.has(k) ? 7 : 4;
+    svg.innerHTML = `
+      <g style="opacity:${op('pul')}"><ellipse cx="320" cy="40" rx="140" ry="26" style="fill:rgba(217,83,79,.12);stroke:var(--sep);stroke-width:2"/>${T(320, 45, 'PULMÕES', 'middle')}</g>
+      <g style="opacity:${op('corpo')}"><ellipse cx="320" cy="272" rx="160" ry="22" style="fill:rgba(91,127,199,.12);stroke:var(--sep);stroke-width:2"/>${T(320, 277, 'CORPO (tecidos)', 'middle')}</g>
+      <path d="M200 60 C150 70 150 120 250 115" style="fill:none;stroke:${AZ};stroke-width:${sw('ap')};opacity:${op('ap')}"/>
+      <path d="M440 60 C490 70 490 120 395 115" style="fill:none;stroke:${VM};stroke-width:${sw('vp')};opacity:${op('vp')}"/>
+      <path d="M395 205 C480 215 490 245 440 258" style="fill:none;stroke:${VM};stroke-width:${sw('ao')};opacity:${op('ao')}"/>
+      <path d="M200 258 C150 245 150 150 248 140" style="fill:none;stroke:${AZ};stroke-width:${sw('vc')};opacity:${op('vc')}"/>
+      ${[['AD', 250, 100, AZ, 'Átrio direito'], ['VD', 250, 160, AZ, 'Ventrículo direito'], ['AE', 330, 100, VM, 'Átrio esquerdo'], ['VE', 330, 160, VM, 'Ventrículo esquerdo']].map(([k, x, y, cor, n]) => `<g style="opacity:${op(k)}"><rect x="${x}" y="${y}" width="${70}" height="${k[0] === 'V' ? 56 : 46}" rx="12" style="fill:${cor};stroke:${on.has(k) ? 'var(--label)' : 'none'};stroke-width:2"/><text x="${x + 35}" y="${y + 28}" text-anchor="middle" style="fill:#fff;font:${F(800, 15)}">${k}</text></g>`).join('')}
+      ${T2(120, 168, 'veias cavas', 'middle')}${T2(150, 82, 'artéria pulmonar', 'middle')}${T2(500, 82, 'veias pulmonares', 'middle')}${T2(500, 230, 'aorta', 'middle')}
+      ${T2(285, 230, 'lado direito: venoso', 'middle')}${T2(365, 245, 'lado esquerdo: arterial', 'middle')}`;
+    out.innerHTML = S[i][2];
+  }
+  steps($('#corSteps'), S.map((s, i) => `${i + 1}. ${s[0]}`), draw);
+})();
+
+/* ═════════ REVISÃO: HEMOGLOBINA ═════════ */
+(function () {
+  const c = $('#hbCv'), r = $('#hbR'), out = $('#hbOut'); if (!c) return;
+  const g = c.getContext('2d'); let ex = false;
+  const P50 = [26.8, 34.4]; // pH 7,4: 75% a 40 mmHg · pH 7,2: 60% a 40 mmHg
+  const S = (p, p50) => p <= 0 ? 0 : p ** 2.7 / (p ** 2.7 + p50 ** 2.7);
+  function draw() {
+    const p = +r.value, x0 = 60, x1 = 600, y0 = 20, y1 = 250, X = v => x0 + v / 100 * (x1 - x0), Y = v => y1 - v * (y1 - y0);
+    g.clearRect(0, 0, 760, 300);
+    g.strokeStyle = cv('--sep'); g.lineWidth = 1; g.font = F(500, 11); g.fillStyle = cv('--label-2');
+    [0, .25, .5, .75, 1].forEach(v => { g.beginPath(); g.moveTo(x0, Y(v)); g.lineTo(x1, Y(v)); g.stroke(); g.fillText(v * 100 + '%', 18, Y(v) + 4); });
+    [0, 20, 40, 60, 80, 100].forEach(v => g.fillText(v, X(v) - 6, y1 + 16)); g.fillText('pO₂ (mmHg)', x1 - 60, y1 + 32);
+    const curva = (p50, cor, dash) => { g.strokeStyle = cor; g.lineWidth = 3; g.setLineDash(dash); g.beginPath(); for (let v = 0; v <= 100; v++) { v ? g.lineTo(X(v), Y(S(v, p50))) : g.moveTo(X(v), Y(0)); } g.stroke(); g.setLineDash([]); };
+    curva(P50[0], C.azul, ex ? [6, 5] : []); if (ex) curva(P50[1], C.verm, []);
+    [[100, 'pulmões'], [40, 'tecido em repouso'], [20, 'músculo em exercício']].forEach(([v, n]) => { g.fillStyle = cv('--label-2'); g.fillText(v === 100 ? n + ' ▼' : '▼ ' + n, X(v) - (v === 100 ? 56 : 5), y0 + 10 + (v === 20 ? 14 : 0)); });
+    const p50 = P50[ex ? 1 : 0], s = S(p, p50);
+    g.strokeStyle = cv('--label'); g.setLineDash([4, 4]); g.beginPath(); g.moveTo(X(p), y1); g.lineTo(X(p), Y(s)); g.lineTo(x0, Y(s)); g.stroke(); g.setLineDash([]);
+    g.fillStyle = ex ? C.verm : C.azul; g.beginPath(); g.arc(X(p), Y(s), 7, 0, 7); g.fill();
+    g.fillStyle = cv('--label'); g.font = F(700, 13); g.fillText(`pO₂ = ${p}`, 620, 50); g.fillText(`${Math.round(s * 100)}% saturada`, 620, 68);
+    const lib = S(100, p50) - S(ex ? 20 : 40, p50);
+    g.font = F(500, 12); g.fillStyle = cv('--label-2'); g.fillText('O₂ entregue', 620, 100); g.fillText('(pulmão → tecido):', 620, 116);
+    g.fillStyle = cv('--label'); g.font = F(800, 22); g.fillText(Math.round(lib * 100) + '%', 620, 146);
+  }
+  function txt() { out.innerHTML = ex ? 'No <b>exercício</b>, mais CO₂ → mais H⁺ → pH cai (7,2), e a temperatura sobe: a curva <b>desloca para a direita</b>. Em 40 mmHg a saturação cai de 75% para cerca de 60%: a hemoglobina <b>solta mais O₂</b> justamente no músculo (efeito Bohr).' : 'Curva <b>sigmoide</b> (ligação cooperativa). Nos <b>pulmões</b> (pO₂ 80 a 120 mmHg) a saturação passa de 90% (~97%); no <b>sangue venoso</b> (pO₂ ~40) fica em ~75%. Arraste a pO₂ e compare com o exercício.'; }
+  r.oninput = draw; seg($('#hbSeg'), v => { ex = v === 'e'; draw(); txt(); }); draw(); txt();
+})();
+
+/* ═════════ REVISÃO: NÉFRON ═════════ */
+(function () {
+  const svg = $('#nefSvg'), out = $('#nefOut'); if (!svg) return;
+  const S = [
+    ['Glomérulo', 'glom', '<b>Filtração</b> no glomérulo (dentro da cápsula de Bowman), sob alta pressão (~75 mmHg). Passam água, glicose, aminoácidos, sais e ureia; <b>células e proteínas grandes não passam</b>. É pressão hidrostática: não é osmose, difusão nem transporte ativo. O filtrado ≈ plasma sem células e proteínas.'],
+    ['Túbulo proximal', 'prox', '<b>Reabsorção em massa</b>: 100% da glicose e dos aminoácidos voltam ao sangue por <b>transporte ativo</b>; a água acompanha por <b>osmose</b>. Glicemia alta demais (diabetes mellitus) passa do limite: glicose na urina.'],
+    ['Alça de Henle', 'alca', 'Ramo descendente: a água sai por <b>osmose</b>. Ramo ascendente: <b>transporte ativo de NaCl</b> (impermeável à água). Cria o gradiente da medula que concentra a urina.'],
+    ['Túbulo distal', 'dist', '<b>Secreção ativa</b> de excretas (ácido úrico, amônia, H⁺): do sangue para o filtrado. Ajuste fino: a <b>aldosterona</b> aumenta a reabsorção de <b>sódio</b> (a água vai junto) e sobe a pressão.'],
+    ['Ducto coletor', 'col', 'Reabsorção final de água por <b>osmose</b>, via <b>aquaporinas</b> reguladas pelo <b>ADH</b>: urina concentrada. Álcool inibe o ADH: muita urina diluída.'],
+    ['Urina', 'uri', 'Dos ~180 L de filtrado por dia, saem só ~1,5 L de <b>urina</b>: água, ureia (feita no fígado), sais, creatinina, ácido úrico. Glicose, proteínas ou hemácias na urina são sinal de problema. Caminho: pelve renal → ureter → bexiga → uretra.'],
+  ];
+  function draw(i) {
+    const k = S[i][1], w = id => id === k ? 9 : 5, o = id => id === k ? 1 : .4;
+    svg.innerHTML = `
+      <g style="opacity:${o('glom')}"><circle cx="90" cy="70" r="40" style="fill:none;stroke:var(--label-2);stroke-width:3"/><path d="M70 60 q10 -20 20 0 t20 0 q-10 20 -20 0 t-20 0" style="fill:none;stroke:${C.verm};stroke-width:${w('glom')}"/></g>
+      <path d="M130 70 C190 70 200 30 230 50 C260 70 230 100 270 100" style="fill:none;stroke:${C.amar};stroke-width:${w('prox')};opacity:${o('prox')}"/>
+      <path d="M270 100 L300 225 Q315 245 330 225 L360 100" style="fill:none;stroke:${C.azul};stroke-width:${w('alca')};opacity:${o('alca')}"/>
+      <path d="M360 100 C390 70 420 110 450 70" style="fill:none;stroke:${C.verde};stroke-width:${w('dist')};opacity:${o('dist')}"/>
+      <path d="M450 70 L520 70 L520 240" style="fill:none;stroke:${C.roxo};stroke-width:${w('col')};opacity:${o('col')}"/>
+      <path d="M520 240 L600 240" style="fill:none;stroke:#c9a227;stroke-width:${w('uri')};opacity:${o('uri')}"/>
+      ${T(90, 130, 'glomérulo', 'middle')}${T(210, 30, 'túbulo proximal', 'middle')}${T(315, 260, 'alça de Henle', 'middle')}${T(410, 52, 'túbulo distal', 'middle')}${T(530, 150, 'ducto coletor')}${T(560, 228, 'urina', 'middle')}
+      ${k === 'glom' ? T2(60, 160, '↓ filtrado: água, glicose, sais, ureia') : ''}
+      ${k === 'prox' ? T2(160, 120, '↑ volta ao sangue: glicose, aminoácidos (ativo), água') : ''}${k === 'alca' ? T2(380, 200, 'desce: água sai · sobe: NaCl sai') : ''}
+      ${k === 'dist' ? T2(380, 130, '↑ Na⁺ (aldosterona) · ↓ secreção de H⁺, amônia') : ''}
+      ${k === 'col' ? T2(400, 200, '↑ água · ADH (aquaporinas)') : ''}`;
+    out.innerHTML = S[i][2];
+  }
+  steps($('#nefSteps'), S.map((s, i) => `${i + 1}. ${s[0]}`), draw);
+})();
+
+/* Laboratórios do 3º tri (reprodutor, nervoso, endócrino). Utilitários em labs-comum.js. */
 /* ═════════ REPRODUTOR MASCULINO ═════════ */
 (function () {
   const svg = $('#rotaSvg'), out = $('#rotaOut'); if (!svg) return;
@@ -1944,112 +2064,6 @@ sorter($('#sortEndo'), [
   ['Cortisol', 'Adrenais', 'Córtex: estresse, glicemia, anti-inflamatório.'],
 ], ['Adeno-hipófise', 'Neuro-hipófise', 'Tireoide', 'Paratireoides', 'Pâncreas', 'Adrenais']);
 
-/* ═════════ REVISÃO: DIGESTÃO ═════════ */
-(function () {
-  const svg = $('#digSvg'), out = $('#digOut'); if (!svg) return;
-  const LOC = ['Boca', 'Estômago', 'Duodeno', 'Intestino (fim)'], PH = ['~7 neutro', '~2 ácido (HCl)', '~8 básico (bicarbonato)', ''];
-  const D = {
-    amido: [['Amilase salivar (ptialina)', 'amido → maltose', 6, 3], ['nenhuma para amido', 'a amilase salivar para no pH ácido', 3, 3], ['Amilase pancreática', 'amido → maltose', 3, 2], ['Maltase (intestinal)', 'maltose → glicose (absorvida)', 2, 1]],
-    prot: [['nenhuma', 'só mastigação', 6, 6], ['Pepsina (do pepsinogênio)', 'proteínas → peptídeos', 6, 3], ['Tripsina e quimotripsina (pâncreas)', 'peptídeos → peptídeos menores', 3, 2], ['Peptidases (intestinais)', 'peptídeos → aminoácidos (absorvidos)', 2, 1]],
-    lip: [['nenhuma', 'só mastigação', 6, 6], ['nenhuma', 'continua inteira', 6, 6], ['Bile emulsifica + lipase pancreática', 'lipídios → ácidos graxos + glicerol (a bile não é enzima!)', 6, 1], ['absorção', 'ácidos graxos e glicerol absorvidos', 1, 1]],
-  };
-  let ali = 'amido', go;
-  function draw(i) {
-    const [enz, reac, n0, n1] = D[ali][i], cor = { amido: C.amar, prot: C.verm, lip: C.lar }[ali];
-    let mol = ''; const pedacos = n1, tam = n0;
-    for (let k = 0; k < tam; k++) { const grupo = Math.floor(k / Math.max(1, tam / pedacos)); mol += `<circle cx="${420 + k * 22 + grupo * 14}" cy="150" r="9" style="fill:${cor};animation:labIn .4s ${k * 40}ms both"/>`; }
-    svg.innerHTML = LOC.map((l, k) => `<g style="opacity:${k === i ? 1 : .4}"><circle cx="${60 + k * 100}" cy="60" r="${k === i ? 24 : 16}" style="fill:${k === i ? 'var(--tint)' : 'var(--bg-2)'};stroke:var(--sep);stroke-width:2"/>${T(60 + k * 100, 104, l, 'middle')}${T2(60 + k * 100, 120, PH[k], 'middle')}</g>`).join('') + `<path d="M84 60 H${36 + 300}" style="stroke:var(--sep);stroke-width:3;stroke-dasharray:4 4"/>` +
-      T(420, 40, enz, 'start', 'var(--label)', 700, 13) + T2(420, 60, reac) + mol;
-    out.innerHTML = `<b>${LOC[i]}</b>${PH[i] ? ` (pH ${PH[i]})` : ''}: <b>${enz}</b> · ${reac}.`;
-  }
-  go = steps($('#digSteps'), LOC.map((l, i) => `${i + 1}. ${l}`), draw);
-  seg($('#digSeg'), v => { ali = v; go(0); });
-})();
 
-/* ═════════ REVISÃO: CORAÇÃO ═════════ */
-(function () {
-  const svg = $('#corSvg'), out = $('#corOut'); if (!svg) return;
-  const AZ = '#5b7fc7', VM = '#d9534f';
-  const S = [
-    ['Cavas → AD', ['vc', 'AD'], 'O sangue <b>venoso</b> (pobre em O₂) do corpo chega pelas <b>veias cavas</b> ao <b>átrio direito</b>.'],
-    ['AD → VD', ['AD', 'VD'], 'Do átrio direito passa ao <b>ventrículo direito</b> pela valva tricúspide, enquanto o ventrículo está relaxado (<b>diástole</b>).'],
-    ['VD → pulmões', ['VD', 'ap', 'pul'], 'Na <b>sístole</b> (contração), o VD manda o sangue pela <b>artéria pulmonar</b> aos pulmões. ⚠ Artéria com sangue <b>venoso</b>: artéria é o vaso que <b>sai</b> do coração. Nos pulmões ocorre a hematose.'],
-    ['Pulmões → AE', ['pul', 'vp', 'AE'], 'O sangue, agora <b>arterial</b> (rico em O₂), volta pelas <b>veias pulmonares</b> ao <b>átrio esquerdo</b>. ⚠ Veia com sangue arterial. Fim da <b>circulação pulmonar</b> (pequena).'],
-    ['AE → VE', ['AE', 'VE'], 'Do átrio esquerdo passa ao <b>ventrículo esquerdo</b> pela valva mitral (bicúspide).'],
-    ['VE → corpo', ['VE', 'ao', 'corpo'], 'Na sístole, o VE (parede mais grossa, mais força) manda o sangue pela <b>aorta</b> para todo o corpo: <b>circulação sistêmica</b> (grande). Nos tecidos, o sangue entrega O₂ e vira venoso de novo.'],
-  ];
-  function draw(i) {
-    const on = new Set(S[i][1]), op = k => on.has(k) ? 1 : .35, sw = k => on.has(k) ? 7 : 4;
-    svg.innerHTML = `
-      <g style="opacity:${op('pul')}"><ellipse cx="320" cy="40" rx="140" ry="26" style="fill:rgba(217,83,79,.12);stroke:var(--sep);stroke-width:2"/>${T(320, 45, 'PULMÕES', 'middle')}</g>
-      <g style="opacity:${op('corpo')}"><ellipse cx="320" cy="272" rx="160" ry="22" style="fill:rgba(91,127,199,.12);stroke:var(--sep);stroke-width:2"/>${T(320, 277, 'CORPO (tecidos)', 'middle')}</g>
-      <path d="M200 60 C150 70 150 120 250 115" style="fill:none;stroke:${AZ};stroke-width:${sw('ap')};opacity:${op('ap')}"/>
-      <path d="M440 60 C490 70 490 120 395 115" style="fill:none;stroke:${VM};stroke-width:${sw('vp')};opacity:${op('vp')}"/>
-      <path d="M395 205 C480 215 490 245 440 258" style="fill:none;stroke:${VM};stroke-width:${sw('ao')};opacity:${op('ao')}"/>
-      <path d="M200 258 C150 245 150 150 248 140" style="fill:none;stroke:${AZ};stroke-width:${sw('vc')};opacity:${op('vc')}"/>
-      ${[['AD', 250, 100, AZ, 'Átrio direito'], ['VD', 250, 160, AZ, 'Ventrículo direito'], ['AE', 330, 100, VM, 'Átrio esquerdo'], ['VE', 330, 160, VM, 'Ventrículo esquerdo']].map(([k, x, y, cor, n]) => `<g style="opacity:${op(k)}"><rect x="${x}" y="${y}" width="${70}" height="${k[0] === 'V' ? 56 : 46}" rx="12" style="fill:${cor};stroke:${on.has(k) ? 'var(--label)' : 'none'};stroke-width:2"/><text x="${x + 35}" y="${y + 28}" text-anchor="middle" style="fill:#fff;font:${F(800, 15)}">${k}</text></g>`).join('')}
-      ${T2(120, 168, 'veias cavas', 'middle')}${T2(150, 82, 'artéria pulmonar', 'middle')}${T2(500, 82, 'veias pulmonares', 'middle')}${T2(500, 230, 'aorta', 'middle')}
-      ${T2(285, 230, 'lado direito: venoso', 'middle')}${T2(365, 245, 'lado esquerdo: arterial', 'middle')}`;
-    out.innerHTML = S[i][2];
-  }
-  steps($('#corSteps'), S.map((s, i) => `${i + 1}. ${s[0]}`), draw);
 })();
-
-/* ═════════ REVISÃO: HEMOGLOBINA ═════════ */
-(function () {
-  const c = $('#hbCv'), r = $('#hbR'), out = $('#hbOut'); if (!c) return;
-  const g = c.getContext('2d'); let ex = false;
-  const S = (p, p50) => p <= 0 ? 0 : p ** 2.7 / (p ** 2.7 + p50 ** 2.7);
-  function draw() {
-    const p = +r.value, x0 = 60, x1 = 600, y0 = 20, y1 = 250, X = v => x0 + v / 100 * (x1 - x0), Y = v => y1 - v * (y1 - y0);
-    g.clearRect(0, 0, 760, 300);
-    g.strokeStyle = cv('--sep'); g.lineWidth = 1; g.font = F(500, 11); g.fillStyle = cv('--label-2');
-    [0, .25, .5, .75, 1].forEach(v => { g.beginPath(); g.moveTo(x0, Y(v)); g.lineTo(x1, Y(v)); g.stroke(); g.fillText(v * 100 + '%', 18, Y(v) + 4); });
-    [0, 20, 40, 60, 80, 100].forEach(v => g.fillText(v, X(v) - 6, y1 + 16)); g.fillText('pO₂ (mmHg)', x1 - 60, y1 + 32);
-    const curva = (p50, cor, dash) => { g.strokeStyle = cor; g.lineWidth = 3; g.setLineDash(dash); g.beginPath(); for (let v = 0; v <= 100; v++) { v ? g.lineTo(X(v), Y(S(v, p50))) : g.moveTo(X(v), Y(0)); } g.stroke(); g.setLineDash([]); };
-    curva(26, C.azul, ex ? [6, 5] : []); if (ex) curva(36, C.verm, []);
-    [[100, 'pulmões'], [40, 'tecido em repouso'], [20, 'músculo em exercício']].forEach(([v, n]) => { g.fillStyle = cv('--label-2'); g.fillText(v === 100 ? n + ' ▼' : '▼ ' + n, X(v) - (v === 100 ? 56 : 5), y0 + 10 + (v === 20 ? 14 : 0)); });
-    const p50 = ex ? 36 : 26, s = S(p, p50);
-    g.strokeStyle = cv('--label'); g.setLineDash([4, 4]); g.beginPath(); g.moveTo(X(p), y1); g.lineTo(X(p), Y(s)); g.lineTo(x0, Y(s)); g.stroke(); g.setLineDash([]);
-    g.fillStyle = ex ? C.verm : C.azul; g.beginPath(); g.arc(X(p), Y(s), 7, 0, 7); g.fill();
-    g.fillStyle = cv('--label'); g.font = F(700, 13); g.fillText(`pO₂ = ${p}`, 620, 50); g.fillText(`${Math.round(s * 100)}% saturada`, 620, 68);
-    const lib = S(100, p50) - S(ex ? 20 : 40, p50);
-    g.font = F(500, 12); g.fillStyle = cv('--label-2'); g.fillText('O₂ entregue', 620, 100); g.fillText('(pulmão → tecido):', 620, 116);
-    g.fillStyle = cv('--label'); g.font = F(800, 22); g.fillText(Math.round(lib * 100) + '%', 620, 146);
-  }
-  function txt() { out.innerHTML = ex ? 'No <b>exercício</b>, mais CO₂, acidez e temperatura <b>deslocam a curva para a direita</b>: na mesma pO₂ a hemoglobina fica <b>menos saturada</b>, ou seja, <b>solta mais O₂</b> para o músculo que precisa (efeito Bohr).' : 'Onde a pO₂ é alta (<b>pulmões</b>), a hemoglobina se carrega de O₂ (~100%). Nos <b>tecidos</b>, onde a pO₂ é baixa, ela solta O₂. Arraste a pO₂ e depois compare com o exercício.'; }
-  r.oninput = draw; seg($('#hbSeg'), v => { ex = v === 'e'; draw(); txt(); }); draw(); txt();
-})();
-
-/* ═════════ REVISÃO: NÉFRON ═════════ */
-(function () {
-  const svg = $('#nefSvg'), out = $('#nefOut'); if (!svg) return;
-  const S = [
-    ['Glomérulo', 'glom', '<b>Filtração</b> no glomérulo (dentro da cápsula de Bowman): a pressão do sangue empurra água, glicose, aminoácidos, sais e ureia para o néfron. <b>Células e proteínas grandes não passam</b>.'],
-    ['Túbulo proximal', 'prox', '<b>Reabsorção</b>: glicose e aminoácidos (normalmente toda a glicose), muita água e sais voltam ao sangue. Se a glicemia está alta demais (diabetes mellitus), sobra glicose na urina.'],
-    ['Alça de Henle', 'alca', 'Reabsorção de <b>água</b> (ramo descendente) e de <b>sais</b> (ramo ascendente): ajuda a concentrar a urina.'],
-    ['Túbulo distal', 'dist', 'A <b>aldosterona</b> (córtex da adrenal) aumenta a reabsorção de <b>sódio</b>, e a água vai junto: a pressão arterial sobe. Aqui também há secreção de íons.'],
-    ['Ducto coletor', 'col', 'O <b>ADH</b> (neuro-hipófise) aumenta as <b>aquaporinas</b>: mais água é reabsorvida e a urina sai <b>concentrada</b>. Álcool inibe o ADH: muita urina diluída.'],
-    ['Urina', 'uri', 'Sobra a <b>urina</b>: água, ureia e sais, que segue para pelve renal → ureter → bexiga.'],
-  ];
-  function draw(i) {
-    const k = S[i][1], w = id => id === k ? 9 : 5, o = id => id === k ? 1 : .4;
-    svg.innerHTML = `
-      <g style="opacity:${o('glom')}"><circle cx="90" cy="70" r="40" style="fill:none;stroke:var(--label-2);stroke-width:3"/><path d="M70 60 q10 -20 20 0 t20 0 q-10 20 -20 0 t-20 0" style="fill:none;stroke:${C.verm};stroke-width:${w('glom')}"/></g>
-      <path d="M130 70 C190 70 200 30 230 50 C260 70 230 100 270 100" style="fill:none;stroke:${C.amar};stroke-width:${w('prox')};opacity:${o('prox')}"/>
-      <path d="M270 100 L300 225 Q315 245 330 225 L360 100" style="fill:none;stroke:${C.azul};stroke-width:${w('alca')};opacity:${o('alca')}"/>
-      <path d="M360 100 C390 70 420 110 450 70" style="fill:none;stroke:${C.verde};stroke-width:${w('dist')};opacity:${o('dist')}"/>
-      <path d="M450 70 L520 70 L520 240" style="fill:none;stroke:${C.roxo};stroke-width:${w('col')};opacity:${o('col')}"/>
-      <path d="M520 240 L600 240" style="fill:none;stroke:#c9a227;stroke-width:${w('uri')};opacity:${o('uri')}"/>
-      ${T(90, 130, 'glomérulo', 'middle')}${T(210, 30, 'túbulo proximal', 'middle')}${T(315, 260, 'alça de Henle', 'middle')}${T(410, 52, 'túbulo distal', 'middle')}${T(530, 150, 'ducto coletor')}${T(560, 228, 'urina', 'middle')}
-      ${k === 'glom' ? T2(60, 160, '↓ filtrado: água, glicose, sais, ureia') : ''}
-      ${k === 'prox' ? T2(160, 120, '↑ volta ao sangue: glicose, aminoácidos, água, sais') : ''}
-      ${k === 'dist' ? T2(380, 130, '↑ Na⁺ (+ água) · aldosterona') : ''}
-      ${k === 'col' ? T2(400, 200, '↑ água · ADH (aquaporinas)') : ''}`;
-    out.innerHTML = S[i][2];
-  }
-  steps($('#nefSteps'), S.map((s, i) => `${i + 1}. ${s[0]}`), draw);
-})();
-})();
-
 </script>

@@ -1,6 +1,25 @@
 // artefato-base.mjs — embrulha o corpo de uma página de resumo num HTML autônomo para o Artifact.
 // Define as variáveis do ios.css (claro/escuro) e estiliza as classes dos resumos.
+// CSS das páginas antigas foi escrito só para o tema claro (fundos #f2faf5, gradientes claros, texto #2c2c2c).
+// No artefato não há o ios.css para corrigir isso, então trocamos cada cor fixa por uma variável do tema:
+// fundo claro → --bg-3, texto escuro → --label, borda clara → --sep. Assim nada some no modo escuro.
+const lum = h => { h = h.replace('#', ''); if (h.length === 3) h = [...h].map(c => c + c).join(''); const [r, g, b] = [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16) / 255); return .2126 * r + .7152 * g + .0722 * b; };
+const HEX = /#(?:[0-9a-f]{6}|[0-9a-f]{3})(?![0-9a-f])/gi;
+const corDe = v => {
+  const m = v.match(HEX); if (m) return lum(m[0]);
+  if (/(^|[^-\w])white([^-\w]|$)/i.test(v)) return 1;
+  const r = v.match(/rgba?\(([^)]+)\)/); if (r) { const [a, b, c] = r[1].split(',').map(Number); return (.2126 * a + .7152 * b + .0722 * c) / 255; }
+  return null;
+};
+export function temaSeguro(css) {
+  return css
+    .replace(/(background(?:-color)?\s*:\s*)([^;}!]+)/gi, (t, k, v) => { const l = corDe(v); return l !== null && l > .75 && !/url\(/.test(v) ? k + 'var(--bg-3)' : t; })
+    .replace(/((?:^|[;{\s])color\s*:\s*)([^;}!]+)/gi, (t, k, v) => { const l = corDe(v); return l === null ? t : l < .3 ? k + 'var(--label)' : l < .55 ? k + 'var(--label-2)' : t; })
+    .replace(/(border(?:-[a-z]+)?\s*:[^;}]*?)(#(?:[0-9a-f]{6}|[0-9a-f]{3})(?![0-9a-f]))/gi, (t, k, h) => lum(h) > .75 ? k + 'var(--sep)' : t);
+}
 export function artefato({ titulo, tint: [claro, escuro], corpo, widgets, css = [], extraCss = '' }) {
+  extraCss = temaSeguro(extraCss);
+  corpo = corpo.replace(/style="([^"]*)"/g, (t, v) => `style="${temaSeguro(v)}"`);
   const limpo = corpo
     .replace(/<body[^>]*>/, '').replace(/<\/body>/, '')
     .replace(/<div class="progress-bar"[^>]*><\/div>/, '')
@@ -11,7 +30,9 @@ export function artefato({ titulo, tint: [claro, escuro], corpo, widgets, css = 
   return `<title>${titulo}</title>
 <style>
 :root{--tint:${claro};--tint-fill:${claro};--bg:#f2f2f7;--bg-2:#ffffff;--bg-3:#f6f6f9;--sep:rgba(60,60,67,.18);--label:#1c1c1e;--label-2:rgba(60,60,67,.68);
---green:#1f8a3b;--green-bg:#e6f6ea;--red:#c9342c;--red-bg:#fdecea;--orange:#c46a00;--fill:rgba(120,120,128,.16);--primary:${claro};--c1:${claro};--c2:#8a5a00;--c3:#a0782a;--c4:#1f4e79}
+--green:#1f8a3b;--green-bg:#e6f6ea;--red:#c9342c;--red-bg:#fdecea;--orange:#c46a00;--fill:rgba(120,120,128,.16);--primary:${claro};--c1:${claro};--c2:#8a5a00;--c3:#a0782a;--c4:#1f4e79;
+/* apelidos das variáveis antigas das páginas, apontando para o tema */
+--text:var(--label);--text-light:var(--label-2);--border:var(--sep);--card-bg:var(--bg-2);--secondary:var(--tint);--blue-bg:rgba(59,130,196,.14);--yellow-bg:rgba(227,162,26,.16)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--tint:${escuro};--bg:#000;--bg-2:#1c1c1e;--bg-3:#2c2c2e;--sep:rgba(84,84,88,.6);--label:#fff;--label-2:rgba(235,235,245,.65);--green:#32d74b;--green-bg:rgba(50,215,75,.14);--red:#ff6b61;--red-bg:rgba(255,69,58,.15);--orange:#ff9f0a;--fill:rgba(120,120,128,.32)}}
 :root[data-theme="dark"]{--tint:${escuro};--bg:#000;--bg-2:#1c1c1e;--bg-3:#2c2c2e;--sep:rgba(84,84,88,.6);--label:#fff;--label-2:rgba(235,235,245,.65);--green:#32d74b;--green-bg:rgba(50,215,75,.14);--red:#ff6b61;--red-bg:rgba(255,69,58,.15);--orange:#ff9f0a;--fill:rgba(120,120,128,.32)}
 *{box-sizing:border-box}
@@ -56,6 +77,14 @@ figure{margin:12px 0}figcaption{font-size:.82rem;color:var(--label-2);margin-top
 footer{text-align:center;color:var(--label-2);font-size:.8rem;padding:24px 16px;border-top:1px solid var(--sep)}
 .qz-score{top:52px}
 ${extraCss}
+/* por último: o que precisa valer nos dois temas, acima do CSS antigo da página */
+body{background:var(--bg)!important;color:var(--label)!important}
+.hero{background:none!important;color:var(--label)!important}.hero::before{display:none!important}
+.hero h1{color:var(--label)!important}.hero :is(.subtitle,.author){color:var(--label-2)!important;background:none!important;border-color:var(--sep)!important}
+.hero .badge{background:none!important;color:var(--tint)!important;border:1px solid var(--tint)!important}
+nav{background:var(--bg)!important;border-color:var(--sep)!important}.nav-link{color:var(--label-2)!important}
+.card,.chapter-body,.quiz-section{color:var(--label)}
+:is(.card,.mini-card,.list,td,.quote,[class^="highlight"],[class*=" highlight"],.tip-box,.warn-box,.info-box) :is(strong,b){color:inherit!important}
 </style>
 <style>${css.join('\n')}</style>
 ${limpo}

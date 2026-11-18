@@ -73,6 +73,11 @@ vídeo usam os mesmos arquivos.
 - Antes de publicar: copie html + imagens para o scratchpad e rode
   `node ferramentas/video/fotos.mjs file:///<scratchpad>/art/index.html <prefixo> "#secao"`
   (o navegador do app não abre file:// nem o link do artefato sem login).
+- **Modo escuro no artefato** (erro que o Gabriel já pegou várias vezes): o artefato não tem o
+  `ios.css`, então o CSS antigo da página (fundos claros fixos, `--text`, `--card-bg`) quebra no
+  escuro. Gere sempre por `ferramentas/artefato-base.mjs` (troca cores fixas por variáveis) e rode
+  `node ferramentas/video/contraste.mjs file:///<caminho do artefato>` antes de publicar; tem de dar
+  "ok" no dark e no light.
 - Entregue o link. Para mudar depois, publique o mesmo `file_path`.
 
 ## 3. Página do site
