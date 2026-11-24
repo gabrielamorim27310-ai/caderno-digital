@@ -2,141 +2,117 @@
   "pagina": "sociologia-3tri",
   "materia": "sociologia",
   "titulo": "Sociologia · 3º tri",
+  "capitulos": ["Antropologia", "Culturas", "Frankfurt", "Espetáculo", "Ameríndios", "Clastres"],
   "cenas": [
     {
       "tipo": "capa",
       "selo": "Sociologia · 3º trimestre",
-      "titulo": "Antropologia, Cultura e Indústria Cultural",
-      "subtitulo": "Revisão em poucos minutos",
-      "imagem": "socio-imgs/3tri/iceberg-cultural.jpg",
-      "fala": "Oi! Bora revisar Sociologia do terceiro trimestre: história da antropologia, cultura popular, erudita e contracultura, e a Indústria Cultural."
+      "titulo": "Cultura, espetáculo e poder",
+      "subtitulo": "Da antropologia à sociedade contra o Estado",
+      "imagens": ["socio-imgs/3tri/hippies-1.jpg", "socio-imgs/3tri/hollywood.jpg", "socio-imgs/3tri/kula-foto.jpg"],
+      "fala": "Revisão de Sociologia do terceiro trimestre. São seis temas: a história da antropologia, as culturas e a contracultura, a Escola de Frankfurt, a sociedade do espetáculo, o perspectivismo dos povos ameríndios e, no fim, Clástre e a sociedade contra o Estado."
     },
     {
       "tipo": "capitulo",
-      "capitulo": "Capítulo 1",
+      "capitulo": "1",
       "titulo": "História da Antropologia",
       "subtitulo": "Evolucionismo · Culturalismo · Funcionalismo · Estruturalismo",
-      "fala": "Capítulo um: história da antropologia, e as quatro escolas que mais caem na prova."
-    },
-    {
-      "tipo": "topicos",
-      "capitulo": "Origem",
-      "titulo": "Uma ciência nascida na colonização",
-      "itens": [
-        "Surge no **século XIX**, mas se forma desde o **período colonial**",
-        "Relatos de viajantes enviados à Europa",
-        "Objetivo: **dominar territórios**, abrir mercados e controlar os povos locais"
-      ],
-      "fala": "A antropologia é uma ciência recente, do século dezenove, mas começou a se formar no período colonial. Os relatos de viajantes não eram neutros: serviam para entrar nos territórios, abrir mercados e dominar os povos locais."
+      "fala": "Tema um: a história da antropologia, e as quatro escolas que mais caem na prova."
     },
     {
       "tipo": "topicos",
       "capitulo": "Século XIX",
       "titulo": "Evolucionismo",
       "imagem": "socio-imgs/3tri/morgan-estagios.jpg",
+      "ajuste": "contain",
       "itens": [
-        "Tylor, Morgan e Frazer",
-        "Caminho único: **selvagens → bárbaros → civilizados**",
-        "**Antropologia de gabinete**: sem contato com os povos"
+        "Nasce do **período colonial**",
+        "Caminho único: **selvagens → civilizados**",
+        "**Antropologia de gabinete**",
+        "Base do **etnocentrismo**"
       ],
-      "fala": "O evolucionismo, de Tylor, Morgan e Frazer, dizia que toda a humanidade segue um caminho único: de selvagens a bárbaros e, por fim, civilizados. E eles faziam antropologia de gabinete, lendo relatos de outras pessoas, sem nunca conviver com os povos que estudavam."
+      "fala": "A antropologia nasce no século dezenove, mas vem do período colonial, dos relatos que serviam para dominar os povos. O evolucionismo, de Táilor, Morgan e Frêizer, dizia que toda a humanidade segue um caminho único, de selvagens a civilizados. Eles faziam antropologia de gabinete, sem conviver com os povos. E isso alimenta o etnocentrismo: julgar as outras culturas pelos próprios valores."
     },
     {
-      "tipo": "destaque",
-      "titulo": "Etnocentrismo",
-      "texto": "Julgar outras culturas pelos **próprios valores**, como se fossem inferiores. Pode ser **inconsciente** e **não desaparece** com a globalização.",
-      "fala": "Daí vem o etnocentrismo: julgar outras culturas pelos próprios valores, como se fossem inferiores. Atenção, porque o professor cobra isso: ele pode ser inconsciente, e não desaparece só porque o mundo está globalizado."
-    },
-    {
-      "tipo": "topicos",
+      "tipo": "galeria",
       "capitulo": "1888 aos anos 1940",
       "titulo": "Culturalismo",
-      "imagem": "socio-imgs/3tri/boas.jpg",
-      "retrato": true,
-      "itens": [
-        "Franz Boas, Ruth Benedict e Margaret Mead",
-        "**Raça ≠ cultura**",
-        "**Relativismo**: cada cultura em seu próprio contexto",
-        "Trabalho de campo: viver com o grupo"
+      "fotos": [
+        { "imagem": "socio-imgs/3tri/boas.jpg", "texto": "Franz **Boas**", "foco": "top" },
+        { "imagem": "socio-imgs/3tri/benedict.jpg", "texto": "Ruth **Benedict**", "foco": "top" },
+        { "imagem": "socio-imgs/3tri/mead.jpg", "texto": "Margaret **Mead**", "foco": "top" }
       ],
-      "fala": "O culturalismo, de Franz Boas, Ruth Benedict e Margaret Mead, separou raça de cultura e criou o relativismo cultural: cada cultura deve ser entendida no seu próprio contexto. E o pesquisador passa a ir a campo e viver com o grupo."
+      "nota": "**Raça ≠ cultura** e relativismo: cada cultura no seu contexto",
+      "fala": "O culturalismo é de Franz Boas, Ruth Benedict e Margaret Mead. Eles separaram raça de cultura e criaram o relativismo cultural: cada cultura deve ser entendida no seu próprio contexto. E o pesquisador passa a ir a campo, vivendo com o grupo."
     },
     {
       "tipo": "topicos",
-      "capitulo": "Malinowski",
+      "capitulo": "Malinóvski",
       "titulo": "Funcionalismo e o Kula",
       "imagem": "socio-imgs/3tri/kula-mapa.jpg",
+      "ajuste": "contain",
       "itens": [
         "Todo costume cumpre uma **função**",
-        "Analisa o **presente**, não a história",
-        "Kula: **dar, receber e retribuir** cria alianças"
+        "Olha o **presente**, não a história",
+        "Kula: **dar, receber e retribuir**"
       ],
-      "fala": "Para o funcionalismo de Malinowski, todo costume cumpre uma função, e a análise olha para o presente, não para a história. O exemplo clássico é o Kula, nas Ilhas Trobriand: um sistema de trocas baseado em dar, receber e retribuir, que cria alianças entre as ilhas. Não é comércio para lucrar."
+      "fala": "Para o funcionalismo de Malinóvski, todo costume cumpre uma função, e a análise olha o presente, não a história. O exemplo é o Kula, nas ilhas Trobriand: um circuito de trocas baseado em dar, receber e retribuir, que cria alianças entre as ilhas."
     },
     {
-      "tipo": "topicos",
+      "tipo": "galeria",
       "capitulo": "Lévi-Strauss",
       "titulo": "Estruturalismo",
-      "imagem": "socio-imgs/3tri/papai-noel.jpg",
-      "itens": [
-        "**Estruturas inconscientes** comuns a todas as culturas",
-        "Oposições: bem e mal, masculino e feminino",
-        "**Tabu do incesto**: passagem da natureza à cultura"
+      "fotos": [
+        { "imagem": "socio-imgs/3tri/katchina.jpg", "ajuste": "contain", "texto": "**Katchina** (povos Pueblo)" },
+        { "imagem": "socio-imgs/3tri/papai-noel.jpg", "texto": "**Papai Noel** (Ocidente)" }
       ],
-      "fala": "Por fim, o estruturalismo de Lévi-Strauss procura estruturas inconscientes que todas as culturas compartilham, como o Papai Noel e os katchina dos povos Pueblo. O ponto chave é o tabu do incesto: ao obrigar casamentos fora da família, ele cria alianças e funda a sociedade."
+      "nota": "**Tabu do incesto**: da natureza à cultura",
+      "fala": "O estruturalismo de Lévi Strôss procura estruturas inconscientes comuns a todas as culturas. Os katchína dos povos Pueblo e o Papai Noel são a mesma estrutura: um rito de iniciação das crianças. E o ponto chave é o tabu do incesto: ao obrigar casamentos fora da família, ele cria alianças e funda a sociedade."
     },
     {
       "tipo": "pergunta",
       "pergunta": "Frazer escreveu O Ramo de Ouro sem visitar os povos que estudava. Isso é:",
-      "alternativas": ["Antropologia de campo", "Antropologia de gabinete", "Método histórico"],
+      "alternativas": ["antropologia de campo", "antropologia de gabinete", "método histórico", "estruturalismo"],
       "certa": "b",
-      "explicacao": "Os evolucionistas trabalhavam com **relatos de terceiros**.",
-      "fala": "Teste rápido. Frazer escreveu O Ramo de Ouro sem nunca visitar os povos que estudava. Isso é antropologia de campo, de gabinete, ou método histórico?",
-      "falaResposta": "Antropologia de gabinete! Os evolucionistas trabalhavam com relatos de terceiros."
+      "explicacao": "Os evolucionistas trabalhavam com relatos de terceiros.",
+      "fala": "Pergunta. Frêizer escreveu O Ramo de Ouro sem nunca visitar os povos que estudava. Como se chama isso?",
+      "falaResposta": "Letra b: antropologia de gabinete. Os evolucionistas trabalhavam com relatos de outras pessoas."
     },
     {
       "tipo": "capitulo",
-      "capitulo": "Capítulo 2",
-      "titulo": "Cultura Popular, Erudita e Contracultura",
-      "fala": "Capítulo dois: cultura popular, cultura erudita e contracultura."
+      "capitulo": "2",
+      "titulo": "Culturas e Contracultura",
+      "subtitulo": "Popular · Erudita · Beatniks · Hippies · Rastafáris · Punks",
+      "fala": "Tema dois: cultura popular, cultura erudita e contracultura."
     },
     {
       "tipo": "comparacao",
       "titulo": "Popular × Erudita",
       "colunas": [
-        { "titulo": "Popular", "itens": ["Nasce nas comunidades", "Tradição oral", "Dinâmica", "Ex.: samba, cordel"] },
-        { "titulo": "Erudita", "itens": ["Instituições formais", "Exige formação técnica", "Acesso restrito", "Ex.: ópera, balé"] }
+        { "titulo": "Popular", "itens": ["Nasce nas **comunidades**", "Tradição **oral**", "Ex.: samba, cordel"] },
+        { "titulo": "Erudita", "itens": ["Nasce em **instituições**", "Exige formação **técnica**", "Ex.: ópera, balé"] }
       ],
-      "fala": "A cultura popular nasce nas comunidades, passa de geração em geração pela tradição oral e está sempre mudando, como o samba e o cordel. A erudita nasce em instituições, exige formação técnica e tem acesso restrito, como a ópera e o balé. E cuidado: uma não é superior à outra."
+      "fala": "A cultura popular nasce nas comunidades, passa de geração em geração pela tradição oral e está sempre mudando, como o samba e o cordel. A erudita nasce em instituições, exige formação técnica e tem acesso restrito, como a ópera. E cuidado: uma não é superior à outra."
     },
     {
-      "tipo": "topicos",
-      "capitulo": "Anos 1950 e 1960",
-      "titulo": "Contracultura",
-      "imagem": "socio-imgs/3tri/hippies-1.jpg",
-      "itens": [
-        "Jovens rejeitam os valores do **pós-guerra**",
-        "Guerra Fria e **Vietnã**: \"faça amor, não faça a guerra\"",
-        "**1968**: Maio francês, luta antirracista, feminismo"
-      ],
-      "fala": "A contracultura foi a revolta de uma nova juventude contra os valores do pós-guerra. Com a Guerra Fria e a Guerra do Vietnã, surgiu o lema faça amor, não faça a guerra. E mil novecentos e sessenta e oito foi o ano das revoltas: o Maio francês, a luta antirracista nos Estados Unidos e a segunda onda do feminismo."
-    },
-    {
-      "tipo": "topicos",
+      "tipo": "galeria",
+      "capitulo": "Contracultura",
       "titulo": "Os quatro movimentos",
-      "itens": [
-        "**Beatniks** (EUA, anos 1950): literatura, jazz, On the Road",
-        "**Hippies** (EUA, anos 1960): pacifismo, Flower Power",
-        "**Rastafáris** (Jamaica, anos 1930): fé em Jah, reggae",
-        "**Punks** (anos 1970): Faça Você Mesmo, No Future"
+      "fotos": [
+        { "imagem": "socio-imgs/3tri/beatniks-1.jpg", "texto": "**Beatniks** · anos 1950", "ouvir": "bitiniks" },
+        { "imagem": "socio-imgs/3tri/hippies-2.jpg", "texto": "**Hippies** · anos 1960", "ouvir": "ripis" },
+        { "imagem": "socio-imgs/3tri/rastas.jpg", "texto": "**Rastafáris** · Jamaica", "ouvir": "rastafaris" },
+        { "imagem": "socio-imgs/3tri/punks-1.jpg", "texto": "**Punks** · anos 1970", "ouvir": "pancs" }
       ],
-      "fala": "Os quatro movimentos: os beatniks, poetas do jazz dos anos cinquenta. Os hippies, pacifistas dos anos sessenta. Os rastafáris, movimento de fé que nasceu na Jamaica e se espalhou com o reggae. E os punks, dos anos setenta, com a ética do faça você mesmo."
+      "nota": "Contra os valores do **pós-guerra**: Vietnã, Maio de 1968",
+      "fala": "A contracultura é a revolta dos jovens contra os valores do pós-guerra. Os bitiniks, poetas do jazz nos anos cinquenta. Os rípis, pacifistas dos anos sessenta. Os rastafáris, movimento de fé nascido na Jamaica e espalhado pelo reggae. E os pancs, dos anos setenta, com o faça você mesmo. Tudo isso em meio à Guerra do Vietnã e ao Maio de sessenta e oito."
     },
     {
       "tipo": "capitulo",
-      "capitulo": "Capítulo 3",
-      "titulo": "Escola de Frankfurt e Indústria Cultural",
-      "fala": "Capítulo três: a Escola de Frankfurt e a Indústria Cultural."
+      "capitulo": "3",
+      "titulo": "Escola de Frankfurt",
+      "subtitulo": "Indústria Cultural · Adorno e Horkheimer · Walter Benjamin",
+      "fala": "Tema três: a Escola de Frankfurt e a Indústria Cultural."
     },
     {
       "tipo": "topicos",
@@ -144,45 +120,270 @@
       "titulo": "Indústria Cultural",
       "imagem": "socio-imgs/3tri/hollywood.jpg",
       "itens": [
-        "A arte vira **mercadoria padronizada**",
-        "Fórmulas previsíveis, voltadas ao **lucro**",
-        "Efeito: **alienação** e falsa sensação de liberdade"
+        "A arte vira **mercadoria** padronizada",
+        "Lazer como **prolongamento do trabalho**",
+        "Efeito: **alienação** e conformismo"
       ],
-      "fala": "Para Adorno e Horkheimer, na Indústria Cultural a arte vira mercadoria padronizada: fórmulas previsíveis, feitas para vender. O efeito é a alienação, e uma falsa sensação de liberdade de escolha."
-    },
-    {
-      "tipo": "topicos",
-      "titulo": "Lazer, catarse e ideologia",
-      "itens": [
-        "Lazer = **prolongamento do trabalho**",
-        "Entretenimento **distrai**, não emancipa",
-        "Catarse vira **descarga emocional sem reflexão**",
-        "Ideologia **naturaliza** a dominação"
-      ],
-      "fala": "Quatro ideias que caem no questionário. O lazer vira prolongamento do trabalho. O entretenimento distrai, em vez de emancipar. A catarse de Aristóteles vira descarga emocional sem reflexão. E a ideologia faz a dominação parecer natural."
+      "fala": "Para Adórno e Rórkraimer, na Indústria Cultural a arte vira mercadoria padronizada, feita em série para vender. O lazer vira prolongamento do trabalho, e o entretenimento distrai em vez de libertar. O efeito é a alienação, com uma falsa sensação de liberdade."
     },
     {
       "tipo": "destaque",
-      "titulo": "Walter Benjamin",
+      "capitulo": "Walter Benjamin",
+      "titulo": "A obra de arte e a aura",
       "imagem": "socio-imgs/3tri/benjamin.jpg",
-      "retrato": true,
-      "texto": "A reprodução técnica **democratiza** a arte, mas o excesso de cópias faz a obra perder a **aura**.",
-      "fala": "Walter Benjamin via os dois lados: a reprodução técnica democratiza a arte, mas o excesso de cópias faz a obra perder a sua aura, a sua singularidade."
+      "foco": "top",
+      "texto": "A reprodução técnica **democratiza** a arte, mas a obra perde a sua **aura**.",
+      "fala": "Válter Bênjamin via os dois lados: a reprodução técnica democratiza a arte, mas o excesso de cópias faz a obra perder a sua aura, a sua singularidade."
     },
     {
       "tipo": "pergunta",
       "pergunta": "Verdadeiro ou falso: com a internet, a cultura erudita ficou totalmente acessível.",
       "alternativas": ["Verdadeiro", "Falso"],
       "certa": "b",
-      "explicacao": "As desigualdades de acesso continuam. Desconfie de **\"totalmente\"**.",
-      "fala": "Última pergunta. Verdadeiro ou falso: com a internet, a cultura erudita ficou totalmente acessível.",
-      "falaResposta": "Falso! As desigualdades de acesso continuam. Na prova, desconfie de palavras como totalmente, garante e elimina."
+      "explicacao": "As desigualdades de acesso continuam. Desconfie de \"totalmente\".",
+      "fala": "Pergunta. Verdadeiro ou falso: com a internet, a cultura erudita ficou totalmente acessível.",
+      "falaResposta": "Falso. As desigualdades de acesso continuam. Desconfie de palavras como totalmente."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "4",
+      "titulo": "Sociedade do Espetáculo",
+      "subtitulo": "Guy Debord, 1967",
+      "fala": "Tema quatro: a sociedade do espetáculo, de Gui Debór, num livro de mil novecentos e sessenta e sete que parece descrever as redes sociais de hoje."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Idealização da realidade",
+      "titulo": "O mundo fictício",
+      "desenho": "socio-imgs/3tri/esquemas/espetaculo-tela.svg",
+      "itens": [
+        "**Mídia** e **mercado** criam um mundo idealizado",
+        "A gente o confunde com a **realidade**",
+        "Ex.: o **influencer** de vida perfeita"
+      ],
+      "fala": "Numa sociedade conectada pela mídia e pelo mercado, surge um mundo fictício e idealizado. O problema é que a gente confunde esse mundo com a realidade. Pense num influencer muito rico, com uma vida perfeita: ver aquilo todo dia pode dar culpa e frustração, porque a nossa vida não se parece com a dele."
+    },
+    {
+      "tipo": "cadeia",
+      "titulo": "O ciclo do espetáculo",
+      "passos": [
+        "Mundo **fictício** idealizado",
+        "Confundido com a **realidade**",
+        "**Frustração** ao não encontrá-lo",
+        "**Consumo** e **conformidade**"
+      ],
+      "fala": "Repare no ciclo. Primeiro, o mundo fictício idealizado. Depois, ele é confundido com a realidade. Vem a frustração de não encontrá-lo na vida real. E o resultado é silencioso: consumo desenfreado e conformidade social."
+    },
+    {
+      "tipo": "fusao",
+      "capitulo": "A teoria",
+      "titulo": "Debord mistura 3 pensadores",
+      "partes": [
+        { "nome": "Marx", "ouvir": "marks", "imagem": "hist-imgs/marx.jpg", "foco": "top", "texto": "fetiche da mercadoria" },
+        { "nome": "Freud", "ouvir": "froid", "desenho": "socio-imgs/3tri/esquemas/freud-inconsciente.svg", "texto": "o inconsciente" },
+        { "nome": "Bakunin", "ouvir": "bakunin", "imagem": "hist-imgs/bakunin.jpg", "foco": "top", "texto": "o anarquismo" }
+      ],
+      "centro": { "titulo": "Sociedade do Espetáculo", "ouvir": "espetaculo", "texto": "Guy Debord" },
+      "fala": "Para montar a teoria, Debór mistura três pensadores. De Márks, ele pega o fetiche da mercadoria. De Fróid, o inconsciente. E de Bakúnin, o anarquismo como saída. Juntos, eles formam a sociedade do espetáculo."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Marx",
+      "titulo": "Valor de uso × fetiche",
+      "desenho": "socio-imgs/3tri/esquemas/uso-fetiche.svg",
+      "itens": [
+        "**Valor de uso**: a utilidade (caneta → escrever)",
+        "**Fetiche**: imagem e status",
+        "Ex.: a **bolsa de luxo**"
+      ],
+      "fala": "Valor de uso é o valor de um produto pela sua utilidade: a caneta serve para escrever. Já o fetiche da mercadoria é o valor a mais que vem da imagem e do status. Pense na bolsa de luxo, que carrega as mesmas coisas que uma bolsa comum. Debór critica isso: o status passa por cima da utilidade."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Freud",
+      "titulo": "O inconsciente",
+      "desenho": "socio-imgs/3tri/esquemas/freud-inconsciente.svg",
+      "itens": [
+        "**Inconsciente**: fonte dos desejos",
+        "As imagens **moldam** os desejos",
+        "Ex.: o **Super-Homem**"
+      ],
+      "fala": "Para Fróid, o inconsciente é a fonte dos nossos desejos. Debór diz que as aparências, a mídia e o mercado moldam esse inconsciente. O exemplo é o Super-Homem: representa padrões estéticos e morais americanos, e gerou uma geração inconscientemente atraída por eles. E atenção: isso não vale só para o consumo."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Bakunin",
+      "titulo": "Imagens como controle",
+      "colunas": [
+        { "titulo": "Capitalismo", "itens": ["Produtos pelo **lucro**", "Incentivo ao **consumo**", "Exalta o mercado"] },
+        { "titulo": "Socialismo", "itens": ["Imagens exaltam o **Estado**", "Idealiza saúde e educação", "Exalta o **controle estatal**"] }
+      ],
+      "fala": "De Bakúnin vem a crítica aos dois sistemas. O capitalismo cria produtos pelo lucro, incentiva o consumo e exalta as maravilhas do mercado. O socialismo usa as imagens para exaltar o Estado, idealizando a saúde e a educação, e exalta o controle estatal. Os dois controlam a população com imagens. A saída seria a liberdade total do anarquismo."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Fim da relação direta",
+      "titulo": "Tudo passa por uma tela",
+      "desenho": "socio-imgs/3tri/esquemas/relacao-mediada.svg",
+      "itens": [
+        "Relações deixam de ser **diretas**",
+        "Mediadas pela **mídia** e pelo mercado",
+        "Ex.: a **viagem** vista antes nas fotos dos outros"
+      ],
+      "fala": "Outra tese: o fim da relação direta. As relações humanas deixam de ser diretas e passam a ser mediadas pela mídia e pelo mercado. Quando você viaja, por exemplo, as fotos e avaliações dos outros já moldaram a sua experiência antes de você chegar."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Consequências e soluções",
+      "titulo": "Alienação e saídas",
+      "itens": [
+        "**Alienação**: perde a capacidade crítica",
+        "Era digital: nós mesmos **alimentamos** o espetáculo",
+        "Saídas: **separar** o real do fictício",
+        "**Recuperar** a consciência crítica e **resistir** à conformidade"
+      ],
+      "fala": "A consequência é a alienação: acostumado ao espetáculo, o indivíduo perde a capacidade crítica e deixa de questionar o sistema. Na era digital é pior, porque nós mesmos alimentamos o espetáculo, postando e curtindo. As saídas: separar o real do fictício, recuperar a consciência crítica e resistir à conformidade."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Comprar uma bolsa de luxo pelo status, e não pela utilidade, é exemplo de:",
+      "alternativas": ["valor de uso", "fetiche da mercadoria", "relativismo cultural", "relação direta"],
+      "certa": "b",
+      "explicacao": "O produto vale pela imagem e pelo status social.",
+      "fala": "Pergunta. Comprar uma bolsa de luxo pelo status, e não pela utilidade, é exemplo de quê?",
+      "falaResposta": "Letra b: fetiche da mercadoria. O produto passa a valer pela imagem e pelo status."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "5",
+      "titulo": "Perspectivismo Ameríndio",
+      "subtitulo": "Uma escola antropológica",
+      "fala": "Tema cinco: o perspectivismo ameríndio, uma escola antropológica que leva a sério o pensamento dos povos indígenas."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Contexto",
+      "titulo": "Etnocentrismo × Relativismo",
+      "colunas": [
+        { "titulo": "Etnocentrismo", "itens": ["Uma cultura é **superior**", "Outras: \"selvagens\"", "Meta: **homogeneizar**"] },
+        { "titulo": "Relativismo", "itens": ["Nenhuma é **superior**", "Cada uma no seu contexto", "Meta: **conviver**"] }
+      ],
+      "fala": "O contexto é o conflito entre etnocentrismo e relativismo. No etnocentrismo, uma cultura, normalmente a europeia, se acha superior, vê as outras como selvagens e quer homogeneizar tudo. No relativismo, nenhuma cultura é superior, cada uma depende do seu contexto, e a meta é conviver com a diversidade. Mas repare: nos dois casos, a perspectiva humana é tida como a verdadeira. Para os povos indígenas, não é assim."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Cosmologia ameríndia",
+      "titulo": "Camadas do mundo",
+      "desenho": "socio-imgs/3tri/esquemas/cosmologia.svg",
+      "itens": [
+        "Deuses, **espíritos**, humanos e animais",
+        "No princípio, humanos e animais eram **a mesma coisa**",
+        "A diferença é **perda**, não superioridade",
+        "**Xamã**: o mediador entre os mundos"
+      ],
+      "fala": "Na cosmologia comum a vários povos, o mundo tem camadas: os deuses, os espíritos, os humanos e os animais. No princípio, humanos e animais eram a mesma coisa. A diferença de hoje não vem de uma superioridade, mas da perda dessa condição comum. E o xamã é quem consegue transitar e negociar entre esses mundos: o mediador."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Multinaturalismo",
+      "titulo": "Uma cultura, muitas naturezas",
+      "desenho": "socio-imgs/3tri/esquemas/perspectiva-sangue.svg",
+      "itens": [
+        "Animais têm uma **humanidade oculta**",
+        "Uma só **cultura** entre todos os seres",
+        "Corpos diferentes, **perspectivas** diferentes"
+      ],
+      "fala": "Aqui está o centro da teoria. Os animais não são inferiores: eles têm uma humanidade oculta. Existe uma só cultura entre todos os seres, e o que muda é a natureza, o corpo. E corpos diferentes geram perspectivas diferentes. O mesmo sangue, para o humano, é morte. Para a onça, é alimento."
+    },
+    {
+      "tipo": "comparacao",
+      "capitulo": "Divergências sobre o corpo",
+      "titulo": "Ocidente × Povos indígenas",
+      "colunas": [
+        { "titulo": "Visão ocidental", "itens": ["**Corpo × alma**", "Humano **superior** aos animais", "Justifica dominar a natureza"] },
+        { "titulo": "Visão indígena", "itens": ["Corpo e alma se **complementam**", "Animais também têm **cultura**", "Vive **com** a natureza"] }
+      ],
+      "fala": "Sobre o corpo, as visões se opõem. O Ocidente pensa em corpo contra alma, coloca o humano acima dos animais, e isso justifica dominar a natureza. Para os povos indígenas, corpo e alma se complementam, os animais também têm cultura, e o homem vive de modo complementar à natureza."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Choque europeu",
+      "titulo": "Onde está a pessoa?",
+      "desenho": "socio-imgs/3tri/esquemas/corpo-pessoa.svg",
+      "itens": [
+        "Europeus: indígenas **\"sem alma\"**",
+        "O que justificava a **escravidão**",
+        "Ninguém nasce **pessoa**: ela se faz pelo corpo e pelas relações"
+      ],
+      "fala": "No primeiro contato, os europeus se chocaram. Como os indígenas viviam nus, sem escrita e sem acúmulo material, foram vistos como mais próximos do corpo e chamados de sem alma, ou seja, não humanos. Isso justificava a escravidão. Já para os povos ameríndios, ninguém nasce pessoa completamente: a pessoa se faz pelo corpo e pelas relações que ele cria."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Para o perspectivismo, a onça vê o sangue como alimento porque:",
+      "alternativas": ["é inferior ao humano", "tem um corpo diferente", "não tem cultura", "age só por instinto"],
+      "certa": "b",
+      "explicacao": "Uma só cultura; corpos diferentes = perspectivas diferentes.",
+      "fala": "Pergunta. Para o perspectivismo, por que a onça vê o sangue como alimento?",
+      "falaResposta": "Letra b: porque tem um corpo diferente. A cultura é uma só, e o corpo define a perspectiva."
+    },
+    {
+      "tipo": "capitulo",
+      "capitulo": "6",
+      "titulo": "Sociedade × Estado",
+      "subtitulo": "Lapierre · Pierre Clastres · O chefe ameríndio",
+      "fala": "Último tema: sociedade contra o Estado. Uma sociedade sem governo, sem polícia e sem leis escritas é uma sociedade sem poder?"
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Concepção tradicional · Lapierre",
+      "titulo": "Poder = coerção?",
+      "desenho": "socio-imgs/3tri/esquemas/poder-duas-formas.svg",
+      "itens": [
+        "**Comando** e obediência",
+        "Poder **coercitivo** e violência legítima",
+        "Indígenas: \"**sem poder**\", \"pré-políticos\""
+      ],
+      "fala": "Para Jean William Lapiér, a concepção tradicional, o poder político está só no comando e na obediência, no poder coercitivo e no uso legítimo da violência. Por essa lógica, os povos ameríndios seriam sociedades sem poder, pré-políticas. O Estado ocidental vira o destino final, e os indígenas, sociedades que falharam."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Pierre Clastres",
+      "titulo": "A revolução copernicana",
+      "itens": [
+        "O poder político é **universal**",
+        "Dois jeitos: **coercitivo** e não coercitivo",
+        "O coercitivo **não é o verdadeiro**",
+        "Indígenas: sociedades **contra o Estado**"
+      ],
+      "fala": "Piér Clástre, antropólogo dos povos ameríndios, critica Lapiér e denuncia o etnocentrismo escondido em termos como poder embrionário. Ele propõe uma revolução copernicana. O poder político é universal. Ele aparece de dois jeitos: coercitivo e não coercitivo. O coercitivo não é o verdadeiro, é só um deles. E as sociedades indígenas não são sem Estado por atraso: são contra o Estado, contra o poder separado e autoritário."
+    },
+    {
+      "tipo": "topicos",
+      "capitulo": "Sociedade ameríndia",
+      "titulo": "O chefe que não manda",
+      "desenho": "socio-imgs/3tri/esquemas/chefe-deveres.svg",
+      "itens": [
+        "**Apaziguar** conflitos pela persuasão",
+        "**Doar** bens ao grupo",
+        "**Falar** todos os dias com o grupo",
+        "Se tentar mandar, é **abandonado**"
+      ],
+      "fala": "Na prática, o chefe, o mburuvixá, não dá ordens. Ele tem três deveres: apaziguar conflitos pela persuasão e pelo prestígio, doar bens ao grupo como exemplo de generosidade, e falar todos os dias com o grupo, o dever da palavra. A palavra dele não tem força de lei. Se tentar impor ordens fora da guerra, é abandonado pela comunidade, ou até eliminado."
+    },
+    {
+      "tipo": "pergunta",
+      "pergunta": "Para Clastres, as sociedades indígenas são:",
+      "alternativas": ["sem Estado por atraso", "pré-políticas", "contra o Estado", "governadas por ordens do chefe"],
+      "certa": "c",
+      "explicacao": "Recusam o poder separado e autoritário.",
+      "fala": "Última pergunta. Para Clástre, como são as sociedades indígenas?",
+      "falaResposta": "Letra c: contra o Estado. Elas recusam o poder separado e autoritário."
     },
     {
       "tipo": "fim",
       "titulo": "Bons estudos!",
-      "texto": "Resumo completo e quiz com 38 questões no **Caderno Digital**",
-      "fala": "É isso! O resumo completo e o quiz com trinta e oito questões estão no Caderno Digital. Bons estudos!"
+      "texto": "Resumo completo e quiz com 50 questões no Caderno Digital",
+      "fala": "É isso! O resumo completo, com os desenhos e o quiz de cinquenta questões, está no Caderno Digital. Bons estudos!"
     }
   ]
 }

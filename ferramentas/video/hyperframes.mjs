@@ -28,6 +28,7 @@ const CORES = {
   ingles: { a: '#4CC9E0', b: '#FF8A4C', bg: '#06161A' },
   biologia: { a: '#5BE38B', b: '#2EC4B6', bg: '#07140D' },
   filosofia: { a: '#F5BF3C', b: '#E07A5F', bg: '#120E06' },
+  sociologia: { a: '#C792F5', b: '#F472B6', bg: '#0E0A16' },
 };
 const COR = CORES[rot.paleta || rot.materia] || CORES.portugues;
 
@@ -51,6 +52,18 @@ function svgInline(rel) {
   s = s.replace(/id="([^"]+)"/g, `id="${p}$1"`).replace(/url\(#([^)]+)\)/g, `url(#${p}$1)`);
   return s.replace(/<svg /, '<svg class="desenho" ');
 }
+
+// Foto do site copiada para o projeto (assets/img)
+fs.mkdirSync(path.join(OUT, 'assets/img'), { recursive: true });
+function foto(rel) {
+  const nome = rel.replace(/[\\/]/g, '_');
+  fs.copyFileSync(path.join(RAIZ, rel), path.join(OUT, 'assets/img', nome));
+  return 'assets/img/' + nome;
+}
+// Quadro: foto real (com zoom lento) ou desenho SVG animado embutido
+const quadro = (it, id, cls = '') => it.desenho
+  ? `<div class="quadro des ${cls}" id="${id}"><div class="q-in">${svgInline(it.desenho)}</div></div>`
+  : `<div class="quadro ${cls}${it.ajuste === 'contain' ? ' contain' : ''}" id="${id}"><div class="q-in"><img id="${id}-im" src="${foto(it.imagem)}" style="object-position:${it.foco || 'center'}"></div></div>`;
 
 const dur = f => Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).toString().trim());
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -114,12 +127,18 @@ for (const c of rot.cenas) {
     tw.push(`tl.fromTo("#${h}", {scaleX:0}, {scaleX:1, duration:0.45, ease:"power2.inOut"}, ${at(x + 0.25 + k * 0.12)});`);
     tw.push(`tl.fromTo("#${h}t", {color:"#F6F3FA"}, {color:"#0D0A14", duration:0.3, ease:"none"}, ${at(x + 0.4 + k * 0.12)});`);
   });
+  // revela o quadro de cima para baixo e faz um zoom lento até o fim da cena
+  const revela = (qid, x, temImg) => {
+    tw.push(`tl.fromTo("#${qid}", {clipPath:"inset(0% 0% 100% 0% round 28px)", y:30}, {clipPath:"inset(0% 0% 0% 0% round 28px)", y:0, duration:0.9, ease:"expo.out"}, ${at(x)});`);
+    if (temImg) tw.push(`tl.fromTo("#${qid}-im", {scale:1.16}, {scale:1, duration:${r2(Math.max(1, D - x))}, ease:"none"}, ${at(x)});`);
+  };
   const rotulo = c.capitulo && c.tipo !== 'capitulo' ? `<div class="eyebrow" id="${id}-eb">${esc(c.capitulo)}</div>` : '';
   let h = '';
 
   if (c.tipo === 'capa') {
     const palavras = c.titulo.split(' ');
-    h = `<div class="capa">
+    const col = (c.imagens || []).slice(0, 3);
+    h = `${col.length ? `<div class="colagem">${col.map((im, i) => `<div class="cl cl${i}" id="${id}-cl${i}"><div class="q-in"><img id="${id}-cl${i}-im" src="${foto(im)}"></div></div>`).join('')}</div>` : ''}<div class="capa${col.length ? ' com-img' : ''}">
       <div class="pill" id="${id}-selo">${esc(c.selo)}</div>
       <h1 class="mega">${palavras.map((w, i) => `<span class="w"><span class="wi" id="${id}-w${i}">${esc(w)}</span></span>`).join(' ')}</h1>
       <p class="sub" id="${id}-sub">${esc(c.subtitulo)}</p>
@@ -128,6 +147,11 @@ for (const c of rot.cenas) {
     enter(`#${id}-selo`, 0.2, { opacity: 0, y: -20 });
     palavras.forEach((_, i) => tw.push(`tl.fromTo("#${id}-w${i}", {yPercent:110}, {yPercent:0, duration:0.8, ease:"expo.out"}, ${at(0.35 + i * 0.12)});`));
     enter(`#${id}-sub`, 1.0);
+    col.forEach((_, i) => {
+      tw.push(`tl.fromTo("#${id}-cl${i}", {opacity:0, y:120, rotation:${[-14, 12, -8][i]}}, {opacity:1, y:0, rotation:${[-6, 5, -2][i]}, duration:1.1, ease:"expo.out"}, ${at(0.5 + i * 0.35)});`);
+      tw.push(`tl.fromTo("#${id}-cl${i}-im", {scale:1.2}, {scale:1, duration:${r2(D)}, ease:"none"}, ${at(0.5)});`);
+      tw.push(`tl.to("#${id}-cl${i}", {y:${[-26, 22, -18][i]}, duration:${r2(Math.max(1, D - 2))}, ease:"sine.inOut"}, ${at(1.6 + i * 0.35)});`);
+    });
     const ts = momentos((rot.capitulos || []).map(k => `**${k}**`), c.fala, A, 1.6);
     (rot.capitulos || []).forEach((_, i) => enter(`#${id}-c${i}`, ts[i] + 0.4, { opacity: 0, y: 24, scale: 0.9 }, 0.45));
   }
@@ -149,16 +173,22 @@ for (const c of rot.cenas) {
   }
   if (c.tipo === 'topicos') {
     const ts = momentos(c.itens, c.fala, A);
+    const lista = `<ol class="itens">${c.itens.map((it, i) => { const r = rich(it); r.ids.length && marca(r.ids, ts[i]); return `<li id="${id}-i${i}"><span class="num">${String(i + 1).padStart(2, '0')}</span><span class="it">${r.h}</span></li>`; }).join('')}</ol>`;
+    const temQ = c.imagem || c.desenho;
     h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
-      <ol class="itens">${c.itens.map((it, i) => { const r = rich(it); r.ids.length && marca(r.ids, ts[i]); return `<li id="${id}-i${i}"><span class="num">${String(i + 1).padStart(2, '0')}</span><span class="it">${r.h}</span></li>`; }).join('')}</ol></div>`;
+      ${temQ ? `<div class="ti${c.retrato ? ' ret' : ''}">${lista}${quadro(c, id + '-q')}</div>` : lista}</div>`;
+    if (temQ) revela(id + '-q', 0.45, !c.desenho);
     enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
     enter(`#${id}-t`, 0.2);
     c.itens.forEach((_, i) => enter(`#${id}-i${i}`, ts[i], { opacity: 0, x: -60 }));
   }
   if (c.tipo === 'destaque') {
     const r = rich(c.texto, 'big');
+    const temQ = c.imagem || c.desenho;
+    const bq = `<blockquote class="quote" id="${id}-q"><span class="aspas">“</span>${r.h}</blockquote>`;
     h = `<div class="pad center">${rotulo}<h2 class="tt small" id="${id}-t">${esc(c.titulo)}</h2>
-      <blockquote class="quote" id="${id}-q"><span class="aspas">“</span>${r.h}</blockquote></div>`;
+      ${temQ ? `<div class="dq${c.desenho ? ' des' : ''}">${quadro(c, id + '-f')}${bq}</div>` : bq}</div>`;
+    if (temQ) revela(id + '-f', 0.35, !c.desenho);
     enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
     enter(`#${id}-t`, 0.2);
     tw.push(`tl.fromTo("#${id}-q", {opacity:0, y:50, scale:0.96}, {opacity:1, y:0, scale:1, duration:0.9, ease:"expo.out"}, ${at(0.5)});`);
@@ -252,6 +282,54 @@ for (const c of rot.cenas) {
       tw.push(`tl.fromTo("#${id}-img", {opacity:0, scale:0.9}, {opacity:1, scale:1, duration:0.8, ease:"expo.out"}, ${at(0.4)});`);
       lista.forEach((_, i) => enter(`#${id}-i${i}`, ts[i], { opacity: 0, x: 60 }));
     }
+    enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
+    enter(`#${id}-t`, 0.2);
+  }
+  if (c.tipo === 'galeria') {
+    // até 4 fotos lado a lado; cada uma entra quando a fala cita o destaque da legenda
+    const ts = momentos(c.fotos.map(f => f.ouvir ? `**${f.ouvir}**` : f.texto), c.fala, A, 0.8);
+    h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
+      <div class="gal n${c.fotos.length}${c.nota ? ' com-nota' : ''}">${c.fotos.map((f, i) => { const r = rich(f.texto); r.ids.length && marca(r.ids, ts[i] + 0.35); return `<figure class="gf" id="${id}-g${i}">${quadro(f, id + '-g' + i + 'q')}<figcaption>${r.h}</figcaption></figure>`; }).join('')}</div>
+      ${c.nota ? (() => { const r = rich(c.nota); const tn = momentos([c.nota], c.fala, A, ts[ts.length - 1] + 1.2)[0]; r.ids.length && marca(r.ids, tn + 0.3); enter(`#${id}-nota`, tn, { opacity: 0, y: 30 }); return `<p class="nota" id="${id}-nota">${r.h}</p>`; })() : ''}</div>`;
+    c.fotos.forEach((f, i) => {
+      enter(`#${id}-g${i}`, ts[i], { opacity: 0, y: 70, scale: 0.92 }, 0.7);
+      if (!f.desenho) tw.push(`tl.fromTo("#${id}-g${i}q-im", {scale:1.18}, {scale:1, duration:${r2(Math.max(1, D - ts[i]))}, ease:"none"}, ${at(ts[i])});`);
+    });
+    enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
+    enter(`#${id}-t`, 0.2);
+  }
+  if (c.tipo === 'cadeia') {
+    // causa → consequência: caixas em fila; a seta se desenha antes da próxima caixa
+    const ts = momentos(c.passos, c.fala, A, 0.9);
+    const n = c.passos.length;
+    h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
+      <div class="cad n${n}">${c.passos.map((p, i) => { const r = rich(p); r.ids.length && marca(r.ids, ts[i] + 0.3);
+        return (i ? `<svg class="cs" viewBox="0 0 90 60"><path id="${id}-s${i}" d="M6 30 L74 30 M58 14 L76 30 L58 46" pathLength="100"/></svg>` : '') +
+          `<div class="cp${i === n - 1 ? ' fim' : ''}" id="${id}-p${i}"><span class="cn">${i + 1}</span><span>${r.h}</span></div>`; }).join('')}</div>
+      ${c.nota ? (() => { const r = rich(c.nota); const tn = momentos([c.nota], c.fala, A, ts[n - 1] + 1.2)[0]; r.ids.length && marca(r.ids, tn + 0.3); enter(`#${id}-nota`, tn, { opacity: 0, y: 30 }); return `<p class="nota" id="${id}-nota">${r.h}</p>`; })() : ''}</div>`;
+    c.passos.forEach((_, i) => {
+      if (i) tw.push(`tl.fromTo("#${id}-s${i}", {strokeDashoffset:100}, {strokeDashoffset:0, duration:0.45, ease:"power2.inOut"}, ${at(Math.max(0.5, ts[i] - 0.45))});`);
+      enter(`#${id}-p${i}`, ts[i], { opacity: 0, y: 50, scale: 0.9 }, 0.6);
+    });
+    tw.push(`tl.fromTo("#${id}-p${n - 1}", {scale:1}, {scale:1.04, duration:0.5, yoyo:true, repeat:3, ease:"sine.inOut"}, ${at(ts[n - 1] + 0.7)});`);
+    enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
+    enter(`#${id}-t`, 0.2);
+  }
+  if (c.tipo === 'fusao') {
+    // três fontes (fotos ou desenhos) que se ligam a um centro: "Debord = Marx + Freud + Bakunin"
+    const ts = momentos(c.partes.map(p => `**${p.ouvir || p.nome}**`), c.fala, A, 0.9);
+    const tc = Math.min(A - 0.6, Math.max(ts[ts.length - 1] + 1.0, momentos([`**${c.centro.ouvir || c.centro.titulo}**`], c.fala, A, ts[ts.length - 1] + 1.0)[0]));
+    const xs = [270, 810, 1350];
+    h = `<div class="pad">${rotulo}<h2 class="tt" id="${id}-t">${esc(c.titulo)}</h2>
+      <svg class="fz-l" viewBox="0 0 1620 780">${c.partes.map((_, i) => `<path id="${id}-l${i}" d="M${xs[i]} 560 C${xs[i]} 640 810 590 810 650" pathLength="100"/>`).join('')}</svg>
+      ${c.partes.map((p, i) => { const r = rich(p.texto || ''); return `<div class="fz" id="${id}-n${i}" style="left:${xs[i] - 190}px">${quadro(p, id + '-n' + i + 'q', 'fzq')}<div class="fz-nome">${esc(p.nome)}</div><div class="fz-tx">${r.h}</div></div>`; }).join('')}
+      <div class="fz-c" id="${id}-c"><b>${esc(c.centro.titulo)}</b><span>${esc(c.centro.texto || '')}</span></div></div>`;
+    c.partes.forEach((p, i) => {
+      enter(`#${id}-n${i}`, ts[i], { opacity: 0, y: 60, scale: 0.85 }, 0.7);
+      if (!p.desenho) tw.push(`tl.fromTo("#${id}-n${i}q-im", {scale:1.18}, {scale:1, duration:${r2(Math.max(1, D - ts[i]))}, ease:"none"}, ${at(ts[i])});`);
+      tw.push(`tl.fromTo("#${id}-l${i}", {strokeDashoffset:100}, {strokeDashoffset:0, duration:0.7, ease:"power2.inOut"}, ${at(tc - 0.5 + i * 0.12)});`);
+    });
+    tw.push(`tl.fromTo("#${id}-c", {opacity:0, scale:0.4}, {opacity:1, scale:1, duration:0.8, ease:"back.out(1.8)"}, ${at(tc + 0.1)});`);
     enter(`#${id}-eb`, 0.1, { opacity: 0, x: -20 });
     enter(`#${id}-t`, 0.2);
   }
@@ -363,6 +441,47 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg)}
 .dz{display:grid;grid-template-columns:640px 1fr;gap:70px;align-items:center}
 .dz-img .desenho{width:640px;height:auto;max-height:680px;display:block;border-radius:28px}
 .dz-it li{font-size:38px}
+.quadro{border-radius:28px;overflow:hidden;background:rgba(246,243,250,.06);box-shadow:0 30px 80px rgba(0,0,0,.45);border:1px solid var(--line)}
+.quadro .q-in{width:100%;height:100%;overflow:hidden}
+.quadro img{width:100%;height:100%;object-fit:cover;display:block}
+.quadro.contain{background:#f4efe6}.quadro.contain img{object-fit:contain}
+.quadro.des{background:transparent;border:0;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.quadro.des .desenho{width:100%;height:100%;display:block}
+.ti{display:grid;grid-template-columns:1fr 640px;gap:70px;align-items:center}
+.ti.ret{grid-template-columns:1fr 470px}
+.ti .quadro{height:600px}.ti .quadro.des{height:560px}
+.ti .itens li{font-size:44px}
+.dq{display:grid;grid-template-columns:460px 1fr;gap:110px;align-items:center}
+.dq.des{grid-template-columns:640px 1fr;gap:80px}
+.dq .quadro{height:560px}
+.dq .quote{font-size:60px}
+.colagem{position:absolute;right:120px;top:170px;width:700px;height:740px}
+.cl{position:absolute;width:420px;height:300px;border-radius:26px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);border:6px solid #F6F3FA}
+.cl .q-in{width:100%;height:100%;overflow:hidden}.cl img{width:100%;height:100%;object-fit:cover;display:block}
+.cl0{left:0;top:0}.cl1{right:0;top:220px}.cl2{left:60px;top:440px}
+.capa.com-img{right:860px}.capa.com-img .mega{font-size:112px}.capa.com-img .sub{font-size:36px}.capa.com-img .chips{gap:10px;margin-top:44px}.capa.com-img .chip{font-size:24px}
+.gal{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:36px}
+.gal.n2{--n:2}.gal.n3{--n:3}.gal.n4{--n:4}
+.gf{display:flex;flex-direction:column;gap:22px}
+.gf .quadro{height:500px}.gal.n2 .gf .quadro{height:520px}.gal.n4 .gf .quadro{height:430px}
+.gal.com-nota .gf .quadro{height:400px}.gal.n4.com-nota .gf .quadro{height:360px}
+.gf figcaption{font-size:36px;line-height:1.2;font-weight:600}
+.gf .hl{white-space:nowrap}
+.cad{display:flex;align-items:stretch;gap:0;margin-top:110px}
+.cp{flex:1;min-height:380px;justify-content:center;display:flex;flex-direction:column;gap:26px;background:rgba(246,243,250,.07);border:2px solid var(--line);border-radius:28px;padding:40px 34px;font-size:44px;line-height:1.22;font-weight:600}
+.cp.fim{border-color:var(--a);background:color-mix(in srgb,var(--a) 16%,transparent)}
+.cn{display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--a);color:#0D0A14;font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:800}
+.cs{width:90px;flex:none;align-self:center}
+.cs path{fill:none;stroke:var(--a);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100}
+.fz-l{position:absolute;inset:0;width:1620px;height:780px;overflow:visible}
+.fz-l path{fill:none;stroke:var(--a);stroke-width:5;stroke-dasharray:100;opacity:.85}
+.fz{position:absolute;top:150px;width:380px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.fzq{width:300px;height:300px}.fzq.des{width:340px;height:298px}
+.fz-nome{font-family:'Archivo Black',sans-serif;font-size:42px;margin-top:22px}
+.fz-tx{font-size:30px;color:var(--ink2);margin-top:6px;line-height:1.2}
+.fz-c{position:absolute;left:310px;width:1000px;top:640px;text-align:center;display:flex;flex-direction:column;align-items:center;background:var(--a);color:#0D0A14;border-radius:30px;padding:20px 30px}
+.fz-c b{font-family:'Archivo Black',sans-serif;font-size:58px;line-height:1.05;white-space:nowrap}
+.fz-c span{font-size:28px;font-weight:700;margin-top:8px}
 #hud{position:absolute;inset:0;pointer-events:none}
 .brand{position:absolute;left:150px;top:64px;display:flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
 .brand .dot{width:14px;height:14px;border-radius:50%;background:var(--a)}
